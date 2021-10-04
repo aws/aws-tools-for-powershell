@@ -28,9 +28,9 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Enables AWS Health to work with AWS Organizations. You can use the organizational
-    /// view feature to aggregate events from all AWS accounts in your organization in a centralized
-    /// location. 
+    /// Enables Health to work with Organizations. You can use the organizational view feature
+    /// to aggregate events from all Amazon Web Services accounts in your organization in
+    /// a centralized location. 
     /// 
     ///  
     /// <para>
@@ -39,18 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </para><note><para>
     /// To call this operation, you must meet the following requirements:
     /// </para><ul><li><para>
-    /// You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS
-    /// Support</a> to use the AWS Health API. If you call the AWS Health API from an AWS
-    /// account that doesn't have a Business or Enterprise Support plan, you receive a <code>SubscriptionRequiredException</code>
-    /// error.
+    /// You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon
+    /// Web Services Support</a> to use the Health API. If you call the Health API from an
+    /// Amazon Web Services account that doesn't have a Business or Enterprise Support plan,
+    /// you receive a <code>SubscriptionRequiredException</code> error.
     /// </para></li><li><para>
     /// You must have permission to call this operation from the organization's management
-    /// account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">AWS
-    /// Health identity-based policy examples</a>.
+    /// account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">Health
+    /// identity-based policy examples</a>.
     /// </para></li></ul></note><para>
-    /// If you don't have the required support plan, you can instead use the AWS Health console
+    /// If you don't have the required support plan, you can instead use the Health console
     /// to enable the organizational view feature. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
-    /// AWS Health events</a> in the <i>AWS Health User Guide</i>.
+    /// Health events</a> in the <i>Health User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "HLTHHealthServiceAccessForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

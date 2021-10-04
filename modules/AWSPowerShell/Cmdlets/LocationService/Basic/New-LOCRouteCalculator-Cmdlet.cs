@@ -68,10 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the data provider of traffic and road network data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
+        /// <code>HERE</code> returns an error. Route calculators that use Esri as a data source
+        /// only calculate routes that are shorter than 400 km.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri
         /// details on street networks and traffic coverage</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-        /// Technologies</a>'s coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE
+        /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE
         /// car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE
         /// truck routing coverage</a>.</para></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
         /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Applies one or more tags to the route calculator resource. A tag is a key-value pair
         /// helps manage, identify, search, and filter your resources by labelling them.</para><ul><li><para>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" : "value2"</code>}</para></li></ul><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. </para></li></ul>
+        /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

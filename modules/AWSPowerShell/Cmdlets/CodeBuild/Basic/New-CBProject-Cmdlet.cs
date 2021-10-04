@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? BadgeEnabled { get; set; }
         #endregion
         
+        #region Parameter BuildBatchConfig_BatchReportMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how build status reports are sent to the source provider for the batch build.
+        /// This property is only used when the source provider for your project is Bitbucket,
+        /// GitHub, or GitHub Enterprise, and your project is configured to report build statuses
+        /// to the source provider.</para><dl><dt>REPORT_AGGREGATED_BATCH</dt><dd><para>(Default) Aggregate all of the build statuses into a single status report.</para></dd><dt>REPORT_INDIVIDUAL_BUILDS</dt><dd><para>Send a separate status report for each individual build.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.BatchReportModeType")]
+        public Amazon.CodeBuild.BatchReportModeType BuildBatchConfig_BatchReportMode { get; set; }
+        #endregion
+        
         #region Parameter Artifacts_BucketOwnerAccess
         /// <summary>
         /// <para>
@@ -1021,6 +1035,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #endif
             context.BadgeEnabled = this.BadgeEnabled;
+            context.BuildBatchConfig_BatchReportMode = this.BuildBatchConfig_BatchReportMode;
             context.BuildBatchConfig_CombineArtifact = this.BuildBatchConfig_CombineArtifact;
             if (this.Restrictions_ComputeTypesAllowed != null)
             {
@@ -1272,6 +1287,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate BuildBatchConfig
             var requestBuildBatchConfigIsNull = true;
             request.BuildBatchConfig = new Amazon.CodeBuild.Model.ProjectBuildBatchConfig();
+            Amazon.CodeBuild.BatchReportModeType requestBuildBatchConfig_buildBatchConfig_BatchReportMode = null;
+            if (cmdletContext.BuildBatchConfig_BatchReportMode != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_BatchReportMode = cmdletContext.BuildBatchConfig_BatchReportMode;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_BatchReportMode != null)
+            {
+                request.BuildBatchConfig.BatchReportMode = requestBuildBatchConfig_buildBatchConfig_BatchReportMode;
+                requestBuildBatchConfigIsNull = false;
+            }
             System.Boolean? requestBuildBatchConfig_buildBatchConfig_CombineArtifact = null;
             if (cmdletContext.BuildBatchConfig_CombineArtifact != null)
             {
@@ -1941,6 +1966,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Artifacts_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
             public System.Boolean? BadgeEnabled { get; set; }
+            public Amazon.CodeBuild.BatchReportModeType BuildBatchConfig_BatchReportMode { get; set; }
             public System.Boolean? BuildBatchConfig_CombineArtifact { get; set; }
             public List<System.String> Restrictions_ComputeTypesAllowed { get; set; }
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }

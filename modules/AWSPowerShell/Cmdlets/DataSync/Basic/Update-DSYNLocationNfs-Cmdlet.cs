@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync
         /// automatically selects a version based on negotiation with the NFS server.</para><para>You can specify the following NFS versions:</para><ul><li><para><b><a href="https://tools.ietf.org/html/rfc1813">NFSv3</a></b> - stateless protocol
         /// version that allows for asynchronous writes on the server.</para></li><li><para><b><a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a></b> - stateful, firewall-friendly
-        /// protocol version that supports delegations and pseudo filesystems.</para></li><li><para><b><a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a></b> - stateful protocol
+        /// protocol version that supports delegations and pseudo file systems.</para></li><li><para><b><a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a></b> - stateful protocol
         /// version that supports sessions, directory delegations, and parallel data processing.
         /// Version 4.1 also includes all features available in version 4.0.</para></li></ul>
         /// </para>

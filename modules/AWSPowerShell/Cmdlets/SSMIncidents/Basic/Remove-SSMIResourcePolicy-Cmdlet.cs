@@ -28,7 +28,7 @@ using Amazon.SSMIncidents.Model;
 namespace Amazon.PowerShell.Cmdlets.SSMI
 {
     /// <summary>
-    /// Deletes the resource policy that AWS Resource Access Manager uses to share your Incident
+    /// Deletes the resource policy that Resource Access Manager uses to share your Incident
     /// Manager resource.
     /// </summary>
     [Cmdlet("Remove", "SSMIResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

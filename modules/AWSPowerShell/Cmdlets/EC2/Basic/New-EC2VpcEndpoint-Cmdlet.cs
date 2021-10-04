@@ -30,16 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
     /// a private connection between your VPC and the service. The service may be provided
-    /// by AWS, an AWS Marketplace Partner, or another AWS account. For more information,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
+    /// by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
+    /// Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
     /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  
     /// <para>
     /// A <code>gateway</code> endpoint serves as a target for a route in your route table
-    /// for traffic destined for the AWS service. You can specify an endpoint policy to attach
-    /// to the endpoint, which will control access to the service from your VPC. You can also
-    /// specify the VPC route tables that use the endpoint.
+    /// for traffic destined for the Amazon Web Service. You can specify an endpoint policy
+    /// to attach to the endpoint, which will control access to the service from your VPC.
+    /// You can also specify the VPC route tables that use the endpoint.
     /// </para><para>
     /// An <code>interface</code> endpoint is a network interface in your subnet that serves
     /// as an endpoint for communicating with the specified service. You can specify the subnets
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

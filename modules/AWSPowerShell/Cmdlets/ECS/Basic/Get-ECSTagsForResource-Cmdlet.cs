@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. Currently, the supported resources are Amazon ECS tasks, services, task definitions,
+        /// <para>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+        /// Currently, the supported resources are Amazon ECS tasks, services, task definitions,
         /// clusters, and container instances.</para>
         /// </para>
         /// </summary>

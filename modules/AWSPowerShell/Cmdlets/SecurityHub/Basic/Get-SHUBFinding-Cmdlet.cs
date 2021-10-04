@@ -28,7 +28,14 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns a list of findings that match the specified criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of findings that match the specified criteria.
+    /// 
+    ///  
+    /// <para>
+    /// If finding aggregation is enabled, then when you call <code>GetFindings</code> from
+    /// the aggregation Region, the results include all of the matching findings from both
+    /// the aggregation Region and the linked Regions.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFinding")]
     [OutputType("Amazon.SecurityHub.Model.AwsSecurityFinding")]

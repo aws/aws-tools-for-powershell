@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelModeratorArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the moderator being deleted.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the moderator being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

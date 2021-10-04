@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
     /// Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon
     /// RDS User Guide.</i></para><note><para>
-    ///  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora DB clusters,
-    /// use <code>StartDBCluster</code> instead. 
+    ///  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
+    /// Aurora DB clusters, use <code>StartDBCluster</code> instead. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

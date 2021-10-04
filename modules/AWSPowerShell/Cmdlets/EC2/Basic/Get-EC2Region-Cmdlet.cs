@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
-    /// Regions and Endpoints</a>.
+    /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
+    /// Amazon Elastic Compute Cloud endpoints and quotas</a>.
     /// </para><para>
     /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
-    /// AWS Regions</a> in the <i>AWS General Reference</i>.
+    /// Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2Region")]

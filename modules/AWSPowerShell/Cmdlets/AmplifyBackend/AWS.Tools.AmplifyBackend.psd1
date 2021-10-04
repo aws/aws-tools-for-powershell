@@ -93,24 +93,30 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AMPBBackendAuth', 
         'Get-AMPBBackendJob', 
         'Get-AMPBBackendJobList', 
+        'Get-AMPBBackendStorage', 
+        'Get-AMPBS3BucketList', 
         'Get-AMPBToken', 
         'Import-AMPBBackendAuth', 
+        'Import-AMPBBackendStorage', 
         'New-AMPBBackend', 
         'New-AMPBBackendAPI', 
         'New-AMPBBackendAPIModel', 
         'New-AMPBBackendAuth', 
         'New-AMPBBackendConfig', 
+        'New-AMPBBackendStorage', 
         'New-AMPBToken', 
         'Remove-AMPBAllBackend', 
         'Remove-AMPBBackend', 
         'Remove-AMPBBackendAPI', 
         'Remove-AMPBBackendAuth', 
         'Remove-AMPBBackendConfig', 
+        'Remove-AMPBBackendStorage', 
         'Remove-AMPBToken', 
         'Update-AMPBBackendAPI', 
         'Update-AMPBBackendAuth', 
         'Update-AMPBBackendConfig', 
-        'Update-AMPBBackendJob')
+        'Update-AMPBBackendJob', 
+        'Update-AMPBBackendStorage')
 
     # Variables to export from this module
     VariablesToExport = '*'

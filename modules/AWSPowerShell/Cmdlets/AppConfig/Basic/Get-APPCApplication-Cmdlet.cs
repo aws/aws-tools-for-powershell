@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Retrieve information about an application.
+    /// Retrieves information about an application.
     /// </summary>
     [Cmdlet("Get", "APPCApplication")]
     [OutputType("Amazon.AppConfig.Model.GetApplicationResponse")]

@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the member that you're removing from the channel.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

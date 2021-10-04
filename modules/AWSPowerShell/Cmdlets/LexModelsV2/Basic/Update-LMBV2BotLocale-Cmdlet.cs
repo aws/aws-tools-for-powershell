@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter VoiceSettings_Engine
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction
+        /// with the user. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices
+        /// in Amazon Polly</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.VoiceEngine")]
+        public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
+        #endregion
+        
         #region Parameter LocaleId
         /// <summary>
         /// <para>
@@ -221,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter NluIntentConfidenceThreshold which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -262,6 +276,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate VoiceSettings
             var requestVoiceSettingsIsNull = true;
             request.VoiceSettings = new Amazon.LexModelsV2.Model.VoiceSettings();
+            Amazon.LexModelsV2.VoiceEngine requestVoiceSettings_voiceSettings_Engine = null;
+            if (cmdletContext.VoiceSettings_Engine != null)
+            {
+                requestVoiceSettings_voiceSettings_Engine = cmdletContext.VoiceSettings_Engine;
+            }
+            if (requestVoiceSettings_voiceSettings_Engine != null)
+            {
+                request.VoiceSettings.Engine = requestVoiceSettings_voiceSettings_Engine;
+                requestVoiceSettingsIsNull = false;
+            }
             System.String requestVoiceSettings_voiceSettings_VoiceId = null;
             if (cmdletContext.VoiceSettings_VoiceId != null)
             {
@@ -343,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String Description { get; set; }
             public System.String LocaleId { get; set; }
             public System.Double? NluIntentConfidenceThreshold { get; set; }
+            public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.UpdateBotLocaleResponse, UpdateLMBV2BotLocaleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

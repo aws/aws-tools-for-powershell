@@ -104,6 +104,16 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.PositionFiltering
+        {
+            ($_ -eq "Edit-LOCTracker/PositionFiltering") -Or
+            ($_ -eq "New-LOCTracker/PositionFiltering")
+        }
+        {
+            $v = "AccuracyBased","DistanceBased","TimeBased"
+            break
+        }
+
         # Amazon.LocationService.PricingPlan
         {
             ($_ -eq "Edit-LOCGeofenceCollection/PricingPlan") -Or
@@ -147,6 +157,7 @@ $LOC_Completers = {
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "DistanceUnit"=@("Get-LOCRoute")
+    "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute")
     "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute")

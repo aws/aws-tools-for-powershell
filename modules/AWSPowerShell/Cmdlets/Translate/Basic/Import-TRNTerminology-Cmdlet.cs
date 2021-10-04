@@ -61,6 +61,25 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter TerminologyData_Directionality
+        /// <summary>
+        /// <para>
+        /// <para>The directionality of your terminology resource indicates whether it has one source
+        /// language (uni-directional) or multiple (multi-directional).</para><dl><dt>UNI</dt><dd><para>The terminology resource has one source language (for example, the first column in
+        /// a CSV file), and all of its other languages are target languages. </para></dd><dt>MULTI</dt><dd><para>Any language in the terminology resource can be the source language or a target language.
+        /// A single multi-directional terminology resource can be used for jobs that translate
+        /// different language pairs. For example, if the terminology contains terms in English
+        /// and Spanish, then it can be used for jobs that translate English to Spanish and jobs
+        /// that translate Spanish to English.</para></dd></dl><para>When you create a custom terminology resource without specifying the directionality,
+        /// it behaves as uni-directional terminology, although this parameter will have a null
+        /// value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Directionality")]
+        public Amazon.Translate.Directionality TerminologyData_Directionality { get; set; }
+        #endregion
+        
         #region Parameter TerminologyData_File
         /// <summary>
         /// <para>
@@ -84,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyData_Format
         /// <summary>
         /// <para>
-        /// <para>The data format of the custom terminology. Either CSV or TMX.</para>
+        /// <para>The data format of the custom terminology.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -234,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TerminologyData_Directionality = this.TerminologyData_Directionality;
             context.TerminologyData_File = this.TerminologyData_File;
             #if MODULAR
             if (this.TerminologyData_File == null && ParameterWasBound(nameof(this.TerminologyData_File)))
@@ -313,6 +333,16 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                  // populate TerminologyData
                 var requestTerminologyDataIsNull = true;
                 request.TerminologyData = new Amazon.Translate.Model.TerminologyData();
+                Amazon.Translate.Directionality requestTerminologyData_terminologyData_Directionality = null;
+                if (cmdletContext.TerminologyData_Directionality != null)
+                {
+                    requestTerminologyData_terminologyData_Directionality = cmdletContext.TerminologyData_Directionality;
+                }
+                if (requestTerminologyData_terminologyData_Directionality != null)
+                {
+                    request.TerminologyData.Directionality = requestTerminologyData_terminologyData_Directionality;
+                    requestTerminologyDataIsNull = false;
+                }
                 System.IO.MemoryStream requestTerminologyData_terminologyData_File = null;
                 if (cmdletContext.TerminologyData_File != null)
                 {
@@ -413,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public Amazon.Translate.MergeStrategy MergeStrategy { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Translate.Directionality TerminologyData_Directionality { get; set; }
             public byte[] TerminologyData_File { get; set; }
             public Amazon.Translate.TerminologyDataFormat TerminologyData_Format { get; set; }
             public System.Func<Amazon.Translate.Model.ImportTerminologyResponse, ImportTRNTerminologyCmdlet, object> Select { get; set; } =

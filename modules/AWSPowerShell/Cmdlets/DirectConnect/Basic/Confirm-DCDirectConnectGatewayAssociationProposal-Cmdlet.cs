@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter AssociatedGatewayOwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the account that owns the virtual private gateway or transit gateway.</para>
+        /// <para>The ID of the Amazon Web Services account that owns the virtual private gateway or
+        /// transit gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

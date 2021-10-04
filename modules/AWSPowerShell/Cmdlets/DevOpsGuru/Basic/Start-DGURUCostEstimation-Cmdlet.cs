@@ -28,7 +28,8 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Starts the creation of an estimate of the monthly cost to analyze your AWS resources.
+    /// Starts the creation of an estimate of the monthly cost to analyze your Amazon Web
+    /// Services resources.
     /// </summary>
     [Cmdlet("Start", "DGURUCostEstimation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

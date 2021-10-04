@@ -34,12 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
     /// </para></note><important><para>
-    /// File gateways require Security Token Service (STS) to be activated to enable you to
-    /// create a file share. Make sure that STS is activated in the Region you are creating
-    /// your file gateway in. If STS is not activated in this Region, activate it. For information
-    /// about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and deactivating STS in an Region</a> in the <i>Identity and Access Management User
-    /// Guide</i>.
+    /// File gateways require Security Token Service (Amazon Web Services STS) to be activated
+    /// to enable you to create a file share. Make sure that Amazon Web Services STS is activated
+    /// in the Amazon Web Services Region you are creating your file gateway in. If Amazon
+    /// Web Services STS is not activated in this Amazon Web Services Region, activate it.
+    /// For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+    /// <i>Identity and Access Management User Guide</i>.
     /// </para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
     /// </para></important>
@@ -146,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareName
         /// <summary>
         /// <para>
-        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>.</para></note>
+        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>,
+        /// or if an access point or access point alias is used.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

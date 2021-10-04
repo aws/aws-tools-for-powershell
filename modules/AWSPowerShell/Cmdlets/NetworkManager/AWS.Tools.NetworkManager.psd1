@@ -93,7 +93,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NMGRGlobalNetwork', 
         'Get-NMGRLink', 
         'Get-NMGRLinkAssociation', 
+        'Get-NMGRNetworkResource', 
+        'Get-NMGRNetworkResourceCount', 
+        'Get-NMGRNetworkResourceRelationship', 
+        'Get-NMGRNetworkRoute', 
+        'Get-NMGRNetworkTelemetry', 
         'Get-NMGRResourceTag', 
+        'Get-NMGRRouteAnalysis', 
         'Get-NMGRSite', 
         'Get-NMGRTransitGatewayConnectPeerAssociation', 
         'Get-NMGRTransitGatewayRegistration', 
@@ -112,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NMGRLink', 
         'Remove-NMGRResourceTag', 
         'Remove-NMGRSite', 
+        'Start-NMGRRouteAnalysis', 
         'Unregister-NMGRCustomerGateway', 
         'Unregister-NMGRLink', 
         'Unregister-NMGRTransitGateway', 
@@ -120,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-NMGRDevice', 
         'Update-NMGRGlobalNetwork', 
         'Update-NMGRLink', 
+        'Update-NMGRNetworkResourceMetadata', 
         'Update-NMGRSite')
 
     # Variables to export from this module

@@ -113,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type that new tasks in the task set will use. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// <para>The launch type that new tasks in the task set uses. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
         /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
         /// parameter must be omitted.</para>
         /// </para>
@@ -140,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlatformVersion
         /// <summary>
         /// <para>
-        /// <para>The platform version that the tasks in the task set should use. A platform version
-        /// is specified only for tasks using the Fargate launch type. If one isn't specified,
-        /// the <code>LATEST</code> platform version is used by default.</para>
+        /// <para>The platform version that the tasks in the task set uses. A platform version is specified
+        /// only for tasks using the Fargate launch type. If one isn't specified, the <code>LATEST</code>
+        /// platform version is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups associated with the task or service. If you do not
-        /// specify a security group, the default security group for the VPC is used. There is
-        /// a limit of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// <para>The IDs of the security groups associated with the task or service. If you don't specify
+        /// a security group, the default security group for the VPC is used. There's a limit
+        /// of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets associated with the task or service. There is a limit of 16
+        /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
         /// subnets that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
@@ -209,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The metadata that you apply to the task set to help you categorize and organize them.
-        /// Each tag consists of a key and an optional value, both of which you define. When a
-        /// service is deleted, the tags are deleted as well.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// Each tag consists of a key and an optional value. You define both. When a service
+        /// is deleted, the tags are deleted.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
@@ -267,8 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. Up to 32 ASCII characters are allowed.</para>
+        /// <para>The identifier that you provide to ensure the idempotency of the request. It's case
+        /// sensitive and must be unique. It can be up to 32 ASCII characters are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

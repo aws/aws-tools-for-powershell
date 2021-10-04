@@ -47,15 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class WriteCWAnomalyDetectorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
-        #region Parameter Dimension
+        #region Parameter SingleMetricAnomalyDetector_Dimension
         /// <summary>
         /// <para>
         /// <para>The metric dimensions to create the anomaly detection model for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Dimensions")]
-        public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        [Alias("SingleMetricAnomalyDetector_Dimensions")]
+        public Amazon.CloudWatch.Model.Dimension[] SingleMetricAnomalyDetector_Dimension { get; set; }
         #endregion
         
         #region Parameter Configuration_ExcludedTimeRange
@@ -71,21 +71,31 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.Model.Range[] Configuration_ExcludedTimeRange { get; set; }
         #endregion
         
-        #region Parameter MetricName
+        #region Parameter MetricMathAnomalyDetector_MetricDataQuery
+        /// <summary>
+        /// <para>
+        /// <para>An array of metric data query structures that enables you to create an anomaly detector
+        /// based on the result of a metric math expression. Each item in <code>MetricDataQueries</code>
+        /// gets a metric or performs a math expression. One item in <code>MetricDataQueries</code>
+        /// is the expression that provides the time series that the anomaly detector uses as
+        /// input. Designate the expression by setting <code>ReturnData</code> to <code>True</code>
+        /// for this object in the array. For all other expressions and metrics, set <code>ReturnData</code>
+        /// to <code>False</code>. The designated expression must return a single time series.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricMathAnomalyDetector_MetricDataQueries")]
+        public Amazon.CloudWatch.Model.MetricDataQuery[] MetricMathAnomalyDetector_MetricDataQuery { get; set; }
+        #endregion
+        
+        #region Parameter SingleMetricAnomalyDetector_MetricName
         /// <summary>
         /// <para>
         /// <para>The name of the metric to create the anomaly detection model for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MetricName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SingleMetricAnomalyDetector_MetricName { get; set; }
         #endregion
         
         #region Parameter Configuration_MetricTimezone
@@ -102,20 +112,60 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String Configuration_MetricTimezone { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter SingleMetricAnomalyDetector_Namespace
         /// <summary>
         /// <para>
         /// <para>The namespace of the metric to create the anomaly detection model for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SingleMetricAnomalyDetector_Namespace { get; set; }
+        #endregion
+        
+        #region Parameter SingleMetricAnomalyDetector_Stat
+        /// <summary>
+        /// <para>
+        /// <para>The statistic to use for the metric and anomaly detection model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SingleMetricAnomalyDetector_Stat { get; set; }
+        #endregion
+        
+        #region Parameter Dimension
+        /// <summary>
+        /// <para>
+        /// <para>The metric dimensions to create the anomaly detection model for.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use SingleMetricAnomalyDetector.")]
+        [Alias("Dimensions")]
+        public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
+        
+        #region Parameter MetricName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the metric to create the anomaly detection model for.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.ObsoleteAttribute("Use SingleMetricAnomalyDetector.")]
+        public System.String MetricName { get; set; }
+        #endregion
+        
+        #region Parameter Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace of the metric to create the anomaly detection model for.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use SingleMetricAnomalyDetector.")]
         public System.String Namespace { get; set; }
         #endregion
         
@@ -124,15 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The statistic to use for the metric and the anomaly detection model.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("Use SingleMetricAnomalyDetector.")]
         public System.String Stat { get; set; }
         #endregion
         
@@ -201,31 +246,32 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Configuration_ExcludedTimeRange = new List<Amazon.CloudWatch.Model.Range>(this.Configuration_ExcludedTimeRange);
             }
             context.Configuration_MetricTimezone = this.Configuration_MetricTimezone;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.MetricMathAnomalyDetector_MetricDataQuery != null)
+            {
+                context.MetricMathAnomalyDetector_MetricDataQuery = new List<Amazon.CloudWatch.Model.MetricDataQuery>(this.MetricMathAnomalyDetector_MetricDataQuery);
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MetricName = this.MetricName;
-            #if MODULAR
-            if (this.MetricName == null && ParameterWasBound(nameof(this.MetricName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MetricName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.SingleMetricAnomalyDetector_Dimension != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.SingleMetricAnomalyDetector_Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.SingleMetricAnomalyDetector_Dimension);
             }
-            #endif
+            context.SingleMetricAnomalyDetector_MetricName = this.SingleMetricAnomalyDetector_MetricName;
+            context.SingleMetricAnomalyDetector_Namespace = this.SingleMetricAnomalyDetector_Namespace;
+            context.SingleMetricAnomalyDetector_Stat = this.SingleMetricAnomalyDetector_Stat;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Stat = this.Stat;
-            #if MODULAR
-            if (this.Stat == null && ParameterWasBound(nameof(this.Stat)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Stat which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -271,22 +317,98 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Configuration = null;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Dimension != null)
             {
                 request.Dimensions = cmdletContext.Dimension;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+             // populate MetricMathAnomalyDetector
+            var requestMetricMathAnomalyDetectorIsNull = true;
+            request.MetricMathAnomalyDetector = new Amazon.CloudWatch.Model.MetricMathAnomalyDetector();
+            List<Amazon.CloudWatch.Model.MetricDataQuery> requestMetricMathAnomalyDetector_metricMathAnomalyDetector_MetricDataQuery = null;
+            if (cmdletContext.MetricMathAnomalyDetector_MetricDataQuery != null)
+            {
+                requestMetricMathAnomalyDetector_metricMathAnomalyDetector_MetricDataQuery = cmdletContext.MetricMathAnomalyDetector_MetricDataQuery;
+            }
+            if (requestMetricMathAnomalyDetector_metricMathAnomalyDetector_MetricDataQuery != null)
+            {
+                request.MetricMathAnomalyDetector.MetricDataQueries = requestMetricMathAnomalyDetector_metricMathAnomalyDetector_MetricDataQuery;
+                requestMetricMathAnomalyDetectorIsNull = false;
+            }
+             // determine if request.MetricMathAnomalyDetector should be set to null
+            if (requestMetricMathAnomalyDetectorIsNull)
+            {
+                request.MetricMathAnomalyDetector = null;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MetricName != null)
             {
                 request.MetricName = cmdletContext.MetricName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+             // populate SingleMetricAnomalyDetector
+            var requestSingleMetricAnomalyDetectorIsNull = true;
+            request.SingleMetricAnomalyDetector = new Amazon.CloudWatch.Model.SingleMetricAnomalyDetector();
+            List<Amazon.CloudWatch.Model.Dimension> requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Dimension = null;
+            if (cmdletContext.SingleMetricAnomalyDetector_Dimension != null)
+            {
+                requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Dimension = cmdletContext.SingleMetricAnomalyDetector_Dimension;
+            }
+            if (requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Dimension != null)
+            {
+                request.SingleMetricAnomalyDetector.Dimensions = requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Dimension;
+                requestSingleMetricAnomalyDetectorIsNull = false;
+            }
+            System.String requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_MetricName = null;
+            if (cmdletContext.SingleMetricAnomalyDetector_MetricName != null)
+            {
+                requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_MetricName = cmdletContext.SingleMetricAnomalyDetector_MetricName;
+            }
+            if (requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_MetricName != null)
+            {
+                request.SingleMetricAnomalyDetector.MetricName = requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_MetricName;
+                requestSingleMetricAnomalyDetectorIsNull = false;
+            }
+            System.String requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Namespace = null;
+            if (cmdletContext.SingleMetricAnomalyDetector_Namespace != null)
+            {
+                requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Namespace = cmdletContext.SingleMetricAnomalyDetector_Namespace;
+            }
+            if (requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Namespace != null)
+            {
+                request.SingleMetricAnomalyDetector.Namespace = requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Namespace;
+                requestSingleMetricAnomalyDetectorIsNull = false;
+            }
+            System.String requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Stat = null;
+            if (cmdletContext.SingleMetricAnomalyDetector_Stat != null)
+            {
+                requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Stat = cmdletContext.SingleMetricAnomalyDetector_Stat;
+            }
+            if (requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Stat != null)
+            {
+                request.SingleMetricAnomalyDetector.Stat = requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Stat;
+                requestSingleMetricAnomalyDetectorIsNull = false;
+            }
+             // determine if request.SingleMetricAnomalyDetector should be set to null
+            if (requestSingleMetricAnomalyDetectorIsNull)
+            {
+                request.SingleMetricAnomalyDetector = null;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Stat != null)
             {
                 request.Stat = cmdletContext.Stat;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -350,9 +472,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             public List<Amazon.CloudWatch.Model.Range> Configuration_ExcludedTimeRange { get; set; }
             public System.String Configuration_MetricTimezone { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
+            public List<Amazon.CloudWatch.Model.MetricDataQuery> MetricMathAnomalyDetector_MetricDataQuery { get; set; }
+            [System.ObsoleteAttribute]
             public System.String MetricName { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Namespace { get; set; }
+            public List<Amazon.CloudWatch.Model.Dimension> SingleMetricAnomalyDetector_Dimension { get; set; }
+            public System.String SingleMetricAnomalyDetector_MetricName { get; set; }
+            public System.String SingleMetricAnomalyDetector_Namespace { get; set; }
+            public System.String SingleMetricAnomalyDetector_Stat { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Stat { get; set; }
             public System.Func<Amazon.CloudWatch.Model.PutAnomalyDetectorResponse, WriteCWAnomalyDetectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

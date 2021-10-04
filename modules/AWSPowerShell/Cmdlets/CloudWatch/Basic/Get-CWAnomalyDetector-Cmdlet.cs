@@ -28,9 +28,12 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Lists the anomaly detection models that you have created in your account. You can
-    /// list all models in your account or filter the results to only the models that are
-    /// related to a certain namespace, metric name, or metric dimension.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the anomaly detection models that you have created in your account. For single
+    /// metric anomaly detectors, you can list all of the models in your account or filter
+    /// the results to only the models that are related to a certain namespace, metric name,
+    /// or metric dimension. For metric math anomaly detectors, you can list them by adding
+    /// <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+    /// return all metric math anomaly detectors in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAnomalyDetector")]
     [OutputType("Amazon.CloudWatch.Model.AnomalyDetector")]
@@ -41,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public partial class GetCWAnomalyDetectorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AnomalyDetectorType
+        /// <summary>
+        /// <para>
+        /// <para>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
+        /// If empty, defaults to <code>SINGLE_METRIC</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnomalyDetectorTypes")]
+        public System.String[] AnomalyDetectorType { get; set; }
+        #endregion
         
         #region Parameter Dimension
         /// <summary>
@@ -160,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = (response, cmdlet) => this.MetricName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AnomalyDetectorType != null)
+            {
+                context.AnomalyDetectorType = new List<System.String>(this.AnomalyDetectorType);
+            }
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
@@ -188,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request and set iteration invariants
             var request = new Amazon.CloudWatch.Model.DescribeAnomalyDetectorsRequest();
             
+            if (cmdletContext.AnomalyDetectorType != null)
+            {
+                request.AnomalyDetectorTypes = cmdletContext.AnomalyDetectorType;
+            }
             if (cmdletContext.Dimension != null)
             {
                 request.Dimensions = cmdletContext.Dimension;
@@ -289,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AnomalyDetectorType { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MetricName { get; set; }

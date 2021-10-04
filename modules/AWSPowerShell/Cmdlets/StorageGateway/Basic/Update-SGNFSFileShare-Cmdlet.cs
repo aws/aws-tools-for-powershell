@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter AuditDestinationARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the storage used for audit logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditDestinationARN { get; set; }
+        #endregion
+        
         #region Parameter CacheAttributes_CacheStaleTimeoutInSecond
         /// <summary>
         /// <para>
@@ -137,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareName
         /// <summary>
         /// <para>
-        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>.</para></note>
+        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>,
+        /// or if an access point or access point alias is used.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.FileShareARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AuditDestinationARN = this.AuditDestinationARN;
             context.CacheAttributes_CacheStaleTimeoutInSecond = this.CacheAttributes_CacheStaleTimeoutInSecond;
             if (this.ClientList != null)
             {
@@ -369,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.UpdateNFSFileShareRequest();
             
+            if (cmdletContext.AuditDestinationARN != null)
+            {
+                request.AuditDestinationARN = cmdletContext.AuditDestinationARN;
+            }
             
              // populate CacheAttributes
             var requestCacheAttributesIsNull = true;
@@ -546,6 +562,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AuditDestinationARN { get; set; }
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public List<System.String> ClientList { get; set; }
             public System.String DefaultStorageClass { get; set; }

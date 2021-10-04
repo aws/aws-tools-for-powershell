@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para> The comment related to the status update. </para>
+        /// <para> The comment that's related to the status update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSetId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control set. </para>
+        /// <para> The unique identifier for the control set. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The status of the control set that is being updated. </para>
+        /// <para> The status of the control set that's being updated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

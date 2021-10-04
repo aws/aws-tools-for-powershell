@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>An ID for the data source. This ID is unique per Amazon Web Services Region; for each
+        /// <para>An ID for the data source. This ID is unique per Amazon Web Services Region for each
         /// Amazon Web Services account. </para>
         /// </para>
         /// </summary>
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AmazonElasticsearchParameters_Domain
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch domain.</para>
+        /// <para>The OpenSearch domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -676,7 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the data source. To return a list of all data sources, use <code>ListDataSources</code>.</para><para>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon Elasticsearch Service.</para>
+        /// <para>The type of the data source. To return a list of all data sources, use <code>ListDataSources</code>.</para><para>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

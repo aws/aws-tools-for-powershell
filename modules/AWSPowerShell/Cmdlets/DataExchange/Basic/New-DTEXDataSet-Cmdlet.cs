@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter AssetType
         /// <summary>
         /// <para>
-        /// <para>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</para>
+        /// <para>The type of asset that is added to a data set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

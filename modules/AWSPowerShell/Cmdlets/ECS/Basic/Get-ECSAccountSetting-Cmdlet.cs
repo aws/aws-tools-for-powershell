@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EffectiveSetting
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to return the effective settings. If <code>true</code>, the account
+        /// <para>Determines whether to return the effective settings. If <code>true</code>, the account
         /// settings for the root user or the default setting for the <code>principalArn</code>
         /// are returned. If <code>false</code>, the account settings for the <code>principalArn</code>
-        /// are returned if they are set. Otherwise, no account settings are returned.</para>
+        /// are returned if they're set. Otherwise, no account settings are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>The value of the account settings with which to filter results. You must also specify
-        /// an account setting name to use this parameter.</para>
+        /// <para>The value of the account settings to filter results with. You must also specify an
+        /// account setting name to use this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>ListAccountSettings</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 10. If this parameter is not used, then <code>ListAccountSettings</code>
+        /// value. This value can be between 1 and 10. If this parameter isn't used, then <code>ListAccountSettings</code>
         /// returns up to 10 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a <code>ListAccountSettings</code>
         /// request indicating that more results are available to fulfill the request and further
-        /// calls will be needed. If <code>maxResults</code> was provided, it is possible the
-        /// number of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// calls will be needed. If <code>maxResults</code> was provided, it's possible the number
+        /// of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

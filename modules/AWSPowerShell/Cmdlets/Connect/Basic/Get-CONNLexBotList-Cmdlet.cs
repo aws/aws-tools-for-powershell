@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of results to return per page. If no value is specified, the default
+        /// is 10. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

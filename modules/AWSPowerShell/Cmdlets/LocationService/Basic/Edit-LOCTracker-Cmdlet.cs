@@ -49,6 +49,23 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter PositionFiltering
+        /// <summary>
+        /// <para>
+        /// <para>Updates the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+        /// but not every location update is stored. If your update frequency is more often than
+        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location
+        /// updates are ignored. Location updates within this distance are neither evaluated against
+        /// linked geofence collections, nor stored. This helps control costs by reducing the
+        /// number of geofence evaluations and device positions to retrieve. Distance-based filtering
+        /// can also reduce the jitter effect when displaying device trajectory on a map. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LocationService.PositionFiltering")]
+        public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
+        #endregion
+        
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
@@ -155,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.PositionFiltering = this.PositionFiltering;
             context.PricingPlan = this.PricingPlan;
             context.PricingPlanDataSource = this.PricingPlanDataSource;
             context.TrackerName = this.TrackerName;
@@ -183,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.PositionFiltering != null)
+            {
+                request.PositionFiltering = cmdletContext.PositionFiltering;
             }
             if (cmdletContext.PricingPlan != null)
             {
@@ -258,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public System.String PricingPlanDataSource { get; set; }
             public System.String TrackerName { get; set; }

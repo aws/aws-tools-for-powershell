@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMCJobList', 
         'Get-EMCJobTemplate', 
         'Get-EMCJobTemplateList', 
+        'Get-EMCPolicy', 
         'Get-EMCPreset', 
         'Get-EMCPresetList', 
         'Get-EMCQueue', 
@@ -103,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMCQueue', 
         'Register-EMCCertificate', 
         'Remove-EMCJobTemplate', 
+        'Remove-EMCPolicy', 
         'Remove-EMCPreset', 
         'Remove-EMCQueue', 
         'Remove-EMCResourceTag', 
@@ -110,7 +112,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-EMCCertificate', 
         'Update-EMCJobTemplate', 
         'Update-EMCPreset', 
-        'Update-EMCQueue')
+        'Update-EMCQueue', 
+        'Write-EMCPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

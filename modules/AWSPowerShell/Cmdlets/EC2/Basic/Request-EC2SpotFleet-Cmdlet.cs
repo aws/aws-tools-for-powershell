@@ -284,11 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityRebalance_ReplacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.
-        /// You must specify a value, otherwise you get an error.</para><para>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance
-        /// notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</para><note><para>When a replacement instance is launched, the instance marked for rebalance is not
-        /// automatically terminated. You can terminate it, or you can leave it running. You are
-        /// charged for all instances while they are running.</para></note>
+        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para><code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
+        /// rebalance notification is emitted for an existing Spot Instance in the fleet. Spot
+        /// Fleet does not terminate the instances that receive a rebalance notification. You
+        /// can terminate the old instances, or you can leave them running. You are charged for
+        /// all instances while they are running. </para><para><code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
+        /// Instance when a rebalance notification is emitted for an existing Spot Instance in
+        /// the fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+        /// terminates the instances that received a rebalance notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,6 +374,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_TargetCapacityUnitType
+        /// <summary>
+        /// <para>
+        /// <para>The unit for the target capacity.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TargetCapacityUnitType")]
+        public Amazon.EC2.TargetCapacityUnitType SpotFleetRequestConfig_TargetCapacityUnitType { get; set; }
+        #endregion
+        
         #region Parameter TargetGroupsConfig_TargetGroup
         /// <summary>
         /// <para>
@@ -391,6 +405,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
+        #endregion
+        
+        #region Parameter CapacityRebalance_TerminationDelay
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+        /// Instance after launching a new replacement Spot Instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_TerminationDelay")]
+        public System.Int32? CapacityRebalance_TerminationDelay { get; set; }
         #endregion
         
         #region Parameter SpotFleetRequestConfig_Type
@@ -570,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_OnDemandTargetCapacity = this.SpotFleetRequestConfig_OnDemandTargetCapacity;
             context.SpotFleetRequestConfig_ReplaceUnhealthyInstance = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
             context.CapacityRebalance_ReplacementStrategy = this.CapacityRebalance_ReplacementStrategy;
+            context.CapacityRebalance_TerminationDelay = this.CapacityRebalance_TerminationDelay;
             context.SpotFleetRequestConfig_SpotMaxTotalPrice = this.SpotFleetRequestConfig_SpotMaxTotalPrice;
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
             if (this.SpotFleetRequestConfig_TagSpecification != null)
@@ -583,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter SpotFleetRequestConfig_TargetCapacity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SpotFleetRequestConfig_TargetCapacityUnitType = this.SpotFleetRequestConfig_TargetCapacityUnitType;
             context.SpotFleetRequestConfig_TerminateInstancesWithExpiration = this.SpotFleetRequestConfig_TerminateInstancesWithExpiration;
             context.SpotFleetRequestConfig_Type = this.SpotFleetRequestConfig_Type;
             context.SpotFleetRequestConfig_UtcValidFrom = this.SpotFleetRequestConfig_UtcValidFrom;
@@ -803,6 +831,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.TargetCapacity = requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
+            Amazon.EC2.TargetCapacityUnitType requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacityUnitType = null;
+            if (cmdletContext.SpotFleetRequestConfig_TargetCapacityUnitType != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacityUnitType = cmdletContext.SpotFleetRequestConfig_TargetCapacityUnitType;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacityUnitType != null)
+            {
+                request.SpotFleetRequestConfig.TargetCapacityUnitType = requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacityUnitType;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
             System.Boolean? requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration = null;
             if (cmdletContext.SpotFleetRequestConfig_TerminateInstancesWithExpiration != null)
             {
@@ -893,6 +931,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy != null)
             {
                 requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance.ReplacementStrategy = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalanceIsNull = false;
+            }
+            System.Int32? requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay = null;
+            if (cmdletContext.CapacityRebalance_TerminationDelay != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay = cmdletContext.CapacityRebalance_TerminationDelay.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance.TerminationDelay = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay.Value;
                 requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalanceIsNull = false;
             }
              // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance should be set to null
@@ -1064,10 +1112,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstance { get; set; }
             public Amazon.EC2.ReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
+            public System.Int32? CapacityRebalance_TerminationDelay { get; set; }
             public System.String SpotFleetRequestConfig_SpotMaxTotalPrice { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> SpotFleetRequestConfig_TagSpecification { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
+            public Amazon.EC2.TargetCapacityUnitType SpotFleetRequestConfig_TargetCapacityUnitType { get; set; }
             public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
             public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
             public System.DateTime? SpotFleetRequestConfig_UtcValidFrom { get; set; }

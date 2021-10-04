@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The instruction set architecture that the function supports. Enter a string array
-        /// with one of the valid values. The default value is <code>x86_64</code>.</para>
+        /// with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -411,9 +411,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time that Lambda allows a function to run before stopping it. The default
-        /// is 3 seconds. The maximum allowed value is 900 seconds. For additional information,
-        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// <para>The amount of time (in seconds) that Lambda allows a function to run before stopping
+        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional
+        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
         /// execution environment</a>.</para>
         /// </para>
         /// </summary>

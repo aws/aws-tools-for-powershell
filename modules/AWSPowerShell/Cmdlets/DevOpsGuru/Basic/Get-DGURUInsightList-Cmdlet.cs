@@ -28,8 +28,8 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Returns a list of insights in your AWS account. You can specify which insights are
-    /// returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>,
+    /// Returns a list of insights in your Amazon Web Services account. You can specify which
+    /// insights are returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>,
     /// or <code>ANY</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DGURUInsightList")]

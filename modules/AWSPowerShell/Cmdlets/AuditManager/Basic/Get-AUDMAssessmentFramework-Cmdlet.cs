@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter FrameworkId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified framework. </para>
+        /// <para> The identifier for the framework. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

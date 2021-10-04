@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot that this alias points to. You can use the operation to change
-        /// the bot version associated with the alias.</para>
+        /// <para>The version of the bot that this alias points to. You can use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html">UpdateBotAlias</a>
+        /// operation to change the bot version associated with the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

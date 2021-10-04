@@ -79,14 +79,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// you want to grant access to use the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a>
     /// API operations, add the following policies to the role. 
     /// </para><ul><li><para>
-    /// Option 1: For a full Amazon SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code>
+    /// Option 1: For a full SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code>
     /// policy.
     /// </para></li><li><para>
     /// Option 2: For granting a limited access to an IAM role, paste the following Action
     /// elements manually into the JSON file of the IAM role: 
     /// </para><para><code>"Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]</code></para><para><code>"Resource": [</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint/endpointName"</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"</code></para><para><code>]</code></para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon
-    /// SageMaker API Permissions: Actions, Permissions, and Resources Reference</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">SageMaker
+    /// API Permissions: Actions, Permissions, and Resources Reference</a>.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,6 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
     )]
     public partial class NewSMEndpointCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoRollbackConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>List of CloudWatch alarms in your account that are configured to monitor metrics on
+        /// an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_AutoRollbackConfiguration_Alarms")]
+        public Amazon.SageMaker.Model.Alarm[] AutoRollbackConfiguration_Alarm { get; set; }
+        #endregion
         
         #region Parameter EndpointConfigName
         /// <summary>
@@ -136,6 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Maximum execution timeout for the deployment. Note that the timeout value should be
+        /// larger than the total waiting time specified in <code>TerminationWaitInSeconds</code>
+        /// and <code>WaitIntervalInSeconds</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSeconds")]
+        public System.Int32? BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -148,6 +174,94 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter BlueGreenUpdatePolicy_TerminationWaitInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Additional waiting time in seconds after the completion of an endpoint deployment
+        /// before terminating the old endpoint fleet. Default is 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TerminationWaitInSeconds")]
+        public System.Int32? BlueGreenUpdatePolicy_TerminationWaitInSecond { get; set; }
+        #endregion
+        
+        #region Parameter CanarySize_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// of capacity.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.CapacitySizeType")]
+        public Amazon.SageMaker.CapacitySizeType CanarySize_Type { get; set; }
+        #endregion
+        
+        #region Parameter LinearStepSize_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// of capacity.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.CapacitySizeType")]
+        public Amazon.SageMaker.CapacitySizeType LinearStepSize_Type { get; set; }
+        #endregion
+        
+        #region Parameter TrafficRoutingConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>Traffic routing strategy type.</para><ul><li><para><code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single step.
+        /// </para></li><li><para><code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps. The first
+        /// step is the canary, which is a small portion of the traffic. The second step is the
+        /// remainder of the traffic. </para></li><li><para><code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a configurable
+        /// size. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.TrafficRoutingConfigType")]
+        public Amazon.SageMaker.TrafficRoutingConfigType TrafficRoutingConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter CanarySize_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the capacity size, either as a number of instances or a capacity percentage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Value")]
+        public System.Int32? CanarySize_Value { get; set; }
+        #endregion
+        
+        #region Parameter LinearStepSize_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the capacity size, either as a number of instances or a capacity percentage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Value")]
+        public System.Int32? LinearStepSize_Value { get; set; }
+        #endregion
+        
+        #region Parameter TrafficRoutingConfiguration_WaitIntervalInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The waiting time (in seconds) between incremental steps to turn on traffic on the
+        /// new endpoint fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_WaitIntervalInSeconds")]
+        public System.Int32? TrafficRoutingConfiguration_WaitIntervalInSecond { get; set; }
         #endregion
         
         #region Parameter Select
@@ -211,6 +325,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.EndpointConfigName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AutoRollbackConfiguration_Alarm != null)
+            {
+                context.AutoRollbackConfiguration_Alarm = new List<Amazon.SageMaker.Model.Alarm>(this.AutoRollbackConfiguration_Alarm);
+            }
+            context.BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond = this.BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond;
+            context.BlueGreenUpdatePolicy_TerminationWaitInSecond = this.BlueGreenUpdatePolicy_TerminationWaitInSecond;
+            context.CanarySize_Type = this.CanarySize_Type;
+            context.CanarySize_Value = this.CanarySize_Value;
+            context.LinearStepSize_Type = this.LinearStepSize_Type;
+            context.LinearStepSize_Value = this.LinearStepSize_Value;
+            context.TrafficRoutingConfiguration_Type = this.TrafficRoutingConfiguration_Type;
+            context.TrafficRoutingConfiguration_WaitIntervalInSecond = this.TrafficRoutingConfiguration_WaitIntervalInSecond;
             context.EndpointConfigName = this.EndpointConfigName;
             #if MODULAR
             if (this.EndpointConfigName == null && ParameterWasBound(nameof(this.EndpointConfigName)))
@@ -245,6 +371,180 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateEndpointRequest();
             
+            
+             // populate DeploymentConfig
+            var requestDeploymentConfigIsNull = true;
+            request.DeploymentConfig = new Amazon.SageMaker.Model.DeploymentConfig();
+            Amazon.SageMaker.Model.AutoRollbackConfig requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = null;
+            
+             // populate AutoRollbackConfiguration
+            var requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull = true;
+            requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = new Amazon.SageMaker.Model.AutoRollbackConfig();
+            List<Amazon.SageMaker.Model.Alarm> requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm = null;
+            if (cmdletContext.AutoRollbackConfiguration_Alarm != null)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm = cmdletContext.AutoRollbackConfiguration_Alarm;
+            }
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm != null)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration.Alarms = requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm;
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration should be set to null
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration != null)
+            {
+                request.DeploymentConfig.AutoRollbackConfiguration = requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration;
+                requestDeploymentConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.BlueGreenUpdatePolicy requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy = null;
+            
+             // populate BlueGreenUpdatePolicy
+            var requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicyIsNull = true;
+            requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy = new Amazon.SageMaker.Model.BlueGreenUpdatePolicy();
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond = null;
+            if (cmdletContext.BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond = cmdletContext.BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy.MaximumExecutionTimeoutInSeconds = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicyIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_TerminationWaitInSecond = null;
+            if (cmdletContext.BlueGreenUpdatePolicy_TerminationWaitInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_TerminationWaitInSecond = cmdletContext.BlueGreenUpdatePolicy_TerminationWaitInSecond.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_TerminationWaitInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy.TerminationWaitInSeconds = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_blueGreenUpdatePolicy_TerminationWaitInSecond.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicyIsNull = false;
+            }
+            Amazon.SageMaker.Model.TrafficRoutingConfig requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration = null;
+            
+             // populate TrafficRoutingConfiguration
+            var requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = true;
+            requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration = new Amazon.SageMaker.Model.TrafficRoutingConfig();
+            Amazon.SageMaker.TrafficRoutingConfigType requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_Type = null;
+            if (cmdletContext.TrafficRoutingConfiguration_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_Type = cmdletContext.TrafficRoutingConfiguration_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.Type = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_Type;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_WaitIntervalInSecond = null;
+            if (cmdletContext.TrafficRoutingConfiguration_WaitIntervalInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_WaitIntervalInSecond = cmdletContext.TrafficRoutingConfiguration_WaitIntervalInSecond.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_WaitIntervalInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.WaitIntervalInSeconds = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_trafficRoutingConfiguration_WaitIntervalInSecond.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
+            }
+            Amazon.SageMaker.Model.CapacitySize requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize = null;
+            
+             // populate CanarySize
+            var requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySizeIsNull = true;
+            requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize = new Amazon.SageMaker.Model.CapacitySize();
+            Amazon.SageMaker.CapacitySizeType requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Type = null;
+            if (cmdletContext.CanarySize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Type = cmdletContext.CanarySize_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize.Type = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Type;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySizeIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Value = null;
+            if (cmdletContext.CanarySize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Value = cmdletContext.CanarySize_Value.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize.Value = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_canarySize_Value.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySizeIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize should be set to null
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySizeIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.CanarySize = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
+            }
+            Amazon.SageMaker.Model.CapacitySize requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = null;
+            
+             // populate LinearStepSize
+            var requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = true;
+            requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = new Amazon.SageMaker.Model.CapacitySize();
+            Amazon.SageMaker.CapacitySizeType requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type = null;
+            if (cmdletContext.LinearStepSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type = cmdletContext.LinearStepSize_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize.Type = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value = null;
+            if (cmdletContext.LinearStepSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value = cmdletContext.LinearStepSize_Value.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize.Value = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize should be set to null
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.LinearStepSize = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration should be set to null
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy.TrafficRoutingConfiguration = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicyIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy should be set to null
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicyIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy != null)
+            {
+                request.DeploymentConfig.BlueGreenUpdatePolicy = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy;
+                requestDeploymentConfigIsNull = false;
+            }
+             // determine if request.DeploymentConfig should be set to null
+            if (requestDeploymentConfigIsNull)
+            {
+                request.DeploymentConfig = null;
+            }
             if (cmdletContext.EndpointConfigName != null)
             {
                 request.EndpointConfigName = cmdletContext.EndpointConfigName;
@@ -318,6 +618,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.Alarm> AutoRollbackConfiguration_Alarm { get; set; }
+            public System.Int32? BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond { get; set; }
+            public System.Int32? BlueGreenUpdatePolicy_TerminationWaitInSecond { get; set; }
+            public Amazon.SageMaker.CapacitySizeType CanarySize_Type { get; set; }
+            public System.Int32? CanarySize_Value { get; set; }
+            public Amazon.SageMaker.CapacitySizeType LinearStepSize_Type { get; set; }
+            public System.Int32? LinearStepSize_Value { get; set; }
+            public Amazon.SageMaker.TrafficRoutingConfigType TrafficRoutingConfiguration_Type { get; set; }
+            public System.Int32? TrafficRoutingConfiguration_WaitIntervalInSecond { get; set; }
             public System.String EndpointConfigName { get; set; }
             public System.String EndpointName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

@@ -171,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter PayloadStream
         /// <summary>
         /// <para>
-        /// <para>The JSON that you want to provide to your Lambda function as input.</para>
+        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
+        /// You can also specify a file path. For example, <code>--payload file://payload.json</code>.
+        /// </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

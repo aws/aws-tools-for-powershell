@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter JmxExporter_EnabledInBroker
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want to enable or disable the JMX Exporter.</para>
+        /// <para>Indicates whether you want to turn on or turn off the JMX Exporter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter NodeExporter_EnabledInBroker
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want to enable or disable the Node Exporter.</para>
+        /// <para>Indicates whether you want to turn on or turn off the Node Exporter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

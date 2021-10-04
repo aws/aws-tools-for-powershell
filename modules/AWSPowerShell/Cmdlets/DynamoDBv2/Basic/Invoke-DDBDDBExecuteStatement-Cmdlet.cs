@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ConsistentRead
         /// <summary>
         /// <para>
-        /// <para> The consistency of a read operation. If set to <code>true</code>, then a strongly
-        /// consistent read is used; otherwise, an eventually consistent read is used. </para>
+        /// <para>The consistency of a read operation. If set to <code>true</code>, then a strongly
+        /// consistent read is used; otherwise, an eventually consistent read is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para> The parameters for the PartiQL statement, if any. </para>
+        /// <para>The parameters for the PartiQL statement, if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Statement
         /// <summary>
         /// <para>
-        /// <para> The PartiQL statement representing the operation to run. </para>
+        /// <para>The PartiQL statement representing the operation to run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Set this value to get remaining results, if <code>NextToken</code> was returned in
-        /// the statement response. </para>
+        /// <para>Set this value to get remaining results, if <code>NextToken</code> was returned in
+        /// the statement response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

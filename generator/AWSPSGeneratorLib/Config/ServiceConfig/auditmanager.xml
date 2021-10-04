@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentFrameworkShare" Verb="Remove" Noun="AssessmentFrameworkShare" ShouldProcessTarget="RequestId" PipelineParameter="RequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssessmentReport" Verb="Remove" Noun="AssessmentReport" ShouldProcessTarget="AssessmentReportId" PipelineParameter="AssessmentReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +139,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInsights" OutputProperty="Insights" Verb="Get" Noun="Insight" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightsByAssessment" OutputProperty="Insights" Verb="Get" Noun="InsightsByAssessment" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOrganizationAdminAccount" OutputProperty="*" Verb="Get" Noun="OrganizationAdminAccount" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -147,7 +159,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentControlInsightsByControlDomain" OutputProperty="ControlInsightsByAssessment" Verb="Get" Noun="AssessmentControlInsightsByControlDomainList" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssessmentFrameworks" OutputProperty="FrameworkMetadataList" Verb="Get" Noun="AssessmentFrameworkList" PipelineParameter="FrameworkType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentFrameworkShareRequests" OutputProperty="AssessmentFrameworkShareRequests" Verb="Get" Noun="AssessmentFrameworkShareRequestList" PipelineParameter="RequestType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +176,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssessments" OutputProperty="AssessmentMetadata" Verb="Get" Noun="AssessmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControlDomainInsights" OutputProperty="ControlDomainInsights" Verb="Get" Noun="ControlDomainInsightList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControlDomainInsightsByAssessment" OutputProperty="ControlDomainInsights" Verb="Get" Noun="ControlDomainInsightsByAssessmentList" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControlInsightsByControlDomain" OutputProperty="ControlInsightsMetadata" Verb="Get" Noun="ControlInsightsByControlDomainList" PipelineParameter="ControlDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,6 +215,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAssessmentFrameworkShare" OutputProperty="AssessmentFrameworkShareRequest" Verb="Start" Noun="AssessmentFrameworkShare" ShouldProcessTarget="FrameworkId" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -204,6 +240,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssessmentFramework" OutputProperty="Framework" Verb="Edit" Noun="AssessmentFramework" ShouldProcessTarget="Name" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentFrameworkShare" OutputProperty="AssessmentFrameworkShareRequest" Verb="Update" Noun="AssessmentFrameworkShare" ShouldProcessTarget="RequestId" PipelineParameter="RequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -91,6 +91,13 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.AutodefinedReverseFlag
+        "Update-R53RResolverConfig/AutodefinedReverseFlag"
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.Route53Resolver.BlockOverrideDnsType
         {
             ($_ -eq "Edit-R53RFirewallRule/BlockOverrideDnsType") -Or
@@ -190,6 +197,7 @@ $R53R_Completers = {
 
 $R53R_map = @{
     "Action"=@("Edit-R53RFirewallRule","Get-R53RFirewallRuleList","New-R53RFirewallRule")
+    "AutodefinedReverseFlag"=@("Update-R53RResolverConfig")
     "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
@@ -277,6 +285,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroup",
                "Get-R53RFirewallRuleGroupAssociation",
                "Get-R53RFirewallRuleGroupPolicy",
+               "Get-R53RResolverConfig",
                "Get-R53RResolverDnssecConfig",
                "Get-R53RResolverEndpoint",
                "Get-R53RResolverQueryLogConfig",
@@ -292,6 +301,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroupAssociationList",
                "Get-R53RFirewallRuleGroupList",
                "Get-R53RFirewallRuleList",
+               "Get-R53RResolverConfigList",
                "Get-R53RResolverDnssecConfigList",
                "Get-R53RResolverEndpointIpAddressList",
                "Get-R53RResolverEndpointList",
@@ -309,6 +319,7 @@ $R53R_SelectMap = @{
                "Edit-R53RFirewallDomain",
                "Edit-R53RFirewallRule",
                "Edit-R53RFirewallRuleGroupAssociation",
+               "Update-R53RResolverConfig",
                "Update-R53RResolverDnssecConfig",
                "Update-R53RResolverEndpoint",
                "Update-R53RResolverRule")

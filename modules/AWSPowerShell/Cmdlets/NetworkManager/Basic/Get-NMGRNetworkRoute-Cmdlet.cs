@@ -1,0 +1,407 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.NetworkManager;
+using Amazon.NetworkManager.Model;
+
+namespace Amazon.PowerShell.Cmdlets.NMGR
+{
+    /// <summary>
+    /// Gets the network routes of the specified global network.
+    /// </summary>
+    [Cmdlet("Get", "NMGRNetworkRoute")]
+    [OutputType("Amazon.NetworkManager.Model.GetNetworkRoutesResponse")]
+    [AWSCmdlet("Calls the AWS Network Manager GetNetworkRoutes API operation.", Operation = new[] {"GetNetworkRoutes"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetNetworkRoutesResponse))]
+    [AWSCmdletOutput("Amazon.NetworkManager.Model.GetNetworkRoutesResponse",
+        "This cmdlet returns an Amazon.NetworkManager.Model.GetNetworkRoutesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class GetNMGRNetworkRouteCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    {
+        
+        #region Parameter DestinationFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID,
+        /// RESOURCE_ID, or RESOURCE_TYPE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationFilters")]
+        public System.Collections.Hashtable DestinationFilter { get; set; }
+        #endregion
+        
+        #region Parameter ExactCidrMatch
+        /// <summary>
+        /// <para>
+        /// <para>An exact CIDR block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExactCidrMatches")]
+        public System.String[] ExactCidrMatch { get; set; }
+        #endregion
+        
+        #region Parameter GlobalNetworkId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the global network.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String GlobalNetworkId { get; set; }
+        #endregion
+        
+        #region Parameter LongestPrefixMatch
+        /// <summary>
+        /// <para>
+        /// <para>The most specific route that matches the traffic (longest prefix match).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LongestPrefixMatches")]
+        public System.String[] LongestPrefixMatch { get; set; }
+        #endregion
+        
+        #region Parameter PrefixListId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the prefix lists.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PrefixListIds")]
+        public System.String[] PrefixListId { get; set; }
+        #endregion
+        
+        #region Parameter State
+        /// <summary>
+        /// <para>
+        /// <para>The route states.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("States")]
+        public System.String[] State { get; set; }
+        #endregion
+        
+        #region Parameter SubnetOfMatch
+        /// <summary>
+        /// <para>
+        /// <para>The routes with a subnet that match the specified CIDR filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SubnetOfMatches")]
+        public System.String[] SubnetOfMatch { get; set; }
+        #endregion
+        
+        #region Parameter SupernetOfMatch
+        /// <summary>
+        /// <para>
+        /// <para>The routes with a CIDR that encompasses the CIDR filter. Example: If you specify 10.0.1.0/30,
+        /// then the result returns 10.0.1.0/29.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupernetOfMatches")]
+        public System.String[] SupernetOfMatch { get; set; }
+        #endregion
+        
+        #region Parameter RouteTableIdentifier_TransitGatewayRouteTableArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the transit gateway route table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RouteTableIdentifier_TransitGatewayRouteTableArn { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The route types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Types")]
+        public System.String[] Type { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.GetNetworkRoutesResponse).
+        /// Specifying the name of a property of type Amazon.NetworkManager.Model.GetNetworkRoutesResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the GlobalNetworkId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.GetNetworkRoutesResponse, GetNMGRNetworkRouteCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.GlobalNetworkId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DestinationFilter != null)
+            {
+                context.DestinationFilter = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DestinationFilter.Keys)
+                {
+                    object hashValue = this.DestinationFilter[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.DestinationFilter.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.DestinationFilter.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.ExactCidrMatch != null)
+            {
+                context.ExactCidrMatch = new List<System.String>(this.ExactCidrMatch);
+            }
+            context.GlobalNetworkId = this.GlobalNetworkId;
+            #if MODULAR
+            if (this.GlobalNetworkId == null && ParameterWasBound(nameof(this.GlobalNetworkId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GlobalNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.LongestPrefixMatch != null)
+            {
+                context.LongestPrefixMatch = new List<System.String>(this.LongestPrefixMatch);
+            }
+            if (this.PrefixListId != null)
+            {
+                context.PrefixListId = new List<System.String>(this.PrefixListId);
+            }
+            context.RouteTableIdentifier_TransitGatewayRouteTableArn = this.RouteTableIdentifier_TransitGatewayRouteTableArn;
+            if (this.State != null)
+            {
+                context.State = new List<System.String>(this.State);
+            }
+            if (this.SubnetOfMatch != null)
+            {
+                context.SubnetOfMatch = new List<System.String>(this.SubnetOfMatch);
+            }
+            if (this.SupernetOfMatch != null)
+            {
+                context.SupernetOfMatch = new List<System.String>(this.SupernetOfMatch);
+            }
+            if (this.Type != null)
+            {
+                context.Type = new List<System.String>(this.Type);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.NetworkManager.Model.GetNetworkRoutesRequest();
+            
+            if (cmdletContext.DestinationFilter != null)
+            {
+                request.DestinationFilters = cmdletContext.DestinationFilter;
+            }
+            if (cmdletContext.ExactCidrMatch != null)
+            {
+                request.ExactCidrMatches = cmdletContext.ExactCidrMatch;
+            }
+            if (cmdletContext.GlobalNetworkId != null)
+            {
+                request.GlobalNetworkId = cmdletContext.GlobalNetworkId;
+            }
+            if (cmdletContext.LongestPrefixMatch != null)
+            {
+                request.LongestPrefixMatches = cmdletContext.LongestPrefixMatch;
+            }
+            if (cmdletContext.PrefixListId != null)
+            {
+                request.PrefixListIds = cmdletContext.PrefixListId;
+            }
+            
+             // populate RouteTableIdentifier
+            var requestRouteTableIdentifierIsNull = true;
+            request.RouteTableIdentifier = new Amazon.NetworkManager.Model.RouteTableIdentifier();
+            System.String requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn = null;
+            if (cmdletContext.RouteTableIdentifier_TransitGatewayRouteTableArn != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn = cmdletContext.RouteTableIdentifier_TransitGatewayRouteTableArn;
+            }
+            if (requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn != null)
+            {
+                request.RouteTableIdentifier.TransitGatewayRouteTableArn = requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn;
+                requestRouteTableIdentifierIsNull = false;
+            }
+             // determine if request.RouteTableIdentifier should be set to null
+            if (requestRouteTableIdentifierIsNull)
+            {
+                request.RouteTableIdentifier = null;
+            }
+            if (cmdletContext.State != null)
+            {
+                request.States = cmdletContext.State;
+            }
+            if (cmdletContext.SubnetOfMatch != null)
+            {
+                request.SubnetOfMatches = cmdletContext.SubnetOfMatch;
+            }
+            if (cmdletContext.SupernetOfMatch != null)
+            {
+                request.SupernetOfMatches = cmdletContext.SupernetOfMatch;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Types = cmdletContext.Type;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.NetworkManager.Model.GetNetworkRoutesResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.GetNetworkRoutesRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "GetNetworkRoutes");
+            try
+            {
+                #if DESKTOP
+                return client.GetNetworkRoutes(request);
+                #elif CORECLR
+                return client.GetNetworkRoutesAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public Dictionary<System.String, List<System.String>> DestinationFilter { get; set; }
+            public List<System.String> ExactCidrMatch { get; set; }
+            public System.String GlobalNetworkId { get; set; }
+            public List<System.String> LongestPrefixMatch { get; set; }
+            public List<System.String> PrefixListId { get; set; }
+            public System.String RouteTableIdentifier_TransitGatewayRouteTableArn { get; set; }
+            public List<System.String> State { get; set; }
+            public List<System.String> SubnetOfMatch { get; set; }
+            public List<System.String> SupernetOfMatch { get; set; }
+            public List<System.String> Type { get; set; }
+            public System.Func<Amazon.NetworkManager.Model.GetNetworkRoutesResponse, GetNMGRNetworkRouteCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

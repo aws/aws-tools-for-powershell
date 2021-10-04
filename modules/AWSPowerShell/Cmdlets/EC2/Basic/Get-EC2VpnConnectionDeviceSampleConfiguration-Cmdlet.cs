@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Download an AWS-provided sample configuration file to be used with the customer gateway
-    /// device specified for your Site-to-Site VPN connection.
+    /// Download an Amazon Web Services-provided sample configuration file to be used with
+    /// the customer gateway device specified for your Site-to-Site VPN connection.
     /// </summary>
     [Cmdlet("Get", "EC2VpnConnectionDeviceSampleConfiguration")]
     [OutputType("System.String")]

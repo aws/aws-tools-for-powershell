@@ -88,6 +88,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -116,6 +120,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUseCase" Verb="Remove" Noun="UseCase" ShouldProcessTarget="UseCaseId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -129,6 +137,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAgentStatus" OutputProperty="AgentStatus" Verb="Get" Noun="AgentStatus" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContact" OutputProperty="Contact" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -161,6 +173,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRoutingProfile" OutputProperty="RoutingProfile" Verb="Get" Noun="RoutingProfile" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="SecurityProfile" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -240,6 +256,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContactReferences" OutputProperty="ReferenceSummaryList" Verb="Get" Noun="ContactReferenceList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -300,6 +320,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityProfilePermissions" OutputProperty="Permissions" Verb="Get" Noun="SecurityProfilePermissionList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -332,6 +356,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartContactStreaming" OutputProperty="StreamingId" Verb="Start" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -345,6 +373,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopContactRecording" Verb="Stop" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopContactStreaming" Verb="Stop" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -364,6 +396,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactAttributes" Verb="Update" Noun="ContactAttribute" ShouldProcessTarget="InitialContactId" PipelineParameter="InitialContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -373,6 +409,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactFlowName" Verb="Update" Noun="ContactFlowName" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContactSchedule" Verb="Update" Noun="ContactSchedule" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -434,6 +474,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoutingProfileQueues" Verb="Update" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityProfile" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

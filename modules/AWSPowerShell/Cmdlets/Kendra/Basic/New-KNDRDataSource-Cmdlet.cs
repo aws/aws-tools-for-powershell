@@ -28,13 +28,12 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Creates a data source that you use to with an Amazon Kendra index. 
+    /// Creates a data source that you want to use with an Amazon Kendra index. 
     /// 
     ///  
     /// <para>
     /// You specify a name, data source connector type and description for your data source.
-    /// You also specify configuration information such as document metadata (author, source
-    /// URI, and so on) and user context information.
+    /// You also specify configuration information for the data source connector.
     /// </para><para><code>CreateDataSource</code> is a synchronous operation. The operation returns 200
     /// if the data source was successfully created. Otherwise, an exception is raised.
     /// </para>
@@ -86,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IndexId { get; set; }
+        #endregion
+        
+        #region Parameter LanguageCode
+        /// <summary>
+        /// <para>
+        /// <para>The code for a language. This allows you to support a language for all documents when
+        /// creating the data source. English is supported by default. For more information on
+        /// supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+        /// documents in languages other than English</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LanguageCode { get; set; }
         #endregion
         
         #region Parameter Name
@@ -247,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LanguageCode = this.LanguageCode;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -298,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.IndexId != null)
             {
                 request.IndexId = cmdletContext.IndexId;
+            }
+            if (cmdletContext.LanguageCode != null)
+            {
+                request.LanguageCode = cmdletContext.LanguageCode;
             }
             if (cmdletContext.Name != null)
             {
@@ -384,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public Amazon.Kendra.Model.DataSourceConfiguration Configuration { get; set; }
             public System.String Description { get; set; }
             public System.String IndexId { get; set; }
+            public System.String LanguageCode { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Schedule { get; set; }

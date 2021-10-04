@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter CreatedBy
         /// <summary>
         /// <para>
-        /// <para>The user ID of the user that created the streaming session.</para>
+        /// <para>Filters the request to streaming sessions created by the given user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter OwnedBy
         /// <summary>
         /// <para>
-        /// <para>The user ID of the user that owns the streaming session.</para>
+        /// <para>Filters the request to streaming session owned by the given user</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>A collection of session IDs.</para>
+        /// <para>Filters the request to only the provided session IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or null if there are no more results.</para>
+        /// <para>The token to request the next page of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

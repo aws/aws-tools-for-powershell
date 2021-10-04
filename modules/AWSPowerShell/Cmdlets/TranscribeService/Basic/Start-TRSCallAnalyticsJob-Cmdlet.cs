@@ -99,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter Settings_LanguageIdSetting
+        /// <summary>
+        /// <para>
+        /// <para>The language identification settings associated with your call analytics job. These
+        /// settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
+        /// <code>LanguageModelName</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_LanguageIdSettings")]
+        public System.Collections.Hashtable Settings_LanguageIdSetting { get; set; }
+        #endregion
+        
         #region Parameter Settings_LanguageModelName
         /// <summary>
         /// <para>
@@ -332,6 +345,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.OutputLocation = this.OutputLocation;
             context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
             context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
+            if (this.Settings_LanguageIdSetting != null)
+            {
+                context.Settings_LanguageIdSetting = new Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Settings_LanguageIdSetting.Keys)
+                {
+                    context.Settings_LanguageIdSetting.Add((String)hashKey, (LanguageIdSettings)(this.Settings_LanguageIdSetting[hashKey]));
+                }
+            }
             context.Settings_LanguageModelName = this.Settings_LanguageModelName;
             if (this.Settings_LanguageOption != null)
             {
@@ -409,6 +430,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
              // populate Settings
             var requestSettingsIsNull = true;
             request.Settings = new Amazon.TranscribeService.Model.CallAnalyticsJobSettings();
+            Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings> requestSettings_settings_LanguageIdSetting = null;
+            if (cmdletContext.Settings_LanguageIdSetting != null)
+            {
+                requestSettings_settings_LanguageIdSetting = cmdletContext.Settings_LanguageIdSetting;
+            }
+            if (requestSettings_settings_LanguageIdSetting != null)
+            {
+                request.Settings.LanguageIdSettings = requestSettings_settings_LanguageIdSetting;
+                requestSettingsIsNull = false;
+            }
             System.String requestSettings_settings_LanguageModelName = null;
             if (cmdletContext.Settings_LanguageModelName != null)
             {
@@ -569,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String OutputLocation { get; set; }
             public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
             public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
+            public Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings> Settings_LanguageIdSetting { get; set; }
             public System.String Settings_LanguageModelName { get; set; }
             public List<System.String> Settings_LanguageOption { get; set; }
             public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }

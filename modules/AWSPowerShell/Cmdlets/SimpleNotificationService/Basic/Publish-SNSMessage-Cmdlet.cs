@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// that is subscribed to the topic. The format of the message depends on the notification
     /// protocol for each subscribed endpoint.
     /// </para><para>
-    /// When a <code>messageId</code> is returned, the message has been saved and Amazon SNS
-    /// will attempt to deliver it shortly.
+    /// When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
+    /// deliverers it to subscribers.
     /// </para><para>
-    /// To use the <code>Publish</code> action for sending a message to a mobile endpoint,
+    /// To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
     /// such as an app on a Kindle device or mobile phone, you must specify the EndpointArn
     /// for the TargetArn parameter. The EndpointArn is returned when making a call with the
     /// <code>CreatePlatformEndpoint</code> action. 
@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send
     /// Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. 
     /// </para><important><para>
-    /// You can publish messages only to topics and endpoints in the same Region.
+    /// You can publish messages only to topics and endpoints in the same Amazon Web Services
+    /// Region.
     /// </para></important>
     /// </summary>
     [Cmdlet("Publish", "SNSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -106,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code>
-        /// can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
+        /// can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation
+        /// <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
         /// used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code>
         /// is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
         /// during the 5-minute deduplication interval is treated as a duplicate. </para><para>If the topic has <code>ContentBasedDeduplication</code> set, the system generates
@@ -122,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code>
-        /// can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to
+        /// can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation
+        /// <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to
         /// a specific message group. Messages that belong to the same message group are processed
         /// in a FIFO manner (however, messages in different message groups might be processed
         /// out of order). Every message must include a <code>MessageGroupId</code>.</para>

@@ -50,7 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.WAFV2.Scope")]
         public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
@@ -143,6 +149,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             context.Limit = this.Limit;
             context.NextMarker = this.NextMarker;
             context.Scope = this.Scope;
+            #if MODULAR
+            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

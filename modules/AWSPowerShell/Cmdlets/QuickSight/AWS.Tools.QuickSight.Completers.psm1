@@ -158,6 +158,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IngestionType
+        "New-QSIngestion/IngestionType"
+        {
+            $v = "FULL_REFRESH","INCREMENTAL_REFRESH"
+            break
+        }
+
         # Amazon.QuickSight.MemberType
         {
             ($_ -eq "New-QSFolderMembership/MemberType") -Or
@@ -234,6 +241,7 @@ $QS_map = @{
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
+    "IngestionType"=@("New-QSIngestion")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
@@ -344,6 +352,7 @@ $QS_SelectMap = @{
                "Get-QSGroup",
                "Get-QSIAMPolicyAssignment",
                "Get-QSIngestion",
+               "Get-QSIpRestriction",
                "Get-QSNamespace",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
@@ -400,6 +409,7 @@ $QS_SelectMap = @{
                "Update-QSFolderPermission",
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
+               "Update-QSIpRestriction",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",

@@ -115,6 +115,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? OracleSettings_AddSupplementalLogging { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_AfterConnectScript
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a script to run immediately after DMS connects to the endpoint. The migration
+        /// task continues running regardless if the SQL statement succeeds or fails.</para><para>For this parameter, provide the code of the script itself, not the name of a file
+        /// containing the script. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_AfterConnectScript { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_AfterConnectScript
         /// <summary>
         /// <para>
@@ -552,6 +564,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_CleanSourceMetadataOnMismatch
+        /// <summary>
+        /// <para>
+        /// <para>Adjusts the behavior of DMS when migrating from an SQL Server source database that
+        /// is hosted as part of an Always On availability group cluster. If you need DMS to poll
+        /// all the nodes in the Always On cluster for transaction backups, set this attribute
+        /// to <code>false</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? GcpMySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_CleanSourceMetadataOnMismatch
         /// <summary>
         /// <para>
@@ -697,6 +722,21 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DocDbSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter GcpMySQLSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly
+        /// specify the database using the <code>DatabaseName</code> request parameter on either
+        /// the <code>CreateEndpoint</code> or <code>ModifyEndpoint</code> API call. Specifying
+        /// <code>DatabaseName</code> when you create or modify a MySQL endpoint replicates all
+        /// the task tables to this single database. For MySQL endpoints, you specify the database
+        /// only when you specify the schema in the table-mapping rules of the DMS task. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_DatabaseName { get; set; }
         #endregion
         
         #region Parameter IBMDb2Settings_DatabaseName
@@ -1060,8 +1100,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ElasticsearchSettings_EndpointUri
         /// <summary>
         /// <para>
-        /// <para>The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a transport protocol
-        /// (http/https) is not specified.</para>
+        /// <para>The endpoint for the OpenSearch cluster. DMS uses HTTPS if a transport protocol (http/https)
+        /// is not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1073,10 +1113,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values, depending on the EndpointType,
         /// include <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>, <code>"mariadb"</code>,
-        /// <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"redshift"</code>,
-        /// <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>,
-        /// <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
-        /// <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+        /// <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
+        /// <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
+        /// <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>,
+        /// <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
         /// and <code>"neptune"</code>.</para>
         /// </para>
         /// </summary>
@@ -1087,7 +1127,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ElasticsearchSettings_ErrorRetryDuration
         /// <summary>
         /// <para>
-        /// <para>The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch
+        /// <para>The maximum number of seconds for which DMS retries failed API requests to the OpenSearch
         /// cluster.</para>
         /// </para>
         /// </summary>
@@ -1106,11 +1146,22 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_EventsPollInterval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how often to check the binary log for new changes/events when the database
+        /// is idle. The default is five seconds.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, DMS checks for changes in the binary logs every five seconds. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? GcpMySQLSettings_EventsPollInterval { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_EventsPollInterval
         /// <summary>
         /// <para>
         /// <para>Specifies how often to check the binary log for new changes/events when the database
-        /// is idle.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, DMS checks for changes in the binary logs every five seconds.</para>
+        /// is idle. The default is five seconds.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, DMS checks for changes in the binary logs every five seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1284,9 +1335,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The maximum percentage of records that can fail to be written before a full load operation
         /// stops.</para><para>To avoid early failure, this counter is only effective after 1000 records are transferred.
-        /// Elasticsearch also has the concept of error monitoring during the last 10 minutes
-        /// of an Observation Window. If transfer of all records fail in the last 10 minutes,
-        /// the full load operation stops. </para>
+        /// OpenSearch also has the concept of error monitoring during the last 10 minutes of
+        /// an Observation Window. If transfer of all records fail in the last 10 minutes, the
+        /// full load operation stops. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1533,6 +1584,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible
+        /// database.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? GcpMySQLSettings_MaxFileSize { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_MaxFileSize
         /// <summary>
         /// <para>
@@ -1734,13 +1796,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? OracleSettings_ParallelAsmReadThread { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_ParallelLoadThread
+        /// <summary>
+        /// <para>
+        /// <para>Improves performance when loading data into the MySQL-compatible target database.
+        /// Specifies how many threads to use to load the data into the MySQL-compatible target
+        /// database. Setting a large number of threads can have an adverse effect on database
+        /// performance, because a separate connection is required for each thread. The default
+        /// is one.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GcpMySQLSettings_ParallelLoadThreads")]
+        public System.Int32? GcpMySQLSettings_ParallelLoadThread { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_ParallelLoadThread
         /// <summary>
         /// <para>
         /// <para>Improves performance when loading data into the MySQL-compatible target database.
         /// Specifies how many threads to use to load the data into the MySQL-compatible target
         /// database. Setting a large number of threads can have an adverse effect on database
-        /// performance, because a separate connection is required for each thread.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// performance, because a separate connection is required for each thread. The default
+        /// is one.</para><para>Example: <code>parallelLoadThreads=1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1817,6 +1895,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DocDbSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter GcpMySQLSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_Password { get; set; }
         #endregion
         
         #region Parameter IBMDb2Settings_Password
@@ -1931,6 +2019,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? DocDbSettings_Port { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_Port
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? GcpMySQLSettings_Port { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_Port
         /// <summary>
         /// <para>
@@ -1994,7 +2092,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_Port
         /// <summary>
         /// <para>
-        /// <para>Endpoint TCP port.</para>
+        /// <para>Endpoint TCP port. The default is 5432.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2024,7 +2122,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SybaseSettings_Port
         /// <summary>
         /// <para>
-        /// <para>Endpoint TCP port.</para>
+        /// <para>Endpoint TCP port. The default is 5000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2277,6 +2375,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_SecretsManagerAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
+        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret.</code>
+        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
+        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
+        /// to the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access Database Migration Service resources</a> in the Database Migration
+        /// Service User Guide. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_SecretsManagerAccessRoleArn
         /// <summary>
         /// <para>
@@ -2488,6 +2607,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_SecretsManagerSecretId { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the MySQL endpoint connection details. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_SecretsManagerSecretId
         /// <summary>
         /// <para>
@@ -2634,6 +2764,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_ServerName { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_ServerName { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_ServerName
         /// <summary>
         /// <para>
@@ -2757,6 +2897,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Settings_ServerSideEncryptionKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter GcpMySQLSettings_ServerTimezone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <code>serverTimezone=US/Pacific;</code></para><para>Note: Do not enclose time zones in single quotes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_ServerTimezone { get; set; }
         #endregion
         
         #region Parameter MySQLSettings_ServerTimezone
@@ -3014,6 +3164,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String KinesisSettings_StreamArn { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_TargetDbType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where to migrate source tables on the target, either to a single database
+        /// or multiple databases.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.TargetDbType")]
+        public Amazon.DatabaseMigrationService.TargetDbType GcpMySQLSettings_TargetDbType { get; set; }
+        #endregion
+        
         #region Parameter MySQLSettings_TargetDbType
         /// <summary>
         /// <para>
@@ -3197,6 +3359,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_Username { get; set; }
         #endregion
         
+        #region Parameter GcpMySQLSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GcpMySQLSettings_Username { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_Username
         /// <summary>
         /// <para>
@@ -3285,6 +3457,22 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Username { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_UseTaskStartTimeForFullLoadTimestamp
+        /// <summary>
+        /// <para>
+        /// <para>When set to true, this parameter uses the task start time as the timestamp column
+        /// value instead of the time data is written to target. For full load, when <code>useTaskStartTimeForFullLoadTimestamp</code>
+        /// is set to <code>true</code>, each row of the timestamp column contains the task start
+        /// time. For CDC loads, each row of the timestamp column contains the transaction commit
+        /// time.</para><para>When <code>useTaskStartTimeForFullLoadTimestamp</code> is set to <code>false</code>,
+        /// the full load timestamp in the timestamp column increments with the time data arrives
+        /// at the target. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3Settings_UseTaskStartTimeForFullLoadTimestamp { get; set; }
         #endregion
         
         #region Parameter MicrosoftSQLServerSettings_UseThirdPartyBackupDevice
@@ -3404,6 +3592,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ExactSetting = this.ExactSetting;
             context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttribute = this.ExtraConnectionAttribute;
+            context.GcpMySQLSettings_AfterConnectScript = this.GcpMySQLSettings_AfterConnectScript;
+            context.GcpMySQLSettings_CleanSourceMetadataOnMismatch = this.GcpMySQLSettings_CleanSourceMetadataOnMismatch;
+            context.GcpMySQLSettings_DatabaseName = this.GcpMySQLSettings_DatabaseName;
+            context.GcpMySQLSettings_EventsPollInterval = this.GcpMySQLSettings_EventsPollInterval;
+            context.GcpMySQLSettings_MaxFileSize = this.GcpMySQLSettings_MaxFileSize;
+            context.GcpMySQLSettings_ParallelLoadThread = this.GcpMySQLSettings_ParallelLoadThread;
+            context.GcpMySQLSettings_Password = this.GcpMySQLSettings_Password;
+            context.GcpMySQLSettings_Port = this.GcpMySQLSettings_Port;
+            context.GcpMySQLSettings_SecretsManagerAccessRoleArn = this.GcpMySQLSettings_SecretsManagerAccessRoleArn;
+            context.GcpMySQLSettings_SecretsManagerSecretId = this.GcpMySQLSettings_SecretsManagerSecretId;
+            context.GcpMySQLSettings_ServerName = this.GcpMySQLSettings_ServerName;
+            context.GcpMySQLSettings_ServerTimezone = this.GcpMySQLSettings_ServerTimezone;
+            context.GcpMySQLSettings_TargetDbType = this.GcpMySQLSettings_TargetDbType;
+            context.GcpMySQLSettings_Username = this.GcpMySQLSettings_Username;
             context.IBMDb2Settings_CurrentLsn = this.IBMDb2Settings_CurrentLsn;
             context.IBMDb2Settings_DatabaseName = this.IBMDb2Settings_DatabaseName;
             context.IBMDb2Settings_MaxKBytesPerRead = this.IBMDb2Settings_MaxKBytesPerRead;
@@ -3627,6 +3829,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_ServiceAccessRoleArn = this.S3Settings_ServiceAccessRoleArn;
             context.S3Settings_TimestampColumnName = this.S3Settings_TimestampColumnName;
             context.S3Settings_UseCsvNoSupValue = this.S3Settings_UseCsvNoSupValue;
+            context.S3Settings_UseTaskStartTimeForFullLoadTimestamp = this.S3Settings_UseTaskStartTimeForFullLoadTimestamp;
             context.ServerName = this.ServerName;
             context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
             context.SslMode = this.SslMode;
@@ -3905,6 +4108,155 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ExtraConnectionAttribute != null)
             {
                 request.ExtraConnectionAttributes = cmdletContext.ExtraConnectionAttribute;
+            }
+            
+             // populate GcpMySQLSettings
+            var requestGcpMySQLSettingsIsNull = true;
+            request.GcpMySQLSettings = new Amazon.DatabaseMigrationService.Model.GcpMySQLSettings();
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_AfterConnectScript = null;
+            if (cmdletContext.GcpMySQLSettings_AfterConnectScript != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_AfterConnectScript = cmdletContext.GcpMySQLSettings_AfterConnectScript;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_AfterConnectScript != null)
+            {
+                request.GcpMySQLSettings.AfterConnectScript = requestGcpMySQLSettings_gcpMySQLSettings_AfterConnectScript;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.Boolean? requestGcpMySQLSettings_gcpMySQLSettings_CleanSourceMetadataOnMismatch = null;
+            if (cmdletContext.GcpMySQLSettings_CleanSourceMetadataOnMismatch != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_CleanSourceMetadataOnMismatch = cmdletContext.GcpMySQLSettings_CleanSourceMetadataOnMismatch.Value;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_CleanSourceMetadataOnMismatch != null)
+            {
+                request.GcpMySQLSettings.CleanSourceMetadataOnMismatch = requestGcpMySQLSettings_gcpMySQLSettings_CleanSourceMetadataOnMismatch.Value;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_DatabaseName = null;
+            if (cmdletContext.GcpMySQLSettings_DatabaseName != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_DatabaseName = cmdletContext.GcpMySQLSettings_DatabaseName;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_DatabaseName != null)
+            {
+                request.GcpMySQLSettings.DatabaseName = requestGcpMySQLSettings_gcpMySQLSettings_DatabaseName;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestGcpMySQLSettings_gcpMySQLSettings_EventsPollInterval = null;
+            if (cmdletContext.GcpMySQLSettings_EventsPollInterval != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_EventsPollInterval = cmdletContext.GcpMySQLSettings_EventsPollInterval.Value;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_EventsPollInterval != null)
+            {
+                request.GcpMySQLSettings.EventsPollInterval = requestGcpMySQLSettings_gcpMySQLSettings_EventsPollInterval.Value;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestGcpMySQLSettings_gcpMySQLSettings_MaxFileSize = null;
+            if (cmdletContext.GcpMySQLSettings_MaxFileSize != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_MaxFileSize = cmdletContext.GcpMySQLSettings_MaxFileSize.Value;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_MaxFileSize != null)
+            {
+                request.GcpMySQLSettings.MaxFileSize = requestGcpMySQLSettings_gcpMySQLSettings_MaxFileSize.Value;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestGcpMySQLSettings_gcpMySQLSettings_ParallelLoadThread = null;
+            if (cmdletContext.GcpMySQLSettings_ParallelLoadThread != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_ParallelLoadThread = cmdletContext.GcpMySQLSettings_ParallelLoadThread.Value;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_ParallelLoadThread != null)
+            {
+                request.GcpMySQLSettings.ParallelLoadThreads = requestGcpMySQLSettings_gcpMySQLSettings_ParallelLoadThread.Value;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_Password = null;
+            if (cmdletContext.GcpMySQLSettings_Password != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_Password = cmdletContext.GcpMySQLSettings_Password;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_Password != null)
+            {
+                request.GcpMySQLSettings.Password = requestGcpMySQLSettings_gcpMySQLSettings_Password;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestGcpMySQLSettings_gcpMySQLSettings_Port = null;
+            if (cmdletContext.GcpMySQLSettings_Port != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_Port = cmdletContext.GcpMySQLSettings_Port.Value;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_Port != null)
+            {
+                request.GcpMySQLSettings.Port = requestGcpMySQLSettings_gcpMySQLSettings_Port.Value;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.GcpMySQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerAccessRoleArn = cmdletContext.GcpMySQLSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.GcpMySQLSettings.SecretsManagerAccessRoleArn = requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerAccessRoleArn;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.GcpMySQLSettings_SecretsManagerSecretId != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerSecretId = cmdletContext.GcpMySQLSettings_SecretsManagerSecretId;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerSecretId != null)
+            {
+                request.GcpMySQLSettings.SecretsManagerSecretId = requestGcpMySQLSettings_gcpMySQLSettings_SecretsManagerSecretId;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_ServerName = null;
+            if (cmdletContext.GcpMySQLSettings_ServerName != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_ServerName = cmdletContext.GcpMySQLSettings_ServerName;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_ServerName != null)
+            {
+                request.GcpMySQLSettings.ServerName = requestGcpMySQLSettings_gcpMySQLSettings_ServerName;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_ServerTimezone = null;
+            if (cmdletContext.GcpMySQLSettings_ServerTimezone != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_ServerTimezone = cmdletContext.GcpMySQLSettings_ServerTimezone;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_ServerTimezone != null)
+            {
+                request.GcpMySQLSettings.ServerTimezone = requestGcpMySQLSettings_gcpMySQLSettings_ServerTimezone;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.TargetDbType requestGcpMySQLSettings_gcpMySQLSettings_TargetDbType = null;
+            if (cmdletContext.GcpMySQLSettings_TargetDbType != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_TargetDbType = cmdletContext.GcpMySQLSettings_TargetDbType;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_TargetDbType != null)
+            {
+                request.GcpMySQLSettings.TargetDbType = requestGcpMySQLSettings_gcpMySQLSettings_TargetDbType;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+            System.String requestGcpMySQLSettings_gcpMySQLSettings_Username = null;
+            if (cmdletContext.GcpMySQLSettings_Username != null)
+            {
+                requestGcpMySQLSettings_gcpMySQLSettings_Username = cmdletContext.GcpMySQLSettings_Username;
+            }
+            if (requestGcpMySQLSettings_gcpMySQLSettings_Username != null)
+            {
+                request.GcpMySQLSettings.Username = requestGcpMySQLSettings_gcpMySQLSettings_Username;
+                requestGcpMySQLSettingsIsNull = false;
+            }
+             // determine if request.GcpMySQLSettings should be set to null
+            if (requestGcpMySQLSettingsIsNull)
+            {
+                request.GcpMySQLSettings = null;
             }
             
              // populate IBMDb2Settings
@@ -6197,6 +6549,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.UseCsvNoSupValue = requestS3Settings_s3Settings_UseCsvNoSupValue.Value;
                 requestS3SettingsIsNull = false;
             }
+            System.Boolean? requestS3Settings_s3Settings_UseTaskStartTimeForFullLoadTimestamp = null;
+            if (cmdletContext.S3Settings_UseTaskStartTimeForFullLoadTimestamp != null)
+            {
+                requestS3Settings_s3Settings_UseTaskStartTimeForFullLoadTimestamp = cmdletContext.S3Settings_UseTaskStartTimeForFullLoadTimestamp.Value;
+            }
+            if (requestS3Settings_s3Settings_UseTaskStartTimeForFullLoadTimestamp != null)
+            {
+                request.S3Settings.UseTaskStartTimeForFullLoadTimestamp = requestS3Settings_s3Settings_UseTaskStartTimeForFullLoadTimestamp.Value;
+                requestS3SettingsIsNull = false;
+            }
              // determine if request.S3Settings should be set to null
             if (requestS3SettingsIsNull)
             {
@@ -6385,6 +6747,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? ExactSetting { get; set; }
             public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttribute { get; set; }
+            public System.String GcpMySQLSettings_AfterConnectScript { get; set; }
+            public System.Boolean? GcpMySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
+            public System.String GcpMySQLSettings_DatabaseName { get; set; }
+            public System.Int32? GcpMySQLSettings_EventsPollInterval { get; set; }
+            public System.Int32? GcpMySQLSettings_MaxFileSize { get; set; }
+            public System.Int32? GcpMySQLSettings_ParallelLoadThread { get; set; }
+            public System.String GcpMySQLSettings_Password { get; set; }
+            public System.Int32? GcpMySQLSettings_Port { get; set; }
+            public System.String GcpMySQLSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String GcpMySQLSettings_SecretsManagerSecretId { get; set; }
+            public System.String GcpMySQLSettings_ServerName { get; set; }
+            public System.String GcpMySQLSettings_ServerTimezone { get; set; }
+            public Amazon.DatabaseMigrationService.TargetDbType GcpMySQLSettings_TargetDbType { get; set; }
+            public System.String GcpMySQLSettings_Username { get; set; }
             public System.String IBMDb2Settings_CurrentLsn { get; set; }
             public System.String IBMDb2Settings_DatabaseName { get; set; }
             public System.Int32? IBMDb2Settings_MaxKBytesPerRead { get; set; }
@@ -6605,6 +6981,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String S3Settings_ServiceAccessRoleArn { get; set; }
             public System.String S3Settings_TimestampColumnName { get; set; }
             public System.Boolean? S3Settings_UseCsvNoSupValue { get; set; }
+            public System.Boolean? S3Settings_UseTaskStartTimeForFullLoadTimestamp { get; set; }
             public System.String ServerName { get; set; }
             public System.String ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// instance from a cluster, for example to perform system updates, update the Docker
     /// daemon, or scale down the cluster size.
     /// </para><important><para>
-    /// A container instance cannot be changed to <code>DRAINING</code> until it has reached
+    /// A container instance can't be changed to <code>DRAINING</code> until it has reached
     /// an <code>ACTIVE</code> status. If the instance is in any other status, an error will
     /// be received.
     /// </para></important><para>
@@ -57,20 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting
     /// two new tasks. If the minimum is 100%, the service scheduler can't remove existing
     /// tasks until the replacement tasks are considered healthy. Tasks for services that
-    /// do not use a load balancer are considered healthy if they are in the <code>RUNNING</code>
-    /// state. Tasks for services that use a load balancer are considered healthy if they
-    /// are in the <code>RUNNING</code> state and the container instance they are hosted on
-    /// is reported as healthy by the load balancer.
+    /// do not use a load balancer are considered healthy if they're in the <code>RUNNING</code>
+    /// state. Tasks for services that use a load balancer are considered healthy if they're
+    /// in the <code>RUNNING</code> state and the container instance they're hosted on is
+    /// reported as healthy by the load balancer.
     /// </para></li><li><para>
     /// The <code>maximumPercent</code> parameter represents an upper limit on the number
-    /// of running tasks during task replacement, which enables you to define the replacement
+    /// of running tasks during task replacement. You can use this to define the replacement
     /// batch size. For example, if <code>desiredCount</code> is four tasks, a maximum of
     /// 200% starts four new tasks before stopping the four tasks to be drained, provided
     /// that the cluster resources required to do this are available. If the maximum is 100%,
     /// then replacement tasks can't start until the draining tasks have stopped.
     /// </para></li></ul><para>
     /// Any <code>PENDING</code> or <code>RUNNING</code> tasks that do not belong to a service
-    /// are not affected. You must wait for them to finish or stop them manually.
+    /// aren't affected. You must wait for them to finish or stop them manually.
     /// </para><para>
     /// A container instance has completed draining when it has no more <code>RUNNING</code>
     /// tasks. You can verify this using <a>ListTasks</a>.
@@ -121,12 +121,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The container instance state with which to update the container instance. The only
-        /// valid values for this action are <code>ACTIVE</code> and <code>DRAINING</code>. A
-        /// container instance can only be updated to <code>DRAINING</code> status once it has
-        /// reached an <code>ACTIVE</code> state. If a container instance is in <code>REGISTERING</code>,
+        /// <para>The container instance state to update the container instance with. The only valid
+        /// values for this action are <code>ACTIVE</code> and <code>DRAINING</code>. A container
+        /// instance can only be updated to <code>DRAINING</code> status once it has reached an
+        /// <code>ACTIVE</code> state. If a container instance is in <code>REGISTERING</code>,
         /// <code>DEREGISTERING</code>, or <code>REGISTRATION_FAILED</code> state you can describe
-        /// the container instance but will be unable to update the container instance state.</para>
+        /// the container instance but can't update the container instance state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

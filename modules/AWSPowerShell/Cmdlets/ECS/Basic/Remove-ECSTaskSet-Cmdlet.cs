@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service
-        /// that the task set exists in to delete.</para>
+        /// that the task set found in to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, this allows you to delete a task set even if it hasn't been
-        /// scaled down to zero.</para>
+        /// <para>If <code>true</code>, you can delete a task set even if it hasn't been scaled down
+        /// to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -123,6 +123,17 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.BatchReportModeType
+        {
+            ($_ -eq "New-CBProject/BuildBatchConfig_BatchReportMode") -Or
+            ($_ -eq "Update-CBProject/BuildBatchConfig_BatchReportMode") -Or
+            ($_ -eq "Start-CBBatch/BuildBatchConfigOverride_BatchReportMode")
+        }
+        {
+            $v = "REPORT_AGGREGATED_BATCH","REPORT_INDIVIDUAL_BUILDS"
+            break
+        }
+
         # Amazon.CodeBuild.BucketOwnerAccess
         {
             ($_ -eq "New-CBProject/Artifacts_BucketOwnerAccess") -Or
@@ -392,6 +403,8 @@ $CB_map = @{
     "ArtifactsOverride_Packaging"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "AuthType"=@("Import-CBSourceCredential")
+    "BuildBatchConfig_BatchReportMode"=@("New-CBProject","Update-CBProject")
+    "BuildBatchConfigOverride_BatchReportMode"=@("Start-CBBatch")
     "BuildType"=@("New-CBWebhook","Update-CBWebhook")
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBatch","Start-CBBuild")

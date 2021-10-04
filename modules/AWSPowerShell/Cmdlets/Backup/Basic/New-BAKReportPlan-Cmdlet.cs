@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String[] ReportDeliveryChannel_Format { get; set; }
         #endregion
         
+        #region Parameter ReportSetting_FrameworkArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of the frameworks a report covers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportSetting_FrameworkArns")]
+        public System.String[] ReportSetting_FrameworkArn { get; set; }
+        #endregion
+        
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
@@ -68,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter ReportSetting_NumberOfFramework
+        /// <summary>
+        /// <para>
+        /// <para>The number of frameworks a report covers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportSetting_NumberOfFrameworks")]
+        public System.Int32? ReportSetting_NumberOfFramework { get; set; }
         #endregion
         
         #region Parameter ReportPlanDescription
@@ -102,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportPlanTag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can assign to help organize the frameworks that you create. Each
+        /// <para>Metadata that you can assign to help organize the report plans that you create. Each
         /// tag is a key-value pair.</para>
         /// </para>
         /// </summary>
@@ -115,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Identifies the report template for the report. Reports are built using a report template.
-        /// The report templates are:</para><para><code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code></para>
+        /// The report templates are:</para><para><code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT
+        /// | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -248,6 +271,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                     context.ReportPlanTag.Add((String)hashKey, (String)(this.ReportPlanTag[hashKey]));
                 }
             }
+            if (this.ReportSetting_FrameworkArn != null)
+            {
+                context.ReportSetting_FrameworkArn = new List<System.String>(this.ReportSetting_FrameworkArn);
+            }
+            context.ReportSetting_NumberOfFramework = this.ReportSetting_NumberOfFramework;
             context.ReportSetting_ReportTemplate = this.ReportSetting_ReportTemplate;
             #if MODULAR
             if (this.ReportSetting_ReportTemplate == null && ParameterWasBound(nameof(this.ReportSetting_ReportTemplate)))
@@ -330,6 +358,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
              // populate ReportSetting
             var requestReportSettingIsNull = true;
             request.ReportSetting = new Amazon.Backup.Model.ReportSetting();
+            List<System.String> requestReportSetting_reportSetting_FrameworkArn = null;
+            if (cmdletContext.ReportSetting_FrameworkArn != null)
+            {
+                requestReportSetting_reportSetting_FrameworkArn = cmdletContext.ReportSetting_FrameworkArn;
+            }
+            if (requestReportSetting_reportSetting_FrameworkArn != null)
+            {
+                request.ReportSetting.FrameworkArns = requestReportSetting_reportSetting_FrameworkArn;
+                requestReportSettingIsNull = false;
+            }
+            System.Int32? requestReportSetting_reportSetting_NumberOfFramework = null;
+            if (cmdletContext.ReportSetting_NumberOfFramework != null)
+            {
+                requestReportSetting_reportSetting_NumberOfFramework = cmdletContext.ReportSetting_NumberOfFramework.Value;
+            }
+            if (requestReportSetting_reportSetting_NumberOfFramework != null)
+            {
+                request.ReportSetting.NumberOfFrameworks = requestReportSetting_reportSetting_NumberOfFramework.Value;
+                requestReportSettingIsNull = false;
+            }
             System.String requestReportSetting_reportSetting_ReportTemplate = null;
             if (cmdletContext.ReportSetting_ReportTemplate != null)
             {
@@ -413,6 +461,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String ReportPlanDescription { get; set; }
             public System.String ReportPlanName { get; set; }
             public Dictionary<System.String, System.String> ReportPlanTag { get; set; }
+            public List<System.String> ReportSetting_FrameworkArn { get; set; }
+            public System.Int32? ReportSetting_NumberOfFramework { get; set; }
             public System.String ReportSetting_ReportTemplate { get; set; }
             public System.Func<Amazon.Backup.Model.CreateReportPlanResponse, NewBAKReportPlanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

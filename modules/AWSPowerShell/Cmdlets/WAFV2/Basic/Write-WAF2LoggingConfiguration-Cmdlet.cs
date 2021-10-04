@@ -36,24 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// You can access information about all traffic that WAF inspects using the following
     /// steps:
     /// </para><ol><li><para>
-    /// Create an Amazon Kinesis Data Firehose. 
-    /// </para><para>
-    /// Create the data firehose with a PUT source and in the Region that you are operating.
-    /// If you are capturing logs for Amazon CloudFront, always create the firehose in US
-    /// East (N. Virginia). 
-    /// </para><para>
-    /// Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>.
-    /// For example, <code>aws-waf-logs-us-east-2-analytics</code>.
-    /// </para><note><para>
-    /// Do not create the data firehose using a <code>Kinesis stream</code> as your source.
-    /// </para></note></li><li><para>
-    /// Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code>
+    /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
+    /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
+    /// For information about configuring logging destinations and the permissions that are
+    /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
+    /// </para></li><li><para>
+    /// Associate your logging destination to your web ACL using a <code>PutLoggingConfiguration</code>
     /// request.
     /// </para></li></ol><para>
     /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
-    /// request, WAF will create a service linked role with the necessary permissions to write
-    /// logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-    /// Web ACL Traffic Information</a> in the <i>WAF Developer Guide</i>.
+    /// request, WAF creates an additional role or policy that is required to write logs to
+    /// the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource
+    /// policy on the log group. For an Amazon S3 bucket, WAF creates a bucket policy. For
+    /// an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
     /// </para><note><para>
     /// This operation completely replaces the mutable specifications that you already have
     /// for the logging configuration with the ones that you provide to this call. To modify
@@ -99,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>
-        /// <para>The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate
+        /// <para>The Amazon Resource Names (ARNs) of the logging destinations that you want to associate
         /// with the web ACL.</para>
         /// </para>
         /// </summary>
@@ -131,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want to keep out of the logs. For example, if you
-        /// redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the firehose
+        /// redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs
         /// will be <code>xxx</code>. </para><note><para>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>,
         /// <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</para></note>
         /// </para>

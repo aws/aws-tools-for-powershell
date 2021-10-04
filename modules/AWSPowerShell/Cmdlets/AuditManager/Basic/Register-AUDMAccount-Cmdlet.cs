@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Enables Audit Manager for the specified account.
+    /// Enables Audit Manager for the specified Amazon Web Services account.
     /// </summary>
     [Cmdlet("Register", "AUDMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.AccountStatus")]

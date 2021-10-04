@@ -28,8 +28,8 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets summary information about live streams in your account, in the AWS region where
-    /// the API request is processed.
+    /// Gets summary information about live streams in your account, in the Amazon Web Services
+    /// region where the API request is processed.
     /// </summary>
     [Cmdlet("Get", "IVSStreamList")]
     [OutputType("Amazon.IVS.Model.StreamSummary")]
@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     )]
     public partial class GetIVSStreamListCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterBy_Health
+        /// <summary>
+        /// <para>
+        /// <para>The stream’s health.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.IVS.StreamHealth")]
+        public Amazon.IVS.StreamHealth FilterBy_Health { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -74,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public string Select { get; set; } = "Streams";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the FilterBy_Health parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FilterBy_Health' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FilterBy_Health' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -83,11 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IVS.Model.ListStreamsResponse, GetIVSStreamListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.FilterBy_Health;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.FilterBy_Health = this.FilterBy_Health;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -106,6 +138,25 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request
             var request = new Amazon.IVS.Model.ListStreamsRequest();
             
+            
+             // populate FilterBy
+            var requestFilterByIsNull = true;
+            request.FilterBy = new Amazon.IVS.Model.StreamFilters();
+            Amazon.IVS.StreamHealth requestFilterBy_filterBy_Health = null;
+            if (cmdletContext.FilterBy_Health != null)
+            {
+                requestFilterBy_filterBy_Health = cmdletContext.FilterBy_Health;
+            }
+            if (requestFilterBy_filterBy_Health != null)
+            {
+                request.FilterBy.Health = requestFilterBy_filterBy_Health;
+                requestFilterByIsNull = false;
+            }
+             // determine if request.FilterBy should be set to null
+            if (requestFilterByIsNull)
+            {
+                request.FilterBy = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -175,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IVS.StreamHealth FilterBy_Health { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IVS.Model.ListStreamsResponse, GetIVSStreamListCmdlet, object> Select { get; set; } =

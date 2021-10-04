@@ -215,6 +215,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelMetrics_ModelQuality_Statistics_ContentType { get; set; }
         #endregion
         
+        #region Parameter CustomerMetadataProperty
+        /// <summary>
+        /// <para>
+        /// <para>The metadata properties associated with the model package versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomerMetadataProperties")]
+        public System.Collections.Hashtable CustomerMetadataProperty { get; set; }
+        #endregion
+        
         #region Parameter MetadataProperties_GeneratedBy
         /// <summary>
         /// <para>
@@ -251,7 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the model group that this model version belongs to.</para><para>This parameter is required for versioned models, and does not apply to unversioned
+        /// <para>The name or Amazon Resource Name (ARN) of the model package group that this model
+        /// version belongs to.</para><para>This parameter is required for versioned models, and does not apply to unversioned
         /// models.</para>
         /// </para>
         /// </summary>
@@ -517,6 +529,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CertifyForMarketplace = this.CertifyForMarketplace;
             context.ClientToken = this.ClientToken;
+            if (this.CustomerMetadataProperty != null)
+            {
+                context.CustomerMetadataProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomerMetadataProperty.Keys)
+                {
+                    context.CustomerMetadataProperty.Add((String)hashKey, (String)(this.CustomerMetadataProperty[hashKey]));
+                }
+            }
             if (this.InferenceSpecification_Container != null)
             {
                 context.InferenceSpecification_Container = new List<Amazon.SageMaker.Model.ModelPackageContainerDefinition>(this.InferenceSpecification_Container);
@@ -599,6 +619,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CustomerMetadataProperty != null)
+            {
+                request.CustomerMetadataProperties = cmdletContext.CustomerMetadataProperty;
             }
             
              // populate InferenceSpecification
@@ -1178,6 +1202,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.Boolean? CertifyForMarketplace { get; set; }
             public System.String ClientToken { get; set; }
+            public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
             public List<Amazon.SageMaker.Model.ModelPackageContainerDefinition> InferenceSpecification_Container { get; set; }
             public List<System.String> InferenceSpecification_SupportedContentType { get; set; }
             public List<System.String> InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }

@@ -34,9 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks
-    /// on Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers
-    /// which are already created and available to all accounts in Regions supported by Fargate.
+    /// Only capacity providers that use an Auto Scaling group can be created. Amazon ECS
+    /// tasks on Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity
+    /// providers. These providers are available to all accounts in the Amazon Web Services
+    /// Regions that Fargate supports.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECSCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,12 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The managed termination protection setting to use for the Auto Scaling group capacity
         /// provider. This determines whether the Auto Scaling group has managed termination protection.</para><important><para>When using managed termination protection, managed scaling must also be used otherwise
-        /// managed termination protection will not work.</para></important><para>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2
+        /// managed termination protection doesn't work.</para></important><para>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2
         /// instances in an Auto Scaling group that contain tasks from being terminated during
         /// a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group
         /// must have instance protection from scale-in actions enabled as well. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
+        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances aren't
         /// protected from termination when the Auto Scaling group scales in.</para>
         /// </para>
         /// </summary>
@@ -101,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MaximumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of container instances that Amazon ECS will scale in or scale out
+        /// <para>The maximum number of container instances that Amazon ECS scales in or scales out
         /// at one time. If this parameter is omitted, the default value of <code>10000</code>
         /// is used.</para>
         /// </para>
@@ -114,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MinimumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of container instances that Amazon ECS will scale in or scale out
+        /// <para>The minimum number of container instances that Amazon ECS scales in or scales out
         /// at one time. If this parameter is omitted, the default value of <code>1</code> is
         /// used.</para>
         /// </para>
@@ -127,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the capacity provider. Up to 255 characters are allowed, including letters
-        /// (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed
-        /// with "<code>aws</code>", "<code>ecs</code>", or "<code>fargate</code>".</para>
+        /// <para>The name of the capacity provider. Up to 255 characters are allowed. They include
+        /// letters (both upper and lowercase letters), numbers, underscores (_), and hyphens
+        /// (-). The name can't be prefixed with "<code>aws</code>", "<code>ecs</code>", or "<code>fargate</code>".</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_Status
         /// <summary>
         /// <para>
-        /// <para>Whether or not to enable managed scaling for the capacity provider.</para>
+        /// <para>Determines whether to enable managed scaling for the capacity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The metadata that you apply to the capacity provider to help you categorize and organize
-        /// them. Each tag consists of a key and an optional value, both of which you define.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// <para>The metadata that you apply to the capacity provider to categorize and organize them
+        /// more conveniently. Each tag consists of a key and an optional value. You define both
+        /// of them.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
@@ -179,8 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The target capacity value for the capacity provider. The specified value must be greater
         /// than <code>0</code> and less than or equal to <code>100</code>. A value of <code>100</code>
-        /// will result in the Amazon EC2 instances in your Auto Scaling group being completely
-        /// utilized.</para>
+        /// results in the Amazon EC2 instances in your Auto Scaling group being completely used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

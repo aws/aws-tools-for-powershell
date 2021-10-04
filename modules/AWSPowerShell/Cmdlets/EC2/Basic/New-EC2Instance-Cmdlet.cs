@@ -324,9 +324,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpEndpoint
         /// <summary>
         /// <para>
-        /// <para>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-        /// the parameter is not specified, the default state is <code>enabled</code>.</para><note><para>If you specify a value of <code>disabled</code>, you will not be able to access your
-        /// instance metadata.</para></note>
+        /// <para>Enables or disables the HTTP metadata endpoint on your instances. If the parameter
+        /// is not specified, the default state is <code>enabled</code>.</para><para>If you specify a value of <code>disabled</code>, you will not be able to access your
+        /// instance metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

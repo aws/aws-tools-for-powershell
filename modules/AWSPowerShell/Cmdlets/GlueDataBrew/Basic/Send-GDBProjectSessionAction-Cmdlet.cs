@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class SendGDBProjectSessionActionCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        #region Parameter ViewFrame_Analytic
+        /// <summary>
+        /// <para>
+        /// <para>Controls if analytics computation is enabled or disabled. Enabled by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ViewFrame_Analytics")]
+        [AWSConstantClassSource("Amazon.GlueDataBrew.AnalyticsMode")]
+        public Amazon.GlueDataBrew.AnalyticsMode ViewFrame_Analytic { get; set; }
+        #endregion
+        
         #region Parameter ClientSessionId
         /// <summary>
         /// <para>
@@ -133,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.Boolean? Preview { get; set; }
         #endregion
         
+        #region Parameter ViewFrame_RowRange
+        /// <summary>
+        /// <para>
+        /// <para>The number of rows to include in the view frame, beginning with the <code>StartRowIndex</code>
+        /// value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ViewFrame_RowRange { get; set; }
+        #endregion
+        
         #region Parameter ViewFrame_StartColumnIndex
         /// <summary>
         /// <para>
@@ -141,6 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ViewFrame_StartColumnIndex { get; set; }
+        #endregion
+        
+        #region Parameter ViewFrame_StartRowIndex
+        /// <summary>
+        /// <para>
+        /// <para>The starting index for the range of rows to return in the view frame.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ViewFrame_StartRowIndex { get; set; }
         #endregion
         
         #region Parameter StepIndex
@@ -239,12 +272,15 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.RecipeStep_ConditionExpression = new List<Amazon.GlueDataBrew.Model.ConditionExpression>(this.RecipeStep_ConditionExpression);
             }
             context.StepIndex = this.StepIndex;
+            context.ViewFrame_Analytic = this.ViewFrame_Analytic;
             context.ViewFrame_ColumnRange = this.ViewFrame_ColumnRange;
             if (this.ViewFrame_HiddenColumn != null)
             {
                 context.ViewFrame_HiddenColumn = new List<System.String>(this.ViewFrame_HiddenColumn);
             }
+            context.ViewFrame_RowRange = this.ViewFrame_RowRange;
             context.ViewFrame_StartColumnIndex = this.ViewFrame_StartColumnIndex;
+            context.ViewFrame_StartRowIndex = this.ViewFrame_StartRowIndex;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -335,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
              // populate ViewFrame
             var requestViewFrameIsNull = true;
             request.ViewFrame = new Amazon.GlueDataBrew.Model.ViewFrame();
+            Amazon.GlueDataBrew.AnalyticsMode requestViewFrame_viewFrame_Analytic = null;
+            if (cmdletContext.ViewFrame_Analytic != null)
+            {
+                requestViewFrame_viewFrame_Analytic = cmdletContext.ViewFrame_Analytic;
+            }
+            if (requestViewFrame_viewFrame_Analytic != null)
+            {
+                request.ViewFrame.Analytics = requestViewFrame_viewFrame_Analytic;
+                requestViewFrameIsNull = false;
+            }
             System.Int32? requestViewFrame_viewFrame_ColumnRange = null;
             if (cmdletContext.ViewFrame_ColumnRange != null)
             {
@@ -355,6 +401,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 request.ViewFrame.HiddenColumns = requestViewFrame_viewFrame_HiddenColumn;
                 requestViewFrameIsNull = false;
             }
+            System.Int32? requestViewFrame_viewFrame_RowRange = null;
+            if (cmdletContext.ViewFrame_RowRange != null)
+            {
+                requestViewFrame_viewFrame_RowRange = cmdletContext.ViewFrame_RowRange.Value;
+            }
+            if (requestViewFrame_viewFrame_RowRange != null)
+            {
+                request.ViewFrame.RowRange = requestViewFrame_viewFrame_RowRange.Value;
+                requestViewFrameIsNull = false;
+            }
             System.Int32? requestViewFrame_viewFrame_StartColumnIndex = null;
             if (cmdletContext.ViewFrame_StartColumnIndex != null)
             {
@@ -363,6 +419,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestViewFrame_viewFrame_StartColumnIndex != null)
             {
                 request.ViewFrame.StartColumnIndex = requestViewFrame_viewFrame_StartColumnIndex.Value;
+                requestViewFrameIsNull = false;
+            }
+            System.Int32? requestViewFrame_viewFrame_StartRowIndex = null;
+            if (cmdletContext.ViewFrame_StartRowIndex != null)
+            {
+                requestViewFrame_viewFrame_StartRowIndex = cmdletContext.ViewFrame_StartRowIndex.Value;
+            }
+            if (requestViewFrame_viewFrame_StartRowIndex != null)
+            {
+                request.ViewFrame.StartRowIndex = requestViewFrame_viewFrame_StartRowIndex.Value;
                 requestViewFrameIsNull = false;
             }
              // determine if request.ViewFrame should be set to null
@@ -438,9 +504,12 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public Dictionary<System.String, System.String> Action_Parameter { get; set; }
             public List<Amazon.GlueDataBrew.Model.ConditionExpression> RecipeStep_ConditionExpression { get; set; }
             public System.Int32? StepIndex { get; set; }
+            public Amazon.GlueDataBrew.AnalyticsMode ViewFrame_Analytic { get; set; }
             public System.Int32? ViewFrame_ColumnRange { get; set; }
             public List<System.String> ViewFrame_HiddenColumn { get; set; }
+            public System.Int32? ViewFrame_RowRange { get; set; }
             public System.Int32? ViewFrame_StartColumnIndex { get; set; }
+            public System.Int32? ViewFrame_StartRowIndex { get; set; }
             public System.Func<Amazon.GlueDataBrew.Model.SendProjectSessionActionResponse, SendGDBProjectSessionActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

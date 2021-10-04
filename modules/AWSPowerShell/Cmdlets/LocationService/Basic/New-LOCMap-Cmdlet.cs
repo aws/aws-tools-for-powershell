@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your map resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing page</a>.</para>
+        /// <para>Specifies the pricing plan for your map resource.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// Location Service pricing</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,11 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Configuration_Style
         /// <summary>
         /// <para>
-        /// <para>Specifies the map style selected from an available data provider. For additional information
-        /// on each map style and to preview each map style, see <a href="location/latest/developerguide/esri.html#esri-map-styles">Esri
-        /// map styles</a> and <a href="location/latest/developerguide/HERE.html#HERE-map-styles">HERE
-        /// map styles</a>.</para><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
-        /// styles: </para><ul><li><para><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector
+        /// <para>Specifies the map style selected from an available data provider.</para><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri
+        /// map styles</a>:</para><ul><li><para><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector
         /// basemap with a dark gray, neutral background with minimal colors, labels, and features
         /// that's designed to draw attention to your thematic content. </para></li><li><para><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that
         /// provides one meter or better satellite and aerial imagery in many parts of the world
@@ -107,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// raster map.</para></li><li><para><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides
         /// a detailed basemap for the world symbolized with a custom navigation map style that's
         /// designed for use during the day in mobile devices.</para></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-        /// Technologies</a> styles: </para><ul><li><para><code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast detailed
+        /// Technologies map styles</a>:</para><ul><li><para><code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast detailed
         /// base map of the world that blends 3D and 2D rendering.</para><note><para>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>,
         /// you may not use HERE Technologies maps for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS
         /// Service Terms</a> for Amazon Location Service.</para></note></li></ul>
@@ -129,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
         /// identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. </para></li></ul>
+        /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

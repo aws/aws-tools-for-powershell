@@ -57,6 +57,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupVaultLockConfiguration" Verb="Remove" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackupVaultNotifications" Verb="Remove" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -218,6 +222,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBackupVaultAccessPolicy" Verb="Write" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBackupVaultLockConfiguration" Verb="Write" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the members you want to add to the channel.</para>
+        /// <para>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

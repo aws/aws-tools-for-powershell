@@ -166,7 +166,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartStreamingSession" OutputProperty="Session" Verb="Start" Noun="StreamingSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartStudioSSOConfigurationRepair" OutputProperty="Studio" Verb="Start" Noun="StudioSSOConfigurationRepair" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopStreamingSession" OutputProperty="Session" Verb="Stop" Noun="StreamingSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

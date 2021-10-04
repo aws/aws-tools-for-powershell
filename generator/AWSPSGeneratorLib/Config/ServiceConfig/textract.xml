@@ -39,11 +39,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExpenseAnalysis" OutputProperty="*" Verb="Get" Noun="ExpenseAnalysis" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentTextDetection" OutputProperty="JobId" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExpenseAnalysis" OutputProperty="JobId" Verb="Start" Noun="ExpenseAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

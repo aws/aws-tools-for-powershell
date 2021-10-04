@@ -28,7 +28,7 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Lists and gets information about your Amazon Rekognition Custom Labels projects.
+    /// Gets information about your Amazon Rekognition Custom Labels projects. 
     /// 
     ///  
     /// <para>
@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.REK
     )]
     public partial class GetREKProjectCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
+        
+        #region Parameter ProjectName
+        /// <summary>
+        /// <para>
+        /// <para>A list of the projects that you want Amazon Rekognition Custom Labels to describe.
+        /// If you don't specify a value, the response includes descriptions for all the projects
+        /// in your AWS account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProjectNames")]
+        public System.String[] ProjectName { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -126,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.ProjectName != null)
+            {
+                context.ProjectName = new List<System.String>(this.ProjectName);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ProjectName != null)
+            {
+                request.ProjectNames = cmdletContext.ProjectName;
             }
             
             // Initialize loop variant and commence piping
@@ -204,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             
             // create request and set iteration invariants
             var request = new Amazon.Rekognition.Model.DescribeProjectsRequest();
+            if (cmdletContext.ProjectName != null)
+            {
+                request.ProjectNames = cmdletContext.ProjectName;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -325,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> ProjectName { get; set; }
             public System.Func<Amazon.Rekognition.Model.DescribeProjectsResponse, GetREKProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProjectDescriptions;
         }

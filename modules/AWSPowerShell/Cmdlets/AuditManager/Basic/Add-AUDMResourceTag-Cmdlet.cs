@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the specified resource. </para>
+        /// <para> The Amazon Resource Name (ARN) of the resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags to be associated with the resource. </para>
+        /// <para> The tags that are associated with the resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

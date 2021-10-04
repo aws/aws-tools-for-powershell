@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     ///  
     /// <para>
     /// For more information about DMS task assessments, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating
-    /// a task assessment report</a> in the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/Welcome.html">
-    /// Database Migration Service User Guide</a>.
+    /// a task assessment report</a> in the <i>Database Migration Service User Guide</i>.
     /// </para><br/><br/>In the AWS.Tools.DatabaseMigrationService module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSReplicationTaskAssessmentResult")]

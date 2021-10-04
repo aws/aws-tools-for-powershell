@@ -63,6 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.Collections.Hashtable FederationParameters_AttributeMap { get; set; }
         #endregion
         
+        #region Parameter DataBundle
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently
+        /// supported data bundle ARNs:</para><ul><li><para><code>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</code> - Contains
+        /// sample Capital Markets datasets, categories and controlled vocabularies.</para></li><li><para><code>arn:aws:finspace:${Region}::data-bundle/taq</code> (default) - Contains trades
+        /// and quotes data in addition to sample Capital Markets data.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataBundles")]
+        public System.String[] DataBundle { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -71,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter SuperuserParameters_EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the superuser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SuperuserParameters_EmailAddress { get; set; }
         #endregion
         
         #region Parameter FederationMode
@@ -107,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.String FederationParameters_FederationURN { get; set; }
         #endregion
         
+        #region Parameter SuperuserParameters_FirstName
+        /// <summary>
+        /// <para>
+        /// <para>The first name of the superuser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SuperuserParameters_FirstName { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -115,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter SuperuserParameters_LastName
+        /// <summary>
+        /// <para>
+        /// <para>The last name of the superuser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SuperuserParameters_LastName { get; set; }
         #endregion
         
         #region Parameter Name
@@ -226,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DataBundle != null)
+            {
+                context.DataBundle = new List<System.String>(this.DataBundle);
+            }
             context.Description = this.Description;
             context.FederationMode = this.FederationMode;
             context.FederationParameters_ApplicationCallBackURL = this.FederationParameters_ApplicationCallBackURL;
@@ -249,6 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SuperuserParameters_EmailAddress = this.SuperuserParameters_EmailAddress;
+            context.SuperuserParameters_FirstName = this.SuperuserParameters_FirstName;
+            context.SuperuserParameters_LastName = this.SuperuserParameters_LastName;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -273,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             // create request
             var request = new Amazon.Finspace.Model.CreateEnvironmentRequest();
             
+            if (cmdletContext.DataBundle != null)
+            {
+                request.DataBundles = cmdletContext.DataBundle;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -358,6 +413,45 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate SuperuserParameters
+            var requestSuperuserParametersIsNull = true;
+            request.SuperuserParameters = new Amazon.Finspace.Model.SuperuserParameters();
+            System.String requestSuperuserParameters_superuserParameters_EmailAddress = null;
+            if (cmdletContext.SuperuserParameters_EmailAddress != null)
+            {
+                requestSuperuserParameters_superuserParameters_EmailAddress = cmdletContext.SuperuserParameters_EmailAddress;
+            }
+            if (requestSuperuserParameters_superuserParameters_EmailAddress != null)
+            {
+                request.SuperuserParameters.EmailAddress = requestSuperuserParameters_superuserParameters_EmailAddress;
+                requestSuperuserParametersIsNull = false;
+            }
+            System.String requestSuperuserParameters_superuserParameters_FirstName = null;
+            if (cmdletContext.SuperuserParameters_FirstName != null)
+            {
+                requestSuperuserParameters_superuserParameters_FirstName = cmdletContext.SuperuserParameters_FirstName;
+            }
+            if (requestSuperuserParameters_superuserParameters_FirstName != null)
+            {
+                request.SuperuserParameters.FirstName = requestSuperuserParameters_superuserParameters_FirstName;
+                requestSuperuserParametersIsNull = false;
+            }
+            System.String requestSuperuserParameters_superuserParameters_LastName = null;
+            if (cmdletContext.SuperuserParameters_LastName != null)
+            {
+                requestSuperuserParameters_superuserParameters_LastName = cmdletContext.SuperuserParameters_LastName;
+            }
+            if (requestSuperuserParameters_superuserParameters_LastName != null)
+            {
+                request.SuperuserParameters.LastName = requestSuperuserParameters_superuserParameters_LastName;
+                requestSuperuserParametersIsNull = false;
+            }
+             // determine if request.SuperuserParameters should be set to null
+            if (requestSuperuserParametersIsNull)
+            {
+                request.SuperuserParameters = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -423,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> DataBundle { get; set; }
             public System.String Description { get; set; }
             public Amazon.Finspace.FederationMode FederationMode { get; set; }
             public System.String FederationParameters_ApplicationCallBackURL { get; set; }
@@ -433,6 +528,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             public System.String FederationParameters_SamlMetadataURL { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
+            public System.String SuperuserParameters_EmailAddress { get; set; }
+            public System.String SuperuserParameters_FirstName { get; set; }
+            public System.String SuperuserParameters_LastName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Finspace.Model.CreateEnvironmentResponse, NewFINSPEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

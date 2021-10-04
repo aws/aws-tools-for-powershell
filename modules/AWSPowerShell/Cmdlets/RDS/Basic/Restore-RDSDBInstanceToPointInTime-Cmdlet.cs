@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether minor version upgrades are applied automatically to
-        /// the DB instance during the maintenance window.</para>
+        /// the DB instance during the maintenance window.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? CopyTagsToSnapshot { get; set; }
         #endregion
         
+        #region Parameter CustomIamInstanceProfile
+        /// <summary>
+        /// <para>
+        /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
+        /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
+        /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomIamInstanceProfile { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -105,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB instance.</para><note><para>This parameter isn't used for the MySQL or MariaDB engines.</para></note>
+        /// <para>The database name for the restored DB instance.</para><note><para>This parameter isn't supported for the MySQL or MariaDB engines. It also doesn't apply
+        /// to RDS Custom.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <code>DBParameterGroupName</code>, then the default
-        /// <code>DBParameterGroup</code> for the specified DB engine is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <code>DBParameterGroup</code> for the specified DB engine is used.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specify the Active Directory directory ID to restore the DB instance in. The domain
-        /// must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server,
-        /// Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
+        /// <para>Specify the Active Directory directory ID to restore the DB instance in. Create the
+        /// domain before running this command. Currently, you can create only the MySQL, Microsoft
+        /// SQL Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
         /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -163,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para>
+        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// RDS on Outposts DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
         /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
         /// latency for connections to the DB instance from outside of its virtual private cloud
-        /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// (VPC) on your local network.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
         /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
         /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.</para>
         /// </para>
@@ -203,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -215,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new instance.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para>Valid Values:</para><ul><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para>Valid Values:</para><ul><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>License model information for the restored DB instance.</para><para>Default: Same as source.</para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// <para>License model information for the restored DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Same as source.</para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
         /// | <code>general-public-license</code></para>
         /// </para>
         /// </summary>
@@ -251,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage of the DB instance.</para><para>For more information about this setting, including limitations that apply to it, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
         /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
-        /// RDS User Guide</i>.</para>
+        /// RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment.</para><para>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB
+        /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB
         /// instance is a Multi-AZ deployment.</para>
         /// </para>
         /// </summary>
@@ -274,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the option group to be used for the restored DB instance.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
         /// be removed from an option group, and that option group can't be removed from a DB
-        /// instance once it is associated with a DB instance</para>
+        /// instance after it is associated with a DB instance</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
-        /// of the DB instance.</para>
+        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore,
-        /// for example, <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para>
+        /// for example, <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para>
+        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -412,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the given ARN from the key store in order to access the device.</para>
+        /// <para>The password for the given ARN from the key store in order to access the device.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -423,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para>
+        /// processor features.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -534,6 +548,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
+            context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBName = this.DBName;
             context.DBParameterGroupName = this.DBParameterGroupName;
@@ -613,6 +628,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
+            }
+            if (cmdletContext.CustomIamInstanceProfile != null)
+            {
+                request.CustomIamInstanceProfile = cmdletContext.CustomIamInstanceProfile;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -812,6 +831,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String CustomIamInstanceProfile { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBName { get; set; }
             public System.String DBParameterGroupName { get; set; }

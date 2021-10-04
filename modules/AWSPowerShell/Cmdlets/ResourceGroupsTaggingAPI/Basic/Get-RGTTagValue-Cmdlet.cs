@@ -28,8 +28,8 @@ using Amazon.ResourceGroupsTaggingAPI.Model;
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
-    /// Returns all tag values for the specified key that are used in the specified AWS Region
-    /// for the calling AWS account.
+    /// Returns all tag values for the specified key that are used in the specified Amazon
+    /// Web Services Region for the calling account.
     /// 
     ///  
     /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies the tag key for which you want to list all existing values that are currently
-        /// used in the specified AWS Region for the calling AWS account.</para>
+        /// used in the specified Amazon Web Services Region for the calling account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

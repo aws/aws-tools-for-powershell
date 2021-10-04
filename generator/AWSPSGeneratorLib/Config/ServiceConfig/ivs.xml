@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamSession" OutputProperty="StreamSession" Verb="Get" Noun="StreamSession" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportPlaybackKeyPair" OutputProperty="KeyPair" Verb="Import" Noun="PlaybackKeyPair" ShouldProcessTarget="Name" PipelineParameter="PublicKeyMaterial" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -94,7 +98,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="FilterBy_Health" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamSessions" OutputProperty="StreamSessions" Verb="Get" Noun="StreamSessionList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

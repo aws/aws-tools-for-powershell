@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a Traffic Mirror filter rule. 
+    /// Creates a Traffic Mirror filter rule.
     /// 
     ///  
     /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RuleAction
         /// <summary>
         /// <para>
-        /// <para>The action to take (<code>accept</code> | <code>reject</code>) on the filtered traffic.</para>
+        /// <para>The action to take on the filtered traffic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrafficDirection
         /// <summary>
         /// <para>
-        /// <para>The type of traffic (<code>ingress</code> | <code>egress</code>).</para>
+        /// <para>The type of traffic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

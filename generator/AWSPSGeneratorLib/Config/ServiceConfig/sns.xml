@@ -150,6 +150,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PublishBatch" OutputProperty="*" Verb="Publish" Noun="Batch" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="Label" PositionalParameters="Label" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

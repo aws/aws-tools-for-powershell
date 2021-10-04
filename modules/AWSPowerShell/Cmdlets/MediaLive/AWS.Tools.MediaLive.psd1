@@ -126,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMLResourceBatch', 
         'Remove-EMLResourceTag', 
         'Remove-EMLSchedule', 
+        'Request-EMLDevice', 
         'Start-EMLChannel', 
         'Start-EMLMultiplex', 
         'Start-EMLResourceBatch', 

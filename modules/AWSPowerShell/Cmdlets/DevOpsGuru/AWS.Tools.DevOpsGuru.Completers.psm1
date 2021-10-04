@@ -95,7 +95,13 @@ $DGURU_Completers = {
         }
 
         # Amazon.DevOpsGuru.InsightType
-        "Search-DGURUInsight/Type"
+        {
+            ($_ -eq "Get-DGURUOrganizationInsightList/StatusFilter_Any_Type") -Or
+            ($_ -eq "Get-DGURUOrganizationInsightList/StatusFilter_Closed_Type") -Or
+            ($_ -eq "Get-DGURUOrganizationInsightList/StatusFilter_Ongoing_Type") -Or
+            ($_ -eq "Search-DGURUInsight/Type") -Or
+            ($_ -eq "Search-DGURUOrganizationInsight/Type")
+        }
         {
             $v = "PROACTIVE","REACTIVE"
             break
@@ -105,6 +111,13 @@ $DGURU_Completers = {
         "Get-DGURURecommendationList/Locale"
         {
             $v = "DE_DE","EN_GB","EN_US","ES_ES","FR_FR","IT_IT","JA_JP","KO_KR","PT_BR","ZH_CN","ZH_TW"
+            break
+        }
+
+        # Amazon.DevOpsGuru.OrganizationResourceCollectionType
+        "Get-DGURUOrganizationResourceCollectionHealth/OrganizationResourceCollectionType"
+        {
+            $v = "AWS_ACCOUNT","AWS_CLOUD_FORMATION","AWS_SERVICE"
             break
         }
 
@@ -138,8 +151,12 @@ $DGURU_map = @{
     "Filters_DataSource"=@("Get-DGURUEventList")
     "Filters_EventClass"=@("Get-DGURUEventList")
     "Locale"=@("Get-DGURURecommendationList")
+    "OrganizationResourceCollectionType"=@("Get-DGURUOrganizationResourceCollectionHealth")
     "ResourceCollectionType"=@("Get-DGURUResourceCollection","Get-DGURUResourceCollectionHealth")
-    "Type"=@("Search-DGURUInsight")
+    "StatusFilter_Any_Type"=@("Get-DGURUOrganizationInsightList")
+    "StatusFilter_Closed_Type"=@("Get-DGURUOrganizationInsightList")
+    "StatusFilter_Ongoing_Type"=@("Get-DGURUOrganizationInsightList")
+    "Type"=@("Search-DGURUInsight","Search-DGURUOrganizationInsight")
 }
 
 _awsArgumentCompleterRegistration $DGURU_Completers $DGURU_map
@@ -198,6 +215,9 @@ $DGURU_SelectMap = @{
                "Get-DGURUAnomaly",
                "Get-DGURUFeedback",
                "Get-DGURUInsight",
+               "Get-DGURUOrganizationHealth",
+               "Get-DGURUOrganizationOverview",
+               "Get-DGURUOrganizationResourceCollectionHealth",
                "Get-DGURUResourceCollectionHealth",
                "Get-DGURUServiceIntegration",
                "Get-DGURUCostEstimation",
@@ -206,10 +226,12 @@ $DGURU_SelectMap = @{
                "Get-DGURUEventList",
                "Get-DGURUInsightList",
                "Get-DGURUNotificationChannelList",
+               "Get-DGURUOrganizationInsightList",
                "Get-DGURURecommendationList",
                "Write-DGURUFeedback",
                "Remove-DGURUNotificationChannel",
                "Search-DGURUInsight",
+               "Search-DGURUOrganizationInsight",
                "Start-DGURUCostEstimation",
                "Update-DGURUResourceCollection",
                "Update-DGURUServiceIntegration")

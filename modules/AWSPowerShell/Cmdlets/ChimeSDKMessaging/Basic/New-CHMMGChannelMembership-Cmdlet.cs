@@ -28,8 +28,8 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Adds a user to a channel. The <code>InvitedBy</code> response field is derived from
-    /// the request header. A channel member can:
+    /// Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+    /// is derived from the request header. A channel member can:
     /// 
     ///  <ul><li><para>
     /// List messages
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the member you want to add to the channel.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The launch profile ID.</para>
+        /// <para>The Launch Profile ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The principal ID.</para>
+        /// <para>The principal ID. This currently supports a Amazon Web Services SSO UserId. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

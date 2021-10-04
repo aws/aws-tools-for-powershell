@@ -131,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BAKBackupSelection', 
         'Remove-BAKBackupVault', 
         'Remove-BAKBackupVaultAccessPolicy', 
+        'Remove-BAKBackupVaultLockConfiguration', 
         'Remove-BAKBackupVaultNotification', 
         'Remove-BAKFramework', 
         'Remove-BAKRecoveryPoint', 
@@ -149,6 +150,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BAKRegionSetting', 
         'Update-BAKReportPlan', 
         'Write-BAKBackupVaultAccessPolicy', 
+        'Write-BAKBackupVaultLockConfiguration', 
         'Write-BAKBackupVaultNotification')
 
     # Variables to export from this module

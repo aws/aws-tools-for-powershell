@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Availability Zone group associated with a Local Zone. Specify this parameter to
         /// retrieve available offerings for the Local Zones in the group.</para><para>Omit this parameter to show the available offerings in the specified Amazon Web Services
-        /// Region.</para>
+        /// Region.</para><para> This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The license model filter value. Specify this parameter to show only the available
-        /// offerings matching the specified license model.</para>
+        /// offerings matching the specified license model.</para><para>RDS Custom supports only the BYOL licensing model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Vpc
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to show only VPC or non-VPC offerings.</para>
+        /// <para>A value that indicates whether to show only VPC or non-VPC offerings. RDS Custom supports
+        /// only VPC offerings.</para><para>RDS Custom supports only VPC offerings. If you describe non-VPC offerings for RDS
+        /// Custom, the output shows VPC offerings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

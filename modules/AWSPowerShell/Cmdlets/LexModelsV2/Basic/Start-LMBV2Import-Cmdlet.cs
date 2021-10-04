@@ -118,6 +118,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? DataPrivacy_ChildDirected { get; set; }
         #endregion
         
+        #region Parameter VoiceSettings_Engine
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction
+        /// with the user. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices
+        /// in Amazon Polly</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.VoiceEngine")]
+        public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
+        #endregion
+        
         #region Parameter FilePassword
         /// <summary>
         /// <para>
@@ -147,7 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the import. It is included in the response from the operation.</para>
+        /// <para>The unique identifier for the import. It is included in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html">CreateUploadUrl</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -346,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleImportSpecification_BotVersion = this.BotLocaleImportSpecification_BotVersion;
             context.BotLocaleImportSpecification_LocaleId = this.BotLocaleImportSpecification_LocaleId;
             context.BotLocaleImportSpecification_NluIntentConfidenceThreshold = this.BotLocaleImportSpecification_NluIntentConfidenceThreshold;
+            context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -429,6 +445,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate VoiceSettings
             var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = true;
             requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = new Amazon.LexModelsV2.Model.VoiceSettings();
+            Amazon.LexModelsV2.VoiceEngine requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = null;
+            if (cmdletContext.VoiceSettings_Engine != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = cmdletContext.VoiceSettings_Engine;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings.Engine = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = false;
+            }
             System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId = null;
             if (cmdletContext.VoiceSettings_VoiceId != null)
             {
@@ -628,6 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotLocaleImportSpecification_BotVersion { get; set; }
             public System.String BotLocaleImportSpecification_LocaleId { get; set; }
             public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
+            public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.StartImportResponse, StartLMBV2ImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

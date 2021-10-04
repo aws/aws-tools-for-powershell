@@ -72,10 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter JobExecutionSettings_DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains
-        /// the input files. Amazon Transcribe assumes this role to read queued media files. If
-        /// you have specified an output S3 bucket for the transcription results, this role should
-        /// have access to the output bucket as well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// <para>The Amazon Resource Name (ARN), in the form <code>arn:partition:service:region:account-id:resource-type/resource-id</code>,
+        /// of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe
+        /// assumes this role to read queued media files. If you have specified an output S3 bucket
+        /// for the transcription results, this role should have access to the output bucket as
+        /// well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
         /// <code>DataAccessRoleArn</code> field.</para>
         /// </para>
         /// </summary>
@@ -127,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TranscribeService.LanguageCode")]
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
+        #endregion
+        
+        #region Parameter LanguageIdSetting
+        /// <summary>
+        /// <para>
+        /// <para>The language identification settings associated with your transcription job. These
+        /// settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
+        /// <code>LanguageModelName</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LanguageIdSettings")]
+        public System.Collections.Hashtable LanguageIdSetting { get; set; }
         #endregion
         
         #region Parameter ModelSettings_LanguageModelName
@@ -246,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
         /// key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code>
         /// operation must have permission to use the specified KMS key.</para><para>You can use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
-        /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the transcription job is encrypted
+        /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account-ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the transcription job is encrypted
         /// with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// in the <code>OutputBucketName</code> parameter.</para>
         /// </para>
@@ -481,6 +495,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 }
             }
             context.LanguageCode = this.LanguageCode;
+            if (this.LanguageIdSetting != null)
+            {
+                context.LanguageIdSetting = new Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings>(StringComparer.Ordinal);
+                foreach (var hashKey in this.LanguageIdSetting.Keys)
+                {
+                    context.LanguageIdSetting.Add((String)hashKey, (LanguageIdSettings)(this.LanguageIdSetting[hashKey]));
+                }
+            }
             if (this.LanguageOption != null)
             {
                 context.LanguageOption = new List<System.String>(this.LanguageOption);
@@ -601,6 +623,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            if (cmdletContext.LanguageIdSetting != null)
+            {
+                request.LanguageIdSettings = cmdletContext.LanguageIdSetting;
             }
             if (cmdletContext.LanguageOption != null)
             {
@@ -858,6 +884,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
             public Dictionary<System.String, System.String> KMSEncryptionContext { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
+            public Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings> LanguageIdSetting { get; set; }
             public List<System.String> LanguageOption { get; set; }
             public System.String Media_MediaFileUri { get; set; }
             public System.String Media_RedactedMediaFileUri { get; set; }

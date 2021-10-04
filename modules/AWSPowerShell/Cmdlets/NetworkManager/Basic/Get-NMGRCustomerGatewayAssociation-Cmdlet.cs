@@ -44,9 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter CustomerGatewayArn
         /// <summary>
         /// <para>
-        /// <para>One or more customer gateway Amazon Resource Names (ARNs). For more information, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources
-        /// Defined by Amazon EC2</a>. The maximum is 10.</para>
+        /// <para>One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

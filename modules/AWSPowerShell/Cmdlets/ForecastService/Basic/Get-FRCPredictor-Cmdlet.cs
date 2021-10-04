@@ -28,10 +28,14 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
+    /// <note><para>
+    ///  This operation is only valid for legacy predictors created with CreatePredictor.
+    /// If you are not using a legacy predictor, use DescribeAutoPredictor.
+    /// </para><para>
+    /// To upgrade a legacy predictor to AutoPredictor, see Upgrading to AutoPredictor.
+    /// </para></note><para>
     /// Describes a predictor created using the <a>CreatePredictor</a> operation.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// In addition to listing the properties provided in the <code>CreatePredictor</code>
     /// request, this operation lists the following properties:
     /// </para><ul><li><para><code>DatasetImportJobArns</code> - The dataset import jobs used to import training

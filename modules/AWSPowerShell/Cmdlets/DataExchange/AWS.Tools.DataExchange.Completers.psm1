@@ -83,7 +83,7 @@ $DTEX_Completers = {
         # Amazon.DataExchange.AssetType
         "New-DTEXDataSet/AssetType"
         {
-            $v = "S3_SNAPSHOT"
+            $v = "REDSHIFT_DATA_SHARE","S3_SNAPSHOT"
             break
         }
 
@@ -102,7 +102,7 @@ $DTEX_Completers = {
         # Amazon.DataExchange.Type
         "New-DTEXJob/Type"
         {
-            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","EXPORT_REVISIONS_TO_S3","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_SIGNED_URL"
+            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","EXPORT_REVISIONS_TO_S3","IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_SIGNED_URL"
             break
         }
 

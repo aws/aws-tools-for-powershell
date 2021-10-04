@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16
         /// CIDR blocks. We recommend that you specify a block that does not overlap with resources
         /// in other networks that are peered or connected to your VPC. The block must meet the
-        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0.0/12,
+        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12,
         /// or 192.168.0.0/16.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between /24 and /12.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster and can't change
         /// this value once the cluster is created.</para></important>
         /// </para>

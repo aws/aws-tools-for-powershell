@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? Accept { get; set; }
         #endregion
         
+        #region Parameter AdditionalInfo
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalInfo { get; set; }
+        #endregion
+        
         #region Parameter CapacityReservationId
         /// <summary>
         /// <para>
@@ -176,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Accept = this.Accept;
+            context.AdditionalInfo = this.AdditionalInfo;
             context.CapacityReservationId = this.CapacityReservationId;
             #if MODULAR
             if (this.CapacityReservationId == null && ParameterWasBound(nameof(this.CapacityReservationId)))
@@ -205,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Accept != null)
             {
                 request.Accept = cmdletContext.Accept.Value;
+            }
+            if (cmdletContext.AdditionalInfo != null)
+            {
+                request.AdditionalInfo = cmdletContext.AdditionalInfo;
             }
             if (cmdletContext.CapacityReservationId != null)
             {
@@ -284,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Accept { get; set; }
+            public System.String AdditionalInfo { get; set; }
             public System.String CapacityReservationId { get; set; }
             public System.DateTime? EndDate { get; set; }
             public Amazon.EC2.EndDateType EndDateType { get; set; }

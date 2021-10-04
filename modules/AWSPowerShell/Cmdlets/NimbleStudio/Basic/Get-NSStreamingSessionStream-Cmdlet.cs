@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The session ID.</para>
+        /// <para>The streaming session ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StreamId
         /// <summary>
         /// <para>
-        /// <para>The stream ID.</para>
+        /// <para>The streaming session stream ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter FinalBakeTimeInMinute
         /// <summary>
         /// <para>
-        /// <para>The amount of time AppConfig monitors for alarms before considering the deployment
-        /// to be complete and no longer eligible for automatic roll back.</para>
+        /// <para>The amount of time that AppConfig monitors for alarms before considering the deployment
+        /// to be complete and no longer eligible for automatic rollback.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter GrowthType
         /// <summary>
         /// <para>
-        /// <para>The algorithm used to define how percentage grows over time. AWS AppConfig supports
-        /// the following growth types:</para><para><b>Linear</b>: For this type, AppConfig processes the deployment by increments of
+        /// <para>The algorithm used to define how percentage grows over time. AppConfig supports the
+        /// following growth types:</para><para><b>Linear</b>: For this type, AppConfig processes the deployment by increments of
         /// the growth factor evenly distributed over the deployment time. For example, a linear
         /// deployment that uses a growth factor of 20 initially makes the configuration available
         /// to 20 percent of the targets. After 1/5th of the deployment time has passed, the system

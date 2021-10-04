@@ -437,6 +437,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.ResourceRequirement[] ContainerProperties_ResourceRequirement { get; set; }
         #endregion
         
+        #region Parameter SchedulingPriority
+        /// <summary>
+        /// <para>
+        /// <para>The scheduling priority for jobs that are submitted with this job definition. This
+        /// will only affect jobs in job queues with a fair share policy. Jobs with a higher scheduling
+        /// priority will be scheduled before jobs with a lower scheduling priority.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SchedulingPriority { get; set; }
+        #endregion
+        
         #region Parameter LogConfiguration_SecretOption
         /// <summary>
         /// <para>
@@ -610,17 +622,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Memory
         /// <summary>
         /// <para>
-        /// <para>This parameter indicates the memory hard limit (in MiB) for a container. If your container
-        /// attempts to exceed the specified number, it's terminated. You must specify at least
-        /// 4 MiB of memory for a job using this parameter. The memory hard limit can be specified
-        /// in several places. It must be specified for each node at least once.</para><para>This parameter maps to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><para>This parameter is supported on EC2 resources but isn't supported on Fargate resources.
-        /// For Fargate resources, you should specify the memory requirement using <code>resourceRequirement</code>.
-        /// You can also do this for EC2 resources.</para><note><para>If you're trying to maximize your resource utilization by providing your jobs as much
-        /// memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
-        /// Management</a> in the <i>Batch User Guide</i>.</para></note>
+        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
+        /// memory requirements for the job definition. It's not supported for jobs that run on
+        /// Fargate resources. For jobs run on EC2 resources, it specifies the memory hard limit
+        /// (in MiB) for a container. If your container attempts to exceed the specified number,
+        /// it's terminated. You must specify at least 4 MiB of memory for a job using this parameter.
+        /// The memory hard limit can be specified in several places. It must be specified for
+        /// each node at least once.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -632,17 +640,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Vcpus
         /// <summary>
         /// <para>
-        /// <para>The number of vCPUs reserved for the job. Each vCPU is equivalent to 1,024 CPU shares.
-        /// This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
+        /// vCPU requirements for the job definition. It's not supported for jobs that run on
+        /// Fargate resources. For jobs run on EC2 resources, it specifies the number of vCPUs
+        /// reserved for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code>
+        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. The number of vCPUs must be specified but can be specified in several places.
-        /// You must specify it at least once for each node.</para><para>This parameter is supported on EC2 resources but isn't supported for jobs that run
-        /// on Fargate resources. For these resources, use <code>resourceRequirement</code> instead.
-        /// You can use this parameter or <code>resourceRequirements</code> structure but not
-        /// both.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
-        /// shouldn't be provided. For jobs that run on Fargate resources, you must specify the
-        /// vCPU requirement for the job using <code>resourceRequirements</code>.</para></note>
+        /// You must specify it at least once for each node.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -811,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.RetryStrategy_EvaluateOnExit = new List<Amazon.Batch.Model.EvaluateOnExit>(this.RetryStrategy_EvaluateOnExit);
             }
+            context.SchedulingPriority = this.SchedulingPriority;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1270,6 +1277,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.SchedulingPriority != null)
+            {
+                request.SchedulingPriority = cmdletContext.SchedulingPriority.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1381,6 +1392,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Boolean? PropagateTag { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
             public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
+            public System.Int32? SchedulingPriority { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public Amazon.Batch.JobDefinitionType Type { get; set; }

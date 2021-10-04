@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role with permission to access the configuration at the specified
-        /// LocationUri.</para>
+        /// <code>LocationUri</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

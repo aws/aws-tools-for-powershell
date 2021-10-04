@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Deletes a specified service within a cluster. You can delete a service if you have
     /// no running tasks in it and the desired task count is zero. If the service is actively
-    /// maintaining tasks, you cannot delete it, and you must update the service to a desired
+    /// maintaining tasks, you can't delete it, and you must update the service to a desired
     /// task count of zero. For more information, see <a>UpdateService</a>.
     /// 
     ///  <note><para>
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, allows you to delete a service even if it has not been scaled
-        /// down to zero tasks. It is only necessary to use this if the service is using the <code>REPLICA</code>
+        /// <para>If <code>true</code>, allows you to delete a service even if it wasn't scaled down
+        /// to zero tasks. It's only necessary to use this if the service uses the <code>REPLICA</code>
         /// scheduling strategy.</para>
         /// </para>
         /// </summary>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The ID of the event. You can get an event's ID when you create it or by using <code>ListTimelineEvents</code>.</para>
+        /// <para>The ID of the event. You can get an event's ID when you create it, or by using <code>ListTimelineEvents</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident that the timeline event is part of.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Delete a configuration profile. Deleting a configuration profile does not delete a
-    /// configuration from a host.
+    /// Deletes a configuration profile. Deleting a configuration profile does not delete
+    /// a configuration from a host.
     /// </summary>
     [Cmdlet("Remove", "APPCConfigurationProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

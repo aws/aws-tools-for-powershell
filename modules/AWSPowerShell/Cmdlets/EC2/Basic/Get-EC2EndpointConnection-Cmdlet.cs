@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>service-id</code> - The ID of the service.</para></li><li><para><code>vpc-endpoint-owner</code> - The AWS account number of the owner of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code>
+        /// <para>One or more filters.</para><ul><li><para><code>service-id</code> - The ID of the service.</para></li><li><para><code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that
+        /// owns the endpoint.</para></li><li><para><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code>
         /// | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>
         /// | <code>rejected</code> | <code>failed</code>).</para></li><li><para><code>vpc-endpoint-id</code> - The ID of the endpoint.</para></li></ul>
         /// </para>

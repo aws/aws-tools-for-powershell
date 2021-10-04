@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications
     /// you can make to your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "RDSValidDBInstanceModification")]
     [OutputType("Amazon.RDS.Model.ValidDBInstanceModificationsMessage")]

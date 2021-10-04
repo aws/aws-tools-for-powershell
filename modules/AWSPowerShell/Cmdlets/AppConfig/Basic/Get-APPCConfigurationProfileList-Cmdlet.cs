@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>A filter based on the type of configurations that the configuration profile contains.
+        /// A configuration can be a feature flag or a free-form configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -174,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -263,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String ApplicationId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String Type { get; set; }
             public System.Func<Amazon.AppConfig.Model.ListConfigurationProfilesResponse, GetAPPCConfigurationProfileListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

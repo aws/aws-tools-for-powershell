@@ -99,7 +99,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterMailDomain" Verb="Remove" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundDmarcSettings" OutputProperty="Enforced" Verb="Get" Noun="InboundDmarcSetting" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMailDomain" OutputProperty="*" Verb="Get" Noun="MailDomain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMobileDeviceAccessEffect" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -168,6 +180,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMailDomains" OutputProperty="MailDomains" Verb="Get" Noun="MailDomainList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,6 +219,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutInboundDmarcSettings" Verb="Write" Noun="InboundDmarcSetting" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutMailboxPermissions" Verb="Write" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -212,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="Name" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterMailDomain" Verb="Add" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -232,6 +256,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDefaultMailDomain" Verb="Update" Noun="DefaultMailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

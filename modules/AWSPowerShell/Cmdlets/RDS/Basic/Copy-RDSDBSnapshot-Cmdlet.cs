@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// the Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> action
     /// is the destination Amazon Web Services Region for the DB snapshot copy. 
     /// </para><para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para><para>
     /// For more information about copying snapshots, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
     /// a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
@@ -67,17 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted DB snapshot. The Amazon
         /// Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
-        /// the Amazon Web Services KMS customer master key (CMK). </para><para>If you copy an encrypted DB snapshot from your Amazon Web Services account, you can
-        /// specify a value for this parameter to encrypt the copy with a new Amazon Web Services
-        /// KMS CMK. If you don't specify a value for this parameter, then the copy of the DB
-        /// snapshot is encrypted with the same Amazon Web Services KMS key as the source DB snapshot.
-        /// </para><para>If you copy an encrypted DB snapshot that is shared from another Amazon Web Services
+        /// the KMS key. </para><para>If you copy an encrypted DB snapshot from your Amazon Web Services account, you can
+        /// specify a value for this parameter to encrypt the copy with a new KMS key. If you
+        /// don't specify a value for this parameter, then the copy of the DB snapshot is encrypted
+        /// with the same Amazon Web Services KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot that is shared from another Amazon Web Services
         /// account, then you must specify a value for this parameter. </para><para>If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.
         /// </para><para>If you copy an encrypted snapshot to a different Amazon Web Services Region, then
-        /// you must specify a Amazon Web Services KMS key identifier for the destination Amazon
-        /// Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services
-        /// Region that they are created in, and you can't use CMKs from one Amazon Web Services
-        /// Region in another Amazon Web Services Region. </para>
+        /// you must specify an Amazon Web Services KMS key identifier for the destination Amazon
+        /// Web Services Region. KMS keys are specific to the Amazon Web Services Region that
+        /// they are created in, and you can't use KMS keys from one Amazon Web Services Region
+        /// in another Amazon Web Services Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// action in the us-east-1 Amazon Web Services Region and provide a presigned URL that
         /// contains a call to the <code>CopyDBSnapshot</code> action in the us-west-2 Amazon
         /// Web Services Region. For this example, the <code>DestinationRegion</code> in the presigned
-        /// URL must be set to the us-east-1 Amazon Web Services Region. </para></li><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer
-        /// master key (CMK) to use to encrypt the copy of the DB snapshot in the destination
-        /// Amazon Web Services Region. This is the same identifier for both the <code>CopyDBSnapshot</code>
-        /// action that is called in the destination Amazon Web Services Region, and the action
-        /// contained in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
+        /// URL must be set to the us-east-1 Amazon Web Services Region. </para></li><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key
+        /// to use to encrypt the copy of the DB snapshot in the destination Amazon Web Services
+        /// Region. This is the same identifier for both the <code>CopyDBSnapshot</code> action
+        /// that is called in the destination Amazon Web Services Region, and the action contained
+        /// in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
         /// for the source Amazon Web Services Region. For example, if you are copying an encrypted
         /// DB snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBSnapshotIdentifier</code>

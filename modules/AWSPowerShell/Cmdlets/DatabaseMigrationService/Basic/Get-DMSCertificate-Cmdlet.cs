@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the certificates described in the form of key-value pairs.</para>
+        /// <para>Filters applied to the certificates described in the form of key-value pairs. Valid
+        /// values are <code>certificate-arn</code> and <code>certificate-id</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

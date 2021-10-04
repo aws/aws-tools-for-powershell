@@ -28,8 +28,13 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// This operation allows you to perform batch reads and writes on data stored in DynamoDB,
+    /// This operation allows you to perform batch reads or writes on data stored in DynamoDB,
     /// using PartiQL.
+    /// 
+    ///  <note><para>
+    /// The entire batch must consist of either read statements or write statements, you cannot
+    /// mix both in one batch.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "DDBDDBBatchExecuteStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.BatchStatementResponse")]
@@ -44,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Statement
         /// <summary>
         /// <para>
-        /// <para> The list of PartiQL statements representing the batch to run. </para>
+        /// <para>The list of PartiQL statements representing the batch to run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

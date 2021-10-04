@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
     /// S3.
+    /// 
+    ///  
+    /// <para>
+    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4 authentication</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "CONNPAttachmentUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse")]

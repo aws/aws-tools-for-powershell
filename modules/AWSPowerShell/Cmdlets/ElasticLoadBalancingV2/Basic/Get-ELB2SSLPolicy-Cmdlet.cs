@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class GetELB2SSLPolicyCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter LoadBalancerType
+        /// <summary>
+        /// <para>
+        /// <para> The type of load balancer. The default lists the SSL policies for all load balancers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum")]
+        public Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum LoadBalancerType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -145,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LoadBalancerType = this.LoadBalancerType;
             context.Marker = this.Marker;
             if (this.Name != null)
             {
@@ -181,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request and set iteration invariants
             var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest();
             
+            if (cmdletContext.LoadBalancerType != null)
+            {
+                request.LoadBalancerType = cmdletContext.LoadBalancerType;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Names = cmdletContext.Name;
@@ -244,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             
             // create request and set iteration invariants
             var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest();
+            if (cmdletContext.LoadBalancerType != null)
+            {
+                request.LoadBalancerType = cmdletContext.LoadBalancerType;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Names = cmdletContext.Name;
@@ -367,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum LoadBalancerType { get; set; }
             public System.String Marker { get; set; }
             public List<System.String> Name { get; set; }
             public int? PageSize { get; set; }

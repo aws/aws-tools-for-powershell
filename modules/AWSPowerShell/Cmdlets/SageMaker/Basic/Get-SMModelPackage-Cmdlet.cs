@@ -28,13 +28,13 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns a description of the specified model package, which is used to create Amazon
-    /// SageMaker models or list them on Amazon Web Services Marketplace.
+    /// Returns a description of the specified model package, which is used to create SageMaker
+    /// models or list them on Amazon Web Services Marketplace.
     /// 
     ///  
     /// <para>
-    /// To create models in Amazon SageMaker, buyers can subscribe to model packages listed
-    /// on Amazon Web Services Marketplace.
+    /// To create models in SageMaker, buyers can subscribe to model packages listed on Amazon
+    /// Web Services Marketplace.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SMModelPackage")]

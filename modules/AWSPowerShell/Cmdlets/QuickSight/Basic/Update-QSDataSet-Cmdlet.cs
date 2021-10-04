@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services
-        /// Region; for each Amazon Web Services account.</para>
+        /// Region for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

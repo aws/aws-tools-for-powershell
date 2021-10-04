@@ -1,4 +1,384 @@
-﻿### 4.1.15.0 (2021-10-01)
+﻿### 4.1.16.0 (2021-11-19)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.164.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify Backend
+    * Added cmdlet Get-AMPBBackendStorage leveraging the GetBackendStorage service API.
+    * Added cmdlet Get-AMPBS3BucketList leveraging the ListS3Buckets service API.
+    * Added cmdlet Import-AMPBBackendStorage leveraging the ImportBackendStorage service API.
+    * Added cmdlet New-AMPBBackendStorage leveraging the CreateBackendStorage service API.
+    * Added cmdlet Remove-AMPBBackendStorage leveraging the DeleteBackendStorage service API.
+    * Added cmdlet Update-AMPBBackendStorage leveraging the UpdateBackendStorage service API.
+  * Amazon AppConfig
+    * Modified cmdlet Get-APPCConfigurationProfileList: added parameter Type.
+    * Modified cmdlet New-APPCConfigurationProfile: added parameter Type.
+  * Amazon AppConfig Data. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACD and can be listed using the command 'Get-AWSCmdletName -Service ACD'.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameter S3InputFormatConfig_S3InputFileType.
+    * Modified cmdlet Update-AFFlow: added parameter S3InputFormatConfig_S3InputFileType.
+  * Amazon Audit Manager
+    * Added cmdlet Get-AUDMAssessmentControlInsightsByControlDomainList leveraging the ListAssessmentControlInsightsByControlDomain service API.
+    * Added cmdlet Get-AUDMAssessmentFrameworkShareRequestList leveraging the ListAssessmentFrameworkShareRequests service API.
+    * Added cmdlet Get-AUDMControlDomainInsightList leveraging the ListControlDomainInsights service API.
+    * Added cmdlet Get-AUDMControlDomainInsightsByAssessmentList leveraging the ListControlDomainInsightsByAssessment service API.
+    * Added cmdlet Get-AUDMControlInsightsByControlDomainList leveraging the ListControlInsightsByControlDomain service API.
+    * Added cmdlet Get-AUDMInsight leveraging the GetInsights service API.
+    * Added cmdlet Get-AUDMInsightsByAssessment leveraging the GetInsightsByAssessment service API.
+    * Added cmdlet Remove-AUDMAssessmentFrameworkShare leveraging the DeleteAssessmentFrameworkShare service API.
+    * Added cmdlet Start-AUDMAssessmentFrameworkShare leveraging the StartAssessmentFrameworkShare service API.
+    * Added cmdlet Update-AUDMAssessmentFrameworkShare leveraging the UpdateAssessmentFrameworkShare service API.
+    * Modified cmdlet Get-AUDMAssessmentList: added parameter Status.
+  * Amazon Auto Scaling
+    * Modified cmdlet Get-ASAutoScalingGroup: added parameter Filter.
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter DesiredCapacityType.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter DesiredCapacityType.
+  * Amazon Backup
+    * Added cmdlet Remove-BAKBackupVaultLockConfiguration leveraging the DeleteBackupVaultLockConfiguration service API.
+    * Added cmdlet Write-BAKBackupVaultLockConfiguration leveraging the PutBackupVaultLockConfiguration service API.
+    * Modified cmdlet New-BAKBackupSelection: added parameters BackupSelection_NotResource, Conditions_StringEqual, Conditions_StringLike, Conditions_StringNotEqual and Conditions_StringNotLike.
+    * Modified cmdlet New-BAKReportPlan: added parameters ReportSetting_FrameworkArn and ReportSetting_NumberOfFramework.
+    * Modified cmdlet Update-BAKReportPlan: added parameters ReportSetting_FrameworkArn and ReportSetting_NumberOfFramework.
+  * Amazon Batch
+    * Added cmdlet Get-BATSchedulingPolicy leveraging the DescribeSchedulingPolicies service API.
+    * Added cmdlet Get-BATSchedulingPolicyList leveraging the ListSchedulingPolicies service API.
+    * Added cmdlet New-BATSchedulingPolicy leveraging the CreateSchedulingPolicy service API.
+    * Added cmdlet Remove-BATSchedulingPolicy leveraging the DeleteSchedulingPolicy service API.
+    * Added cmdlet Update-BATSchedulingPolicy leveraging the UpdateSchedulingPolicy service API.
+    * Modified cmdlet New-BATComputeEnvironment: added parameter UnmanagedvCpu.
+    * Modified cmdlet New-BATJobQueue: added parameter SchedulingPolicyArn.
+    * Modified cmdlet Register-BATJobDefinition: added parameter SchedulingPriority.
+    * Modified cmdlet Submit-BATJob: added parameters SchedulingPriorityOverride and ShareIdentifier.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter UnmanagedvCpu.
+    * Modified cmdlet Update-BATJobQueue: added parameter SchedulingPolicyArn.
+  * Amazon Chime
+    * Modified cmdlet New-CHMMediaCapturePipeline: added parameters Audio_MuxType, Content_MuxType, Content_State, SelectedVideoStreams_AttendeeId, SelectedVideoStreams_ExternalUserId, Video_MuxType and Video_State.
+    * Modified cmdlet Start-CHMMeetingTranscription: added parameters EngineTranscribeMedicalSettings_ContentIdentificationType, EngineTranscribeSettings_ContentIdentificationType, EngineTranscribeSettings_ContentRedactionType, EngineTranscribeSettings_EnablePartialResultsStabilization, EngineTranscribeSettings_LanguageModelName, EngineTranscribeSettings_PartialResultsStability and EngineTranscribeSettings_PiiEntityType.
+  * Amazon Chime SDK Identity
+    * Added cmdlet Add-CHMIDResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CHMIDAppInstanceUserEndpoint leveraging the DescribeAppInstanceUserEndpoint service API.
+    * Added cmdlet Get-CHMIDAppInstanceUserEndpointList leveraging the ListAppInstanceUserEndpoints service API.
+    * Added cmdlet Get-CHMIDResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Register-CHMIDAppInstanceUserEndpoint leveraging the RegisterAppInstanceUserEndpoint service API.
+    * Added cmdlet Remove-CHMIDResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Unregister-CHMIDAppInstanceUserEndpoint leveraging the DeregisterAppInstanceUserEndpoint service API.
+    * Added cmdlet Update-CHMIDAppInstanceUserEndpoint leveraging the UpdateAppInstanceUserEndpoint service API.
+  * Amazon Chime SDK Meetings. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CHMTG and can be listed using the command 'Get-AWSCmdletName -Service CHMTG'.
+  * Amazon Chime SDK Messaging
+    * Added cmdlet Add-CHMMGResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CHMMGChannelFlow leveraging the DescribeChannelFlow service API.
+    * Added cmdlet Get-CHMMGChannelFlowList leveraging the ListChannelFlows service API.
+    * Added cmdlet Get-CHMMGChannelMembershipPreference leveraging the GetChannelMembershipPreferences service API.
+    * Added cmdlet Get-CHMMGChannelMessageStatus leveraging the GetChannelMessageStatus service API.
+    * Added cmdlet Get-CHMMGChannelsAssociatedWithChannelFlowList leveraging the ListChannelsAssociatedWithChannelFlow service API.
+    * Added cmdlet Get-CHMMGResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-CHMMGChannelFlow leveraging the CreateChannelFlow service API.
+    * Added cmdlet Register-CHMMGChannelFlow leveraging the AssociateChannelFlow service API.
+    * Added cmdlet Remove-CHMMGChannelFlow leveraging the DeleteChannelFlow service API.
+    * Added cmdlet Remove-CHMMGResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Send-CHMMGChannelFlowCallback leveraging the ChannelFlowCallback service API.
+    * Added cmdlet Unregister-CHMMGChannelFlow leveraging the DisassociateChannelFlow service API.
+    * Added cmdlet Update-CHMMGChannelFlow leveraging the UpdateChannelFlow service API.
+    * Added cmdlet Write-CHMMGChannelMembershipPreference leveraging the PutChannelMembershipPreferences service API.
+    * Modified cmdlet Send-CHMMGChannelMessage: added parameters MessageAttribute, PushNotification_Body, PushNotification_Title and PushNotification_Type.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFDistributionsByResponseHeadersPolicyId leveraging the ListDistributionsByResponseHeadersPolicyId service API.
+    * Added cmdlet Get-CFResponseHeadersPolicy leveraging the GetResponseHeadersPolicy service API.
+    * Added cmdlet Get-CFResponseHeadersPolicyConfig leveraging the GetResponseHeadersPolicyConfig service API.
+    * Added cmdlet Get-CFResponseHeadersPolicyList leveraging the ListResponseHeadersPolicies service API.
+    * Added cmdlet New-CFResponseHeadersPolicy leveraging the CreateResponseHeadersPolicy service API.
+    * Added cmdlet Remove-CFResponseHeadersPolicy leveraging the DeleteResponseHeadersPolicy service API.
+    * Added cmdlet Update-CFResponseHeadersPolicy leveraging the UpdateResponseHeadersPolicy service API.
+    * Modified cmdlet New-CFDistribution: added parameter DefaultCacheBehavior_ResponseHeadersPolicyId.
+    * Modified cmdlet New-CFDistributionWithTag: added parameter DefaultCacheBehavior_ResponseHeadersPolicyId.
+    * Modified cmdlet Update-CFDistribution: added parameter DefaultCacheBehavior_ResponseHeadersPolicyId.
+  * Amazon CloudWatch
+    * Modified cmdlet Get-CWAnomalyDetector: added parameter AnomalyDetectorType.
+    * Modified cmdlet Remove-CWAnomalyDetector: added parameters MetricMathAnomalyDetector_MetricDataQuery, SingleMetricAnomalyDetector_Dimension, SingleMetricAnomalyDetector_MetricName, SingleMetricAnomalyDetector_Namespace and SingleMetricAnomalyDetector_Stat.
+    * Modified cmdlet Write-CWAnomalyDetector: added parameters MetricMathAnomalyDetector_MetricDataQuery, SingleMetricAnomalyDetector_Dimension, SingleMetricAnomalyDetector_MetricName, SingleMetricAnomalyDetector_Namespace and SingleMetricAnomalyDetector_Stat.
+  * Amazon CloudWatch Application Insights
+    * Modified cmdlet Get-CWAIProblemList: added parameter ComponentName.
+    * Modified cmdlet New-CWAIApplication: added parameters AutoConfigEnabled and AutoCreate.
+    * Modified cmdlet Update-CWAIApplication: added parameter AutoConfigEnabled.
+    * Modified cmdlet Update-CWAIComponentConfiguration: added parameter AutoConfigEnabled.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter BuildBatchConfig_BatchReportMode.
+    * Modified cmdlet Start-CBBatch: added parameter BuildBatchConfigOverride_BatchReportMode.
+    * Modified cmdlet Update-CBProject: added parameter BuildBatchConfig_BatchReportMode.
+  * Amazon Connect Participant Service
+    * Modified cmdlet New-CONNPParticipantConnection: added parameter ConnectParticipant.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNContact leveraging the DescribeContact service API.
+    * Added cmdlet Get-CONNContactReferenceList leveraging the ListContactReferences service API.
+    * Added cmdlet Get-CONNSecurityProfile leveraging the DescribeSecurityProfile service API.
+    * Added cmdlet Get-CONNSecurityProfilePermissionList leveraging the ListSecurityProfilePermissions service API.
+    * Added cmdlet New-CONNSecurityProfile leveraging the CreateSecurityProfile service API.
+    * Added cmdlet Remove-CONNSecurityProfile leveraging the DeleteSecurityProfile service API.
+    * Added cmdlet Start-CONNContactStreaming leveraging the StartContactStreaming service API.
+    * Added cmdlet Stop-CONNContactStreaming leveraging the StopContactStreaming service API.
+    * Added cmdlet Update-CONNContact leveraging the UpdateContact service API.
+    * Added cmdlet Update-CONNContactSchedule leveraging the UpdateContactSchedule service API.
+    * Added cmdlet Update-CONNSecurityProfile leveraging the UpdateSecurityProfile service API.
+    * Modified cmdlet Start-CONNTaskContact: added parameter ScheduledTime.
+  * Amazon Data Exchange
+    * Modified cmdlet New-DTEXJob: added parameters ImportAssetsFromRedshiftDataShares_AssetSource, ImportAssetsFromRedshiftDataShares_DataSetId and ImportAssetsFromRedshiftDataShares_RevisionId.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters GcpMySQLSettings_AfterConnectScript, GcpMySQLSettings_CleanSourceMetadataOnMismatch, GcpMySQLSettings_DatabaseName, GcpMySQLSettings_EventsPollInterval, GcpMySQLSettings_MaxFileSize, GcpMySQLSettings_ParallelLoadThread, GcpMySQLSettings_Password, GcpMySQLSettings_Port, GcpMySQLSettings_SecretsManagerAccessRoleArn, GcpMySQLSettings_SecretsManagerSecretId, GcpMySQLSettings_ServerName, GcpMySQLSettings_ServerTimezone, GcpMySQLSettings_TargetDbType, GcpMySQLSettings_Username and S3Settings_UseTaskStartTimeForFullLoadTimestamp.
+    * Modified cmdlet New-DMSEndpoint: added parameters GcpMySQLSettings_AfterConnectScript, GcpMySQLSettings_CleanSourceMetadataOnMismatch, GcpMySQLSettings_DatabaseName, GcpMySQLSettings_EventsPollInterval, GcpMySQLSettings_MaxFileSize, GcpMySQLSettings_ParallelLoadThread, GcpMySQLSettings_Password, GcpMySQLSettings_Port, GcpMySQLSettings_SecretsManagerAccessRoleArn, GcpMySQLSettings_SecretsManagerSecretId, GcpMySQLSettings_ServerName, GcpMySQLSettings_ServerTimezone, GcpMySQLSettings_TargetDbType, GcpMySQLSettings_Username and S3Settings_UseTaskStartTimeForFullLoadTimestamp.
+  * Amazon DataSync
+    * Added cmdlet Get-DSYNLocationHdf leveraging the DescribeLocationHdfs service API.
+    * Added cmdlet New-DSYNLocationHdf leveraging the CreateLocationHdfs service API.
+    * Added cmdlet Update-DSYNLocationHdf leveraging the UpdateLocationHdfs service API.
+  * Amazon DevOps Guru
+    * Added cmdlet Get-DGURUOrganizationHealth leveraging the DescribeOrganizationHealth service API.
+    * Added cmdlet Get-DGURUOrganizationInsightList leveraging the ListOrganizationInsights service API.
+    * Added cmdlet Get-DGURUOrganizationOverview leveraging the DescribeOrganizationOverview service API.
+    * Added cmdlet Get-DGURUOrganizationResourceCollectionHealth leveraging the DescribeOrganizationResourceCollectionHealth service API.
+    * Added cmdlet Search-DGURUOrganizationInsight leveraging the SearchOrganizationInsights service API.
+    * Modified cmdlet Get-DGURUAnomaliesForInsightList: added parameter AccountId.
+    * Modified cmdlet Get-DGURUAnomaly: added parameter AccountId.
+    * Modified cmdlet Get-DGURUEventList: added parameter AccountId.
+    * Modified cmdlet Get-DGURUInsight: added parameter AccountId.
+    * Modified cmdlet Get-DGURURecommendationList: added parameter AccountId.
+  * Amazon Direct Connect
+    * Added cmdlet Confirm-DCCustomerAgreement leveraging the ConfirmCustomerAgreement service API.
+    * Added cmdlet Get-DCCustomerMetadata leveraging the DescribeCustomerMetadata service API.
+    * Added cmdlet Get-DCRouterConfiguration leveraging the DescribeRouterConfiguration service API.
+    * Added cmdlet Update-DCDirectConnectGateway leveraging the UpdateDirectConnectGateway service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Register-ECSTaskDefinition: added parameters RuntimePlatform_CpuArchitecture and RuntimePlatform_OperatingSystemFamily.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2CapacityReservationFleet leveraging the ModifyCapacityReservationFleet service API.
+    * Added cmdlet Get-EC2CapacityReservationFleet leveraging the DescribeCapacityReservationFleets service API.
+    * Added cmdlet Get-EC2InstanceTypesFromInstanceRequirement leveraging the GetInstanceTypesFromInstanceRequirements service API.
+    * Added cmdlet Get-EC2SpotPlacementScore leveraging the GetSpotPlacementScores service API.
+    * Added cmdlet New-EC2CapacityReservationFleet leveraging the CreateCapacityReservationFleet service API.
+    * Added cmdlet Stop-EC2CapacityReservationFleet leveraging the CancelCapacityReservationFleets service API.
+    * Modified cmdlet Edit-EC2CapacityReservation: added parameter AdditionalInfo.
+    * Modified cmdlet Edit-EC2Fleet: added parameter TargetCapacitySpecification_TargetCapacityUnitType.
+    * Modified cmdlet Edit-EC2ImageAttribute: added parameters OrganizationalUnitArn and OrganizationArn.
+    * Modified cmdlet Edit-EC2SubnetAttribute: added parameter EnableDns64.
+    * Modified cmdlet New-EC2Fleet: added parameters CapacityRebalance_TerminationDelay and TargetCapacitySpecification_TargetCapacityUnitType.
+    * Modified cmdlet New-EC2FlowLog: added parameters DestinationOptions_FileFormat, DestinationOptions_HiveCompatiblePartition and DestinationOptions_PerHourPartition.
+    * Modified cmdlet New-EC2Route: added parameter CoreNetworkArn.
+    * Modified cmdlet Request-EC2SpotFleet: added parameters CapacityRebalance_TerminationDelay and SpotFleetRequestConfig_TargetCapacityUnitType.
+    * Modified cmdlet Set-EC2Route: added parameter CoreNetworkArn.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Register-EKSCluster: added parameter Tag.
+  * Amazon Elastic Disaster Recovery Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EDRS and can be listed using the command 'Get-AWSCmdletName -Service EDRS'.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Get-ELB2SSLPolicy: added parameter LoadBalancerType.
+    * Modified cmdlet New-ELB2TargetGroup: added parameter IpAddressType.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Get-EMCPolicy leveraging the GetPolicy service API.
+    * Added cmdlet Remove-EMCPolicy leveraging the DeletePolicy service API.
+    * Added cmdlet Write-EMCPolicy leveraging the PutPolicy service API.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Request-EMLDevice leveraging the ClaimDevice service API.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Get-EMTPrefetchSchedule leveraging the GetPrefetchSchedule service API.
+    * Added cmdlet Get-EMTPrefetchScheduleList leveraging the ListPrefetchSchedules service API.
+    * Added cmdlet New-EMTPrefetchSchedule leveraging the CreatePrefetchSchedule service API.
+    * Added cmdlet Remove-EMTPrefetchSchedule leveraging the DeletePrefetchSchedule service API.
+  * Amazon FinSpace User Environment Management Service
+    * Modified cmdlet New-FINSPEnvironment: added parameters DataBundle, SuperuserParameters_EmailAddress, SuperuserParameters_FirstName and SuperuserParameters_LastName.
+  * Amazon Forecast Service
+    * Added cmdlet Get-FRCAutoPredictor leveraging the DescribeAutoPredictor service API.
+    * Added cmdlet Get-FRCExplainability leveraging the DescribeExplainability service API.
+    * Added cmdlet Get-FRCExplainabilityExport leveraging the DescribeExplainabilityExport service API.
+    * Added cmdlet Get-FRCExplainabilityExportList leveraging the ListExplainabilityExports service API.
+    * Added cmdlet Get-FRCExplainabilityList leveraging the ListExplainabilities service API.
+    * Added cmdlet New-FRCAutoPredictor leveraging the CreateAutoPredictor service API.
+    * Added cmdlet New-FRCExplainability leveraging the CreateExplainability service API.
+    * Added cmdlet New-FRCExplainabilityExport leveraging the CreateExplainabilityExport service API.
+    * Added cmdlet Remove-FRCExplainability leveraging the DeleteExplainability service API.
+    * Added cmdlet Remove-FRCExplainabilityExport leveraging the DeleteExplainabilityExport service API.
+  * Amazon Fraud Detector
+    * Added cmdlet Get-FDBatchImportJob leveraging the GetBatchImportJobs service API.
+    * Added cmdlet Get-FDDeleteEventsByEventTypeStatus leveraging the GetDeleteEventsByEventTypeStatus service API.
+    * Added cmdlet Get-FDEvent leveraging the GetEvent service API.
+    * Added cmdlet New-FDBatchImportJob leveraging the CreateBatchImportJob service API.
+    * Added cmdlet Remove-FDBatchImportJob leveraging the DeleteBatchImportJob service API.
+    * Added cmdlet Remove-FDEventsByEventType leveraging the DeleteEventsByEventType service API.
+    * Added cmdlet Send-FDEvent leveraging the SendEvent service API.
+    * Added cmdlet Stop-FDBatchImportJob leveraging the CancelBatchImportJob service API.
+    * Added cmdlet Update-FDEventLabel leveraging the UpdateEventLabel service API.
+    * Modified cmdlet New-FDModelVersion: added parameters IngestedEventsTimeWindow_EndTime, IngestedEventsTimeWindow_StartTime and LabelSchema_UnlabeledEventsTreatment.
+    * Modified cmdlet Remove-FDEvent: added parameter DeleteAuditHistory.
+    * Modified cmdlet Update-FDModelVersion: added parameters IngestedEventsTimeWindow_EndTime and IngestedEventsTimeWindow_StartTime.
+    * Modified cmdlet Write-FDEventType: added parameter EventIngestion.
+  * Amazon FSx
+    * Modified cmdlet New-FSXFileSystem: added parameter FileSystemTypeVersion.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameter FileSystemTypeVersion.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEConnection: added parameter Tag.
+  * Amazon Glue DataBrew
+    * Added cmdlet Get-GDBRuleset leveraging the DescribeRuleset service API.
+    * Added cmdlet Get-GDBRulesetList leveraging the ListRulesets service API.
+    * Added cmdlet New-GDBRuleset leveraging the CreateRuleset service API.
+    * Added cmdlet Remove-GDBRuleset leveraging the DeleteRuleset service API.
+    * Added cmdlet Update-GDBRuleset leveraging the UpdateRuleset service API.
+    * Modified cmdlet New-GDBDataset: added parameters DatabaseInputDefinition_QueryString and Metadata_SourceArn.
+    * Modified cmdlet New-GDBProfileJob: added parameters EntityDetectorConfiguration_AllowedStatistic, EntityDetectorConfiguration_EntityType and ValidationConfiguration.
+    * Modified cmdlet Send-GDBProjectSessionAction: added parameters ViewFrame_Analytic, ViewFrame_RowRange and ViewFrame_StartRowIndex.
+    * Modified cmdlet Update-GDBDataset: added parameters DatabaseInputDefinition_QueryString and Metadata_SourceArn.
+    * Modified cmdlet Update-GDBProfileJob: added parameters EntityDetectorConfiguration_AllowedStatistic, EntityDetectorConfiguration_EntityType and ValidationConfiguration.
+  * Amazon Interactive Video Service
+    * Added cmdlet Get-IVSStreamSession leveraging the GetStreamSession service API.
+    * Added cmdlet Get-IVSStreamSessionList leveraging the ListStreamSessions service API.
+    * [Breaking Change] Modified cmdlet Get-IVSResourceTag: removed parameters MaxResult and NextToken.
+    * Modified cmdlet Get-IVSStreamList: added parameters FilterBy_Health and PassThru.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWFuotaTask leveraging the GetFuotaTask service API.
+    * Added cmdlet Get-IOTWFuotaTaskList leveraging the ListFuotaTasks service API.
+    * Added cmdlet Get-IOTWMulticastGroup leveraging the GetMulticastGroup service API.
+    * Added cmdlet Get-IOTWMulticastGroupList leveraging the ListMulticastGroups service API.
+    * Added cmdlet Get-IOTWMulticastGroupsByFuotaTaskList leveraging the ListMulticastGroupsByFuotaTask service API.
+    * Added cmdlet Get-IOTWMulticastGroupSession leveraging the GetMulticastGroupSession service API.
+    * Added cmdlet Get-IOTWResourceEventConfiguration leveraging the GetResourceEventConfiguration service API.
+    * Added cmdlet Join-IOTWMulticastGroupWithFuotaTask leveraging the AssociateMulticastGroupWithFuotaTask service API.
+    * Added cmdlet Join-IOTWWirelessDeviceWithFuotaTask leveraging the AssociateWirelessDeviceWithFuotaTask service API.
+    * Added cmdlet Join-IOTWWirelessDeviceWithMulticastGroup leveraging the AssociateWirelessDeviceWithMulticastGroup service API.
+    * Added cmdlet New-IOTWFuotaTask leveraging the CreateFuotaTask service API.
+    * Added cmdlet New-IOTWMulticastGroup leveraging the CreateMulticastGroup service API.
+    * Added cmdlet Remove-IOTWFuotaTask leveraging the DeleteFuotaTask service API.
+    * Added cmdlet Remove-IOTWMulticastGroup leveraging the DeleteMulticastGroup service API.
+    * Added cmdlet Send-IOTWDataToMulticastGroup leveraging the SendDataToMulticastGroup service API.
+    * Added cmdlet Split-IOTWMulticastGroupFromFuotaTask leveraging the DisassociateMulticastGroupFromFuotaTask service API.
+    * Added cmdlet Split-IOTWWirelessDeviceFromFuotaTask leveraging the DisassociateWirelessDeviceFromFuotaTask service API.
+    * Added cmdlet Split-IOTWWirelessDeviceFromMulticastGroup leveraging the DisassociateWirelessDeviceFromMulticastGroup service API.
+    * Added cmdlet Start-IOTWBulkAssociateWirelessDeviceWithMulticastGroup leveraging the StartBulkAssociateWirelessDeviceWithMulticastGroup service API.
+    * Added cmdlet Start-IOTWBulkDisassociateWirelessDeviceFromMulticastGroup leveraging the StartBulkDisassociateWirelessDeviceFromMulticastGroup service API.
+    * Added cmdlet Start-IOTWFuotaTask leveraging the StartFuotaTask service API.
+    * Added cmdlet Start-IOTWMulticastGroupSession leveraging the StartMulticastGroupSession service API.
+    * Added cmdlet Stop-IOTWMulticastGroupSession leveraging the CancelMulticastGroupSession service API.
+    * Added cmdlet Update-IOTWFuotaTask leveraging the UpdateFuotaTask service API.
+    * Added cmdlet Update-IOTWMulticastGroup leveraging the UpdateMulticastGroup service API.
+    * Added cmdlet Update-IOTWResourceEventConfiguration leveraging the UpdateResourceEventConfiguration service API.
+    * Modified cmdlet Get-IOTWWirelessDeviceList: added parameters FuotaTaskId and MulticastGroupId.
+    * Modified cmdlet New-IOTWWirelessDevice: added parameters FPorts_ClockSync, FPorts_Fuota, FPorts_Multicast and x_GenAppKey.
+  * Amazon Kendra
+    * Modified cmdlet New-KNDRDataSource: added parameter LanguageCode.
+    * Modified cmdlet New-KNDRFaq: added parameter LanguageCode.
+    * Modified cmdlet New-KNDRIndex: added parameter UserGroupResolutionConfiguration_UserGroupResolutionMode.
+    * Modified cmdlet Update-KNDRDataSource: added parameter LanguageCode.
+    * Modified cmdlet Update-KNDRIndex: added parameter UserGroupResolutionConfiguration_UserGroupResolutionMode.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds, AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs, AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_Enabled, AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName, AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName, AmazonopensearchserviceDestinationConfiguration_ClusterEndpoint, AmazonopensearchserviceDestinationConfiguration_DomainARN, AmazonopensearchserviceDestinationConfiguration_IndexName, AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod, AmazonopensearchserviceDestinationConfiguration_ProcessingConfiguration_Enabled, AmazonopensearchserviceDestinationConfiguration_ProcessingConfiguration_Processors, AmazonopensearchserviceDestinationConfiguration_RetryOptions_DurationInSeconds, AmazonopensearchserviceDestinationConfiguration_RoleARN, AmazonopensearchserviceDestinationConfiguration_S3BackupMode, AmazonopensearchserviceDestinationConfiguration_S3Configuration, AmazonopensearchserviceDestinationConfiguration_TypeName, AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_RoleARN, AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SecurityGroupIds and AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds.
+    * Modified cmdlet Update-KINFDestination: added parameters AmazonopensearchserviceDestinationUpdate_BufferingHints_IntervalInSeconds, AmazonopensearchserviceDestinationUpdate_BufferingHints_SizeInMBs, AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_Enabled, AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogGroupName, AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogStreamName, AmazonopensearchserviceDestinationUpdate_ClusterEndpoint, AmazonopensearchserviceDestinationUpdate_DomainARN, AmazonopensearchserviceDestinationUpdate_IndexName, AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod, AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Enabled, AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Processors, AmazonopensearchserviceDestinationUpdate_RetryOptions_DurationInSeconds, AmazonopensearchserviceDestinationUpdate_RoleARN, AmazonopensearchserviceDestinationUpdate_S3Update and AmazonopensearchserviceDestinationUpdate_TypeName.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameter VoiceSettings_Engine.
+    * Modified cmdlet New-LMBV2Intent: added parameters FailureResponse_AllowInterrupt, FailureResponse_MessageGroup, FulfillmentUpdatesSpecification_Active, FulfillmentUpdatesSpecification_TimeoutInSecond, StartResponse_AllowInterrupt, StartResponse_DelayInSecond, StartResponse_MessageGroup, SuccessResponse_AllowInterrupt, SuccessResponse_MessageGroup, TimeoutResponse_AllowInterrupt, TimeoutResponse_MessageGroup, UpdateResponse_AllowInterrupt, UpdateResponse_FrequencyInSecond and UpdateResponse_MessageGroup.
+    * Modified cmdlet Start-LMBV2Import: added parameter VoiceSettings_Engine.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameter VoiceSettings_Engine.
+    * Modified cmdlet Update-LMBV2Intent: added parameters FailureResponse_AllowInterrupt, FailureResponse_MessageGroup, FulfillmentUpdatesSpecification_Active, FulfillmentUpdatesSpecification_TimeoutInSecond, StartResponse_AllowInterrupt, StartResponse_DelayInSecond, StartResponse_MessageGroup, SuccessResponse_AllowInterrupt, SuccessResponse_MessageGroup, TimeoutResponse_AllowInterrupt, TimeoutResponse_MessageGroup, UpdateResponse_AllowInterrupt, UpdateResponse_FrequencyInSecond and UpdateResponse_MessageGroup.
+  * Amazon Lightsail
+    * Modified cmdlet Update-LSBucket: added parameters AccessLogConfig_Destination, AccessLogConfig_Enabled and AccessLogConfig_Prefix.
+  * Amazon Location Service
+    * Modified cmdlet Edit-LOCTracker: added parameter PositionFiltering.
+    * Modified cmdlet New-LOCTracker: added parameter PositionFiltering.
+    * Modified cmdlet Search-LOCPlaceIndexForPosition: added parameter Language.
+    * Modified cmdlet Search-LOCPlaceIndexForText: added parameter Language.
+  * Amazon Macie 2
+    * Modified cmdlet New-MAC2CustomDataIdentifier: added parameter SeverityLevel.
+  * Amazon Managed Grafana. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MGRF and can be listed using the command 'Get-AWSCmdletName -Service MGRF'.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Update-MSKConnectivity leveraging the UpdateConnectivity service API.
+  * Amazon Migration Hub Strategy Recommendations. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MHS and can be listed using the command 'Get-AWSCmdletName -Service MHS'.
+  * Amazon Neptune
+    * Modified cmdlet Edit-NPTDBCluster: added parameters AllowMajorVersionUpgrade and DBInstanceParameterGroupName.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGRNetworkResource leveraging the GetNetworkResources service API.
+    * Added cmdlet Get-NMGRNetworkResourceCount leveraging the GetNetworkResourceCounts service API.
+    * Added cmdlet Get-NMGRNetworkResourceRelationship leveraging the GetNetworkResourceRelationships service API.
+    * Added cmdlet Get-NMGRNetworkRoute leveraging the GetNetworkRoutes service API.
+    * Added cmdlet Get-NMGRNetworkTelemetry leveraging the GetNetworkTelemetry service API.
+    * Added cmdlet Get-NMGRRouteAnalysis leveraging the GetRouteAnalysis service API.
+    * Added cmdlet Start-NMGRRouteAnalysis leveraging the StartRouteAnalysis service API.
+    * Added cmdlet Update-NMGRNetworkResourceMetadata leveraging the UpdateNetworkResourceMetadata service API.
+  * Amazon Nimble Studio
+    * Added cmdlet Start-NSStreamingSession leveraging the StartStreamingSession service API.
+    * Added cmdlet Stop-NSStreamingSession leveraging the StopStreamingSession service API.
+    * Modified cmdlet New-NSLaunchProfile: added parameter StreamConfiguration_MaxStoppedSessionLengthInMinute.
+    * Modified cmdlet Update-NSLaunchProfile: added parameter StreamConfiguration_MaxStoppedSessionLengthInMinute.
+  * Amazon Panorama. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PAN and can be listed using the command 'Get-AWSCmdletName -Service PAN'.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSIpRestriction leveraging the DescribeIpRestriction service API.
+    * Added cmdlet Update-QSIpRestriction leveraging the UpdateIpRestriction service API.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameter QSearchBar_InitialTopicId.
+    * Modified cmdlet New-QSIngestion: added parameter IngestionType.
+  * Amazon Rekognition
+    * Added cmdlet Get-REKDataset leveraging the DescribeDataset service API.
+    * Added cmdlet Get-REKDatasetEntryList leveraging the ListDatasetEntries service API.
+    * Added cmdlet Get-REKDatasetLabelList leveraging the ListDatasetLabels service API.
+    * Added cmdlet Invoke-REKDistributeDatasetEntry leveraging the DistributeDatasetEntries service API.
+    * Added cmdlet New-REKDataset leveraging the CreateDataset service API.
+    * Added cmdlet Remove-REKDataset leveraging the DeleteDataset service API.
+    * Added cmdlet Update-REKDatasetEntry leveraging the UpdateDatasetEntries service API.
+    * Modified cmdlet Get-REKProject: added parameter ProjectName.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSCustomDBEngineVersion leveraging the ModifyCustomDBEngineVersion service API.
+    * Added cmdlet New-RDSCustomDBEngineVersion leveraging the CreateCustomDBEngineVersion service API.
+    * Added cmdlet Remove-RDSCustomDBEngineVersion leveraging the DeleteCustomDBEngineVersion service API.
+    * Modified cmdlet Edit-RDSDBInstance: added parameters AutomationMode and ResumeFullAutomationModeMinute.
+    * Modified cmdlet New-RDSDBInstance: added parameter CustomIamInstanceProfile.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter CustomIamInstanceProfile.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter CustomIamInstanceProfile.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter CustomIamInstanceProfile.
+  * Amazon Resilience Hub. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RESH and can be listed using the command 'Get-AWSCmdletName -Service RESH'.
+  * Amazon RoboMaker
+    * Modified cmdlet New-ROBOSimulationJob: added parameters Compute_ComputeType and Compute_GpuUnitLimit.
+  * Amazon Route 53 Resolver
+    * Added cmdlet Get-R53RResolverConfig leveraging the GetResolverConfig service API.
+    * Added cmdlet Get-R53RResolverConfigList leveraging the ListResolverConfigs service API.
+    * Added cmdlet Update-R53RResolverConfig leveraging the UpdateResolverConfig service API.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMDescribeModelPackage leveraging the BatchDescribeModelPackage service API.
+    * Added cmdlet Update-SMProject leveraging the UpdateProject service API.
+    * Modified cmdlet New-SMDomain: added parameters AppSecurityGroupManagement, DefaultResourceSpec_InstanceType, DefaultResourceSpec_LifecycleConfigArn, DefaultResourceSpec_SageMakerImageArn, DefaultResourceSpec_SageMakerImageVersionArn, DomainSettings_SecurityGroupId, RStudioServerProDomainSettings_DomainExecutionRoleArn, RStudioServerProDomainSettings_RStudioConnectUrl and RStudioServerProDomainSettings_RStudioPackageManagerUrl.
+    * Modified cmdlet New-SMEndpoint: added parameters AutoRollbackConfiguration_Alarm, BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond, BlueGreenUpdatePolicy_TerminationWaitInSecond, CanarySize_Type, CanarySize_Value, LinearStepSize_Type, LinearStepSize_Value, TrafficRoutingConfiguration_Type and TrafficRoutingConfiguration_WaitIntervalInSecond.
+    * Modified cmdlet New-SMModelPackage: added parameter CustomerMetadataProperty.
+    * Modified cmdlet Update-SMDomain: added parameters DefaultResourceSpec_InstanceType, DefaultResourceSpec_LifecycleConfigArn, DefaultResourceSpec_SageMakerImageArn, DefaultResourceSpec_SageMakerImageVersionArn and RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn.
+    * Modified cmdlet Update-SMEndpoint: added parameters LinearStepSize_Type, LinearStepSize_Value and RetainDeploymentConfig.
+    * Modified cmdlet Update-SMModelPackage: added parameters CustomerMetadataPropertiesToRemove and CustomerMetadataProperty.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBFindingAggregator leveraging the GetFindingAggregator service API.
+    * Added cmdlet Get-SHUBFindingAggregatorList leveraging the ListFindingAggregators service API.
+    * Added cmdlet New-SHUBFindingAggregator leveraging the CreateFindingAggregator service API.
+    * Added cmdlet Remove-SHUBFindingAggregator leveraging the DeleteFindingAggregator service API.
+    * Added cmdlet Update-SHUBFindingAggregator leveraging the UpdateFindingAggregator service API.
+  * Amazon Simple Notification Service (SNS)
+    * Added cmdlet Publish-SNSBatch leveraging the PublishBatch service API.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3Object: added parameter PartSize.
+  * Amazon Storage Gateway
+    * Added cmdlet Update-SGSGSMBLocalGroup leveraging the UpdateSMBLocalGroups service API.
+    * Modified cmdlet New-SGNFSFileShare: added parameter AuditDestinationARN.
+    * Modified cmdlet Update-SGNFSFileShare: added parameter AuditDestinationARN.
+  * Amazon Systems Manager
+    * Modified cmdlet Start-SSMSession: added parameter Reason.
+  * Amazon Textract
+    * Added cmdlet Get-TXTExpenseAnalysis leveraging the GetExpenseAnalysis service API.
+    * Added cmdlet Start-TXTExpenseAnalysis leveraging the StartExpenseAnalysis service API.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSCallAnalyticsJob: added parameter Settings_LanguageIdSetting.
+    * Modified cmdlet Start-TRSTranscriptionJob: added parameter LanguageIdSetting.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter IdentityProviderDetails_Function.
+    * Modified cmdlet Update-TFRServer: added parameter IdentityProviderDetails_Function.
+  * Amazon Translate
+    * Modified cmdlet Import-TRNTerminology: added parameter TerminologyData_Directionality.
+    * Modified cmdlet Start-TRNTextTranslationJob: added parameters EncryptionKey_Id and EncryptionKey_Type.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter ImmunityTimeProperty_ImmunityTime.
+    * Modified cmdlet Update-WAF2WebACL: added parameter ImmunityTimeProperty_ImmunityTime.
+  * Amazon WorkMail
+    * Added cmdlet Add-WMMailDomain leveraging the RegisterMailDomain service API.
+    * Added cmdlet Get-WMInboundDmarcSetting leveraging the DescribeInboundDmarcSettings service API.
+    * Added cmdlet Get-WMMailDomain leveraging the GetMailDomain service API.
+    * Added cmdlet Get-WMMailDomainList leveraging the ListMailDomains service API.
+    * Added cmdlet Remove-WMMailDomain leveraging the DeregisterMailDomain service API.
+    * Added cmdlet Update-WMDefaultMailDomain leveraging the UpdateDefaultMailDomain service API.
+    * Added cmdlet Write-WMInboundDmarcSetting leveraging the PutInboundDmarcSettings service API.
+
+### 4.1.15.0 (2021-10-01)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Account. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCT and can be listed using the command 'Get-AWSCmdletName -Service ACCT'.
   * Amazon Amplify Backend

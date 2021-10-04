@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para>The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control. </para>
+        /// <para> The unique identifier for the control. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSetId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control set. </para>
+        /// <para> The unique identifier for the control set. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Represents the maximum number of results per page, or per API request call. </para>
+        /// <para>Represents the maximum number of results on a page or for an API request call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token used to fetch the next set of results. </para>
+        /// <para> The pagination token that's used to fetch the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

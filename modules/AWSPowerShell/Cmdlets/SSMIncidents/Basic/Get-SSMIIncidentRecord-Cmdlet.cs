@@ -28,7 +28,7 @@ using Amazon.SSMIncidents.Model;
 namespace Amazon.PowerShell.Cmdlets.SSMI
 {
     /// <summary>
-    /// Returns the details of the specified incident record.
+    /// Returns the details for the specified incident record.
     /// </summary>
     [Cmdlet("Get", "SSMIIncidentRecord")]
     [OutputType("Amazon.SSMIncidents.Model.IncidentRecord")]

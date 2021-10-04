@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Enables or disables integration with a service that can be integrated with DevOps
-    /// Guru. The one service that can be integrated with DevOps Guru is AWS Systems Manager,
-    /// which can be used to create an OpsItem for each generated insight.
+    /// Guru. The one service that can be integrated with DevOps Guru is Amazon Web Services
+    /// Systems Manager, which can be used to create an OpsItem for each generated insight.
     /// </summary>
     [Cmdlet("Update", "DGURUServiceIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

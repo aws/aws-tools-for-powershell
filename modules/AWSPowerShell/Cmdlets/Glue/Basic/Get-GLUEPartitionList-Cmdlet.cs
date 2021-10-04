@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ExcludeColumnSchema
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When true, specifies not returning the partition column schema. Useful when you are
+        /// interested only in other partition attributes such as partition values or location.
+        /// This approach avoids the problem of a large response by not returning duplicate data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets information about AWS tags for the specified ARN.
+    /// Gets information about Amazon Web Services tags for the specified ARN.
     /// </summary>
     [Cmdlet("Get", "IVSResourceTag")]
     [OutputType("System.String")]
@@ -55,28 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>Maximum number of tags to return. Default: 50.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The first tag to retrieve. This is used for pagination; see the <code>nextToken</code>
-        /// response field.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -124,8 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
@@ -149,14 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request
             var request = new Amazon.IVS.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
@@ -222,8 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.IVS.Model.ListTagsForResourceResponse, GetIVSResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Tags;

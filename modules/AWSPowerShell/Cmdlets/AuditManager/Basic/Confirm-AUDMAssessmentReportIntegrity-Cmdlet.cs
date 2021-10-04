@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter S3RelativePath
         /// <summary>
         /// <para>
-        /// <para> The relative path of the specified Amazon S3 bucket in which the assessment report
-        /// is stored. </para>
+        /// <para> The relative path of the Amazon S3 bucket that the assessment report is stored in.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

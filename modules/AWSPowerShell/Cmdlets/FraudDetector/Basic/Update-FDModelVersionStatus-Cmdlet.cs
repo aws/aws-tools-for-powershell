@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// </para><ol><li><para>
     /// Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.
     /// </para></li><li><para>
-    /// Change <code>ACTIVE</code>to <code>INACTIVE</code>.
+    /// Change <code>ACTIVE</code> to <code>INACTIVE</code>.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "FDModelVersionStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

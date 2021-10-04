@@ -28,7 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Provisions a private virtual interface to be owned by the specified account.
+    /// Provisions a private virtual interface to be owned by the specified Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>
@@ -135,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the account that owns the virtual private interface.</para>
+        /// <para>The ID of the Amazon Web Services account that owns the virtual private interface.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

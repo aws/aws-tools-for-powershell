@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// | <code>vpn-connection</code> | <code>vpn-gateway</code>.
     /// </para><para>
     /// This setting applies to the IAM user who makes the request; it does not apply to the
-    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
-    /// user. If you're using this action as the root user, then these settings apply to the
-    /// entire account, unless an IAM user explicitly overrides these settings for themselves.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// entire Amazon Web Services account. By default, an IAM user defaults to the same settings
+    /// as the root user. If you're using this action as the root user, then these settings
+    /// apply to the entire account, unless an IAM user explicitly overrides these settings
+    /// for themselves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
     /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// Resources created with longer IDs are visible to all IAM roles and users, regardless

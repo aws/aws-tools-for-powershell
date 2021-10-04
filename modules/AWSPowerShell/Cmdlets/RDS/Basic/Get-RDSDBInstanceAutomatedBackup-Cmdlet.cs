@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceAutomatedBackupsArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

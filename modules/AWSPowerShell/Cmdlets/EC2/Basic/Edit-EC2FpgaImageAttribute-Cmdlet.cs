@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The AWS account IDs. This parameter is valid only when modifying the <code>loadPermission</code>
-        /// attribute.</para>
+        /// <para>The Amazon Web Services account IDs. This parameter is valid only when modifying the
+        /// <code>loadPermission</code> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public Amazon.Backup.Model.Condition[] BackupSelection_ListOfTag { get; set; }
         #endregion
         
+        #region Parameter BackupSelection_NotResource
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupSelection_NotResources")]
+        public System.String[] BackupSelection_NotResource { get; set; }
+        #endregion
+        
         #region Parameter BackupSelection_Resource
         /// <summary>
         /// <para>
@@ -141,6 +152,50 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BackupSelection_SelectionName { get; set; }
+        #endregion
+        
+        #region Parameter Conditions_StringEqual
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupSelection_Conditions_StringEquals")]
+        public Amazon.Backup.Model.ConditionParameter[] Conditions_StringEqual { get; set; }
+        #endregion
+        
+        #region Parameter Conditions_StringLike
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupSelection_Conditions_StringLike")]
+        public Amazon.Backup.Model.ConditionParameter[] Conditions_StringLike { get; set; }
+        #endregion
+        
+        #region Parameter Conditions_StringNotEqual
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupSelection_Conditions_StringNotEquals")]
+        public Amazon.Backup.Model.ConditionParameter[] Conditions_StringNotEqual { get; set; }
+        #endregion
+        
+        #region Parameter Conditions_StringNotLike
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupSelection_Conditions_StringNotLike")]
+        public Amazon.Backup.Model.ConditionParameter[] Conditions_StringNotLike { get; set; }
         #endregion
         
         #region Parameter Select
@@ -211,6 +266,22 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 WriteWarning("You are passing $null as a value for parameter BackupPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Conditions_StringEqual != null)
+            {
+                context.Conditions_StringEqual = new List<Amazon.Backup.Model.ConditionParameter>(this.Conditions_StringEqual);
+            }
+            if (this.Conditions_StringLike != null)
+            {
+                context.Conditions_StringLike = new List<Amazon.Backup.Model.ConditionParameter>(this.Conditions_StringLike);
+            }
+            if (this.Conditions_StringNotEqual != null)
+            {
+                context.Conditions_StringNotEqual = new List<Amazon.Backup.Model.ConditionParameter>(this.Conditions_StringNotEqual);
+            }
+            if (this.Conditions_StringNotLike != null)
+            {
+                context.Conditions_StringNotLike = new List<Amazon.Backup.Model.ConditionParameter>(this.Conditions_StringNotLike);
+            }
             context.BackupSelection_IamRoleArn = this.BackupSelection_IamRoleArn;
             #if MODULAR
             if (this.BackupSelection_IamRoleArn == null && ParameterWasBound(nameof(this.BackupSelection_IamRoleArn)))
@@ -221,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (this.BackupSelection_ListOfTag != null)
             {
                 context.BackupSelection_ListOfTag = new List<Amazon.Backup.Model.Condition>(this.BackupSelection_ListOfTag);
+            }
+            if (this.BackupSelection_NotResource != null)
+            {
+                context.BackupSelection_NotResource = new List<System.String>(this.BackupSelection_NotResource);
             }
             if (this.BackupSelection_Resource != null)
             {
@@ -278,6 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 request.BackupSelection.ListOfTags = requestBackupSelection_backupSelection_ListOfTag;
                 requestBackupSelectionIsNull = false;
             }
+            List<System.String> requestBackupSelection_backupSelection_NotResource = null;
+            if (cmdletContext.BackupSelection_NotResource != null)
+            {
+                requestBackupSelection_backupSelection_NotResource = cmdletContext.BackupSelection_NotResource;
+            }
+            if (requestBackupSelection_backupSelection_NotResource != null)
+            {
+                request.BackupSelection.NotResources = requestBackupSelection_backupSelection_NotResource;
+                requestBackupSelectionIsNull = false;
+            }
             List<System.String> requestBackupSelection_backupSelection_Resource = null;
             if (cmdletContext.BackupSelection_Resource != null)
             {
@@ -296,6 +381,61 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestBackupSelection_backupSelection_SelectionName != null)
             {
                 request.BackupSelection.SelectionName = requestBackupSelection_backupSelection_SelectionName;
+                requestBackupSelectionIsNull = false;
+            }
+            Amazon.Backup.Model.Conditions requestBackupSelection_backupSelection_Conditions = null;
+            
+             // populate Conditions
+            var requestBackupSelection_backupSelection_ConditionsIsNull = true;
+            requestBackupSelection_backupSelection_Conditions = new Amazon.Backup.Model.Conditions();
+            List<Amazon.Backup.Model.ConditionParameter> requestBackupSelection_backupSelection_Conditions_conditions_StringEqual = null;
+            if (cmdletContext.Conditions_StringEqual != null)
+            {
+                requestBackupSelection_backupSelection_Conditions_conditions_StringEqual = cmdletContext.Conditions_StringEqual;
+            }
+            if (requestBackupSelection_backupSelection_Conditions_conditions_StringEqual != null)
+            {
+                requestBackupSelection_backupSelection_Conditions.StringEquals = requestBackupSelection_backupSelection_Conditions_conditions_StringEqual;
+                requestBackupSelection_backupSelection_ConditionsIsNull = false;
+            }
+            List<Amazon.Backup.Model.ConditionParameter> requestBackupSelection_backupSelection_Conditions_conditions_StringLike = null;
+            if (cmdletContext.Conditions_StringLike != null)
+            {
+                requestBackupSelection_backupSelection_Conditions_conditions_StringLike = cmdletContext.Conditions_StringLike;
+            }
+            if (requestBackupSelection_backupSelection_Conditions_conditions_StringLike != null)
+            {
+                requestBackupSelection_backupSelection_Conditions.StringLike = requestBackupSelection_backupSelection_Conditions_conditions_StringLike;
+                requestBackupSelection_backupSelection_ConditionsIsNull = false;
+            }
+            List<Amazon.Backup.Model.ConditionParameter> requestBackupSelection_backupSelection_Conditions_conditions_StringNotEqual = null;
+            if (cmdletContext.Conditions_StringNotEqual != null)
+            {
+                requestBackupSelection_backupSelection_Conditions_conditions_StringNotEqual = cmdletContext.Conditions_StringNotEqual;
+            }
+            if (requestBackupSelection_backupSelection_Conditions_conditions_StringNotEqual != null)
+            {
+                requestBackupSelection_backupSelection_Conditions.StringNotEquals = requestBackupSelection_backupSelection_Conditions_conditions_StringNotEqual;
+                requestBackupSelection_backupSelection_ConditionsIsNull = false;
+            }
+            List<Amazon.Backup.Model.ConditionParameter> requestBackupSelection_backupSelection_Conditions_conditions_StringNotLike = null;
+            if (cmdletContext.Conditions_StringNotLike != null)
+            {
+                requestBackupSelection_backupSelection_Conditions_conditions_StringNotLike = cmdletContext.Conditions_StringNotLike;
+            }
+            if (requestBackupSelection_backupSelection_Conditions_conditions_StringNotLike != null)
+            {
+                requestBackupSelection_backupSelection_Conditions.StringNotLike = requestBackupSelection_backupSelection_Conditions_conditions_StringNotLike;
+                requestBackupSelection_backupSelection_ConditionsIsNull = false;
+            }
+             // determine if requestBackupSelection_backupSelection_Conditions should be set to null
+            if (requestBackupSelection_backupSelection_ConditionsIsNull)
+            {
+                requestBackupSelection_backupSelection_Conditions = null;
+            }
+            if (requestBackupSelection_backupSelection_Conditions != null)
+            {
+                request.BackupSelection.Conditions = requestBackupSelection_backupSelection_Conditions;
                 requestBackupSelectionIsNull = false;
             }
              // determine if request.BackupSelection should be set to null
@@ -369,8 +509,13 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BackupPlanId { get; set; }
+            public List<Amazon.Backup.Model.ConditionParameter> Conditions_StringEqual { get; set; }
+            public List<Amazon.Backup.Model.ConditionParameter> Conditions_StringLike { get; set; }
+            public List<Amazon.Backup.Model.ConditionParameter> Conditions_StringNotEqual { get; set; }
+            public List<Amazon.Backup.Model.ConditionParameter> Conditions_StringNotLike { get; set; }
             public System.String BackupSelection_IamRoleArn { get; set; }
             public List<Amazon.Backup.Model.Condition> BackupSelection_ListOfTag { get; set; }
+            public List<System.String> BackupSelection_NotResource { get; set; }
             public List<System.String> BackupSelection_Resource { get; set; }
             public System.String BackupSelection_SelectionName { get; set; }
             public System.String CreatorRequestId { get; set; }

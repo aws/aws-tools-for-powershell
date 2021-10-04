@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The principal ID.</para>
+        /// <para>The principal ID. This currently supports a Amazon Web Services SSO UserId. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>A list of states.</para>
+        /// <para>Filter this request to launch profiles in any of the given states.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per request.</para>
+        /// <para>The max number of results to return in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or null if there are no more results.</para>
+        /// <para>The token to request the next page of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

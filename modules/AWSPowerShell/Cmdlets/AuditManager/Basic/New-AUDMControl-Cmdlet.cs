@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ActionPlanInstruction
         /// <summary>
         /// <para>
-        /// <para> The recommended actions to carry out if the control is not fulfilled. </para>
+        /// <para> The recommended actions to carry out if the control isn't fulfilled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlMappingSource
         /// <summary>
         /// <para>
-        /// <para> The data mapping sources for the specified control. </para>
+        /// <para> The data mapping sources for the control. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags associated with the control. </para>
+        /// <para> The tags that are associated with the control. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter TestingInformation
         /// <summary>
         /// <para>
-        /// <para> The steps to follow to determine if the control has been satisfied. </para>
+        /// <para> The steps to follow to determine if the control is satisfied. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -150,7 +150,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -252,6 +252,7 @@ $EML_SelectMap = @{
                "Stop-EMLResourceBatch",
                "Update-EMLScheduleBatch",
                "Stop-EMLInputDeviceTransfer",
+               "Request-EMLDevice",
                "New-EMLChannel",
                "New-EMLInput",
                "New-EMLInputSecurityGroup",

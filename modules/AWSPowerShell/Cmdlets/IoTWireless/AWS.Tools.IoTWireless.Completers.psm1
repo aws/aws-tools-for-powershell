@@ -80,6 +80,36 @@ $IOTW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTWireless.DlClass
+        {
+            ($_ -eq "New-IOTWMulticastGroup/LoRaWAN_DlClass") -Or
+            ($_ -eq "Update-IOTWMulticastGroup/LoRaWAN_DlClass")
+        }
+        {
+            $v = "ClassB","ClassC"
+            break
+        }
+
+        # Amazon.IoTWireless.EventNotificationPartnerType
+        {
+            ($_ -eq "Get-IOTWResourceEventConfiguration/PartnerType") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/PartnerType")
+        }
+        {
+            $v = "Sidewalk"
+            break
+        }
+
+        # Amazon.IoTWireless.EventNotificationTopicStatus
+        {
+            ($_ -eq "Update-IOTWResourceEventConfiguration/DeviceRegistrationState_Sidewalk_AmazonIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_Sidewalk_AmazonIdEventTopic")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.IoTWireless.ExpressionType
         {
             ($_ -eq "New-IOTWDestination/ExpressionType") -Or
@@ -87,6 +117,16 @@ $IOTW_Completers = {
         }
         {
             $v = "MqttTopic","RuleName"
+            break
+        }
+
+        # Amazon.IoTWireless.IdentifierType
+        {
+            ($_ -eq "Get-IOTWResourceEventConfiguration/IdentifierType") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/IdentifierType")
+        }
+        {
+            $v = "PartnerAccountId"
             break
         }
 
@@ -115,6 +155,18 @@ $IOTW_Completers = {
         }
         {
             $v = "Sidewalk"
+            break
+        }
+
+        # Amazon.IoTWireless.SupportedRfRegion
+        {
+            ($_ -eq "New-IOTWFuotaTask/LoRaWAN_RfRegion") -Or
+            ($_ -eq "New-IOTWMulticastGroup/LoRaWAN_RfRegion") -Or
+            ($_ -eq "Update-IOTWFuotaTask/LoRaWAN_RfRegion") -Or
+            ($_ -eq "Update-IOTWMulticastGroup/LoRaWAN_RfRegion")
+        }
+        {
+            $v = "AS923-1","AU915","EU868","US915"
             break
         }
 
@@ -166,10 +218,14 @@ $IOTW_Completers = {
 
 $IOTW_map = @{
     "DefaultLogLevel"=@("Update-IOTWLogLevelsByResourceType")
+    "DeviceRegistrationState_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ExpressionType"=@("New-IOTWDestination","Update-IOTWDestination")
-    "IdentifierType"=@("Get-IOTWWirelessDevice","Get-IOTWWirelessGateway")
+    "IdentifierType"=@("Get-IOTWResourceEventConfiguration","Get-IOTWWirelessDevice","Get-IOTWWirelessGateway","Update-IOTWResourceEventConfiguration")
     "LogLevel"=@("Write-IOTWResourceLogLevel")
-    "PartnerType"=@("Get-IOTWPartnerAccount","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount")
+    "LoRaWAN_DlClass"=@("New-IOTWMulticastGroup","Update-IOTWMulticastGroup")
+    "LoRaWAN_RfRegion"=@("New-IOTWFuotaTask","New-IOTWMulticastGroup","Update-IOTWFuotaTask","Update-IOTWMulticastGroup")
+    "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
+    "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "Type"=@("New-IOTWWirelessDevice")
@@ -228,11 +284,17 @@ $IOTW_SelectCompleters = {
 
 $IOTW_SelectMap = @{
     "Select"=@("Join-IOTWAwsAccountWithPartnerAccount",
+               "Join-IOTWMulticastGroupWithFuotaTask",
+               "Join-IOTWWirelessDeviceWithFuotaTask",
+               "Join-IOTWWirelessDeviceWithMulticastGroup",
                "Join-IOTWWirelessDeviceWithThing",
                "Join-IOTWWirelessGatewayWithCertificate",
                "Join-IOTWWirelessGatewayWithThing",
+               "Stop-IOTWMulticastGroupSession",
                "New-IOTWDestination",
                "New-IOTWDeviceProfile",
+               "New-IOTWFuotaTask",
+               "New-IOTWMulticastGroup",
                "New-IOTWServiceProfile",
                "New-IOTWWirelessDevice",
                "New-IOTWWirelessGateway",
@@ -240,19 +302,28 @@ $IOTW_SelectMap = @{
                "New-IOTWWirelessGatewayTaskDefinition",
                "Remove-IOTWDestination",
                "Remove-IOTWDeviceProfile",
+               "Remove-IOTWFuotaTask",
+               "Remove-IOTWMulticastGroup",
                "Remove-IOTWServiceProfile",
                "Remove-IOTWWirelessDevice",
                "Remove-IOTWWirelessGateway",
                "Remove-IOTWWirelessGatewayTask",
                "Remove-IOTWWirelessGatewayTaskDefinition",
                "Split-IOTWAwsAccountFromPartnerAccount",
+               "Split-IOTWMulticastGroupFromFuotaTask",
+               "Split-IOTWWirelessDeviceFromFuotaTask",
+               "Split-IOTWWirelessDeviceFromMulticastGroup",
                "Split-IOTWWirelessDeviceFromThing",
                "Split-IOTWWirelessGatewayFromCertificate",
                "Split-IOTWWirelessGatewayFromThing",
                "Get-IOTWDestination",
                "Get-IOTWDeviceProfile",
+               "Get-IOTWFuotaTask",
                "Get-IOTWLogLevelsByResourceType",
+               "Get-IOTWMulticastGroup",
+               "Get-IOTWMulticastGroupSession",
                "Get-IOTWPartnerAccount",
+               "Get-IOTWResourceEventConfiguration",
                "Get-IOTWResourceLogLevel",
                "Get-IOTWServiceEndpoint",
                "Get-IOTWServiceProfile",
@@ -266,6 +337,9 @@ $IOTW_SelectMap = @{
                "Get-IOTWWirelessGatewayTaskDefinition",
                "Get-IOTWDestinationList",
                "Get-IOTWDeviceProfileList",
+               "Get-IOTWFuotaTaskList",
+               "Get-IOTWMulticastGroupList",
+               "Get-IOTWMulticastGroupsByFuotaTaskList",
                "Get-IOTWPartnerAccountList",
                "Get-IOTWServiceProfileList",
                "Get-IOTWResourceTag",
@@ -275,13 +349,21 @@ $IOTW_SelectMap = @{
                "Write-IOTWResourceLogLevel",
                "Reset-IOTWAllResourceLogLevel",
                "Reset-IOTWResourceLogLevel",
+               "Send-IOTWDataToMulticastGroup",
                "Send-IOTWDataToWirelessDevice",
+               "Start-IOTWBulkAssociateWirelessDeviceWithMulticastGroup",
+               "Start-IOTWBulkDisassociateWirelessDeviceFromMulticastGroup",
+               "Start-IOTWFuotaTask",
+               "Start-IOTWMulticastGroupSession",
                "Add-IOTWResourceTag",
                "Test-IOTWWirelessDevice",
                "Remove-IOTWResourceTag",
                "Update-IOTWDestination",
+               "Update-IOTWFuotaTask",
                "Update-IOTWLogLevelsByResourceType",
+               "Update-IOTWMulticastGroup",
                "Update-IOTWPartnerAccount",
+               "Update-IOTWResourceEventConfiguration",
                "Update-IOTWWirelessDevice",
                "Update-IOTWWirelessGateway")
 }

@@ -111,6 +111,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String QuickSightConsole_InitialPath { get; set; }
         #endregion
         
+        #region Parameter QSearchBar_InitialTopicId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Q topic that you want to make the starting topic in the Q search bar.
+        /// You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight
+        /// application and opening a topic. The ID is in the URL for the topic that you open.</para><para>If you don't specify an initial topic, a list of all shared topics is shown in the
+        /// Q bar for your readers. When you select an initial topic, you can specify whether
+        /// or not readers are allowed to select other topics from the available ones in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_QSearchBar_InitialTopicId")]
+        public System.String QSearchBar_InitialTopicId { get; set; }
+        #endregion
+        
         #region Parameter SessionLifetimeInMinute
         /// <summary>
         /// <para>
@@ -209,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.Dashboard_InitialDashboardId = this.Dashboard_InitialDashboardId;
+            context.QSearchBar_InitialTopicId = this.QSearchBar_InitialTopicId;
             context.QuickSightConsole_InitialPath = this.QuickSightConsole_InitialPath;
             context.SessionLifetimeInMinute = this.SessionLifetimeInMinute;
             context.UserArn = this.UserArn;
@@ -265,6 +281,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_Dashboard != null)
             {
                 request.ExperienceConfiguration.Dashboard = requestExperienceConfiguration_experienceConfiguration_Dashboard;
+                requestExperienceConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.RegisteredUserQSearchBarEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QSearchBar = null;
+            
+             // populate QSearchBar
+            var requestExperienceConfiguration_experienceConfiguration_QSearchBarIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_QSearchBar = new Amazon.QuickSight.Model.RegisteredUserQSearchBarEmbeddingConfiguration();
+            System.String requestExperienceConfiguration_experienceConfiguration_QSearchBar_qSearchBar_InitialTopicId = null;
+            if (cmdletContext.QSearchBar_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QSearchBar_qSearchBar_InitialTopicId = cmdletContext.QSearchBar_InitialTopicId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_QSearchBar_qSearchBar_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QSearchBar.InitialTopicId = requestExperienceConfiguration_experienceConfiguration_QSearchBar_qSearchBar_InitialTopicId;
+                requestExperienceConfiguration_experienceConfiguration_QSearchBarIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_QSearchBar should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_QSearchBarIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QSearchBar = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_QSearchBar != null)
+            {
+                request.ExperienceConfiguration.QSearchBar = requestExperienceConfiguration_experienceConfiguration_QSearchBar;
                 requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserQuickSightConsoleEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QuickSightConsole = null;
@@ -368,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }
+            public System.String QSearchBar_InitialTopicId { get; set; }
             public System.String QuickSightConsole_InitialPath { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }
             public System.String UserArn { get; set; }

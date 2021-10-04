@@ -46,14 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
@@ -181,12 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            #if MODULAR
-            if (this.Filter == null && ParameterWasBound(nameof(this.Filter)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Filter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
             #if MODULAR
             if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))

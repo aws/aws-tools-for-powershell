@@ -28,9 +28,9 @@ using Amazon.SSMIncidents.Model;
 namespace Amazon.PowerShell.Cmdlets.SSMI
 {
     /// <summary>
-    /// Update the details of an incident record. You can use this action to update an incident
-    /// record from the defined chat channel. For more information about using actions in
-    /// chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting
+    /// Update the details of an incident record. You can use this operation to update an
+    /// incident record from the defined chat channel. For more information about using actions
+    /// in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting
     /// through chat</a>.
     /// </summary>
     [Cmdlet("Update", "SSMIIncidentRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ChatChannel_ChatbotSn
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-        /// incident. You can also make updates to the incident through the chat channel by using
-        /// the SNS topics. </para>
+        /// <para>The Amazon SNS targets that Chatbot uses to notify the chat channel of updates to
+        /// an incident. You can also make updates to the incident through the chat channel by
+        /// using the Amazon SNS topics. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that are notified when updates are made to an incident.</para><para>Using multiple SNS topics creates redundancy in the case that a Region is down during
+        /// <para>The Amazon SNS targets that are notified when updates are made to an incident.</para><para>Using multiple SNS topics creates redundancy in the event that a Region is down during
         /// the incident.</para>
         /// </para>
         /// </summary>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Summary
         /// <summary>
         /// <para>
-        /// <para>The summary describes what has happened during the incident.</para>
+        /// <para>A longer description of what occurred during the incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>The title of the incident is a brief and easily recognizable.</para>
+        /// <para>A brief description of the incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token that ensures that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

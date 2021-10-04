@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets a list of all CloudFront functions in your account.
+    /// Gets a list of all CloudFront functions in your Amazon Web Services account.
     /// 
     ///  
     /// <para>

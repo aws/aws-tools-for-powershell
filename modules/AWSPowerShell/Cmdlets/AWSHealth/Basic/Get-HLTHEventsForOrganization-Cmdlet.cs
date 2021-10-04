@@ -28,8 +28,8 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Returns information about events across your organization in AWS Organizations. You
-    /// can use the<code>filters</code> parameter to specify the events that you want to return.
+    /// Returns information about events across your organization in Organizations. You can
+    /// use the<code>filters</code> parameter to specify the events that you want to return.
     /// Events are returned in a summary form and don't include the affected accounts, detailed
     /// description, any additional metadata that depends on the event type, or any affected
     /// resources. To retrieve that information, use the following operations:
@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// returns all events across your organization. Results are sorted by <code>lastModifiedTime</code>,
     /// starting with the most recent event. 
     /// </para><para>
-    /// For more information about the different types of AWS Health events, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
+    /// For more information about the different types of Health events, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
     /// </para><para>
-    /// Before you can call this operation, you must first enable AWS Health to work with
-    /// AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
+    /// Before you can call this operation, you must first enable Health to work with Organizations.
+    /// To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
     /// operation from your organization's management account.
     /// </para><note><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>A list of 12-digit AWS account numbers that contains the affected entities.</para>
+        /// <para>A list of 12-digit Amazon Web Services account numbers that contains the affected
+        /// entities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// <para>A list of event type category codes (issue, scheduledChange, or accountNotification).</para>
+        /// <para>A list of event type category codes. Possible values are <code>issue</code>, <code>accountNotification</code>,
+        /// or <code>scheduledChange</code>. Currently, the <code>investigation</code> value isn't
+        /// supported at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Regions.</para>
+        /// <para>A list of Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</para>
+        /// <para>The Amazon Web Services services associated with the event. For example, <code>EC2</code>,
+        /// <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

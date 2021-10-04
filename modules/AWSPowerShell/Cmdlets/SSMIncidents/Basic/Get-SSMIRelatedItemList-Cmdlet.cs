@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident record that you are listing related
-        /// items for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident record containing the listed related
+        /// items.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

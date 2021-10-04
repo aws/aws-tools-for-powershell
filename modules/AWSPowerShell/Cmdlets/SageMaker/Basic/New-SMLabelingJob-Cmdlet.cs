@@ -543,9 +543,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The length of time that a task remains available for labeling by human workers. The
         /// default and maximum values for this parameter depend on the type of workforce you
         /// use.</para><ul><li><para>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200
-        /// seconds). The default is 6 hours (21,600 seconds).</para></li><li><para>If you choose a private or vendor workforce, the default value is 10 days (864,000
-        /// seconds). For most users, the maximum is also 10 days. If you want to change this
-        /// limit, contact Amazon Web Services Support.</para></li></ul>
+        /// seconds). The default is 6 hours (21,600 seconds).</para></li><li><para>If you choose a private or vendor workforce, the default value is 30 days (2592,000
+        /// seconds) for non-AL mode. For most users, the maximum is also 30 days. If you want
+        /// to change this limit, contact Amazon Web Services Support.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -591,8 +591,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html">text</a>
         /// labeling jobs, the maximum is 8 hours (28,800 seconds).</para></li><li><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D
         /// point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video
-        /// frame</a> labeling jobs, the maximum is 7 days (604,800 seconds). If you want to change
-        /// these limits, contact Amazon Web Services Support.</para></li></ul>
+        /// frame</a> labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL mode.
+        /// For most users, the maximum is also 30 days. If you want to change these limits, contact
+        /// Amazon Web Services Support.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

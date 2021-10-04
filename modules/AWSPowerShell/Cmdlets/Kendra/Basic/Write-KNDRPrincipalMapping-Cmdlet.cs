@@ -28,14 +28,17 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Maps users to their groups. You can also map sub groups to groups. For example, the
-    /// group "Company Intellectual Property Teams" includes sub groups "Research" and "Engineering".
-    /// These sub groups include their own list of users or people who work in these teams.
-    /// Only users who work in research and engineering, and therefore belong in the intellectual
-    /// property group, can see top-secret company documents in their search results. 
+    /// Maps users to their groups so that you only need to provide the user ID when you issue
+    /// the query.
     /// 
     ///  
     /// <para>
+    /// You can also map sub groups to groups. For example, the group "Company Intellectual
+    /// Property Teams" includes sub groups "Research" and "Engineering". These sub groups
+    /// include their own list of users or people who work in these teams. Only users who
+    /// work in research and engineering, and therefore belong in the intellectual property
+    /// group, can see top-secret company documents in their search results.
+    /// </para><para>
     /// You map users to their groups when you want to filter search results for different
     /// users based on their group’s access to documents. For more information on filtering
     /// search results for different users, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering

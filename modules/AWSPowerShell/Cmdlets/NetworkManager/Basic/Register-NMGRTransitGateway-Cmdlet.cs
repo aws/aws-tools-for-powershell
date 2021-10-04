@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
     /// Registers a transit gateway in your global network. The transit gateway can be in
-    /// any AWS Region, but it must be owned by the same AWS account that owns the global
-    /// network. You cannot register a transit gateway in more than one global network.
+    /// any Amazon Web Services Region, but it must be owned by the same Amazon Web Services
+    /// account that owns the global network. You cannot register a transit gateway in more
+    /// than one global network.
     /// </summary>
     [Cmdlet("Register", "NMGRTransitGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkManager.Model.TransitGatewayRegistration")]
@@ -62,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter TransitGatewayArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the transit gateway. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources
-        /// Defined by Amazon EC2</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the transit gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -83,7 +83,7 @@ $FRC_Completers = {
         # Amazon.ForecastService.AutoMLOverrideStrategy
         "New-FRCPredictor/AutoMLOverrideStrategy"
         {
-            $v = "LatencyOptimized"
+            $v = "AccuracyOptimized","LatencyOptimized"
             break
         }
 
@@ -105,9 +105,26 @@ $FRC_Completers = {
         }
 
         # Amazon.ForecastService.OptimizationMetric
-        "New-FRCPredictor/OptimizationMetric"
+        {
+            ($_ -eq "New-FRCAutoPredictor/OptimizationMetric") -Or
+            ($_ -eq "New-FRCPredictor/OptimizationMetric")
+        }
         {
             $v = "AverageWeightedQuantileLoss","MAPE","MASE","RMSE","WAPE"
+            break
+        }
+
+        # Amazon.ForecastService.TimePointGranularity
+        "New-FRCExplainability/ExplainabilityConfig_TimePointGranularity"
+        {
+            $v = "ALL","SPECIFIC"
+            break
+        }
+
+        # Amazon.ForecastService.TimeSeriesGranularity
+        "New-FRCExplainability/ExplainabilityConfig_TimeSeriesGranularity"
+        {
+            $v = "ALL","SPECIFIC"
             break
         }
 
@@ -123,7 +140,9 @@ $FRC_map = @{
     "AutoMLOverrideStrategy"=@("New-FRCPredictor")
     "DatasetType"=@("New-FRCDataset")
     "Domain"=@("New-FRCDataset","New-FRCDatasetGroup")
-    "OptimizationMetric"=@("New-FRCPredictor")
+    "ExplainabilityConfig_TimePointGranularity"=@("New-FRCExplainability")
+    "ExplainabilityConfig_TimeSeriesGranularity"=@("New-FRCExplainability")
+    "OptimizationMetric"=@("New-FRCAutoPredictor","New-FRCPredictor")
 }
 
 _awsArgumentCompleterRegistration $FRC_Completers $FRC_map
@@ -176,9 +195,12 @@ $FRC_SelectCompleters = {
 }
 
 $FRC_SelectMap = @{
-    "Select"=@("New-FRCDataset",
+    "Select"=@("New-FRCAutoPredictor",
+               "New-FRCDataset",
                "New-FRCDatasetGroup",
                "New-FRCDatasetImportJob",
+               "New-FRCExplainability",
+               "New-FRCExplainabilityExport",
                "New-FRCForecast",
                "New-FRCForecastExportJob",
                "New-FRCPredictor",
@@ -186,14 +208,19 @@ $FRC_SelectMap = @{
                "Remove-FRCDataset",
                "Remove-FRCDatasetGroup",
                "Remove-FRCDatasetImportJob",
+               "Remove-FRCExplainability",
+               "Remove-FRCExplainabilityExport",
                "Remove-FRCForecast",
                "Remove-FRCForecastExportJob",
                "Remove-FRCPredictor",
                "Remove-FRCPredictorBacktestExportJob",
                "Remove-FRCResourceTree",
+               "Get-FRCAutoPredictor",
                "Get-FRCDataset",
                "Get-FRCDatasetGroup",
                "Get-FRCDatasetImportJob",
+               "Get-FRCExplainability",
+               "Get-FRCExplainabilityExport",
                "Get-FRCForecast",
                "Get-FRCForecastExportJob",
                "Get-FRCPredictor",
@@ -202,6 +229,8 @@ $FRC_SelectMap = @{
                "Get-FRCDatasetGroupList",
                "Get-FRCDatasetImportJobList",
                "Get-FRCDatasetList",
+               "Get-FRCExplainabilityList",
+               "Get-FRCExplainabilityExportList",
                "Get-FRCForecastExportJobList",
                "Get-FRCForecastList",
                "Get-FRCPredictorBacktestExportJobList",

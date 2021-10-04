@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter TriggerDetails_RawData
         /// <summary>
         /// <para>
-        /// <para>Raw data passed from either EventBridge, CloudWatch, or Incident Manager when an incident
-        /// is created.</para>
+        /// <para>Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or Incident Manager
+        /// when an incident is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Add related items to the incident for other responders to use. Related items are AWS
-        /// resources, external links, or files uploaded to an S3 bucket. </para>
+        /// resources, external links, or files uploaded to an Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat
-        /// channels, SNS topics, runbooks, title, and impact of the incident. </para>
+        /// channels, Amazon SNS topics, runbooks, title, and impact of the incident. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter TriggerDetails_Source
         /// <summary>
         /// <para>
-        /// <para>Identifies the service that sourced the event. All events sourced from within AWS
-        /// begin with "aws." Customer-generated events can have any value here, as long as it
-        /// doesn't begin with "aws." We recommend the use of Java package-name style reverse
-        /// domain-name strings. </para>
+        /// <para>Identifies the service that sourced the event. All events sourced from within Amazon
+        /// Web Services begin with "<code>aws.</code>" Customer-generated events can have any
+        /// value here, as long as it doesn't begin with "<code>aws.</code>" We recommend the
+        /// use of Java package-name style reverse domain-name strings. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter TriggerDetails_TriggerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the source that detected the incident.</para>
+        /// <para>The Amazon Resource Name (ARN) of the source that detected the incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

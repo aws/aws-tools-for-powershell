@@ -61,11 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter PositionFiltering
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+        /// but not every location update is stored. If your update frequency is more often than
+        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location
+        /// updates are ignored. Location updates within this area are neither evaluated against
+        /// linked geofence collections, nor stored. This helps control costs by reducing the
+        /// number of geofence evaluations and historical device positions to paginate through.
+        /// Distance-based filtering can also reduce the effects of GPS noise when displaying
+        /// device trajectories on a map. </para></li></ul><para>This field is optional. If not specified, the default value is <code>TimeBased</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LocationService.PositionFiltering")]
+        public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
+        #endregion
+        
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for the tracker resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing page</a>.</para>
+        /// <para>Specifies the pricing plan for the tracker resource.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// Location Service pricing</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>,
         /// see the Amazon Location Service product page.</para><note><para>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate
         /// billing for your tracker resource. Your data will not be shared with the data provider,
-        /// and will remain in your AWS account or Region unless you move it.</para></note><para>Valid Values: <code>Esri</code> | <code>Here</code></para>
+        /// and will remain in your AWS account or Region unless you move it.</para></note><para>Valid values: <code>Esri</code> | <code>Here</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
         /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. </para></li></ul>
+        /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.KmsKeyId = this.KmsKeyId;
+            context.PositionFiltering = this.PositionFiltering;
             context.PricingPlan = this.PricingPlan;
             #if MODULAR
             if (this.PricingPlan == null && ParameterWasBound(nameof(this.PricingPlan)))
@@ -234,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.PositionFiltering != null)
+            {
+                request.PositionFiltering = cmdletContext.PositionFiltering;
             }
             if (cmdletContext.PricingPlan != null)
             {
@@ -314,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
+            public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public System.String PricingPlanDataSource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

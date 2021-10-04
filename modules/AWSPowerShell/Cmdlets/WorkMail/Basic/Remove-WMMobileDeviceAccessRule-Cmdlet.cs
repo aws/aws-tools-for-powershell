@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
     /// Deletes a mobile device access rule for the specified Amazon WorkMail organization.
+    /// 
+    ///  <note><para>
+    /// Deleting already deleted and non-existing rules does not produce an error. In those
+    /// cases, the service sends back an HTTP 200 response with an empty HTTP body.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "WMMobileDeviceAccessRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

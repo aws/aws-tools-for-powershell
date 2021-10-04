@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Delete a version of a configuration from the AppConfig configuration store.
+    /// Deletes a version of a configuration from the AppConfig hosted configuration store.
     /// </summary>
     [Cmdlet("Remove", "APPCHostedConfigurationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

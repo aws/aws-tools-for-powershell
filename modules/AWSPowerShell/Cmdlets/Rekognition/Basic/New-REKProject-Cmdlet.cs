@@ -28,9 +28,9 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Creates a new Amazon Rekognition Custom Labels project. A project is a logical grouping
-    /// of resources (images, Labels, models) and operations (training, evaluation and detection).
-    /// 
+    /// Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources
+    /// (datasets, model versions) that you use to create and manage Amazon Rekognition Custom
+    /// Labels models. 
     /// 
     ///  
     /// <para>

@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the bot will wait for a user to respond. When this field is false,
-        /// wait and continue responses for a slot aren't used and the bot expects an appropriate
-        /// response within the configured timeout. If the <code>active</code> field isn't specified,
-        /// the default is true.</para>
+        /// wait and continue responses for a slot aren't used. If the <code>active</code> field
+        /// isn't specified, the default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter PromptSpecification_MaxRetry
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times the bot tries to elicit a resonse from the user using
+        /// <para>The maximum number of times the bot tries to elicit a response from the user using
         /// this prompt.</para>
         /// </para>
         /// </summary>

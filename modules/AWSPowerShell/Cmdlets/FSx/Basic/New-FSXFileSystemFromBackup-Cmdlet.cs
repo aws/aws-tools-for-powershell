@@ -100,6 +100,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter FileSystemTypeVersion
+        /// <summary>
+        /// <para>
+        /// <para>Sets the version for the Amazon FSx for Lustre file system you're creating from a
+        /// backup. Valid values are <code>2.10</code> and <code>2.12</code>.</para><para>You don't need to specify <code>FileSystemTypeVersion</code> because it will be applied
+        /// using the backup's <code>FileSystemTypeVersion</code> setting. If you choose to specify
+        /// <code>FileSystemTypeVersion</code> when creating from backup, the value must match
+        /// the backup's <code>FileSystemTypeVersion</code> setting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileSystemTypeVersion { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -266,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.FileSystemTypeVersion = this.FileSystemTypeVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.LustreConfiguration = this.LustreConfiguration;
             if (this.SecurityGroupId != null)
@@ -311,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.FileSystemTypeVersion != null)
+            {
+                request.FileSystemTypeVersion = cmdletContext.FileSystemTypeVersion;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -403,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String BackupId { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.String FileSystemTypeVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public List<System.String> SecurityGroupId { get; set; }

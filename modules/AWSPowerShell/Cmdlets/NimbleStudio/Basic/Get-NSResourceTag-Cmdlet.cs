@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the target resource for tagging operations.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

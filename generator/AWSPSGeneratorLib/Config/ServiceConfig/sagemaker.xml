@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDescribeModelPackage" OutputProperty="*" Verb="Get" Noun="DescribeModelPackage" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAction" OutputProperty="ActionArn" Verb="New" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -971,6 +975,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Update" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionArn" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="ProjectArn" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -53,14 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// the account becomes a member account in Security Hub.
     /// </para><para>
     /// Accounts that are managed using Organizations do not receive an invitation. They automatically
-    /// become a member account in Security Hub, and Security Hub is automatically enabled
-    /// for those accounts. Note that Security Hub cannot be enabled automatically for the
-    /// organization management account. The organization management account must enable Security
-    /// Hub before the administrator account enables it as a member account.
-    /// </para><para>
+    /// become a member account in Security Hub.
+    /// </para><ul><li><para>
+    /// If the organization account does not have Security Hub enabled, then Security Hub
+    /// and the default standards are automatically enabled. Note that Security Hub cannot
+    /// be enabled automatically for the organization management account. The organization
+    /// management account must enable Security Hub before the administrator account enables
+    /// it as a member account.
+    /// </para></li><li><para>
+    /// For organization accounts that already have Security Hub enabled, Security Hub does
+    /// not make any other changes to those accounts. It does not change their enabled standards
+    /// or controls.
+    /// </para></li></ul><para>
     /// A permissions policy is added that permits the administrator account to view the findings
-    /// generated in the member account. When Security Hub is enabled in a member account,
-    /// the member account findings are also visible to the administrator account. 
+    /// generated in the member account.
     /// </para><para>
     /// To remove the association between the administrator and member accounts, use the <code>DisassociateFromMasterAccount</code>
     /// or <code>DisassociateMembers</code> operation.

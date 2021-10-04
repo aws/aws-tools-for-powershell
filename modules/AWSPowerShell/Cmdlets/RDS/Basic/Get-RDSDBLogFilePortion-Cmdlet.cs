@@ -28,7 +28,12 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Downloads all or a portion of the specified log file, up to 1 MB in size.<br/><br/>In the AWS.Tools.RDS module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Downloads all or a portion of the specified log file, up to 1 MB in size.
+    /// 
+    ///  
+    /// <para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para><br/><br/>In the AWS.Tools.RDS module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFilePortion")]
     [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]

@@ -139,6 +139,16 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.UserGroupResolutionMode
+        {
+            ($_ -eq "New-KNDRIndex/UserGroupResolutionConfiguration_UserGroupResolutionMode") -Or
+            ($_ -eq "Update-KNDRIndex/UserGroupResolutionConfiguration_UserGroupResolutionMode")
+        }
+        {
+            $v = "AWS_SSO","NONE"
+            break
+        }
+
 
     }
 
@@ -156,6 +166,7 @@ $KNDR_map = @{
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
     "UserContextPolicy"=@("New-KNDRIndex","Update-KNDRIndex")
+    "UserGroupResolutionConfiguration_UserGroupResolutionMode"=@("New-KNDRIndex","Update-KNDRIndex")
 }
 
 _awsArgumentCompleterRegistration $KNDR_Completers $KNDR_map

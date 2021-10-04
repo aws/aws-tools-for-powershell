@@ -103,6 +103,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.CPUArchitecture
+        "Register-ECSTaskDefinition/RuntimePlatform_CpuArchitecture"
+        {
+            $v = "ARM64","X86_64"
+            break
+        }
+
         # Amazon.ECS.DeploymentControllerType
         "New-ECSService/DeploymentController_Type"
         {
@@ -171,6 +178,13 @@ $ECS_Completers = {
         "Register-ECSTaskDefinition/NetworkMode"
         {
             $v = "awsvpc","bridge","host","none"
+            break
+        }
+
+        # Amazon.ECS.OSFamily
+        "Register-ECSTaskDefinition/RuntimePlatform_OperatingSystemFamily"
+        {
+            $v = "LINUX","WINDOWS_SERVER_2004_CORE","WINDOWS_SERVER_2016_FULL","WINDOWS_SERVER_2019_CORE","WINDOWS_SERVER_2019_FULL","WINDOWS_SERVER_2022_CORE","WINDOWS_SERVER_2022_FULL","WINDOWS_SERVER_20H2_CORE"
             break
         }
 
@@ -281,6 +295,8 @@ $ECS_map = @{
     "PidMode"=@("Register-ECSTaskDefinition")
     "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
+    "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
+    "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")

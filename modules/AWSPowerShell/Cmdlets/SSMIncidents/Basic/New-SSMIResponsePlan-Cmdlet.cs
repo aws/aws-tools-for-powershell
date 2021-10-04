@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ChatChannel_ChatbotSn
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-        /// incident. You can also make updates to the incident through the chat channel by using
-        /// the SNS topics. </para>
+        /// <para>The Amazon SNS targets that Chatbot uses to notify the chat channel of updates to
+        /// an incident. You can also make updates to the incident through the chat channel by
+        /// using the Amazon SNS topics. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplate_NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that are notified when updates are made to an incident.</para>
+        /// <para>The Amazon SNS targets that are notified when updates are made to an incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

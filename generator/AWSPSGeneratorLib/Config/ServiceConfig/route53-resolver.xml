@@ -119,6 +119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverConfig" OutputProperty="ResolverConfig" Verb="Get" Noun="ResolverConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Get" Noun="ResolverDnssecConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -176,6 +180,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFirewallRules" OutputProperty="FirewallRules" Verb="Get" Noun="FirewallRuleList" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverConfigs" OutputProperty="ResolverConfigs" Verb="Get" Noun="ResolverConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -244,6 +252,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Edit" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverConfig" OutputProperty="ResolverConfig" Verb="Update" Noun="ResolverConfig" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>drs</C2jFilename>
+    <AssemblyName>Drs</AssemblyName>
+    <ServiceNounPrefix>EDRS</ServiceNounPrefix>
+    <ServiceName>Elastic Disaster Recovery Service</ServiceName>
+    <ServiceClientInterface>IAmazonDrs</ServiceClientInterface>
+    <ServiceClient>AmazonDrsClient</ServiceClient>
+    <ServiceModuleGuid>b4c9a30d-b1fd-4203-ade9-d69bcdd5da9e</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="StagingAreaSubnetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobID" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryInstance" Verb="Remove" Noun="RecoveryInstance" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationConfigurationTemplate" Verb="Remove" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="ReplicationConfigurationTemplateID" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSourceServer" Verb="Remove" Noun="SourceServer" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobLogItems" OutputProperty="Items" Verb="Get" Noun="JobLogItem" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobs" OutputProperty="Items" Verb="Get" Noun="Job" PipelineParameter="Filters_JobIDs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecoveryInstances" OutputProperty="Items" Verb="Get" Noun="RecoveryInstance" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecoverySnapshots" OutputProperty="Items" Verb="Get" Noun="RecoverySnapshot" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="ReplicationConfigurationTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSourceServers" OutputProperty="Items" Verb="Get" Noun="SourceServer" PipelineParameter="Filters_HardwareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectRecoveryInstance" Verb="Disconnect" Noun="RecoveryInstance" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectSourceServer" OutputProperty="*" Verb="Disconnect" Noun="SourceServer" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFailbackReplicationConfiguration" OutputProperty="*" Verb="Get" Noun="FailbackReplicationConfiguration" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchConfiguration" OutputProperty="*" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReplicationConfiguration" OutputProperty="*" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryDataReplication" OutputProperty="*" Verb="Restart" Noun="DataReplication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFailbackLaunch" OutputProperty="Job" Verb="Start" Noun="FailbackLaunch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRecovery" OutputProperty="Job" Verb="Start" Noun="Recovery" ShouldProcessTarget="IsDrill" PipelineParameter="IsDrill" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopFailback" Verb="Stop" Noun="Failback" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateRecoveryInstances" OutputProperty="Job" Verb="Stop" Noun="RecoveryInstance" ShouldProcessTarget="RecoveryInstanceIDs" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFailbackReplicationConfiguration" Verb="Update" Noun="FailbackReplicationConfiguration" ShouldProcessTarget="Name" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchConfiguration" OutputProperty="*" Verb="Update" Noun="LaunchConfiguration" ShouldProcessTarget="Name" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationConfiguration" OutputProperty="*" Verb="Update" Noun="ReplicationConfiguration" ShouldProcessTarget="" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationConfigurationTemplate" OutputProperty="*" Verb="Update" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

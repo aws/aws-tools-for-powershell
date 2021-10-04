@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// | <code>vpn-gateway</code>. 
     /// </para><para>
     /// These settings apply to the IAM user who makes the request; they do not apply to the
-    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
-    /// user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
+    /// entire Amazon Web Services account. By default, an IAM user defaults to the same settings
+    /// as the root user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
     /// command. Resources created with longer IDs are visible to all IAM users, regardless
     /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
     /// command for the resource type.

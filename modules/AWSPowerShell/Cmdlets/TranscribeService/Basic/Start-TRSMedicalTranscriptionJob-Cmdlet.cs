@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// key used to encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
         /// operation must have permission to use the specified KMS key.</para><para>You use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
         /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS key in the current account or another account:
-        /// "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the medical transcription job
+        /// "arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the medical transcription job
         /// is encrypted with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// in the <code>OutputBucketName</code> parameter.</para>
         /// </para>

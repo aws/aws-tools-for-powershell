@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     ///  
     /// <para>
     /// You can optionally apply a filter to return only the managed policies created by Amazon
-    /// Web Services, or only the custom policies created in your account.
+    /// Web Services, or only the custom policies created in your Amazon Web Services account.
     /// </para><para>
     /// You can optionally specify the maximum number of items to receive in the response.
     /// If the total number of items in the list exceeds the maximum that you specify, or
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A filter to return only the specified kinds of origin request policies. Valid values
-        /// are:</para><ul><li><para><code>managed</code> – Returns only the managed policies created by Amazon Web Services.</para></li><li><para><code>custom</code> – Returns only the custom policies created in your account.</para></li></ul>
+        /// are:</para><ul><li><para><code>managed</code> – Returns only the managed policies created by Amazon Web Services.</para></li><li><para><code>custom</code> – Returns only the custom policies created in your Amazon Web
+        /// Services account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

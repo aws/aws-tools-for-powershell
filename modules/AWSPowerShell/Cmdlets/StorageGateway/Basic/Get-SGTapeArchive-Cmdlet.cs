@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape
         /// to. Use the <a>ListGateways</a> operation to return a list of gateways for your account
-        /// and Region.</para><para>You retrieve archived virtual tapes to only one gateway and the gateway must be a
+        /// and Amazon Web Services Region.</para><para>You retrieve archived virtual tapes to only one gateway and the gateway must be a
         /// tape gateway.</para>
         /// </para>
         /// </summary>

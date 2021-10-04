@@ -1,0 +1,3 @@
+﻿# ChimeSDKMeetings
+
+Export-ModuleMember -Alias *

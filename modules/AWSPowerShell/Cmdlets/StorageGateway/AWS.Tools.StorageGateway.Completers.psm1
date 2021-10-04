@@ -283,6 +283,7 @@ $SG_SelectMap = @{
                "Update-SGNFSFileShare",
                "Update-SGSMBFileShare",
                "Update-SGSMBFileShareVisibility",
+               "Update-SGSGSMBLocalGroup",
                "Update-SGSMBSecurityStrategy",
                "Update-SGSnapshotSchedule",
                "Update-SGVTLDeviceType")

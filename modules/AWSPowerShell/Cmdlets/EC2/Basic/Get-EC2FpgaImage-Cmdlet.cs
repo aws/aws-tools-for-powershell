@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
-    /// private AFIs that you own, and AFIs owned by other AWS accounts for which you have
-    /// load permissions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for
+    /// which you have load permissions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2FpgaImage")]
     [OutputType("Amazon.EC2.Model.FpgaImage")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>create-time</code> - The creation time of the AFI.</para></li><li><para><code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</para></li><li><para><code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</para></li><li><para><code>name</code> - The name of the AFI.</para></li><li><para><code>owner-id</code> - The AWS account ID of the AFI owner.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>shell-version</code> - The version of the AWS Shell that was used to create
-        /// the bitstream.</para></li><li><para><code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code>
+        /// <para>The filters.</para><ul><li><para><code>create-time</code> - The creation time of the AFI.</para></li><li><para><code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</para></li><li><para><code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</para></li><li><para><code>name</code> - The name of the AFI.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>shell-version</code> - The version of the Amazon Web Services Shell that was
+        /// used to create the bitstream.</para></li><li><para><code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code>
         /// | <code>available</code> | <code>unavailable</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>Filters the AFI by owner. Specify an AWS account ID, <code>self</code> (owner is the
-        /// sender of the request), or an AWS owner alias (valid values are <code>amazon</code>
-        /// | <code>aws-marketplace</code>).</para>
+        /// <para>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
+        /// (owner is the sender of the request), or an Amazon Web Services owner alias (valid
+        /// values are <code>amazon</code> | <code>aws-marketplace</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

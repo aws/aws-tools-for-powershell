@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class EditNPTDBClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowMajorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether upgrades between different major versions are allowed.</para><para>Constraints: You must set the allow-major-version-upgrade flag when providing an <code>EngineVersion</code>
+        /// parameter that uses a different major version than the DB cluster's current version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowMajorVersionUpgrade { get; set; }
+        #endregion
+        
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
@@ -105,6 +116,20 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DBInstanceParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB parameter group to apply to all instances of the DB cluster. </para><note><para>When you apply a parameter group using <code>DBInstanceParameterGroupName</code>,
+        /// parameter changes aren't applied during the next maintenance window but instead are
+        /// applied immediately.</para></note><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as the target
+        /// DB cluster version.</para></li><li><para>The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination
+        /// with the <code>AllowMajorVersionUpgrade</code> parameter.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBInstanceParameterGroupName { get; set; }
         #endregion
         
         #region Parameter DeletionProtection
@@ -302,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.Select = (response, cmdlet) => this.DBClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
@@ -321,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             }
             #endif
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
+            context.DBInstanceParameterGroupName = this.DBInstanceParameterGroupName;
             context.DeletionProtection = this.DeletionProtection;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
@@ -350,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             // create request
             var request = new Amazon.Neptune.Model.ModifyDBClusterRequest();
             
+            if (cmdletContext.AllowMajorVersionUpgrade != null)
+            {
+                request.AllowMajorVersionUpgrade = cmdletContext.AllowMajorVersionUpgrade.Value;
+            }
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
@@ -398,6 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
                 request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
+            if (cmdletContext.DBInstanceParameterGroupName != null)
+            {
+                request.DBInstanceParameterGroupName = cmdletContext.DBInstanceParameterGroupName;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -500,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
@@ -507,6 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
+            public System.String DBInstanceParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }

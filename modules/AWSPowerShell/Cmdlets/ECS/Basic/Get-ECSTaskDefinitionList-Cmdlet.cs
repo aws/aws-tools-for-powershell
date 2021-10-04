@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter FamilyPrefix
         /// <summary>
         /// <para>
-        /// <para>The full family name with which to filter the <code>ListTaskDefinitions</code> results.
+        /// <para>The full family name to filter the <code>ListTaskDefinitions</code> results with.
         /// Specifying a <code>familyPrefix</code> limits the listed task definitions to task
         /// definition revisions that belong to that family.</para>
         /// </para>
@@ -57,12 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Sort
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort the results. Valid values are <code>ASC</code> and <code>DESC</code>.
-        /// By default (<code>ASC</code>), task definitions are listed lexicographically by family
+        /// <para>The order to sort the results in. Valid values are <code>ASC</code> and <code>DESC</code>.
+        /// By default, (<code>ASC</code>) task definitions are listed lexicographically by family
         /// name and in ascending numerical order by revision so that the newest task definitions
         /// in a family are listed last. Setting this parameter to <code>DESC</code> reverses
-        /// the sort order on family name and revision so that the newest task definitions in
-        /// a family are listed first.</para>
+        /// the sort order on family name and revision. This is so that the newest task definitions
+        /// in a family are listed first.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The task definition status with which to filter the <code>ListTaskDefinitions</code>
-        /// results. By default, only <code>ACTIVE</code> task definitions are listed. By setting
+        /// <para>The task definition status to filter the <code>ListTaskDefinitions</code> results
+        /// with. By default, only <code>ACTIVE</code> task definitions are listed. By setting
         /// this parameter to <code>INACTIVE</code>, you can view task definitions that are <code>INACTIVE</code>
         /// as long as an active task or service still references them. If you paginate the resulting
         /// output, be sure to keep the <code>status</code> value constant in each subsequent
@@ -89,12 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of task definition results returned by <code>ListTaskDefinitions</code>
-        /// in paginated output. When this parameter is used, <code>ListTaskDefinitions</code>
+        /// <para>The maximum number of task definition results that <code>ListTaskDefinitions</code>
+        /// returned in paginated output. When this parameter is used, <code>ListTaskDefinitions</code>
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>ListTaskDefinitions</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListTaskDefinitions</code>
+        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListTaskDefinitions</code>
         /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>

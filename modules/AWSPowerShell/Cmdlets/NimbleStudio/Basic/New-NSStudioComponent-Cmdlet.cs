@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -281,12 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>To make an idempotent API request using one of these actions, specify a client token
-        /// in the request. You should not reuse the same client token for other API requests.
-        /// If you retry a request that completed successfully using the same client token and
-        /// the same parameters, the retry succeeds without performing any further actions. If
-        /// you retry a successful request using the same client token, but one or more of the
-        /// parameters are different, the retry fails with a ValidationException error.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. If you don’t specify a client token, the AWS SDK automatically generates
+        /// a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

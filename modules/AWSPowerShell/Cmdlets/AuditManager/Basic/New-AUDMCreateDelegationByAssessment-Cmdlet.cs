@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Create a batch of delegations for a specified assessment in Audit Manager.
+    /// Creates a batch of delegations for an assessment in Audit Manager.
     /// </summary>
     [Cmdlet("New", "AUDMCreateDelegationByAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -61,8 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order to list results in. The results are sorted by build number, not the build
-        /// identifier.</para><para>Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the build IDs in ascending order by build ID.</para></li><li><para><code>DESCENDING</code>: List the build IDs in descending order by build ID.</para></li></ul><para>If the project has more than 100 builds, setting the sort order will result in an
+        /// <para>The order to sort the results in. The results are sorted by build number, not the
+        /// build identifier. If this is not specified, the results are sorted in descending order.</para><para>Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the build identifiers in ascending order, by build number.</para></li><li><para><code>DESCENDING</code>: List the build identifiers in descending order, by build
+        /// number.</para></li></ul><para>If the project has more than 100 builds, setting the sort order will result in an
         /// error. </para>
         /// </para>
         /// </summary>

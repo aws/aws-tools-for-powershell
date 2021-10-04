@@ -32,7 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// first delete all models associated with the project. To delete a model, see <a>DeleteProjectVersion</a>.
     /// 
     ///  
-    /// <para>
+    /// <para><code>DeleteProject</code> is an asynchronous operation. To check if the project
+    /// is deleted, call <a>DescribeProjects</a>. The project is deleted when the project
+    /// no longer appears in the response.
+    /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:DeleteProject</code>
     /// action. 
     /// </para>

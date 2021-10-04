@@ -120,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.EndpointType EndpointType { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderDetails_Function
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for a lambda function to use for the Identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderDetails_Function { get; set; }
+        #endregion
+        
         #region Parameter HostKey
         /// <summary>
         /// <para>
@@ -147,7 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// parameter.</para><para>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your
         /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway
         /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
-        /// parameter.</para>
+        /// parameter.</para><para>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity
+        /// provider. If you choose this value, you must specify the ARN for the lambda function
+        /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
+        /// data type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.EndpointType = this.EndpointType;
             context.HostKey = this.HostKey;
             context.IdentityProviderDetails_DirectoryId = this.IdentityProviderDetails_DirectoryId;
+            context.IdentityProviderDetails_Function = this.IdentityProviderDetails_Function;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.IdentityProviderType = this.IdentityProviderType;
@@ -465,6 +479,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetails_identityProviderDetails_DirectoryId != null)
             {
                 request.IdentityProviderDetails.DirectoryId = requestIdentityProviderDetails_identityProviderDetails_DirectoryId;
+                requestIdentityProviderDetailsIsNull = false;
+            }
+            System.String requestIdentityProviderDetails_identityProviderDetails_Function = null;
+            if (cmdletContext.IdentityProviderDetails_Function != null)
+            {
+                requestIdentityProviderDetails_identityProviderDetails_Function = cmdletContext.IdentityProviderDetails_Function;
+            }
+            if (requestIdentityProviderDetails_identityProviderDetails_Function != null)
+            {
+                request.IdentityProviderDetails.Function = requestIdentityProviderDetails_identityProviderDetails_Function;
                 requestIdentityProviderDetailsIsNull = false;
             }
             System.String requestIdentityProviderDetails_identityProviderDetails_InvocationRole = null;
@@ -602,6 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.EndpointType EndpointType { get; set; }
             public System.String HostKey { get; set; }
             public System.String IdentityProviderDetails_DirectoryId { get; set; }
+            public System.String IdentityProviderDetails_Function { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }

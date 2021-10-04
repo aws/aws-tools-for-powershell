@@ -34,11 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     ///  A DB parameter group is initially created with the default parameters for the database
     /// engine used by the DB instance. To provide custom values for any of the parameters,
-    /// you must modify the group after creating it using <i>ModifyDBParameterGroup</i>. Once
-    /// you've created a DB parameter group, you need to associate it with your DB instance
-    /// using <i>ModifyDBInstance</i>. When you associate a new DB parameter group with a
-    /// running DB instance, you need to reboot the DB instance without failover for the new
-    /// DB parameter group and associated settings to take effect. 
+    /// you must modify the group after creating it using <code>ModifyDBParameterGroup</code>.
+    /// Once you've created a DB parameter group, you need to associate it with your DB instance
+    /// using <code>ModifyDBInstance</code>. When you associate a new DB parameter group with
+    /// a running DB instance, you need to reboot the DB instance without failover for the
+    /// new DB parameter group and associated settings to take effect. 
+    /// </para><para>
+    /// This command doesn't apply to RDS Custom.
     /// </para><important><para>
     /// After you create a DB parameter group, you should wait at least 5 minutes before creating
     /// your first DB instance that uses that DB parameter group as the default parameter

@@ -170,6 +170,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SGMaintenanceStartTime', 
         'Update-SGNFSFileShare', 
         'Update-SGSGFileSystemAssociation', 
+        'Update-SGSGSMBLocalGroup', 
         'Update-SGSMBFileShare', 
         'Update-SGSMBFileShareVisibility', 
         'Update-SGSMBSecurityStrategy', 

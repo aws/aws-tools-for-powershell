@@ -38,9 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// that the resource belongs to as well as permissions for removing tags. For more information,
     /// see the documentation for the service whose resource you want to untag.
     /// </para></li><li><para>
-    /// You can only tag resources that are located in the specified AWS Region for the calling
-    /// AWS account.
-    /// </para></li></ul>
+    /// You can only tag resources that are located in the specified Amazon Web Services Region
+    /// for the calling Amazon Web Services account.
+    /// </para></li></ul><para><b>Minimum permissions</b></para><para>
+    /// In addition to the <code>tag:UntagResources</code> permission required by this operation,
+    /// you must also have the remove tags permission defined by the service that created
+    /// the resource. For example, to remove the tags from an Amazon EC2 instance using the
+    /// <code>UntagResources</code> operation, you must have both of the following permissions:
+    /// </para><ul><li><para><code>tag:UntagResource</code></para></li><li><para><code>ec2:DeleteTags</code></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -56,8 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of ARNs of the resources that you want to remove tags from.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

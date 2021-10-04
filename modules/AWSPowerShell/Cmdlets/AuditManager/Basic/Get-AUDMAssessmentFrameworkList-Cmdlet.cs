@@ -28,7 +28,8 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of the frameworks available in the Audit Manager framework library.
+    /// Returns a list of the frameworks that are available in the Audit Manager framework
+    /// library.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessmentFrameworkList")]
     [OutputType("Amazon.AuditManager.Model.AssessmentFrameworkMetadata")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter FrameworkType
         /// <summary>
         /// <para>
-        /// <para> The type of framework, such as standard or custom. </para>
+        /// <para> The type of framework, such as a standard framework or a custom framework. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Represents the maximum number of results per page, or per API request call. </para>
+        /// <para> Represents the maximum number of results on a page or for an API request call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token used to fetch the next set of results. </para>
+        /// <para> The pagination token that's used to fetch the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

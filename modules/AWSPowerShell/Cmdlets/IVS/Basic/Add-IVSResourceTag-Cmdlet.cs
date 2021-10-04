@@ -28,7 +28,7 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Adds or updates tags for the AWS resource with the specified ARN.
+    /// Adds or updates tags for the Amazon Web Services resource with the specified ARN.
     /// </summary>
     [Cmdlet("Add", "IVSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

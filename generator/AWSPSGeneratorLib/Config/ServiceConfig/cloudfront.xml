@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResponseHeadersPolicy" OutputProperty="*" Verb="New" Noun="ResponseHeadersPolicy" ShouldProcessTarget="ResponseHeadersPolicyConfig_Name" PipelineParameter="ResponseHeadersPolicyConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamingDistribution" OutputProperty="*" Verb="New" Noun="StreamingDistribution" ShouldProcessTarget="StreamingDistributionConfig_S3Origin_DomainName" PipelineParameter="StreamingDistributionConfig_S3Origin_DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRealtimeLogConfig" Verb="Remove" Noun="RealtimeLogConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResponseHeadersPolicy" Verb="Remove" Noun="ResponseHeadersPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,6 +227,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResponseHeadersPolicy" OutputProperty="ResponseHeadersPolicy" Verb="Get" Noun="ResponseHeadersPolicy" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResponseHeadersPolicyConfig" OutputProperty="ResponseHeadersPolicyConfig" Verb="Get" Noun="ResponseHeadersPolicyConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStreamingDistribution" OutputProperty="StreamingDistribution" Verb="Get" Noun="StreamingDistribution" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -259,6 +275,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByResponseHeadersPolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByResponseHeadersPolicyId" PipelineParameter="ResponseHeadersPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByWebACLId" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -292,6 +312,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRealtimeLogConfigs" OutputProperty="RealtimeLogConfigs" Verb="Get" Noun="RealtimeLogConfigList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResponseHeadersPolicies" OutputProperty="ResponseHeadersPolicyList" Verb="Get" Noun="ResponseHeadersPolicyList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -360,6 +384,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRealtimeLogConfig" OutputProperty="RealtimeLogConfig" Verb="Update" Noun="RealtimeLogConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResponseHeadersPolicy" OutputProperty="ResponseHeadersPolicy" Verb="Update" Noun="ResponseHeadersPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

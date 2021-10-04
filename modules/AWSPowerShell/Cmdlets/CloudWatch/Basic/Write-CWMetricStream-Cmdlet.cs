@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html">
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
     /// Using Metric Streams</a>.
     /// </para><para>
     /// To create a metric stream, you must be logged on to an account that has the <code>iam:PassRole</code>

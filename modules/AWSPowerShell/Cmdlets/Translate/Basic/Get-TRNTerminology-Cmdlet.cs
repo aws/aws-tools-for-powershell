@@ -59,16 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyDataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the custom terminology being retrieved, either CSV or TMX.</para>
+        /// <para>The data format of the custom terminology being retrieved.</para><para>If you don't specify this parameter, Amazon Translate returns a file that has the
+        /// same format as the file that was imported to create the terminology. </para><para>If you specify this parameter when you retrieve a multi-directional terminology resource,
+        /// you must specify the same format as that of the input file that was imported to create
+        /// it. Otherwise, Amazon Translate throws an error.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Translate.TerminologyDataFormat")]
         public Amazon.Translate.TerminologyDataFormat TerminologyDataFormat { get; set; }
         #endregion
@@ -126,12 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             }
             #endif
             context.TerminologyDataFormat = this.TerminologyDataFormat;
-            #if MODULAR
-            if (this.TerminologyDataFormat == null && ParameterWasBound(nameof(this.TerminologyDataFormat)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TerminologyDataFormat which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

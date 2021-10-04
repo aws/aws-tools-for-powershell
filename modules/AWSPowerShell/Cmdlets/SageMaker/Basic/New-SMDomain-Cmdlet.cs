@@ -88,6 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.AppNetworkAccessType AppNetworkAccessType { get; set; }
         #endregion
         
+        #region Parameter AppSecurityGroupManagement
+        /// <summary>
+        /// <para>
+        /// <para>The entity that creates and manages the required security groups for inter-app communication
+        /// in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code>
+        /// is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
+        /// is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.AppSecurityGroupManagement")]
+        public Amazon.SageMaker.AppSecurityGroupManagement AppSecurityGroupManagement { get; set; }
+        #endregion
+        
         #region Parameter AuthMode
         /// <summary>
         /// <para>
@@ -125,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
         #endregion
         
+        #region Parameter RStudioServerProDomainSettings_DomainExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level app.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_DomainExecutionRoleArn")]
+        public System.String RStudioServerProDomainSettings_DomainExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -142,6 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DefaultResourceSpec_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type that the image version runs on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType")]
+        [AWSConstantClassSource("Amazon.SageMaker.AppInstanceType")]
+        public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -152,6 +189,73 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_LifecycleConfigArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_LifecycleConfigArn")]
+        public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter RStudioServerProDomainSettings_RStudioConnectUrl
+        /// <summary>
+        /// <para>
+        /// <para>A URL pointing to an RStudio Connect server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_RStudioConnectUrl")]
+        public System.String RStudioServerProDomainSettings_RStudioConnectUrl { get; set; }
+        #endregion
+        
+        #region Parameter RStudioServerProDomainSettings_RStudioPackageManagerUrl
+        /// <summary>
+        /// <para>
+        /// <para>A URL pointing to an RStudio Package Manager server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_RStudioPackageManagerUrl")]
+        public System.String RStudioServerProDomainSettings_RStudioPackageManagerUrl { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_SageMakerImageArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageArn")]
+        public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_SageMakerImageVersionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the image version created on the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionArn")]
+        public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+        #endregion
+        
+        #region Parameter DomainSettings_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code>
+        /// uses for communication between Domain-level apps and user apps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_SecurityGroupIds")]
+        public System.String[] DomainSettings_SecurityGroupId { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -276,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppNetworkAccessType = this.AppNetworkAccessType;
+            context.AppSecurityGroupManagement = this.AppSecurityGroupManagement;
             context.AuthMode = this.AuthMode;
             #if MODULAR
             if (this.AuthMode == null && ParameterWasBound(nameof(this.AuthMode)))
@@ -297,6 +402,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
+            context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
+            context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
+            context.DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultResourceSpec_SageMakerImageVersionArn;
+            context.RStudioServerProDomainSettings_DomainExecutionRoleArn = this.RStudioServerProDomainSettings_DomainExecutionRoleArn;
+            context.RStudioServerProDomainSettings_RStudioConnectUrl = this.RStudioServerProDomainSettings_RStudioConnectUrl;
+            context.RStudioServerProDomainSettings_RStudioPackageManagerUrl = this.RStudioServerProDomainSettings_RStudioPackageManagerUrl;
+            if (this.DomainSettings_SecurityGroupId != null)
+            {
+                context.DomainSettings_SecurityGroupId = new List<System.String>(this.DomainSettings_SecurityGroupId);
+            }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HomeEfsFileSystemKmsKeyId = this.HomeEfsFileSystemKmsKeyId;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -342,6 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.AppNetworkAccessType = cmdletContext.AppNetworkAccessType;
             }
+            if (cmdletContext.AppSecurityGroupManagement != null)
+            {
+                request.AppSecurityGroupManagement = cmdletContext.AppSecurityGroupManagement;
+            }
             if (cmdletContext.AuthMode != null)
             {
                 request.AuthMode = cmdletContext.AuthMode;
@@ -353,6 +473,125 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            
+             // populate DomainSettings
+            var requestDomainSettingsIsNull = true;
+            request.DomainSettings = new Amazon.SageMaker.Model.DomainSettings();
+            List<System.String> requestDomainSettings_domainSettings_SecurityGroupId = null;
+            if (cmdletContext.DomainSettings_SecurityGroupId != null)
+            {
+                requestDomainSettings_domainSettings_SecurityGroupId = cmdletContext.DomainSettings_SecurityGroupId;
+            }
+            if (requestDomainSettings_domainSettings_SecurityGroupId != null)
+            {
+                request.DomainSettings.SecurityGroupIds = requestDomainSettings_domainSettings_SecurityGroupId;
+                requestDomainSettingsIsNull = false;
+            }
+            Amazon.SageMaker.Model.RStudioServerProDomainSettings requestDomainSettings_domainSettings_RStudioServerProDomainSettings = null;
+            
+             // populate RStudioServerProDomainSettings
+            var requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull = true;
+            requestDomainSettings_domainSettings_RStudioServerProDomainSettings = new Amazon.SageMaker.Model.RStudioServerProDomainSettings();
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_DomainExecutionRoleArn = null;
+            if (cmdletContext.RStudioServerProDomainSettings_DomainExecutionRoleArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_DomainExecutionRoleArn = cmdletContext.RStudioServerProDomainSettings_DomainExecutionRoleArn;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_DomainExecutionRoleArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings.DomainExecutionRoleArn = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_DomainExecutionRoleArn;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull = false;
+            }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioConnectUrl = null;
+            if (cmdletContext.RStudioServerProDomainSettings_RStudioConnectUrl != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioConnectUrl = cmdletContext.RStudioServerProDomainSettings_RStudioConnectUrl;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioConnectUrl != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings.RStudioConnectUrl = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioConnectUrl;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull = false;
+            }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioPackageManagerUrl = null;
+            if (cmdletContext.RStudioServerProDomainSettings_RStudioPackageManagerUrl != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioPackageManagerUrl = cmdletContext.RStudioServerProDomainSettings_RStudioPackageManagerUrl;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioPackageManagerUrl != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings.RStudioPackageManagerUrl = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_rStudioServerProDomainSettings_RStudioPackageManagerUrl;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull = false;
+            }
+            Amazon.SageMaker.Model.ResourceSpec requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec = null;
+            
+             // populate DefaultResourceSpec
+            var requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = true;
+            requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec = new Amazon.SageMaker.Model.ResourceSpec();
+            Amazon.SageMaker.AppInstanceType requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_InstanceType = null;
+            if (cmdletContext.DefaultResourceSpec_InstanceType != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_InstanceType = cmdletContext.DefaultResourceSpec_InstanceType;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_InstanceType != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.InstanceType = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_InstanceType;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn = null;
+            if (cmdletContext.DefaultResourceSpec_LifecycleConfigArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn = cmdletContext.DefaultResourceSpec_LifecycleConfigArn;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.LifecycleConfigArn = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn = null;
+            if (cmdletContext.DefaultResourceSpec_SageMakerImageArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn = cmdletContext.DefaultResourceSpec_SageMakerImageArn;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.SageMakerImageArn = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn = null;
+            if (cmdletContext.DefaultResourceSpec_SageMakerImageVersionArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn = cmdletContext.DefaultResourceSpec_SageMakerImageVersionArn;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.SageMakerImageVersionArn = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
+            }
+             // determine if requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec should be set to null
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec = null;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings.DefaultResourceSpec = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull = false;
+            }
+             // determine if requestDomainSettings_domainSettings_RStudioServerProDomainSettings should be set to null
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettingsIsNull)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings = null;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings != null)
+            {
+                request.DomainSettings.RStudioServerProDomainSettings = requestDomainSettings_domainSettings_RStudioServerProDomainSettings;
+                requestDomainSettingsIsNull = false;
+            }
+             // determine if request.DomainSettings should be set to null
+            if (requestDomainSettingsIsNull)
+            {
+                request.DomainSettings = null;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.HomeEfsFileSystemKmsKeyId != null)
@@ -438,9 +677,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SageMaker.AppNetworkAccessType AppNetworkAccessType { get; set; }
+            public Amazon.SageMaker.AppSecurityGroupManagement AppSecurityGroupManagement { get; set; }
             public Amazon.SageMaker.AuthMode AuthMode { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
+            public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
+            public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String RStudioServerProDomainSettings_DomainExecutionRoleArn { get; set; }
+            public System.String RStudioServerProDomainSettings_RStudioConnectUrl { get; set; }
+            public System.String RStudioServerProDomainSettings_RStudioPackageManagerUrl { get; set; }
+            public List<System.String> DomainSettings_SecurityGroupId { get; set; }
             [System.ObsoleteAttribute]
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }
             public System.String KmsKeyId { get; set; }

@@ -33,11 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <code>SecretString</code> value or a new <code>SecretBinary</code> value. You can
     /// also specify the staging labels that are initially attached to the new version.
     /// 
-    ///  <note><para>
-    /// The Secrets Manager console uses only the <code>SecretString</code> field. To add
-    /// binary data to a secret with the <code>SecretBinary</code> field you must use the
-    /// Amazon Web Services CLI or one of the Amazon Web Services SDKs.
-    /// </para></note><ul><li><para>
+    ///  
+    /// <para>
+    /// We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of
+    /// more than once every 10 minutes. When you update the secret value, Secrets Manager
+    /// creates a new version of the secret. Secrets Manager removes outdated versions when
+    /// there are more than 100, but it does not remove versions created less than 24 hours
+    /// ago. If you call <code>PutSecretValue</code> more than once every 10 minutes, you
+    /// create more versions than Secrets Manager removes, and you will reach the quota for
+    /// secret versions.
+    /// </para><ul><li><para>
     /// If this operation creates the first version for the secret then Secrets Manager automatically
     /// attaches the staging label <code>AWSCURRENT</code> to the new version.
     /// </para></li><li><para>
@@ -147,19 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies the secret to which you want to add a new version. You can specify either
         /// the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must
-        /// already exist.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
-        /// can specify a partial ARN too—for example, if you don’t include the final hyphen and
-        /// six random characters that Secrets Manager adds at the end of the ARN when you created
-        /// the secret. A partial ARN match can work as long as it uniquely matches only one secret.
-        /// However, if your secret has a name that ends in a hyphen followed by six characters
-        /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
-        /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
-        /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names ending with
-        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
-        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
-        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
-        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
+        /// already exist.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,11 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// puts the protected secret text in only the <code>SecretString</code> parameter. The
         /// Secrets Manager console stores the information as a JSON structure of key/value pairs
         /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
-        /// and specify key/value pairs. For information on how to format a JSON parameter for
-        /// the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>CLI User Guide</i>.</para><para> For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
-        /// should use single quotes to avoid confusion with the double quotes required in the
-        /// JSON text.</para>
+        /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
+        /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

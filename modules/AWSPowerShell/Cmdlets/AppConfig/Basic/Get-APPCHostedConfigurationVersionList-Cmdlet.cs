@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// View a list of configurations stored in the AppConfig configuration store by version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists configurations stored in the AppConfig hosted configuration store by version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "APPCHostedConfigurationVersionList")]
     [OutputType("Amazon.AppConfig.Model.HostedConfigurationVersionSummary")]

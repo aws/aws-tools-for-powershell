@@ -40,6 +40,26 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class NewCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AutoConfigEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoConfigEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AutoCreate
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoCreate { get; set; }
+        #endregion
+        
         #region Parameter CWEMonitorEnabled
         /// <summary>
         /// <para>
@@ -80,14 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <para>The name of the resource group.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceGroupName { get; set; }
         #endregion
         
@@ -165,16 +178,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ResourceGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoConfigEnabled = this.AutoConfigEnabled;
+            context.AutoCreate = this.AutoCreate;
             context.CWEMonitorEnabled = this.CWEMonitorEnabled;
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
             context.ResourceGroupName = this.ResourceGroupName;
-            #if MODULAR
-            if (this.ResourceGroupName == null && ParameterWasBound(nameof(this.ResourceGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ApplicationInsights.Model.Tag>(this.Tag);
@@ -195,6 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.CreateApplicationRequest();
             
+            if (cmdletContext.AutoConfigEnabled != null)
+            {
+                request.AutoConfigEnabled = cmdletContext.AutoConfigEnabled.Value;
+            }
+            if (cmdletContext.AutoCreate != null)
+            {
+                request.AutoCreate = cmdletContext.AutoCreate.Value;
+            }
             if (cmdletContext.CWEMonitorEnabled != null)
             {
                 request.CWEMonitorEnabled = cmdletContext.CWEMonitorEnabled.Value;
@@ -276,6 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoConfigEnabled { get; set; }
+            public System.Boolean? AutoCreate { get; set; }
             public System.Boolean? CWEMonitorEnabled { get; set; }
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }

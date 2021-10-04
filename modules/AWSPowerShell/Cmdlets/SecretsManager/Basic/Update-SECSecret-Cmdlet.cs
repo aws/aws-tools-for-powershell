@@ -28,13 +28,21 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Modifies many of the details of the specified secret. If you include a <code>ClientRequestToken</code>
-    /// and <i>either</i><code>SecretString</code> or <code>SecretBinary</code> then it also
-    /// creates a new version attached to the secret.
+    /// Modifies many of the details of the specified secret. 
     /// 
     ///  
     /// <para>
-    /// To modify the rotation configuration of a secret, use <a>RotateSecret</a> instead.
+    /// To change the secret value, you can also use <a>PutSecretValue</a>.
+    /// </para><para>
+    /// To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.
+    /// </para><para>
+    /// We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
+    /// than once every 10 minutes. When you call <code>UpdateSecret</code> to update the
+    /// secret value, Secrets Manager creates a new version of the secret. Secrets Manager
+    /// removes outdated versions when there are more than 100, but it does not remove versions
+    /// created less than 24 hours ago. If you update the secret value more than once every
+    /// 10 minutes, you create more versions than Secrets Manager removes, and you will reach
+    /// the quota for secret versions.
     /// </para><note><para>
     /// The Secrets Manager console uses only the <code>SecretString</code> parameter and
     /// therefore limits you to encrypting and storing only a text string. To encrypt and
@@ -139,8 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies an updated ARN or alias of the Amazon Web Services KMS customer
-        /// master key (CMK) to be used to encrypt the protected text in new versions of this
-        /// secret.</para><important><para>You can only use the account's default CMK to encrypt and decrypt if you call this
+        /// master key (CMK) that Secrets Manager uses to encrypt the protected text in new versions
+        /// of this secret as well as any existing versions of this secret that have the staging
+        /// labels AWSCURRENT, AWSPENDING, or AWSPREVIOUS. For more information about staging
+        /// labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
+        /// Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.</para><important><para>You can only use the account's default CMK to encrypt and decrypt if you call this
         /// operation using credentials from the same account that owns the secret. If the secret
         /// is in a different account, then you must create a custom CMK and provide the ARN of
         /// that CMK in this field. The user making the call must have permissions to both the
@@ -173,19 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies the secret that you want to modify or to which you want to add a new version.
         /// You can specify either the Amazon Resource Name (ARN) or the friendly name of the
-        /// secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
-        /// can specify a partial ARN too—for example, if you don’t include the final hyphen and
-        /// six random characters that Secrets Manager adds at the end of the ARN when you created
-        /// the secret. A partial ARN match can work as long as it uniquely matches only one secret.
-        /// However, if your secret has a name that ends in a hyphen followed by six characters
-        /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
-        /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
-        /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names ending with
-        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
-        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
-        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
-        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
+        /// secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,13 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// puts the protected secret text in only the <code>SecretString</code> parameter. The
         /// Secrets Manager console stores the information as a JSON structure of key/value pairs
         /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
-        /// and specify key/value pairs. For information on how to format a JSON parameter for
-        /// the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>CLI User Guide</i>. For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
-        /// should use single quotes to avoid confusion with the double quotes required in the
-        /// JSON text. You can also 'escape' the double quote character in the embedded JSON text
-        /// by prefacing each with a backslash. For example, the following string is surrounded
-        /// by double-quotes. All of the embedded double quotes are escaped:</para><para><code>"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"</code></para>
+        /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
+        /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

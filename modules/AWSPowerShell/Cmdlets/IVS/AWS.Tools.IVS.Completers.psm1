@@ -100,6 +100,13 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.StreamHealth
+        "Get-IVSStreamList/FilterBy_Health"
+        {
+            $v = "HEALTHY","STARVING","UNKNOWN"
+            break
+        }
+
 
     }
 
@@ -109,6 +116,7 @@ $IVS_Completers = {
 }
 
 $IVS_map = @{
+    "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
     "Type"=@("New-IVSChannel","Update-IVSChannel")
 }
@@ -177,12 +185,14 @@ $IVS_SelectMap = @{
                "Get-IVSRecordingConfiguration",
                "Get-IVSStream",
                "Get-IVSStreamKey",
+               "Get-IVSStreamSession",
                "Import-IVSPlaybackKeyPair",
                "Get-IVSChannelList",
                "Get-IVSPlaybackKeyPairList",
                "Get-IVSRecordingConfigurationList",
                "Get-IVSStreamKeyList",
                "Get-IVSStreamList",
+               "Get-IVSStreamSessionList",
                "Get-IVSResourceTag",
                "Write-IVSMetadata",
                "Stop-IVSStream",

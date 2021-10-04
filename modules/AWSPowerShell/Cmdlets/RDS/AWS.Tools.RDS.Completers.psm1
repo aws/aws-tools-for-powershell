@@ -87,6 +87,20 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.AutomationMode
+        "Edit-RDSDBInstance/AutomationMode"
+        {
+            $v = "all-paused","full"
+            break
+        }
+
+        # Amazon.RDS.CustomEngineVersionStatus
+        "Edit-RDSCustomDBEngineVersion/Status"
+        {
+            $v = "available","inactive","inactive-except-restore"
+            break
+        }
+
         # Amazon.RDS.DBProxyEndpointTargetRole
         "New-RDSDBProxyEndpoint/TargetRole"
         {
@@ -114,7 +128,7 @@ $RDS_Completers = {
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
-            $v = "db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-security-group","db-snapshot"
+            $v = "custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-security-group","db-snapshot"
             break
         }
 
@@ -127,10 +141,12 @@ $RDS_Completers = {
 }
 
 $RDS_map = @{
+    "AutomationMode"=@("Edit-RDSDBInstance")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
     "SourceType"=@("Get-RDSEvent")
+    "Status"=@("Edit-RDSCustomDBEngineVersion")
     "TargetRole"=@("New-RDSDBProxyEndpoint")
 }
 
@@ -198,6 +214,7 @@ $RDS_SelectMap = @{
                "Copy-RDSDBSnapshot",
                "Copy-RDSOptionGroup",
                "New-RDSCustomAvailabilityZone",
+               "New-RDSCustomDBEngineVersion",
                "New-RDSDBCluster",
                "New-RDSDBClusterEndpoint",
                "New-RDSDBClusterParameterGroup",
@@ -214,6 +231,7 @@ $RDS_SelectMap = @{
                "New-RDSGlobalCluster",
                "New-RDSOptionGroup",
                "Remove-RDSCustomAvailabilityZone",
+               "Remove-RDSCustomDBEngineVersion",
                "Remove-RDSDBCluster",
                "Remove-RDSDBClusterEndpoint",
                "Remove-RDSDBClusterParameterGroup",
@@ -278,6 +296,7 @@ $RDS_SelectMap = @{
                "Get-RDSTagForResource",
                "Edit-RDSCertificate",
                "Edit-RDSCurrentDBClusterCapacity",
+               "Edit-RDSCustomDBEngineVersion",
                "Edit-RDSDBCluster",
                "Edit-RDSDBClusterEndpoint",
                "Edit-RDSDBClusterParameterGroup",

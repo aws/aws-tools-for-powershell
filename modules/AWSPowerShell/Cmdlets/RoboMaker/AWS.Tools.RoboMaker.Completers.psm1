@@ -87,6 +87,13 @@ $ROBO_Completers = {
             break
         }
 
+        # Amazon.RoboMaker.ComputeType
+        "New-ROBOSimulationJob/Compute_ComputeType"
+        {
+            $v = "CPU","GPU_AND_CPU"
+            break
+        }
+
         # Amazon.RoboMaker.FailureBehavior
         "New-ROBOSimulationJob/FailureBehavior"
         {
@@ -114,6 +121,7 @@ $ROBO_Completers = {
 
 $ROBO_map = @{
     "Architecture"=@("New-ROBORobot")
+    "Compute_ComputeType"=@("New-ROBOSimulationJob")
     "FailureBehavior"=@("New-ROBOSimulationJob")
     "RenderingEngine_Name"=@("New-ROBOSimulationApplication","Update-ROBOSimulationApplication")
 }

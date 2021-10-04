@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all AWS Regions.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
+        /// Not all DB instance classes are available in all Amazon Regions.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
         /// is specified as <code>true</code> for this request.</para><para>Default: Uses existing setting</para>
         /// </para>

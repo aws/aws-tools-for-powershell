@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter Reason
+        /// <summary>
+        /// <para>
+        /// <para>The reason for connecting to the instance. This value is included in the details for
+        /// the Amazon CloudWatch Events event created when you start the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Reason { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
@@ -175,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameter.Add((String)hashKey, valueSet);
                 }
             }
+            context.Reason = this.Reason;
             context.Target = this.Target;
             #if MODULAR
             if (this.Target == null && ParameterWasBound(nameof(this.Target)))
@@ -205,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
             }
             if (cmdletContext.Target != null)
             {
@@ -273,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public System.String DocumentName { get; set; }
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
+            public System.String Reason { get; set; }
             public System.String Target { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.StartSessionResponse, StartSSMSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

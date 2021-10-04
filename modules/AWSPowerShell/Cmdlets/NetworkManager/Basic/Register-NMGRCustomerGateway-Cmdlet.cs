@@ -56,9 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter CustomerGatewayArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources
-        /// Defined by Amazon EC2</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the customer gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -233,11 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// the protected secret text in only the <code>SecretString</code> parameter. The Secrets
         /// Manager console stores the information as a JSON structure of key/value pairs that
         /// the Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
-        /// and specify key/value pairs. For information on how to format a JSON parameter for
-        /// the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>CLI User Guide</i>. For example:</para><para><code>{"username":"bob","password":"abc123xyz456"}</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
-        /// should use single quotes to avoid confusion with the double quotes required in the
-        /// JSON text. </para>
+        /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
+        /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

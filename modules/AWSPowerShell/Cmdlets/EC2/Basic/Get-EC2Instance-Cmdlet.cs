@@ -86,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code>
         /// | <code>stopped</code>).</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</para></li><li><para><code>instance.group-id</code> - The ID of the security group for the instance. </para></li><li><para><code>instance.group-name</code> - The name of the security group for the instance.
         /// </para></li><li><para><code>ip-address</code> - The public IPv4 address of the instance.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>key-name</code> - The name of the key pair used when the instance was launched.</para></li><li><para><code>launch-index</code> - When launching multiple instances, this is the index
-        /// for the instance in the launch group (for example, 0, 1, 2, and so on). </para></li><li><para><code>launch-time</code> - The time when the instance was launched.</para></li><li><para><code>metadata-options.http-tokens</code> - The metadata request authorization state
+        /// for the instance in the launch group (for example, 0, 1, 2, and so on). </para></li><li><para><code>launch-time</code> - The time when the instance was launched, in the ISO 8601
+        /// format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>.
+        /// You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+        /// matches an entire day.</para></li><li><para><code>metadata-options.http-tokens</code> - The metadata request authorization state
         /// (<code>optional</code> | <code>required</code>)</para></li><li><para><code>metadata-options.http-put-response-hop-limit</code> - The http metadata request
         /// put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</para></li><li><para><code>metadata-options.http-endpoint</code> - Enable or disable metadata access on
         /// http endpoint (<code>enabled</code> | <code>disabled</code>)</para></li><li><para><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled

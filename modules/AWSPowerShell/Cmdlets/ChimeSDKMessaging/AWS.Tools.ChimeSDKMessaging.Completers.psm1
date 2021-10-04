@@ -80,6 +80,13 @@ $CHMMG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMessaging.AllowNotifications
+        "Write-CHMMGChannelMembershipPreference/Preferences_PushNotifications_AllowNotifications"
+        {
+            $v = "ALL","FILTERED","NONE"
+            break
+        }
+
         # Amazon.ChimeSDKMessaging.ChannelMembershipType
         {
             ($_ -eq "Get-CHMMGChannelMembershipList/Type") -Or
@@ -125,6 +132,13 @@ $CHMMG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMessaging.PushNotificationType
+        "Send-CHMMGChannelMessage/PushNotification_Type"
+        {
+            $v = "DEFAULT","VOIP"
+            break
+        }
+
         # Amazon.ChimeSDKMessaging.SortOrder
         "Get-CHMMGChannelMessageList/SortOrder"
         {
@@ -143,7 +157,9 @@ $CHMMG_Completers = {
 $CHMMG_map = @{
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
     "Persistence"=@("Send-CHMMGChannelMessage")
+    "Preferences_PushNotifications_AllowNotifications"=@("Write-CHMMGChannelMembershipPreference")
     "Privacy"=@("Get-CHMMGChannelList","New-CHMMGChannel")
+    "PushNotification_Type"=@("Send-CHMMGChannelMessage")
     "SortOrder"=@("Get-CHMMGChannelMessageList")
     "Type"=@("Get-CHMMGChannelMembershipList","New-CHMMGChannelMembership","New-CHMMGCreateChannelMembership","Send-CHMMGChannelMessage")
 }
@@ -198,34 +214,49 @@ $CHMMG_SelectCompleters = {
 }
 
 $CHMMG_SelectMap = @{
-    "Select"=@("New-CHMMGCreateChannelMembership",
+    "Select"=@("Register-CHMMGChannelFlow",
+               "New-CHMMGCreateChannelMembership",
+               "Send-CHMMGChannelFlowCallback",
                "New-CHMMGChannel",
                "New-CHMMGChannelBan",
+               "New-CHMMGChannelFlow",
                "New-CHMMGChannelMembership",
                "New-CHMMGChannelModerator",
                "Remove-CHMMGChannel",
                "Remove-CHMMGChannelBan",
+               "Remove-CHMMGChannelFlow",
                "Remove-CHMMGChannelMembership",
                "Remove-CHMMGChannelMessage",
                "Remove-CHMMGChannelModerator",
                "Get-CHMMGChannel",
                "Get-CHMMGChannelBan",
+               "Get-CHMMGChannelFlow",
                "Get-CHMMGChannelMembership",
                "Get-CHMMGChannelMembershipForAppInstanceUser",
                "Get-CHMMGChannelModeratedByAppInstanceUser",
                "Get-CHMMGChannelModerator",
+               "Unregister-CHMMGChannelFlow",
+               "Get-CHMMGChannelMembershipPreference",
                "Get-CHMMGChannelMessage",
+               "Get-CHMMGChannelMessageStatus",
                "Get-CHMMGMessagingSessionEndpoint",
                "Get-CHMMGChannelBanList",
+               "Get-CHMMGChannelFlowList",
                "Get-CHMMGChannelMembershipList",
                "Get-CHMMGChannelMembershipsForAppInstanceUserList",
                "Get-CHMMGChannelMessageList",
                "Get-CHMMGChannelModeratorList",
                "Get-CHMMGChannelList",
+               "Get-CHMMGChannelsAssociatedWithChannelFlowList",
                "Get-CHMMGChannelsModeratedByAppInstanceUserList",
+               "Get-CHMMGResourceTag",
+               "Write-CHMMGChannelMembershipPreference",
                "Hide-CHMMGChannelMessage",
                "Send-CHMMGChannelMessage",
+               "Add-CHMMGResourceTag",
+               "Remove-CHMMGResourceTag",
                "Update-CHMMGChannel",
+               "Update-CHMMGChannelFlow",
                "Update-CHMMGChannelMessage",
                "Update-CHMMGChannelReadMarker")
 }

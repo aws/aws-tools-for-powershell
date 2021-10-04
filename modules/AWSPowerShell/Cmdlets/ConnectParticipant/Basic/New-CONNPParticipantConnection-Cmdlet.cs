@@ -45,6 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
     /// clients need to call this API again to obtain a new websocket URL and perform the
     /// same steps as before.
+    /// </para><para><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
+    /// API to create a participant connection for chat contacts that are not using a websocket.
+    /// For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable
+    /// real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><para><b>Feature specifications</b>: For information about feature specifications, such
+    /// as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+    /// specifications</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para><note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
@@ -59,10 +66,21 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class NewCONNPParticipantConnectionCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
+        #region Parameter ConnectParticipant
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Connect Participant is used to mark the participant as connected for message
+        /// streaming.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ConnectParticipant { get; set; }
+        #endregion
+        
         #region Parameter ParticipantToken
         /// <summary>
         /// <para>
-        /// <para>This is a header parameter.</para><para>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+        /// <para>This is a header parameter.</para><para>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
         /// API response.</para>
         /// </para>
         /// </summary>
@@ -155,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
                 context.Select = (response, cmdlet) => this.ParticipantToken;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConnectParticipant = this.ConnectParticipant;
             context.ParticipantToken = this.ParticipantToken;
             #if MODULAR
             if (this.ParticipantToken == null && ParameterWasBound(nameof(this.ParticipantToken)))
@@ -188,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             // create request
             var request = new Amazon.ConnectParticipant.Model.CreateParticipantConnectionRequest();
             
+            if (cmdletContext.ConnectParticipant != null)
+            {
+                request.ConnectParticipant = cmdletContext.ConnectParticipant.Value;
+            }
             if (cmdletContext.ParticipantToken != null)
             {
                 request.ParticipantToken = cmdletContext.ParticipantToken;
@@ -257,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ConnectParticipant { get; set; }
             public System.String ParticipantToken { get; set; }
             public List<System.String> Type { get; set; }
             public System.Func<Amazon.ConnectParticipant.Model.CreateParticipantConnectionResponse, NewCONNPParticipantConnectionCmdlet, object> Select { get; set; } =

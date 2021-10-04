@@ -33,12 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// 
     ///  
     /// <para>
-    /// Includes the option to apply additional parameters to narrow your list of results.
+    /// Optional parameters let you narrow your search results by bounding box or country,
+    /// or bias your search toward a specific position on the globe.
     /// </para><note><para>
     /// You can search for places near a given position using <code>BiasPosition</code>, or
     /// filter results within a bounding box using <code>FilterBBox</code>. Providing both
     /// parameters simultaneously returns an error.
-    /// </para></note>
+    /// </para></note><para>
+    /// Search results are returned in order of highest to lowest relevance.
+    /// </para>
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForText")]
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForTextResponse")]
@@ -52,8 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter BiasPosition
         /// <summary>
         /// <para>
-        /// <para>Searches for results closest to the given position. An optional parameter defined
-        /// by longitude, and latitude.</para><ul><li><para>The first <code>bias</code> position is the X coordinate, or longitude.</para></li><li><para>The second <code>bias</code> position is the Y coordinate, or latitude. </para></li></ul><para>For example, <code>bias=xLongitude&amp;bias=yLatitude</code>.</para>
+        /// <para>An optional parameter that indicates a preference for places that are closer to a
+        /// specified position.</para><para> If provided, this parameter must contain a pair of numbers. The first number represents
+        /// the X coordinate, or longitude; the second number represents the Y coordinate, or
+        /// latitude.</para><para>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+        /// <code>-123.1174</code> and latitude <code>49.2847</code>.</para><note><para><code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying
+        /// both options results in an error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,12 +70,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter FilterBBox
         /// <summary>
         /// <para>
-        /// <para>Filters the results by returning only Places within the provided bounding box. An
-        /// optional parameter.</para><para>The first 2 <code>bbox</code> parameters describe the lower southwest corner:</para><ul><li><para>The first <code>bbox</code> position is the X coordinate or longitude of the lower
-        /// southwest corner.</para></li><li><para>The second <code>bbox</code> position is the Y coordinate or latitude of the lower
-        /// southwest corner.</para></li></ul><para>For example, <code>bbox=xLongitudeSW&amp;bbox=yLatitudeSW</code>.</para><para>The next <code>bbox</code> parameters describe the upper northeast corner:</para><ul><li><para>The third <code>bbox</code> position is the X coordinate, or longitude of the upper
-        /// northeast corner.</para></li><li><para>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the upper
-        /// northeast corner.</para></li></ul><para>For example, <code>bbox=xLongitudeNE&amp;bbox=yLatitudeNE</code></para>
+        /// <para>An optional parameter that limits the search results by returning only places that
+        /// are within the provided bounding box.</para><para> If provided, this parameter must contain a total of four consecutive numbers in two
+        /// pairs. The first pair of numbers represents the X and Y coordinates (longitude and
+        /// latitude, respectively) of the southwest corner of the bounding box; the second pair
+        /// of numbers represents the X and Y coordinates (longitude and latitude, respectively)
+        /// of the northeast corner of the bounding box.</para><para>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding
+        /// box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>,
+        /// and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</para><note><para><code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying
+        /// both options results in an error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter FilterCountry
         /// <summary>
         /// <para>
-        /// <para>Limits the search to the given a list of countries/regions. An optional parameter.</para><ul><li><para>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
-        /// country code. For example, Australia uses three upper-case characters: <code>AUS</code>.</para></li></ul>
+        /// <para>An optional parameter that limits the search results by returning only places that
+        /// are in a specified list of countries.</para><ul><li><para>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
+        /// 3166</a> 3-digit country codes. For example, Australia uses three upper-case characters:
+        /// <code>AUS</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +116,23 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String IndexName { get; set; }
         #endregion
         
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP
+        /// 47</a> language tag, for example, <code>en</code> for English.</para><para>This setting affects the languages used in the results. It does not change which results
+        /// are returned. If the language is not specified, or not supported for a particular
+        /// result, the partner automatically chooses a language for the result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Language { get; set; }
+        #endregion
+        
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>The address, name, city, or region to be used in the search. In free-form text format.
+        /// <para>The address, name, city, or region to be used in the search in free-form text format.
         /// For example, <code>123 Any Street</code>.</para>
         /// </para>
         /// </summary>
@@ -197,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             context.Text = this.Text;
             #if MODULAR
@@ -236,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.IndexName != null)
             {
                 request.IndexName = cmdletContext.IndexName;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -310,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public List<System.Double> FilterBBox { get; set; }
             public List<System.String> FilterCountry { get; set; }
             public System.String IndexName { get; set; }
+            public System.String Language { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String Text { get; set; }
             public System.Func<Amazon.LocationService.Model.SearchPlaceIndexForTextResponse, SearchLOCPlaceIndexForTextCmdlet, object> Select { get; set; } =

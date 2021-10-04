@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_DnsIp
         /// <summary>
         /// <para>
-        /// <para>A list of up to two IP addresses of DNS servers or domain controllers in the self-managed
+        /// <para>A list of up to three IP addresses of DNS servers or domain controllers in the self-managed
         /// AD directory.</para>
         /// </para>
         /// </summary>

@@ -28,10 +28,13 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
+    /// <note><para>
+    ///  This operation creates a legacy predictor that does not include all the predictor
+    /// functionalities provided by Amazon Forecast. To create a predictor that is compatible
+    /// with all aspects of Forecast, use CreateAutoPredictor.
+    /// </para></note><para>
     /// Creates an Amazon Forecast predictor.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// In the request, provide a dataset group and either specify an algorithm or let Amazon
     /// Forecast choose an algorithm for you using AutoML. If you specify an algorithm, you
     /// also can override algorithm-specific hyperparameters.

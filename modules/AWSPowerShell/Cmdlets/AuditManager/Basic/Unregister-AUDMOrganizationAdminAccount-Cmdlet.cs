@@ -28,15 +28,15 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Removes the specified member account as a delegated administrator for Audit Manager.
-    /// 
+    /// Removes the specified member Amazon Web Services account as a delegated administrator
+    /// for Audit Manager. 
     /// 
     ///  <important><para>
-    /// When you remove a delegated administrator from your Audit Manager settings, or when
-    /// you deregister a delegated administrator from Organizations, you continue to have
-    /// access to the evidence that you previously collected under that account. However,
-    /// Audit Manager will stop collecting and attaching evidence to that delegated administrator
-    /// account moving forward.
+    /// When you remove a delegated administrator from your Audit Manager settings, you continue
+    /// to have access to the evidence that you previously collected under that account. This
+    /// is also the case when you deregister a delegated administrator from Audit Manager.
+    /// However, Audit Manager will stop collecting and attaching evidence to that delegated
+    /// administrator account moving forward.
     /// </para></important>
     /// </summary>
     [Cmdlet("Unregister", "AUDMOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified administrator account. </para>
+        /// <para> The identifier for the administrator account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Retrieve information about a configuration profile.
+    /// Retrieves information about a configuration profile.
     /// </summary>
     [Cmdlet("Get", "APPCConfigurationProfile")]
     [OutputType("Amazon.AppConfig.Model.GetConfigurationProfileResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter ConfigurationProfileId
         /// <summary>
         /// <para>
-        /// <para>The ID of the configuration profile you want to get.</para>
+        /// <para>The ID of the configuration profile that you want to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -69,12 +69,25 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2IntentCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter FulfillmentUpdatesSpecification_Active
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether fulfillment updates are sent to the user. When this field is true,
+        /// updates are sent.</para><para>If the <code>active</code> field is set to true, the <code>startResponse</code>, <code>updateResponse</code>,
+        /// and <code>timeoutInSeconds</code> fields are required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_Active")]
+        public System.Boolean? FulfillmentUpdatesSpecification_Active { get; set; }
+        #endregion
+        
         #region Parameter IntentClosingSetting_Active
         /// <summary>
         /// <para>
         /// <para>Specifies whether an intent's closing response is used. When this field is false,
-        /// the closing response isn't sent to the user and no closing input from the user is
-        /// used. If the <code>active</code> field isn't specified, the default is true.</para>
+        /// the closing response isn't sent to the user. If the <code>active</code> field isn't
+        /// specified, the default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,13 +98,67 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the intent's confirmation is sent to the user. When this field is
-        /// false, confirmation and declination responses aren't sent and processing continues
-        /// as if the responses aren't present. If the <code>active</code> field isn't specified,
-        /// the default is true.</para>
+        /// false, confirmation and declination responses aren't sent. If the <code>active</code>
+        /// field isn't specified, the default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IntentConfirmationSetting_Active { get; set; }
+        #endregion
+        
+        #region Parameter StartResponse_AllowInterrupt
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the user can interrupt the start message while it is playing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_AllowInterrupt")]
+        public System.Boolean? StartResponse_AllowInterrupt { get; set; }
+        #endregion
+        
+        #region Parameter UpdateResponse_AllowInterrupt
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the user can interrupt an update message while it is playing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_AllowInterrupt")]
+        public System.Boolean? UpdateResponse_AllowInterrupt { get; set; }
+        #endregion
+        
+        #region Parameter FailureResponse_AllowInterrupt
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the user can interrupt a speech response from Amazon Lex.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_AllowInterrupt")]
+        public System.Boolean? FailureResponse_AllowInterrupt { get; set; }
+        #endregion
+        
+        #region Parameter SuccessResponse_AllowInterrupt
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the user can interrupt a speech response from Amazon Lex.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_AllowInterrupt")]
+        public System.Boolean? SuccessResponse_AllowInterrupt { get; set; }
+        #endregion
+        
+        #region Parameter TimeoutResponse_AllowInterrupt
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the user can interrupt a speech response from Amazon Lex.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_AllowInterrupt")]
+        public System.Boolean? TimeoutResponse_AllowInterrupt { get; set; }
         #endregion
         
         #region Parameter ClosingResponse_AllowInterrupt
@@ -161,6 +228,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotVersion { get; set; }
         #endregion
         
+        #region Parameter StartResponse_DelayInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The delay between when the Lambda fulfillment function starts running and the start
+        /// message is played. If the Lambda function returns before the delay is over, the start
+        /// message isn't played.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_DelayInSeconds")]
+        public System.Int32? StartResponse_DelayInSecond { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -189,6 +269,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? FulfillmentCodeHook_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter UpdateResponse_FrequencyInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The frequency that a message is sent to the user. When the period ends, Amazon Lex
+        /// chooses a message from the message groups and plays it to the user. If the fulfillment
+        /// Lambda returns before the first period ends, an update message is not played to the
+        /// user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_FrequencyInSeconds")]
+        public System.Int32? UpdateResponse_FrequencyInSecond { get; set; }
         #endregion
         
         #region Parameter InputContext
@@ -262,13 +356,73 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter PromptSpecification_MaxRetry
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times the bot tries to elicit a resonse from the user using
+        /// <para>The maximum number of times the bot tries to elicit a response from the user using
         /// this prompt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IntentConfirmationSetting_PromptSpecification_MaxRetries")]
         public System.Int32? PromptSpecification_MaxRetry { get; set; }
+        #endregion
+        
+        #region Parameter StartResponse_MessageGroup
+        /// <summary>
+        /// <para>
+        /// <para>One to 5 message groups that contain start messages. Amazon Lex chooses one of the
+        /// messages to play to the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_MessageGroups")]
+        public Amazon.LexModelsV2.Model.MessageGroup[] StartResponse_MessageGroup { get; set; }
+        #endregion
+        
+        #region Parameter UpdateResponse_MessageGroup
+        /// <summary>
+        /// <para>
+        /// <para>One to 5 message groups that contain update messages. Amazon Lex chooses one of the
+        /// messages to play to the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_MessageGroups")]
+        public Amazon.LexModelsV2.Model.MessageGroup[] UpdateResponse_MessageGroup { get; set; }
+        #endregion
+        
+        #region Parameter FailureResponse_MessageGroup
+        /// <summary>
+        /// <para>
+        /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
+        /// the actual response to send at runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_MessageGroups")]
+        public Amazon.LexModelsV2.Model.MessageGroup[] FailureResponse_MessageGroup { get; set; }
+        #endregion
+        
+        #region Parameter SuccessResponse_MessageGroup
+        /// <summary>
+        /// <para>
+        /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
+        /// the actual response to send at runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_MessageGroups")]
+        public Amazon.LexModelsV2.Model.MessageGroup[] SuccessResponse_MessageGroup { get; set; }
+        #endregion
+        
+        #region Parameter TimeoutResponse_MessageGroup
+        /// <summary>
+        /// <para>
+        /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
+        /// the actual response to send at runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_MessageGroups")]
+        public Amazon.LexModelsV2.Model.MessageGroup[] TimeoutResponse_MessageGroup { get; set; }
         #endregion
         
         #region Parameter ClosingResponse_MessageGroup
@@ -369,6 +523,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.SampleUtterance[] SampleUtterance { get; set; }
         #endregion
         
+        #region Parameter FulfillmentUpdatesSpecification_TimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The length of time that the fulfillment Lambda function should run before it times
+        /// out.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FulfillmentCodeHook_FulfillmentUpdatesSpecification_TimeoutInSeconds")]
+        public System.Int32? FulfillmentUpdatesSpecification_TimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -447,6 +613,35 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.Description = this.Description;
             context.DialogCodeHook_Enabled = this.DialogCodeHook_Enabled;
             context.FulfillmentCodeHook_Enabled = this.FulfillmentCodeHook_Enabled;
+            context.FulfillmentUpdatesSpecification_Active = this.FulfillmentUpdatesSpecification_Active;
+            context.StartResponse_AllowInterrupt = this.StartResponse_AllowInterrupt;
+            context.StartResponse_DelayInSecond = this.StartResponse_DelayInSecond;
+            if (this.StartResponse_MessageGroup != null)
+            {
+                context.StartResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.StartResponse_MessageGroup);
+            }
+            context.FulfillmentUpdatesSpecification_TimeoutInSecond = this.FulfillmentUpdatesSpecification_TimeoutInSecond;
+            context.UpdateResponse_AllowInterrupt = this.UpdateResponse_AllowInterrupt;
+            context.UpdateResponse_FrequencyInSecond = this.UpdateResponse_FrequencyInSecond;
+            if (this.UpdateResponse_MessageGroup != null)
+            {
+                context.UpdateResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.UpdateResponse_MessageGroup);
+            }
+            context.FailureResponse_AllowInterrupt = this.FailureResponse_AllowInterrupt;
+            if (this.FailureResponse_MessageGroup != null)
+            {
+                context.FailureResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.FailureResponse_MessageGroup);
+            }
+            context.SuccessResponse_AllowInterrupt = this.SuccessResponse_AllowInterrupt;
+            if (this.SuccessResponse_MessageGroup != null)
+            {
+                context.SuccessResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.SuccessResponse_MessageGroup);
+            }
+            context.TimeoutResponse_AllowInterrupt = this.TimeoutResponse_AllowInterrupt;
+            if (this.TimeoutResponse_MessageGroup != null)
+            {
+                context.TimeoutResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.TimeoutResponse_MessageGroup);
+            }
             if (this.InputContext != null)
             {
                 context.InputContext = new List<Amazon.LexModelsV2.Model.InputContext>(this.InputContext);
@@ -554,6 +749,251 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_Enabled != null)
             {
                 request.FulfillmentCodeHook.Enabled = requestFulfillmentCodeHook_fulfillmentCodeHook_Enabled.Value;
+                requestFulfillmentCodeHookIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.PostFulfillmentStatusSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification = null;
+            
+             // populate PostFulfillmentStatusSpecification
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecificationIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification = new Amazon.LexModelsV2.Model.PostFulfillmentStatusSpecification();
+            Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse = null;
+            
+             // populate FailureResponse
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponseIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse = new Amazon.LexModelsV2.Model.ResponseSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_AllowInterrupt = null;
+            if (cmdletContext.FailureResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_AllowInterrupt = cmdletContext.FailureResponse_AllowInterrupt.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse.AllowInterrupt = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_AllowInterrupt.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponseIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_MessageGroup = null;
+            if (cmdletContext.FailureResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_MessageGroup = cmdletContext.FailureResponse_MessageGroup;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse.MessageGroups = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse_failureResponse_MessageGroup;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponseIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponseIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification.FailureResponse = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureResponse;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse = null;
+            
+             // populate SuccessResponse
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponseIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse = new Amazon.LexModelsV2.Model.ResponseSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_AllowInterrupt = null;
+            if (cmdletContext.SuccessResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_AllowInterrupt = cmdletContext.SuccessResponse_AllowInterrupt.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse.AllowInterrupt = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_AllowInterrupt.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponseIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_MessageGroup = null;
+            if (cmdletContext.SuccessResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_MessageGroup = cmdletContext.SuccessResponse_MessageGroup;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse.MessageGroups = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse_successResponse_MessageGroup;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponseIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponseIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification.SuccessResponse = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessResponse;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse = null;
+            
+             // populate TimeoutResponse
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponseIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse = new Amazon.LexModelsV2.Model.ResponseSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_AllowInterrupt = null;
+            if (cmdletContext.TimeoutResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_AllowInterrupt = cmdletContext.TimeoutResponse_AllowInterrupt.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse.AllowInterrupt = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_AllowInterrupt.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponseIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_MessageGroup = null;
+            if (cmdletContext.TimeoutResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_MessageGroup = cmdletContext.TimeoutResponse_MessageGroup;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse.MessageGroups = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse_timeoutResponse_MessageGroup;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponseIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponseIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification.TimeoutResponse = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutResponse;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecificationIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecificationIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification != null)
+            {
+                request.FulfillmentCodeHook.PostFulfillmentStatusSpecification = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification;
+                requestFulfillmentCodeHookIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.FulfillmentUpdatesSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification = null;
+            
+             // populate FulfillmentUpdatesSpecification
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification = new Amazon.LexModelsV2.Model.FulfillmentUpdatesSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_Active = null;
+            if (cmdletContext.FulfillmentUpdatesSpecification_Active != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_Active = cmdletContext.FulfillmentUpdatesSpecification_Active.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_Active != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification.Active = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_Active.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull = false;
+            }
+            System.Int32? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_TimeoutInSecond = null;
+            if (cmdletContext.FulfillmentUpdatesSpecification_TimeoutInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_TimeoutInSecond = cmdletContext.FulfillmentUpdatesSpecification_TimeoutInSecond.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_TimeoutInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification.TimeoutInSeconds = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentUpdatesSpecification_TimeoutInSecond.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.FulfillmentStartResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse = null;
+            
+             // populate StartResponse
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponseIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse = new Amazon.LexModelsV2.Model.FulfillmentStartResponseSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_AllowInterrupt = null;
+            if (cmdletContext.StartResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_AllowInterrupt = cmdletContext.StartResponse_AllowInterrupt.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse.AllowInterrupt = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_AllowInterrupt.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponseIsNull = false;
+            }
+            System.Int32? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_DelayInSecond = null;
+            if (cmdletContext.StartResponse_DelayInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_DelayInSecond = cmdletContext.StartResponse_DelayInSecond.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_DelayInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse.DelayInSeconds = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_DelayInSecond.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponseIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_MessageGroup = null;
+            if (cmdletContext.StartResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_MessageGroup = cmdletContext.StartResponse_MessageGroup;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse.MessageGroups = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse_startResponse_MessageGroup;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponseIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponseIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification.StartResponse = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_StartResponse;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.FulfillmentUpdateResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse = null;
+            
+             // populate UpdateResponse
+            var requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponseIsNull = true;
+            requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse = new Amazon.LexModelsV2.Model.FulfillmentUpdateResponseSpecification();
+            System.Boolean? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_AllowInterrupt = null;
+            if (cmdletContext.UpdateResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_AllowInterrupt = cmdletContext.UpdateResponse_AllowInterrupt.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_AllowInterrupt != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse.AllowInterrupt = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_AllowInterrupt.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponseIsNull = false;
+            }
+            System.Int32? requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_FrequencyInSecond = null;
+            if (cmdletContext.UpdateResponse_FrequencyInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_FrequencyInSecond = cmdletContext.UpdateResponse_FrequencyInSecond.Value;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_FrequencyInSecond != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse.FrequencyInSeconds = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_FrequencyInSecond.Value;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponseIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_MessageGroup = null;
+            if (cmdletContext.UpdateResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_MessageGroup = cmdletContext.UpdateResponse_MessageGroup;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_MessageGroup != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse.MessageGroups = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse_updateResponse_MessageGroup;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponseIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponseIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse != null)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification.UpdateResponse = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification_fulfillmentCodeHook_FulfillmentUpdatesSpecification_UpdateResponse;
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull = false;
+            }
+             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification should be set to null
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecificationIsNull)
+            {
+                requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification = null;
+            }
+            if (requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification != null)
+            {
+                request.FulfillmentCodeHook.FulfillmentUpdatesSpecification = requestFulfillmentCodeHook_fulfillmentCodeHook_FulfillmentUpdatesSpecification;
                 requestFulfillmentCodeHookIsNull = false;
             }
              // determine if request.FulfillmentCodeHook should be set to null
@@ -843,6 +1283,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String Description { get; set; }
             public System.Boolean? DialogCodeHook_Enabled { get; set; }
             public System.Boolean? FulfillmentCodeHook_Enabled { get; set; }
+            public System.Boolean? FulfillmentUpdatesSpecification_Active { get; set; }
+            public System.Boolean? StartResponse_AllowInterrupt { get; set; }
+            public System.Int32? StartResponse_DelayInSecond { get; set; }
+            public List<Amazon.LexModelsV2.Model.MessageGroup> StartResponse_MessageGroup { get; set; }
+            public System.Int32? FulfillmentUpdatesSpecification_TimeoutInSecond { get; set; }
+            public System.Boolean? UpdateResponse_AllowInterrupt { get; set; }
+            public System.Int32? UpdateResponse_FrequencyInSecond { get; set; }
+            public List<Amazon.LexModelsV2.Model.MessageGroup> UpdateResponse_MessageGroup { get; set; }
+            public System.Boolean? FailureResponse_AllowInterrupt { get; set; }
+            public List<Amazon.LexModelsV2.Model.MessageGroup> FailureResponse_MessageGroup { get; set; }
+            public System.Boolean? SuccessResponse_AllowInterrupt { get; set; }
+            public List<Amazon.LexModelsV2.Model.MessageGroup> SuccessResponse_MessageGroup { get; set; }
+            public System.Boolean? TimeoutResponse_AllowInterrupt { get; set; }
+            public List<Amazon.LexModelsV2.Model.MessageGroup> TimeoutResponse_MessageGroup { get; set; }
             public List<Amazon.LexModelsV2.Model.InputContext> InputContext { get; set; }
             public System.Boolean? IntentClosingSetting_Active { get; set; }
             public System.Boolean? ClosingResponse_AllowInterrupt { get; set; }

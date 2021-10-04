@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackendStorage" OutputProperty="*" Verb="New" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackendAuth" OutputProperty="*" Verb="Remove" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackendStorage" OutputProperty="*" Verb="Remove" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendStorage" OutputProperty="*" Verb="Get" Noun="BackendStorage" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetToken" OutputProperty="*" Verb="Get" Noun="Token" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -90,7 +102,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportBackendStorage" OutputProperty="*" Verb="Import" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBackendJobs" OutputProperty="Jobs" Verb="Get" Noun="BackendJobList" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListS3Buckets" OutputProperty="Buckets" Verb="Get" Noun="S3BucketList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendJob" OutputProperty="*" Verb="Update" Noun="BackendJob" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackendStorage" OutputProperty="*" Verb="Update" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

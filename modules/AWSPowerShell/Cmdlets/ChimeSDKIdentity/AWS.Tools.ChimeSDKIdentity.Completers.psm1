@@ -75,6 +75,43 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Chime SDK Identity
 
 
+$CHMID_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ChimeSDKIdentity.AllowMessages
+        {
+            ($_ -eq "Register-CHMIDAppInstanceUserEndpoint/AllowMessages") -Or
+            ($_ -eq "Update-CHMIDAppInstanceUserEndpoint/AllowMessages")
+        }
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.AppInstanceUserEndpointType
+        "Register-CHMIDAppInstanceUserEndpoint/Type"
+        {
+            $v = "APNS","APNS_SANDBOX","GCM"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMID_map = @{
+    "AllowMessages"=@("Register-CHMIDAppInstanceUserEndpoint","Update-CHMIDAppInstanceUserEndpoint")
+    "Type"=@("Register-CHMIDAppInstanceUserEndpoint")
+}
+
+_awsArgumentCompleterRegistration $CHMID_Completers $CHMID_map
+
 $CHMID_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -129,16 +166,24 @@ $CHMID_SelectMap = @{
                "Remove-CHMIDAppInstance",
                "Remove-CHMIDAppInstanceAdmin",
                "Remove-CHMIDAppInstanceUser",
+               "Unregister-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstance",
                "Get-CHMIDAppInstanceAdmin",
                "Get-CHMIDAppInstanceUser",
+               "Get-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstanceRetentionSetting",
                "Get-CHMIDAppInstanceAdminList",
                "Get-CHMIDAppInstanceList",
+               "Get-CHMIDAppInstanceUserEndpointList",
                "Get-CHMIDAppInstanceUserList",
+               "Get-CHMIDResourceTag",
                "Write-CHMIDAppInstanceRetentionSetting",
+               "Register-CHMIDAppInstanceUserEndpoint",
+               "Add-CHMIDResourceTag",
+               "Remove-CHMIDResourceTag",
                "Update-CHMIDAppInstance",
-               "Update-CHMIDAppInstanceUser")
+               "Update-CHMIDAppInstanceUser",
+               "Update-CHMIDAppInstanceUserEndpoint")
 }
 
 _awsArgumentCompleterRegistration $CHMID_SelectCompleters $CHMID_SelectMap

@@ -119,7 +119,7 @@ $TFR_Completers = {
         # Amazon.Transfer.IdentityProviderType
         "New-TFRServer/IdentityProviderType"
         {
-            $v = "API_GATEWAY","AWS_DIRECTORY_SERVICE","SERVICE_MANAGED"
+            $v = "API_GATEWAY","AWS_DIRECTORY_SERVICE","AWS_LAMBDA","SERVICE_MANAGED"
             break
         }
 

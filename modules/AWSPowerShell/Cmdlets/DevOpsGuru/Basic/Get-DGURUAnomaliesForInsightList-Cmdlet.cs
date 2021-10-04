@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUAnomaliesForInsightListCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter InsightId
         /// <summary>
         /// <para>
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.InsightId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.InsightId = this.InsightId;
             #if MODULAR
             if (this.InsightId == null && ParameterWasBound(nameof(this.InsightId)))
@@ -180,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             // create request and set iteration invariants
             var request = new Amazon.DevOpsGuru.Model.ListAnomaliesForInsightRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.InsightId != null)
             {
                 request.InsightId = cmdletContext.InsightId;
@@ -277,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String InsightId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

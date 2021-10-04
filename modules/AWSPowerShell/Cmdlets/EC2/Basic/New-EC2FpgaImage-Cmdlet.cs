@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely
     /// deploy an AFI on multiple FPGA-accelerated instances. For more information, see the
-    /// <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.
+    /// <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development
+    /// Kit</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2FpgaImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

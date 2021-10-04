@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The launch profile ID.</para>
+        /// <para>The Launch Profile ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileProtocolVersion
         /// <summary>
         /// <para>
-        /// <para>A collection of launch profile protocol versions.</para>
+        /// <para>The launch profile protocol versions supported by the client.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platform.</para>
+        /// <para>The platform where this Launch Profile will be used, either WINDOWS or LINUX.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

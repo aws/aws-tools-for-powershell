@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter S3BucketOwner
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the bucket the export will be stored in.</para>
+        /// <para>The ID of the Amazon Web Services account that owns the bucket the export will be
+        /// stored in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>Type of encryption used on the bucket where export data will be stored. Valid values
-        /// for <code>S3SseAlgorithm</code> are:</para><ul><li><para><code>AES256</code> - server-side encryption with Amazon S3 managed keys</para></li><li><para><code>KMS</code> - server-side encryption with AWS KMS managed keys</para></li></ul>
+        /// for <code>S3SseAlgorithm</code> are:</para><ul><li><para><code>AES256</code> - server-side encryption with Amazon S3 managed keys</para></li><li><para><code>KMS</code> - server-side encryption with KMS managed keys</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter S3SseKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data
-        /// will be stored (if applicable).</para>
+        /// <para>The ID of the KMS managed key used to encrypt the S3 bucket where export data will
+        /// be stored (if applicable).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

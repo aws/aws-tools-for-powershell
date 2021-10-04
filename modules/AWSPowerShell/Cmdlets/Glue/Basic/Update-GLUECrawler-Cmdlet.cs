@@ -130,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>Specifies whether to crawl the entire dataset again or to crawl only folders that
         /// were added since the last crawler run.</para><para>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</para><para>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that
-        /// were added since the last crawler run.</para>
+        /// were added since the last crawler run.</para><para>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified
+        /// by Amazon S3 events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

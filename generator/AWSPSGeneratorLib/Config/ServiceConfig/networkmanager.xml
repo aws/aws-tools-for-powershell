@@ -111,6 +111,30 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkResourceCounts" OutputProperty="NetworkResourceCounts" Verb="Get" Noun="NetworkResourceCount" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkResourceRelationships" OutputProperty="Relationships" Verb="Get" Noun="NetworkResourceRelationship" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkResources" OutputProperty="NetworkResources" Verb="Get" Noun="NetworkResource" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkRoutes" OutputProperty="*" Verb="Get" Noun="NetworkRoute" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkTelemetry" OutputProperty="NetworkTelemetry" Verb="Get" Noun="NetworkTelemetry" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouteAnalysis" OutputProperty="RouteAnalysis" Verb="Get" Noun="RouteAnalysis" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSites" OutputProperty="Sites" Verb="Get" Noun="Site" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterTransitGateway" OutputProperty="TransitGatewayRegistration" Verb="Register" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayArn" PipelineParameter="TransitGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRouteAnalysis" OutputProperty="RouteAnalysis" Verb="Start" Noun="RouteAnalysis" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -152,6 +180,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLink" OutputProperty="Link" Verb="Update" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetworkResourceMetadata" OutputProperty="*" Verb="Update" Noun="NetworkResourceMetadata" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

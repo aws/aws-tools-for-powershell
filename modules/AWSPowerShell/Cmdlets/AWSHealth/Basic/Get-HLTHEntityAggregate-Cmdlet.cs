@@ -29,7 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
     /// Returns the number of entities that are affected by each of the specified events.
-    /// If no events are specified, the counts of all affected entities are returned.
     /// </summary>
     [Cmdlet("Get", "HLTHEntityAggregate")]
     [OutputType("Amazon.AWSHealth.Model.EntityAggregate")]

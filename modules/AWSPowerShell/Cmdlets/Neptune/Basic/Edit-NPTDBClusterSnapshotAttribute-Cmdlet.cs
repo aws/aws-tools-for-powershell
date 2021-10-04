@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// set this list to include one or more Amazon account IDs, or <code>all</code> to make
         /// the manual DB cluster snapshot restorable by any Amazon account. Do not add the <code>all</code>
         /// value for any manual DB cluster snapshots that contain private information that you
-        /// don't want available to all AWS accounts.</para>
+        /// don't want available to all Amazon accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

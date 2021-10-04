@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
     /// Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User Guide.</i></para><note><para>
-    ///  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora clusters,
-    /// use <code>StopDBCluster</code> instead. 
+    ///  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
+    /// Aurora clusters, use <code>StopDBCluster</code> instead. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -102,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter FPorts_ClockSync
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_ClockSync")]
+        public System.Int32? FPorts_ClockSync { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -179,6 +190,28 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey { get; set; }
         #endregion
         
+        #region Parameter FPorts_Fuota
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Fuota")]
+        public System.Int32? FPorts_Fuota { get; set; }
+        #endregion
+        
+        #region Parameter x_GenAppKey
+        /// <summary>
+        /// <para>
+        /// <para>The GenAppKey value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_OtaaV1_0_x_GenAppKey")]
+        public System.String x_GenAppKey { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_OtaaV1_1_JoinEui
         /// <summary>
         /// <para>
@@ -187,6 +220,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoRaWAN_OtaaV1_1_JoinEui { get; set; }
+        #endregion
+        
+        #region Parameter FPorts_Multicast
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Multicast")]
+        public System.Int32? FPorts_Multicast { get; set; }
         #endregion
         
         #region Parameter Name
@@ -358,8 +402,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey = this.LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey;
             context.LoRaWAN_DevEui = this.LoRaWAN_DevEui;
             context.LoRaWAN_DeviceProfileId = this.LoRaWAN_DeviceProfileId;
+            context.FPorts_ClockSync = this.FPorts_ClockSync;
+            context.FPorts_Fuota = this.FPorts_Fuota;
+            context.FPorts_Multicast = this.FPorts_Multicast;
             context.LoRaWAN_OtaaV1_0_x_AppEui = this.LoRaWAN_OtaaV1_0_x_AppEui;
             context.LoRaWAN_OtaaV1_0_x_AppKey = this.LoRaWAN_OtaaV1_0_x_AppKey;
+            context.x_GenAppKey = this.x_GenAppKey;
             context.LoRaWAN_OtaaV1_1_AppKey = this.LoRaWAN_OtaaV1_1_AppKey;
             context.LoRaWAN_OtaaV1_1_JoinEui = this.LoRaWAN_OtaaV1_1_JoinEui;
             context.LoRaWAN_OtaaV1_1_NwkKey = this.LoRaWAN_OtaaV1_1_NwkKey;
@@ -578,6 +626,51 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.AbpV1_1 = requestLoRaWAN_loRaWAN_AbpV1_1;
                 requestLoRaWANIsNull = false;
             }
+            Amazon.IoTWireless.Model.FPorts requestLoRaWAN_loRaWAN_FPorts = null;
+            
+             // populate FPorts
+            var requestLoRaWAN_loRaWAN_FPortsIsNull = true;
+            requestLoRaWAN_loRaWAN_FPorts = new Amazon.IoTWireless.Model.FPorts();
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = null;
+            if (cmdletContext.FPorts_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = cmdletContext.FPorts_ClockSync.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.ClockSync = requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = null;
+            if (cmdletContext.FPorts_Fuota != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = cmdletContext.FPorts_Fuota.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Fuota = requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = null;
+            if (cmdletContext.FPorts_Multicast != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = cmdletContext.FPorts_Multicast.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Multicast = requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_FPorts should be set to null
+            if (requestLoRaWAN_loRaWAN_FPortsIsNull)
+            {
+                requestLoRaWAN_loRaWAN_FPorts = null;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts != null)
+            {
+                request.LoRaWAN.FPorts = requestLoRaWAN_loRaWAN_FPorts;
+                requestLoRaWANIsNull = false;
+            }
             Amazon.IoTWireless.Model.OtaaV1_0_x requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
             
              // populate OtaaV1_0_x
@@ -601,6 +694,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey != null)
             {
                 requestLoRaWAN_loRaWAN_OtaaV1_0_x.AppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey;
+                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
+            }
+            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = null;
+            if (cmdletContext.x_GenAppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = cmdletContext.x_GenAppKey;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x.GenAppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey;
                 requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
             }
              // determine if requestLoRaWAN_loRaWAN_OtaaV1_0_x should be set to null
@@ -749,8 +852,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey { get; set; }
             public System.String LoRaWAN_DevEui { get; set; }
             public System.String LoRaWAN_DeviceProfileId { get; set; }
+            public System.Int32? FPorts_ClockSync { get; set; }
+            public System.Int32? FPorts_Fuota { get; set; }
+            public System.Int32? FPorts_Multicast { get; set; }
             public System.String LoRaWAN_OtaaV1_0_x_AppEui { get; set; }
             public System.String LoRaWAN_OtaaV1_0_x_AppKey { get; set; }
+            public System.String x_GenAppKey { get; set; }
             public System.String LoRaWAN_OtaaV1_1_AppKey { get; set; }
             public System.String LoRaWAN_OtaaV1_1_JoinEui { get; set; }
             public System.String LoRaWAN_OtaaV1_1_NwkKey { get; set; }

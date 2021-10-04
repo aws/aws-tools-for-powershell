@@ -108,6 +108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDBCluster" OutputProperty="DBCluster" Verb="New" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -169,6 +173,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomAvailabilityZone" OutputProperty="CustomAvailabilityZone" Verb="Remove" Noun="CustomAvailabilityZone" ShouldProcessTarget="CustomAvailabilityZoneId" PipelineParameter="CustomAvailabilityZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomDBEngineVersion" OutputProperty="*" Verb="Remove" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -434,6 +442,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyCurrentDBClusterCapacity" OutputProperty="*" Verb="Edit" Noun="CurrentDBClusterCapacity" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCustomDBEngineVersion" OutputProperty="*" Verb="Edit" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

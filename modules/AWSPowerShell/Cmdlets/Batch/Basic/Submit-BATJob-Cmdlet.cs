@@ -30,13 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <summary>
     /// Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
     /// override parameters defined in the job definition. vCPU and memory requirements that
-    /// are specified in the <code>ResourceRequirements</code> objects in the job definition
+    /// are specified in the <code>resourceRequirements</code> objects in the job definition
     /// are the exception. They can't be overridden this way using the <code>memory</code>
     /// and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
     /// parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
     /// parameter.
     /// 
-    ///  <important><para>
+    ///  <note><para>
+    /// Job queues with a scheduling policy are limited to 500 active fair share identifiers
+    /// at a time. 
+    /// </para></note><important><para>
     /// Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
     /// This is because, after 14 days, Fargate resources might become unavailable and job
     /// might be terminated.
@@ -250,6 +253,29 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.ResourceRequirement[] ContainerOverrides_ResourceRequirement { get; set; }
         #endregion
         
+        #region Parameter SchedulingPriorityOverride
+        /// <summary>
+        /// <para>
+        /// <para>The scheduling priority for the job. This will only affect jobs in job queues with
+        /// a fair share policy. Jobs with a higher scheduling priority will be scheduled before
+        /// jobs with a lower scheduling priority. This will override any scheduling priority
+        /// in the job definition.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SchedulingPriorityOverride { get; set; }
+        #endregion
+        
+        #region Parameter ShareIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The share identifier for the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ShareIdentifier { get; set; }
+        #endregion
+        
         #region Parameter ArrayProperties_Size
         /// <summary>
         /// <para>
@@ -293,15 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Memory
         /// <summary>
         /// <para>
-        /// <para>This parameter indicates the amount of memory (in MiB) that's reserved for the job.
-        /// It overrides the <code>memory</code> parameter set in the job definition, but doesn't
-        /// override any memory requirement specified in the <code>ResourceRequirement</code>
-        /// structure in the job definition. To override memory requirements that are specified
-        /// in the <code>ResourceRequirement</code> structure in the job definition, <code>ResourceRequirement</code>
-        /// must be specified in the <code>SubmitJob</code> request, with <code>type</code> set
-        /// to <code>MEMORY</code> and <code>value</code> set to the new value.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
-        /// for jobs that run on Fargate resources. For these resources, use <code>resourceRequirement</code>
-        /// instead.</para>
+        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
+        /// memory requirements specified in the job definition. It's not supported for jobs that
+        /// run on Fargate resources. For jobs run on EC2 resources, it overrides the <code>memory</code>
+        /// parameter set in the job definition, but doesn't override any memory requirement specified
+        /// in the <code>resourceRequirements</code> structure in the job definition. To override
+        /// memory requirements that are specified in the <code>resourceRequirements</code> structure
+        /// in the job definition, <code>resourceRequirements</code> must be specified in the
+        /// <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code>
+        /// and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
+        /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -313,20 +340,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Vcpus
         /// <summary>
         /// <para>
-        /// <para>This parameter indicates the number of vCPUs reserved for the container.It overrides
-        /// the <code>vcpus</code> parameter that's set in the job definition, but doesn't override
-        /// any vCPU requirement specified in the <code>resourceRequirement</code> structure in
-        /// the job definition. To override vCPU requirements that are specified in the <code>ResourceRequirement</code>
-        /// structure in the job definition, <code>ResourceRequirement</code> must be specified
+        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
+        /// <code>vcpus</code> parameter that's set in the job definition. It's not supported
+        /// for jobs that run on Fargate resources. For jobs run on EC2 resources, it overrides
+        /// the <code>vcpus</code> parameter set in the job definition, but doesn't override any
+        /// vCPU requirement specified in the <code>resourceRequirements</code> structure in the
+        /// job definition. To override vCPU requirements that are specified in the <code>resourceRequirements</code>
+        /// structure in the job definition, <code>resourceRequirements</code> must be specified
         /// in the <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code>
-        /// and <code>value</code> set to the new value.</para><para>This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
-        /// vCPU.</para><note><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
-        /// for jobs that run on Fargate resources. For Fargate resources, you can only use <code>resourceRequirement</code>.
-        /// For EC2 resources, you can use either this parameter or <code>resourceRequirement</code>
-        /// but not both.</para></note>
+        /// and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
+        /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -460,6 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.RetryStrategy_EvaluateOnExit = new List<Amazon.Batch.Model.EvaluateOnExit>(this.RetryStrategy_EvaluateOnExit);
             }
+            context.SchedulingPriorityOverride = this.SchedulingPriorityOverride;
+            context.ShareIdentifier = this.ShareIdentifier;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -659,6 +684,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.SchedulingPriorityOverride != null)
+            {
+                request.SchedulingPriorityOverride = cmdletContext.SchedulingPriorityOverride.Value;
+            }
+            if (cmdletContext.ShareIdentifier != null)
+            {
+                request.ShareIdentifier = cmdletContext.ShareIdentifier;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -747,6 +780,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Boolean? PropagateTag { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
             public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
+            public System.Int32? SchedulingPriorityOverride { get; set; }
+            public System.String ShareIdentifier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public System.Func<Amazon.Batch.Model.SubmitJobResponse, SubmitBATJobCmdlet, object> Select { get; set; } =

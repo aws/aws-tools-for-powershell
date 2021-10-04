@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUInsightCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the member account in the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -101,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -124,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             // create request
             var request = new Amazon.DevOpsGuru.Model.DescribeInsightRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -189,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String Id { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.DescribeInsightResponse, GetDGURUInsightCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

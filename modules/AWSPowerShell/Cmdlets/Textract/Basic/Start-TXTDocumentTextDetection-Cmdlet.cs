@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// 
     ///  
     /// <para><code>StartDocumentTextDetection</code> can analyze text in documents that are in
-    /// JPEG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
-    /// to specify the bucket name and file name of the document. 
+    /// JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket.
+    /// Use <a>DocumentLocation</a> to specify the bucket name and file name of the document.
+    /// 
     /// </para><para><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that
     /// you use to get the results of the operation. When text detection is finished, Amazon
     /// Textract publishes a completion status to the Amazon Simple Notification Service (Amazon
@@ -112,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The file name of the input document. Synchronous operations can use image files that
-        /// are in JPEG or PNG format. Asynchronous operations also support PDF format files.</para>
+        /// are in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format
+        /// files.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

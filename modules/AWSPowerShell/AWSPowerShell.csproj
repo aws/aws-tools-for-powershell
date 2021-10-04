@@ -88,6 +88,9 @@
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppConfigData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfigData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Appflow.dll</HintPath>
     </Reference>
@@ -168,6 +171,9 @@
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKIdentity">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ChimeSDKMeetings">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMeetings.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMessaging">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMessaging.dll</HintPath>
@@ -321,6 +327,9 @@
     </Reference>
     <Reference Include="AWSSDK.DocDB">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DocDB.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Drs">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Drs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DynamoDBv2.dll</HintPath>
@@ -565,6 +574,9 @@
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ManagedGrafana">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedGrafana.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceCatalog">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceCatalog.dll</HintPath>
     </Reference>
@@ -607,6 +619,9 @@
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Mobile">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Mobile.dll</HintPath>
     </Reference>
@@ -645,6 +660,9 @@
     </Reference>
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Outposts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Panorama">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Panorama.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Personalize.dll</HintPath>
@@ -702,6 +720,9 @@
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ResilienceHub">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroups">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceGroups.dll</HintPath>
@@ -918,6 +939,9 @@
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppConfigData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppConfigData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Appflow.dll</HintPath>
     </Reference>
@@ -998,6 +1022,9 @@
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKIdentity">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ChimeSDKMeetings">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKMeetings.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMessaging">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKMessaging.dll</HintPath>
@@ -1151,6 +1178,9 @@
     </Reference>
     <Reference Include="AWSSDK.DocDB">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DocDB.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Drs">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Drs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DynamoDBv2.dll</HintPath>
@@ -1395,6 +1425,9 @@
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ManagedGrafana">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedGrafana.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceCatalog">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceCatalog.dll</HintPath>
     </Reference>
@@ -1437,6 +1470,9 @@
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Mobile">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Mobile.dll</HintPath>
     </Reference>
@@ -1475,6 +1511,9 @@
     </Reference>
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Outposts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Panorama">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Personalize.dll</HintPath>
@@ -1532,6 +1571,9 @@
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Rekognition.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ResilienceHub">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroups">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResourceGroups.dll</HintPath>

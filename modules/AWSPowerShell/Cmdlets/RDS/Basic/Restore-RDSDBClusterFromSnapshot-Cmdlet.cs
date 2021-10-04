@@ -266,11 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster
         /// from a DB snapshot or DB cluster snapshot.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS customer master key (CMK). To use a CMK in a
-        /// different Amazon Web Services account, specify the key ARN or alias ARN.</para><para>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// occurs:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
-        /// then the restored DB cluster is encrypted using the Amazon Web Services KMS CMK that
-        /// was used to encrypt the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+        /// then the restored DB cluster is encrypted using the KMS key that was used to encrypt
+        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
         /// encrypted, then the restored DB cluster isn't encrypted.</para></li></ul>
         /// </para>
         /// </summary>

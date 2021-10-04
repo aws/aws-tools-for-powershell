@@ -59,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CarrierGatewayId { get; set; }
         #endregion
         
+        #region Parameter CoreNetworkArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CoreNetworkArn { get; set; }
+        #endregion
+        
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
@@ -269,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CarrierGatewayId = this.CarrierGatewayId;
+            context.CoreNetworkArn = this.CoreNetworkArn;
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
             context.DestinationPrefixListId = this.DestinationPrefixListId;
@@ -308,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CarrierGatewayId != null)
             {
                 request.CarrierGatewayId = cmdletContext.CarrierGatewayId;
+            }
+            if (cmdletContext.CoreNetworkArn != null)
+            {
+                request.CoreNetworkArn = cmdletContext.CoreNetworkArn;
             }
             if (cmdletContext.DestinationCidrBlock != null)
             {
@@ -427,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CarrierGatewayId { get; set; }
+            public System.String CoreNetworkArn { get; set; }
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationIpv6CidrBlock { get; set; }
             public System.String DestinationPrefixListId { get; set; }

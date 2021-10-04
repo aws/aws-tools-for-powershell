@@ -114,6 +114,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.S3InputFileType
+        {
+            ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType") -Or
+            ($_ -eq "Update-AFFlow/SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType")
+        }
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.Appflow.TriggerType
         {
             ($_ -eq "New-AFFlow/TriggerConfig_TriggerType") -Or
@@ -136,6 +146,7 @@ $AF_map = @{
     "ConnectionMode"=@("New-AFConnectorProfile","Update-AFConnectorProfile")
     "ConnectorType"=@("Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
+    "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerType"=@("New-AFFlow","Update-AFFlow")
 }

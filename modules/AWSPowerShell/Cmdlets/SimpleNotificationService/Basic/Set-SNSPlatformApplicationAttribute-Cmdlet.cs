@@ -48,15 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> – The credential received from the notification service.
-        /// For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformCredential</code>
-        /// is <code>private key</code>. For <code>GCM</code> (Firebase Cloud Messaging), <code>PlatformCredential</code>
-        /// is <code>API key</code>. For <code>ADM</code>, <code>PlatformCredential</code> is
-        /// <code>client secret</code>.</para></li><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.
-        /// For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformPrincipal</code>
-        /// is <code>SSL certificate</code>. For <code>GCM</code> (Firebase Cloud Messaging),
-        /// there is no <code>PlatformPrincipal</code>. For <code>ADM</code>, <code>PlatformPrincipal</code>
-        /// is <code>client id</code>.</para></li><li><para><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code>
+        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> – The credential received from the notification service.</para><ul><li><para>For ADM, <code>PlatformCredential</code>is client secret.</para></li><li><para>For Apple Services using certificate credentials, <code>PlatformCredential</code>
+        /// is private key.</para></li><li><para>For Apple Services using token credentials, <code>PlatformCredential</code> is signing
+        /// key.</para></li><li><para>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </para></li></ul></li></ul><ul><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.</para><ul><li><para>For ADM, <code>PlatformPrincipal</code>is client id.</para></li><li><para>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is
+        /// SSL certificate.</para></li><li><para>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing
+        /// key ID.</para></li><li><para>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </para></li></ul></li></ul><ul><li><para><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code>
         /// event notifications are sent.</para></li><li><para><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code>
         /// event notifications are sent.</para></li><li><para><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code>
         /// event notifications are sent.</para></li><li><para><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code>
@@ -64,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// of the application's endpoints.</para></li><li><para><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
         /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
         /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully
-        /// delivered messages.</para></li></ul>
+        /// delivered messages.</para></li></ul><para>The following attributes only apply to <code>APNs</code> token-based authentication:</para><ul><li><para><code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer
+        /// account team.</para></li><li><para><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your
+        /// iOS app.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -194,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the accounts have public keys that CloudFront
-        /// can use to verify the signatures of signed URLs and signed cookies. If not, this field
-        /// is <code>false</code>.</para>
+        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts have public
+        /// keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+        /// If not, this field is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,11 +329,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// IPv6. If you want to restrict access to some content by IP address and not restrict
         /// access to other content (or restrict access but not by IP address), you can create
         /// two distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating
-        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Route 53 Amazon Web Services Integration alias resource record
+        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Route 53 Amazon Web Services Integration alias resource record
         /// set to route traffic to your CloudFront distribution, you need to create a second
         /// alias resource record set when both of the following are true:</para><ul><li><para>You enable IPv6 for the distribution</para></li><li><para>You're using alternate domain names in the URLs for your objects</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing
         /// Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in
-        /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
+        /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
         /// Integration or with another DNS service, you don't need to make any changes. A CNAME
         /// record will route traffic to your distribution regardless of the IP address format
         /// of the viewer request.</para>
@@ -479,7 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para>A list of account identifiers.</para>
+        /// <para>A list of Amazon Web Services account identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -736,7 +736,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of accounts in the list.</para>
+        /// <para>The number of Amazon Web Services accounts in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -824,6 +824,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DistributionConfig_DefaultCacheBehavior_RealtimeLogConfigArn")]
         public System.String DefaultCacheBehavior_RealtimeLogConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCacheBehavior_ResponseHeadersPolicyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for a response headers policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfig_DefaultCacheBehavior_ResponseHeadersPolicyId")]
+        public System.String DefaultCacheBehavior_ResponseHeadersPolicyId { get; set; }
         #endregion
         
         #region Parameter GeoRestriction_RestrictionType
@@ -1161,6 +1172,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_OriginRequestPolicyId = this.DefaultCacheBehavior_OriginRequestPolicyId;
             context.DefaultCacheBehavior_RealtimeLogConfigArn = this.DefaultCacheBehavior_RealtimeLogConfigArn;
+            context.DefaultCacheBehavior_ResponseHeadersPolicyId = this.DefaultCacheBehavior_ResponseHeadersPolicyId;
             context.DefaultCacheBehavior_SmoothStreaming = this.DefaultCacheBehavior_SmoothStreaming;
             context.DefaultCacheBehavior_TargetOriginId = this.DefaultCacheBehavior_TargetOriginId;
             #if MODULAR
@@ -1813,6 +1825,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.RealtimeLogConfigArn = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_RealtimeLogConfigArn;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            System.String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ResponseHeadersPolicyId = null;
+            if (cmdletContext.DefaultCacheBehavior_ResponseHeadersPolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ResponseHeadersPolicyId = cmdletContext.DefaultCacheBehavior_ResponseHeadersPolicyId;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ResponseHeadersPolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.ResponseHeadersPolicyId = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ResponseHeadersPolicyId;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = null;
             if (cmdletContext.DefaultCacheBehavior_SmoothStreaming != null)
             {
@@ -2341,6 +2363,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int64? DefaultCacheBehavior_MinTTL { get; set; }
             public System.String DefaultCacheBehavior_OriginRequestPolicyId { get; set; }
             public System.String DefaultCacheBehavior_RealtimeLogConfigArn { get; set; }
+            public System.String DefaultCacheBehavior_ResponseHeadersPolicyId { get; set; }
             public System.Boolean? DefaultCacheBehavior_SmoothStreaming { get; set; }
             public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
             public System.Boolean? TrustedKeyGroups_Enabled { get; set; }

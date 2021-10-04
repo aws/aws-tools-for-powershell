@@ -28,24 +28,25 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Returns the current provisioned-capacity quotas for your AWS account in a Region,
-    /// both for the Region as a whole and for any one DynamoDB table that you create there.
+    /// Returns the current provisioned-capacity quotas for your Amazon Web Services account
+    /// in a Region, both for the Region as a whole and for any one DynamoDB table that you
+    /// create there.
     /// 
     ///  
     /// <para>
-    /// When you establish an AWS account, the account has initial quotas on the maximum read
-    /// capacity units and write capacity units that you can provision across all of your
-    /// DynamoDB tables in a given Region. Also, there are per-table quotas that apply when
-    /// you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
+    /// When you establish an Amazon Web Services account, the account has initial quotas
+    /// on the maximum read capacity units and write capacity units that you can provision
+    /// across all of your DynamoDB tables in a given Region. Also, there are per-table quotas
+    /// that apply when you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
     /// Account, and Table Quotas</a> page in the <i>Amazon DynamoDB Developer Guide</i>.
     /// </para><para>
-    /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS
-    /// Support Center</a>, obtaining the increase is not instantaneous. The <code>DescribeLimits</code>
-    /// action lets you write code to compare the capacity you are currently using to those
-    /// quotas imposed by your account so that you have enough time to apply for an increase
-    /// before you hit a quota.
+    /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">Amazon
+    /// Web Services Support Center</a>, obtaining the increase is not instantaneous. The
+    /// <code>DescribeLimits</code> action lets you write code to compare the capacity you
+    /// are currently using to those quotas imposed by your account so that you have enough
+    /// time to apply for an increase before you hit a quota.
     /// </para><para>
-    /// For example, you could use one of the AWS SDKs to do the following:
+    /// For example, you could use one of the Amazon Web Services SDKs to do the following:
     /// </para><ol><li><para>
     /// Call <code>DescribeLimits</code> for a particular Region to obtain your current account
     /// quotas on provisioned capacity there.

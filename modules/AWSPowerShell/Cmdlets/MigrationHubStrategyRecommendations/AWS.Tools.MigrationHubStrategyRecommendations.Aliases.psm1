@@ -1,0 +1,3 @@
+﻿# MigrationHubStrategyRecommendations
+
+Export-ModuleMember -Alias *

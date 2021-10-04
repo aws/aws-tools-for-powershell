@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Compute_ComputeType
+        /// <summary>
+        /// <para>
+        /// <para>Compute type information for the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RoboMaker.ComputeType")]
+        public Amazon.RoboMaker.ComputeType Compute_ComputeType { get; set; }
+        #endregion
+        
         #region Parameter DataSource
         /// <summary>
         /// <para>
@@ -79,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.RoboMaker.FailureBehavior")]
         public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }
+        #endregion
+        
+        #region Parameter Compute_GpuUnitLimit
+        /// <summary>
+        /// <para>
+        /// <para>Compute GPU unit limit for the simulation job. It is the same as the number of GPUs
+        /// allocated to the SimulationJob.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Compute_GpuUnitLimit { get; set; }
         #endregion
         
         #region Parameter IamRole
@@ -167,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <para>
         /// <para>The simulation unit limit. Your simulation is allocated CPU and memory proportional
         /// to the supplied simulation unit limit. A simulation unit is 1 vcpu and 2GB of memory.
-        /// You are only billed for the SU utilization you consume up to the maximim value provided.
+        /// You are only billed for the SU utilization you consume up to the maximum value provided.
         /// The default is 15. </para>
         /// </para>
         /// </summary>
@@ -260,6 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.Compute_ComputeType = this.Compute_ComputeType;
+            context.Compute_GpuUnitLimit = this.Compute_GpuUnitLimit;
             context.Compute_SimulationUnitLimit = this.Compute_SimulationUnitLimit;
             if (this.DataSource != null)
             {
@@ -323,6 +347,26 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
              // populate Compute
             var requestComputeIsNull = true;
             request.Compute = new Amazon.RoboMaker.Model.Compute();
+            Amazon.RoboMaker.ComputeType requestCompute_compute_ComputeType = null;
+            if (cmdletContext.Compute_ComputeType != null)
+            {
+                requestCompute_compute_ComputeType = cmdletContext.Compute_ComputeType;
+            }
+            if (requestCompute_compute_ComputeType != null)
+            {
+                request.Compute.ComputeType = requestCompute_compute_ComputeType;
+                requestComputeIsNull = false;
+            }
+            System.Int32? requestCompute_compute_GpuUnitLimit = null;
+            if (cmdletContext.Compute_GpuUnitLimit != null)
+            {
+                requestCompute_compute_GpuUnitLimit = cmdletContext.Compute_GpuUnitLimit.Value;
+            }
+            if (requestCompute_compute_GpuUnitLimit != null)
+            {
+                request.Compute.GpuUnitLimit = requestCompute_compute_GpuUnitLimit.Value;
+                requestComputeIsNull = false;
+            }
             System.Int32? requestCompute_compute_SimulationUnitLimit = null;
             if (cmdletContext.Compute_SimulationUnitLimit != null)
             {
@@ -455,6 +499,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public Amazon.RoboMaker.ComputeType Compute_ComputeType { get; set; }
+            public System.Int32? Compute_GpuUnitLimit { get; set; }
             public System.Int32? Compute_SimulationUnitLimit { get; set; }
             public List<Amazon.RoboMaker.Model.DataSourceConfig> DataSource { get; set; }
             public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }

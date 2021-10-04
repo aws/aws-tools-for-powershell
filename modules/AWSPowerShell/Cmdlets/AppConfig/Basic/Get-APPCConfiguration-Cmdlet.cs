@@ -28,10 +28,10 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Receive information about a configuration.
+    /// Retrieves information about a configuration.
     /// 
     ///  <important><para>
-    /// AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+    /// AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
     /// to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code>
     /// with each call to <code>GetConfiguration</code>, your clients receive the current
     /// configuration. You are charged each time your clients receive a configuration.
@@ -72,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The configuration version returned in the most recent <code>GetConfiguration</code>
-        /// response.</para><important><para>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+        /// response.</para><important><para>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
         /// to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code>
         /// with each call to <code>GetConfiguration</code>, your clients receive the current
         /// configuration. You are charged each time your clients receive a configuration.</para><para>To avoid excess charges, we recommend that you include the <code>ClientConfigurationVersion</code>
         /// value with every call to <code>GetConfiguration</code>. This value must be saved on
         /// your client. Subsequent calls to <code>GetConfiguration</code> must pass this value
-        /// by using the <code>ClientConfigurationVersion</code> parameter. </para></important><para>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving
-        /// the Configuration</a> in the <i>AWS AppConfig User Guide</i>.</para>
+        /// by using the <code>ClientConfigurationVersion</code> parameter. </para></important><para>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving
+        /// the Configuration</a> in the <i>AppConfig User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>A unique ID to identify the client for the configuration. This ID enables AppConfig
-        /// to deploy the configuration in intervals, as defined in the deployment strategy.</para>
+        /// <para>The clientId parameter in the following command is a unique, user-specified ID to
+        /// identify the client for the configuration. This ID enables AppConfig to deploy the
+        /// configuration in intervals, as defined in the deployment strategy. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

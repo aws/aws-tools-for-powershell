@@ -162,11 +162,24 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</para><para>Note that when using shorthand syntax, some values such as commas need to be escaped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Matcher_HttpCode { get; set; }
+        #endregion
+        
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The type of IP address used for this target group. The possible values are <code>ipv4</code>
+        /// and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address
+        /// type defaults to <code>ipv4</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.TargetGroupIpAddressTypeEnum")]
+        public Amazon.ElasticLoadBalancingV2.TargetGroupIpAddressTypeEnum IpAddressType { get; set; }
         #endregion
         
         #region Parameter Name
@@ -326,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.HealthCheckProtocol = this.HealthCheckProtocol;
             context.HealthCheckTimeoutSecond = this.HealthCheckTimeoutSecond;
             context.HealthyThresholdCount = this.HealthyThresholdCount;
+            context.IpAddressType = this.IpAddressType;
             context.Matcher_GrpcCode = this.Matcher_GrpcCode;
             context.Matcher_HttpCode = this.Matcher_HttpCode;
             context.Name = this.Name;
@@ -388,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.HealthyThresholdCount != null)
             {
                 request.HealthyThresholdCount = cmdletContext.HealthyThresholdCount.Value;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             
              // populate Matcher
@@ -518,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum HealthCheckProtocol { get; set; }
             public System.Int32? HealthCheckTimeoutSecond { get; set; }
             public System.Int32? HealthyThresholdCount { get; set; }
+            public Amazon.ElasticLoadBalancingV2.TargetGroupIpAddressTypeEnum IpAddressType { get; set; }
             public System.String Matcher_GrpcCode { get; set; }
             public System.String Matcher_HttpCode { get; set; }
             public System.String Name { get; set; }

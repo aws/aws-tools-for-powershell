@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource from which to delete tags. Batch resources
-        /// that support tags are compute environments, jobs, job definitions, and job queues.
-        /// ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</para>
+        /// that support tags are compute environments, jobs, job definitions, job queues, and
+        /// scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+        /// are not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

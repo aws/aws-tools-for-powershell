@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>Tape retention lock can be configured in two modes. When configured in governance
-        /// mode, accounts with specific IAM permissions are authorized to remove the tape retention
-        /// lock from archived virtual tapes. When configured in compliance mode, the tape retention
-        /// lock cannot be removed by any user, including the root account.</para>
+        /// mode, Amazon Web Services accounts with specific IAM permissions are authorized to
+        /// remove the tape retention lock from archived virtual tapes. When configured in compliance
+        /// mode, the tape retention lock cannot be removed by any user, including the root Amazon
+        /// Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

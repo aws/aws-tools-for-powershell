@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MSKClusterConfiguration', 
         'Update-MSKClusterKafkaVersion', 
         'Update-MSKConfiguration', 
+        'Update-MSKConnectivity', 
         'Update-MSKMonitoring', 
         'Update-MSKSecurity')
 

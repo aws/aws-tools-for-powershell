@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the bot to update. This identifier is returned by the <a>CreateBot</a>
+        /// <para>The unique identifier of the bot to update. This identifier is returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a>
         /// operation.</para>
         /// </para>
         /// </summary>

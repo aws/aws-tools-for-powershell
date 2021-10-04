@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMMediaCapturePipelineCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        #region Parameter SelectedVideoStreams_AttendeeId
+        /// <summary>
+        /// <para>
+        /// <para>The attendee IDs of the streams selected for a media capture pipeline. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_AttendeeIds")]
+        public System.String[] SelectedVideoStreams_AttendeeId { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -48,6 +59,53 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter SelectedVideoStreams_ExternalUserId
+        /// <summary>
+        /// <para>
+        /// <para>The external user IDs of the streams selected for a media capture pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_ExternalUserIds")]
+        public System.String[] SelectedVideoStreams_ExternalUserId { get; set; }
+        #endregion
+        
+        #region Parameter Audio_MuxType
+        /// <summary>
+        /// <para>
+        /// <para>The MUX type of the audio artifact configuration object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType")]
+        [AWSConstantClassSource("Amazon.Chime.AudioMuxType")]
+        public Amazon.Chime.AudioMuxType Audio_MuxType { get; set; }
+        #endregion
+        
+        #region Parameter Content_MuxType
+        /// <summary>
+        /// <para>
+        /// <para>The MUX type of the artifact configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType")]
+        [AWSConstantClassSource("Amazon.Chime.ContentMuxType")]
+        public Amazon.Chime.ContentMuxType Content_MuxType { get; set; }
+        #endregion
+        
+        #region Parameter Video_MuxType
+        /// <summary>
+        /// <para>
+        /// <para>The MUX type of the video artifact configuration object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType")]
+        [AWSConstantClassSource("Amazon.Chime.VideoMuxType")]
+        public Amazon.Chime.VideoMuxType Video_MuxType { get; set; }
         #endregion
         
         #region Parameter SinkArn
@@ -120,6 +178,30 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public Amazon.Chime.MediaPipelineSourceType SourceType { get; set; }
         #endregion
         
+        #region Parameter Content_State
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the content artifact is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State")]
+        [AWSConstantClassSource("Amazon.Chime.ArtifactsState")]
+        public Amazon.Chime.ArtifactsState Content_State { get; set; }
+        #endregion
+        
+        #region Parameter Video_State
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the video artifact is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State")]
+        [AWSConstantClassSource("Amazon.Chime.ArtifactsState")]
+        public Amazon.Chime.ArtifactsState Video_State { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'MediaCapturePipeline'.
@@ -160,6 +242,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 context.Select = CreateSelectDelegate<Amazon.Chime.Model.CreateMediaCapturePipelineResponse, NewCHMMediaCapturePipelineCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.Audio_MuxType = this.Audio_MuxType;
+            context.Content_MuxType = this.Content_MuxType;
+            context.Content_State = this.Content_State;
+            context.Video_MuxType = this.Video_MuxType;
+            context.Video_State = this.Video_State;
+            if (this.SelectedVideoStreams_AttendeeId != null)
+            {
+                context.SelectedVideoStreams_AttendeeId = new List<System.String>(this.SelectedVideoStreams_AttendeeId);
+            }
+            if (this.SelectedVideoStreams_ExternalUserId != null)
+            {
+                context.SelectedVideoStreams_ExternalUserId = new List<System.String>(this.SelectedVideoStreams_ExternalUserId);
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.SinkArn = this.SinkArn;
@@ -206,6 +301,175 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             // create request
             var request = new Amazon.Chime.Model.CreateMediaCapturePipelineRequest();
             
+            
+             // populate ChimeSdkMeetingConfiguration
+            var requestChimeSdkMeetingConfigurationIsNull = true;
+            request.ChimeSdkMeetingConfiguration = new Amazon.Chime.Model.ChimeSdkMeetingConfiguration();
+            Amazon.Chime.Model.SourceConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration = null;
+            
+             // populate SourceConfiguration
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfigurationIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration = new Amazon.Chime.Model.SourceConfiguration();
+            Amazon.Chime.Model.SelectedVideoStreams requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams = null;
+            
+             // populate SelectedVideoStreams
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreamsIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams = new Amazon.Chime.Model.SelectedVideoStreams();
+            List<System.String> requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_AttendeeId = null;
+            if (cmdletContext.SelectedVideoStreams_AttendeeId != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_AttendeeId = cmdletContext.SelectedVideoStreams_AttendeeId;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_AttendeeId != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams.AttendeeIds = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_AttendeeId;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreamsIsNull = false;
+            }
+            List<System.String> requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_ExternalUserId = null;
+            if (cmdletContext.SelectedVideoStreams_ExternalUserId != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_ExternalUserId = cmdletContext.SelectedVideoStreams_ExternalUserId;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_ExternalUserId != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams.ExternalUserIds = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_selectedVideoStreams_ExternalUserId;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreamsIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreamsIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration.SelectedVideoStreams = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfigurationIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfigurationIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration != null)
+            {
+                request.ChimeSdkMeetingConfiguration.SourceConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_SourceConfiguration;
+                requestChimeSdkMeetingConfigurationIsNull = false;
+            }
+            Amazon.Chime.Model.ArtifactsConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration = null;
+            
+             // populate ArtifactsConfiguration
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfigurationIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration = new Amazon.Chime.Model.ArtifactsConfiguration();
+            Amazon.Chime.Model.AudioArtifactsConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio = null;
+            
+             // populate Audio
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_AudioIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio = new Amazon.Chime.Model.AudioArtifactsConfiguration();
+            Amazon.Chime.AudioMuxType requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_audio_MuxType = null;
+            if (cmdletContext.Audio_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_audio_MuxType = cmdletContext.Audio_MuxType;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_audio_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio.MuxType = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_audio_MuxType;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_AudioIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_AudioIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration.Audio = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfigurationIsNull = false;
+            }
+            Amazon.Chime.Model.ContentArtifactsConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content = null;
+            
+             // populate Content
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_ContentIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content = new Amazon.Chime.Model.ContentArtifactsConfiguration();
+            Amazon.Chime.ContentMuxType requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_MuxType = null;
+            if (cmdletContext.Content_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_MuxType = cmdletContext.Content_MuxType;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content.MuxType = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_MuxType;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_ContentIsNull = false;
+            }
+            Amazon.Chime.ArtifactsState requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_State = null;
+            if (cmdletContext.Content_State != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_State = cmdletContext.Content_State;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_State != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content.State = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_content_State;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_ContentIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_ContentIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration.Content = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Content;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfigurationIsNull = false;
+            }
+            Amazon.Chime.Model.VideoArtifactsConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video = null;
+            
+             // populate Video
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_VideoIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video = new Amazon.Chime.Model.VideoArtifactsConfiguration();
+            Amazon.Chime.VideoMuxType requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_MuxType = null;
+            if (cmdletContext.Video_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_MuxType = cmdletContext.Video_MuxType;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_MuxType != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video.MuxType = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_MuxType;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_VideoIsNull = false;
+            }
+            Amazon.Chime.ArtifactsState requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_State = null;
+            if (cmdletContext.Video_State != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_State = cmdletContext.Video_State;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_State != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video.State = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_video_State;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_VideoIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_VideoIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration.Video = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_Video;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfigurationIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfigurationIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration != null)
+            {
+                request.ChimeSdkMeetingConfiguration.ArtifactsConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration;
+                requestChimeSdkMeetingConfigurationIsNull = false;
+            }
+             // determine if request.ChimeSdkMeetingConfiguration should be set to null
+            if (requestChimeSdkMeetingConfigurationIsNull)
+            {
+                request.ChimeSdkMeetingConfiguration = null;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -287,6 +551,13 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Chime.AudioMuxType Audio_MuxType { get; set; }
+            public Amazon.Chime.ContentMuxType Content_MuxType { get; set; }
+            public Amazon.Chime.ArtifactsState Content_State { get; set; }
+            public Amazon.Chime.VideoMuxType Video_MuxType { get; set; }
+            public Amazon.Chime.ArtifactsState Video_State { get; set; }
+            public List<System.String> SelectedVideoStreams_AttendeeId { get; set; }
+            public List<System.String> SelectedVideoStreams_ExternalUserId { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String SinkArn { get; set; }
             public Amazon.Chime.MediaPipelineSinkType SinkType { get; set; }

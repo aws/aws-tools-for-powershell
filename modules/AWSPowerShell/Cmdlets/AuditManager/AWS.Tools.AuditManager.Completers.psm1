@@ -92,7 +92,10 @@ $AUDM_Completers = {
         }
 
         # Amazon.AuditManager.AssessmentStatus
-        "Edit-AUDMAssessmentStatus/Status"
+        {
+            ($_ -eq "Edit-AUDMAssessmentStatus/Status") -Or
+            ($_ -eq "Get-AUDMAssessmentList/Status")
+        }
         {
             $v = "ACTIVE","INACTIVE"
             break
@@ -133,6 +136,24 @@ $AUDM_Completers = {
             break
         }
 
+        # Amazon.AuditManager.ShareRequestAction
+        "Update-AUDMAssessmentFrameworkShare/Action"
+        {
+            $v = "ACCEPT","DECLINE","REVOKE"
+            break
+        }
+
+        # Amazon.AuditManager.ShareRequestType
+        {
+            ($_ -eq "Get-AUDMAssessmentFrameworkShareRequestList/RequestType") -Or
+            ($_ -eq "Remove-AUDMAssessmentFrameworkShare/RequestType") -Or
+            ($_ -eq "Update-AUDMAssessmentFrameworkShare/RequestType")
+        }
+        {
+            $v = "RECEIVED","SENT"
+            break
+        }
+
         # Amazon.AuditManager.SourceType
         "Get-AUDMKeywordForDataSourceList/Source"
         {
@@ -149,14 +170,16 @@ $AUDM_Completers = {
 }
 
 $AUDM_map = @{
+    "Action"=@("Update-AUDMAssessmentFrameworkShare")
     "AssessmentReportsDestination_DestinationType"=@("Edit-AUDMAssessment","New-AUDMAssessment")
     "Attribute"=@("Get-AUDMSetting")
     "ControlStatus"=@("Edit-AUDMAssessmentControl")
     "ControlType"=@("Get-AUDMControlList")
     "DefaultAssessmentReportsDestination_DestinationType"=@("Edit-AUDMSetting")
     "FrameworkType"=@("Get-AUDMAssessmentFrameworkList")
+    "RequestType"=@("Get-AUDMAssessmentFrameworkShareRequestList","Remove-AUDMAssessmentFrameworkShare","Update-AUDMAssessmentFrameworkShare")
     "Source"=@("Get-AUDMKeywordForDataSourceList")
-    "Status"=@("Edit-AUDMAssessmentControlSetStatus","Edit-AUDMAssessmentStatus")
+    "Status"=@("Edit-AUDMAssessmentControlSetStatus","Edit-AUDMAssessmentStatus","Get-AUDMAssessmentList")
 }
 
 _awsArgumentCompleterRegistration $AUDM_Completers $AUDM_map
@@ -221,6 +244,7 @@ $AUDM_SelectMap = @{
                "New-AUDMControl",
                "Remove-AUDMAssessment",
                "Remove-AUDMAssessmentFramework",
+               "Remove-AUDMAssessmentFrameworkShare",
                "Remove-AUDMAssessmentReport",
                "Remove-AUDMControl",
                "Unregister-AUDMAccount",
@@ -238,24 +262,33 @@ $AUDM_SelectMap = @{
                "Get-AUDMEvidenceFolder",
                "Get-AUDMEvidenceFolderByAssessment",
                "Get-AUDMEvidenceFolderByAssessmentControl",
+               "Get-AUDMInsight",
+               "Get-AUDMInsightsByAssessment",
                "Get-AUDMOrganizationAdminAccount",
                "Get-AUDMServiceInScope",
                "Get-AUDMSetting",
+               "Get-AUDMAssessmentControlInsightsByControlDomainList",
                "Get-AUDMAssessmentFrameworkList",
+               "Get-AUDMAssessmentFrameworkShareRequestList",
                "Get-AUDMAssessmentReportList",
                "Get-AUDMAssessmentList",
+               "Get-AUDMControlDomainInsightList",
+               "Get-AUDMControlDomainInsightsByAssessmentList",
+               "Get-AUDMControlInsightsByControlDomainList",
                "Get-AUDMControlList",
                "Get-AUDMKeywordForDataSourceList",
                "Get-AUDMNotificationList",
                "Get-AUDMResourceTagList",
                "Register-AUDMAccount",
                "Register-AUDMOrganizationAdminAccount",
+               "Start-AUDMAssessmentFrameworkShare",
                "Add-AUDMResourceTag",
                "Remove-AUDMResourceTag",
                "Edit-AUDMAssessment",
                "Edit-AUDMAssessmentControl",
                "Edit-AUDMAssessmentControlSetStatus",
                "Edit-AUDMAssessmentFramework",
+               "Update-AUDMAssessmentFrameworkShare",
                "Edit-AUDMAssessmentStatus",
                "Edit-AUDMControl",
                "Edit-AUDMSetting",

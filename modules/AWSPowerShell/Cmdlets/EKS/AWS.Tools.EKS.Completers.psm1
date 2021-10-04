@@ -83,7 +83,7 @@ $EKS_Completers = {
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
-            $v = "AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","CUSTOM"
+            $v = "AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_x86_64","CUSTOM"
             break
         }
 

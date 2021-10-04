@@ -96,7 +96,7 @@ $LRSV2_Completers = {
             ($_ -eq "Write-LRSV2Session/SessionStateValue_DialogAction_Type")
         }
         {
-            $v = "Close","ConfirmIntent","Delegate","ElicitIntent","ElicitSlot"
+            $v = "Close","ConfirmIntent","Delegate","ElicitIntent","ElicitSlot","None"
             break
         }
 
@@ -106,7 +106,7 @@ $LRSV2_Completers = {
             ($_ -eq "Write-LRSV2Session/SessionStateValue_Intent_State")
         }
         {
-            $v = "Failed","Fulfilled","InProgress","ReadyForFulfillment","Waiting"
+            $v = "Failed","Fulfilled","FulfillmentInProgress","InProgress","ReadyForFulfillment","Waiting"
             break
         }
 

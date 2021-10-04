@@ -68,6 +68,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmCustomerAgreement" OutputProperty="Status" Verb="Confirm" Noun="CustomerAgreement" ShouldProcessTarget="AgreementName" PipelineParameter="AgreementName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="PrivateVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PositionalParameters="VirtualGatewayId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -164,6 +168,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomerMetadata" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -201,6 +209,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocations" OutputProperty="Locations" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DCLocations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouterConfiguration" OutputProperty="*" Verb="Get" Noun="RouterConfiguration" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -245,6 +257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Update" Noun="DirectConnectGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

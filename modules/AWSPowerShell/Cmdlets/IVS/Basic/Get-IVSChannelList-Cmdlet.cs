@@ -28,10 +28,10 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets summary information about all channels in your account, in the AWS region where
-    /// the API request is processed. This list can be filtered to match a specified name
-    /// or recording-configuration ARN. Filters are mutually exclusive and cannot be used
-    /// together. If you try to use both filters, you will get an error (409 ConflictException).
+    /// Gets summary information about all channels in your account, in the Amazon Web Services
+    /// region where the API request is processed. This list can be filtered to match a specified
+    /// name or recording-configuration ARN. Filters are mutually exclusive and cannot be
+    /// used together. If you try to use both filters, you will get an error (409 ConflictException).
     /// </summary>
     [Cmdlet("Get", "IVSChannelList")]
     [OutputType("Amazon.IVS.Model.ChannelSummary")]

@@ -101,6 +101,13 @@ $FD_Completers = {
             break
         }
 
+        # Amazon.FraudDetector.EventIngestion
+        "Write-FDEventType/EventIngestion"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.FraudDetector.Language
         {
             ($_ -eq "New-FDRule/Language") -Or
@@ -153,7 +160,7 @@ $FD_Completers = {
             ($_ -eq "Update-FDModelVersionStatus/ModelType")
         }
         {
-            $v = "ONLINE_FRAUD_INSIGHTS"
+            $v = "ONLINE_FRAUD_INSIGHTS","TRANSACTION_FRAUD_INSIGHTS"
             break
         }
 
@@ -177,7 +184,14 @@ $FD_Completers = {
         # Amazon.FraudDetector.TrainingDataSourceEnum
         "New-FDModelVersion/TrainingDataSource"
         {
-            $v = "EXTERNAL_EVENTS"
+            $v = "EXTERNAL_EVENTS","INGESTED_EVENTS"
+            break
+        }
+
+        # Amazon.FraudDetector.UnlabeledEventsTreatment
+        "New-FDModelVersion/TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"
+        {
+            $v = "FRAUD","IGNORE","LEGIT"
             break
         }
 
@@ -192,6 +206,7 @@ $FD_Completers = {
 $FD_map = @{
     "DataSource"=@("New-FDVariable")
     "DataType"=@("New-FDVariable")
+    "EventIngestion"=@("Write-FDEventType")
     "InputConfiguration_Format"=@("Write-FDExternalModel")
     "Language"=@("New-FDRule","Update-FDRuleVersion")
     "ModelEndpointStatus"=@("Write-FDExternalModel")
@@ -200,6 +215,7 @@ $FD_map = @{
     "OutputConfiguration_Format"=@("Write-FDExternalModel")
     "RuleExecutionMode"=@("New-FDDetectorVersion","Update-FDDetectorVersion")
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
+    "TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"=@("New-FDModelVersion")
     "TrainingDataSource"=@("New-FDModelVersion")
 }
 
@@ -255,18 +271,22 @@ $FD_SelectCompleters = {
 $FD_SelectMap = @{
     "Select"=@("New-FDVariableBatch",
                "Get-FDVariableBatch",
+               "Stop-FDBatchImportJob",
                "Stop-FDBatchPredictionJob",
+               "New-FDBatchImportJob",
                "New-FDBatchPredictionJob",
                "New-FDDetectorVersion",
                "New-FDModel",
                "New-FDModelVersion",
                "New-FDRule",
                "New-FDVariable",
+               "Remove-FDBatchImportJob",
                "Remove-FDBatchPredictionJob",
                "Remove-FDDetector",
                "Remove-FDDetectorVersion",
                "Remove-FDEntityType",
                "Remove-FDEvent",
+               "Remove-FDEventsByEventType",
                "Remove-FDEventType",
                "Remove-FDExternalModel",
                "Remove-FDLabel",
@@ -277,10 +297,13 @@ $FD_SelectMap = @{
                "Remove-FDVariable",
                "Get-FDDetectorVersionList",
                "Get-FDModelVersionList",
+               "Get-FDBatchImportJob",
                "Get-FDBatchPredictionJob",
+               "Get-FDDeleteEventsByEventTypeStatus",
                "Get-FDDetector",
                "Get-FDDetectorVersion",
                "Get-FDEntityType",
+               "Get-FDEvent",
                "Get-FDEventPrediction",
                "Get-FDEventType",
                "Get-FDExternalModel",
@@ -299,11 +322,13 @@ $FD_SelectMap = @{
                "Write-FDKMSEncryptionKey",
                "Write-FDLabel",
                "Write-FDOutcome",
+               "Send-FDEvent",
                "Add-FDResourceTag",
                "Remove-FDResourceTag",
                "Update-FDDetectorVersion",
                "Update-FDDetectorVersionMetadata",
                "Update-FDDetectorVersionStatus",
+               "Update-FDEventLabel",
                "Update-FDModel",
                "Update-FDModelVersion",
                "Update-FDModelVersionStatus",

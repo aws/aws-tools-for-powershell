@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify. The valid values are <code>description</code>
-        /// and <code>launchPermission</code>.</para>
+        /// <para>The name of the attribute to modify.</para><para>Valid values: <code>description</code> | <code>launchPermission</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,6 +108,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.OperationType")]
         public Amazon.EC2.OperationType OperationType { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationalUnitArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can
+        /// be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationalUnitArns")]
+        public System.String[] OrganizationalUnitArn { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an organization. This parameter can be used only
+        /// when the <code>Attribute</code> parameter is <code>launchPermission</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationArns")]
+        public System.String[] OrganizationArn { get; set; }
         #endregion
         
         #region Parameter ProductCode
@@ -246,6 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.LaunchPermission_Remove = new List<Amazon.EC2.Model.LaunchPermission>(this.LaunchPermission_Remove);
             }
             context.OperationType = this.OperationType;
+            if (this.OrganizationalUnitArn != null)
+            {
+                context.OrganizationalUnitArn = new List<System.String>(this.OrganizationalUnitArn);
+            }
+            if (this.OrganizationArn != null)
+            {
+                context.OrganizationArn = new List<System.String>(this.OrganizationArn);
+            }
             if (this.ProductCode != null)
             {
                 context.ProductCode = new List<System.String>(this.ProductCode);
@@ -319,6 +350,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.OperationType != null)
             {
                 request.OperationType = cmdletContext.OperationType;
+            }
+            if (cmdletContext.OrganizationalUnitArn != null)
+            {
+                request.OrganizationalUnitArns = cmdletContext.OrganizationalUnitArn;
+            }
+            if (cmdletContext.OrganizationArn != null)
+            {
+                request.OrganizationArns = cmdletContext.OrganizationArn;
             }
             if (cmdletContext.ProductCode != null)
             {
@@ -403,6 +442,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Add { get; set; }
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Remove { get; set; }
             public Amazon.EC2.OperationType OperationType { get; set; }
+            public List<System.String> OrganizationalUnitArn { get; set; }
+            public List<System.String> OrganizationArn { get; set; }
             public List<System.String> ProductCode { get; set; }
             public List<System.String> UserGroup { get; set; }
             public List<System.String> UserId { get; set; }

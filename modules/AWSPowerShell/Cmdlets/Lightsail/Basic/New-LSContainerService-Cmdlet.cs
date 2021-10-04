@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the certificate during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
+        /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
         /// Lightsail Developer Guide</a>.</para>
         /// </para>
         /// </summary>

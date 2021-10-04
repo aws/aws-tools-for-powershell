@@ -144,6 +144,21 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32? DesiredCapacity { get; set; }
         #endregion
         
+        #region Parameter DesiredCapacityType
+        /// <summary>
+        /// <para>
+        /// <para>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto
+        /// Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type
+        /// selection only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+        /// an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para><para>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates
+        /// into number of instances.</para><para>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DesiredCapacityType { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckGracePeriod
         /// <summary>
         /// <para>
@@ -300,15 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MixedInstancesPolicy
         /// <summary>
         /// <para>
-        /// <para>An embedded object that specifies a mixed instances policy. The required properties
-        /// must be specified. If optional properties are unspecified, their default values are
-        /// used.</para><para>The policy includes properties that not only define the distribution of On-Demand
-        /// Instances and Spot Instances, the maximum price to pay for Spot Instances, and how
-        /// the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities,
-        /// but also the properties that specify the instance configuration information—the launch
-        /// template and instance types. The policy can also include a weight for each instance
-        /// type and different launch templates for individual instance types. For more information,
-        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
+        /// <para>An embedded object that specifies a mixed instances policy.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
         /// Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon
         /// EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -510,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.Context = this.Context;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DesiredCapacity = this.DesiredCapacity;
+            context.DesiredCapacityType = this.DesiredCapacityType;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
             context.HealthCheckType = this.HealthCheckType;
             context.InstanceId = this.InstanceId;
@@ -596,6 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.DesiredCapacity != null)
             {
                 request.DesiredCapacity = cmdletContext.DesiredCapacity.Value;
+            }
+            if (cmdletContext.DesiredCapacityType != null)
+            {
+                request.DesiredCapacityType = cmdletContext.DesiredCapacityType;
             }
             if (cmdletContext.HealthCheckGracePeriod != null)
             {
@@ -771,6 +783,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String Context { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DesiredCapacity { get; set; }
+            public System.String DesiredCapacityType { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }
             public System.String HealthCheckType { get; set; }
             public System.String InstanceId { get; set; }

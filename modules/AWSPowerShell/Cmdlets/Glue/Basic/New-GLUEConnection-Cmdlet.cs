@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags you assign to the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -135,6 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter ConnectionInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.ConnectionInput != null)
             {
                 request.ConnectionInput = cmdletContext.ConnectionInput;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -222,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

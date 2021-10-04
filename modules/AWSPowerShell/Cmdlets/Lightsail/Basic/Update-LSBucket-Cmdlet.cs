@@ -77,6 +77,28 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter AccessLogConfig_Destination
+        /// <summary>
+        /// <para>
+        /// <para>The name of the bucket where the access is saved. The destination can be a Lightsail
+        /// bucket in the same account, and in the same AWS Region as the source bucket.</para><note><para>This parameter is required when enabling the access log for a bucket, and should be
+        /// omitted when disabling the access log.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessLogConfig_Destination { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether bucket access logging is enabled for the bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccessLogConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter AccessRules_GetObject
         /// <summary>
         /// <para>
@@ -93,6 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Lightsail.AccessType")]
         public Amazon.Lightsail.AccessType AccessRules_GetObject { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogConfig_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The optional object prefix for the bucket access log.</para><para>The prefix is an optional addition to the object key that organizes your access log
+        /// files in the destination bucket. For example, if you specify a <code>logs/</code>
+        /// prefix, then each log object will begin with the <code>logs/</code> prefix in its
+        /// key (for example, <code>logs/2021-11-01-21-32-16-E568B2907131C0C0</code>).</para><note><para>This parameter can be optionally specified when enabling the access log for a bucket,
+        /// and should be omitted when disabling the access log.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessLogConfig_Prefix { get; set; }
         #endregion
         
         #region Parameter ReadonlyAccessAccount
@@ -178,6 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = (response, cmdlet) => this.BucketName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessLogConfig_Destination = this.AccessLogConfig_Destination;
+            context.AccessLogConfig_Enabled = this.AccessLogConfig_Enabled;
+            context.AccessLogConfig_Prefix = this.AccessLogConfig_Prefix;
             context.AccessRules_AllowPublicOverride = this.AccessRules_AllowPublicOverride;
             context.AccessRules_GetObject = this.AccessRules_GetObject;
             context.BucketName = this.BucketName;
@@ -208,6 +247,45 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.UpdateBucketRequest();
             
+            
+             // populate AccessLogConfig
+            var requestAccessLogConfigIsNull = true;
+            request.AccessLogConfig = new Amazon.Lightsail.Model.BucketAccessLogConfig();
+            System.String requestAccessLogConfig_accessLogConfig_Destination = null;
+            if (cmdletContext.AccessLogConfig_Destination != null)
+            {
+                requestAccessLogConfig_accessLogConfig_Destination = cmdletContext.AccessLogConfig_Destination;
+            }
+            if (requestAccessLogConfig_accessLogConfig_Destination != null)
+            {
+                request.AccessLogConfig.Destination = requestAccessLogConfig_accessLogConfig_Destination;
+                requestAccessLogConfigIsNull = false;
+            }
+            System.Boolean? requestAccessLogConfig_accessLogConfig_Enabled = null;
+            if (cmdletContext.AccessLogConfig_Enabled != null)
+            {
+                requestAccessLogConfig_accessLogConfig_Enabled = cmdletContext.AccessLogConfig_Enabled.Value;
+            }
+            if (requestAccessLogConfig_accessLogConfig_Enabled != null)
+            {
+                request.AccessLogConfig.Enabled = requestAccessLogConfig_accessLogConfig_Enabled.Value;
+                requestAccessLogConfigIsNull = false;
+            }
+            System.String requestAccessLogConfig_accessLogConfig_Prefix = null;
+            if (cmdletContext.AccessLogConfig_Prefix != null)
+            {
+                requestAccessLogConfig_accessLogConfig_Prefix = cmdletContext.AccessLogConfig_Prefix;
+            }
+            if (requestAccessLogConfig_accessLogConfig_Prefix != null)
+            {
+                request.AccessLogConfig.Prefix = requestAccessLogConfig_accessLogConfig_Prefix;
+                requestAccessLogConfigIsNull = false;
+            }
+             // determine if request.AccessLogConfig should be set to null
+            if (requestAccessLogConfigIsNull)
+            {
+                request.AccessLogConfig = null;
+            }
             
              // populate AccessRules
             var requestAccessRulesIsNull = true;
@@ -310,6 +388,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessLogConfig_Destination { get; set; }
+            public System.Boolean? AccessLogConfig_Enabled { get; set; }
+            public System.String AccessLogConfig_Prefix { get; set; }
             public System.Boolean? AccessRules_AllowPublicOverride { get; set; }
             public Amazon.Lightsail.AccessType AccessRules_GetObject { get; set; }
             public System.String BucketName { get; set; }

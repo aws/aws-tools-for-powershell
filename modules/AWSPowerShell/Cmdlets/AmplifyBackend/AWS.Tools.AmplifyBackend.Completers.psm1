@@ -154,6 +154,18 @@ $AMPB_Completers = {
             break
         }
 
+        # Amazon.AmplifyBackend.ServiceName
+        {
+            ($_ -eq "New-AMPBBackendStorage/ResourceConfig_ServiceName") -Or
+            ($_ -eq "Update-AMPBBackendStorage/ResourceConfig_ServiceName") -Or
+            ($_ -eq "Import-AMPBBackendStorage/ServiceName") -Or
+            ($_ -eq "Remove-AMPBBackendStorage/ServiceName")
+        }
+        {
+            $v = "S3"
+            break
+        }
+
         # Amazon.AmplifyBackend.SignInMethod
         "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_SignInMethod"
         {
@@ -174,10 +186,12 @@ $AMPB_map = @{
     "ResourceConfig_ConflictResolution_ResolutionStrategy"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
     "ResourceConfig_DefaultAuthType_Mode"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
     "ResourceConfig_Service"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
+    "ResourceConfig_ServiceName"=@("New-AMPBBackendStorage","Update-AMPBBackendStorage")
     "ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_UserPoolConfigs_Mfa_MFAMode"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_UserPoolConfigs_SignInMethod"=@("New-AMPBBackendAuth")
+    "ServiceName"=@("Import-AMPBBackendStorage","Remove-AMPBBackendStorage")
 }
 
 _awsArgumentCompleterRegistration $AMPB_Completers $AMPB_map
@@ -235,10 +249,12 @@ $AMPB_SelectMap = @{
                "New-AMPBBackendAPI",
                "New-AMPBBackendAuth",
                "New-AMPBBackendConfig",
+               "New-AMPBBackendStorage",
                "New-AMPBToken",
                "Remove-AMPBBackend",
                "Remove-AMPBBackendAPI",
                "Remove-AMPBBackendAuth",
+               "Remove-AMPBBackendStorage",
                "Remove-AMPBToken",
                "New-AMPBBackendAPIModel",
                "Get-AMPBBackend",
@@ -246,15 +262,19 @@ $AMPB_SelectMap = @{
                "Get-AMPBBackendAPIModel",
                "Get-AMPBBackendAuth",
                "Get-AMPBBackendJob",
+               "Get-AMPBBackendStorage",
                "Get-AMPBToken",
                "Import-AMPBBackendAuth",
+               "Import-AMPBBackendStorage",
                "Get-AMPBBackendJobList",
+               "Get-AMPBS3BucketList",
                "Remove-AMPBAllBackend",
                "Remove-AMPBBackendConfig",
                "Update-AMPBBackendAPI",
                "Update-AMPBBackendAuth",
                "Update-AMPBBackendConfig",
-               "Update-AMPBBackendJob")
+               "Update-AMPBBackendJob",
+               "Update-AMPBBackendStorage")
 }
 
 _awsArgumentCompleterRegistration $AMPB_SelectCompleters $AMPB_SelectMap

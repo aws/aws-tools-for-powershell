@@ -50,23 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public Amazon.EMRContainers.Model.Configuration[] ConfigurationOverrides_ApplicationConfiguration { get; set; }
         #endregion
         
-        #region Parameter CertificateArn
-        /// <summary>
-        /// <para>
-        /// <para>The certificate ARN of the managed endpoint.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CertificateArn { get; set; }
-        #endregion
-        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -208,6 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String VirtualClusterId { get; set; }
         #endregion
         
+        #region Parameter CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The certificate ARN provided by users for the managed endpoint. This fiedd is under
+        /// deprecation and will be removed in future releases.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Customer provided certificate-arn is deprecated and would be removed in future.")]
+        public System.String CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -259,13 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.Select = CreateSelectDelegate<Amazon.EMRContainers.Model.CreateManagedEndpointResponse, NewEMRCManagedEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CertificateArn = this.CertificateArn;
-            #if MODULAR
-            if (this.CertificateArn == null && ParameterWasBound(nameof(this.CertificateArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             if (this.ConfigurationOverrides_ApplicationConfiguration != null)
             {
@@ -334,10 +326,12 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             // create request
             var request = new Amazon.EMRContainers.Model.CreateManagedEndpointRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -531,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.String CertificateArn { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.EMRContainers.Model.Configuration> ConfigurationOverrides_ApplicationConfiguration { get; set; }

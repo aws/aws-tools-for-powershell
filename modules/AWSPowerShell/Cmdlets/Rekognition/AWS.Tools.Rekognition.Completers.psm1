@@ -94,6 +94,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.DatasetType
+        "New-REKDataset/DatasetType"
+        {
+            $v = "TEST","TRAIN"
+            break
+        }
+
         # Amazon.Rekognition.FaceAttributes
         "Start-REKFaceDetection/FaceAttributes"
         {
@@ -142,6 +149,7 @@ $REK_Completers = {
 }
 
 $REK_map = @{
+    "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
@@ -199,15 +207,18 @@ $REK_SelectCompleters = {
 $REK_SelectMap = @{
     "Select"=@("Compare-REKFace",
                "New-REKCollection",
+               "New-REKDataset",
                "New-REKProject",
                "New-REKProjectVersion",
                "New-REKStreamProcessor",
                "Remove-REKCollection",
+               "Remove-REKDataset",
                "Remove-REKFace",
                "Remove-REKProject",
                "Remove-REKProjectVersion",
                "Remove-REKStreamProcessor",
                "Get-REKCollection",
+               "Get-REKDataset",
                "Get-REKProject",
                "Get-REKProjectVersion",
                "Get-REKStreamProcessor",
@@ -217,6 +228,7 @@ $REK_SelectMap = @{
                "Find-REKModerationLabel",
                "Find-REKProtectiveEquipment",
                "Find-REKText",
+               "Invoke-REKDistributeDatasetEntry",
                "Get-REKCelebrityInfo",
                "Get-REKCelebrityRecognition",
                "Get-REKContentModeration",
@@ -228,6 +240,8 @@ $REK_SelectMap = @{
                "Get-REKTextDetection",
                "Add-REKDetectedFacesToCollection",
                "Get-REKCollectionIdList",
+               "Get-REKDatasetEntryList",
+               "Get-REKDatasetLabelList",
                "Get-REKFaceList",
                "Get-REKStreamProcessorList",
                "Get-REKResourceTag",
@@ -247,7 +261,8 @@ $REK_SelectMap = @{
                "Stop-REKProjectVersion",
                "Stop-REKStreamProcessor",
                "Add-REKResourceTag",
-               "Remove-REKResourceTag")
+               "Remove-REKResourceTag",
+               "Update-REKDatasetEntry")
 }
 
 _awsArgumentCompleterRegistration $REK_SelectCompleters $REK_SelectMap

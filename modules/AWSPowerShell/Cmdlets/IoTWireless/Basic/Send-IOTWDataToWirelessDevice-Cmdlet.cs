@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_FPort
         /// <summary>
         /// <para>
-        /// <para>The Fport value.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter PayloadData
         /// <summary>
         /// <para>
-        /// <para>The binary to be sent to the end device, encoded in base64.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR

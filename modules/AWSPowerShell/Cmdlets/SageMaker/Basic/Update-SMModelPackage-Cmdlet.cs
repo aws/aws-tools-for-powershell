@@ -50,19 +50,34 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ApprovalDescription { get; set; }
         #endregion
         
+        #region Parameter CustomerMetadataProperty
+        /// <summary>
+        /// <para>
+        /// <para>The metadata properties associated with the model package versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomerMetadataProperties")]
+        public System.Collections.Hashtable CustomerMetadataProperty { get; set; }
+        #endregion
+        
+        #region Parameter CustomerMetadataPropertiesToRemove
+        /// <summary>
+        /// <para>
+        /// <para>The metadata properties associated with the model package versions to remove.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] CustomerMetadataPropertiesToRemove { get; set; }
+        #endregion
+        
         #region Parameter ModelApprovalStatus
         /// <summary>
         /// <para>
         /// <para>The approval status of the model.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.ModelApprovalStatus")]
         public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
         #endregion
@@ -70,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,13 +161,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApprovalDescription = this.ApprovalDescription;
-            context.ModelApprovalStatus = this.ModelApprovalStatus;
-            #if MODULAR
-            if (this.ModelApprovalStatus == null && ParameterWasBound(nameof(this.ModelApprovalStatus)))
+            if (this.CustomerMetadataProperty != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ModelApprovalStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CustomerMetadataProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomerMetadataProperty.Keys)
+                {
+                    context.CustomerMetadataProperty.Add((String)hashKey, (String)(this.CustomerMetadataProperty[hashKey]));
+                }
             }
-            #endif
+            if (this.CustomerMetadataPropertiesToRemove != null)
+            {
+                context.CustomerMetadataPropertiesToRemove = new List<System.String>(this.CustomerMetadataPropertiesToRemove);
+            }
+            context.ModelApprovalStatus = this.ModelApprovalStatus;
             context.ModelPackageArn = this.ModelPackageArn;
             #if MODULAR
             if (this.ModelPackageArn == null && ParameterWasBound(nameof(this.ModelPackageArn)))
@@ -179,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ApprovalDescription != null)
             {
                 request.ApprovalDescription = cmdletContext.ApprovalDescription;
+            }
+            if (cmdletContext.CustomerMetadataProperty != null)
+            {
+                request.CustomerMetadataProperties = cmdletContext.CustomerMetadataProperty;
+            }
+            if (cmdletContext.CustomerMetadataPropertiesToRemove != null)
+            {
+                request.CustomerMetadataPropertiesToRemove = cmdletContext.CustomerMetadataPropertiesToRemove;
             }
             if (cmdletContext.ModelApprovalStatus != null)
             {
@@ -250,6 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApprovalDescription { get; set; }
+            public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
+            public List<System.String> CustomerMetadataPropertiesToRemove { get; set; }
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
             public System.String ModelPackageArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateModelPackageResponse, UpdateSMModelPackageCmdlet, object> Select { get; set; } =

@@ -40,6 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class UpdateGDBProfileJobCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        #region Parameter EntityDetectorConfiguration_AllowedStatistic
+        /// <summary>
+        /// <para>
+        /// <para>Configuration of statistics that are allowed to be run on columns that contain detected
+        /// entities. When undefined, no statistics will be computed on columns that contain detected
+        /// entities.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EntityDetectorConfiguration_AllowedStatistics")]
+        public Amazon.GlueDataBrew.Model.AllowedStatistics[] EntityDetectorConfiguration_AllowedStatistic { get; set; }
+        #endregion
+        
         #region Parameter OutputLocation_Bucket
         /// <summary>
         /// <para>
@@ -90,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GlueDataBrew.EncryptionMode")]
         public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
+        #endregion
+        
+        #region Parameter EntityDetectorConfiguration_EntityType
+        /// <summary>
+        /// <para>
+        /// <para>Entity types to detect. Can be any of the following:</para><ul><li><para>USA_SSN</para></li><li><para>EMAIL</para></li><li><para>USA_ITIN</para></li><li><para>USA_PASSPORT_NUMBER</para></li><li><para>PHONE_NUMBER</para></li><li><para>USA_DRIVING_LICENSE</para></li><li><para>BANK_ACCOUNT</para></li><li><para>CREDIT_CARD</para></li><li><para>IP_ADDRESS</para></li><li><para>MAC_ADDRESS</para></li><li><para>USA_DEA_NUMBER</para></li><li><para>USA_HCPCS_CODE</para></li><li><para>USA_NATIONAL_PROVIDER_IDENTIFIER</para></li><li><para>USA_NATIONAL_DRUG_CODE</para></li><li><para>USA_HEALTH_INSURANCE_CLAIM_NUMBER</para></li><li><para>USA_MEDICARE_BENEFICIARY_IDENTIFIER</para></li><li><para>USA_CPT_CODE</para></li><li><para>PERSON_NAME</para></li><li><para>DATE</para></li></ul><para>The Entity type group USA_ALL is also supported, and includes all of the above entity
+        /// types except PERSON_NAME and DATE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EntityDetectorConfiguration_EntityTypes")]
+        public System.String[] EntityDetectorConfiguration_EntityType { get; set; }
         #endregion
         
         #region Parameter DatasetStatisticsConfiguration_IncludedStatistic
@@ -242,6 +267,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.Int32? Timeout { get; set; }
         #endregion
         
+        #region Parameter ValidationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>List of validation configurations that are applied to the profile job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValidationConfigurations")]
+        public Amazon.GlueDataBrew.Model.ValidationConfiguration[] ValidationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Name'.
@@ -315,6 +351,14 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             {
                 context.DatasetStatisticsConfiguration_Override = new List<Amazon.GlueDataBrew.Model.StatisticOverride>(this.DatasetStatisticsConfiguration_Override);
             }
+            if (this.EntityDetectorConfiguration_AllowedStatistic != null)
+            {
+                context.EntityDetectorConfiguration_AllowedStatistic = new List<Amazon.GlueDataBrew.Model.AllowedStatistics>(this.EntityDetectorConfiguration_AllowedStatistic);
+            }
+            if (this.EntityDetectorConfiguration_EntityType != null)
+            {
+                context.EntityDetectorConfiguration_EntityType = new List<System.String>(this.EntityDetectorConfiguration_EntityType);
+            }
             if (this.Configuration_ProfileColumn != null)
             {
                 context.Configuration_ProfileColumn = new List<Amazon.GlueDataBrew.Model.ColumnSelector>(this.Configuration_ProfileColumn);
@@ -349,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             }
             #endif
             context.Timeout = this.Timeout;
+            if (this.ValidationConfiguration != null)
+            {
+                context.ValidationConfiguration = new List<Amazon.GlueDataBrew.Model.ValidationConfiguration>(this.ValidationConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -422,6 +470,41 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestConfiguration_configuration_DatasetStatisticsConfiguration != null)
             {
                 request.Configuration.DatasetStatisticsConfiguration = requestConfiguration_configuration_DatasetStatisticsConfiguration;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.GlueDataBrew.Model.EntityDetectorConfiguration requestConfiguration_configuration_EntityDetectorConfiguration = null;
+            
+             // populate EntityDetectorConfiguration
+            var requestConfiguration_configuration_EntityDetectorConfigurationIsNull = true;
+            requestConfiguration_configuration_EntityDetectorConfiguration = new Amazon.GlueDataBrew.Model.EntityDetectorConfiguration();
+            List<Amazon.GlueDataBrew.Model.AllowedStatistics> requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_AllowedStatistic = null;
+            if (cmdletContext.EntityDetectorConfiguration_AllowedStatistic != null)
+            {
+                requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_AllowedStatistic = cmdletContext.EntityDetectorConfiguration_AllowedStatistic;
+            }
+            if (requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_AllowedStatistic != null)
+            {
+                requestConfiguration_configuration_EntityDetectorConfiguration.AllowedStatistics = requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_AllowedStatistic;
+                requestConfiguration_configuration_EntityDetectorConfigurationIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_EntityType = null;
+            if (cmdletContext.EntityDetectorConfiguration_EntityType != null)
+            {
+                requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_EntityType = cmdletContext.EntityDetectorConfiguration_EntityType;
+            }
+            if (requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_EntityType != null)
+            {
+                requestConfiguration_configuration_EntityDetectorConfiguration.EntityTypes = requestConfiguration_configuration_EntityDetectorConfiguration_entityDetectorConfiguration_EntityType;
+                requestConfiguration_configuration_EntityDetectorConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EntityDetectorConfiguration should be set to null
+            if (requestConfiguration_configuration_EntityDetectorConfigurationIsNull)
+            {
+                requestConfiguration_configuration_EntityDetectorConfiguration = null;
+            }
+            if (requestConfiguration_configuration_EntityDetectorConfiguration != null)
+            {
+                request.Configuration.EntityDetectorConfiguration = requestConfiguration_configuration_EntityDetectorConfiguration;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -519,6 +602,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             {
                 request.Timeout = cmdletContext.Timeout.Value;
             }
+            if (cmdletContext.ValidationConfiguration != null)
+            {
+                request.ValidationConfigurations = cmdletContext.ValidationConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -583,6 +670,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public List<Amazon.GlueDataBrew.Model.ColumnStatisticsConfiguration> Configuration_ColumnStatisticsConfiguration { get; set; }
             public List<System.String> DatasetStatisticsConfiguration_IncludedStatistic { get; set; }
             public List<Amazon.GlueDataBrew.Model.StatisticOverride> DatasetStatisticsConfiguration_Override { get; set; }
+            public List<Amazon.GlueDataBrew.Model.AllowedStatistics> EntityDetectorConfiguration_AllowedStatistic { get; set; }
+            public List<System.String> EntityDetectorConfiguration_EntityType { get; set; }
             public List<Amazon.GlueDataBrew.Model.ColumnSelector> Configuration_ProfileColumn { get; set; }
             public System.String EncryptionKeyArn { get; set; }
             public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
@@ -596,6 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public System.String OutputLocation_Key { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? Timeout { get; set; }
+            public List<Amazon.GlueDataBrew.Model.ValidationConfiguration> ValidationConfiguration { get; set; }
             public System.Func<Amazon.GlueDataBrew.Model.UpdateProfileJobResponse, UpdateGDBProfileJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Name;
         }

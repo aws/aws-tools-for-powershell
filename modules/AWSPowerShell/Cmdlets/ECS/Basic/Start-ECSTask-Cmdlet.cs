@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to start
-        /// your task. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster where to start your
+        /// task. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance IDs or full ARN entries for the container instances on which
-        /// you would like to place your task. You can specify up to 10 container instances.</para>
+        /// <para>The container instance IDs or full ARN entries for the container instances where you
+        /// would like to place your task. You can specify up to 10 container instances.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_ContainerOverride
         /// <summary>
         /// <para>
-        /// <para>One or more container overrides sent to a task.</para>
+        /// <para>One or more container overrides that are sent to a task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.</para>
+        /// <para>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to propagate the tags from the task definition or the service to
-        /// the task. If no value is specified, the tags are not propagated.</para>
+        /// the task. If no value is specified, the tags aren't propagated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups associated with the task or service. If you do not
-        /// specify a security group, the default security group for the VPC is used. There is
-        /// a limit of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// <para>The IDs of the security groups associated with the task or service. If you don't specify
+        /// a security group, the default security group for the VPC is used. There's a limit
+        /// of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// that job to your task with the <code>startedBy</code> parameter. You can then identify
         /// which tasks belong to that job by filtering the results of a <a>ListTasks</a> call
         /// with the <code>startedBy</code> value. Up to 36 letters (uppercase and lowercase),
-        /// numbers, hyphens, and underscores are allowed.</para><para>If a task is started by an Amazon ECS service, then the <code>startedBy</code> parameter
+        /// numbers, hyphens (-), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, the <code>startedBy</code> parameter
         /// contains the deployment ID of the service that starts it.</para>
         /// </para>
         /// </summary>
@@ -245,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets associated with the task or service. There is a limit of 16
+        /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
         /// subnets that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
@@ -277,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full ARN of the task definition to start. If a <code>revision</code> is not specified,
+        /// full ARN of the task definition to start. If a <code>revision</code> isn't specified,
         /// the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
@@ -297,7 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
         /// All containers in this task are granted the permissions that are specified in this
-        /// role.</para>
+        /// role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+        /// Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

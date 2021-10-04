@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Delete an environment. Deleting an environment does not delete a configuration from
+    /// Deletes an environment. Deleting an environment does not delete a configuration from
     /// a host.
     /// </summary>
     [Cmdlet("Remove", "APPCEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The application ID that includes the environment you want to delete.</para>
+        /// <para>The application ID that includes the environment that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment you want to delete.</para>
+        /// <para>The ID of the environment that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

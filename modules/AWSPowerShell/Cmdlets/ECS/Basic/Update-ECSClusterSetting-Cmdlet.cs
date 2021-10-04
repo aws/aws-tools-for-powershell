@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The setting to use by default for a cluster. This parameter is used to enable CloudWatch
-        /// Container Insights for a cluster. If this value is specified, it will override the
-        /// <code>containerInsights</code> value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para>
+        /// Container Insights for a cluster. If this value is specified, it overrides the <code>containerInsights</code>
+        /// value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter EvidenceFolderId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the folder in which evidence is stored. </para>
+        /// <para> The unique identifier for the folder that the evidence is stored in. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

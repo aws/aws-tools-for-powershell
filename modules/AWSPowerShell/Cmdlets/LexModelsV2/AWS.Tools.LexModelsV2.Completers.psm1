@@ -234,6 +234,17 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.VoiceEngine
+        {
+            ($_ -eq "Start-LMBV2Import/ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine") -Or
+            ($_ -eq "New-LMBV2BotLocale/VoiceSettings_Engine") -Or
+            ($_ -eq "Update-LMBV2BotLocale/VoiceSettings_Engine")
+        }
+        {
+            $v = "neural","standard"
+            break
+        }
+
 
     }
 
@@ -248,10 +259,12 @@ $LMBV2_map = @{
     "FileFormat"=@("New-LMBV2Export")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine"=@("Start-LMBV2Import")
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
+    "VoiceSettings_Engine"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
 }
 
 _awsArgumentCompleterRegistration $LMBV2_Completers $LMBV2_map

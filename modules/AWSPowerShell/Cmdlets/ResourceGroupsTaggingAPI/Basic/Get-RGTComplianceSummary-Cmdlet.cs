@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  
     /// <para>
     /// For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
-    /// Policies</a> in the <i>AWS Organizations User Guide.</i></para><para>
+    /// Policies</a> in the <i>Organizations User Guide.</i></para><para>
     /// You can call this operation only from the organization's management account and from
     /// the us-east-1 Region.
     /// </para><para>
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter RegionFilter
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of AWS Regions to limit the output by. If you use this parameter,
-        /// the count of returned noncompliant resources includes only resources in the specified
-        /// Regions.</para>
+        /// <para>Specifies a list of Amazon Web Services Regions to limit the output to. If you use
+        /// this parameter, the count of returned noncompliant resources includes only resources
+        /// in the specified Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,12 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// the specified types. The format of each resource type is <code>service[:resourceType]</code>.
         /// For example, specifying a resource type of <code>ec2</code> returns all Amazon EC2
         /// resources (which includes EC2 instances). Specifying a resource type of <code>ec2:instance</code>
-        /// returns only EC2 instances. </para><para>The string for each service name and resource type is the same as that embedded in
-        /// a resource's Amazon Resource Name (ARN). Consult the <i>AWS General Reference</i>
-        /// for the following:</para><ul><li><para>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a>.</para></li><li><para>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
+        /// returns only EC2 instances.</para><para>The string for each service name and resource type is the same as that embedded in
+        /// a resource's Amazon Resource Name (ARN). Consult the <i><a href="https://docs.aws.amazon.com/general/latest/gr/">Amazon
+        /// Web Services General Reference</a></i> for the following:</para><ul><li><para>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon
+        /// Web Services Service Namespaces</a>.</para></li><li><para>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
         /// ARNs</a>.</para></li><li><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para></li></ul><para>You can specify multiple resource types by using a comma separated array. The array
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para></li></ul><para>You can specify multiple resource types by using a comma separated array. The array
         /// can include up to 100 items. Note that the length constraint requirement applies to
         /// each resource type filter. </para>
         /// </para>

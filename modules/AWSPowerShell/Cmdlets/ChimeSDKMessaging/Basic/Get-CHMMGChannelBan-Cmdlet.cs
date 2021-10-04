@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the member being banned.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the member being banned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

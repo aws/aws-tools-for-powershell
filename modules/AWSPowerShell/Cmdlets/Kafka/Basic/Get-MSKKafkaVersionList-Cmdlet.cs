@@ -28,7 +28,7 @@ using Amazon.Kafka.Model;
 namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Returns a list of Kafka versions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of Apache Kafka versions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MSKKafkaVersionList")]
     [OutputType("Amazon.Kafka.Model.KafkaVersion")]

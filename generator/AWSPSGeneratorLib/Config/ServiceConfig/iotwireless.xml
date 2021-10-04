@@ -22,6 +22,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateMulticastGroupWithFuotaTask" Verb="Join" Noun="MulticastGroupWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithFuotaTask" Verb="Join" Noun="WirelessDeviceWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithMulticastGroup" Verb="Join" Noun="WirelessDeviceWithMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateWirelessDeviceWithThing" Verb="Join" Noun="WirelessDeviceWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -34,11 +46,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelMulticastGroupSession" Verb="Stop" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDestination" OutputProperty="*" Verb="New" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeviceProfile" OutputProperty="*" Verb="New" Noun="DeviceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFuotaTask" OutputProperty="*" Verb="New" Noun="FuotaTask" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMulticastGroup" OutputProperty="*" Verb="New" Noun="MulticastGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +110,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFuotaTask" Verb="Remove" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMulticastGroup" Verb="Remove" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteServiceProfile" Verb="Remove" Noun="ServiceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +142,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateMulticastGroupFromFuotaTask" Verb="Split" Noun="MulticastGroupFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromFuotaTask" Verb="Split" Noun="WirelessDeviceFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromMulticastGroup" Verb="Split" Noun="WirelessDeviceFromMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateWirelessDeviceFromThing" Verb="Split" Noun="WirelessDeviceFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -130,11 +174,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFuotaTask" OutputProperty="*" Verb="Get" Noun="FuotaTask" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogLevelsByResourceTypes" OutputProperty="*" Verb="Get" Noun="LogLevelsByResourceType" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMulticastGroup" OutputProperty="*" Verb="Get" Noun="MulticastGroup" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMulticastGroupSession" OutputProperty="LoRaWAN" Verb="Get" Noun="MulticastGroupSession" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceEventConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceEventConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -190,6 +250,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFuotaTasks" OutputProperty="FuotaTaskList" Verb="Get" Noun="FuotaTaskList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMulticastGroups" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMulticastGroupsByFuotaTask" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupsByFuotaTaskList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPartnerAccounts" OutputProperty="Sidewalk" Verb="Get" Noun="PartnerAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -226,7 +298,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendDataToMulticastGroup" OutputProperty="MessageId" Verb="Send" Noun="DataToMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendDataToWirelessDevice" OutputProperty="MessageId" Verb="Send" Noun="DataToWirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBulkAssociateWirelessDeviceWithMulticastGroup" Verb="Start" Noun="BulkAssociateWirelessDeviceWithMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBulkDisassociateWirelessDeviceFromMulticastGroup" Verb="Start" Noun="BulkDisassociateWirelessDeviceFromMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFuotaTask" Verb="Start" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMulticastGroupSession" Verb="Start" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -246,12 +338,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFuotaTask" Verb="Update" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLogLevelsByResourceTypes" Verb="Update" Noun="LogLevelsByResourceType" ShouldProcessTarget="DefaultLogLevel" PipelineParameter="DefaultLogLevel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMulticastGroup" Verb="Update" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePartnerAccount" Verb="Update" Noun="PartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceEventConfiguration" Verb="Update" Noun="ResourceEventConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="PROXIMITY_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_PROXIMITY_AmazonIdEventTopic" Alias="PROXIMITY_AmazonIdEventTopic" />
+                <Param Name="DeviceRegistrationState_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_DeviceRegistrationState_AmazonIdEventTopic" Alias="DeviceRegistrationState_AmazonIdEventTopic" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

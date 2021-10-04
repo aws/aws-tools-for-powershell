@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Filters the container instances by status. For example, if you specify the <code>DRAINING</code>
         /// status, the results include only container instances that have been set to <code>DRAINING</code>
-        /// using <a>UpdateContainerInstancesState</a>. If you do not specify this parameter,
-        /// the default is to include container instances set to all states other than <code>INACTIVE</code>.</para>
+        /// using <a>UpdateContainerInstancesState</a>. If you don't specify this parameter, the
+        /// default is to include container instances set to all states other than <code>INACTIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,12 +83,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of container instance results returned by <code>ListContainerInstances</code>
-        /// in paginated output. When this parameter is used, <code>ListContainerInstances</code>
+        /// <para>The maximum number of container instance results that <code>ListContainerInstances</code>
+        /// returned in paginated output. When this parameter is used, <code>ListContainerInstances</code>
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>ListContainerInstances</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListContainerInstances</code>
+        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListContainerInstances</code>
         /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a <code>ListContainerInstances</code>
         /// request indicating that more results are available to fulfill the request and further
-        /// calls will be needed. If <code>maxResults</code> was provided, it is possible the
-        /// number of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// calls are needed. If <code>maxResults</code> was provided, it's possible the number
+        /// of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

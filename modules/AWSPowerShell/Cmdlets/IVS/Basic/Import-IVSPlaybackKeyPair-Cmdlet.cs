@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An arbitrary string (a nickname) assigned to a playback key pair that helps the customer
-        /// identify that resource. The value does not need to be unique.</para>
+        /// <para>Playback-key-pair name. The value does not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

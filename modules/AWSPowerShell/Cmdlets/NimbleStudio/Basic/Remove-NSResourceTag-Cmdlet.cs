@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the target resource for tagging operations.</para>
+        /// <para>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>An array of tag keys to delete.</para>
+        /// <para>One or more tag keys. Specify only the tag keys, not the tag values.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

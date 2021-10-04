@@ -28,8 +28,10 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a place index resource in your AWS account, which supports functions with
-    /// geospatial data sourced from your chosen data provider.
+    /// Creates a place index resource in your AWS account. Use a place index resource to
+    /// geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
+    /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
+    /// operation.
     /// </summary>
     [Cmdlet("New", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreatePlaceIndexResponse")]
@@ -43,12 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>Specifies the data provider of geospatial data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
+        /// <para>Specifies the geospatial data provider for the new place index.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
         /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri
         /// details on geocoding coverage</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-        /// Technologies</a>'s coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
-        /// details on goecoding coverage</a>.</para><important><para>Place index resources using HERE Technologies as a data provider can't <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
+        /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
+        /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may
+        /// not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
         /// results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
         /// Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
         /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
@@ -107,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your place index resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing page</a>.</para>
+        /// <para>Specifies the pricing plan for your place index resource.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// Location Service pricing</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Applies one or more tags to the place index resource. A tag is a key-value pair helps
-        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. </para></li></ul>
+        /// <para>Applies one or more tags to the place index resource. A tag is a key-value pair that
+        /// helps you manage, identify, search, and filter your resources.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource.</para></li><li><para>Each tag key must be unique and must have exactly one associated value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// = . _ : / @</para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,6 +45,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationHealth" OutputProperty="*" Verb="Get" Noun="OrganizationHealth" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationOverview" OutputProperty="*" Verb="Get" Noun="OrganizationOverview" PipelineParameter="FromTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationResourceCollectionHealth" OutputProperty="*" Verb="Get" Noun="OrganizationResourceCollectionHealth" PipelineParameter="OrganizationResourceCollectionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeResourceCollectionHealth" OutputProperty="CloudFormation" Verb="Get" Noun="ResourceCollectionHealth" PipelineParameter="ResourceCollectionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +96,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationInsights" OutputProperty="*" Verb="Get" Noun="OrganizationInsightList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecommendations" OutputProperty="Recommendations" Verb="Get" Noun="RecommendationList" PipelineParameter="InsightId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +120,10 @@
                 <Type>Amazon.DevOpsGuru.Model.StartTimeRange</Type>
                 <Type>Amazon.DevOpsGuru.Model.ResourceCollection</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchOrganizationInsights" OutputProperty="*" Verb="Search" Noun="OrganizationInsight" ShouldProcessTarget="Type" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCostEstimation" Verb="Start" Noun="CostEstimation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />

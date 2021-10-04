@@ -33,12 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  <ul><li><para>
     /// Not all resources can have tags. For a list of services with resources that support
     /// tagging using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
-    /// that support the Resource Groups Tagging API</a>.
+    /// that support the Resource Groups Tagging API</a>. If the resource doesn't yet support
+    /// this operation, the resource's service might support tagging using its own API operations.
+    /// For more information, refer to the documentation for that service.
     /// </para></li><li><para>
     /// Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag
-    /// Naming and Usage Conventions</a> in the <i>AWS General Reference.</i></para></li><li><para>
-    /// You can only tag resources that are located in the specified AWS Region for the AWS
-    /// account.
+    /// Naming and Usage Conventions</a> in the <i>Amazon Web Services General Reference.</i></para></li><li><para>
+    /// You can only tag resources that are located in the specified Amazon Web Services Region
+    /// for the Amazon Web Services account.
     /// </para></li><li><para>
     /// To add tags to a resource, you need the necessary permissions for the service that
     /// the resource belongs to as well as permissions for adding tags. For more information,
@@ -47,7 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
     /// information in tags. We use tags to provide you with billing and administration services.
     /// Tags are not intended to be used for private or sensitive data.
-    /// </para></important>
+    /// </para></important><para><b>Minimum permissions</b></para><para>
+    /// In addition to the <code>tag:TagResources</code> permission required by this operation,
+    /// you must also have the tagging permission defined by the service that created the
+    /// resource. For example, to tag an Amazon EC2 instance using the <code>TagResources</code>
+    /// operation, you must have both of the following permissions:
+    /// </para><ul><li><para><code>tag:TagResource</code></para></li><li><para><code>ec2:CreateTags</code></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -63,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies the list of ARNs of the resources that you want to apply tags to.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

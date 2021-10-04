@@ -109,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.EndpointType EndpointType { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderDetails_Function
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for a lambda function to use for the Identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderDetails_Function { get; set; }
+        #endregion
+        
         #region Parameter HostKey
         /// <summary>
         /// <para>
@@ -355,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.EndpointType = this.EndpointType;
             context.HostKey = this.HostKey;
             context.IdentityProviderDetails_DirectoryId = this.IdentityProviderDetails_DirectoryId;
+            context.IdentityProviderDetails_Function = this.IdentityProviderDetails_Function;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.LoggingRole = this.LoggingRole;
@@ -474,6 +485,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetails_identityProviderDetails_DirectoryId != null)
             {
                 request.IdentityProviderDetails.DirectoryId = requestIdentityProviderDetails_identityProviderDetails_DirectoryId;
+                requestIdentityProviderDetailsIsNull = false;
+            }
+            System.String requestIdentityProviderDetails_identityProviderDetails_Function = null;
+            if (cmdletContext.IdentityProviderDetails_Function != null)
+            {
+                requestIdentityProviderDetails_identityProviderDetails_Function = cmdletContext.IdentityProviderDetails_Function;
+            }
+            if (requestIdentityProviderDetails_identityProviderDetails_Function != null)
+            {
+                request.IdentityProviderDetails.Function = requestIdentityProviderDetails_identityProviderDetails_Function;
                 requestIdentityProviderDetailsIsNull = false;
             }
             System.String requestIdentityProviderDetails_identityProviderDetails_InvocationRole = null;
@@ -625,6 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.EndpointType EndpointType { get; set; }
             public System.String HostKey { get; set; }
             public System.String IdentityProviderDetails_DirectoryId { get; set; }
+            public System.String IdentityProviderDetails_Function { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }

@@ -28,15 +28,15 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Returns a list of accounts in the organization from AWS Organizations that are affected
-    /// by the provided event. For more information about the different types of AWS Health
-    /// events, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
+    /// Returns a list of accounts in the organization from Organizations that are affected
+    /// by the provided event. For more information about the different types of Health events,
+    /// see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
     /// 
     /// 
     ///  
     /// <para>
-    /// Before you can call this operation, you must first enable AWS Health to work with
-    /// AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
+    /// Before you can call this operation, you must first enable Health to work with Organizations.
+    /// To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
     /// operation from your organization's management account.
     /// </para><note><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in

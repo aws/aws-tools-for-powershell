@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Retrieve information about a configuration deployment.
+    /// Retrieves information about a configuration deployment.
     /// </summary>
     [Cmdlet("Get", "APPCDeployment")]
     [OutputType("Amazon.AppConfig.Model.GetDeploymentResponse")]

@@ -28,8 +28,8 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets the encryption key if a Key Management Service (KMS) customer master key (CMK)
-    /// has been specified to be used to encrypt content in Amazon Fraud Detector.
+    /// Gets the encryption key if a KMS key has been specified to be used to encrypt content
+    /// in Amazon Fraud Detector.
     /// </summary>
     [Cmdlet("Get", "FDKMSEncryptionKey")]
     [OutputType("Amazon.FraudDetector.Model.KMSKey")]

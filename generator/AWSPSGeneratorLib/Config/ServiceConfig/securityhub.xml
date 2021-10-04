@@ -47,6 +47,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFindingAggregator" OutputProperty="*" Verb="New" Noun="FindingAggregator" ShouldProcessTarget="RegionLinkingMode" PipelineParameter="RegionLinkingMode" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Regions" NewName="RegionList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInsight" OutputProperty="InsightArn" Verb="New" Noun="Insight" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +66,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteActionTarget" OutputProperty="ActionTargetArn" Verb="Remove" Noun="ActionTarget" ShouldProcessTarget="ActionTargetArn" PipelineParameter="ActionTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFindingAggregator" Verb="Remove" Noun="FindingAggregator" ShouldProcessTarget="FindingAggregatorArn" PipelineParameter="FindingAggregatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,6 +153,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingAggregator" OutputProperty="*" Verb="Get" Noun="FindingAggregator" PipelineParameter="FindingAggregatorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFindingAggregators" OutputProperty="FindingAggregators" Verb="Get" Noun="FindingAggregatorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />
@@ -203,6 +221,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateActionTarget" Verb="Update" Noun="ActionTarget" ShouldProcessTarget="ActionTargetArn" PipelineParameter="ActionTargetArn" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFindingAggregator" OutputProperty="*" Verb="Update" Noun="FindingAggregator" ShouldProcessTarget="FindingAggregatorArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Regions" NewName="RegionList" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFindings" Verb="Update" Noun="Finding" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">

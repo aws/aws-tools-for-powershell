@@ -29,16 +29,37 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Creates a new version of a model and begins training. Models are managed as part of
-    /// an Amazon Rekognition Custom Labels project. You can specify one training dataset
-    /// and one testing dataset. The response from <code>CreateProjectVersion</code> is an
-    /// Amazon Resource Name (ARN) for the version of the model. 
+    /// an Amazon Rekognition Custom Labels project. The response from <code>CreateProjectVersion</code>
+    /// is an Amazon Resource Name (ARN) for the version of the model. 
     /// 
     ///  
     /// <para>
+    /// Training uses the training and test datasets associated with the project. For more
+    /// information, see Creating training and test dataset in the <i>Amazon Rekognition Custom
+    /// Labels Developer Guide</i>. 
+    /// </para><note><para>
+    /// You can train a modelin a project that doesn't have associated datasets by specifying
+    /// manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields.
+    /// 
+    /// </para><para>
+    /// If you open the console after training a model with manifest files, Amazon Rekognition
+    /// Custom Labels creates the datasets for you using the most recent manifest files. You
+    /// can no longer train a model version for the project by specifying manifest files.
+    /// 
+    /// </para><para>
+    /// Instead of training with a project without associated datasets, we recommend that
+    /// you use the manifest files to create training and test datasets for the project.
+    /// </para></note><para>
     /// Training takes a while to complete. You can get the current status by calling <a>DescribeProjectVersions</a>.
+    /// Training completed successfully if the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.
+    /// </para><para>
+    /// If training fails, see Debugging a failed model training in the <i>Amazon Rekognition
+    /// Custom Labels</i> developer guide. 
     /// </para><para>
     /// Once training has successfully completed, call <a>DescribeProjectVersions</a> to get
-    /// the training results and evaluate the model. 
+    /// the training results and evaluate the model. For more information, see Improving a
+    /// trained Amazon Rekognition Custom Labels model in the <i>Amazon Rekognition Custom
+    /// Labels</i> developers guide. 
     /// </para><para>
     /// After evaluating the model, you start the model by calling <a>StartProjectVersion</a>.
     /// </para><para>
@@ -81,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter TestingData_AutoCreate
         /// <summary>
         /// <para>
-        /// <para>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20
-        /// split of the training dataset.</para>
+        /// <para>If specified, Amazon Rekognition Custom Labels temporarily splits the training dataset
+        /// (80%) to create a test dataset (20%) for the training job. After training completes,
+        /// the test dataset is not stored and the training dataset reverts to its previous size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,12 +114,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
-        /// You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, an
-        /// alias for your CMK, or an alias ARN. The key is used to encrypt training and test
-        /// images copied into the service for model training. Your source images are unaffected.
-        /// The key is also used to encrypt training results and manifest files written to the
-        /// output Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own CMK, you need the following permissions on the CMK.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
+        /// <para>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply
+        /// the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for
+        /// your KMS key, or an alias ARN. The key is used to encrypt training and test images
+        /// copied into the service for model training. Your source images are unaffected. The
+        /// key is also used to encrypt training results and manifest files written to the output
+        /// Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
+        /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
         /// are encrypted using a key that AWS owns and manages.</para>
         /// </para>
         /// </summary>

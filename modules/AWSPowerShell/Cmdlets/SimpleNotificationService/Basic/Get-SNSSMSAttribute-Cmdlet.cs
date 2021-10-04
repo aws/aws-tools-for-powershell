@@ -28,7 +28,7 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Returns the settings for sending SMS messages from your account.
+    /// Returns the settings for sending SMS messages from your Amazon Web Services account.
     /// 
     ///  
     /// <para>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  <note><para>
     /// The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are reserved
-    /// and cannot be deleted. You can disassociate them from a cluster using either the <a>PutClusterCapacityProviders</a>
+    /// and can't be deleted. You can disassociate them from a cluster using either the <a>PutClusterCapacityProviders</a>
     /// API or by deleting the cluster.
     /// </para></note><para>
     /// Prior to a capacity provider being deleted, the capacity provider must be removed
@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// When updating a service, the <code>forceNewDeployment</code> option can be used to
     /// ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity
     /// provider are transitioned to use the capacity from the remaining capacity providers.
-    /// Only capacity providers that are not associated with a cluster can be deleted. To
-    /// remove a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a>
+    /// Only capacity providers that aren't associated with a cluster can be deleted. To remove
+    /// a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a>
     /// or delete the cluster.
     /// </para>
     /// </summary>

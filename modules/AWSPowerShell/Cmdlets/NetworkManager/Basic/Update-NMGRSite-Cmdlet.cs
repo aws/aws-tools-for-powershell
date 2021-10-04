@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of your site.</para><para>Length Constraints: Maximum length of 256 characters.</para>
+        /// <para>A description of your site.</para><para>Constraints: Maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

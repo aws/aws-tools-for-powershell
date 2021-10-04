@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Get information about a specific configuration version.
+    /// Retrieves information about a specific configuration version.
     /// </summary>
     [Cmdlet("Get", "APPCHostedConfigurationVersion")]
     [OutputType("Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse")]

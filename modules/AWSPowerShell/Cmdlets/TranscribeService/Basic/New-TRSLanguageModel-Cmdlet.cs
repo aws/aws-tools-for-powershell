@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given
         /// Amazon Transcribe to access your Amazon S3 buckets containing your media files or
-        /// text data.</para>
+        /// text data. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -177,6 +177,7 @@ $SNS_SelectMap = @{
                "Get-SNSTopic",
                "Enable-SNSPhoneNumber",
                "Publish-SNSMessage",
+               "Publish-SNSBatch",
                "Remove-SNSPermission",
                "Set-SNSEndpointAttribute",
                "Set-SNSPlatformApplicationAttribute",

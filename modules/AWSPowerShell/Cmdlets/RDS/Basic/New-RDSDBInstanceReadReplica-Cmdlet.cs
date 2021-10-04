@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether minor engine upgrades are applied automatically to
-        /// the read replica during the maintenance window.</para><para>Default: Inherits from the source DB instance</para>
+        /// the read replica during the maintenance window.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Inherits from the source DB instance</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,6 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
+        #region Parameter CustomIamInstanceProfile
+        /// <summary>
+        /// <para>
+        /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
+        /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
+        /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomIamInstanceProfile { get; set; }
         #endregion
         
         #region Parameter DBInstanceClass
@@ -126,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <code>DBParameterGroupName</code>, then Amazon RDS
         /// uses the <code>DBParameterGroup</code> of source DB instance for a same region read
         /// replica, or the default <code>DBParameterGroup</code> for the specified DB engine
-        /// for a cross region read replica.</para><note><para>Currently, specifying a parameter group for this operation is only supported for Oracle
-        /// DB instances.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// for a cross region read replica.</para><para>Specifying a parameter group for this operation is only supported for Oracle DB instances.
+        /// It isn't supported for RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Active Directory directory ID to create the DB instance in. Currently, only MySQL,
         /// Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active
         /// Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
-        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para>
+        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the new DB instance is to export to CloudWatch Logs. The values
         /// in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
         /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
-        /// Guide.</i></para>
+        /// Guide.</i></para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,9 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable Performance Insights for the read replica.
-        /// </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para>
+        /// <para>A value that indicates whether to enable Performance Insights for the read replica.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,14 +254,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted read replica.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS CMK.</para><para>If you create an encrypted read replica in the same Amazon Web Services Region as
+        /// name for the KMS key.</para><para>If you create an encrypted read replica in the same Amazon Web Services Region as
         /// the source DB instance, then do not specify a value for this parameter. A read replica
-        /// in the same Region is always encrypted with the same Amazon Web Services KMS CMK as
+        /// in the same Amazon Web Services Region is always encrypted with the same KMS key as
         /// the source DB instance.</para><para>If you create an encrypted read replica in a different Amazon Web Services Region,
-        /// then you must specify a Amazon Web Services KMS key identifier for the destination
-        /// Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon
-        /// Web Services Region that they are created in, and you can't use CMKs from one Amazon
-        /// Web Services Region in another Amazon Web Services Region.</para><para>You can't create an encrypted read replica from an unencrypted DB instance.</para>
+        /// then you must specify a KMS key identifier for the destination Amazon Web Services
+        /// Region. KMS keys are specific to the Amazon Web Services Region that they are created
+        /// in, and you can't use KMS keys from one Amazon Web Services Region in another Amazon
+        /// Web Services Region.</para><para>You can't create an encrypted read replica from an unencrypted DB instance.</para><para>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary
+        /// replica.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the read replica. To disable collecting Enhanced Monitoring metrics, specify 0.
         /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// to a value other than 0.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// For information on creating a monitoring role, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
         /// Guide</i>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// a <code>MonitoringRoleArn</code> value.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether the read replica is in a Multi-AZ deployment. </para><para>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
         /// your replica in another Availability Zone for failover support for the replica. Creating
         /// your read replica as a Multi-AZ DB instance is independent of whether the source database
-        /// is a Multi-AZ DB instance. </para>
+        /// is a Multi-AZ DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The option group the DB instance is associated with. If omitted, the option group
-        /// associated with the source instance is used.</para><note><para>For SQL Server, you must use the option group associated with the source instance.</para></note>
+        /// associated with the source instance is used.</para><note><para>For SQL Server, you must use the option group associated with the source instance.</para></note><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,10 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default CMK. There is a default CMK for your Amazon Web Services account.
-        /// Your Amazon Web Services account has a different default CMK for each Amazon Web Services
-        /// Region.</para>
+        /// name for the KMS key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years). </para>
+        /// 7 or 731 (2 years). </para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that
         /// is a valid request for the operation that can be executed in the source Amazon Web
         /// Services Region.</para><para><code>SourceRegion</code> isn't supported for SQL Server, because SQL Server on Amazon
-        /// RDS doesn't support cross-region read replicas.</para></note>
+        /// RDS doesn't support cross-region read replicas.</para></note><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -405,7 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
-        /// of the DB instance.</para>
+        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,12 +444,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReplicaMode
         /// <summary>
         /// <para>
-        /// <para>The open mode of the replica database: mounted or read-only.</para><note><para>This parameter is only supported for Oracle DB instances.</para></note><para>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for
-        /// mounted replicas is cross-Region disaster recovery. The primary database doesn't use
-        /// Active Data Guard to transmit information to the mounted replica. Because it doesn't
-        /// accept user connections, a mounted replica can't serve a read-only workload.</para><para>You can create a combination of mounted and read-only DB replicas for the same primary
+        /// <para>The open mode of the replica database: mounted or read-only.</para><note><para>This parameter is only supported for Oracle DB instances.</para></note><para>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use
+        /// case for mounted replicas is cross-Region disaster recovery. The primary database
+        /// doesn't use Active Data Guard to transmit information to the mounted replica. Because
+        /// it doesn't accept user connections, a mounted replica can't serve a read-only workload.</para><para>You can create a combination of mounted and read-only DB replicas for the same primary
         /// DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working
-        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>.
+        /// The value won't be set by default. After replica creation, you can manage the open
+        /// mode manually.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,7 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// specify a valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different Amazon Web Services Region from the read
         /// replica, specify a valid DB instance ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing
         /// an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. This doesn't apply
-        /// to SQL Server, which doesn't support cross-region replicas.</para></li></ul>
+        /// to SQL Server or RDS Custom, which don't support cross-Region replicas.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -512,7 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para>
+        /// processor features.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -523,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A list of EC2 VPC security groups to associate with the read replica. </para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
+        /// <para> A list of Amazon EC2 VPC security groups to associate with the read replica. </para><para>This setting doesn't apply to RDS Custom.</para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -596,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
+            context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
@@ -680,6 +696,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
+            }
+            if (cmdletContext.CustomIamInstanceProfile != null)
+            {
+                request.CustomIamInstanceProfile = cmdletContext.CustomIamInstanceProfile;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -862,6 +882,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String CustomIamInstanceProfile { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBParameterGroupName { get; set; }

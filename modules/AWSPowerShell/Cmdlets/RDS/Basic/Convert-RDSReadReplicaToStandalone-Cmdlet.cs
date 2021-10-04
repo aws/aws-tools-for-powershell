@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// status. If you have enabled backups on your read replica, configure the automated
     /// backup window so that daily backups do not interfere with read replica promotion.
     /// </para></li><li><para>
-    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+    /// This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Convert", "RDSReadReplicaToStandalone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

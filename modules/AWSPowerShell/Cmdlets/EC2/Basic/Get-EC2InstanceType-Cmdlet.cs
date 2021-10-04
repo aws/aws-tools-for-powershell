@@ -62,8 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to use in the free tier (<code>true</code> | <code>false</code>).</para></li><li><para><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
         /// (<code>true</code> | <code>false</code>).</para></li><li><para><code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</para></li><li><para><code>instance-storage-info.disk.count</code> - The number of local disks.</para></li><li><para><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance
         /// storage disk, in GB.</para></li><li><para><code>instance-storage-info.disk.type</code> - The storage technology for the local
-        /// instance storage disks (<code>hdd</code> | <code>ssd</code>).</para></li><li><para><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile
-        /// memory express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>)
+        /// instance storage disks (<code>hdd</code> | <code>ssd</code>).</para></li><li><para><code>instance-storage-info.encryption-supported</code> - Indicates whether data
+        /// is encrypted at rest (<code>required</code> | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile
+        /// memory express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>
         /// | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage
         /// available from all local instance storage, in GB.</para></li><li><para><code>instance-storage-supported</code> - Indicates whether the instance type has
         /// local instance storage (<code>true</code> | <code>false</code>).</para></li><li><para><code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code>

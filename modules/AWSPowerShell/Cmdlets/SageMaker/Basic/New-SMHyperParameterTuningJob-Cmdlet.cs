@@ -499,14 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AlgorithmSpecification_TrainingInputMode
         /// <summary>
         /// <para>
-        /// <para>The input mode that the algorithm supports: File or Pipe. In File input mode, Amazon
-        /// SageMaker downloads the training data from Amazon S3 to the storage volume that is
-        /// attached to the training instance and mounts the directory to the Docker volume for
-        /// the training container. In Pipe input mode, Amazon SageMaker streams data directly
-        /// from Amazon S3 to the container. </para><para>If you specify File mode, make sure that you provision the storage volume that is
-        /// attached to the training instance with enough capacity to accommodate the training
-        /// data downloaded from Amazon S3, the model artifacts, and intermediate information.</para><para>For more information about input modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
-        /// </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

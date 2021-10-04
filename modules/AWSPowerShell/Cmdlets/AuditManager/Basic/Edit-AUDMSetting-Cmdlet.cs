@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter SnsTopic
         /// <summary>
         /// <para>
-        /// <para> The Amazon Simple Notification Service (Amazon SNS) topic to which Audit Manager
-        /// sends notifications. </para>
+        /// <para> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends
+        /// notifications to. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

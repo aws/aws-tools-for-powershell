@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class RemoveFDEventCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        #region Parameter DeleteAuditHistory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not to delete any predictions associated with the event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteAuditHistory { get; set; }
+        #endregion
+        
         #region Parameter EventId
         /// <summary>
         /// <para>
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.Select = (response, cmdlet) => this.EventId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeleteAuditHistory = this.DeleteAuditHistory;
             context.EventId = this.EventId;
             #if MODULAR
             if (this.EventId == null && ParameterWasBound(nameof(this.EventId)))
@@ -170,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             // create request
             var request = new Amazon.FraudDetector.Model.DeleteEventRequest();
             
+            if (cmdletContext.DeleteAuditHistory != null)
+            {
+                request.DeleteAuditHistory = cmdletContext.DeleteAuditHistory.Value;
+            }
             if (cmdletContext.EventId != null)
             {
                 request.EventId = cmdletContext.EventId;
@@ -239,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteAuditHistory { get; set; }
             public System.String EventId { get; set; }
             public System.String EventTypeName { get; set; }
             public System.Func<Amazon.FraudDetector.Model.DeleteEventResponse, RemoveFDEventCmdlet, object> Select { get; set; } =

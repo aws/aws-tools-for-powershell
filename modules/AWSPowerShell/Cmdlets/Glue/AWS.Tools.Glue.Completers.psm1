@@ -178,7 +178,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUECrawler/RecrawlPolicy_RecrawlBehavior")
         }
         {
-            $v = "CRAWL_EVERYTHING","CRAWL_NEW_FOLDERS_ONLY"
+            $v = "CRAWL_EVENT_MODE","CRAWL_EVERYTHING","CRAWL_NEW_FOLDERS_ONLY"
             break
         }
 

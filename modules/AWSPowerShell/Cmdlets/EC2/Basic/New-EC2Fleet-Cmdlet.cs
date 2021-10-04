@@ -225,11 +225,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityRebalance_ReplacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance
-        /// notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>.
-        /// You must specify a value, otherwise you get an error.</para><note><para>When a replacement instance is launched, the instance marked for rebalance is not
-        /// automatically terminated. You can terminate it, or you can leave it running. You are
-        /// charged for all instances while they are running.</para></note>
+        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para><code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance
+        /// notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does
+        /// not terminate the instances that receive a rebalance notification. You can terminate
+        /// the old instances, or you can leave them running. You are charged for all instances
+        /// while they are running. </para><para><code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance
+        /// when a rebalance notification is emitted for an existing Spot Instance in the fleet,
+        /// and then, after a delay that you specify (in <code>TerminationDelay</code>), terminates
+        /// the instances that received a rebalance notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,6 +325,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter TargetCapacitySpecification_TargetCapacityUnitType
+        /// <summary>
+        /// <para>
+        /// <para>The unit for the target capacity.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TargetCapacityUnitType")]
+        public Amazon.EC2.TargetCapacityUnitType TargetCapacitySpecification_TargetCapacityUnitType { get; set; }
+        #endregion
+        
         #region Parameter TerminateInstancesWithExpiration
         /// <summary>
         /// <para>
@@ -330,6 +344,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TerminateInstancesWithExpiration { get; set; }
+        #endregion
+        
+        #region Parameter CapacityRebalance_TerminationDelay
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+        /// Instance after launching a new replacement Spot Instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpotOptions_MaintenanceStrategies_CapacityRebalance_TerminationDelay")]
+        public System.Int32? CapacityRebalance_TerminationDelay { get; set; }
         #endregion
         
         #region Parameter TargetCapacitySpecification_TotalTargetCapacity
@@ -542,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
             context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
             context.CapacityRebalance_ReplacementStrategy = this.CapacityRebalance_ReplacementStrategy;
+            context.CapacityRebalance_TerminationDelay = this.CapacityRebalance_TerminationDelay;
             context.SpotOptions_MaxTotalPrice = this.SpotOptions_MaxTotalPrice;
             context.SpotOptions_MinTargetCapacity = this.SpotOptions_MinTargetCapacity;
             context.SpotOptions_SingleAvailabilityZone = this.SpotOptions_SingleAvailabilityZone;
@@ -553,6 +580,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.TargetCapacitySpecification_DefaultTargetCapacityType = this.TargetCapacitySpecification_DefaultTargetCapacityType;
             context.TargetCapacitySpecification_OnDemandTargetCapacity = this.TargetCapacitySpecification_OnDemandTargetCapacity;
             context.TargetCapacitySpecification_SpotTargetCapacity = this.TargetCapacitySpecification_SpotTargetCapacity;
+            context.TargetCapacitySpecification_TargetCapacityUnitType = this.TargetCapacitySpecification_TargetCapacityUnitType;
             context.TargetCapacitySpecification_TotalTargetCapacity = this.TargetCapacitySpecification_TotalTargetCapacity;
             #if MODULAR
             if (this.TargetCapacitySpecification_TotalTargetCapacity == null && ParameterWasBound(nameof(this.TargetCapacitySpecification_TotalTargetCapacity)))
@@ -784,6 +812,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance.ReplacementStrategy = requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy;
                 requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull = false;
             }
+            System.Int32? requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay = null;
+            if (cmdletContext.CapacityRebalance_TerminationDelay != null)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay = cmdletContext.CapacityRebalance_TerminationDelay.Value;
+            }
+            if (requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay != null)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance.TerminationDelay = requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_TerminationDelay.Value;
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull = false;
+            }
              // determine if requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance should be set to null
             if (requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull)
             {
@@ -845,6 +883,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTargetCapacitySpecification_targetCapacitySpecification_SpotTargetCapacity != null)
             {
                 request.TargetCapacitySpecification.SpotTargetCapacity = requestTargetCapacitySpecification_targetCapacitySpecification_SpotTargetCapacity.Value;
+                requestTargetCapacitySpecificationIsNull = false;
+            }
+            Amazon.EC2.TargetCapacityUnitType requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType = null;
+            if (cmdletContext.TargetCapacitySpecification_TargetCapacityUnitType != null)
+            {
+                requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType = cmdletContext.TargetCapacitySpecification_TargetCapacityUnitType;
+            }
+            if (requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType != null)
+            {
+                request.TargetCapacitySpecification.TargetCapacityUnitType = requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType;
                 requestTargetCapacitySpecificationIsNull = false;
             }
             System.Int32? requestTargetCapacitySpecification_targetCapacitySpecification_TotalTargetCapacity = null;
@@ -974,6 +1022,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }
             public Amazon.EC2.FleetReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
+            public System.Int32? CapacityRebalance_TerminationDelay { get; set; }
             public System.String SpotOptions_MaxTotalPrice { get; set; }
             public System.Int32? SpotOptions_MinTargetCapacity { get; set; }
             public System.Boolean? SpotOptions_SingleAvailabilityZone { get; set; }
@@ -982,6 +1031,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
             public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }
             public System.Int32? TargetCapacitySpecification_SpotTargetCapacity { get; set; }
+            public Amazon.EC2.TargetCapacityUnitType TargetCapacitySpecification_TargetCapacityUnitType { get; set; }
             public System.Int32? TargetCapacitySpecification_TotalTargetCapacity { get; set; }
             public System.Boolean? TerminateInstancesWithExpiration { get; set; }
             public Amazon.EC2.FleetType Type { get; set; }

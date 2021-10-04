@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
         #endregion
         
+        #region Parameter RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The execution role for the <code>RStudioServerPro</code> Domain-level app.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn")]
+        public System.String RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>
@@ -66,6 +77,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DomainId { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type that the image version runs on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType")]
+        [AWSConstantClassSource("Amazon.SageMaker.AppInstanceType")]
+        public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_LifecycleConfigArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_LifecycleConfigArn")]
+        public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_SageMakerImageArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageArn")]
+        public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultResourceSpec_SageMakerImageVersionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the image version created on the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionArn")]
+        public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -137,6 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
+            context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
+            context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
+            context.DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultResourceSpec_SageMakerImageVersionArn;
+            context.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn = this.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,6 +221,95 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
+            }
+            
+             // populate DomainSettingsForUpdate
+            var requestDomainSettingsForUpdateIsNull = true;
+            request.DomainSettingsForUpdate = new Amazon.SageMaker.Model.DomainSettingsForUpdate();
+            Amazon.SageMaker.Model.RStudioServerProDomainSettingsForUpdate requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate = null;
+            
+             // populate RStudioServerProDomainSettingsForUpdate
+            var requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = true;
+            requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate = new Amazon.SageMaker.Model.RStudioServerProDomainSettingsForUpdate();
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn = null;
+            if (cmdletContext.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn = cmdletContext.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate.DomainExecutionRoleArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = false;
+            }
+            Amazon.SageMaker.Model.ResourceSpec requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec = null;
+            
+             // populate DefaultResourceSpec
+            var requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = true;
+            requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec = new Amazon.SageMaker.Model.ResourceSpec();
+            Amazon.SageMaker.AppInstanceType requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_InstanceType = null;
+            if (cmdletContext.DefaultResourceSpec_InstanceType != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_InstanceType = cmdletContext.DefaultResourceSpec_InstanceType;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_InstanceType != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.InstanceType = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_InstanceType;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn = null;
+            if (cmdletContext.DefaultResourceSpec_LifecycleConfigArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn = cmdletContext.DefaultResourceSpec_LifecycleConfigArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.LifecycleConfigArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_LifecycleConfigArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn = null;
+            if (cmdletContext.DefaultResourceSpec_SageMakerImageArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn = cmdletContext.DefaultResourceSpec_SageMakerImageArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.SageMakerImageArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn = null;
+            if (cmdletContext.DefaultResourceSpec_SageMakerImageVersionArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn = cmdletContext.DefaultResourceSpec_SageMakerImageVersionArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec.SageMakerImageVersionArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull = false;
+            }
+             // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec should be set to null
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpecIsNull)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec = null;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate.DefaultResourceSpec = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = false;
+            }
+             // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate should be set to null
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate = null;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate != null)
+            {
+                request.DomainSettingsForUpdate.RStudioServerProDomainSettingsForUpdate = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate;
+                requestDomainSettingsForUpdateIsNull = false;
+            }
+             // determine if request.DomainSettingsForUpdate should be set to null
+            if (requestDomainSettingsForUpdateIsNull)
+            {
+                request.DomainSettingsForUpdate = null;
             }
             
             CmdletOutput output;
@@ -224,6 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainId { get; set; }
+            public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
+            public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
+            public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateDomainResponse, UpdateSMDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainArn;
         }

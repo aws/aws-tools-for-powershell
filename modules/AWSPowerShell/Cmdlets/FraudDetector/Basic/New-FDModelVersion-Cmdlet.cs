@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String ExternalEventsDetail_DataLocation { get; set; }
         #endregion
         
+        #region Parameter IngestedEventsTimeWindow_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>Timestamp of the final ingested event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IngestedEventsDetail_IngestedEventsTimeWindow_EndTime")]
+        public System.String IngestedEventsTimeWindow_EndTime { get; set; }
+        #endregion
+        
         #region Parameter LabelSchema_LabelMapper
         /// <summary>
         /// <para>
@@ -137,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String[] TrainingDataSchema_ModelVariable { get; set; }
         #endregion
         
+        #region Parameter IngestedEventsTimeWindow_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>Timestamp of the first ingensted event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IngestedEventsDetail_IngestedEventsTimeWindow_StartTime")]
+        public System.String IngestedEventsTimeWindow_StartTime { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -163,6 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.FD
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.FraudDetector.TrainingDataSourceEnum")]
         public Amazon.FraudDetector.TrainingDataSourceEnum TrainingDataSource { get; set; }
+        #endregion
+        
+        #region Parameter LabelSchema_UnlabeledEventsTreatment
+        /// <summary>
+        /// <para>
+        /// <para>The action to take for unlabeled events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment")]
+        [AWSConstantClassSource("Amazon.FraudDetector.UnlabeledEventsTreatment")]
+        public Amazon.FraudDetector.UnlabeledEventsTreatment LabelSchema_UnlabeledEventsTreatment { get; set; }
         #endregion
         
         #region Parameter Select
@@ -228,6 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExternalEventsDetail_DataAccessRoleArn = this.ExternalEventsDetail_DataAccessRoleArn;
             context.ExternalEventsDetail_DataLocation = this.ExternalEventsDetail_DataLocation;
+            context.IngestedEventsTimeWindow_EndTime = this.IngestedEventsTimeWindow_EndTime;
+            context.IngestedEventsTimeWindow_StartTime = this.IngestedEventsTimeWindow_StartTime;
             context.ModelId = this.ModelId;
             #if MODULAR
             if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
@@ -272,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter LabelSchema_LabelMapper which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LabelSchema_UnlabeledEventsTreatment = this.LabelSchema_UnlabeledEventsTreatment;
             if (this.TrainingDataSchema_ModelVariable != null)
             {
                 context.TrainingDataSchema_ModelVariable = new List<System.String>(this.TrainingDataSchema_ModelVariable);
@@ -334,6 +371,50 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 request.ExternalEventsDetail = null;
             }
+            
+             // populate IngestedEventsDetail
+            var requestIngestedEventsDetailIsNull = true;
+            request.IngestedEventsDetail = new Amazon.FraudDetector.Model.IngestedEventsDetail();
+            Amazon.FraudDetector.Model.IngestedEventsTimeWindow requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = null;
+            
+             // populate IngestedEventsTimeWindow
+            var requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = true;
+            requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = new Amazon.FraudDetector.Model.IngestedEventsTimeWindow();
+            System.String requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime = null;
+            if (cmdletContext.IngestedEventsTimeWindow_EndTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime = cmdletContext.IngestedEventsTimeWindow_EndTime;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow.EndTime = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime;
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = false;
+            }
+            System.String requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime = null;
+            if (cmdletContext.IngestedEventsTimeWindow_StartTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime = cmdletContext.IngestedEventsTimeWindow_StartTime;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow.StartTime = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime;
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = false;
+            }
+             // determine if requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow should be set to null
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = null;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow != null)
+            {
+                request.IngestedEventsDetail.IngestedEventsTimeWindow = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow;
+                requestIngestedEventsDetailIsNull = false;
+            }
+             // determine if request.IngestedEventsDetail should be set to null
+            if (requestIngestedEventsDetailIsNull)
+            {
+                request.IngestedEventsDetail = null;
+            }
             if (cmdletContext.ModelId != null)
             {
                 request.ModelId = cmdletContext.ModelId;
@@ -373,6 +454,16 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_LabelMapper != null)
             {
                 requestTrainingDataSchema_trainingDataSchema_LabelSchema.LabelMapper = requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_LabelMapper;
+                requestTrainingDataSchema_trainingDataSchema_LabelSchemaIsNull = false;
+            }
+            Amazon.FraudDetector.UnlabeledEventsTreatment requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_UnlabeledEventsTreatment = null;
+            if (cmdletContext.LabelSchema_UnlabeledEventsTreatment != null)
+            {
+                requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_UnlabeledEventsTreatment = cmdletContext.LabelSchema_UnlabeledEventsTreatment;
+            }
+            if (requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_UnlabeledEventsTreatment != null)
+            {
+                requestTrainingDataSchema_trainingDataSchema_LabelSchema.UnlabeledEventsTreatment = requestTrainingDataSchema_trainingDataSchema_LabelSchema_labelSchema_UnlabeledEventsTreatment;
                 requestTrainingDataSchema_trainingDataSchema_LabelSchemaIsNull = false;
             }
              // determine if requestTrainingDataSchema_trainingDataSchema_LabelSchema should be set to null
@@ -457,10 +548,13 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             public System.String ExternalEventsDetail_DataAccessRoleArn { get; set; }
             public System.String ExternalEventsDetail_DataLocation { get; set; }
+            public System.String IngestedEventsTimeWindow_EndTime { get; set; }
+            public System.String IngestedEventsTimeWindow_StartTime { get; set; }
             public System.String ModelId { get; set; }
             public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
             public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public Dictionary<System.String, List<System.String>> LabelSchema_LabelMapper { get; set; }
+            public Amazon.FraudDetector.UnlabeledEventsTreatment LabelSchema_UnlabeledEventsTreatment { get; set; }
             public List<System.String> TrainingDataSchema_ModelVariable { get; set; }
             public Amazon.FraudDetector.TrainingDataSourceEnum TrainingDataSource { get; set; }
             public System.Func<Amazon.FraudDetector.Model.CreateModelVersionResponse, NewFDModelVersionCmdlet, object> Select { get; set; } =

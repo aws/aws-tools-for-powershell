@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently,
-        /// the supported resources are Amazon ECS capacity providers, tasks, services, task definitions,
+        /// <para>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the
+        /// supported resources are Amazon ECS capacity providers, tasks, services, task definitions,
         /// clusters, and container instances.</para>
         /// </para>
         /// </summary>

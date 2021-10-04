@@ -32,8 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// This operation returns information about instances in Auto Scaling groups. To retrieve
-    /// information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+    /// If you specify Auto Scaling group names, the output includes information for only
+    /// the specified Auto Scaling groups. If you specify filters, the output includes information
+    /// for only those Auto Scaling groups that meet the filter criteria. If you do not specify
+    /// group names or filters, the output includes information for all Auto Scaling groups.
+    /// 
+    /// </para><para>
+    /// This operation also returns information about instances in Auto Scaling groups. To
+    /// retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
     /// API. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -57,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("AutoScalingGroupNames")]
         public System.String[] AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters to limit the results based on specific tags. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.AutoScaling.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -150,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.AutoScalingGroupName = new List<System.String>(this.AutoScalingGroupName);
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.AutoScaling.Model.Filter>(this.Filter);
+            }
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
@@ -185,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupNames = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxRecord != null)
             {
@@ -248,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupNames = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             
             // Initialize loop variants and commence piping
@@ -362,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AutoScalingGroupName { get; set; }
+            public List<Amazon.AutoScaling.Model.Filter> Filter { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse, GetASAutoScalingGroupCmdlet, object> Select { get; set; } =

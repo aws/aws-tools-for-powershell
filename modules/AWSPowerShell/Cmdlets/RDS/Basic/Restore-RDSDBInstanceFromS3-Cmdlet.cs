@@ -32,7 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// by using backup files. You can create a backup of your on-premises database, store
     /// it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file
     /// onto a new Amazon RDS DB instance running MySQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing
-    /// Data into an Amazon RDS MySQL DB Instance</a> in the <i>Amazon RDS User Guide.</i>
+    /// Data into an Amazon RDS MySQL DB Instance</a> in the <i>Amazon RDS User Guide.</i><para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para>
     /// </summary>
     [Cmdlet("Restore", "RDSDBInstanceFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
@@ -286,12 +288,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted DB instance. </para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS customer master key (CMK). To use a CMK in a
-        /// different Amazon Web Services account, specify the key ARN or alias ARN.</para><para>If the <code>StorageEncrypted</code> parameter is enabled, and you do not specify
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>If the <code>StorageEncrypted</code> parameter is enabled, and you do not specify
         /// a value for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default
-        /// CMK. There is a default CMK for your Amazon Web Services account. Your Amazon Web
-        /// Services account has a different default CMK for each Amazon Web Services Region.
-        /// </para>
+        /// KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon
+        /// Web Services account has a different default KMS key for each Amazon Web Services
+        /// Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,10 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default CMK. There is a default CMK for your Amazon Web Services account.
-        /// Your Amazon Web Services account has a different default CMK for each Amazon Web Services
-        /// Region.</para>
+        /// name for the KMS key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

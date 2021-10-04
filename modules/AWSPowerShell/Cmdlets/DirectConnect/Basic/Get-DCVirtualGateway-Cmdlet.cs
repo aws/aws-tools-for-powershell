@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Lists the virtual private gateways owned by the account.
+    /// Lists the virtual private gateways owned by the Amazon Web Services account.
     /// 
     ///  
     /// <para>

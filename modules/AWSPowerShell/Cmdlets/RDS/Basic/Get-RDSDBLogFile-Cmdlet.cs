@@ -28,7 +28,12 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list of DB log files for the DB instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of DB log files for the DB instance.
+    /// 
+    ///  
+    /// <para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFile")]
     [OutputType("Amazon.RDS.Model.DescribeDBLogFilesDetails")]

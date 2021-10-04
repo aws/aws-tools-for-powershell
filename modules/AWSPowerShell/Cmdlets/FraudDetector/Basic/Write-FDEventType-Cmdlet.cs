@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String[] EntityType { get; set; }
         #endregion
         
+        #region Parameter EventIngestion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if ingenstion is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FraudDetector.EventIngestion")]
+        public Amazon.FraudDetector.EventIngestion EventIngestion { get; set; }
+        #endregion
+        
         #region Parameter EventVariable
         /// <summary>
         /// <para>
@@ -201,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter EntityType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EventIngestion = this.EventIngestion;
             if (this.EventVariable != null)
             {
                 context.EventVariable = new List<System.String>(this.EventVariable);
@@ -249,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.EntityType != null)
             {
                 request.EntityTypes = cmdletContext.EntityType;
+            }
+            if (cmdletContext.EventIngestion != null)
+            {
+                request.EventIngestion = cmdletContext.EventIngestion;
             }
             if (cmdletContext.EventVariable != null)
             {
@@ -329,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             public System.String Description { get; set; }
             public List<System.String> EntityType { get; set; }
+            public Amazon.FraudDetector.EventIngestion EventIngestion { get; set; }
             public List<System.String> EventVariable { get; set; }
             public List<System.String> Label { get; set; }
             public System.String Name { get; set; }

@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
-    /// IAM users, and IAM roles) can connect.
+    /// Creates a VPC endpoint service configuration to which service consumers (Amazon Web
+    /// Services accounts, IAM users, and IAM roles) can connect.
     /// 
     ///  
     /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSet
         /// <summary>
         /// <para>
-        /// <para> The control sets associated with the framework. </para>
+        /// <para> The control sets that are associated with the framework. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description of the framework that is to be updated. </para>
+        /// <para> The description of the updated framework. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter FrameworkId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified framework. </para>
+        /// <para> The unique identifier for the framework. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

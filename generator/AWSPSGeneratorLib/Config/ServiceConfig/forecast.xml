@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAutoPredictor" OutputProperty="PredictorArn" Verb="New" Noun="AutoPredictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -28,6 +32,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatasetImportJob" OutputProperty="DatasetImportJobArn" Verb="New" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobName" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExplainability" OutputProperty="ExplainabilityArn" Verb="New" Noun="Explainability" ShouldProcessTarget="ExplainabilityName" PipelineParameter="ExplainabilityName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExplainabilityExport" OutputProperty="ExplainabilityExportArn" Verb="New" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,6 +71,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExplainability" Verb="Remove" Noun="Explainability" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExplainabilityExport" Verb="Remove" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityExportArn" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteForecast" Verb="Remove" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +99,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoPredictor" OutputProperty="*" Verb="Get" Noun="AutoPredictor" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +112,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDatasetImportJob" OutputProperty="*" Verb="Get" Noun="DatasetImportJob" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExplainability" OutputProperty="*" Verb="Get" Noun="Explainability" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExplainabilityExport" OutputProperty="*" Verb="Get" Noun="ExplainabilityExport" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +152,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExplainabilities" OutputProperty="Explainabilities" Verb="Get" Noun="ExplainabilityList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExplainabilityExports" OutputProperty="ExplainabilityExports" Verb="Get" Noun="ExplainabilityExportList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

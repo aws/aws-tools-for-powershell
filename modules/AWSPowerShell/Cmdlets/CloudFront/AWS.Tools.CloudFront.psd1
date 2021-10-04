@@ -102,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFDistributionsByKeyGroup', 
         'Get-CFDistributionsByOriginRequestPolicyId', 
         'Get-CFDistributionsByRealtimeLogConfig', 
+        'Get-CFDistributionsByResponseHeadersPolicyId', 
         'Get-CFFieldLevelEncryption', 
         'Get-CFFieldLevelEncryptionConfig', 
         'Get-CFFieldLevelEncryptionConfigList', 
@@ -126,6 +127,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFRealtimeLogConfig', 
         'Get-CFRealtimeLogConfigList', 
         'Get-CFResourceTag', 
+        'Get-CFResponseHeadersPolicy', 
+        'Get-CFResponseHeadersPolicyConfig', 
+        'Get-CFResponseHeadersPolicyList', 
         'Get-CFStreamingDistribution', 
         'Get-CFStreamingDistributionConfig', 
         'Get-CFStreamingDistributionList', 
@@ -143,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CFOriginRequestPolicy', 
         'New-CFPublicKey', 
         'New-CFRealtimeLogConfig', 
+        'New-CFResponseHeadersPolicy', 
         'New-CFSignedCookie', 
         'New-CFSignedUrl', 
         'New-CFStreamingDistribution', 
@@ -160,6 +165,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CFPublicKey', 
         'Remove-CFRealtimeLogConfig', 
         'Remove-CFResourceTag', 
+        'Remove-CFResponseHeadersPolicy', 
         'Remove-CFStreamingDistribution', 
         'Test-CFFunction', 
         'Update-CFCachePolicy', 
@@ -172,6 +178,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CFOriginRequestPolicy', 
         'Update-CFPublicKey', 
         'Update-CFRealtimeLogConfig', 
+        'Update-CFResponseHeadersPolicy', 
         'Update-CFStreamingDistribution')
 
     # Variables to export from this module

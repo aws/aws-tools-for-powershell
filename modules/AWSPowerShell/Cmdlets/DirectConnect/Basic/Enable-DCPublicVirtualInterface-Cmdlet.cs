@@ -28,12 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Provisions a public virtual interface to be owned by the specified account.
+    /// Provisions a public virtual interface to be owned by the specified Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>
     /// The owner of a connection calls this function to provision a public virtual interface
-    /// to be owned by the specified account.
+    /// to be owned by the specified Amazon Web Services account.
     /// </para><para>
     /// Virtual interfaces created using this function must be confirmed by the owner using
     /// <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual
@@ -131,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the account that owns the public virtual interface.</para>
+        /// <para>The ID of the Amazon Web Services account that owns the public virtual interface.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

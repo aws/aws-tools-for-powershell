@@ -40,6 +40,59 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class StartCHMMeetingTranscriptionCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        #region Parameter EngineTranscribeMedicalSettings_ContentIdentificationType
+        /// <summary>
+        /// <para>
+        /// <para>Set this field to <code>PHI</code> to identify personal health information in the
+        /// transcription output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType")]
+        [AWSConstantClassSource("Amazon.Chime.TranscribeMedicalContentIdentificationType")]
+        public Amazon.Chime.TranscribeMedicalContentIdentificationType EngineTranscribeMedicalSettings_ContentIdentificationType { get; set; }
+        #endregion
+        
+        #region Parameter EngineTranscribeSettings_ContentIdentificationType
+        /// <summary>
+        /// <para>
+        /// <para>Set this field to <code>PII</code> to identify personal health information in the
+        /// transcription output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType")]
+        [AWSConstantClassSource("Amazon.Chime.TranscribeContentIdentificationType")]
+        public Amazon.Chime.TranscribeContentIdentificationType EngineTranscribeSettings_ContentIdentificationType { get; set; }
+        #endregion
+        
+        #region Parameter EngineTranscribeSettings_ContentRedactionType
+        /// <summary>
+        /// <para>
+        /// <para>Set this field to <code>PII</code> to redact personally identifiable information in
+        /// the transcription output. Content redaction is performed only upon complete transcription
+        /// of the audio segments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType")]
+        [AWSConstantClassSource("Amazon.Chime.TranscribeContentRedactionType")]
+        public Amazon.Chime.TranscribeContentRedactionType EngineTranscribeSettings_ContentRedactionType { get; set; }
+        #endregion
+        
+        #region Parameter EngineTranscribeSettings_EnablePartialResultsStabilization
+        /// <summary>
+        /// <para>
+        /// <para>Generates partial transcription results that are less likely to change as meeting
+        /// attendees speak. It does so by only allowing the last few words from the partial results
+        /// to change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_EnablePartialResultsStabilization")]
+        public System.Boolean? EngineTranscribeSettings_EnablePartialResultsStabilization { get; set; }
+        #endregion
+        
         #region Parameter EngineTranscribeMedicalSettings_LanguageCode
         /// <summary>
         /// <para>
@@ -64,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public Amazon.Chime.TranscribeLanguageCode EngineTranscribeSettings_LanguageCode { get; set; }
         #endregion
         
+        #region Parameter EngineTranscribeSettings_LanguageModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the language model used during transcription.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_LanguageModelName")]
+        public System.String EngineTranscribeSettings_LanguageModelName { get; set; }
+        #endregion
+        
         #region Parameter MeetingId
         /// <summary>
         /// <para>
@@ -79,6 +143,35 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MeetingId { get; set; }
+        #endregion
+        
+        #region Parameter EngineTranscribeSettings_PartialResultsStability
+        /// <summary>
+        /// <para>
+        /// <para>The stabity level of a partial results transcription. Determines how stable you want
+        /// the transcription results to be. A higher level means the transcription results are
+        /// less likely to change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability")]
+        [AWSConstantClassSource("Amazon.Chime.TranscribePartialResultsStability")]
+        public Amazon.Chime.TranscribePartialResultsStability EngineTranscribeSettings_PartialResultsStability { get; set; }
+        #endregion
+        
+        #region Parameter EngineTranscribeSettings_PiiEntityType
+        /// <summary>
+        /// <para>
+        /// <para>Lists the PII entity types you want to identify or redact. To specify entity types,
+        /// you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</para><para><code>PIIEntityTypes</code> must be comma-separated. The available values are: <code>BANK_ACCOUNT_NUMBER</code>,
+        /// <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
+        /// <code>PIN</code>, <code>EMAIL</code>, <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+        /// <code>SSN</code>, and <code>ALL</code>.</para><para><code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TranscriptionConfiguration_EngineTranscribeSettings_PiiEntityTypes")]
+        public System.String EngineTranscribeSettings_PiiEntityType { get; set; }
         #endregion
         
         #region Parameter EngineTranscribeMedicalSettings_Region
@@ -243,12 +336,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter MeetingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EngineTranscribeMedicalSettings_ContentIdentificationType = this.EngineTranscribeMedicalSettings_ContentIdentificationType;
             context.EngineTranscribeMedicalSettings_LanguageCode = this.EngineTranscribeMedicalSettings_LanguageCode;
             context.EngineTranscribeMedicalSettings_Region = this.EngineTranscribeMedicalSettings_Region;
             context.EngineTranscribeMedicalSettings_Specialty = this.EngineTranscribeMedicalSettings_Specialty;
             context.EngineTranscribeMedicalSettings_Type = this.EngineTranscribeMedicalSettings_Type;
             context.EngineTranscribeMedicalSettings_VocabularyName = this.EngineTranscribeMedicalSettings_VocabularyName;
+            context.EngineTranscribeSettings_ContentIdentificationType = this.EngineTranscribeSettings_ContentIdentificationType;
+            context.EngineTranscribeSettings_ContentRedactionType = this.EngineTranscribeSettings_ContentRedactionType;
+            context.EngineTranscribeSettings_EnablePartialResultsStabilization = this.EngineTranscribeSettings_EnablePartialResultsStabilization;
             context.EngineTranscribeSettings_LanguageCode = this.EngineTranscribeSettings_LanguageCode;
+            context.EngineTranscribeSettings_LanguageModelName = this.EngineTranscribeSettings_LanguageModelName;
+            context.EngineTranscribeSettings_PartialResultsStability = this.EngineTranscribeSettings_PartialResultsStability;
+            context.EngineTranscribeSettings_PiiEntityType = this.EngineTranscribeSettings_PiiEntityType;
             context.EngineTranscribeSettings_Region = this.EngineTranscribeSettings_Region;
             context.EngineTranscribeSettings_VocabularyFilterMethod = this.EngineTranscribeSettings_VocabularyFilterMethod;
             context.EngineTranscribeSettings_VocabularyFilterName = this.EngineTranscribeSettings_VocabularyFilterName;
@@ -282,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
              // populate EngineTranscribeMedicalSettings
             var requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettingsIsNull = true;
             requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings = new Amazon.Chime.Model.EngineTranscribeMedicalSettings();
+            Amazon.Chime.TranscribeMedicalContentIdentificationType requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings_engineTranscribeMedicalSettings_ContentIdentificationType = null;
+            if (cmdletContext.EngineTranscribeMedicalSettings_ContentIdentificationType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings_engineTranscribeMedicalSettings_ContentIdentificationType = cmdletContext.EngineTranscribeMedicalSettings_ContentIdentificationType;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings_engineTranscribeMedicalSettings_ContentIdentificationType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings.ContentIdentificationType = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings_engineTranscribeMedicalSettings_ContentIdentificationType;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettingsIsNull = false;
+            }
             Amazon.Chime.TranscribeMedicalLanguageCode requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings_engineTranscribeMedicalSettings_LanguageCode = null;
             if (cmdletContext.EngineTranscribeMedicalSettings_LanguageCode != null)
             {
@@ -347,6 +457,36 @@ namespace Amazon.PowerShell.Cmdlets.CHM
              // populate EngineTranscribeSettings
             var requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = true;
             requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings = new Amazon.Chime.Model.EngineTranscribeSettings();
+            Amazon.Chime.TranscribeContentIdentificationType requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentIdentificationType = null;
+            if (cmdletContext.EngineTranscribeSettings_ContentIdentificationType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentIdentificationType = cmdletContext.EngineTranscribeSettings_ContentIdentificationType;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentIdentificationType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.ContentIdentificationType = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentIdentificationType;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
+            Amazon.Chime.TranscribeContentRedactionType requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentRedactionType = null;
+            if (cmdletContext.EngineTranscribeSettings_ContentRedactionType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentRedactionType = cmdletContext.EngineTranscribeSettings_ContentRedactionType;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentRedactionType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.ContentRedactionType = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_ContentRedactionType;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
+            System.Boolean? requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_EnablePartialResultsStabilization = null;
+            if (cmdletContext.EngineTranscribeSettings_EnablePartialResultsStabilization != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_EnablePartialResultsStabilization = cmdletContext.EngineTranscribeSettings_EnablePartialResultsStabilization.Value;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_EnablePartialResultsStabilization != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.EnablePartialResultsStabilization = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_EnablePartialResultsStabilization.Value;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
             Amazon.Chime.TranscribeLanguageCode requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageCode = null;
             if (cmdletContext.EngineTranscribeSettings_LanguageCode != null)
             {
@@ -355,6 +495,36 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageCode != null)
             {
                 requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.LanguageCode = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageCode;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
+            System.String requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageModelName = null;
+            if (cmdletContext.EngineTranscribeSettings_LanguageModelName != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageModelName = cmdletContext.EngineTranscribeSettings_LanguageModelName;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageModelName != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.LanguageModelName = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_LanguageModelName;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
+            Amazon.Chime.TranscribePartialResultsStability requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PartialResultsStability = null;
+            if (cmdletContext.EngineTranscribeSettings_PartialResultsStability != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PartialResultsStability = cmdletContext.EngineTranscribeSettings_PartialResultsStability;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PartialResultsStability != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.PartialResultsStability = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PartialResultsStability;
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
+            }
+            System.String requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PiiEntityType = null;
+            if (cmdletContext.EngineTranscribeSettings_PiiEntityType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PiiEntityType = cmdletContext.EngineTranscribeSettings_PiiEntityType;
+            }
+            if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PiiEntityType != null)
+            {
+                requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings.PiiEntityTypes = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_PiiEntityType;
                 requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettingsIsNull = false;
             }
             Amazon.Chime.TranscribeRegion requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings_engineTranscribeSettings_Region = null;
@@ -474,12 +644,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String MeetingId { get; set; }
+            public Amazon.Chime.TranscribeMedicalContentIdentificationType EngineTranscribeMedicalSettings_ContentIdentificationType { get; set; }
             public Amazon.Chime.TranscribeMedicalLanguageCode EngineTranscribeMedicalSettings_LanguageCode { get; set; }
             public Amazon.Chime.TranscribeMedicalRegion EngineTranscribeMedicalSettings_Region { get; set; }
             public Amazon.Chime.TranscribeMedicalSpecialty EngineTranscribeMedicalSettings_Specialty { get; set; }
             public Amazon.Chime.TranscribeMedicalType EngineTranscribeMedicalSettings_Type { get; set; }
             public System.String EngineTranscribeMedicalSettings_VocabularyName { get; set; }
+            public Amazon.Chime.TranscribeContentIdentificationType EngineTranscribeSettings_ContentIdentificationType { get; set; }
+            public Amazon.Chime.TranscribeContentRedactionType EngineTranscribeSettings_ContentRedactionType { get; set; }
+            public System.Boolean? EngineTranscribeSettings_EnablePartialResultsStabilization { get; set; }
             public Amazon.Chime.TranscribeLanguageCode EngineTranscribeSettings_LanguageCode { get; set; }
+            public System.String EngineTranscribeSettings_LanguageModelName { get; set; }
+            public Amazon.Chime.TranscribePartialResultsStability EngineTranscribeSettings_PartialResultsStability { get; set; }
+            public System.String EngineTranscribeSettings_PiiEntityType { get; set; }
             public Amazon.Chime.TranscribeRegion EngineTranscribeSettings_Region { get; set; }
             public Amazon.Chime.TranscribeVocabularyFilterMethod EngineTranscribeSettings_VocabularyFilterMethod { get; set; }
             public System.String EngineTranscribeSettings_VocabularyFilterName { get; set; }

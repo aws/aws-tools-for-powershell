@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <code>lastModifiedTime</code>, starting with the most recent event.
     /// </para><note><ul><li><para>
     /// When you call the <code>DescribeEvents</code> operation and specify an entity for
-    /// the <code>entityValues</code> parameter, AWS Health might return public events that
-    /// aren't specific to that resource. For example, if you call <code>DescribeEvents</code>
-    /// and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, AWS Health
-    /// might return events that aren't specific to that resource or service. To get events
-    /// that are specific to a service, use the <code>services</code> parameter in the <code>filter</code>
+    /// the <code>entityValues</code> parameter, Health might return public events that aren't
+    /// specific to that resource. For example, if you call <code>DescribeEvents</code> and
+    /// specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, Health might
+    /// return events that aren't specific to that resource or service. To get events that
+    /// are specific to a service, use the <code>services</code> parameter in the <code>filter</code>
     /// object. For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
     /// </para></li><li><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Availability Zones.</para>
+        /// <para>A list of Amazon Web Services Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// <para>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
-        /// or <code>accountNotification</code>).</para>
+        /// <para>A list of event type category codes. Possible values are <code>issue</code>, <code>accountNotification</code>,
+        /// or <code>scheduledChange</code>. Currently, the <code>investigation</code> value isn't
+        /// supported at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Regions.</para>
+        /// <para>A list of Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</para>
+        /// <para>The Amazon Web Services services associated with the event. For example, <code>EC2</code>,
+        /// <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

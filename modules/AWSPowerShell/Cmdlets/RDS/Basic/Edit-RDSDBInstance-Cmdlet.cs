@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether major version upgrades are allowed. Changing this parameter
-        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints: Major version upgrades must be allowed when specifying a value for the
+        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints: Major version upgrades must be allowed when specifying a value for the
         /// EngineVersion parameter that is a different major version than the DB instance's current
         /// version.</para>
         /// </para>
@@ -88,15 +88,28 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? ApplyImmediately { get; set; }
         #endregion
         
+        #region Parameter AutomationMode
+        /// <summary>
+        /// <para>
+        /// <para>The automation mode of the RDS Custom DB instance: <code>full</code> or <code>all
+        /// paused</code>. If <code>full</code>, the DB instance automates monitoring and instance
+        /// recovery. If <code>all paused</code>, the instance pauses automation for the duration
+        /// set by <code>ResumeFullAutomationModeMinutes</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.AutomationMode")]
+        public Amazon.RDS.AutomationMode AutomationMode { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> A value that indicates whether minor version upgrades are applied automatically to
-        /// the DB instance during the maintenance window. Changing this parameter doesn't result
-        /// in an outage except in the following case and the change is asynchronously applied
-        /// as soon as possible. An outage results if this parameter is enabled during the maintenance
-        /// window, and a newer minor version is available, and RDS has enabled auto patching
-        /// for that engine version. </para>
+        /// <para>A value that indicates whether minor version upgrades are applied automatically to
+        /// the DB instance during the maintenance window. An outage occurs when all the following
+        /// conditions are met:</para><ul><li><para>The automatic upgrade is enabled for the maintenance window.</para></li><li><para>A newer minor version is available.</para></li><li><para>RDS has enabled automatic patching for the engine version.</para></li></ul><para>If any of the preceding conditions isn't met, RDS applies the change as soon as possible
+        /// and doesn't cause an outage.</para><para>For an RDS Custom DB instance, set <code>AutoMinorVersionUpgrade</code> to <code>false</code>.
+        /// Otherwise, the operation returns an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AwsBackupRecoveryPointArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</para>
+        /// <para>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a few seconds to a few minutes, depending on the size and class of your DB instance.</para></note><para>These changes are applied during the next maintenance window unless the <code>ApplyImmediately</code>
         /// parameter is enabled for this request. If you change the parameter from one non-zero
         /// value to another non-zero value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
-        /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL read replica only if the source is running MySQL 5.6
-        /// or later</para></li><li><para>Can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
-        /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li></ul>
+        /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source
+        /// to read replicas. It can't be set to 0 or 35 for an RDS Custom DB instance.</para></li><li><para>It can be specified for a MySQL read replica only if the source is running MySQL 5.6
+        /// or later.</para></li><li><para>It can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
+        /// 9.3.5.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>Indicates the certificate that needs to be associated with the instance.</para>
+        /// <para>Specifies the certificate to associate with the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
         /// Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i></para></li><li><para>For more information about rotating your SSL/TLS certificate for Aurora DB engines,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
-        /// Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i></para></li></ul>
+        /// Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i></para></li></ul><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
         /// all database engines. For the full list of DB instance classes, and availability for
         /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>If you modify the DB instance class, an outage occurs during the change. The change
+        /// Instance Class</a> in the <i>Amazon RDS User Guide</i>. </para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
-        /// is enabled for this request. </para><para>Default: Uses existing setting</para>
+        /// is enabled for this request. </para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,12 +220,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to apply to the DB instance. Changing this setting
-        /// doesn't result in an outage. The parameter group name itself is changed immediately,
-        /// but the actual parameter changes are not applied until you reboot the instance without
-        /// failover. In this case, the DB instance isn't rebooted automatically and the parameter
-        /// changes isn't applied during the next maintenance window.</para><para>Default: Uses existing setting</para><para>Constraints: The DB parameter group must be in the same DB parameter group family
-        /// as this DB instance.</para>
+        /// <para>The name of the DB parameter group to apply to the DB instance.</para><para>Changing this setting doesn't result in an outage. The parameter group name itself
+        /// is changed immediately, but the actual parameter changes are not applied until you
+        /// reboot the instance without failover. In this case, the DB instance isn't rebooted
+        /// automatically, and the parameter changes aren't applied during the next maintenance
+        /// window. However, if you modify dynamic parameters in the newly associated DB parameter
+        /// group, these changes are applied immediately without a reboot.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Uses existing setting</para><para>Constraints: The DB parameter group must be in the same DB parameter group family
+        /// as the DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The port number on which the database accepts connections.</para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
-        /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+        /// values specified for options in the option group for the DB instance.</para><para>If you change the <code>DBPortNumber</code> value, your database restarts regardless
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
         /// <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and <code>49152-49156</code>.</para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para>
         /// </para>
         /// </summary>
@@ -235,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
-        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DBSecurityGroups.</para></li></ul>
+        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DBSecurityGroups.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,9 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The new DB subnet group for the DB instance. You can use this parameter to move your
         /// DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use
         /// this parameter to move your DB instance into a VPC. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working
-        /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para><para>Changing the subnet group causes an outage during the change. The change is applied
-        /// during the next maintenance window, unless you enable <code>ApplyImmediately</code>.
-        /// </para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
+        /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide</i>. </para><para>Changing the subnet group causes an outage during the change. The change is applied
+        /// during the next maintenance window, unless you enable <code>ApplyImmediately</code>.</para><para> This parameter doesn't apply to RDS Custom.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,10 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Active Directory directory ID to move the DB instance to. Specify <code>none</code>
-        /// to remove the instance from its current domain. The domain must be created prior to
-        /// this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL
-        /// DB instances can be created in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
-        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// to remove the instance from its current domain. You must create the domain before
+        /// this operation. Currently, you can create only MySQL, Microsoft SQL Server, Oracle,
+        /// and PostgreSQL DB instances in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role to use when making API calls to the Directory Service.</para>
+        /// <para>The name of the IAM role to use when making API calls to the Directory Service.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts
         /// to database accounts is managed by the DB cluster.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
-        /// Guide.</i></para>
+        /// Guide.</i></para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
         /// Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User
-        /// Guide</i>. </para>
+        /// Guide</i>. </para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,7 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// must be specified. The new DB parameter group can be the default for that DB parameter
         /// group family.</para><para>If you specify only a major version, Amazon RDS will update the DB instance to the
         /// default minor version if the current minor version is lower. For information about
-        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para>
+        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>In RDS Custom, this parameter is supported for read replicas only if they are in the
+        /// <code>PATCH_DB_FAILURE</code> lifecycle. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model for the DB instance.</para><para>Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// <para>The license model for the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
         /// | <code>general-public-license</code></para>
         /// </para>
         /// </summary>
@@ -422,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// character except "/", """, or "@".</para><para> Changing this parameter doesn't result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
+        /// element of the operation response. </para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
         /// more information, see <code>ModifyDBCluster</code>. </para><para>Default: Uses existing setting</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
         /// regain access to a primary instance user if the password is lost. This includes restoring
         /// privileges that might have been accidentally revoked. </para></note>
@@ -439,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage of the DB instance.</para><para>For more information about this setting, including limitations that apply to it, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
         /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
-        /// RDS User Guide</i>.</para>
+        /// RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,9 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
-        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0,
+        /// which is the default.</para><para>If <code>MonitoringRoleArn</code> is specified, set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -464,10 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
         /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
-        /// For information on creating a monitoring role, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
-        /// Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
+        /// value.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,9 +493,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment. Changing
-        /// this parameter doesn't result in an outage and the change is applied during the next
+        /// this parameter doesn't result in an outage. The change is applied during the next
         /// maintenance window unless the <code>ApplyImmediately</code> parameter is enabled for
-        /// this request. </para>
+        /// this request. </para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -490,10 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NewDBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The new DB instance identifier for the DB instance when renaming a DB instance. When
+        /// <para>The new DB instance identifier for the DB instance when renaming a DB instance. When
         /// you change the DB instance identifier, an instance reboot occurs immediately if you
         /// enable <code>ApplyImmediately</code>, or will occur during the next maintenance window
-        /// if you disable Apply Immediately. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// if you disable Apply Immediately. This value is stored as a lowercase string. </para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -503,14 +518,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> A value that indicates the DB instance should be associated with the specified option
-        /// group. Changing this parameter doesn't result in an outage except in the following
-        /// case and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
-        /// parameter is enabled for this request. If the parameter change results in an option
-        /// group that enables OEM, this change can cause a brief (sub-second) period during which
-        /// new connections are rejected but existing connections are not interrupted. </para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// <para>A value that indicates the DB instance should be associated with the specified option
+        /// group.</para><para>Changing this parameter doesn't result in an outage, with one exception. If the parameter
+        /// change results in an option group that enables OEM, it can cause a brief period, lasting
+        /// less than a second, during which new connections are rejected but existing connections
+        /// aren't interrupted.</para><para>The change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
+        /// parameter is enabled for this request.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
         /// be removed from an option group, and that option group can't be removed from a DB
-        /// instance once it is associated with a DB instance</para>
+        /// instance after it is associated with a DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -522,10 +537,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the Amazon Web Services KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default CMK. There is a default CMK for your Amazon Web Services account.
-        /// Your Amazon Web Services account has a different default CMK for each Amazon Web Services
-        /// Region.</para>
+        /// name for the KMS key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -536,7 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years). </para>
+        /// 7 or 731 (2 years).</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,7 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
-        /// of the DB instance.</para>
+        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -596,8 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that specifies the order in which an Aurora Replica is promoted to the primary
         /// instance after a failure of the existing primary instance. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
-        /// Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-        /// </para><para>Default: 1</para><para>Valid Values: 0 - 15</para>
+        /// Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</para><para>This setting doesn't apply to RDS Custom. </para><para>Default: 1</para><para>Valid Values: 0 - 15</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -615,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a DNS name that resolves to a private IP address.</para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
         /// must be part of a public subnet and <code>PubliclyAccessible</code> must be enabled
         /// for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para>
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -630,12 +644,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Active Data Guard to transmit information to the mounted replica. Because it doesn't
         /// accept user connections, a mounted replica can't serve a read-only workload. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working
-        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.RDS.ReplicaMode")]
         public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
+        #endregion
+        
+        #region Parameter ResumeFullAutomationModeMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes to pause the automation. When the time period ends, RDS Custom
+        /// resumes full automation. The minimum value is <code>60</code> (default). The maximum
+        /// value is <code>1,440</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResumeFullAutomationModeMinutes")]
+        public System.Int32? ResumeFullAutomationModeMinute { get; set; }
         #endregion
         
         #region Parameter StorageType
@@ -663,7 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para>
+        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -673,7 +700,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the given ARN from the key store in order to access the device.</para>
+        /// <para>The password for the given ARN from the key store in order to access the device.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -684,7 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para>
+        /// processor features.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -695,8 +722,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to authorize on this DB instance. This change is
-        /// asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
+        /// <para>A list of Amazon EC2 VPC security groups to authorize on this DB instance. This change
+        /// is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
         /// cluster. For more information, see <code>ModifyDBCluster</code>.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing VpcSecurityGroupIds.</para></li></ul>
         /// </para>
         /// </summary>
@@ -769,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AllocatedStorage = this.AllocatedStorage;
             context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
+            context.AutomationMode = this.AutomationMode;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AwsBackupRecoveryPointArn = this.AwsBackupRecoveryPointArn;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
@@ -825,6 +853,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PromotionTier = this.PromotionTier;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicaMode = this.ReplicaMode;
+            context.ResumeFullAutomationModeMinute = this.ResumeFullAutomationModeMinute;
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
@@ -860,6 +889,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
+            }
+            if (cmdletContext.AutomationMode != null)
+            {
+                request.AutomationMode = cmdletContext.AutomationMode;
             }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -1034,6 +1067,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ReplicaMode = cmdletContext.ReplicaMode;
             }
+            if (cmdletContext.ResumeFullAutomationModeMinute != null)
+            {
+                request.ResumeFullAutomationModeMinutes = cmdletContext.ResumeFullAutomationModeMinute.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -1118,6 +1155,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
+            public Amazon.RDS.AutomationMode AutomationMode { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AwsBackupRecoveryPointArn { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
@@ -1156,6 +1194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
+            public System.Int32? ResumeFullAutomationModeMinute { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }

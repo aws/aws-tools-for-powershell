@@ -28,10 +28,10 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Returns a list of insights in your AWS account. You can specify which insights are
-    /// returned by their start time, one or more statuses (<code>ONGOING</code>, <code>CLOSED</code>,
-    /// and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
-    /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+    /// Returns a list of insights in your Amazon Web Services account. You can specify which
+    /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>,
+    /// <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>,
+    /// <code>MEDIUM</code>, and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
     /// 
     /// 
     ///  
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter ServiceCollection_ServiceName
         /// <summary>
         /// <para>
-        /// <para>An array of strings that each specifies the name of an AWS service.</para>
+        /// <para>An array of strings that each specifies the name of an Amazon Web Services service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Initiates a contact flow to start a new task.
+    /// Initiates a contact flow to start a new task immediately or at a future date and time.
     /// </summary>
     [Cmdlet("Start", "CONNTaskContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -139,6 +139,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("References")]
         public System.Collections.Hashtable Reference { get; set; }
+        #endregion
+        
+        #region Parameter ScheduledTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp, in Unix Epoch seconds format, at which to start running the inbound
+        /// contact flow. The scheduled time cannot be in the past. It must be within up to 6
+        /// days in future. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ScheduledTime { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -253,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Reference.Add((String)hashKey, (Reference)(this.Reference[hashKey]));
                 }
             }
+            context.ScheduledTime = this.ScheduledTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -300,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Reference != null)
             {
                 request.References = cmdletContext.Reference;
+            }
+            if (cmdletContext.ScheduledTime != null)
+            {
+                request.ScheduledTime = cmdletContext.ScheduledTime.Value;
             }
             
             CmdletOutput output;
@@ -370,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Name { get; set; }
             public System.String PreviousContactId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
+            public System.DateTime? ScheduledTime { get; set; }
             public System.Func<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;
         }

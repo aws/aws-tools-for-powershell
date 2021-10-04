@@ -44,8 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filter the list of incident records you are searching through. You can filter on the
-        /// following keys:</para><ul><li><para><code>creationTime</code></para></li><li><para><code>impact</code></para></li><li><para><code>status</code></para></li><li><para><code>createdBy</code></para></li></ul>
+        /// <para>Filters the list of incident records through which you are searching. You can filter
+        /// on the following keys:</para><ul><li><para><code>creationTime</code></para></li><li><para><code>impact</code></para></li><li><para><code>status</code></para></li><li><para><code>createdBy</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all incident records.</para></li><li><para>If you specify more than one filter in a single request, the response returns incident
+        /// records that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns incident records
+        /// that match any of the values provided.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

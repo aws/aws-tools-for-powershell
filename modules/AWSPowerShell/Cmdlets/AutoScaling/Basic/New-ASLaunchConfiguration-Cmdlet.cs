@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// optimization is not available with all instance types. Additional fees are incurred
         /// when you enable EBS optimization for an instance type that is not EBS-optimized by
         /// default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-        /// EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <code>false</code>.</para>
+        /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

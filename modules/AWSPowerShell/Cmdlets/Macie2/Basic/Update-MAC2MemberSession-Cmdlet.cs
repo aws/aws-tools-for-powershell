@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Enables an Amazon Macie administrator to suspend or re-enable a member account.
+    /// Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.
     /// </summary>
     [Cmdlet("Update", "MAC2MemberSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

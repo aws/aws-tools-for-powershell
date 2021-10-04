@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of keywords that pre-mapped to the specified control data source.
+    /// Returns a list of keywords that are pre-mapped to the specified control data source.
     /// </summary>
     [Cmdlet("Get", "AUDMKeywordForDataSourceList")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para> The control mapping data source to which the keywords apply. </para>
+        /// <para> The control mapping data source that the keywords apply to. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Represents the maximum number of results per page, or per API request call. </para>
+        /// <para> Represents the maximum number of results on a page or for an API request call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token used to fetch the next set of results. </para>
+        /// <para> The pagination token that's used to fetch the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

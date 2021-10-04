@@ -222,6 +222,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpRestriction" OutputProperty="*" Verb="Get" Noun="IpRestriction" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -443,6 +447,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIAMPolicyAssignment" OutputProperty="*" Verb="Update" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIpRestriction" OutputProperty="AwsAccountId" Verb="Update" Noun="IpRestriction" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

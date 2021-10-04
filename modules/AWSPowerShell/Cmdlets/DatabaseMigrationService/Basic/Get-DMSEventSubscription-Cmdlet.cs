@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to event subscriptions.</para>
+        /// <para>Filters applied to event subscriptions.</para><para>Valid filter names: event-subscription-arn | event-subscription-id </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

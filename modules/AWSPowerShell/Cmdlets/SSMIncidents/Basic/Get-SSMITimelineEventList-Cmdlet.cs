@@ -28,7 +28,7 @@ using Amazon.SSMIncidents.Model;
 namespace Amazon.PowerShell.Cmdlets.SSMI
 {
     /// <summary>
-    /// Lists timeline events of the specified incident record.
+    /// Lists timeline events for the specified incident record.
     /// </summary>
     [Cmdlet("Get", "SSMITimelineEventList")]
     [OutputType("Amazon.SSMIncidents.Model.EventSummary")]
@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Filters the timeline events based on the provided conditional values. You can filter
-        /// timeline events using the following keys:</para><ul><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul>
+        /// timeline events using the following keys:</para><ul><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
+        /// events that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns timeline events
+        /// that match any of the values provided.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident that the event is part of.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

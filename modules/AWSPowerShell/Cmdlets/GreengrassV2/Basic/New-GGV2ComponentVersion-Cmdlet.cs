@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// Node.js 12 – <code>nodejs12.x</code></para></li></ul><para>
     /// To create a component from a Lambda function, specify <code>lambdaFunction</code>
     /// when you call this operation.
-    /// </para></li></ul>
+    /// </para><note><para>
+    /// IoT Greengrass currently supports Lambda functions on only Linux core devices.
+    /// </para></note></li></ul>
     /// </summary>
     [Cmdlet("New", "GGV2ComponentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GreengrassV2.Model.CreateComponentVersionResponse")]

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
     /// Deletes an access control rule for the specified WorkMail organization.
+    /// 
+    ///  <note><para>
+    /// Deleting already deleted and non-existing rules does not produce an error. In those
+    /// cases, the service sends back an HTTP 200 response with an empty HTTP body.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "WMAccessControlRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

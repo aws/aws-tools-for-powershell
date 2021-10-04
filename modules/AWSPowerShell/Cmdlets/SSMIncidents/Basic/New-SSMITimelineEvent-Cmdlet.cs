@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventData
         /// <summary>
         /// <para>
-        /// <para>A valid JSON string. There is no other schema imposed. A short description of the
-        /// event.</para>
+        /// <para>A short description of the event as a valid JSON string. There is no other schema
+        /// imposed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident record you are adding the event to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident record to which the event will be added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the global network.</para><para>Length Constraints: Maximum length of 256 characters.</para>
+        /// <para>A description of the global network.</para><para>Constraints: Maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
         /// virtual tape with. Use the <a>ListGateways</a> operation to return a list of gateways
-        /// for your account and Region.</para>
+        /// for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

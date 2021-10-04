@@ -28,8 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Create or update an attribute on an Amazon ECS resource. If the attribute does not
-    /// exist, it is created. If the attribute exists, its value is replaced with the specified
+    /// Create or update an attribute on an Amazon ECS resource. If the attribute doesn't
+    /// exist, it's created. If the attribute exists, its value is replaced with the specified
     /// value. To delete an attribute, use <a>DeleteAttributes</a>. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a>
     /// in the <i>Amazon Elastic Container Service Developer Guide</i>.
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The attributes to apply to your resource. You can specify up to 10 custom attributes
-        /// per resource. You can specify up to 10 attributes in a single call.</para>
+        /// for each resource. You can specify up to 10 attributes in a single call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSet
         /// <summary>
         /// <para>
-        /// <para> The control sets to be associated with the framework. </para>
+        /// <para> The control sets that are associated with the framework. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags associated with the framework. </para>
+        /// <para> The tags that are associated with the framework. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -163,8 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrafficDirection
         /// <summary>
         /// <para>
-        /// <para>The type of traffic (<code>ingress</code> | <code>egress</code>) to assign to the
-        /// rule.</para>
+        /// <para>The type of traffic to assign to the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CustomerOwnedIpv4Pool { get; set; }
         #endregion
         
+        #region Parameter EnableDns64
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+        /// should return synthetic IPv6 addresses for IPv4-only destinations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableDns64 { get; set; }
+        #endregion
+        
         #region Parameter MapCustomerOwnedIpOnLaunch
         /// <summary>
         /// <para>
@@ -167,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssignIpv6AddressOnCreation = this.AssignIpv6AddressOnCreation;
             context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
+            context.EnableDns64 = this.EnableDns64;
             context.MapCustomerOwnedIpOnLaunch = this.MapCustomerOwnedIpOnLaunch;
             context.MapPublicIpOnLaunch = this.MapPublicIpOnLaunch;
             context.SubnetId = this.SubnetId;
@@ -199,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CustomerOwnedIpv4Pool != null)
             {
                 request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
+            }
+            if (cmdletContext.EnableDns64 != null)
+            {
+                request.EnableDns64 = cmdletContext.EnableDns64.Value;
             }
             if (cmdletContext.MapCustomerOwnedIpOnLaunch != null)
             {
@@ -275,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AssignIpv6AddressOnCreation { get; set; }
             public System.String CustomerOwnedIpv4Pool { get; set; }
+            public System.Boolean? EnableDns64 { get; set; }
             public System.Boolean? MapCustomerOwnedIpOnLaunch { get; set; }
             public System.Boolean? MapPublicIpOnLaunch { get; set; }
             public System.String SubnetId { get; set; }

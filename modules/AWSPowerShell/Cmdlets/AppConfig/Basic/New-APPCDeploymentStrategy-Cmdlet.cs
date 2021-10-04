@@ -28,10 +28,10 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// A deployment strategy defines important criteria for rolling out your configuration
-    /// to the designated targets. A deployment strategy includes: the overall duration required,
-    /// a percentage of targets to receive the deployment during each interval, an algorithm
-    /// that defines how percentage grows, and bake time.
+    /// Creates a deployment strategy that defines important criteria for rolling out your
+    /// configuration to the designated targets. A deployment strategy includes the overall
+    /// duration required, a percentage of targets to receive the deployment during each interval,
+    /// an algorithm that defines how percentage grows, and bake time.
     /// </summary>
     [Cmdlet("New", "APPCDeploymentStrategy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.CreateDeploymentStrategyResponse")]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter GrowthType
         /// <summary>
         /// <para>
-        /// <para>The algorithm used to define how percentage grows over time. AWS AppConfig supports
-        /// the following growth types:</para><para><b>Linear</b>: For this type, AppConfig processes the deployment by dividing the
+        /// <para>The algorithm used to define how percentage grows over time. AppConfig supports the
+        /// following growth types:</para><para><b>Linear</b>: For this type, AppConfig processes the deployment by dividing the
         /// total number of targets by the value specified for <code>Step percentage</code>. For
         /// example, a linear deployment that uses a <code>Step percentage</code> of 10 deploys
         /// the configuration to 10 percent of the hosts. After those deployments are complete,

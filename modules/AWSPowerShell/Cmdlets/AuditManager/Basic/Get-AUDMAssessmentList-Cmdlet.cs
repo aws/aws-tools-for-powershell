@@ -40,10 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class GetAUDMAssessmentListCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para> The current status of the assessment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AuditManager.AssessmentStatus")]
+        public Amazon.AuditManager.AssessmentStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Represents the maximum number of results per page, or per API request call. </para>
+        /// <para> Represents the maximum number of results on a page or for an API request call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token used to fetch the next set of results. </para>
+        /// <para> The pagination token that's used to fetch the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -175,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.AuditManager.AssessmentStatus Status { get; set; }
             public System.Func<Amazon.AuditManager.Model.ListAssessmentsResponse, GetAUDMAssessmentListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssessmentMetadata;
         }

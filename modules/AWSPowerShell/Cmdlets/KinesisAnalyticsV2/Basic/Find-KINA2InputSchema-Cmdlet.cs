@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter InputLambdaProcessor_ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Lambda function that operates on records in the stream.</para><note><para>To specify an earlier version of the Lambda function than the latest, include the
+        /// <para>The ARN of the Amazon Lambda function that operates on records in the stream.</para><note><para>To specify an earlier version of the Lambda function than the latest, include the
         /// Lambda function version in the Lambda function ARN. For more information about Lambda
         /// ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example
-        /// ARNs: AWS Lambda</a></para></note>
+        /// ARNs: Amazon Lambda</a></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

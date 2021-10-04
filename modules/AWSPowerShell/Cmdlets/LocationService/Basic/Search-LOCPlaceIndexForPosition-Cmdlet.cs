@@ -57,10 +57,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String IndexName { get; set; }
         #endregion
         
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP
+        /// 47</a> language tag, for example, <code>en</code> for English.</para><para>This setting affects the languages used in the results. It does not change which results
+        /// are returned. If the language is not specified, or not supported for a particular
+        /// result, the partner automatically chooses a language for the result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Language { get; set; }
+        #endregion
+        
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>Specifies a coordinate for the query defined by a longitude, and latitude.</para><ul><li><para>The first position is the X coordinate, or longitude.</para></li><li><para>The second position is the Y coordinate, or latitude. </para></li></ul><para>For example, <code>position=xLongitude&amp;position=yLatitude</code> .</para>
+        /// <para>Specifies the longitude and latitude of the position to query.</para><para> This parameter must contain a pair of numbers. The first number represents the X
+        /// coordinate, or longitude; the second number represents the Y coordinate, or latitude.</para><para>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude
+        /// <code>-123.1174</code> and latitude <code>49.2847</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional paramer. The maximum number of results returned per request. </para><para>Default value: <code>50</code></para>
+        /// <para>An optional parameter. The maximum number of results returned per request.</para><para>Default value: <code>50</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             if (this.Position != null)
             {
@@ -167,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.IndexName != null)
             {
                 request.IndexName = cmdletContext.IndexName;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -238,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String IndexName { get; set; }
+            public System.String Language { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<System.Double> Position { get; set; }
             public System.Func<Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse, SearchLOCPlaceIndexForPositionCmdlet, object> Select { get; set; } =

@@ -39,7 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
     /// When you specify an IAM role for a task, its containers can then use the latest versions
     /// of the CLI or SDKs to make API requests to the Amazon Web Services services that are
-    /// specified in the IAM policy associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+    /// specified in the IAM policy that's associated with the role. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
     /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
@@ -94,14 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The number of CPU units used by the task. It can be expressed as an integer using
-        /// CPU units, for example <code>1024</code>, or as a string using vCPUs, for example
-        /// <code>1 vCPU</code> or <code>1 vcpu</code>, in a task definition. String values are
+        /// CPU units (for example, <code>1024</code>) or as a string using vCPUs (for example,
+        /// <code>1 vCPU</code> or <code>1 vcpu</code>) in a task definition. String values are
         /// converted to an integer indicating the CPU units when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
-        /// specifying container-level resources for Windows containers.</para></note><para>If you are using the EC2 launch type, this field is optional. Supported values are
+        /// specifying container-level resources for Windows containers.</para></note><para>If you're using the EC2 launch type, this field is optional. Supported values are
         /// between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>
-        /// CPU units (<code>10</code> vCPUs).</para><para>If you are using the Fargate launch type, this field is required and you must use
-        /// one of the following values, which determines your range of supported values for the
-        /// <code>memory</code> parameter:</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB),
+        /// CPU units (<code>10</code> vCPUs).</para><para>If you're using the Fargate launch type, this field is required and you must use one
+        /// of the following values, which determines your range of supported values for the <code>memory</code>
+        /// parameter:</para><para>The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB),
         /// 2048 (2 GB)</para></li><li><para>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072
         /// (3 GB), 4096 (4 GB)</para></li><li><para>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096
         /// (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</para></li><li><para>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384
@@ -111,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Cpu { get; set; }
+        #endregion
+        
+        #region Parameter RuntimePlatform_CpuArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>The CPU architecture.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.CPUArchitecture")]
+        public Amazon.ECS.CPUArchitecture RuntimePlatform_CpuArchitecture { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -131,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Family
         /// <summary>
         /// <para>
-        /// <para>You must specify a <code>family</code> for a task definition, which allows you to
-        /// track multiple versions of the same task definition. The <code>family</code> is used
-        /// as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
+        /// <para>You must specify a <code>family</code> for a task definition. You can use it track
+        /// multiple versions of the same task definition. The <code>family</code> is used as
+        /// a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
         /// underscores, and hyphens are allowed.</para>
         /// </para>
         /// </summary>
@@ -191,12 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The amount of memory (in MiB) used by the task. It can be expressed as an integer
-        /// using MiB, for example <code>1024</code>, or as a string using GB, for example <code>1GB</code>
-        /// or <code>1 GB</code>, in a task definition. String values are converted to an integer
+        /// using MiB (for example ,<code>1024</code>) or as a string using GB (for example, <code>1GB</code>
+        /// or <code>1 GB</code>) in a task definition. String values are converted to an integer
         /// indicating the MiB when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
         /// specifying container-level resources for Windows containers.</para></note><para>If using the EC2 launch type, this field is optional.</para><para>If using the Fargate launch type, this field is required and you must use one of the
-        /// following values, which determines your range of supported values for the <code>cpu</code>
-        /// parameter:</para><ul><li><para>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code> values: 256 (.25
+        /// following values. This determines your range of supported values for the <code>cpu</code>
+        /// parameter.</para><para>The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.</para><ul><li><para>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code> values: 256 (.25
         /// vCPU)</para></li><li><para>1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code> values:
         /// 512 (.5 vCPU)</para></li><li><para>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192
         /// (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</para></li><li><para>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available <code>cpu</code>
@@ -238,6 +250,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.NetworkMode NetworkMode { get; set; }
         #endregion
         
+        #region Parameter RuntimePlatform_OperatingSystemFamily
+        /// <summary>
+        /// <para>
+        /// <para>The operating system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.OSFamily")]
+        public Amazon.ECS.OSFamily RuntimePlatform_OperatingSystemFamily { get; set; }
+        #endregion
+        
         #region Parameter PidMode
         /// <summary>
         /// <para>
@@ -262,8 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>An array of placement constraint objects to use for the task. You can specify a maximum
-        /// of 10 constraints per task (this limit includes constraints in the task definition
-        /// and those specified at runtime).</para>
+        /// of 10 constraints for each task. This limit includes constraints in the task definition
+        /// and those specified at runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,10 +322,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter RequiresCompatibility
         /// <summary>
         /// <para>
-        /// <para>The task launch type that Amazon ECS should validate the task definition against.
-        /// A client exception is returned if the task definition doesn't validate against the
-        /// compatibilities specified. If no value is specified, the parameter is omitted from
-        /// the response.</para>
+        /// <para>The task launch type that Amazon ECS validates the task definition against. A client
+        /// exception is returned if the task definition doesn't validate against the compatibilities
+        /// specified. If no value is specified, the parameter is omitted from the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The metadata that you apply to the task definition to help you categorize and organize
-        /// them. Each tag consists of a key and an optional value, both of which you define.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// them. Each tag consists of a key and an optional value. You define both of them.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
@@ -367,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Volume
         /// <summary>
         /// <para>
-        /// <para>A list of volume definitions in JSON format that containers in your task may use.</para>
+        /// <para>A list of volume definitions in JSON format that containers in your task might use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,6 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.RequiresCompatibility = new List<System.String>(this.RequiresCompatibility);
             }
+            context.RuntimePlatform_CpuArchitecture = this.RuntimePlatform_CpuArchitecture;
+            context.RuntimePlatform_OperatingSystemFamily = this.RuntimePlatform_OperatingSystemFamily;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ECS.Model.Tag>(this.Tag);
@@ -605,6 +629,35 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.RequiresCompatibilities = cmdletContext.RequiresCompatibility;
             }
+            
+             // populate RuntimePlatform
+            var requestRuntimePlatformIsNull = true;
+            request.RuntimePlatform = new Amazon.ECS.Model.RuntimePlatform();
+            Amazon.ECS.CPUArchitecture requestRuntimePlatform_runtimePlatform_CpuArchitecture = null;
+            if (cmdletContext.RuntimePlatform_CpuArchitecture != null)
+            {
+                requestRuntimePlatform_runtimePlatform_CpuArchitecture = cmdletContext.RuntimePlatform_CpuArchitecture;
+            }
+            if (requestRuntimePlatform_runtimePlatform_CpuArchitecture != null)
+            {
+                request.RuntimePlatform.CpuArchitecture = requestRuntimePlatform_runtimePlatform_CpuArchitecture;
+                requestRuntimePlatformIsNull = false;
+            }
+            Amazon.ECS.OSFamily requestRuntimePlatform_runtimePlatform_OperatingSystemFamily = null;
+            if (cmdletContext.RuntimePlatform_OperatingSystemFamily != null)
+            {
+                requestRuntimePlatform_runtimePlatform_OperatingSystemFamily = cmdletContext.RuntimePlatform_OperatingSystemFamily;
+            }
+            if (requestRuntimePlatform_runtimePlatform_OperatingSystemFamily != null)
+            {
+                request.RuntimePlatform.OperatingSystemFamily = requestRuntimePlatform_runtimePlatform_OperatingSystemFamily;
+                requestRuntimePlatformIsNull = false;
+            }
+             // determine if request.RuntimePlatform should be set to null
+            if (requestRuntimePlatformIsNull)
+            {
+                request.RuntimePlatform = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -693,6 +746,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.KeyValuePair> ProxyConfiguration_Property { get; set; }
             public Amazon.ECS.ProxyConfigurationType ProxyConfiguration_Type { get; set; }
             public List<System.String> RequiresCompatibility { get; set; }
+            public Amazon.ECS.CPUArchitecture RuntimePlatform_CpuArchitecture { get; set; }
+            public Amazon.ECS.OSFamily RuntimePlatform_OperatingSystemFamily { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.Volume> Volume { get; set; }

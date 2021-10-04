@@ -28,7 +28,8 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Returns the most recent feedback submitted in the current AWS account and Region.
+    /// Returns the most recent feedback submitted in the current Amazon Web Services account
+    /// and Region.
     /// </summary>
     [Cmdlet("Get", "DGURUFeedback")]
     [OutputType("Amazon.DevOpsGuru.Model.InsightFeedback")]

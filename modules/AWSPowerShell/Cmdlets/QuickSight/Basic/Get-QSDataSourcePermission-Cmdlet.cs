@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data source. This ID is unique per Amazon Web Services Region; for each
+        /// <para>The ID of the data source. This ID is unique per Amazon Web Services Region for each
         /// Amazon Web Services account.</para>
         /// </para>
         /// </summary>

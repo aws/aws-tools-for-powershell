@@ -153,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TargetCapacitySpecification_SpotTargetCapacity { get; set; }
         #endregion
         
+        #region Parameter TargetCapacitySpecification_TargetCapacityUnitType
+        /// <summary>
+        /// <para>
+        /// <para>The unit for the target capacity.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TargetCapacityUnitType")]
+        public Amazon.EC2.TargetCapacityUnitType TargetCapacitySpecification_TargetCapacityUnitType { get; set; }
+        #endregion
+        
         #region Parameter TargetCapacitySpecification_TotalTargetCapacity
         /// <summary>
         /// <para>
@@ -240,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.TargetCapacitySpecification_DefaultTargetCapacityType = this.TargetCapacitySpecification_DefaultTargetCapacityType;
             context.TargetCapacitySpecification_OnDemandTargetCapacity = this.TargetCapacitySpecification_OnDemandTargetCapacity;
             context.TargetCapacitySpecification_SpotTargetCapacity = this.TargetCapacitySpecification_SpotTargetCapacity;
+            context.TargetCapacitySpecification_TargetCapacityUnitType = this.TargetCapacitySpecification_TargetCapacityUnitType;
             context.TargetCapacitySpecification_TotalTargetCapacity = this.TargetCapacitySpecification_TotalTargetCapacity;
             
             // allow further manipulation of loaded context prior to processing
@@ -305,6 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTargetCapacitySpecification_targetCapacitySpecification_SpotTargetCapacity != null)
             {
                 request.TargetCapacitySpecification.SpotTargetCapacity = requestTargetCapacitySpecification_targetCapacitySpecification_SpotTargetCapacity.Value;
+                requestTargetCapacitySpecificationIsNull = false;
+            }
+            Amazon.EC2.TargetCapacityUnitType requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType = null;
+            if (cmdletContext.TargetCapacitySpecification_TargetCapacityUnitType != null)
+            {
+                requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType = cmdletContext.TargetCapacitySpecification_TargetCapacityUnitType;
+            }
+            if (requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType != null)
+            {
+                request.TargetCapacitySpecification.TargetCapacityUnitType = requestTargetCapacitySpecification_targetCapacitySpecification_TargetCapacityUnitType;
                 requestTargetCapacitySpecificationIsNull = false;
             }
             System.Int32? requestTargetCapacitySpecification_targetCapacitySpecification_TotalTargetCapacity = null;
@@ -390,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
             public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }
             public System.Int32? TargetCapacitySpecification_SpotTargetCapacity { get; set; }
+            public Amazon.EC2.TargetCapacityUnitType TargetCapacitySpecification_TargetCapacityUnitType { get; set; }
             public System.Int32? TargetCapacitySpecification_TotalTargetCapacity { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyFleetResponse, EditEC2FleetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

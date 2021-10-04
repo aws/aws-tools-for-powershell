@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String ExternalEventsDetail_DataLocation { get; set; }
         #endregion
         
+        #region Parameter IngestedEventsTimeWindow_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>Timestamp of the final ingested event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IngestedEventsDetail_IngestedEventsTimeWindow_EndTime")]
+        public System.String IngestedEventsTimeWindow_EndTime { get; set; }
+        #endregion
+        
         #region Parameter MajorVersionNumber
         /// <summary>
         /// <para>
@@ -112,6 +123,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.FraudDetector.ModelTypeEnum")]
         public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
+        #endregion
+        
+        #region Parameter IngestedEventsTimeWindow_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>Timestamp of the first ingensted event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IngestedEventsDetail_IngestedEventsTimeWindow_StartTime")]
+        public System.String IngestedEventsTimeWindow_StartTime { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -188,6 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExternalEventsDetail_DataAccessRoleArn = this.ExternalEventsDetail_DataAccessRoleArn;
             context.ExternalEventsDetail_DataLocation = this.ExternalEventsDetail_DataLocation;
+            context.IngestedEventsTimeWindow_EndTime = this.IngestedEventsTimeWindow_EndTime;
+            context.IngestedEventsTimeWindow_StartTime = this.IngestedEventsTimeWindow_StartTime;
             context.MajorVersionNumber = this.MajorVersionNumber;
             #if MODULAR
             if (this.MajorVersionNumber == null && ParameterWasBound(nameof(this.MajorVersionNumber)))
@@ -257,6 +281,50 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (requestExternalEventsDetailIsNull)
             {
                 request.ExternalEventsDetail = null;
+            }
+            
+             // populate IngestedEventsDetail
+            var requestIngestedEventsDetailIsNull = true;
+            request.IngestedEventsDetail = new Amazon.FraudDetector.Model.IngestedEventsDetail();
+            Amazon.FraudDetector.Model.IngestedEventsTimeWindow requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = null;
+            
+             // populate IngestedEventsTimeWindow
+            var requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = true;
+            requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = new Amazon.FraudDetector.Model.IngestedEventsTimeWindow();
+            System.String requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime = null;
+            if (cmdletContext.IngestedEventsTimeWindow_EndTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime = cmdletContext.IngestedEventsTimeWindow_EndTime;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow.EndTime = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_EndTime;
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = false;
+            }
+            System.String requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime = null;
+            if (cmdletContext.IngestedEventsTimeWindow_StartTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime = cmdletContext.IngestedEventsTimeWindow_StartTime;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime != null)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow.StartTime = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow_ingestedEventsTimeWindow_StartTime;
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull = false;
+            }
+             // determine if requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow should be set to null
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindowIsNull)
+            {
+                requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow = null;
+            }
+            if (requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow != null)
+            {
+                request.IngestedEventsDetail.IngestedEventsTimeWindow = requestIngestedEventsDetail_ingestedEventsDetail_IngestedEventsTimeWindow;
+                requestIngestedEventsDetailIsNull = false;
+            }
+             // determine if request.IngestedEventsDetail should be set to null
+            if (requestIngestedEventsDetailIsNull)
+            {
+                request.IngestedEventsDetail = null;
             }
             if (cmdletContext.MajorVersionNumber != null)
             {
@@ -337,6 +405,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             public System.String ExternalEventsDetail_DataAccessRoleArn { get; set; }
             public System.String ExternalEventsDetail_DataLocation { get; set; }
+            public System.String IngestedEventsTimeWindow_EndTime { get; set; }
+            public System.String IngestedEventsTimeWindow_StartTime { get; set; }
             public System.String MajorVersionNumber { get; set; }
             public System.String ModelId { get; set; }
             public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }

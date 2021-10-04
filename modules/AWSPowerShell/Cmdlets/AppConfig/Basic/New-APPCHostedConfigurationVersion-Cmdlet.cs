@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Create a new configuration in the AppConfig configuration store.
+    /// Creates a new configuration in the AppConfig hosted configuration store.
     /// </summary>
     [Cmdlet("New", "APPCHostedConfigurationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.CreateHostedConfigurationVersionResponse")]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>A standard MIME type describing the format of the configuration content. For more
-        /// information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</para>
+        /// information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>
         /// <para>An optional locking token used to prevent race conditions from overwriting configuration
         /// updates when creating a new version. To ensure your data is not overwritten when creating
-        /// multiple hosted configuration versions in rapid succession, specify the version of
-        /// the latest hosted configuration version.</para>
+        /// multiple hosted configuration versions in rapid succession, specify the version number
+        /// of the latest hosted configuration version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

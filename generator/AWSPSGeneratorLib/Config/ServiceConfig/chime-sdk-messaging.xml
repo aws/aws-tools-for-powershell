@@ -18,7 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateChannelFlow" Verb="Register" Noun="ChannelFlow" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchCreateChannelMembership" OutputProperty="*" Verb="New" Noun="CreateChannelMembership" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChannelFlowCallback" OutputProperty="*" Verb="Send" Noun="ChannelFlowCallback" ShouldProcessTarget="ChannelMessage_MessageId" PipelineParameter="ChannelMessage_MessageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,6 +35,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannelBan" OutputProperty="*" Verb="New" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelFlow" OutputProperty="ChannelFlowArn" Verb="New" Noun="ChannelFlow" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannelBan" Verb="Remove" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelFlow" Verb="Remove" Noun="ChannelFlow" ShouldProcessTarget="ChannelFlowArn" PipelineParameter="ChannelFlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelFlow" OutputProperty="ChannelFlow" Verb="Get" Noun="ChannelFlow" PipelineParameter="ChannelFlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeChannelMembership" OutputProperty="ChannelMembership" Verb="Get" Noun="ChannelMembership" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -82,7 +102,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateChannelFlow" Verb="Unregister" Noun="ChannelFlow" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelMembershipPreferences" OutputProperty="*" Verb="Get" Noun="ChannelMembershipPreference" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetChannelMessage" OutputProperty="ChannelMessage" Verb="Get" Noun="ChannelMessage" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelMessageStatus" OutputProperty="Status" Verb="Get" Noun="ChannelMessageStatus" PipelineParameter="MessageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +123,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListChannelBans" OutputProperty="*" Verb="Get" Noun="ChannelBanList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelFlows" OutputProperty="ChannelFlows" Verb="Get" Noun="ChannelFlowList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,7 +150,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelsAssociatedWithChannelFlow" OutputProperty="Channels" Verb="Get" Noun="ChannelsAssociatedWithChannelFlowList" PipelineParameter="ChannelFlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListChannelsModeratedByAppInstanceUser" OutputProperty="Channels" Verb="Get" Noun="ChannelsModeratedByAppInstanceUserList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutChannelMembershipPreferences" OutputProperty="*" Verb="Write" Noun="ChannelMembershipPreference" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +174,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannel" OutputProperty="ChannelArn" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelFlow" OutputProperty="ChannelFlowArn" Verb="Update" Noun="ChannelFlow" ShouldProcessTarget="ChannelFlowArn" PipelineParameter="ChannelFlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

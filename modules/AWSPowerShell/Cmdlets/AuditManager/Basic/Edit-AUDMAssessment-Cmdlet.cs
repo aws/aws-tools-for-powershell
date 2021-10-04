@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentDescription
         /// <summary>
         /// <para>
-        /// <para> The description of the specified assessment. </para>
+        /// <para> The description of the assessment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the specified assessment to be updated. </para>
+        /// <para> The name of the assessment to be updated. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsAccount
         /// <summary>
         /// <para>
-        /// <para> The accounts included in the scope of the assessment. </para>
+        /// <para> The Amazon Web Services accounts that are included in the scope of the assessment.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsService
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services services included in the scope of the assessment. </para>
+        /// <para> The Amazon Web Services services that are included in the scope of the assessment.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para> The list of roles for the specified assessment. </para>
+        /// <para> The list of roles for the assessment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

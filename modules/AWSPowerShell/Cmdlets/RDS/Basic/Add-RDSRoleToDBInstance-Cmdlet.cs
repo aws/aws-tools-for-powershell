@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  <note><para>
     /// To add a role to a DB instance, the status of the DB instance must be <code>available</code>.
-    /// </para></note>
+    /// </para></note><para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "RDSRoleToDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the feature for the DB instance that the IAM role is to be associated
-        /// with. For the list of supported feature names, see <a>DBEngineVersion</a>. </para>
+        /// with. For information about supported feature names, see <a>DBEngineVersion</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

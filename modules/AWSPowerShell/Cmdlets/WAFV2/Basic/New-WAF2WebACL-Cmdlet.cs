@@ -119,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ImmunityTimeProperty_ImmunityTime
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default
+        /// setting is 300.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CaptchaConfig_ImmunityTimeProperty_ImmunityTime")]
+        public System.Int64? ImmunityTimeProperty_ImmunityTime { get; set; }
+        #endregion
+        
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
@@ -280,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ImmunityTimeProperty_ImmunityTime = this.ImmunityTimeProperty_ImmunityTime;
             if (this.CustomResponseBody != null)
             {
                 context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
@@ -350,6 +363,40 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.CreateWebACLRequest();
             
+            
+             // populate CaptchaConfig
+            var requestCaptchaConfigIsNull = true;
+            request.CaptchaConfig = new Amazon.WAFV2.Model.CaptchaConfig();
+            Amazon.WAFV2.Model.ImmunityTimeProperty requestCaptchaConfig_captchaConfig_ImmunityTimeProperty = null;
+            
+             // populate ImmunityTimeProperty
+            var requestCaptchaConfig_captchaConfig_ImmunityTimePropertyIsNull = true;
+            requestCaptchaConfig_captchaConfig_ImmunityTimeProperty = new Amazon.WAFV2.Model.ImmunityTimeProperty();
+            System.Int64? requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime = null;
+            if (cmdletContext.ImmunityTimeProperty_ImmunityTime != null)
+            {
+                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime = cmdletContext.ImmunityTimeProperty_ImmunityTime.Value;
+            }
+            if (requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime != null)
+            {
+                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty.ImmunityTime = requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime.Value;
+                requestCaptchaConfig_captchaConfig_ImmunityTimePropertyIsNull = false;
+            }
+             // determine if requestCaptchaConfig_captchaConfig_ImmunityTimeProperty should be set to null
+            if (requestCaptchaConfig_captchaConfig_ImmunityTimePropertyIsNull)
+            {
+                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty = null;
+            }
+            if (requestCaptchaConfig_captchaConfig_ImmunityTimeProperty != null)
+            {
+                request.CaptchaConfig.ImmunityTimeProperty = requestCaptchaConfig_captchaConfig_ImmunityTimeProperty;
+                requestCaptchaConfigIsNull = false;
+            }
+             // determine if request.CaptchaConfig should be set to null
+            if (requestCaptchaConfigIsNull)
+            {
+                request.CaptchaConfig = null;
+            }
             if (cmdletContext.CustomResponseBody != null)
             {
                 request.CustomResponseBodies = cmdletContext.CustomResponseBody;
@@ -503,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int64? ImmunityTimeProperty_ImmunityTime { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }
             public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
             public Amazon.WAFV2.Model.BlockAction DefaultAction_Block { get; set; }

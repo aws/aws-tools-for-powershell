@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident that the timeline event is part of.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

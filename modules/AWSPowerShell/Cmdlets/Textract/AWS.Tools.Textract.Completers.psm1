@@ -128,8 +128,10 @@ $TXT_SelectMap = @{
                "Find-TXTDocumentText",
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",
+               "Get-TXTExpenseAnalysis",
                "Start-TXTDocumentAnalysis",
-               "Start-TXTDocumentTextDetection")
+               "Start-TXTDocumentTextDetection",
+               "Start-TXTExpenseAnalysis")
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap

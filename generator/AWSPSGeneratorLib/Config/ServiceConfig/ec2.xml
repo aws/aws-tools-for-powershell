@@ -209,6 +209,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelCapacityReservationFleets" OutputProperty="*" Verb="Stop" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetIds" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -250,6 +254,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityReservation" OutputProperty="CapacityReservation" Verb="Add" Noun="CapacityReservation" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityReservationFleet" OutputProperty="*" Verb="New" Noun="CapacityReservationFleet" ShouldProcessTarget="TotalTargetCapacity" PipelineParameter="TotalTargetCapacity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -806,6 +814,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1520,6 +1532,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLaunchTemplateData" OutputProperty="LaunchTemplateData" Verb="Get" Noun="LaunchTemplateData" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1541,6 +1557,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpotPlacementScores" OutputProperty="SpotPlacementScores" Verb="Get" Noun="SpotPlacementScore" PipelineParameter="TargetCapacity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1623,6 +1643,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyCapacityReservation" OutputProperty="Return" Verb="Edit" Noun="CapacityReservation" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCapacityReservationFleet" OutputProperty="Return" Verb="Edit" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetId" PipelineParameter="CapacityReservationFleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

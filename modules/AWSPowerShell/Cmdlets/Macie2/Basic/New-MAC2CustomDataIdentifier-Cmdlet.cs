@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter IgnoreWord
         /// <summary>
         /// <para>
-        /// <para>An array that lists specific character sequences (ignore words) to exclude from the
-        /// results. If the text matched by the regular expression is the same as any string in
-        /// this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words.
-        /// Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</para>
+        /// <para>An array that lists specific character sequences (<i>ignore words</i>) to exclude
+        /// from the results. If the text matched by the regular expression contains any string
+        /// in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore
+        /// words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Keyword
         /// <summary>
         /// <para>
-        /// <para>An array that lists specific character sequences (keywords), one of which must be
-        /// within proximity (maximumMatchDistance) of the regular expression to match. The array
-        /// can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters.
+        /// <para>An array that lists specific character sequences (<i>keywords</i>), one of which must
+        /// be within proximity (maximumMatchDistance) of the regular expression to match. The
+        /// array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters.
         /// Keywords aren't case sensitive.</para>
         /// </para>
         /// </summary>
@@ -85,10 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter MaximumMatchDistance
         /// <summary>
         /// <para>
-        /// <para>The maximum number of characters that can exist between text that matches the regex
-        /// pattern and the character sequences specified by the keywords array. Amazon Macie
+        /// <para>The maximum number of characters that can exist between text that matches the regular
+        /// expression and the character sequences specified by the keywords array. Amazon Macie
         /// includes or excludes a result based on the proximity of a keyword to text that matches
-        /// the regex pattern. The distance can be 1-300 characters. The default value is 50.</para>
+        /// the regular expression. The distance can be 1-300 characters. The default value is
+        /// 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,6 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Regex { get; set; }
+        #endregion
+        
+        #region Parameter SeverityLevel
+        /// <summary>
+        /// <para>
+        /// <para>The severity to assign to findings that the custom data identifier produces, based
+        /// on the number of occurrences of text that matches the custom data identifier's detection
+        /// criteria. You can specify as many as three SeverityLevel objects in this array, one
+        /// for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences
+        /// thresholds must be in ascending order by severity, moving from LOW to HIGH. For example,
+        /// 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences
+        /// than the lowest specified threshold, Amazon Macie doesn't create a finding.</para><para>If you don't specify any values for this array, Macie creates findings for S3 objects
+        /// that contain at least one occurrence of text that matches the detection criteria,
+        /// and Macie assigns the MEDIUM severity to those findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SeverityLevels")]
+        public Amazon.Macie2.Model.SeverityLevel[] SeverityLevel { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -197,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             context.MaximumMatchDistance = this.MaximumMatchDistance;
             context.Name = this.Name;
             context.Regex = this.Regex;
+            if (this.SeverityLevel != null)
+            {
+                context.SeverityLevel = new List<Amazon.Macie2.Model.SeverityLevel>(this.SeverityLevel);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -248,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (cmdletContext.Regex != null)
             {
                 request.Regex = cmdletContext.Regex;
+            }
+            if (cmdletContext.SeverityLevel != null)
+            {
+                request.SeverityLevels = cmdletContext.SeverityLevel;
             }
             if (cmdletContext.Tag != null)
             {
@@ -321,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             public System.Int32? MaximumMatchDistance { get; set; }
             public System.String Name { get; set; }
             public System.String Regex { get; set; }
+            public List<Amazon.Macie2.Model.SeverityLevel> SeverityLevel { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Macie2.Model.CreateCustomDataIdentifierResponse, NewMAC2CustomDataIdentifierCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CustomDataIdentifierId;

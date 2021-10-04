@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Associates the specified tags to a resource with the specified <code>resourceArn</code>.
-    /// If existing tags on a resource are not specified in the request parameters, they are
-    /// not changed. When a resource is deleted, the tags associated with that resource are
-    /// deleted as well.
+    /// If existing tags on a resource aren't specified in the request parameters, they aren't
+    /// changed. When a resource is deleted, the tags that are associated with that resource
+    /// are deleted as well.
     /// </summary>
     [Cmdlet("Add", "ECSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
-        /// supported resources are Amazon ECS capacity providers, tasks, services, task definitions,
-        /// clusters, and container instances.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported
+        /// resources are Amazon ECS capacity providers, tasks, services, task definitions, clusters,
+        /// and container instances.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

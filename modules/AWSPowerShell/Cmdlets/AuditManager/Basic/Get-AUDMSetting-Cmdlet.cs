@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the settings for the specified account.
+    /// Returns the settings for the specified Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "AUDMSetting")]
     [OutputType("Amazon.AuditManager.Model.Settings")]

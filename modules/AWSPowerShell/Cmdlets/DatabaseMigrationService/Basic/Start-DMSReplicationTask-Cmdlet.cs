@@ -104,7 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter StartReplicationTaskType
         /// <summary>
         /// <para>
-        /// <para>A type of replication task.</para>
+        /// <para>The type of replication task to start.</para><para>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>,
+        /// the only valid value for the first run of the task is <code>start-replication</code>.
+        /// You use <code>reload-target</code> to restart the task and <code>resume-processing</code>
+        /// to resume the task.</para><para>When the migration type is <code>cdc</code>, you use <code>start-replication</code>
+        /// to start or restart the task, and <code>resume-processing</code> to resume the task.
+        /// <code>reload-target</code> is not a valid value for a task with migration type of
+        /// <code>cdc</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

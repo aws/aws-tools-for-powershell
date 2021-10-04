@@ -28,8 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates Amazon QuickSight customizations the current Amazon Web Services Region;.
-    /// Currently, the only customization you can use is a theme.
+    /// Updates Amazon QuickSight customizations the current Amazon Web Services Region. Currently,
+    /// the only customization you can use is a theme.
     /// 
     ///  
     /// <para>

@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum results shown for a list of groups that are mapped to users before a
-        /// given ordering or timestamp identifier. </para>
+        /// <para> The maximum number of returned groups that are mapped to users before a given ordering
+        /// or timestamp identifier. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The next items in the list of groups that go beyond the maximum. </para>
+        /// <para> If the previous response was incomplete (because there is more data to retrieve),
+        /// Amazon Kendra returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of groups that are mapped to users before a given ordering
+        /// or timestamp identifier. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

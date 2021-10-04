@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Direct Connect traffic. A private virtual interface can be connected to either a Direct
     /// Connect gateway or a Virtual Private Gateway (VGW). Connecting the private virtual
     /// interface to a Direct Connect gateway enables the possibility for connecting to multiple
-    /// VPCs, including VPCs in different Regions. Connecting the private virtual interface
-    /// to a VGW only provides access to a single VPC within the same Region.
+    /// VPCs, including VPCs in different Amazon Web Services Regions. Connecting the private
+    /// virtual interface to a VGW only provides access to a single VPC within the same Region.
     /// 
     ///  
     /// <para>

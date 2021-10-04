@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services
-        /// Region; for each Amazon Web Services account.</para>
+        /// Region for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,0 +1,3 @@
+﻿# AppConfigData
+
+Export-ModuleMember -Alias *

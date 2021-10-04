@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocationHdfs" OutputProperty="LocationArn" Verb="New" Noun="LocationHdf" ShouldProcessTarget="AuthenticationType" PipelineParameter="AuthenticationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationNfs" OutputProperty="LocationArn" Verb="New" Noun="LocationNfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationFsxWindows" OutputProperty="*" Verb="Get" Noun="LocationFsxWindow" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocationHdfs" OutputProperty="*" Verb="Get" Noun="LocationHdf" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationHdfs" Verb="Update" Noun="LocationHdf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

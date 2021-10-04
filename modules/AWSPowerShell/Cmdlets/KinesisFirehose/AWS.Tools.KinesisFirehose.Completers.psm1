@@ -80,6 +80,23 @@ $KINF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisFirehose.AmazonopensearchserviceIndexRotationPeriod
+        {
+            ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod") -Or
+            ($_ -eq "Update-KINFDestination/AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod")
+        }
+        {
+            $v = "NoRotation","OneDay","OneHour","OneMonth","OneWeek"
+            break
+        }
+
+        # Amazon.KinesisFirehose.AmazonopensearchserviceS3BackupMode
+        "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_S3BackupMode"
+        {
+            $v = "AllDocuments","FailedDocumentsOnly"
+            break
+        }
+
         # Amazon.KinesisFirehose.ContentEncoding
         {
             ($_ -eq "New-KINFDeliveryStream/HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding") -Or
@@ -146,6 +163,9 @@ $KINF_Completers = {
 }
 
 $KINF_map = @{
+    "AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "DeliveryStreamEncryptionConfigurationInput_KeyType"=@("New-KINFDeliveryStream","Start-KINFDeliveryStreamEncryption")
     "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")

@@ -58,12 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The managed termination protection setting to use for the Auto Scaling group capacity
         /// provider. This determines whether the Auto Scaling group has managed termination protection.</para><important><para>When using managed termination protection, managed scaling must also be used otherwise
-        /// managed termination protection will not work.</para></important><para>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2
+        /// managed termination protection doesn't work.</para></important><para>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2
         /// instances in an Auto Scaling group that contain tasks from being terminated during
         /// a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group
-        /// must have instance protection from scale-in actions enabled as well. For more information,
+        /// must have instance protection from scale-in actions enabled. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
+        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances aren't
         /// protected from termination when the Auto Scaling group scales in.</para>
         /// </para>
         /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MaximumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of container instances that Amazon ECS will scale in or scale out
+        /// <para>The maximum number of container instances that Amazon ECS scales in or scales out
         /// at one time. If this parameter is omitted, the default value of <code>10000</code>
         /// is used.</para>
         /// </para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MinimumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of container instances that Amazon ECS will scale in or scale out
+        /// <para>The minimum number of container instances that Amazon ECS scales in or scales out
         /// at one time. If this parameter is omitted, the default value of <code>1</code> is
         /// used.</para>
         /// </para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_Status
         /// <summary>
         /// <para>
-        /// <para>Whether or not to enable managed scaling for the capacity provider.</para>
+        /// <para>Determines whether to enable managed scaling for the capacity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The target capacity value for the capacity provider. The specified value must be greater
         /// than <code>0</code> and less than or equal to <code>100</code>. A value of <code>100</code>
-        /// will result in the Amazon EC2 instances in your Auto Scaling group being completely
-        /// utilized.</para>
+        /// results in the Amazon EC2 instances in your Auto Scaling group being completely used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

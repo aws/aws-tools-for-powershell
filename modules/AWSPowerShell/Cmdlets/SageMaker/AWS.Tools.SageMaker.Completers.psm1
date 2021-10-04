@@ -105,7 +105,11 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AppInstanceType
-        "New-SMApp/ResourceSpec_InstanceType"
+        {
+            ($_ -eq "New-SMDomain/DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "New-SMApp/ResourceSpec_InstanceType")
+        }
         {
             $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
             break
@@ -115,6 +119,13 @@ $SM_Completers = {
         "New-SMDomain/AppNetworkAccessType"
         {
             $v = "PublicInternetOnly","VpcOnly"
+            break
+        }
+
+        # Amazon.SageMaker.AppSecurityGroupManagement
+        "New-SMDomain/AppSecurityGroupManagement"
+        {
+            $v = "Customer","Service"
             break
         }
 
@@ -132,7 +143,7 @@ $SM_Completers = {
             ($_ -eq "Remove-SMApp/AppType")
         }
         {
-            $v = "JupyterServer","KernelGateway","TensorBoard"
+            $v = "JupyterServer","KernelGateway","RSessionGateway","RStudioServerPro","TensorBoard"
             break
         }
 
@@ -227,7 +238,12 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CapacitySizeType
-        "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"
+        {
+            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
+            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type")
+        }
         {
             $v = "CAPACITY_PERCENT","INSTANCE_COUNT"
             break
@@ -902,16 +918,19 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.TrafficRoutingConfigType
-        "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"
         {
-            $v = "ALL_AT_ONCE","CANARY"
+            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type") -Or
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type")
+        }
+        {
+            $v = "ALL_AT_ONCE","CANARY","LINEAR"
             break
         }
 
         # Amazon.SageMaker.TrainingInputMode
         "New-SMHyperParameterTuningJob/TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"
         {
-            $v = "File","Pipe"
+            $v = "FastFile","File","Pipe"
             break
         }
 
@@ -980,6 +999,7 @@ $SM_Completers = {
 
 $SM_map = @{
     "AppNetworkAccessType"=@("New-SMDomain")
+    "AppSecurityGroupManagement"=@("New-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
     "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
@@ -989,9 +1009,12 @@ $SM_map = @{
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DataQualityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
     "DataQualityJobInput_EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
-    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"=@("Update-SMEndpoint")
-    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("Update-SMEndpoint")
+    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
+    "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
+    "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
     "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
@@ -1093,6 +1116,7 @@ $SM_SelectMap = @{
     "Select"=@("Add-SMAssociation",
                "Add-SMResourceTag",
                "Register-SMTrialComponent",
+               "Get-SMDescribeModelPackage",
                "New-SMAction",
                "New-SMAlgorithm",
                "New-SMApp",
@@ -1324,6 +1348,7 @@ $SM_SelectMap = @{
                "Update-SMNotebookInstanceLifecycleConfig",
                "Update-SMPipeline",
                "Update-SMPipelineExecution",
+               "Update-SMProject",
                "Update-SMTrainingJob",
                "Update-SMTrial",
                "Update-SMTrialComponent",

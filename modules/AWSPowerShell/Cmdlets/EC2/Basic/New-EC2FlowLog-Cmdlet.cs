@@ -68,12 +68,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DeliverLogsPermissionArn { get; set; }
         #endregion
         
+        #region Parameter DestinationOptions_FileFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format for the flow log. The default is <code>plain-text</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.DestinationFileFormat")]
+        public Amazon.EC2.DestinationFileFormat DestinationOptions_FileFormat { get; set; }
+        #endregion
+        
+        #region Parameter DestinationOptions_HiveCompatiblePartition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
+        /// The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationOptions_HiveCompatiblePartitions")]
+        public System.Boolean? DestinationOptions_HiveCompatiblePartition { get; set; }
+        #endregion
+        
         #region Parameter LogDestination
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination to which the flow log data is to be published. Flow log
-        /// data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value
-        /// specified for this parameter depends on the value specified for <code>LogDestinationType</code>.</para><para>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
+        /// <para>The destination to which the flow log data is to be published. Flow log data can be
+        /// published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified
+        /// for this parameter depends on the value specified for <code>LogDestinationType</code>.</para><para>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
         /// specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example,
         /// to publish to a log group called <code>my-logs</code>, specify <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>.
         /// Alternatively, use <code>LogGroupName</code> instead.</para><para>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket.
@@ -91,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LogDestinationType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of destination to which the flow log data is to be published. Flow
-        /// log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data
-        /// to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To publish flow log data
-        /// to Amazon S3, specify <code>s3</code>.</para><para>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
+        /// <para>The type of destination to which the flow log data is to be published. Flow log data
+        /// can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch
+        /// Logs, specify <code>cloud-watch-logs</code>. To publish flow log data to Amazon S3,
+        /// specify <code>s3</code>.</para><para>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
         /// <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</para><para>Default: <code>cloud-watch-logs</code></para>
         /// </para>
         /// </summary>
@@ -110,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
         /// log records</a>. If you omit this parameter, the flow log is created using the default
         /// format. If you specify this parameter, you must specify at least one field.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
-        /// For the CLI, use single quotation marks (' ') to surround the parameter value.</para>
+        /// For the CLI, surround this parameter value with single quotes on Linux or double quotes
+        /// on Windows.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,6 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxAggregationInterval { get; set; }
+        #endregion
+        
+        #region Parameter DestinationOptions_PerHourPartition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to partition the flow log per hour. This reduces the cost and response
+        /// time for queries. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DestinationOptions_PerHourPartition { get; set; }
         #endregion
         
         #region Parameter ResourceId
@@ -284,6 +319,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.DeliverLogsPermissionArn = this.DeliverLogsPermissionArn;
+            context.DestinationOptions_FileFormat = this.DestinationOptions_FileFormat;
+            context.DestinationOptions_HiveCompatiblePartition = this.DestinationOptions_HiveCompatiblePartition;
+            context.DestinationOptions_PerHourPartition = this.DestinationOptions_PerHourPartition;
             context.LogDestination = this.LogDestination;
             context.LogDestinationType = this.LogDestinationType;
             context.LogFormat = this.LogFormat;
@@ -340,6 +378,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeliverLogsPermissionArn != null)
             {
                 request.DeliverLogsPermissionArn = cmdletContext.DeliverLogsPermissionArn;
+            }
+            
+             // populate DestinationOptions
+            var requestDestinationOptionsIsNull = true;
+            request.DestinationOptions = new Amazon.EC2.Model.DestinationOptionsRequest();
+            Amazon.EC2.DestinationFileFormat requestDestinationOptions_destinationOptions_FileFormat = null;
+            if (cmdletContext.DestinationOptions_FileFormat != null)
+            {
+                requestDestinationOptions_destinationOptions_FileFormat = cmdletContext.DestinationOptions_FileFormat;
+            }
+            if (requestDestinationOptions_destinationOptions_FileFormat != null)
+            {
+                request.DestinationOptions.FileFormat = requestDestinationOptions_destinationOptions_FileFormat;
+                requestDestinationOptionsIsNull = false;
+            }
+            System.Boolean? requestDestinationOptions_destinationOptions_HiveCompatiblePartition = null;
+            if (cmdletContext.DestinationOptions_HiveCompatiblePartition != null)
+            {
+                requestDestinationOptions_destinationOptions_HiveCompatiblePartition = cmdletContext.DestinationOptions_HiveCompatiblePartition.Value;
+            }
+            if (requestDestinationOptions_destinationOptions_HiveCompatiblePartition != null)
+            {
+                request.DestinationOptions.HiveCompatiblePartitions = requestDestinationOptions_destinationOptions_HiveCompatiblePartition.Value;
+                requestDestinationOptionsIsNull = false;
+            }
+            System.Boolean? requestDestinationOptions_destinationOptions_PerHourPartition = null;
+            if (cmdletContext.DestinationOptions_PerHourPartition != null)
+            {
+                requestDestinationOptions_destinationOptions_PerHourPartition = cmdletContext.DestinationOptions_PerHourPartition.Value;
+            }
+            if (requestDestinationOptions_destinationOptions_PerHourPartition != null)
+            {
+                request.DestinationOptions.PerHourPartition = requestDestinationOptions_destinationOptions_PerHourPartition.Value;
+                requestDestinationOptionsIsNull = false;
+            }
+             // determine if request.DestinationOptions should be set to null
+            if (requestDestinationOptionsIsNull)
+            {
+                request.DestinationOptions = null;
             }
             if (cmdletContext.LogDestination != null)
             {
@@ -440,6 +517,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String DeliverLogsPermissionArn { get; set; }
+            public Amazon.EC2.DestinationFileFormat DestinationOptions_FileFormat { get; set; }
+            public System.Boolean? DestinationOptions_HiveCompatiblePartition { get; set; }
+            public System.Boolean? DestinationOptions_PerHourPartition { get; set; }
             public System.String LogDestination { get; set; }
             public Amazon.EC2.LogDestinationType LogDestinationType { get; set; }
             public System.String LogFormat { get; set; }

@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Delete an application. Deleting an application does not delete a configuration from
+    /// Deletes an application. Deleting an application does not delete a configuration from
     /// a host.
     /// </summary>
     [Cmdlet("Remove", "APPCApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

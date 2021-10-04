@@ -220,14 +220,18 @@ $BAT_SelectMap = @{
     "Select"=@("Stop-BATJob",
                "New-BATComputeEnvironment",
                "New-BATJobQueue",
+               "New-BATSchedulingPolicy",
                "Remove-BATComputeEnvironment",
                "Remove-BATJobQueue",
+               "Remove-BATSchedulingPolicy",
                "Unregister-BATJobDefinition",
                "Get-BATComputeEnvironment",
                "Get-BATJobDefinition",
                "Get-BATJobQueue",
                "Get-BATJobDetail",
+               "Get-BATSchedulingPolicy",
                "Get-BATJobList",
+               "Get-BATSchedulingPolicyList",
                "Get-BATResourceTag",
                "Register-BATJobDefinition",
                "Submit-BATJob",
@@ -235,7 +239,8 @@ $BAT_SelectMap = @{
                "Remove-BATJob",
                "Remove-BATResourceTag",
                "Update-BATComputeEnvironment",
-               "Update-BATJobQueue")
+               "Update-BATJobQueue",
+               "Update-BATSchedulingPolicy")
 }
 
 _awsArgumentCompleterRegistration $BAT_SelectCompleters $BAT_SelectMap

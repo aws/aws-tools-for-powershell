@@ -50,6 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
         #endregion
         
+        #region Parameter BuildBatchConfigOverride_BatchReportMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how build status reports are sent to the source provider for the batch build.
+        /// This property is only used when the source provider for your project is Bitbucket,
+        /// GitHub, or GitHub Enterprise, and your project is configured to report build statuses
+        /// to the source provider.</para><dl><dt>REPORT_AGGREGATED_BATCH</dt><dd><para>(Default) Aggregate all of the build statuses into a single status report.</para></dd><dt>REPORT_INDIVIDUAL_BUILDS</dt><dd><para>Send a separate status report for each individual build.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.BatchReportModeType")]
+        public Amazon.CodeBuild.BatchReportModeType BuildBatchConfigOverride_BatchReportMode { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_BucketOwnerAccess
         /// <summary>
         /// <para>
@@ -805,6 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ArtifactsOverride_Packaging = this.ArtifactsOverride_Packaging;
             context.ArtifactsOverride_Path = this.ArtifactsOverride_Path;
             context.ArtifactsOverride_Type = this.ArtifactsOverride_Type;
+            context.BuildBatchConfigOverride_BatchReportMode = this.BuildBatchConfigOverride_BatchReportMode;
             context.BuildBatchConfigOverride_CombineArtifact = this.BuildBatchConfigOverride_CombineArtifact;
             if (this.Restrictions_ComputeTypesAllowed != null)
             {
@@ -1002,6 +1017,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate BuildBatchConfigOverride
             var requestBuildBatchConfigOverrideIsNull = true;
             request.BuildBatchConfigOverride = new Amazon.CodeBuild.Model.ProjectBuildBatchConfig();
+            Amazon.CodeBuild.BatchReportModeType requestBuildBatchConfigOverride_buildBatchConfigOverride_BatchReportMode = null;
+            if (cmdletContext.BuildBatchConfigOverride_BatchReportMode != null)
+            {
+                requestBuildBatchConfigOverride_buildBatchConfigOverride_BatchReportMode = cmdletContext.BuildBatchConfigOverride_BatchReportMode;
+            }
+            if (requestBuildBatchConfigOverride_buildBatchConfigOverride_BatchReportMode != null)
+            {
+                request.BuildBatchConfigOverride.BatchReportMode = requestBuildBatchConfigOverride_buildBatchConfigOverride_BatchReportMode;
+                requestBuildBatchConfigOverrideIsNull = false;
+            }
             System.Boolean? requestBuildBatchConfigOverride_buildBatchConfigOverride_CombineArtifact = null;
             if (cmdletContext.BuildBatchConfigOverride_CombineArtifact != null)
             {
@@ -1464,6 +1489,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ArtifactPackaging ArtifactsOverride_Packaging { get; set; }
             public System.String ArtifactsOverride_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
+            public Amazon.CodeBuild.BatchReportModeType BuildBatchConfigOverride_BatchReportMode { get; set; }
             public System.Boolean? BuildBatchConfigOverride_CombineArtifact { get; set; }
             public List<System.String> Restrictions_ComputeTypesAllowed { get; set; }
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }

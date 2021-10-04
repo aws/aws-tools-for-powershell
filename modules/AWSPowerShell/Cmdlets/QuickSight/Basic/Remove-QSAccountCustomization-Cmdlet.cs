@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes all Amazon QuickSight customizations in this Amazon Web Services Region; for
+    /// Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for
     /// the specified Amazon Web Services account and Amazon QuickSight namespace.
     /// </summary>
     [Cmdlet("Remove", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight
-        /// customizations from in this Amazon Web Services Region;.</para>
+        /// customizations from in this Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

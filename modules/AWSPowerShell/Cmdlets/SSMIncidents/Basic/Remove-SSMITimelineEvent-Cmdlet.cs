@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident that the event is part of.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

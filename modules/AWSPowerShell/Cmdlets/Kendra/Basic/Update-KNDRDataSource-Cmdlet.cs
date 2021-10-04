@@ -94,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String IndexId { get; set; }
         #endregion
         
+        #region Parameter LanguageCode
+        /// <summary>
+        /// <para>
+        /// <para>The code for a language. This allows you to support a language for all documents when
+        /// updating the data source. English is supported by default. For more information on
+        /// supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+        /// documents in languages other than English</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LanguageCode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -202,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LanguageCode = this.LanguageCode;
             context.Name = this.Name;
             context.RoleArn = this.RoleArn;
             context.Schedule = this.Schedule;
@@ -236,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.IndexId != null)
             {
                 request.IndexId = cmdletContext.IndexId;
+            }
+            if (cmdletContext.LanguageCode != null)
+            {
+                request.LanguageCode = cmdletContext.LanguageCode;
             }
             if (cmdletContext.Name != null)
             {
@@ -314,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String IndexId { get; set; }
+            public System.String LanguageCode { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Schedule { get; set; }

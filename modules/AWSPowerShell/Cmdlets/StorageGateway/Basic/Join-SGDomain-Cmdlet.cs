@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
-        /// to return a list of gateways for your account and Region.</para>
+        /// to return a list of gateways for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

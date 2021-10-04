@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
     /// Gets summary information about all recording configurations in your account, in the
-    /// AWS region where the API request is processed.
+    /// Amazon Web Services region where the API request is processed.
     /// </summary>
     [Cmdlet("Get", "IVSRecordingConfigurationList")]
     [OutputType("Amazon.IVS.Model.RecordingConfigurationSummary")]

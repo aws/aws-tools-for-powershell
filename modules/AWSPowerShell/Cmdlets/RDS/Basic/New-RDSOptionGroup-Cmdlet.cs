@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new option group. You can create up to 20 option groups.
+    /// 
+    ///  
+    /// <para>
+    /// This command doesn't apply to RDS Custom.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RDSOptionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.OptionGroup")]

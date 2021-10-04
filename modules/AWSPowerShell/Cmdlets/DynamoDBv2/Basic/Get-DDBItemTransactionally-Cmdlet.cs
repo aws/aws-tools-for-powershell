@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code>
     /// objects, each of which contains a <code>Get</code> structure that specifies an item
     /// to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code>
-    /// cannot retrieve items from tables in more than one AWS account or Region. The aggregate
-    /// size of the items in the transaction cannot exceed 4 MB.
+    /// cannot retrieve items from tables in more than one Amazon Web Services account or
+    /// Region. The aggregate size of the items in the transaction cannot exceed 4 MB.
     /// 
     ///  
     /// <para>

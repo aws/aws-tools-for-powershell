@@ -28,7 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Updates a model. You can update the description attribute using this action.
+    /// Updates model description.
     /// </summary>
     [Cmdlet("Update", "FDModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

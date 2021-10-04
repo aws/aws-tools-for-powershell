@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter Tls_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to enable or disable TLS authentication.</para>
+        /// <para>Specifies whether you want to turn on or turn off TLS authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter Unauthenticated_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</para>
+        /// <para>Specifies whether you want to turn on or turn off unauthenticated traffic to your
+        /// cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter JmxExporter_EnabledInBroker
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want to enable or disable the JMX Exporter.</para>
+        /// <para>Indicates whether you want to turn on or turn off the JMX Exporter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter NodeExporter_EnabledInBroker
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want to enable or disable the Node Exporter.</para>
+        /// <para>Indicates whether you want to turn on or turn off the Node Exporter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

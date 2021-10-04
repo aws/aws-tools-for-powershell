@@ -28,8 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Uploads one or more pieces of evidence to the specified control in the assessment
-    /// in Audit Manager.
+    /// Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
     /// </summary>
     [Cmdlet("Add", "AUDMEvidenceToAssessmentControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlError")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control. </para>
+        /// <para> The identifier for the control. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSetId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control set. </para>
+        /// <para> The identifier for the control set. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

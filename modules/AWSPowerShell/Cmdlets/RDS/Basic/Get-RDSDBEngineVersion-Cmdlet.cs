@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether to list the supported character sets for each engine
         /// version.</para><para>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// character sets for each engine version. </para>
+        /// character sets for each engine version.</para><para>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
+        /// to <code>true</code>, RDS Custom returns no results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to list the supported time zones for each engine version.</para><para>If this parameter is enabled and the requested engine supports the <code>TimeZone</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// time zones for each engine version. </para>
+        /// time zones for each engine version. </para><para>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
+        /// to <code>true</code>, RDS Custom returns no results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

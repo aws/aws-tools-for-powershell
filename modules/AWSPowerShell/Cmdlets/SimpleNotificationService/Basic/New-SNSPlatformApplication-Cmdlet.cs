@@ -43,8 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code> and
     /// <code>PlatformCredential</code> is <code>secret key</code>.
     /// </para></li><li><para>
-    /// For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformPrincipal</code>
-    /// is <code>SSL certificate</code> and <code>PlatformCredential</code> is <code>private
+    /// For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate credentials,
+    /// <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code>
+    /// is <code>private key</code>.
+    /// </para></li><li><para>
+    /// For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code>
+    /// is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing
     /// key</code>.
     /// </para></li><li><para>
     /// For <code>GCM</code> (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>

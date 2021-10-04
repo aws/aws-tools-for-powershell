@@ -28,8 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Specifies the Key Management Service (KMS) customer master key (CMK) to be used to
-    /// encrypt content in Amazon Fraud Detector.
+    /// Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
     /// </summary>
     [Cmdlet("Write", "FDKMSEncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

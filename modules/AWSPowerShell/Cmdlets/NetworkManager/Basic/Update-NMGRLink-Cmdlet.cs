@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the link.</para><para>Length Constraints: Maximum length of 256 characters.</para>
+        /// <para>A description of the link.</para><para>Constraints: Maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The provider of the link.</para><para>Length Constraints: Maximum length of 128 characters.</para>
+        /// <para>The provider of the link.</para><para>Constraints: Maximum length of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the link.</para><para>Length Constraints: Maximum length of 128 characters.</para>
+        /// <para>The type of the link.</para><para>Constraints: Maximum length of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

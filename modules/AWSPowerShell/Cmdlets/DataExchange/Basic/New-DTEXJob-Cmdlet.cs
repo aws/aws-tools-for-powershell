@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromSignedUrl_AssetName { get; set; }
         #endregion
         
+        #region Parameter ImportAssetsFromRedshiftDataShares_AssetSource
+        /// <summary>
+        /// <para>
+        /// A list of Amazon Redshift datashare assets.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromRedshiftDataShares_AssetSources")]
+        public Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry[] ImportAssetsFromRedshiftDataShares_AssetSource { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetsFromS3_AssetSource
         /// <summary>
         /// <para>
@@ -126,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetFromSignedUrl_DataSetId")]
         public System.String ImportAssetFromSignedUrl_DataSetId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetsFromRedshiftDataShares_DataSetId
+        /// <summary>
+        /// <para>
+        /// The unique identifier for the data set associated
+        /// with this import job.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromRedshiftDataShares_DataSetId")]
+        public System.String ImportAssetsFromRedshiftDataShares_DataSetId { get; set; }
         #endregion
         
         #region Parameter ImportAssetsFromS3_DataSetId
@@ -216,6 +239,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetFromSignedUrl_RevisionId")]
         public System.String ImportAssetFromSignedUrl_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetsFromRedshiftDataShares_RevisionId
+        /// <summary>
+        /// <para>
+        /// The unique identifier for the revision associated
+        /// with this import job.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromRedshiftDataShares_RevisionId")]
+        public System.String ImportAssetsFromRedshiftDataShares_RevisionId { get; set; }
         #endregion
         
         #region Parameter ImportAssetsFromS3_RevisionId
@@ -352,6 +387,12 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             context.ImportAssetFromSignedUrl_DataSetId = this.ImportAssetFromSignedUrl_DataSetId;
             context.ImportAssetFromSignedUrl_Md5Hash = this.ImportAssetFromSignedUrl_Md5Hash;
             context.ImportAssetFromSignedUrl_RevisionId = this.ImportAssetFromSignedUrl_RevisionId;
+            if (this.ImportAssetsFromRedshiftDataShares_AssetSource != null)
+            {
+                context.ImportAssetsFromRedshiftDataShares_AssetSource = new List<Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry>(this.ImportAssetsFromRedshiftDataShares_AssetSource);
+            }
+            context.ImportAssetsFromRedshiftDataShares_DataSetId = this.ImportAssetsFromRedshiftDataShares_DataSetId;
+            context.ImportAssetsFromRedshiftDataShares_RevisionId = this.ImportAssetsFromRedshiftDataShares_RevisionId;
             if (this.ImportAssetsFromS3_AssetSource != null)
             {
                 context.ImportAssetsFromS3_AssetSource = new List<Amazon.DataExchange.Model.AssetSourceEntry>(this.ImportAssetsFromS3_AssetSource);
@@ -498,6 +539,51 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ExportRevisionsToS3 != null)
             {
                 request.Details.ExportRevisionsToS3 = requestDetails_details_ExportRevisionsToS3;
+                requestDetailsIsNull = false;
+            }
+            Amazon.DataExchange.Model.ImportAssetsFromRedshiftDataSharesRequestDetails requestDetails_details_ImportAssetsFromRedshiftDataShares = null;
+            
+             // populate ImportAssetsFromRedshiftDataShares
+            var requestDetails_details_ImportAssetsFromRedshiftDataSharesIsNull = true;
+            requestDetails_details_ImportAssetsFromRedshiftDataShares = new Amazon.DataExchange.Model.ImportAssetsFromRedshiftDataSharesRequestDetails();
+            List<Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry> requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_AssetSource = null;
+            if (cmdletContext.ImportAssetsFromRedshiftDataShares_AssetSource != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_AssetSource = cmdletContext.ImportAssetsFromRedshiftDataShares_AssetSource;
+            }
+            if (requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_AssetSource != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares.AssetSources = requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_AssetSource;
+                requestDetails_details_ImportAssetsFromRedshiftDataSharesIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_DataSetId = null;
+            if (cmdletContext.ImportAssetsFromRedshiftDataShares_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_DataSetId = cmdletContext.ImportAssetsFromRedshiftDataShares_DataSetId;
+            }
+            if (requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares.DataSetId = requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_DataSetId;
+                requestDetails_details_ImportAssetsFromRedshiftDataSharesIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_RevisionId = null;
+            if (cmdletContext.ImportAssetsFromRedshiftDataShares_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_RevisionId = cmdletContext.ImportAssetsFromRedshiftDataShares_RevisionId;
+            }
+            if (requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares.RevisionId = requestDetails_details_ImportAssetsFromRedshiftDataShares_importAssetsFromRedshiftDataShares_RevisionId;
+                requestDetails_details_ImportAssetsFromRedshiftDataSharesIsNull = false;
+            }
+             // determine if requestDetails_details_ImportAssetsFromRedshiftDataShares should be set to null
+            if (requestDetails_details_ImportAssetsFromRedshiftDataSharesIsNull)
+            {
+                requestDetails_details_ImportAssetsFromRedshiftDataShares = null;
+            }
+            if (requestDetails_details_ImportAssetsFromRedshiftDataShares != null)
+            {
+                request.Details.ImportAssetsFromRedshiftDataShares = requestDetails_details_ImportAssetsFromRedshiftDataShares;
                 requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetsFromS3RequestDetails requestDetails_details_ImportAssetsFromS3 = null;
@@ -766,6 +852,9 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public System.String ImportAssetFromSignedUrl_DataSetId { get; set; }
             public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }
             public System.String ImportAssetFromSignedUrl_RevisionId { get; set; }
+            public List<Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry> ImportAssetsFromRedshiftDataShares_AssetSource { get; set; }
+            public System.String ImportAssetsFromRedshiftDataShares_DataSetId { get; set; }
+            public System.String ImportAssetsFromRedshiftDataShares_RevisionId { get; set; }
             public List<Amazon.DataExchange.Model.AssetSourceEntry> ImportAssetsFromS3_AssetSource { get; set; }
             public System.String ImportAssetsFromS3_DataSetId { get; set; }
             public System.String ImportAssetsFromS3_RevisionId { get; set; }

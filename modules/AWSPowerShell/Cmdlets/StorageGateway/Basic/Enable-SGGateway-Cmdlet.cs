@@ -29,10 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Activates the gateway you previously deployed on your host. In the activation process,
-    /// you specify information such as the Region that you want to use for storing snapshots
-    /// or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window,
-    /// an activation key, and a name for your gateway. The activation process also associates
-    /// your gateway with your account. For more information, see <a>UpdateGatewayInformation</a>.
+    /// you specify information such as the Amazon Web Services Region that you want to use
+    /// for storing snapshots or tapes, the time zone for scheduled snapshots the gateway
+    /// snapshot schedule window, an activation key, and a name for your gateway. The activation
+    /// process also associates your gateway with your account. For more information, see
+    /// <a>UpdateGatewayInformation</a>.
     /// 
     ///  <note><para>
     /// You must turn on the gateway VM before you can activate your gateway.
@@ -91,11 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayRegion
         /// <summary>
         /// <para>
-        /// <para>A value that indicates the Region where you want to store your data. The gateway Region
-        /// specified must be the same Region as the Region in your <code>Host</code> header in
-        /// the request. For more information about available Regions and endpoints for Storage
-        /// Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html"> Storage
-        /// Gateway endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para><para>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
+        /// <para>A value that indicates the Amazon Web Services Region where you want to store your
+        /// data. The gateway Amazon Web Services Region specified must be the same Amazon Web
+        /// Services Region as the Amazon Web Services Region in your <code>Host</code> header
+        /// in the request. For more information about available Amazon Web Services Regions and
+        /// endpoints for Storage Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
+        /// Storage Gateway endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para><para>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
         /// Storage Gateway endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para>
         /// </para>

@@ -28,11 +28,11 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Updates the collection of resources that DevOps Guru analyzes. The one type of AWS
-    /// resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured
-    /// to analyze only the AWS resources that are defined in the stacks. You can specify
-    /// up to 500 AWS CloudFormation stacks. This method also creates the IAM role required
-    /// for you to use DevOps Guru.
+    /// Updates the collection of resources that DevOps Guru analyzes. The one type of Amazon
+    /// Web Services resource collection supported is Amazon Web Services CloudFormation stacks.
+    /// DevOps Guru can be configured to analyze only the Amazon Web Services resources that
+    /// are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation
+    /// stacks. This method also creates the IAM role required for you to use DevOps Guru.
     /// </summary>
     [Cmdlet("Update", "DGURUResourceCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

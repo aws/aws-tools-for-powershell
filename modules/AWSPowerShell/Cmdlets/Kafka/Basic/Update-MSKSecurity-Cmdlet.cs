@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter Tls_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to enable or disable TLS authentication.</para>
+        /// <para>Specifies whether you want to turn on or turn off TLS authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter Unauthenticated_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</para>
+        /// <para>Specifies whether you want to turn on or turn off unauthenticated traffic to your
+        /// cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

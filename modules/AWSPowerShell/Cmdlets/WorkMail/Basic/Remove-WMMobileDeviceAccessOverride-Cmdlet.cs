@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// <summary>
     /// Deletes the mobile device access override for the given WorkMail organization, user,
     /// and device.
+    /// 
+    ///  <note><para>
+    /// Deleting already deleted and non-existing overrides does not produce an error. In
+    /// those cases, the service sends back an HTTP 200 response with an empty HTTP body.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "WMMobileDeviceAccessOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

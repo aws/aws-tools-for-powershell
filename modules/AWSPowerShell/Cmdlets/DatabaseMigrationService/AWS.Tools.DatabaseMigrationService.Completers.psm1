@@ -320,6 +320,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.TargetDbType
         {
+            ($_ -eq "Edit-DMSEndpoint/GcpMySQLSettings_TargetDbType") -Or
+            ($_ -eq "New-DMSEndpoint/GcpMySQLSettings_TargetDbType") -Or
             ($_ -eq "Edit-DMSEndpoint/MySQLSettings_TargetDbType") -Or
             ($_ -eq "New-DMSEndpoint/MySQLSettings_TargetDbType")
         }
@@ -339,6 +341,7 @@ $DMS_Completers = {
 $DMS_map = @{
     "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "GcpMySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")

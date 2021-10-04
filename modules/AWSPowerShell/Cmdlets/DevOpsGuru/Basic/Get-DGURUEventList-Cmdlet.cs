@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUEventListCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter Filters_DataSource
         /// <summary>
         /// <para>
@@ -68,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Filters_EventSource
         /// <summary>
         /// <para>
-        /// <para> The AWS source that emitted the events you want to filter for. </para>
+        /// <para> The Amazon Web Services source that emitted the events you want to filter for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.Filters_InsightId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.Filters_DataSource = this.Filters_DataSource;
             context.Filters_EventClass = this.Filters_EventClass;
             context.Filters_EventSource = this.Filters_EventSource;
@@ -215,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             // create request and set iteration invariants
             var request = new Amazon.DevOpsGuru.Model.ListEventsRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             
              // populate Filters
             var requestFiltersIsNull = true;
@@ -373,6 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public Amazon.DevOpsGuru.EventDataSource Filters_DataSource { get; set; }
             public Amazon.DevOpsGuru.EventClass Filters_EventClass { get; set; }
             public System.String Filters_EventSource { get; set; }

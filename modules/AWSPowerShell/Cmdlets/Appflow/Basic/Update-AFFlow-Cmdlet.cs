@@ -394,6 +394,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String SAPOData_ObjectPath { get; set; }
         #endregion
         
+        #region Parameter S3InputFormatConfig_S3InputFileType
+        /// <summary>
+        /// <para>
+        /// <para> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType")]
+        [AWSConstantClassSource("Amazon.Appflow.S3InputFileType")]
+        public Amazon.Appflow.S3InputFileType S3InputFormatConfig_S3InputFileType { get; set; }
+        #endregion
+        
         #region Parameter Scheduled_ScheduleEndTime
         /// <summary>
         /// <para>
@@ -585,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.Marketo_Object = this.Marketo_Object;
             context.S3_BucketName = this.S3_BucketName;
             context.S3_BucketPrefix = this.S3_BucketPrefix;
+            context.S3InputFormatConfig_S3InputFileType = this.S3InputFormatConfig_S3InputFileType;
             context.Salesforce_EnableDynamicFieldUpdate = this.Salesforce_EnableDynamicFieldUpdate;
             context.Salesforce_IncludeDeletedRecord = this.Salesforce_IncludeDeletedRecord;
             context.Salesforce_Object = this.Salesforce_Object;
@@ -1030,6 +1043,31 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3.BucketPrefix = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_s3_BucketPrefix;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3IsNull = false;
             }
+            Amazon.Appflow.Model.S3InputFormatConfig requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig = null;
+            
+             // populate S3InputFormatConfig
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfigIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig = new Amazon.Appflow.Model.S3InputFormatConfig();
+            Amazon.Appflow.S3InputFileType requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_s3InputFormatConfig_S3InputFileType = null;
+            if (cmdletContext.S3InputFormatConfig_S3InputFileType != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_s3InputFormatConfig_S3InputFileType = cmdletContext.S3InputFormatConfig_S3InputFileType;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_s3InputFormatConfig_S3InputFileType != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig.S3InputFileType = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_s3InputFormatConfig_S3InputFileType;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfigIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfigIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3.S3InputFormatConfig = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3_sourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3IsNull = false;
+            }
              // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3 should be set to null
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3IsNull)
             {
@@ -1363,6 +1401,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String Marketo_Object { get; set; }
             public System.String S3_BucketName { get; set; }
             public System.String S3_BucketPrefix { get; set; }
+            public Amazon.Appflow.S3InputFileType S3InputFormatConfig_S3InputFileType { get; set; }
             public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
             public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
             public System.String Salesforce_Object { get; set; }

@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The default settings for sending SMS messages from your account. You can set values
-        /// for the following attribute names:</para><para><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to
+        /// <para>The default settings for sending SMS messages from your Amazon Web Services account.
+        /// You can set values for the following attribute names:</para><para><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to
         /// spend each month to send SMS messages. When Amazon SNS determines that sending an
         /// SMS message would incur a cost that exceeds this limit, it stops sending SMS messages
         /// within minutes.</para><important><para>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// message delivery to achieve the highest reliability.</para></li></ul><para><code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily
         /// SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report
         /// as a CSV file to the bucket. The report includes the following information for each
-        /// SMS message that was successfully delivered by your account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
+        /// SMS message that was successfully delivered by your Amazon Web Services account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
         /// message)</para></li><li><para>Total number of parts</para></li></ul><para>To receive the report, the bucket must have a policy that allows the Amazon SNS service
         /// principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
         /// actions.</para><para>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring

@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the URL of a specified assessment report in Audit Manager.
+    /// Returns the URL of an assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessmentReportUrl")]
     [OutputType("Amazon.AuditManager.Model.URL")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentReportId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the assessment report. </para>
+        /// <para> The unique identifier for the assessment report. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

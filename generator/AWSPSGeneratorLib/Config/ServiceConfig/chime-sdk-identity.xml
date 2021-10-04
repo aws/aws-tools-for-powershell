@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterAppInstanceUserEndpoint" Verb="Unregister" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAppInstance" OutputProperty="AppInstance" Verb="Get" Noun="AppInstance" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceUserEndpoint" OutputProperty="AppInstanceUserEndpoint" Verb="Get" Noun="AppInstanceUserEndpoint" PipelineParameter="EndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,11 +74,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceUserEndpoints" OutputProperty="AppInstanceUserEndpoints" Verb="Get" Noun="AppInstanceUserEndpointList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAppInstanceUsers" OutputProperty="*" Verb="Get" Noun="AppInstanceUserList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAppInstanceUserEndpoint" OutputProperty="*" Verb="Register" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +107,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstanceUserEndpoint" OutputProperty="*" Verb="Update" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

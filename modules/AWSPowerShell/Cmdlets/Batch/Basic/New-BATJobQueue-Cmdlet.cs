@@ -115,6 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? Priority { get; set; }
         #endregion
         
+        #region Parameter SchedulingPolicyArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter
+        /// is specified, the job queue will use a fair share scheduling policy. If this parameter
+        /// is not specified, the job queue will use a first in, first out (FIFO) scheduling policy.
+        /// Once a job queue is created, the fair share scheduling policy can be replaced but
+        /// not removed. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></code>. For example, <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SchedulingPolicyArn { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -207,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 WriteWarning("You are passing $null as a value for parameter Priority which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SchedulingPolicyArn = this.SchedulingPolicyArn;
             context.State = this.State;
             if (this.Tag != null)
             {
@@ -243,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority.Value;
+            }
+            if (cmdletContext.SchedulingPolicyArn != null)
+            {
+                request.SchedulingPolicyArn = cmdletContext.SchedulingPolicyArn;
             }
             if (cmdletContext.State != null)
             {
@@ -316,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.ComputeEnvironmentOrder> ComputeEnvironmentOrder { get; set; }
             public System.String JobQueueName { get; set; }
             public System.Int32? Priority { get; set; }
+            public System.String SchedulingPolicyArn { get; set; }
             public Amazon.Batch.JQState State { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Batch.Model.CreateJobQueueResponse, NewBATJobQueueCmdlet, object> Select { get; set; } =

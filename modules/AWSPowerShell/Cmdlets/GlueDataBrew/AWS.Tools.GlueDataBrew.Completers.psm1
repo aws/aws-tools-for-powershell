@@ -80,6 +80,13 @@ $GDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GlueDataBrew.AnalyticsMode
+        "Send-GDBProjectSessionAction/ViewFrame_Analytics"
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.GlueDataBrew.EncryptionMode
         {
             ($_ -eq "New-GDBProfileJob/EncryptionMode") -Or
@@ -170,6 +177,7 @@ $GDB_map = @{
     "PathOptions_FilesLimit_Order"=@("New-GDBDataset","Update-GDBDataset")
     "PathOptions_FilesLimit_OrderedBy"=@("New-GDBDataset","Update-GDBDataset")
     "Sample_Type"=@("New-GDBProject","Update-GDBProject")
+    "ViewFrame_Analytics"=@("Send-GDBProjectSessionAction")
 }
 
 _awsArgumentCompleterRegistration $GDB_Completers $GDB_map
@@ -228,17 +236,20 @@ $GDB_SelectMap = @{
                "New-GDBProject",
                "New-GDBRecipe",
                "New-GDBRecipeJob",
+               "New-GDBRuleset",
                "New-GDBSchedule",
                "Remove-GDBDataset",
                "Remove-GDBJob",
                "Remove-GDBProject",
                "Remove-GDBRecipeVersion",
+               "Remove-GDBRuleset",
                "Remove-GDBSchedule",
                "Get-GDBDataset",
                "Get-GDBJob",
                "Get-GDBJobRun",
                "Get-GDBProject",
                "Get-GDBRecipe",
+               "Get-GDBRuleset",
                "Get-GDBSchedule",
                "Get-GDBDatasetList",
                "Get-GDBJobRunList",
@@ -246,6 +257,7 @@ $GDB_SelectMap = @{
                "Get-GDBProjectList",
                "Get-GDBRecipeList",
                "Get-GDBRecipeVersionList",
+               "Get-GDBRulesetList",
                "Get-GDBScheduleList",
                "Get-GDBResourceTag",
                "Publish-GDBRecipe",
@@ -260,6 +272,7 @@ $GDB_SelectMap = @{
                "Update-GDBProject",
                "Update-GDBRecipe",
                "Update-GDBRecipeJob",
+               "Update-GDBRuleset",
                "Update-GDBSchedule")
 }
 

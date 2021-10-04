@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The unique identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The current status of the specified assessment. </para>
+        /// <para> The current status of the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

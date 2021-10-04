@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The launch profile ID.</para>
+        /// <para>The Launch Profile ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,13 +106,29 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StreamConfiguration_MaxSessionLengthInMinute
         /// <summary>
         /// <para>
-        /// <para>The length of time, in minutes, that a streaming session can run. After this point,
-        /// Nimble Studio automatically terminates the session.</para>
+        /// <para>The length of time, in minutes, that a streaming session can be active before it is
+        /// stopped or terminated. After this point, Nimble Studio automatically terminates or
+        /// stops the session. The default length of time is 690 minutes, and the maximum length
+        /// of time is 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StreamConfiguration_MaxSessionLengthInMinutes")]
         public System.Int32? StreamConfiguration_MaxSessionLengthInMinute { get; set; }
+        #endregion
+        
+        #region Parameter StreamConfiguration_MaxStoppedSessionLengthInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The length of time, in minutes, that a streaming session can be active before it is
+        /// stopped or terminated. After this point, Nimble Studio automatically terminates or
+        /// stops the session. The default length of time is 690 minutes, and the maximum length
+        /// of time is 30 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_MaxStoppedSessionLengthInMinutes")]
+        public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
         #endregion
         
         #region Parameter Name
@@ -152,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The studio ID.</para>
+        /// <para>The studio ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,12 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>To make an idempotent API request using one of these actions, specify a client token
-        /// in the request. You should not reuse the same client token for other API requests.
-        /// If you retry a request that completed successfully using the same client token and
-        /// the same parameters, the retry succeeds without performing any further actions. If
-        /// you retry a successful request using the same client token, but one or more of the
-        /// parameters are different, the retry fails with a ValidationException error.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. If you don’t specify a client token, the AWS SDK automatically generates
+        /// a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 context.StreamConfiguration_Ec2InstanceType = new List<System.String>(this.StreamConfiguration_Ec2InstanceType);
             }
             context.StreamConfiguration_MaxSessionLengthInMinute = this.StreamConfiguration_MaxSessionLengthInMinute;
+            context.StreamConfiguration_MaxStoppedSessionLengthInMinute = this.StreamConfiguration_MaxStoppedSessionLengthInMinute;
             if (this.StreamConfiguration_StreamingImageId != null)
             {
                 context.StreamConfiguration_StreamingImageId = new List<System.String>(this.StreamConfiguration_StreamingImageId);
@@ -345,6 +359,16 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (requestStreamConfiguration_streamConfiguration_MaxSessionLengthInMinute != null)
             {
                 request.StreamConfiguration.MaxSessionLengthInMinutes = requestStreamConfiguration_streamConfiguration_MaxSessionLengthInMinute.Value;
+                requestStreamConfigurationIsNull = false;
+            }
+            System.Int32? requestStreamConfiguration_streamConfiguration_MaxStoppedSessionLengthInMinute = null;
+            if (cmdletContext.StreamConfiguration_MaxStoppedSessionLengthInMinute != null)
+            {
+                requestStreamConfiguration_streamConfiguration_MaxStoppedSessionLengthInMinute = cmdletContext.StreamConfiguration_MaxStoppedSessionLengthInMinute.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_MaxStoppedSessionLengthInMinute != null)
+            {
+                request.StreamConfiguration.MaxStoppedSessionLengthInMinutes = requestStreamConfiguration_streamConfiguration_MaxStoppedSessionLengthInMinute.Value;
                 requestStreamConfigurationIsNull = false;
             }
             List<System.String> requestStreamConfiguration_streamConfiguration_StreamingImageId = null;
@@ -439,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public Amazon.NimbleStudio.StreamingClipboardMode StreamConfiguration_ClipboardMode { get; set; }
             public List<System.String> StreamConfiguration_Ec2InstanceType { get; set; }
             public System.Int32? StreamConfiguration_MaxSessionLengthInMinute { get; set; }
+            public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
             public List<System.String> StreamConfiguration_StreamingImageId { get; set; }
             public List<System.String> StudioComponentId { get; set; }
             public System.String StudioId { get; set; }

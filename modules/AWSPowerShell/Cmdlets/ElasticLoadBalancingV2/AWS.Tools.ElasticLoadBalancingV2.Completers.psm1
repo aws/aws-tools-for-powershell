@@ -99,7 +99,10 @@ $ELB2_Completers = {
         }
 
         # Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum
-        "New-ELB2LoadBalancer/Type"
+        {
+            ($_ -eq "Get-ELB2SSLPolicy/LoadBalancerType") -Or
+            ($_ -eq "New-ELB2LoadBalancer/Type")
+        }
         {
             $v = "application","gateway","network"
             break
@@ -115,6 +118,13 @@ $ELB2_Completers = {
         }
         {
             $v = "GENEVE","HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"
+            break
+        }
+
+        # Amazon.ElasticLoadBalancingV2.TargetGroupIpAddressTypeEnum
+        "New-ELB2TargetGroup/IpAddressType"
+        {
+            $v = "ipv4","ipv6"
             break
         }
 
@@ -135,7 +145,8 @@ $ELB2_Completers = {
 
 $ELB2_map = @{
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
-    "IpAddressType"=@("New-ELB2LoadBalancer","Set-ELB2IpAddressType","Set-ELB2Subnet")
+    "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")
+    "LoadBalancerType"=@("Get-ELB2SSLPolicy")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
     "TargetType"=@("New-ELB2TargetGroup")

@@ -34,12 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// is only supported for S3 File Gateways.
     /// 
     ///  <important><para>
-    /// S3 File gateway requires Security Token Service (STS) to be activated to enable you
-    /// to create a file share. Make sure STS is activated in the Region you are creating
-    /// your S3 File Gateway in. If STS is not activated in the Region, activate it. For information
-    /// about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and deactivating STS in an Region</a> in the <i>Identity and Access Management User
-    /// Guide</i>.
+    /// S3 File gateway requires Security Token Service (Amazon Web Services STS) to be activated
+    /// to enable you to create a file share. Make sure Amazon Web Services STS is activated
+    /// in the Amazon Web Services Region you are creating your S3 File Gateway in. If Amazon
+    /// Web Services STS is not activated in the Amazon Web Services Region, activate it.
+    /// For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+    /// <i>Identity and Access Management User Guide</i>.
     /// </para><para>
     /// S3 File Gateways do not support creating hard or symbolic links on a file share.
     /// </para></important>
@@ -53,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public partial class NewSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuditDestinationARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the storage used for audit logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditDestinationARN { get; set; }
+        #endregion
         
         #region Parameter BucketRegion
         /// <summary>
@@ -129,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareName
         /// <summary>
         /// <para>
-        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>.</para></note>
+        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>,
+        /// or if an access point or access point alias is used.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,11 +215,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter LocationARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the backend storage used for storing file data. A prefix name can be added
-        /// to the S3 bucket name. It must end with a "/".</para><note><para>You can specify a bucket attached to an access point using a complete ARN that includes
-        /// the bucket region as shown:</para><para><code>arn:aws:s3:<i>region</i>:<i>account-id</i>:accesspoint/<i>access-point-name</i></code></para><para>If you specify a bucket attached to an access point, the bucket policy must be configured
-        /// to delegate access control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating
-        /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para></note>
+        /// <para>A custom ARN for the backend storage used for storing data for file shares. It includes
+        /// a resource ARN with an optional prefix concatenation. The prefix must end with a forward
+        /// slash (/).</para><note><para>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,
+        /// as shown in the following examples.</para><para>Bucket ARN:</para><para><code>arn:aws:s3:::my-bucket/prefix/</code></para><para>Access point ARN:</para><para><code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code></para><para>If you specify an access point, the bucket policy must be configured to delegate access
+        /// control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating
+        /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>Access point alias:</para><para><code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code></para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -422,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.GatewayARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AuditDestinationARN = this.AuditDestinationARN;
             context.BucketRegion = this.BucketRegion;
             context.CacheAttributes_CacheStaleTimeoutInSecond = this.CacheAttributes_CacheStaleTimeoutInSecond;
             if (this.ClientList != null)
@@ -491,6 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.CreateNFSFileShareRequest();
             
+            if (cmdletContext.AuditDestinationARN != null)
+            {
+                request.AuditDestinationARN = cmdletContext.AuditDestinationARN;
+            }
             if (cmdletContext.BucketRegion != null)
             {
                 request.BucketRegion = cmdletContext.BucketRegion;
@@ -692,6 +710,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AuditDestinationARN { get; set; }
             public System.String BucketRegion { get; set; }
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public List<System.String> ClientList { get; set; }

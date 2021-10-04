@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// files. Amazon Translate translates every character in this type of input.</para></li><li><para><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>:
         /// The input data consists of one or more Word documents (.docx).</para></li><li><para><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>:
         /// The input data consists of one or more PowerPoint Presentation files (.pptx).</para></li><li><para><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The
-        /// input data consists of one or more Excel Workbook files (.xlsx).</para></li></ul><important><para>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>.
+        /// input data consists of one or more Excel Workbook files (.xlsx).</para></li><li><para><code>application/x-xliff+xml</code>: The input data consists of one or more XML
+        /// Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports
+        /// only XLIFF version 1.2.</para></li></ul><important><para>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>.
         /// By doing so, you cut costs by limiting the translation to the contents of the <code>html</code>
         /// element in each file. Otherwise, if you set this parameter to <code>text/plain</code>,
         /// your costs will cover the translation of every character.</para></important>
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-        /// that grants Amazon Translate read access to your input data. For more nformation,
+        /// that grants Amazon Translate read access to your input data. For more information,
         /// see <a>identity-and-access-management</a>.</para>
         /// </para>
         /// </summary>
@@ -95,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DataAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionKey_Id
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
+        /// terminology.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputDataConfig_EncryptionKey_Id")]
+        public System.String EncryptionKey_Id { get; set; }
         #endregion
         
         #region Parameter JobName
@@ -110,8 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter ParallelDataName
         /// <summary>
         /// <para>
-        /// <para>The names of the parallel data resources to use in the batch translation job. For
-        /// a list of available parallel data resources, use the <a>ListParallelData</a> operation.</para>
+        /// <para>The name of a parallel data resource to add to the translation job. This resource
+        /// consists of examples that show how you want segments of text to be translated. When
+        /// you add parallel data to a translation job, you create an <i>Active Custom Translation</i>
+        /// job. </para><para>This parameter accepts only one parallel data resource.</para><note><para>Active Custom Translation jobs are priced at a higher rate than other jobs that don't
+        /// use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon
+        /// Translate pricing</a>.</para></note><para>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</para><para>For more information, see <a>customizing-translations-parallel-data</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,13 +212,26 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyName
         /// <summary>
         /// <para>
-        /// <para>The name of the terminology to use in the batch translation job. For a list of available
-        /// terminologies, use the <a>ListTerminologies</a> operation.</para>
+        /// <para>The name of a custom terminology resource to add to the translation job. This resource
+        /// lists examples source terms and the desired translation for each term.</para><para>This parameter accepts only one custom terminology resource.</para><para>For a list of available custom terminology resources, use the <a>ListTerminologies</a>
+        /// operation.</para><para>For more information, see <a>how-custom-terminology</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TerminologyNames")]
         public System.String[] TerminologyName { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionKey_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputDataConfig_EncryptionKey_Type")]
+        [AWSConstantClassSource("Amazon.Translate.EncryptionKeyType")]
+        public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -278,6 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             }
             #endif
             context.JobName = this.JobName;
+            context.EncryptionKey_Id = this.EncryptionKey_Id;
+            context.EncryptionKey_Type = this.EncryptionKey_Type;
             context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
             #if MODULAR
             if (this.OutputDataConfig_S3Uri == null && ParameterWasBound(nameof(this.OutputDataConfig_S3Uri)))
@@ -381,6 +414,41 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 request.OutputDataConfig.S3Uri = requestOutputDataConfig_outputDataConfig_S3Uri;
                 requestOutputDataConfigIsNull = false;
             }
+            Amazon.Translate.Model.EncryptionKey requestOutputDataConfig_outputDataConfig_EncryptionKey = null;
+            
+             // populate EncryptionKey
+            var requestOutputDataConfig_outputDataConfig_EncryptionKeyIsNull = true;
+            requestOutputDataConfig_outputDataConfig_EncryptionKey = new Amazon.Translate.Model.EncryptionKey();
+            System.String requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Id = null;
+            if (cmdletContext.EncryptionKey_Id != null)
+            {
+                requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Id = cmdletContext.EncryptionKey_Id;
+            }
+            if (requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Id != null)
+            {
+                requestOutputDataConfig_outputDataConfig_EncryptionKey.Id = requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Id;
+                requestOutputDataConfig_outputDataConfig_EncryptionKeyIsNull = false;
+            }
+            Amazon.Translate.EncryptionKeyType requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Type = null;
+            if (cmdletContext.EncryptionKey_Type != null)
+            {
+                requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Type = cmdletContext.EncryptionKey_Type;
+            }
+            if (requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Type != null)
+            {
+                requestOutputDataConfig_outputDataConfig_EncryptionKey.Type = requestOutputDataConfig_outputDataConfig_EncryptionKey_encryptionKey_Type;
+                requestOutputDataConfig_outputDataConfig_EncryptionKeyIsNull = false;
+            }
+             // determine if requestOutputDataConfig_outputDataConfig_EncryptionKey should be set to null
+            if (requestOutputDataConfig_outputDataConfig_EncryptionKeyIsNull)
+            {
+                requestOutputDataConfig_outputDataConfig_EncryptionKey = null;
+            }
+            if (requestOutputDataConfig_outputDataConfig_EncryptionKey != null)
+            {
+                request.OutputDataConfig.EncryptionKey = requestOutputDataConfig_outputDataConfig_EncryptionKey;
+                requestOutputDataConfigIsNull = false;
+            }
              // determine if request.OutputDataConfig should be set to null
             if (requestOutputDataConfigIsNull)
             {
@@ -468,6 +536,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public System.String InputDataConfig_ContentType { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String JobName { get; set; }
+            public System.String EncryptionKey_Id { get; set; }
+            public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<System.String> ParallelDataName { get; set; }
             public System.String SourceLanguageCode { get; set; }

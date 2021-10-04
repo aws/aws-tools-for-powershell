@@ -115,6 +115,17 @@ $EMC_Completers = {
             break
         }
 
+        # Amazon.MediaConvert.InputPolicy
+        {
+            ($_ -eq "Write-EMCPolicy/Policy_HttpInputs") -Or
+            ($_ -eq "Write-EMCPolicy/Policy_HttpsInputs") -Or
+            ($_ -eq "Write-EMCPolicy/Policy_S3Inputs")
+        }
+        {
+            $v = "ALLOWED","DISALLOWED"
+            break
+        }
+
         # Amazon.MediaConvert.JobStatus
         "Get-EMCJobList/Status"
         {
@@ -214,6 +225,9 @@ $EMC_map = @{
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
     "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Policy_HttpInputs"=@("Write-EMCPolicy")
+    "Policy_HttpsInputs"=@("Write-EMCPolicy")
+    "Policy_S3Inputs"=@("Write-EMCPolicy")
     "PricingPlan"=@("New-EMCQueue")
     "ReservationPlanSettings_Commitment"=@("New-EMCQueue","Update-EMCQueue")
     "ReservationPlanSettings_RenewalType"=@("New-EMCQueue","Update-EMCQueue")
@@ -279,12 +293,14 @@ $EMC_SelectMap = @{
                "New-EMCPreset",
                "New-EMCQueue",
                "Remove-EMCJobTemplate",
+               "Remove-EMCPolicy",
                "Remove-EMCPreset",
                "Remove-EMCQueue",
                "Get-EMCEndpoint",
                "Unregister-EMCCertificate",
                "Get-EMCJob",
                "Get-EMCJobTemplate",
+               "Get-EMCPolicy",
                "Get-EMCPreset",
                "Get-EMCQueue",
                "Get-EMCJobList",
@@ -292,6 +308,7 @@ $EMC_SelectMap = @{
                "Get-EMCPresetList",
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
+               "Write-EMCPolicy",
                "Add-EMCResourceTag",
                "Remove-EMCResourceTag",
                "Update-EMCJobTemplate",

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encrypting messages in the database
         /// activity stream. The Amazon Web Services KMS key identifier is the key ARN, key ID,
-        /// alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</para>
+        /// alias ARN, or alias name for the KMS key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

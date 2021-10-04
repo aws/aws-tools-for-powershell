@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident record you are updating related items
-        /// in.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident record containing the related items
+        /// you are updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition
         /// <summary>
         /// <para>
-        /// <para>The metric definition, if the related item is a metric in CloudWatch.</para>
+        /// <para>The metric definition, if the related item is a metric in Amazon CloudWatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition
         /// <summary>
         /// <para>
-        /// <para>The metric definition, if the related item is a metric in CloudWatch.</para>
+        /// <para>The metric definition, if the related item is a metric in Amazon CloudWatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url
         /// <summary>
         /// <para>
-        /// <para>The URL, if the related item is a non-AWS resource.</para>
+        /// <para>The URL, if the related item is a non-Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter RelatedItemsUpdate_ItemToRemove_Value_Url
         /// <summary>
         /// <para>
-        /// <para>The URL, if the related item is a non-AWS resource.</para>
+        /// <para>The URL, if the related item is a non-Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class SendCHMMGChannelMessageCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        #region Parameter PushNotification_Body
+        /// <summary>
+        /// <para>
+        /// <para>The body of the push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PushNotification_Body { get; set; }
+        #endregion
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>
@@ -108,6 +118,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String Content { get; set; }
         #endregion
         
+        #region Parameter MessageAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attributes for the message, used for message filtering along with a <code>FilterRule</code>
+        /// defined in the <code>PushNotificationPreferences</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageAttributes")]
+        public System.Collections.Hashtable MessageAttribute { get; set; }
+        #endregion
+        
         #region Parameter Metadata
         /// <summary>
         /// <para>
@@ -133,6 +155,28 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType")]
         public Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType Persistence { get; set; }
+        #endregion
+        
+        #region Parameter PushNotification_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title of the push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PushNotification_Title { get; set; }
+        #endregion
+        
+        #region Parameter PushNotification_Type
+        /// <summary>
+        /// <para>
+        /// <para>Enum value that indicates the type of the push notification for a message. <code>DEFAULT</code>:
+        /// Normal mobile push notification. <code>VOIP</code>: VOIP mobile push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.PushNotificationType")]
+        public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
         #endregion
         
         #region Parameter Type
@@ -235,6 +279,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MessageAttribute != null)
+            {
+                context.MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MessageAttribute.Keys)
+                {
+                    context.MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
+                }
+            }
             context.Metadata = this.Metadata;
             context.Persistence = this.Persistence;
             #if MODULAR
@@ -243,6 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter Persistence which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PushNotification_Body = this.PushNotification_Body;
+            context.PushNotification_Title = this.PushNotification_Title;
+            context.PushNotification_Type = this.PushNotification_Type;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -282,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.Content = cmdletContext.Content;
             }
+            if (cmdletContext.MessageAttribute != null)
+            {
+                request.MessageAttributes = cmdletContext.MessageAttribute;
+            }
             if (cmdletContext.Metadata != null)
             {
                 request.Metadata = cmdletContext.Metadata;
@@ -289,6 +348,45 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.Persistence != null)
             {
                 request.Persistence = cmdletContext.Persistence;
+            }
+            
+             // populate PushNotification
+            var requestPushNotificationIsNull = true;
+            request.PushNotification = new Amazon.ChimeSDKMessaging.Model.PushNotificationConfiguration();
+            System.String requestPushNotification_pushNotification_Body = null;
+            if (cmdletContext.PushNotification_Body != null)
+            {
+                requestPushNotification_pushNotification_Body = cmdletContext.PushNotification_Body;
+            }
+            if (requestPushNotification_pushNotification_Body != null)
+            {
+                request.PushNotification.Body = requestPushNotification_pushNotification_Body;
+                requestPushNotificationIsNull = false;
+            }
+            System.String requestPushNotification_pushNotification_Title = null;
+            if (cmdletContext.PushNotification_Title != null)
+            {
+                requestPushNotification_pushNotification_Title = cmdletContext.PushNotification_Title;
+            }
+            if (requestPushNotification_pushNotification_Title != null)
+            {
+                request.PushNotification.Title = requestPushNotification_pushNotification_Title;
+                requestPushNotificationIsNull = false;
+            }
+            Amazon.ChimeSDKMessaging.PushNotificationType requestPushNotification_pushNotification_Type = null;
+            if (cmdletContext.PushNotification_Type != null)
+            {
+                requestPushNotification_pushNotification_Type = cmdletContext.PushNotification_Type;
+            }
+            if (requestPushNotification_pushNotification_Type != null)
+            {
+                request.PushNotification.Type = requestPushNotification_pushNotification_Type;
+                requestPushNotificationIsNull = false;
+            }
+             // determine if request.PushNotification should be set to null
+            if (requestPushNotificationIsNull)
+            {
+                request.PushNotification = null;
             }
             if (cmdletContext.Type != null)
             {
@@ -359,8 +457,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Content { get; set; }
+            public Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> MessageAttribute { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType Persistence { get; set; }
+            public System.String PushNotification_Body { get; set; }
+            public System.String PushNotification_Title { get; set; }
+            public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMessageType Type { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.SendChannelMessageResponse, SendCHMMGChannelMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

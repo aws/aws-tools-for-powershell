@@ -28,13 +28,13 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Returns a list of task definition families that are registered to your account (which
-    /// may include task definition families that no longer have any <code>ACTIVE</code> task
-    /// definition revisions).
+    /// Returns a list of task definition families that are registered to your account. This
+    /// list includes task definition families that no longer have any <code>ACTIVE</code>
+    /// task definition revisions.
     /// 
     ///  
     /// <para>
-    /// You can filter out task definition families that do not contain any <code>ACTIVE</code>
+    /// You can filter out task definition families that don't contain any <code>ACTIVE</code>
     /// task definition revisions by setting the <code>status</code> parameter to <code>ACTIVE</code>.
     /// You can also filter the results with the <code>familyPrefix</code> parameter.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter FamilyPrefix
         /// <summary>
         /// <para>
-        /// <para>The <code>familyPrefix</code> is a string that is used to filter the results of <code>ListTaskDefinitionFamilies</code>.
+        /// <para>The <code>familyPrefix</code> is a string that's used to filter the results of <code>ListTaskDefinitionFamilies</code>.
         /// If you specify a <code>familyPrefix</code>, only task definition family names that
         /// begin with the <code>familyPrefix</code> string are returned.</para>
         /// </para>
@@ -64,14 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The task definition family status with which to filter the <code>ListTaskDefinitionFamilies</code>
-        /// results. By default, both <code>ACTIVE</code> and <code>INACTIVE</code> task definition
-        /// families are listed. If this parameter is set to <code>ACTIVE</code>, only task definition
-        /// families that have an <code>ACTIVE</code> task definition revision are returned. If
-        /// this parameter is set to <code>INACTIVE</code>, only task definition families that
-        /// do not have any <code>ACTIVE</code> task definition revisions are returned. If you
-        /// paginate the resulting output, be sure to keep the <code>status</code> value constant
-        /// in each subsequent request.</para>
+        /// <para>The task definition family status to filter the <code>ListTaskDefinitionFamilies</code>
+        /// results with. By default, both <code>ACTIVE</code> and <code>INACTIVE</code> task
+        /// definition families are listed. If this parameter is set to <code>ACTIVE</code>, only
+        /// task definition families that have an <code>ACTIVE</code> task definition revision
+        /// are returned. If this parameter is set to <code>INACTIVE</code>, only task definition
+        /// families that do not have any <code>ACTIVE</code> task definition revisions are returned.
+        /// If you paginate the resulting output, be sure to keep the <code>status</code> value
+        /// constant in each subsequent request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,12 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of task definition family results returned by <code>ListTaskDefinitionFamilies</code>
-        /// in paginated output. When this parameter is used, <code>ListTaskDefinitions</code>
+        /// <para>The maximum number of task definition family results that <code>ListTaskDefinitionFamilies</code>
+        /// returned in paginated output. When this parameter is used, <code>ListTaskDefinitions</code>
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>ListTaskDefinitionFamilies</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListTaskDefinitionFamilies</code>
+        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListTaskDefinitionFamilies</code>
         /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>

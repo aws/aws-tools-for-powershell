@@ -192,6 +192,7 @@ $MSK_SelectMap = @{
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",
+               "Update-MSKConnectivity",
                "Update-MSKMonitoring",
                "Update-MSKSecurity")
 }

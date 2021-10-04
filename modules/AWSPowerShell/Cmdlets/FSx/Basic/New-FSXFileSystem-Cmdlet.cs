@@ -144,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.FileSystemType FileSystemType { get; set; }
         #endregion
         
+        #region Parameter FileSystemTypeVersion
+        /// <summary>
+        /// <para>
+        /// <para>Sets the version of the Amazon FSx for Lustre file system you're creating. Valid values
+        /// are <code>2.10</code> and <code>2.12</code>.</para><ul><li><para>Set the value to <code>2.10</code> to create a Lustre 2.10 file system.</para></li><li><para>Set the value to <code>2.12</code> to create a Lustre 2.12 file system.</para></li></ul><para>Default value is <code>2.10</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileSystemTypeVersion { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_FsxAdminPassword
         /// <summary>
         /// <para>
@@ -390,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter FileSystemType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FileSystemTypeVersion = this.FileSystemTypeVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.LustreConfiguration = this.LustreConfiguration;
             context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
@@ -456,6 +468,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.FileSystemType != null)
             {
                 request.FileSystemType = cmdletContext.FileSystemType;
+            }
+            if (cmdletContext.FileSystemTypeVersion != null)
+            {
+                request.FileSystemTypeVersion = cmdletContext.FileSystemTypeVersion;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -686,6 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public Amazon.FSx.FileSystemType FileSystemType { get; set; }
+            public System.String FileSystemTypeVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }

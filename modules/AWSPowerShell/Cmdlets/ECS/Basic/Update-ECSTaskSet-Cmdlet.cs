@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service
-        /// that the task set exists in.</para>
+        /// that the task set is found in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the service that the task set
-        /// exists in.</para>
+        /// is found in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the account ID of the customer for the connection.</para>
+        /// <para>The ID of the Amazon Web Services account ID of the customer for the connection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

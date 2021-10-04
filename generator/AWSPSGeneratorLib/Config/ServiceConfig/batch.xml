@@ -33,11 +33,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSchedulingPolicy" OutputProperty="*" Verb="New" Noun="SchedulingPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteComputeEnvironment" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJobQueue" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchedulingPolicy" Verb="Remove" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +69,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,6 +110,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJobQueue" OutputProperty="*" Verb="Update" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSchedulingPolicy" Verb="Update" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

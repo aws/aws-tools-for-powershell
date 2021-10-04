@@ -99,6 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDBRecipeList', 
         'Get-GDBRecipeVersionList', 
         'Get-GDBResourceTag', 
+        'Get-GDBRuleset', 
+        'Get-GDBRulesetList', 
         'Get-GDBSchedule', 
         'Get-GDBScheduleList', 
         'New-GDBDataset', 
@@ -106,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-GDBProject', 
         'New-GDBRecipe', 
         'New-GDBRecipeJob', 
+        'New-GDBRuleset', 
         'New-GDBSchedule', 
         'Publish-GDBRecipe', 
         'Remove-GDBDataset', 
@@ -114,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GDBRecipeVersion', 
         'Remove-GDBRecipeVersionBatch', 
         'Remove-GDBResourceTag', 
+        'Remove-GDBRuleset', 
         'Remove-GDBSchedule', 
         'Send-GDBProjectSessionAction', 
         'Start-GDBJobRun', 
@@ -124,6 +128,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GDBProject', 
         'Update-GDBRecipe', 
         'Update-GDBRecipeJob', 
+        'Update-GDBRuleset', 
         'Update-GDBSchedule')
 
     # Variables to export from this module

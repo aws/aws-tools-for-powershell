@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Metadata to assign to an AppConfig resource. Tags help organize and categorize your
+    /// Assigns metadata to an AppConfig resource. Tags help organize and categorize your
     /// AppConfig resources. Each tag consists of a key and an optional value, both of which
     /// you define. You can specify a maximum of 50 tags for a resource.
     /// </summary>

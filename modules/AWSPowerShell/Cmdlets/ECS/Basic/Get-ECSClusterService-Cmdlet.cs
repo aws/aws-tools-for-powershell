@@ -78,12 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of service results returned by <code>ListServices</code> in paginated
+        /// <para>The maximum number of service results that <code>ListServices</code> returned in paginated
         /// output. When this parameter is used, <code>ListServices</code> only returns <code>maxResults</code>
         /// results in a single page along with a <code>nextToken</code> response element. The
         /// remaining results of the initial request can be seen by sending another <code>ListServices</code>
         /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter is not used, then <code>ListServices</code> returns up
+        /// 1 and 100. If this parameter isn't used, then <code>ListServices</code> returns up
         /// to 10 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>

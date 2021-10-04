@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Provides information used to select Amazon Machine Images (AMIs) for EC2 instances
         /// in the compute environment. If <code>Ec2Configuration</code> isn't specified, the
-        /// default is <code>ECS_AL1</code>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// default is <code>ECS_AL2</code>.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note>
         /// </para>
         /// </summary>
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// is the tag key and String2 is the tag value−for example, <code>{ "Name": "Batch Instance
         /// - C4OnDemand" }</code>. This is helpful for recognizing your Batch instances in the
         /// Amazon EC2 console. These tags can't be updated or removed after the compute environment
-        /// is created.Aany changes to these tags require that you create a new compute environment
+        /// is created. Any changes to these tags require that you create a new compute environment
         /// and remove the old compute environment. These tags aren't seen when using the Batch
         /// <code>ListTagsForResource</code> API operation.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note>
@@ -447,6 +447,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Batch.CEType")]
         public Amazon.Batch.CEType Type { get; set; }
+        #endregion
+        
+        #region Parameter UnmanagedvCpu
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of vCPUs for an unmanaged compute environment. This parameter is
+        /// only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
+        /// If this parameter is not provided for a fair share job queue, no vCPU capacity will
+        /// be reserved.</para><note><para>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnmanagedvCpus")]
+        public System.Int32? UnmanagedvCpu { get; set; }
         #endregion
         
         #region Parameter LaunchTemplate_Version
@@ -592,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UnmanagedvCpu = this.UnmanagedvCpu;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -844,6 +859,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.Type = cmdletContext.Type;
             }
+            if (cmdletContext.UnmanagedvCpu != null)
+            {
+                request.UnmanagedvCpus = cmdletContext.UnmanagedvCpu.Value;
+            }
             
             CmdletOutput output;
             
@@ -930,6 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Amazon.Batch.CEState State { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.CEType Type { get; set; }
+            public System.Int32? UnmanagedvCpu { get; set; }
             public System.Func<Amazon.Batch.Model.CreateComputeEnvironmentResponse, NewBATComputeEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

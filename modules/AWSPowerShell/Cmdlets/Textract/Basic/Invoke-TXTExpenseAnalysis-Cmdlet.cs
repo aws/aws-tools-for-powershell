@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The file name of the input document. Synchronous operations can use image files that
-        /// are in JPEG or PNG format. Asynchronous operations also support PDF format files.</para>
+        /// are in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format
+        /// files.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

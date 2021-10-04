@@ -28,7 +28,7 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    /// Gets the properties associated with an asycnhronous batch translation job including
+    /// Gets the properties associated with an asynchronous batch translation job including
     /// name, ID, status, source and target languages, input/output S3 buckets, and so on.
     /// </summary>
     [Cmdlet("Get", "TRNTextTranslationJob")]

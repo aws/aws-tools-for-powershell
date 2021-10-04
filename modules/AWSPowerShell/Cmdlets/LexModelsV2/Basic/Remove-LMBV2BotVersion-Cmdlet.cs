@@ -28,7 +28,7 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Deletes a specific version of a bot. To delete all version of a bot, use the <a>DeleteBot</a>
+    /// Deletes a specific version of a bot. To delete all version of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a>
     /// operation.
     /// </summary>
     [Cmdlet("Remove", "LMBV2BotVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

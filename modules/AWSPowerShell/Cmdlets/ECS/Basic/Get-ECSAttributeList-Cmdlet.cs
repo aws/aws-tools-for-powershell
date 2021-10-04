@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// When you specify a target type and cluster, <code>ListAttributes</code> returns a
     /// list of attribute objects, one for each attribute on each resource. You can filter
     /// the list of results to a single attribute name to only return results that have that
-    /// name. You can also filter the results by attribute name and value, for example, to
-    /// see which container instances in a cluster are running a Linux AMI (<code>ecs.os-type=linux</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// name. You can also filter the results by attribute name and value. You can do this,
+    /// for example, to see which container instances in a cluster are running a Linux AMI
+    /// (<code>ecs.os-type=linux</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSAttributeList")]
     [OutputType("Amazon.ECS.Model.Attribute")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute with which to filter the results. </para>
+        /// <para>The name of the attribute to filter the results with. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the attribute with which to filter results. You must also specify an
-        /// attribute name to use this parameter.</para>
+        /// <para>The value of the attribute to filter results with. You must also specify an attribute
+        /// name to use this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>The type of the target with which to list attributes.</para>
+        /// <para>The type of the target to list attributes with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,13 +98,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of cluster results returned by <code>ListAttributes</code> in paginated
-        /// output. When this parameter is used, <code>ListAttributes</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListAttributes</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter is not used, then <code>ListAttributes</code> returns
-        /// up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of cluster results that <code>ListAttributes</code> returned in
+        /// paginated output. When this parameter is used, <code>ListAttributes</code> only returns
+        /// <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// response element. The remaining results of the initial request can be seen by sending
+        /// another <code>ListAttributes</code> request with the returned <code>nextToken</code>
+        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListAttributes</code>
+        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -121,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a <code>ListAttributes</code> request
         /// indicating that more results are available to fulfill the request and further calls
-        /// will be needed. If <code>maxResults</code> was provided, it is possible the number
-        /// of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// are needed. If <code>maxResults</code> was provided, it's possible the number of results
+        /// to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

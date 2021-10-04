@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deletes the delegations in the specified Audit Manager assessment.
+    /// Deletes a batch of delegations for an assessment in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMDelegationByAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentError")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified assessment. </para>
+        /// <para> The identifier for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter DelegationId
         /// <summary>
         /// <para>
-        /// <para> The identifiers for the specified delegations. </para>
+        /// <para> The identifiers for the delegations. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

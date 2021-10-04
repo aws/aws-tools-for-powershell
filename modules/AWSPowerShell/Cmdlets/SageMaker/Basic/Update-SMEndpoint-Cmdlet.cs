@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoRollbackConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of CloudWatch alarms in your account that are configured to monitor metrics on
+        /// an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the
+        /// deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter BlueGreenUpdatePolicy_MaximumExecutionTimeoutInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Maximum execution timeout for the deployment. Note that the timeout value should be
+        /// larger than the total waiting time specified in <code>TerminationWaitInSeconds</code>
+        /// and <code>WaitIntervalInSeconds</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,10 +149,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? RetainAllVariantProperty { get; set; }
         #endregion
         
+        #region Parameter RetainDeploymentConfig
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to reuse the last deployment configuration. The default value is
+        /// false (the configuration is not reused).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainDeploymentConfig { get; set; }
+        #endregion
+        
         #region Parameter BlueGreenUpdatePolicy_TerminationWaitInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Additional waiting time in seconds after the completion of an endpoint deployment
+        /// before terminating the old endpoint fleet. Default is 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CanarySize_Type
         /// <summary>
         /// <para>
-        /// <para>This API is not supported.</para>
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,10 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.CapacitySizeType CanarySize_Type { get; set; }
         #endregion
         
+        #region Parameter LinearStepSize_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// of capacity.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.CapacitySizeType")]
+        public Amazon.SageMaker.CapacitySizeType LinearStepSize_Type { get; set; }
+        #endregion
+        
         #region Parameter TrafficRoutingConfiguration_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Traffic routing strategy type.</para><ul><li><para><code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single step.
+        /// </para></li><li><para><code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps. The first
+        /// step is the canary, which is a small portion of the traffic. The second step is the
+        /// remainder of the traffic. </para></li><li><para><code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a configurable
+        /// size. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CanarySize_Value
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Defines the capacity size, either as a number of instances or a capacity percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,10 +225,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? CanarySize_Value { get; set; }
         #endregion
         
+        #region Parameter LinearStepSize_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the capacity size, either as a number of instances or a capacity percentage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Value")]
+        public System.Int32? LinearStepSize_Value { get; set; }
+        #endregion
+        
         #region Parameter TrafficRoutingConfiguration_WaitIntervalInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The waiting time (in seconds) between incremental steps to turn on traffic on the
+        /// new endpoint fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,6 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.BlueGreenUpdatePolicy_TerminationWaitInSecond = this.BlueGreenUpdatePolicy_TerminationWaitInSecond;
             context.CanarySize_Type = this.CanarySize_Type;
             context.CanarySize_Value = this.CanarySize_Value;
+            context.LinearStepSize_Type = this.LinearStepSize_Type;
+            context.LinearStepSize_Value = this.LinearStepSize_Value;
             context.TrafficRoutingConfiguration_Type = this.TrafficRoutingConfiguration_Type;
             context.TrafficRoutingConfiguration_WaitIntervalInSecond = this.TrafficRoutingConfiguration_WaitIntervalInSecond;
             context.EndpointConfigName = this.EndpointConfigName;
@@ -292,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ExcludeRetainedVariantProperty = new List<Amazon.SageMaker.Model.VariantProperty>(this.ExcludeRetainedVariantProperty);
             }
             context.RetainAllVariantProperty = this.RetainAllVariantProperty;
+            context.RetainDeploymentConfig = this.RetainDeploymentConfig;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -422,6 +471,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.CanarySize = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize;
                 requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
             }
+            Amazon.SageMaker.Model.CapacitySize requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = null;
+            
+             // populate LinearStepSize
+            var requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = true;
+            requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = new Amazon.SageMaker.Model.CapacitySize();
+            Amazon.SageMaker.CapacitySizeType requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type = null;
+            if (cmdletContext.LinearStepSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type = cmdletContext.LinearStepSize_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize.Type = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Type;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value = null;
+            if (cmdletContext.LinearStepSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value = cmdletContext.LinearStepSize_Value.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize.Value = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_linearStepSize_Value.Value;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize should be set to null
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSizeIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize != null)
+            {
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration.LinearStepSize = requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize;
+                requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull = false;
+            }
              // determine if requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration should be set to null
             if (requestDeploymentConfig_deploymentConfig_BlueGreenUpdatePolicy_deploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfigurationIsNull)
             {
@@ -462,6 +546,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.RetainAllVariantProperty != null)
             {
                 request.RetainAllVariantProperties = cmdletContext.RetainAllVariantProperty.Value;
+            }
+            if (cmdletContext.RetainDeploymentConfig != null)
+            {
+                request.RetainDeploymentConfig = cmdletContext.RetainDeploymentConfig.Value;
             }
             
             CmdletOutput output;
@@ -529,12 +617,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? BlueGreenUpdatePolicy_TerminationWaitInSecond { get; set; }
             public Amazon.SageMaker.CapacitySizeType CanarySize_Type { get; set; }
             public System.Int32? CanarySize_Value { get; set; }
+            public Amazon.SageMaker.CapacitySizeType LinearStepSize_Type { get; set; }
+            public System.Int32? LinearStepSize_Value { get; set; }
             public Amazon.SageMaker.TrafficRoutingConfigType TrafficRoutingConfiguration_Type { get; set; }
             public System.Int32? TrafficRoutingConfiguration_WaitIntervalInSecond { get; set; }
             public System.String EndpointConfigName { get; set; }
             public System.String EndpointName { get; set; }
             public List<Amazon.SageMaker.Model.VariantProperty> ExcludeRetainedVariantProperty { get; set; }
             public System.Boolean? RetainAllVariantProperty { get; set; }
+            public System.Boolean? RetainDeploymentConfig { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateEndpointResponse, UpdateSMEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EndpointArn;
         }

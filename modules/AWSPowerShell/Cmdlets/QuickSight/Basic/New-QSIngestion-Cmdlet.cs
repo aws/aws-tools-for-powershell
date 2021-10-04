@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String IngestionId { get; set; }
         #endregion
         
+        #region Parameter IngestionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of ingestion that you want to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.IngestionType")]
+        public Amazon.QuickSight.IngestionType IngestionType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter IngestionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IngestionType = this.IngestionType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.IngestionId != null)
             {
                 request.IngestionId = cmdletContext.IngestionId;
+            }
+            if (cmdletContext.IngestionType != null)
+            {
+                request.IngestionType = cmdletContext.IngestionType;
             }
             
             CmdletOutput output;
@@ -273,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsAccountId { get; set; }
             public System.String DataSetId { get; set; }
             public System.String IngestionId { get; set; }
+            public Amazon.QuickSight.IngestionType IngestionType { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateIngestionResponse, NewQSIngestionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

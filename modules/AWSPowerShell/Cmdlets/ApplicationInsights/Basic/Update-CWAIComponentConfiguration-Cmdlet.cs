@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class UpdateCWAIComponentConfigurationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AutoConfigEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoConfigEnabled { get; set; }
+        #endregion
+        
         #region Parameter ComponentConfiguration
         /// <summary>
         /// <para>
@@ -174,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ComponentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoConfigEnabled = this.AutoConfigEnabled;
             context.ComponentConfiguration = this.ComponentConfiguration;
             context.ComponentName = this.ComponentName;
             #if MODULAR
@@ -207,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.UpdateComponentConfigurationRequest();
             
+            if (cmdletContext.AutoConfigEnabled != null)
+            {
+                request.AutoConfigEnabled = cmdletContext.AutoConfigEnabled.Value;
+            }
             if (cmdletContext.ComponentConfiguration != null)
             {
                 request.ComponentConfiguration = cmdletContext.ComponentConfiguration;
@@ -288,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoConfigEnabled { get; set; }
             public System.String ComponentConfiguration { get; set; }
             public System.String ComponentName { get; set; }
             public System.Boolean? Monitor { get; set; }

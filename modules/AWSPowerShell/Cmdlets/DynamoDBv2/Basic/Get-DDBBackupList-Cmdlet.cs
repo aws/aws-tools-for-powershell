@@ -28,10 +28,10 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// List backups associated with an AWS account. To list backups for a given table, specify
-    /// <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
-    /// with at most 1 MB worth of items in a page. You can also specify a maximum number
-    /// of entries to be returned in a page. 
+    /// List backups associated with an Amazon Web Services account. To list backups for a
+    /// given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated
+    /// list of results with at most 1 MB worth of items in a page. You can also specify a
+    /// maximum number of entries to be returned in a page.
     /// 
     ///  
     /// <para>

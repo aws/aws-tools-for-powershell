@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AutomationTargetParameterName
         /// <summary>
         /// <para>
-        /// <para>Specify the target for the association. This target is required for associations that
-        /// use an Automation runbook and target resources by using rate controls. Automation
-        /// is a capability of Amazon Web Services Systems Manager.</para>
+        /// <para>Choose the parameter that will define how your automation will branch out. This target
+        /// is required for associations that use an Automation runbook and target resources by
+        /// using rate controls. Automation is a capability of Amazon Web Services Systems Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

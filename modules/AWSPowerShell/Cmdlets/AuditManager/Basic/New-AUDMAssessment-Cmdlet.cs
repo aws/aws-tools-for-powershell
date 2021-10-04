@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsAccount
         /// <summary>
         /// <para>
-        /// <para> The accounts included in the scope of the assessment. </para>
+        /// <para> The Amazon Web Services accounts that are included in the scope of the assessment.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsService
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services services included in the scope of the assessment. </para>
+        /// <para> The Amazon Web Services services that are included in the scope of the assessment.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter FrameworkId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified framework. </para>
+        /// <para> The identifier for the framework that the assessment will be created from. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para> The list of roles for the specified assessment. </para>
+        /// <para> The list of roles for the assessment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags associated with the assessment. </para>
+        /// <para> The tags that are associated with the assessment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

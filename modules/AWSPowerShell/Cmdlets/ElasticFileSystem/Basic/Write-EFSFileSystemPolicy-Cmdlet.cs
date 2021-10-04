@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default
     /// EFS File System Policy</a>. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
     /// EFS file system policies have a 20,000 character limit.
-    /// </para><para>
+    /// </para></note><para>
     /// This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code>
     /// action.
     /// </para>

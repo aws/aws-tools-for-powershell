@@ -137,14 +137,30 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserContextPolicy
         /// <summary>
         /// <para>
-        /// <para>The user context policy.</para><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If there is an access
-        /// control list, it is ignored. You can filter on user and group attributes. </para></dd><dt>USER_TOKEN</dt><dd><para>Enables SSO and token-based user access control. All documents with no access control
-        /// and all documents accessible to the user will be searchable and displayable. </para></dd></dl>
+        /// <para>The user context policy.</para><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If you want to filter
+        /// search results on user context, you can use the attribute filters of <code>_user_id</code>
+        /// and <code>_group_ids</code> or you can provide user and group information in <code>UserContext</code>.
+        /// </para></dd><dt>USER_TOKEN</dt><dd><para>Enables token-based user access control to filter search results on user context.
+        /// All documents with no access control and all documents accessible to the user will
+        /// be searchable and displayable. </para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Kendra.UserContextPolicy")]
         public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+        #endregion
+        
+        #region Parameter UserGroupResolutionConfiguration_UserGroupResolutionMode
+        /// <summary>
+        /// <para>
+        /// <para>The identity store provider (mode) you want to use to fetch access levels of groups
+        /// and users. AWS Single Sign-On is currently the only available mode. Your users and
+        /// groups must exist in an AWS SSO identity source in order to use this mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.UserGroupResolutionMode")]
+        public Amazon.Kendra.UserGroupResolutionMode UserGroupResolutionConfiguration_UserGroupResolutionMode { get; set; }
         #endregion
         
         #region Parameter UserTokenConfiguration
@@ -254,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Tag = new List<Amazon.Kendra.Model.Tag>(this.Tag);
             }
             context.UserContextPolicy = this.UserContextPolicy;
+            context.UserGroupResolutionConfiguration_UserGroupResolutionMode = this.UserGroupResolutionConfiguration_UserGroupResolutionMode;
             if (this.UserTokenConfiguration != null)
             {
                 context.UserTokenConfiguration = new List<Amazon.Kendra.Model.UserTokenConfiguration>(this.UserTokenConfiguration);
@@ -320,6 +337,25 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.UserContextPolicy != null)
             {
                 request.UserContextPolicy = cmdletContext.UserContextPolicy;
+            }
+            
+             // populate UserGroupResolutionConfiguration
+            var requestUserGroupResolutionConfigurationIsNull = true;
+            request.UserGroupResolutionConfiguration = new Amazon.Kendra.Model.UserGroupResolutionConfiguration();
+            Amazon.Kendra.UserGroupResolutionMode requestUserGroupResolutionConfiguration_userGroupResolutionConfiguration_UserGroupResolutionMode = null;
+            if (cmdletContext.UserGroupResolutionConfiguration_UserGroupResolutionMode != null)
+            {
+                requestUserGroupResolutionConfiguration_userGroupResolutionConfiguration_UserGroupResolutionMode = cmdletContext.UserGroupResolutionConfiguration_UserGroupResolutionMode;
+            }
+            if (requestUserGroupResolutionConfiguration_userGroupResolutionConfiguration_UserGroupResolutionMode != null)
+            {
+                request.UserGroupResolutionConfiguration.UserGroupResolutionMode = requestUserGroupResolutionConfiguration_userGroupResolutionConfiguration_UserGroupResolutionMode;
+                requestUserGroupResolutionConfigurationIsNull = false;
+            }
+             // determine if request.UserGroupResolutionConfiguration should be set to null
+            if (requestUserGroupResolutionConfigurationIsNull)
+            {
+                request.UserGroupResolutionConfiguration = null;
             }
             if (cmdletContext.UserTokenConfiguration != null)
             {
@@ -394,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String ServerSideEncryptionConfiguration_KmsKeyId { get; set; }
             public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
             public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+            public Amazon.Kendra.UserGroupResolutionMode UserGroupResolutionConfiguration_UserGroupResolutionMode { get; set; }
             public List<Amazon.Kendra.Model.UserTokenConfiguration> UserTokenConfiguration { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateIndexResponse, NewKNDRIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;

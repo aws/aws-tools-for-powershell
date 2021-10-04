@@ -80,6 +80,36 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.HdfsAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationHdf/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationHdf/AuthenticationType")
+        }
+        {
+            $v = "KERBEROS","SIMPLE"
+            break
+        }
+
+        # Amazon.DataSync.HdfsDataTransferProtection
+        {
+            ($_ -eq "New-DSYNLocationHdf/QopConfiguration_DataTransferProtection") -Or
+            ($_ -eq "Update-DSYNLocationHdf/QopConfiguration_DataTransferProtection")
+        }
+        {
+            $v = "AUTHENTICATION","DISABLED","INTEGRITY","PRIVACY"
+            break
+        }
+
+        # Amazon.DataSync.HdfsRpcProtection
+        {
+            ($_ -eq "New-DSYNLocationHdf/QopConfiguration_RpcProtection") -Or
+            ($_ -eq "Update-DSYNLocationHdf/QopConfiguration_RpcProtection")
+        }
+        {
+            $v = "AUTHENTICATION","DISABLED","INTEGRITY","PRIVACY"
+            break
+        }
+
         # Amazon.DataSync.NfsVersion
         {
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
@@ -126,7 +156,10 @@ $DSYN_Completers = {
 }
 
 $DSYN_map = @{
+    "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
+    "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
 }
@@ -185,6 +218,7 @@ $DSYN_SelectMap = @{
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxWindow",
+               "New-DSYNLocationHdf",
                "New-DSYNLocationNfs",
                "New-DSYNLocationObjectStorage",
                "New-DSYNLocationS3",
@@ -196,6 +230,7 @@ $DSYN_SelectMap = @{
                "Get-DSYNAgent",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxWindow",
+               "Get-DSYNLocationHdf",
                "Get-DSYNLocationNfs",
                "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
@@ -211,6 +246,7 @@ $DSYN_SelectMap = @{
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
+               "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
                "Update-DSYNLocationSmb",

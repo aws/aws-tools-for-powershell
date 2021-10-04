@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-SNSPlatformEndpoint', 
         'New-SNSSMSSandboxPhoneNumber', 
         'New-SNSTopic', 
+        'Publish-SNSBatch', 
         'Publish-SNSMessage', 
         'Remove-SNSEndpoint', 
         'Remove-SNSPermission', 

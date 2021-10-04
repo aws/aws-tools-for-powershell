@@ -80,6 +80,23 @@ $CHM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Chime.ArtifactsState
+        {
+            ($_ -eq "New-CHMMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State") -Or
+            ($_ -eq "New-CHMMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+        # Amazon.Chime.AudioMuxType
+        "New-CHMMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"
+        {
+            $v = "AudioOnly","AudioWithActiveSpeakerVideo"
+            break
+        }
+
         # Amazon.Chime.ChannelMembershipType
         {
             ($_ -eq "Get-CHMChannelMembershipList/Type") -Or
@@ -122,6 +139,13 @@ $CHM_Completers = {
         }
         {
             $v = "PRIVATE","PUBLIC"
+            break
+        }
+
+        # Amazon.Chime.ContentMuxType
+        "New-CHMMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
+        {
+            $v = "ContentOnly"
             break
         }
 
@@ -227,10 +251,31 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.TranscribeContentIdentificationType
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType"
+        {
+            $v = "PII"
+            break
+        }
+
+        # Amazon.Chime.TranscribeContentRedactionType
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"
+        {
+            $v = "PII"
+            break
+        }
+
         # Amazon.Chime.TranscribeLanguageCode
         "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
         {
             $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalContentIdentificationType
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"
+        {
+            $v = "PHI"
             break
         }
 
@@ -262,6 +307,13 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.TranscribePartialResultsStability
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"
+        {
+            $v = "high","low","medium"
+            break
+        }
+
         # Amazon.Chime.TranscribeRegion
         "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_Region"
         {
@@ -288,6 +340,13 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.VideoMuxType
+        "New-CHMMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"
+        {
+            $v = "VideoOnly"
+            break
+        }
+
         # Amazon.Chime.VoiceConnectorAwsRegion
         "New-CHMVoiceConnector/AwsRegion"
         {
@@ -305,6 +364,11 @@ $CHM_Completers = {
 
 $CHM_map = @{
     "AwsRegion"=@("New-CHMVoiceConnector")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMediaCapturePipeline")
     "DefaultLicense"=@("Update-CHMAccount")
     "FilterName"=@("Get-CHMPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMProxySession")
@@ -320,11 +384,15 @@ $CHM_map = @{
     "SortOrder"=@("Get-CHMChannelMessageList")
     "SourceType"=@("New-CHMMediaCapturePipeline")
     "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "TriggerType"=@("New-CHMSipRule")

@@ -28,21 +28,24 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Information that enables AppConfig to access the configuration source. Valid configuration
-    /// sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and
-    /// Amazon S3 objects. A configuration profile includes the following information.
+    /// Creates a configuration profile, which is information that enables AppConfig to access
+    /// the configuration source. Valid configuration sources include the AppConfig hosted
+    /// configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter
+    /// Store parameters, Amazon S3 objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration
+    /// source action</a> supported by CodePipeline. A configuration profile includes the
+    /// following information:
     /// 
     ///  <ul><li><para>
-    /// The Uri location of the configuration data.
+    /// The URI location of the configuration data.
     /// </para></li><li><para>
-    /// The AWS Identity and Access Management (IAM) role that provides access to the configuration
+    /// The Identity and Access Management (IAM) role that provides access to the configuration
     /// data.
     /// </para></li><li><para>
     /// A validator for the configuration data. Available validators include either a JSON
-    /// Schema or an AWS Lambda function.
+    /// Schema or an Lambda function.
     /// </para></li></ul><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create
-    /// a Configuration and a Configuration Profile</a> in the <i>AWS AppConfig User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create
+    /// a Configuration and a Configuration Profile</a> in the <i>AppConfig User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "APPCConfigurationProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,13 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter LocationUri
         /// <summary>
         /// <para>
-        /// <para>A URI to locate the configuration. You can specify a Systems Manager (SSM) document,
-        /// an SSM Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify
-        /// either the document name in the format <code>ssm-document://&lt;Document_name&gt;</code>
+        /// <para>A URI to locate the configuration. You can specify the AppConfig hosted configuration
+        /// store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon
+        /// S3 object. For the hosted configuration store and for feature flags, specify <code>hosted</code>.
+        /// For an SSM document, specify either the document name in the format <code>ssm-document://&lt;Document_name&gt;</code>
         /// or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name
         /// in the format <code>ssm-parameter://&lt;Parameter_name&gt;</code> or the ARN. For
         /// an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt;
-        /// </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</para>
+        /// </code>. Here is an example: <code>s3://my-bucket/my-app/us-east-1/my-config.json</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role with permission to access the configuration at the specified
-        /// LocationUri.</para>
+        /// <code>LocationUri</code>.</para><important><para>A retrieval role ARN is not required for configurations stored in the AppConfig hosted
+        /// configuration store. It is required for all other sources that store your configuration.
+        /// </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,6 +149,18 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of configurations that the configuration profile contains. A configuration
+        /// can be a feature flag used for enabling or disabling new features or a free-form configuration
+        /// used for distributing configurations to your application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Type { get; set; }
         #endregion
         
         #region Parameter Validator
@@ -248,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.Type = this.Type;
             if (this.Validator != null)
             {
                 context.Validator = new List<Amazon.AppConfig.Model.Validator>(this.Validator);
@@ -291,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             if (cmdletContext.Validator != null)
             {
@@ -363,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String Name { get; set; }
             public System.String RetrievalRoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String Type { get; set; }
             public List<Amazon.AppConfig.Model.Validator> Validator { get; set; }
             public System.Func<Amazon.AppConfig.Model.CreateConfigurationProfileResponse, NewAPPCConfigurationProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

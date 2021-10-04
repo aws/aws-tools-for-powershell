@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the device.</para><para>Length Constraints: Maximum length of 256 characters.</para>
+        /// <para>A description of the device.</para><para>Constraints: Maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Model
         /// <summary>
         /// <para>
-        /// <para>The model of the device.</para><para>Length Constraints: Maximum length of 128 characters.</para>
+        /// <para>The model of the device.</para><para>Constraints: Maximum length of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter SerialNumber
         /// <summary>
         /// <para>
-        /// <para>The serial number of the device.</para><para>Length Constraints: Maximum length of 128 characters.</para>
+        /// <para>The serial number of the device.</para><para>Constraints: Maximum length of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter AWSLocation_SubnetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the subnet the device is located in.</para>
+        /// <para>The Amazon Resource Name (ARN) of the subnet that the device is located in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Vendor
         /// <summary>
         /// <para>
-        /// <para>The vendor of the device.</para><para>Length Constraints: Maximum length of 128 characters.</para>
+        /// <para>The vendor of the device.</para><para>Constraints: Maximum length of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter AWSLocation_Zone
         /// <summary>
         /// <para>
-        /// <para>The Zone the device is located in. This can be the ID of an Availability Zone, Local
+        /// <para>The Zone that the device is located in. Specify the ID of an Availability Zone, Local
         /// Zone, Wavelength Zone, or an Outpost.</para>
         /// </para>
         /// </summary>

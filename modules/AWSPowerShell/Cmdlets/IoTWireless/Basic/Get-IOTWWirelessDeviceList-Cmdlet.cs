@@ -60,6 +60,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String DeviceProfileId { get; set; }
         #endregion
         
+        #region Parameter FuotaTaskId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FuotaTaskId { get; set; }
+        #endregion
+        
+        #region Parameter MulticastGroupId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MulticastGroupId { get; set; }
+        #endregion
+        
         #region Parameter ServiceProfileId
         /// <summary>
         /// <para>
@@ -150,7 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DestinationName = this.DestinationName;
             context.DeviceProfileId = this.DeviceProfileId;
+            context.FuotaTaskId = this.FuotaTaskId;
             context.MaxResult = this.MaxResult;
+            context.MulticastGroupId = this.MulticastGroupId;
             context.NextToken = this.NextToken;
             context.ServiceProfileId = this.ServiceProfileId;
             context.WirelessDeviceType = this.WirelessDeviceType;
@@ -178,9 +200,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.DeviceProfileId = cmdletContext.DeviceProfileId;
             }
+            if (cmdletContext.FuotaTaskId != null)
+            {
+                request.FuotaTaskId = cmdletContext.FuotaTaskId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.MulticastGroupId != null)
+            {
+                request.MulticastGroupId = cmdletContext.MulticastGroupId;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -257,7 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String DestinationName { get; set; }
             public System.String DeviceProfileId { get; set; }
+            public System.String FuotaTaskId { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String MulticastGroupId { get; set; }
             public System.String NextToken { get; set; }
             public System.String ServiceProfileId { get; set; }
             public Amazon.IoTWireless.WirelessDeviceType WirelessDeviceType { get; set; }

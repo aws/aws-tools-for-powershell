@@ -31,7 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates
     /// a route</a> given the following required parameters: <code>DeparturePostiton</code>
     /// and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-    /// a route calculator resource</a><para>
+    /// a route calculator resource</a>.
+    /// 
+    ///  
+    /// <para>
     /// By default, a request that doesn't specify a departure time uses the best time of
     /// day to travel with the best traffic conditions when calculating the route.
     /// </para><para>
@@ -41,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// This calculates a route based on predictive traffic data at the given time. 
     /// </para><note><para>
     /// You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in
-    /// a single request. Specifying both parameters returns an error message.
+    /// a single request. Specifying both parameters returns a validation error.
     /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying
     /// a travel mode</a> using TravelMode. This lets you specify an additional route preference
     /// such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code>
@@ -104,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter CalculatorName
         /// <summary>
         /// <para>
-        /// <para>The name of the route calculator resource that you want to use to calculate a route.
+        /// <para>The name of the route calculator resource that you want to use to calculate the route.
         /// </para>
         /// </para>
         /// </summary>
@@ -136,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>The start position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS
         /// 84</a> format: <code>[longitude, latitude]</code>.</para><ul><li><para>For example, <code>[-123.115, 49.285]</code></para></li></ul><note><para>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves
-        /// the position to the nearest road</a>.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
+        /// the position to the nearest road</a>. If Esri is the provider for your route calculator,
+        /// specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code>
+        /// error.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DepartureTime
         /// <summary>
         /// <para>
-        /// <para>Specifies the desired time of departure. Uses the given time to calculate a route.
+        /// <para>Specifies the desired time of departure. Uses the given time to calculate the route.
         /// Otherwise, the best time of day to travel with the best traffic conditions is used
         /// to calculate the route.</para><note><para>Setting a departure time in the past returns a <code>400 ValidationException</code>
         /// error.</para></note><ul><li><para>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
@@ -282,7 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// between the departure position and destination position. </para><ul><li><para>For example, from the <code>DeparturePosition</code><code>[-123.115, 49.285]</code>,
         /// the route follows the order that the waypoint positions are given <code>[[-122.757,
         /// 49.0021],[-122.349, 47.620]]</code></para></li></ul><note><para>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves
-        /// the position to the nearest road</a>. </para><para>Specifying more than 23 waypoints returns a <code>400 ValidationException</code> error.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
+        /// the position to the nearest road</a>. </para><para>Specifying more than 23 waypoints returns a <code>400 ValidationException</code> error.</para><para>If Esri is the provider for your route calculator, specifying a route that is longer
+        /// than 400 km returns a <code>400 RoutesValidationException</code> error.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

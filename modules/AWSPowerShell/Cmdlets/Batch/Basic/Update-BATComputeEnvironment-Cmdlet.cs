@@ -163,6 +163,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ComputeResources_Subnet { get; set; }
         #endregion
         
+        #region Parameter UnmanagedvCpu
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of vCPUs expected to be used for an unmanaged compute environment.
+        /// This parameter should not be specified for a managed compute environment. This parameter
+        /// is only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
+        /// If this parameter is not provided for a fair share job queue, no vCPU capacity will
+        /// be reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnmanagedvCpus")]
+        public System.Int32? UnmanagedvCpu { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -244,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.ServiceRole = this.ServiceRole;
             context.State = this.State;
+            context.UnmanagedvCpu = this.UnmanagedvCpu;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -331,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.State = cmdletContext.State;
             }
+            if (cmdletContext.UnmanagedvCpu != null)
+            {
+                request.UnmanagedvCpus = cmdletContext.UnmanagedvCpu.Value;
+            }
             
             CmdletOutput output;
             
@@ -400,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ComputeResources_Subnet { get; set; }
             public System.String ServiceRole { get; set; }
             public Amazon.Batch.CEState State { get; set; }
+            public System.Int32? UnmanagedvCpu { get; set; }
             public System.Func<Amazon.Batch.Model.UpdateComputeEnvironmentResponse, UpdateBATComputeEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

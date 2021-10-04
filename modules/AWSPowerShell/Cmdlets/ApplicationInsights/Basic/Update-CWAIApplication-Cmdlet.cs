@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class UpdateCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AutoConfigEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoConfigEnabled { get; set; }
+        #endregion
+        
         #region Parameter CWEMonitorEnabled
         /// <summary>
         /// <para>
@@ -162,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ResourceGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoConfigEnabled = this.AutoConfigEnabled;
             context.CWEMonitorEnabled = this.CWEMonitorEnabled;
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
@@ -189,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.UpdateApplicationRequest();
             
+            if (cmdletContext.AutoConfigEnabled != null)
+            {
+                request.AutoConfigEnabled = cmdletContext.AutoConfigEnabled.Value;
+            }
             if (cmdletContext.CWEMonitorEnabled != null)
             {
                 request.CWEMonitorEnabled = cmdletContext.CWEMonitorEnabled.Value;
@@ -270,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoConfigEnabled { get; set; }
             public System.Boolean? CWEMonitorEnabled { get; set; }
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the specified control. </para>
+        /// <para> The identifier for the control. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
