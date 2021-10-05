@@ -2,11 +2,10 @@
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">../../AWSDotNetBuildTools</InternalBuildTools>
+        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">../../AWSDotNetBuildTools/BuildUtilities</InternalBuildTools>
     </PropertyGroup>
 
-    <Import Project="$(InternalBuildTools)/references.targets" Condition="Exists('$(InternalBuildTools)/references.targets')" />
-    <Import Project="$(InternalBuildTools)/common.targets" Condition="Exists('$(InternalBuildTools)/common.targets')" />
+    <Import Project="$(InternalBuildTools)/references.targets" Condition="Exists('$(InternalBuildTools)/references.targets')" />    
 
     <PropertyGroup>
         <!-- perform a release build by default -->
@@ -64,13 +63,22 @@
 
         <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
-
-    <Target Name="full-build" DependsOnTargets="clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests;save-build">
+        
+    <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
-
-    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp">
+    
+    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp;run-tests">
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
+    </Target>
+
+    <Target Name="staging-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules">
+        <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts."/>
+    </Target>
+
+    <Target Name="clean-bin">
+        <Exec Command="dotnet clean -c $(Configuration) ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet clean -c $(Configuration) ../solutions/AWSPowerShell.sln"/>
     </Target>
 
     <Target Name="clean-deployment">
@@ -93,7 +101,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
         <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
-        <Message Text="Generating cmdlets for all services"/>
+        <Message Text="Generating cmdlets for all services"/>        
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
         <Exec Command="pwsh -NoProfile -Command New-Item -Path $(RootPath)/GenerationSucceeded.tag" />
     </Target>
@@ -147,7 +155,7 @@
         <Zip InputDirectory="$(DocDeployment)/docs" OutputFileName="$(DocDeployment)/help.zip" />
     </Target>
 
-    <Target Name="run-tests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts" Condition="'$(RunTests)'">
+    <Target Name="run-tests" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
 
         <RemoveDir Directories="$(RootPath)/tests/results" />
@@ -248,17 +256,17 @@
 
     <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
         <PropertyGroup>
-            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/BuildScripts/Set-SignServiceSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/../BuildScripts/Set-SignServiceSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
         </PropertyGroup>
 
         <Message Text="Authenticode signing module and script artifacts for Desktop edition" />
-        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentArtifacts)" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(DesktopDeploymentArtifacts)" />
 
         <Message Text="Authenticode signing module and script artifacts for NetCore edition" />
-        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" />
 
         <Message Text="Authenticode signing module and script artifacts for modular edition" />
-        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(ModularDeploymentArtifacts) -Recurse" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(ModularDeploymentArtifacts) -Recurse" />
     </Target>
 
     <Target Name="keyscan" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
@@ -291,11 +299,7 @@
 
         <KeyScannerTask Folder="$(MSBuildProjectDirectory)/.." FilePattern="**" PrivateKeyExceptions="@(PrivateKeyException)" FileExceptions="@(FileException)" FolderExceptions="@(FolderException)" ParallelScan="true" />
     </Target>
-
-    <Target Name="save-build" DependsOnTargets="build-tools" Condition="Exists('$(InternalBuildTools)/references.targets')">
-        <SaveBuildArtifactTask RepositoryRoot="$(MSBuildProjectDirectory)/.." BuildArtifactType="powershell" GitBranch="$(SaveReferenceGitBranch)" LocalArchiveRootFolder="$(LocalArchiveRootFolder)" />
-    </Target>
-
+    
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Command="dotnet build -c Release --no-incremental --no-restore ../solutions/ReleaseNotesGenerator.sln"/>

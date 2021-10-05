@@ -51,12 +51,23 @@ Param
     [string]$UpdatePackageVersionsProfile,
 
     [Parameter()]
+    [string] $RequiredAWSPowerShellVersionToUse = '4.1.14.0',
+
+    [Parameter()]
     [switch]$DryRun
 )
 
 $ErrorActionPreference = "Stop"
 
 Import-Module -Name "PowerShellGet"
+
+#Import DynamoDBv2 needed to update the PackageVersions table.
+if (-not (Get-Module -ListAvailable -Name AWS.Tools.DynamoDBv2 | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
+    Write-Host "Installing AWS.Tools.DynamoDBv2 $RequiredAWSPowerShellVersionToUse"
+    Install-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
+  }
+  Import-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse
+
 Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
 
 $alreadyImportedModules = New-Object System.Collections.Generic.HashSet[string]
@@ -104,13 +115,13 @@ function PublishRecursive([string]$modulePath) {
             try {
                 Write-Host "Publishing $modulePath"
                 if ($DryRun) {
-                    Write-Host "-DryRun specified, skipped actual publish of $modulePath"
+                    Write-Host "-DryRun specified, skipped actual publish and PackageVersions update of $modulePath"
                 }
                 else {
                     Publish-Module -Path $modulePath @commonArgs -Force
                     Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
-                }
-                Write-Host "Published $modulePath"
+                    Write-Host "Published $modulePath"
+                }                
                 break
             }
             catch {
@@ -118,7 +129,12 @@ function PublishRecursive([string]$modulePath) {
                 try {
                     Find-Module ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -RequiredVersion $manifestData.ModuleVersion
                     Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
-                    Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
+                    if ($DryRun) {
+                        Write-Host "-DryRun specified, skipped PackageVersions update of $modulePath in catch."
+                    }
+                    else {
+                        Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
+                    }
                     break;
                 }
                 catch {

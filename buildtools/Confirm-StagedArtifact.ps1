@@ -19,10 +19,15 @@ Param (
     # The expected version of the module. This will be verified against
     # the module manifest and the running binary.
     [Parameter(Mandatory = $true, Position = 0)]
-    [string]$ExpectedVersion
+    [string]$ExpectedVersion,
+
+    # Determines if signing will be verified. This must be true for production
+    # release environments.
+    [Parameter()]
+    [string] $VerifySigning = "true"
 )
 
-function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [string]$cmdletToTest) {
+function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
 
     $authenticodeSignatureStart = 'SIG # Begin signature block'
 
@@ -45,18 +50,20 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
         }
     }
 
-    Write-Host 'Verifying module files are Authenticode-signed'
-    $filter = @('*.ps1', '*.psm1', '*.psd1', '*.ps1xml')
-    $signableFiles = Get-ChildItem -Path $modulePath\* -Include $filter | Select-Object -ExpandProperty Name
+    if ($signingCheck) {
+        Write-Host 'Verifying module files are Authenticode-signed'
+        $filter = @('*.ps1', '*.psm1', '*.psd1', '*.ps1xml')
+        $signableFiles = Get-ChildItem -Path $modulePath\* -Include $filter | Select-Object -ExpandProperty Name
 
-    $signableFiles | ForEach-Object {
-        Write-Host "......testing module file $_"
-        $fileToTest = Join-Path $modulePath $_
-        if (-not (Select-String -Path $fileToTest -Pattern $authenticodeSignatureStart -Quiet)) {
-            throw "Failed to locate start of Authenticode signature, $authenticodeSignatureStart, in module file $_."
+        $signableFiles | ForEach-Object {
+            Write-Host "......testing module file $_"
+            $fileToTest = Join-Path $modulePath $_
+            if (-not (Select-String -Path $fileToTest -Pattern $authenticodeSignatureStart -Quiet)) {
+                throw "Failed to locate start of Authenticode signature, $authenticodeSignatureStart, in module file $_."
+            }
         }
+        Write-Host '...module files signing check - PASS'
     }
-    Write-Host '...module files signing check - PASS'
 
     if ($verifyChangeLog) {
         # validate that the change log contains the expected version header in the first line
@@ -91,9 +98,14 @@ if (Get-Module AWSPowerShell, AWSPowerShell.NetCore, AWS.Tools.*) {
     throw 'Cannot validate modules if any AWS Tools for PowerShell module is already imported'
 }
 
+$signingCheck = $true
+if ($VerifySigning -eq 'false') {
+    $signingCheck = $false
+}
+
 @('AWSPowerShell', 'AWSPowerShell.NetCore') | ForEach-Object {
     try {
-        ValidateModule $_ $true $true { Get-S3Bucket -ProfileName test-runner }
+        ValidateModule $_ $true $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -111,13 +123,13 @@ $Env:PSModulePath = $Env:PSModulePath + ';' + $awsToolsDeploymentPath
 Get-ChildItem $awsToolsDeploymentPath -Directory | ForEach-Object {
     try {
         if ($_.Name -eq 'AWS.Tools.S3') {
-            ValidateModule $_ $false $true { Get-S3Bucket -ProfileName test-runner }
+            ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
         }
         elseif ($_.Name -eq 'AWS.Tools.Installer') {
-            ValidateModule $_ $false $false { }
+            ValidateModule $_ $false $false $signingCheck { }
         }
         else {
-            ValidateModule $_ $false $true { Get-AWSPowerShellVersion }
+            ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion }
         }
         Write-Host "PASSED validation for module $_"
     }

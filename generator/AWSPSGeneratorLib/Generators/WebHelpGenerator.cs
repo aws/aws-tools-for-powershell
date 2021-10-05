@@ -405,7 +405,7 @@ namespace AWSPowerShellGenerator.Generators
 
                 var codeSample = code.InnerText.Trim('\r', '\n');
                 
-                codeSample = codeSample.Replace(Environment.NewLine, "<br/>");
+                codeSample = codeSample.Replace("\r\n", "<br/>").Replace("\n", "<br/>");
                 sb.AppendFormat("<div class=\"code\">{0}</div>", codeSample);
 
                 var description = example.SelectSingleNode("description");

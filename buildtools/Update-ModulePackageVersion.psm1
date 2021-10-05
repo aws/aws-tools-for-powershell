@@ -1,5 +1,4 @@
 $ErrorActionPreference = "Stop"
-Import-Module -Name "AWSPowerShell"
 $env:AWS_STS_REGIONAL_ENDPOINTS = 'regional'
 
 $ddbClient = $null
