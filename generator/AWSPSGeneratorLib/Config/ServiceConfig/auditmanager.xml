@@ -2,7 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
-    <C2jFilename> BedrockAssessmentManagerLambda</C2jFilename>
+    <C2jFilename>auditmanager</C2jFilename>
     <AssemblyName>AuditManager</AssemblyName>
     <ServiceNounPrefix>AUDM</ServiceNounPrefix>
     <ServiceName>AWS Audit Manager</ServiceName>
