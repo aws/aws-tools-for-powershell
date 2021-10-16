@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-WAF2WebACL -Name "waf-test" -Scope REGIONAL -Region eu-west-1 -VisibilityConfig_CloudWatchMetricsEnabled $true -VisibilityConfig_SampledRequestsEnabled $true -VisibilityConfig_MetricName "waf-test" -Description "Test" -DefaultAction_Allow @{}
+
+ARN         : arn:aws:wafv2:eu-west-1:139480602983:regional/webacl/waf-test/19460b3f-db14-4b9a-8e23-a417e1eb007f
+Description : Test
+Id          : 19460b3f-db14-4b9a-8e23-a417e1eb007f
+LockToken   : 5a0cd5eb-d911-4341-b313-b429e6d6b6ab
+Name        : waf-test</code>
+    <description>This command creates a new web ACL named "waf-test". Kindly note that as per service API documentation, 'DefaultAction' is a required property. Hence, value for either '-DefaultAction_Allow' and/or '-DefaultAction_Block' should be specified. Since '-DefaultAction_Allow' and '-DefaultAction_Block' are not the required properties, value '@{}' could be used as placeholder as shown in above example.</description>
+  </example>
+</examples>
