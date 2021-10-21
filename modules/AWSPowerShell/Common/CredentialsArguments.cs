@@ -698,17 +698,7 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public PSCredential NetworkCredential { get; set; }
-        #endregion
-
-        #region Parameter Timeout
-        /// <summary>
-        /// Overrides the default request timeout value specified in milliseconds. 
-        /// If the value is set, the value is assigned to the Timeout property of the 
-        /// HttpWebRequest/HttpClient object used to send requests.
-        /// </summary>
-        [Parameter(Mandatory = false, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
-        public int? Timeout { get; set; }
-        #endregion
+#endregion
 
         public CredentialProfileOptions GetCredentialProfileOptions()
         {

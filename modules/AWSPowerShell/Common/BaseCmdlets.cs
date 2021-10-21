@@ -642,8 +642,6 @@ namespace Amazon.PowerShell.Common
     /// </summary>
     public abstract class ServiceCmdlet : AWSCommonArgumentsCmdlet
     {
-        internal static readonly TimeSpan InfiniteTimeout = TimeSpan.FromMilliseconds(-1);
-
         protected AWSCredentials _CurrentCredentials { get; private set; }
         public RegionEndpoint _RegionEndpoint { get; private set; }
         protected bool _ExecuteWithAnonymousCredentials { get; set; }
@@ -680,18 +678,6 @@ namespace Amazon.PowerShell.Common
                 // setting ServiceUrl will clear RegionEndpoint on the config.
                 config.AuthenticationRegion = config.RegionEndpoint.SystemName;
                 config.ServiceURL = this.EndpointUrl.ToString();
-            }
-
-            if (ParameterWasBound("Timeout") && this.Timeout != null)
-            {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(this.Timeout.Value);
-
-                if (timeout != InfiniteTimeout && (timeout <= TimeSpan.Zero || timeout > ClientConfig.MaxTimeout))
-                {
-                    throw new ArgumentOutOfRangeException(nameof(this.Timeout));
-                }
-
-                config.Timeout = timeout;
             }
         }
 
