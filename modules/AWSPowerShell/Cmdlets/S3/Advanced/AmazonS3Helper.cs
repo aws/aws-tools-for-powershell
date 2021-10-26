@@ -115,6 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     uploadRequest.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
                 if (cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5 != null)
                     uploadRequest.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+
+                if (cmdletContext.PartSize != null)
+                    uploadRequest.PartSize = cmdletContext.PartSize.Value;
             };
         }
 

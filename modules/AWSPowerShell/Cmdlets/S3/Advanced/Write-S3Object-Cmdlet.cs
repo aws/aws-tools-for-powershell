@@ -52,6 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         const string ParamSet_FromLocalFolder = "UploadFolder";
         const string ParamSet_FromStream = "UploadFromStream";
 
+        // Part size range in bytes (refer https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html)
+        const long MinPartSize = 5L * 1024 * 1024;
+        const long MaxPartSize = 5L * 1024 * 1024 * 1024;
+
         // try and anticipate all the ways a user might mean 'write everything to root'
         readonly string[] rootIndicators = new string[] { "/", @"\" };
 
@@ -365,6 +369,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public bool CalculateContentMD5Header { get; set; }
         #endregion
 
+        #region Parameter PartSize
+        /// <summary>
+        /// This property determines the part size of the upload. 
+        /// The uploaded file will be divided into parts of the size specified and
+        /// uploaded to Amazon S3 individually. The part size can be between 5 MB to 5 GB.
+        /// <para>You can specify this value in one of two ways:</para>
+        /// <ul><li><para>The part size in bytes. For example, 6291456.</para></li>
+        /// <li><para>The part size with a size suffix. You can use bytes, KB, MB, GB. For example, 6291456bytes, 15.12MB, "15.12 MB".</para></li></ul>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public FileSize PartSize { get; set; }
+        #endregion
+
         #endregion
 
         #region Parameter Force
@@ -462,12 +479,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.TagSet = this.TagSet;
             context.CalculateContentMD5Header = this.CalculateContentMD5Header;
 
+            if (this.PartSize != null)
+            {
+                if (this.PartSize.FileSizeInBytes < MinPartSize || this.PartSize.FileSizeInBytes > MaxPartSize)
+                    throw new ArgumentException("PartSize", string.Format("PartSize must be between {0} and {1} (bytes).", MinPartSize, MaxPartSize));
+
+                context.PartSize = this.PartSize.FileSizeInBytes;
+            }
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
-        
+
         #region IExecutor Members
-        
+
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
@@ -589,6 +614,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+
+                if (cmdletContext.PartSize != null)
+                    request.PartSize = cmdletContext.PartSize.Value;
 
                 var transferUtilityConfig = new TransferUtilityConfig();
                 if (cmdletContext.ConcurrentServiceRequests.HasValue)
@@ -732,6 +760,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public int? ConcurrentServiceRequests { get; set; }
 
             public bool CalculateContentMD5Header { get; set; }
+
+            public long? PartSize { get; set; }
         }
 
         #region Progress Trackers
