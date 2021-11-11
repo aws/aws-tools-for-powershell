@@ -1,0 +1,107 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will build, test, sign and package a WPF or Windows Forms desktop application
+# built on .NET Core.
+# To learn how to migrate your existing application to .NET Core,
+# refer to https://docs.microsoft.com/en-us/dotnet/desktop-wpf/migration/convert-project-from-net-framework
+#
+# To configure this workflow:
+#
+# 1. Configure environment variables
+# GitHub sets default environment variables for every workflow run.
+# Replace the variables relative to your project in the "env" section below.
+#
+# 2. Signing
+# Generate a signing certificate in the Windows Application
+# Packaging Project or add an existing signing certificate to the project.
+# Next, use PowerShell to encode the .pfx file using Base64 encoding
+# by running the following Powershell script to generate the output string:
+#
+# $pfx_cert = Get-Content '.\SigningCertificate.pfx' -Encoding Byte
+# [System.Convert]::ToBase64String($pfx_cert) | Out-File 'SigningCertificate_Encoded.txt'
+#
+# Open the output file, SigningCertificate_Encoded.txt, and copy the
+# string inside. Then, add the string to the repo as a GitHub secret
+# and name it "Base64_Encoded_Pfx."
+# For more information on how to configure your signing certificate for
+# this workflow, refer to https://github.com/microsoft/github-actions-for-desktop-apps#signing
+#
+# Finally, add the signing certificate password to the repo as a secret and name it "Pfx_Key".
+# See "Build the Windows Application Packaging project" below to see how the secret is used.
+#
+# For more information on GitHub Actions, refer to https://github.com/features/actions
+# For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
+# refer to https://github.com/microsoft/github-actions-for-desktop-apps
+
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ staging-prod ]
+  pull_request:
+    branches: [ staging-prod ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core 5.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Install .NET Core 2.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1.x
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-duration-seconds: 7200
+        role-session-name: TestRunSession
+        role-skip-session-tagging: true
+
+    - name: Create test-runner profile
+      run: |
+        aws configure set aws_access_key_id $Env:AWS_ACCESS_KEY_ID --profile test-runner
+        aws configure set aws_secret_access_key $Env:AWS_SECRET_ACCESS_KEY --profile test-runner
+        aws configure set aws_session_token $Env:AWS_SESSION_TOKEN --profile test-runner
+        aws sts get-caller-identity --profile test-runner
+
+    - name: AWS PowerShell Tools testing
+      run: |
+        Install-Module -Name AWSPowerShell.NetCore -Force
+        Import-Module -Name AWSPowerShell.NetCore
+        Set-AWSCredential -ProfileName test-runner
+        $chain = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain)
+        [Amazon.Runtime.CredentialManagement.CredentialProfile] $profile = $null
+        $out = $chain.TryGetProfile("test-runner", [ref] $profile)
+        Write-Host $out
+        Set-Variable "StoredAWSRegion" -Value "us-east-1" -Scope Global
+
+    - name: Build AWS Tools for PowerShell
+      run: |
+        cd ..
+        msbuild /p:Configuration=Release /p:DraftReleaseNotes=false /p:SkipCmdletGeneration=false /p:RunTests=true aws-tools-for-powershell/buildtools/build.proj
+      env:
+        Configuration: ${{ matrix.configuration }}
