@@ -28,12 +28,9 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Runs an AWS Lambda job that does the following:
-    /// </para><ol><li><para>
+    /// 
+    ///  <ol><li><para>
     /// All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the main
     /// profile.
     /// </para></li><li><para>

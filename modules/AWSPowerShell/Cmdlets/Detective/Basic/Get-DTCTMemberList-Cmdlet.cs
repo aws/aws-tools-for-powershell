@@ -28,8 +28,16 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Retrieves the list of member accounts for a behavior graph. Does not return member
-    /// accounts that were removed from the behavior graph.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the list of member accounts for a behavior graph.
+    /// 
+    ///  
+    /// <para>
+    /// For invited accounts, the results do not include member accounts that were removed
+    /// from the behavior graph.
+    /// </para><para>
+    /// For the organization behavior graph, the results do not include organization accounts
+    /// that the Detective administrator account has not enabled as member accounts.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DTCTMemberList")]
     [OutputType("Amazon.Detective.Model.MemberDetail")]

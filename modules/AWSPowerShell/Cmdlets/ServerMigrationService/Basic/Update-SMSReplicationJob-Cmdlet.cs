@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role to be used by AWS SMS.</para>
+        /// <para>The name of the IAM role to be used by Server Migration Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

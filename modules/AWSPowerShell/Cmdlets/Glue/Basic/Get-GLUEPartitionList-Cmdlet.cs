@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Expression { get; set; }
         #endregion
         
+        #region Parameter QueryAsOfTime
+        /// <summary>
+        /// <para>
+        /// <para>The time as of when to read the partition contents. If not set, the most recent transaction
+        /// commit time will be used. Cannot be specified along with <code>TransactionId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? QueryAsOfTime { get; set; }
+        #endregion
+        
         #region Parameter Segment
         /// <summary>
         /// <para>
@@ -126,6 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TableName { get; set; }
+        #endregion
+        
+        #region Parameter TransactionId
+        /// <summary>
+        /// <para>
+        /// <para>The transaction ID at which to read the partition contents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransactionId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -234,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.NextToken = this.NextToken;
+            context.QueryAsOfTime = this.QueryAsOfTime;
             context.Segment = this.Segment;
             context.TableName = this.TableName;
             #if MODULAR
@@ -242,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
+            if (cmdletContext.QueryAsOfTime != null)
+            {
+                request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
             if (cmdletContext.Segment != null)
             {
                 request.Segment = cmdletContext.Segment;
@@ -290,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             // Initialize loop variant and commence piping
@@ -362,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Expression = cmdletContext.Expression;
             }
+            if (cmdletContext.QueryAsOfTime != null)
+            {
+                request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
             if (cmdletContext.Segment != null)
             {
                 request.Segment = cmdletContext.Segment;
@@ -369,6 +404,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             // Initialize loop variants and commence piping
@@ -495,8 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Expression { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.DateTime? QueryAsOfTime { get; set; }
             public Amazon.Glue.Model.Segment Segment { get; set; }
             public System.String TableName { get; set; }
+            public System.String TransactionId { get; set; }
             public System.Func<Amazon.Glue.Model.GetPartitionsResponse, GetGLUEPartitionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Partitions;
         }

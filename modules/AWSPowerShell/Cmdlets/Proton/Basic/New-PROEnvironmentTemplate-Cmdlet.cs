@@ -28,23 +28,23 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
-    /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.
+    /// Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
+    /// Templates</a> in the <i>Proton Administrator Guide</i>.
     /// 
     ///  
     /// <para>
     /// You can create an environment template in one of the two following ways:
     /// </para><ul><li><para>
-    /// Register and publish a <i>standard</i> environment template that instructs AWS Proton
+    /// Register and publish a <i>standard</i> environment template that instructs Proton
     /// to deploy and manage environment infrastructure.
     /// </para></li><li><para>
     /// Register and publish a <i>customer managed</i> environment template that connects
-    /// AWS Proton to your existing provisioned infrastructure that you manage. AWS Proton
-    /// <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
-    /// template for customer provisioned and managed infrastructure, include the <code>provisioning</code>
+    /// Proton to your existing provisioned infrastructure that you manage. Proton <i>doesn't</i>
+    /// manage your existing provisioned infrastructure. To create an environment template
+    /// for customer provisioned and managed infrastructure, include the <code>provisioning</code>
     /// parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information,
     /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
-    /// and publish an environment template</a> in the <i>AWS Proton Administrator Guide</i>.
+    /// and publish an environment template</a> in the <i>Proton Administrator Guide</i>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "PROEnvironmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter EncryptionKey
         /// <summary>
         /// <para>
-        /// <para>A customer provided encryption key that AWS Proton uses to encrypt data.</para>
+        /// <para>A customer provided encryption key that Proton uses to encrypt data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your environment template. For more information, see <i>AWS Proton
-        /// resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
-        /// Proton User Guide</a>.</para>
+        /// <para>Create tags for your environment template. For more information, see <i>Proton resources
+        /// and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// User Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ParallelismConfiguration_MaxParallelExecutionStep
+        /// <summary>
+        /// <para>
+        /// <para>The max number of steps that can be executed in parallel. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParallelismConfiguration_MaxParallelExecutionSteps")]
+        public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
+        #endregion
+        
         #region Parameter PipelineExecutionDescription
         /// <summary>
         /// <para>
@@ -161,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ParallelismConfiguration_MaxParallelExecutionStep = this.ParallelismConfiguration_MaxParallelExecutionStep;
             context.PipelineExecutionDescription = this.PipelineExecutionDescription;
             context.PipelineExecutionDisplayName = this.PipelineExecutionDisplayName;
             context.PipelineName = this.PipelineName;
@@ -193,6 +205,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate ParallelismConfiguration
+            var requestParallelismConfigurationIsNull = true;
+            request.ParallelismConfiguration = new Amazon.SageMaker.Model.ParallelismConfiguration();
+            System.Int32? requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep = null;
+            if (cmdletContext.ParallelismConfiguration_MaxParallelExecutionStep != null)
+            {
+                requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep = cmdletContext.ParallelismConfiguration_MaxParallelExecutionStep.Value;
+            }
+            if (requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep != null)
+            {
+                request.ParallelismConfiguration.MaxParallelExecutionSteps = requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep.Value;
+                requestParallelismConfigurationIsNull = false;
+            }
+             // determine if request.ParallelismConfiguration should be set to null
+            if (requestParallelismConfigurationIsNull)
+            {
+                request.ParallelismConfiguration = null;
             }
             if (cmdletContext.PipelineExecutionDescription != null)
             {
@@ -272,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
             public System.String PipelineExecutionDescription { get; set; }
             public System.String PipelineExecutionDisplayName { get; set; }
             public System.String PipelineName { get; set; }

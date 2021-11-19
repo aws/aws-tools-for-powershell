@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the service role in the customer's account used by AWS SMS.</para>
+        /// <para>The name of the service role in the customer's account used by Server Migration Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

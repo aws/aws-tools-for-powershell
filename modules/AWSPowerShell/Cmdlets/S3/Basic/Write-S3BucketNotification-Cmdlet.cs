@@ -93,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter EventBridgeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Enables delivery of all bucket events to Amazon EventBridge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.S3.Model.EventBridgeConfiguration EventBridgeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -126,6 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("QueueConfigurations")]
         public Amazon.S3.Model.QueueConfiguration[] QueueConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter SkipDestinationValidation
+        /// <summary>
+        /// <para>
+        /// <para>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipDestinationValidation { get; set; }
         #endregion
         
         #region Parameter TopicConfiguration
@@ -214,6 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.LambdaFunctionConfiguration = new List<Amazon.S3.Model.LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
             }
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.SkipDestinationValidation = this.SkipDestinationValidation;
+            context.EventBridgeConfiguration = this.EventBridgeConfiguration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -249,6 +271,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.SkipDestinationValidation != null)
+            {
+                request.SkipDestinationValidation = cmdletContext.SkipDestinationValidation.Value;
+            }
+            if (cmdletContext.EventBridgeConfiguration != null)
+            {
+                request.EventBridgeConfiguration = cmdletContext.EventBridgeConfiguration;
             }
             
             CmdletOutput output;
@@ -316,6 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public List<Amazon.S3.Model.QueueConfiguration> QueueConfiguration { get; set; }
             public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfiguration { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.Boolean? SkipDestinationValidation { get; set; }
+            public Amazon.S3.Model.EventBridgeConfiguration EventBridgeConfiguration { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketNotificationResponse, WriteS3BucketNotificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

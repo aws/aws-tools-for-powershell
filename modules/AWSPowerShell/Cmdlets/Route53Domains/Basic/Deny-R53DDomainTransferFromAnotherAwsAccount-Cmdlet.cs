@@ -28,8 +28,9 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Rejects the transfer of a domain from another AWS account to the current AWS account.
-    /// You initiate a transfer between AWS accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+    /// Rejects the transfer of a domain from another Amazon Web Services account to the current
+    /// Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts
+    /// using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
     /// 
     /// 
     ///  
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain that was specified when another AWS account submitted a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
+        /// <para>The name of the domain that was specified when another Amazon Web Services account
+        /// submitted a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
         /// request. </para>
         /// </para>
         /// </summary>

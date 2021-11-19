@@ -284,6 +284,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.Direction
+        "Find-SMLineage/Direction"
+        {
+            $v = "Ascendants","Both","Descendants"
+            break
+        }
+
         # Amazon.SageMaker.EdgePackagingJobStatus
         "Get-SMEdgePackagingJobList/StatusEquals"
         {
@@ -473,6 +480,13 @@ $SM_Completers = {
         "Get-SMEdgePackagingJobList/SortBy"
         {
             $v = "CREATION_TIME","LAST_MODIFIED_TIME","MODEL_NAME","NAME","STATUS"
+            break
+        }
+
+        # Amazon.SageMaker.ListInferenceRecommendationsJobsSortBy
+        "Get-SMInferenceRecommendationsJobList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
             break
         }
 
@@ -697,6 +711,20 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.RecommendationJobStatus
+        "Get-SMInferenceRecommendationsJobList/StatusEquals"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","PENDING","STOPPED","STOPPING"
+            break
+        }
+
+        # Amazon.SageMaker.RecommendationJobType
+        "New-SMInferenceRecommendationsJob/JobType"
+        {
+            $v = "Advanced","Default"
+            break
+        }
+
         # Amazon.SageMaker.ResourceType
         {
             ($_ -eq "Get-SMSearchSuggestion/Resource") -Or
@@ -792,6 +820,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.SortLineageGroupsBy
+        "Get-SMLineageGroupList/SortBy"
+        {
+            $v = "CreationTime","Name"
+            break
+        }
+
         # Amazon.SageMaker.SortOrder
         {
             ($_ -eq "Get-SMActionList/SortOrder") -Or
@@ -809,8 +844,10 @@ $SM_Completers = {
             ($_ -eq "Get-SMFlowDefinitionList/SortOrder") -Or
             ($_ -eq "Get-SMHumanTaskUiList/SortOrder") -Or
             ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
+            ($_ -eq "Get-SMInferenceRecommendationsJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobListForWorkteam/SortOrder") -Or
+            ($_ -eq "Get-SMLineageGroupList/SortOrder") -Or
             ($_ -eq "Get-SMModelBiasJobDefinitionList/SortOrder") -Or
             ($_ -eq "Get-SMModelExplainabilityJobDefinitionList/SortOrder") -Or
             ($_ -eq "Get-SMModelPackageGroupList/SortOrder") -Or
@@ -892,7 +929,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 
@@ -924,6 +961,13 @@ $SM_Completers = {
         }
         {
             $v = "ALL_AT_ONCE","CANARY","LINEAR"
+            break
+        }
+
+        # Amazon.SageMaker.TrafficType
+        "New-SMInferenceRecommendationsJob/InputConfig_TrafficPattern_TrafficType"
+        {
+            $v = "PHASES"
             break
         }
 
@@ -1013,6 +1057,7 @@ $SM_map = @{
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
+    "Direction"=@("Find-SMLineage")
     "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
     "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
     "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
@@ -1022,8 +1067,10 @@ $SM_map = @{
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
+    "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
+    "JobType"=@("New-SMInferenceRecommendationsJob")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelBiasJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
     "ModelBiasJobInput_EndpointInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
@@ -1047,11 +1094,11 @@ $SM_map = @{
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "Status"=@("New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
-    "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
@@ -1139,6 +1186,7 @@ $SM_SelectMap = @{
                "New-SMHyperParameterTuningJob",
                "New-SMImage",
                "New-SMImageVersion",
+               "New-SMInferenceRecommendationsJob",
                "New-SMLabelingJob",
                "New-SMModel",
                "New-SMModelBiasJobDefinition",
@@ -1224,7 +1272,9 @@ $SM_SelectMap = @{
                "Get-SMHyperParameterTuningJob",
                "Get-SMImage",
                "Get-SMImageVersion",
+               "Get-SMInferenceRecommendationsJob",
                "Get-SMLabelingJob",
+               "Get-SMLineageGroup",
                "Get-SMModel",
                "Get-SMModelBiasJobDefinition",
                "Get-SMModelExplainabilityJobDefinition",
@@ -1252,6 +1302,7 @@ $SM_SelectMap = @{
                "Unregister-SMTrialComponent",
                "Enable-SMSagemakerServicecatalogPortfolio",
                "Get-SMDeviceFleetReport",
+               "Get-SMLineageGroupPolicy",
                "Get-SMModelPackageGroupPolicy",
                "Get-SMSagemakerServicecatalogPortfolioStatus",
                "Get-SMSearchSuggestion",
@@ -1280,10 +1331,13 @@ $SM_SelectMap = @{
                "Get-SMHyperParameterTuningJobList",
                "Get-SMImageList",
                "Get-SMImageVersionList",
+               "Get-SMInferenceRecommendationsJobList",
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
+               "Get-SMLineageGroupList",
                "Get-SMModelBiasJobDefinitionList",
                "Get-SMModelExplainabilityJobDefinitionList",
+               "Get-SMModelMetadataList",
                "Get-SMModelPackageGroupList",
                "Get-SMModelPackageList",
                "Get-SMModelQualityJobDefinitionList",
@@ -1310,6 +1364,7 @@ $SM_SelectMap = @{
                "Get-SMWorkforceList",
                "Get-SMWorkteamList",
                "Write-SMModelPackageGroupPolicy",
+               "Find-SMLineage",
                "Register-SMDevice",
                "Invoke-SMUiTemplateRendering",
                "Restart-SMPipelineExecution",
@@ -1323,6 +1378,7 @@ $SM_SelectMap = @{
                "Stop-SMCompilationJob",
                "Stop-SMEdgePackagingJob",
                "Stop-SMHyperParameterTuningJob",
+               "Stop-SMInferenceRecommendationsJob",
                "Stop-SMLabelingJob",
                "Stop-SMMonitoringSchedule",
                "Stop-SMNotebookInstance",

@@ -181,7 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The public portion of the Secure Shell (SSH) key used to authenticate the user to
-        /// the server.</para>
+        /// the server.</para><note><para> Currently, Transfer Family does not accept elliptical curve keys (keys beginning
+        /// with <code>ecdsa</code>). </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

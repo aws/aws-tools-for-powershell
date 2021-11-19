@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableApplicationLayerAutomaticResponse" Verb="Disable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableProactiveEngagement" Verb="Disable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -102,6 +106,13 @@
         <ServiceOperation MethodName="DisassociateHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableApplicationLayerAutomaticResponse" Verb="Enable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.Shield.Model.BlockAction</Type>
+                <Type>Amazon.Shield.Model.CountAction</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="EnableProactiveEngagement" Verb="Enable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
             <Params />
@@ -138,6 +149,13 @@
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationLayerAutomaticResponse" Verb="Update" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.Shield.Model.BlockAction</Type>
+                <Type>Amazon.Shield.Model.CountAction</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEmergencyContactSettings" Verb="Update" Noun="EmergencyContactSetting" ShouldProcessTarget="EmergencyContactList" PipelineParameter="EmergencyContactList" NoPipelineParameter="false">
             <Params />

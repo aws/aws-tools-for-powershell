@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</para>
+        /// <para>The type of the endpoint, one of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>List of DB instance identifiers that aren't part of the custom endpoint group. All
-        /// other eligible instances are reachable through the custom endpoint. Only relevant
-        /// if the list of static members is empty.</para>
+        /// other eligible instances are reachable through the custom endpoint. This parameter
+        /// is relevant only if the list of static members is empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

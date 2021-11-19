@@ -148,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String ObjectTypeName { get; set; }
         #endregion
         
+        #region Parameter SourceLastUpdatedTimestampFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set
+        /// up. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceLastUpdatedTimestampFormat { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -282,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter ObjectTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceLastUpdatedTimestampFormat = this.SourceLastUpdatedTimestampFormat;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -338,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.ObjectTypeName != null)
             {
                 request.ObjectTypeName = cmdletContext.ObjectTypeName;
+            }
+            if (cmdletContext.SourceLastUpdatedTimestampFormat != null)
+            {
+                request.SourceLastUpdatedTimestampFormat = cmdletContext.SourceLastUpdatedTimestampFormat;
             }
             if (cmdletContext.Tag != null)
             {
@@ -416,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public Dictionary<System.String, Amazon.CustomerProfiles.Model.ObjectTypeField> Field { get; set; }
             public Dictionary<System.String, List<Amazon.CustomerProfiles.Model.ObjectTypeKey>> Key { get; set; }
             public System.String ObjectTypeName { get; set; }
+            public System.String SourceLastUpdatedTimestampFormat { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.PutProfileObjectTypeResponse, WriteCPFProfileObjectTypeCmdlet, object> Select { get; set; } =

@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Update the AWS Proton pipeline service account settings.
+    /// Update the Proton service pipeline role or repository settings.
     /// </summary>
     [Cmdlet("Update", "PROAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.AccountSettings")]
@@ -40,14 +40,47 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class UpdatePROAccountSettingCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter PipelineProvisioningRepository_Branch
+        /// <summary>
+        /// <para>
+        /// <para>The repository branch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineProvisioningRepository_Branch { get; set; }
+        #endregion
+        
+        #region Parameter PipelineProvisioningRepository_Name
+        /// <summary>
+        /// <para>
+        /// <para>The repository name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineProvisioningRepository_Name { get; set; }
+        #endregion
+        
         #region Parameter PipelineServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Proton pipeline service role.</para><important><para>Provisioning by pull request is currently in feature preview and is only usable with
+        /// Terraform based Proton Templates. To learn more about <a href="https://aws.amazon.com/service-terms">Amazon
+        /// Web Services Feature Preview terms</a>, see section 2 on Beta and Previews.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PipelineServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter PipelineProvisioningRepository_Provider
+        /// <summary>
+        /// <para>
+        /// <para>The repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Proton.RepositoryProvider")]
+        public Amazon.Proton.RepositoryProvider PipelineProvisioningRepository_Provider { get; set; }
         #endregion
         
         #region Parameter Select
@@ -91,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = CreateSelectDelegate<Amazon.Proton.Model.UpdateAccountSettingsResponse, UpdatePROAccountSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.PipelineProvisioningRepository_Branch = this.PipelineProvisioningRepository_Branch;
+            context.PipelineProvisioningRepository_Name = this.PipelineProvisioningRepository_Name;
+            context.PipelineProvisioningRepository_Provider = this.PipelineProvisioningRepository_Provider;
             context.PipelineServiceRoleArn = this.PipelineServiceRoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -108,6 +144,45 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateAccountSettingsRequest();
             
+            
+             // populate PipelineProvisioningRepository
+            var requestPipelineProvisioningRepositoryIsNull = true;
+            request.PipelineProvisioningRepository = new Amazon.Proton.Model.RepositoryBranchInput();
+            System.String requestPipelineProvisioningRepository_pipelineProvisioningRepository_Branch = null;
+            if (cmdletContext.PipelineProvisioningRepository_Branch != null)
+            {
+                requestPipelineProvisioningRepository_pipelineProvisioningRepository_Branch = cmdletContext.PipelineProvisioningRepository_Branch;
+            }
+            if (requestPipelineProvisioningRepository_pipelineProvisioningRepository_Branch != null)
+            {
+                request.PipelineProvisioningRepository.Branch = requestPipelineProvisioningRepository_pipelineProvisioningRepository_Branch;
+                requestPipelineProvisioningRepositoryIsNull = false;
+            }
+            System.String requestPipelineProvisioningRepository_pipelineProvisioningRepository_Name = null;
+            if (cmdletContext.PipelineProvisioningRepository_Name != null)
+            {
+                requestPipelineProvisioningRepository_pipelineProvisioningRepository_Name = cmdletContext.PipelineProvisioningRepository_Name;
+            }
+            if (requestPipelineProvisioningRepository_pipelineProvisioningRepository_Name != null)
+            {
+                request.PipelineProvisioningRepository.Name = requestPipelineProvisioningRepository_pipelineProvisioningRepository_Name;
+                requestPipelineProvisioningRepositoryIsNull = false;
+            }
+            Amazon.Proton.RepositoryProvider requestPipelineProvisioningRepository_pipelineProvisioningRepository_Provider = null;
+            if (cmdletContext.PipelineProvisioningRepository_Provider != null)
+            {
+                requestPipelineProvisioningRepository_pipelineProvisioningRepository_Provider = cmdletContext.PipelineProvisioningRepository_Provider;
+            }
+            if (requestPipelineProvisioningRepository_pipelineProvisioningRepository_Provider != null)
+            {
+                request.PipelineProvisioningRepository.Provider = requestPipelineProvisioningRepository_pipelineProvisioningRepository_Provider;
+                requestPipelineProvisioningRepositoryIsNull = false;
+            }
+             // determine if request.PipelineProvisioningRepository should be set to null
+            if (requestPipelineProvisioningRepositoryIsNull)
+            {
+                request.PipelineProvisioningRepository = null;
+            }
             if (cmdletContext.PipelineServiceRoleArn != null)
             {
                 request.PipelineServiceRoleArn = cmdletContext.PipelineServiceRoleArn;
@@ -173,6 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String PipelineProvisioningRepository_Branch { get; set; }
+            public System.String PipelineProvisioningRepository_Name { get; set; }
+            public Amazon.Proton.RepositoryProvider PipelineProvisioningRepository_Provider { get; set; }
             public System.String PipelineServiceRoleArn { get; set; }
             public System.Func<Amazon.Proton.Model.UpdateAccountSettingsResponse, UpdatePROAccountSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AccountSettings;

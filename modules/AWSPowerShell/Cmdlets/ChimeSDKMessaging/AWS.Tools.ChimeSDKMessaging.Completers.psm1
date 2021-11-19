@@ -133,7 +133,10 @@ $CHMMG_Completers = {
         }
 
         # Amazon.ChimeSDKMessaging.PushNotificationType
-        "Send-CHMMGChannelMessage/PushNotification_Type"
+        {
+            ($_ -eq "Send-CHMMGChannelFlowCallback/ChannelMessage_PushNotification_Type") -Or
+            ($_ -eq "Send-CHMMGChannelMessage/PushNotification_Type")
+        }
         {
             $v = "DEFAULT","VOIP"
             break
@@ -155,6 +158,7 @@ $CHMMG_Completers = {
 }
 
 $CHMMG_map = @{
+    "ChannelMessage_PushNotification_Type"=@("Send-CHMMGChannelFlowCallback")
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
     "Persistence"=@("Send-CHMMGChannelMessage")
     "Preferences_PushNotifications_AllowNotifications"=@("Write-CHMMGChannelMembershipPreference")

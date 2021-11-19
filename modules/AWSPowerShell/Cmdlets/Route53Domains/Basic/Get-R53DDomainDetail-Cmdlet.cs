@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// This operation returns detailed information about a specified domain that is associated
-    /// with the current AWS account. Contact information for the domain is also returned
-    /// as part of the output.
+    /// with the current Amazon Web Services account. Contact information for the domain is
+    /// also returned as part of the output.
     /// </summary>
     [Cmdlet("Get", "R53DDomainDetail")]
     [OutputType("Amazon.Route53Domains.Model.GetDomainDetailResponse")]

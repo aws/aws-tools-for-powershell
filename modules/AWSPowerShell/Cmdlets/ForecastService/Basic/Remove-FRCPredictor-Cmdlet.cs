@@ -28,9 +28,10 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Deletes a predictor created using the <a>CreatePredictor</a> operation. You can delete
-    /// only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
-    /// To get the status, use the <a>DescribePredictor</a> operation.
+    /// Deletes a predictor created using the <a>DescribePredictor</a> or <a>CreatePredictor</a>
+    /// operations. You can delete only predictor that have a status of <code>ACTIVE</code>
+    /// or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribePredictor</a>
+    /// operation.
     /// </summary>
     [Cmdlet("Remove", "FRCPredictor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

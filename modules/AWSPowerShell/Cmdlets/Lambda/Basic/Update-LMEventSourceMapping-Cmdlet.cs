@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? Enabled { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_Filter
+        /// <summary>
+        /// <para>
+        /// <para> A list of filters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_Filters")]
+        public Amazon.Lambda.Model.Filter[] FilterCriteria_Filter { get; set; }
+        #endregion
+        
         #region Parameter FunctionName
         /// <summary>
         /// <para>
@@ -143,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionResponseType
         /// <summary>
         /// <para>
-        /// <para>(Streams only) A list of current response type enums applied to the event source mapping.</para>
+        /// <para>(Streams and Amazon SQS) A list of current response type enums applied to the event
+        /// source mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.OnFailure_Destination = this.OnFailure_Destination;
             context.OnSuccess_Destination = this.OnSuccess_Destination;
             context.Enabled = this.Enabled;
+            if (this.FilterCriteria_Filter != null)
+            {
+                context.FilterCriteria_Filter = new List<Amazon.Lambda.Model.Filter>(this.FilterCriteria_Filter);
+            }
             context.FunctionName = this.FunctionName;
             if (this.FunctionResponseType != null)
             {
@@ -414,6 +430,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.Enabled = cmdletContext.Enabled.Value;
             }
+            
+             // populate FilterCriteria
+            var requestFilterCriteriaIsNull = true;
+            request.FilterCriteria = new Amazon.Lambda.Model.FilterCriteria();
+            List<Amazon.Lambda.Model.Filter> requestFilterCriteria_filterCriteria_Filter = null;
+            if (cmdletContext.FilterCriteria_Filter != null)
+            {
+                requestFilterCriteria_filterCriteria_Filter = cmdletContext.FilterCriteria_Filter;
+            }
+            if (requestFilterCriteria_filterCriteria_Filter != null)
+            {
+                request.FilterCriteria.Filters = requestFilterCriteria_filterCriteria_Filter;
+                requestFilterCriteriaIsNull = false;
+            }
+             // determine if request.FilterCriteria should be set to null
+            if (requestFilterCriteriaIsNull)
+            {
+                request.FilterCriteria = null;
+            }
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
@@ -516,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String OnFailure_Destination { get; set; }
             public System.String OnSuccess_Destination { get; set; }
             public System.Boolean? Enabled { get; set; }
+            public List<Amazon.Lambda.Model.Filter> FilterCriteria_Filter { get; set; }
             public System.String FunctionName { get; set; }
             public List<System.String> FunctionResponseType { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }

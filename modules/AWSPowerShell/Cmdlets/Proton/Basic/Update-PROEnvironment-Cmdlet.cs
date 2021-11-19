@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     ///  
     /// <para>
     /// If the environment is associated with an environment account connection, <i>don't</i>
-    /// update or include the <code>protonServiceRoleArn</code> parameter to update or connect
-    /// to an environment account connection. 
+    /// update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code>
+    /// parameter to update or connect to an environment account connection.
     /// </para><para>
     /// You can only update to a new environment account connection if it was created in the
     /// same environment account that the current environment account connection was created
@@ -46,6 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para><para>
     /// You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
     /// parameter and value. You can’t update both.
+    /// </para><para>
+    /// If the environment was provisioned with pull request provisioning, include the <code>provisioningRepository</code>
+    /// parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code>
+    /// parameters.
+    /// </para><para>
+    /// If the environment wasn't provisioned with pull request provisioning, omit the <code>provisioningRepository</code>
+    /// parameter.
     /// </para><para>
     /// There are four modes for updating an environment as described in the following. The
     /// <code>deploymentType</code> field defines the mode.
@@ -76,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     )]
     public partial class UpdatePROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
+        
+        #region Parameter ProvisioningRepository_Branch
+        /// <summary>
+        /// <para>
+        /// <para>The repository branch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningRepository_Branch { get; set; }
+        #endregion
         
         #region Parameter DeploymentType
         /// <summary>
@@ -142,15 +159,36 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProvisioningRepository_Name
+        /// <summary>
+        /// <para>
+        /// <para>The repository name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningRepository_Name { get; set; }
+        #endregion
+        
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton
-        /// to make API calls to other services your behalf.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
+        /// API calls to other services your behalf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProtonServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningRepository_Provider
+        /// <summary>
+        /// <para>
+        /// <para>The repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Proton.RepositoryProvider")]
+        public Amazon.Proton.RepositoryProvider ProvisioningRepository_Provider { get; set; }
         #endregion
         
         #region Parameter Spec
@@ -166,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMajorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the major version of the environment to update.</para>
+        /// <para>The major version of the environment to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMinorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the minor version of the environment to update.</para>
+        /// <para>The minor version of the environment to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,6 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #endif
             context.ProtonServiceRoleArn = this.ProtonServiceRoleArn;
+            context.ProvisioningRepository_Branch = this.ProvisioningRepository_Branch;
+            context.ProvisioningRepository_Name = this.ProvisioningRepository_Name;
+            context.ProvisioningRepository_Provider = this.ProvisioningRepository_Provider;
             context.Spec = this.Spec;
             context.TemplateMajorVersion = this.TemplateMajorVersion;
             context.TemplateMinorVersion = this.TemplateMinorVersion;
@@ -299,6 +340,45 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.ProtonServiceRoleArn != null)
             {
                 request.ProtonServiceRoleArn = cmdletContext.ProtonServiceRoleArn;
+            }
+            
+             // populate ProvisioningRepository
+            var requestProvisioningRepositoryIsNull = true;
+            request.ProvisioningRepository = new Amazon.Proton.Model.RepositoryBranchInput();
+            System.String requestProvisioningRepository_provisioningRepository_Branch = null;
+            if (cmdletContext.ProvisioningRepository_Branch != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Branch = cmdletContext.ProvisioningRepository_Branch;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Branch != null)
+            {
+                request.ProvisioningRepository.Branch = requestProvisioningRepository_provisioningRepository_Branch;
+                requestProvisioningRepositoryIsNull = false;
+            }
+            System.String requestProvisioningRepository_provisioningRepository_Name = null;
+            if (cmdletContext.ProvisioningRepository_Name != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Name = cmdletContext.ProvisioningRepository_Name;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Name != null)
+            {
+                request.ProvisioningRepository.Name = requestProvisioningRepository_provisioningRepository_Name;
+                requestProvisioningRepositoryIsNull = false;
+            }
+            Amazon.Proton.RepositoryProvider requestProvisioningRepository_provisioningRepository_Provider = null;
+            if (cmdletContext.ProvisioningRepository_Provider != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Provider = cmdletContext.ProvisioningRepository_Provider;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Provider != null)
+            {
+                request.ProvisioningRepository.Provider = requestProvisioningRepository_provisioningRepository_Provider;
+                requestProvisioningRepositoryIsNull = false;
+            }
+             // determine if request.ProvisioningRepository should be set to null
+            if (requestProvisioningRepositoryIsNull)
+            {
+                request.ProvisioningRepository = null;
             }
             if (cmdletContext.Spec != null)
             {
@@ -378,6 +458,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String EnvironmentAccountConnectionId { get; set; }
             public System.String Name { get; set; }
             public System.String ProtonServiceRoleArn { get; set; }
+            public System.String ProvisioningRepository_Branch { get; set; }
+            public System.String ProvisioningRepository_Name { get; set; }
+            public Amazon.Proton.RepositoryProvider ProvisioningRepository_Provider { get; set; }
             public System.String Spec { get; set; }
             public System.String TemplateMajorVersion { get; set; }
             public System.String TemplateMinorVersion { get; set; }

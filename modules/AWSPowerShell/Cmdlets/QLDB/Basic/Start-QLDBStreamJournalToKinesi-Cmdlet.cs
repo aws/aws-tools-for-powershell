@@ -109,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
-        /// journal stream to write data records to a Kinesis Data Streams resource.</para>
+        /// journal stream to write data records to a Kinesis Data Streams resource.</para><para>To pass a role to QLDB when requesting a journal stream, you must have permissions
+        /// to perform the <code>iam:PassRole</code> action on the IAM role resource. This is
+        /// required for all journal stream requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

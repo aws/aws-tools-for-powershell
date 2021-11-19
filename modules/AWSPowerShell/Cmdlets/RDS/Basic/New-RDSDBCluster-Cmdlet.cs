@@ -28,18 +28,21 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new Amazon Aurora DB cluster.
+    /// Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
-    /// DB instance. For cross-region replication where the DB cluster identified by <code>ReplicationSourceIdentifier</code>
-    /// is encrypted, you must also specify the <code>PreSignedUrl</code> parameter.
+    /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
+    /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
+    /// DB instance. For cross-Region replication where the DB cluster identified by <code>ReplicationSourceIdentifier</code>
+    /// is encrypted, also specify the <code>PreSignedUrl</code> parameter.
     /// </para><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide.</i></para><note><para>
+    /// The Multi-AZ DB clusters feature is in preview and is subject to change.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,6 +54,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public partial class NewRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ
+        /// DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AllocatedStorage { get; set; }
+        #endregion
+        
+        #region Parameter AutoMinorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether minor engine upgrades are applied automatically to
+        /// the DB cluster during the maintenance window. By default, minor engine upgrades are
+        /// applied automatically.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
@@ -69,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of Availability Zones (AZs) where instances in the DB cluster can be created.
-        /// For information on Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing
-        /// the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>. </para>
+        /// <para>A list of Availability Zones (AZs) where DB instances in the DB cluster can be created.
+        /// </para><para>For information on Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing
+        /// the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0. </para><note><para>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</para></note><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// 0. </para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul><para>Valid for: Aurora MySQL DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days for which automated backups are retained.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul>
+        /// <para>The number of days for which automated backups are retained.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// CharacterSet.</para>
+        /// CharacterSet.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the DB cluster to snapshots of
-        /// the DB cluster. The default is not to copy them.</para>
+        /// the DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name for your database of up to 64 alphanumeric characters. If you do not provide
-        /// a name, Amazon RDS doesn't create a database in the DB cluster you are creating.</para>
+        /// a name, Amazon RDS doesn't create a database in the DB cluster you are creating.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,12 +176,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DBClusterInstanceClass
+        /// <summary>
+        /// <para>
+        /// <para>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for
+        /// example db.m6g.xlarge. Not all DB instance classes are available in all Amazon Web
+        /// Services Regions, or for all database engines.</para><para>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// instance class</a> in the <i>Amazon RDS User Guide.</i></para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBClusterInstanceClass { get; set; }
+        #endregion
+        
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
         /// you do not specify a value, then the default DB cluster parameter group for the specified
-        /// DB engine and version is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li></ul>
+        /// DB engine and version is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>A DB subnet group to associate with this DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled.</para>
+        /// protection isn't enabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,9 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The Active Directory directory ID to create the DB cluster in.</para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
+        /// <para>The Active Directory directory ID to create the DB cluster in.</para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos authentication to authenticate
+        /// users that connect to the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para>
+        /// Service.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
-        /// and <code>slowquery</code>. </para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>. </para>
+        /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// current primary cluster and the resulting changes are replicated back to this cluster.
         /// For the primary DB cluster of an Aurora global database, this value is used immediately
         /// if the primary is demoted by the <a>FailoverGlobalCluster</a> API operation, but it
-        /// does nothing until then. </para>
+        /// does nothing until then. </para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster. By default, the HTTP endpoint is disabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API for running
         /// SQL queries on the Aurora Serverless DB cluster. You can also query your database
         /// from inside the RDS console with the query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
-        /// the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,19 +296,31 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para>
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to turn on Performance Insights for the DB cluster.
+        /// </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
+        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code>
-        /// (for MySQL 5.7-compatible Aurora), and <code>aurora-postgresql</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values:</para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mysql</code></para></li><li><para><code>postgres</code></para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -298,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Limitations of Aurora Serverless</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
         /// Limitations of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
         /// Limitations of Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
-        /// Limitations of Multi-Master Clusters</a></para></li></ul>
+        /// Limitations of Multi-Master Clusters</a></para></li></ul><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,11 +359,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
-        /// Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
-        /// 5.7-compatible Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for <code>aurora-postgresql</code>, use
-        /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
-        /// <code>5.7.mysql_aurora.2.04.5</code></para><para><b>Aurora PostgreSQL</b></para><para>Example: <code>9.6.3</code>, <code>10.7</code></para>
+        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use
+        /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible
+        /// Aurora, use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
+        /// command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for MySQL, use the following
+        /// command:</para><para><code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
+        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">MySQL
+        /// on Amazon RDS Versions</a> in the <i>Amazon Aurora User Guide.</i></para><para><b>Aurora PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon
+        /// Aurora PostgreSQL releases and engine versions</a> in the <i>Amazon Aurora User Guide.</i></para><para><b>MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
+        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
+        /// RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,11 +379,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The global cluster ID of an Aurora cluster that becomes the primary cluster in the
-        /// new global database cluster. </para>
+        /// new global database cluster. </para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GlobalClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Iops
+        /// <summary>
+        /// <para>
+        /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
+        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
+        /// Guide</i>. </para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Iops { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -342,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// account has a different default KMS key for each Amazon Web Services Region.</para><para>If you create a read replica of an encrypted DB cluster in another Amazon Web Services
         /// Region, you must set <code>KmsKeyId</code> to a KMS key identifier that is valid in
         /// the destination Amazon Web Services Region. This KMS key is used to encrypt the read
-        /// replica in that Amazon Web Services Region.</para>
+        /// replica in that Amazon Web Services Region.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of the master user for the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name of the master user for the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para>
+        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,23 +468,74 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter MonitoringInterval
+        /// <summary>
+        /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MonitoringInterval { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced
+        /// Monitoring metrics to Amazon CloudWatch Logs. An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
+        /// up and enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
+        /// value.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group.</para><para>Permanent options can't be removed from an option group. The option group can't be
-        /// removed from a DB cluster once it is associated with a DB cluster.</para>
+        /// option group.</para><para>DB clusters are associated with a default option group that can't be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
         #endregion
         
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
+        /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key.</para><para>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years).</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>3306</code> if engine is set as aurora or <code>5432</code> if set
-        /// to aurora-postgresql. </para>
+        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para><b>RDS for MySQL and Aurora MySQL</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>RDS for PostgreSQL and Aurora PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid values: <code>1150-65535</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +548,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,7 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
+        /// User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,8 +575,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A URL that contains a Signature Version 4 signed request for the <code>CreateDBCluster</code>
         /// action to be called in the source Amazon Web Services Region where the DB cluster
-        /// is replicated from. You only need to specify <code>PreSignedUrl</code> when you are
-        /// performing cross-region replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
+        /// is replicated from. Specify <code>PreSignedUrl</code> only when you are performing
+        /// cross-Region replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
         /// action that can be executed in the source Amazon Web Services Region that contains
         /// the encrypted DB cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key
         /// to use to encrypt the copy of the DB cluster in the destination Amazon Web Services
@@ -473,18 +594,41 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code>
         /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
         /// is a valid request for the operation that can be executed in the source Amazon Web
-        /// Services Region.</para></note>
+        /// Services Region.</para></note><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreSignedUrl { get; set; }
         #endregion
         
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB cluster's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
+        /// public access isn't permitted if the security group assigned to the DB cluster doesn't
+        /// permit it.</para><para>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a
+        /// DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
+        /// is specified.</para><para>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code>
+        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached
+        /// to it, the DB cluster is private.</para></li><li><para>If the default VPC in the target Region has an internet gateway attached to it, the
+        /// DB cluster is public.</para></li></ul><para>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code>
+        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an internet gateway attached to
+        /// it, the DB cluster is private.</para></li><li><para>If the subnets are part of a VPC that has an internet gateway attached to it, the
+        /// DB cluster is public.</para></li></ul><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PubliclyAccessible { get; set; }
+        #endregion
+        
         #region Parameter ReplicationSourceIdentifier
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
-        /// cluster is created as a read replica.</para>
+        /// cluster is created as a read replica.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -529,17 +673,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB cluster is encrypted.</para>
+        /// <para>A value that indicates whether the DB cluster is encrypted.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para> Valid values: <code>io1</code></para><para> When specified, a value for the <code>Iops</code> parameter is required. </para><para> Default: <code>io1</code></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to assign to the DB cluster.</para>
+        /// <para>Tags to assign to the DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -565,7 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -635,6 +789,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SourceRegion = this.SourceRegion;
+            context.AllocatedStorage = this.AllocatedStorage;
+            context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
@@ -651,6 +807,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DBClusterInstanceClass = this.DBClusterInstanceClass;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
@@ -663,6 +820,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Engine = this.Engine;
             #if MODULAR
             if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
@@ -673,14 +831,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
+            context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.OptionGroupName = this.OptionGroupName;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
+            context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PreSignedUrl = this.PreSignedUrl;
+            context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
@@ -689,6 +853,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
             context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
             context.StorageEncrypted = this.StorageEncrypted;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -717,6 +882,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.SourceRegion = cmdletContext.SourceRegion;
             }
+            if (cmdletContext.AllocatedStorage != null)
+            {
+                request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
+            }
+            if (cmdletContext.AutoMinorVersionUpgrade != null)
+            {
+                request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
@@ -744,6 +917,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DBClusterInstanceClass != null)
+            {
+                request.DBClusterInstanceClass = cmdletContext.DBClusterInstanceClass;
             }
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
@@ -781,6 +958,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnablePerformanceInsight != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
@@ -797,6 +978,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
             }
+            if (cmdletContext.Iops != null)
+            {
+                request.Iops = cmdletContext.Iops.Value;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -809,9 +994,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
             }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
+            }
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
+            }
+            if (cmdletContext.PerformanceInsightsRetentionPeriod != null)
+            {
+                request.PerformanceInsightsRetentionPeriod = cmdletContext.PerformanceInsightsRetentionPeriod.Value;
             }
             if (cmdletContext.Port != null)
             {
@@ -828,6 +1029,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreSignedUrl != null)
             {
                 request.PreSignedUrl = cmdletContext.PreSignedUrl;
+            }
+            if (cmdletContext.PubliclyAccessible != null)
+            {
+                request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
             if (cmdletContext.ReplicationSourceIdentifier != null)
             {
@@ -906,6 +1111,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -976,6 +1185,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceRegion { get; set; }
+            public System.Int32? AllocatedStorage { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
@@ -983,6 +1194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterInstanceClass { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
@@ -992,18 +1204,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
+            public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
             public System.String OptionGroupName { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
+            public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.String PreSignedUrl { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
             public System.String ReplicationSourceIdentifier { get; set; }
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
@@ -1012,6 +1231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBClusterResponse, NewRDSDBClusterCmdlet, object> Select { get; set; } =

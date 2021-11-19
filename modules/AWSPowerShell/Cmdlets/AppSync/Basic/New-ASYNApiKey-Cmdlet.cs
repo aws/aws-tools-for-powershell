@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a unique key that you can distribute to clients who are executing your API.
+    /// Creates a unique key that you can distribute to clients who invoke your API.
     /// </summary>
     [Cmdlet("New", "ASYNApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.ApiKey")]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Expire
         /// <summary>
         /// <para>
-        /// <para>The time from creation time after which the API key expires. The date is represented
+        /// <para>From the creation time, the time after which the API key expires. The date is represented
         /// as seconds since the epoch, rounded down to the nearest hour. The default value for
         /// this parameter is 7 days from creation time. For more information, see .</para>
         /// </para>

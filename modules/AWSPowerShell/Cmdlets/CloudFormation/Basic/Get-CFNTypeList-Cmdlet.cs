@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The category of extensions to return.</para><ul><li><para><code>REGISTERED</code>: Private extensions that have been registered for this account
         /// and region.</para></li><li><para><code>ACTIVATED</code>: Public extensions that have been activated for this account
-        /// and region.</para></li><li><para><code>THIRD-PARTY</code>: Extensions available for use from publishers other than
-        /// Amazon. This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><code>AWS-TYPES</code>: Extensions available for use from Amazon.</para></li></ul>
+        /// and region.</para></li><li><para><code>THIRD_PARTY</code>: Extensions available for use from publishers other than
+        /// Amazon. This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><code>AWS_TYPES</code>: Extensions available for use from Amazon.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Filters_PublisherId
         /// <summary>
         /// <para>
-        /// <para>The id of the publisher of the extension. </para><para>Extensions published by Amazon are not assigned a publisher ID. Use the <code>AWS-TYPES</code>
+        /// <para>The id of the publisher of the extension. </para><para>Extensions published by Amazon are not assigned a publisher ID. Use the <code>AWS_TYPE</code>
         /// category to specify a list of types published by Amazon.</para>
         /// </para>
         /// </summary>

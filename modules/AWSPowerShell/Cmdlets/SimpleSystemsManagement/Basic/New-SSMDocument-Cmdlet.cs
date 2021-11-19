@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines
-    /// the actions that Systems Manager performs on your managed instances. For more information
+    /// the actions that Systems Manager performs on your managed nodes. For more information
     /// about SSM documents, including information about supported schemas, features, and
     /// syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon
     /// Web Services Systems Manager Documents</a> in the <i>Amazon Web Services Systems Manager

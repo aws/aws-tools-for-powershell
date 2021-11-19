@@ -28,18 +28,18 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Modifies the staging labels attached to a version of a secret. Staging labels are
-    /// used to track a version as it progresses through the secret rotation process. You
-    /// can attach a staging label to only one version of a secret at a time. If a staging
-    /// label to be added is already attached to another version, then it is moved--removed
-    /// from the other version first and then attached to this one. For more information about
-    /// staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
-    /// Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. 
+    /// Modifies the staging labels attached to a version of a secret. Secrets Manager uses
+    /// staging labels to track a version as it progresses through the secret rotation process.
+    /// Each staging label can be attached to only one version at a time. To add a staging
+    /// label to a version when it is already attached to another version, Secrets Manager
+    /// first removes it from the other version first and then attaches it to this one. For
+    /// more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
+    /// Version</a>. 
     /// 
     ///  
     /// <para>
     /// The staging labels that you specify in the <code>VersionStage</code> parameter are
-    /// added to the existing list of staging labels--they don't replace it.
+    /// added to the existing list of staging labels for the version. 
     /// </para><para>
     /// You can move the <code>AWSCURRENT</code> staging label to this version by including
     /// it in this call.
@@ -50,15 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></note><para>
     /// If this action results in the last label being removed from a version, then the version
     /// is considered to be 'deprecated' and can be deleted by Secrets Manager.
-    /// </para><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:UpdateSecretVersionStage
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To get the list of staging labels that are currently associated with a version of
-    /// a secret, use <code><a>DescribeSecret</a></code> and examine the <code>SecretVersionsToStages</code>
-    /// response value. 
-    /// </para></li></ul>
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SECSecretVersionStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse")]
@@ -72,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MoveToVersionId
         /// <summary>
         /// <para>
-        /// <para>(Optional) The secret version ID that you want to add the staging label. If you want
-        /// to remove a label from a version, then do not specify this parameter.</para><para>If the staging label is already attached to a different version of the secret, then
+        /// <para>The ID of the version to add the staging label to. To remove a label from a version,
+        /// then do not specify this parameter.</para><para>If the staging label is already attached to a different version of the secret, then
         /// you must also specify the <code>RemoveFromVersionId</code> parameter. </para>
         /// </para>
         /// </summary>
@@ -84,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RemoveFromVersionId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret version ID of the version that the staging label is to be removed
-        /// from. If the staging label you are trying to attach to one version is already attached
-        /// to a different version, then you must include this parameter and specify the version
-        /// that the label is to be removed from. If the label is attached and you either do not
-        /// specify this parameter, or the version ID does not match, then the operation fails.</para>
+        /// <para>The ID of the version that the staging label is to be removed from. If the staging
+        /// label you are trying to attach to one version is already attached to a different version,
+        /// then you must include this parameter and specify the version that the label is to
+        /// be removed from. If the label is attached and you either do not specify this parameter,
+        /// or the version ID does not match, then the operation fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret with the version with the list of staging labels you want to
-        /// modify. You can specify either the Amazon Resource Name (ARN) or the friendly name
-        /// of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or the name of the secret with the version and staging labelsto modify.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

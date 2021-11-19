@@ -83,7 +83,17 @@ $TSW_Completers = {
         # Amazon.TimestreamWrite.MeasureValueType
         "Write-TSWRecord/CommonAttributes_MeasureValueType"
         {
-            $v = "BIGINT","BOOLEAN","DOUBLE","VARCHAR"
+            $v = "BIGINT","BOOLEAN","DOUBLE","MULTI","TIMESTAMP","VARCHAR"
+            break
+        }
+
+        # Amazon.TimestreamWrite.S3EncryptionOption
+        {
+            ($_ -eq "New-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
+            ($_ -eq "Update-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption")
+        }
+        {
+            $v = "SSE_KMS","SSE_S3"
             break
         }
 
@@ -105,6 +115,7 @@ $TSW_Completers = {
 $TSW_map = @{
     "CommonAttributes_MeasureValueType"=@("Write-TSWRecord")
     "CommonAttributes_TimeUnit"=@("Write-TSWRecord")
+    "MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption"=@("New-TSWTable","Update-TSWTable")
 }
 
 _awsArgumentCompleterRegistration $TSW_Completers $TSW_map

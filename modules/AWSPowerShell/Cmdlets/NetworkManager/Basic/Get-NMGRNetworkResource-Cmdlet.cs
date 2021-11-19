@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String AwsRegion { get; set; }
         #endregion
         
+        #region Parameter CoreNetworkId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a core network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CoreNetworkId { get; set; }
+        #endregion
+        
         #region Parameter GlobalNetworkId
         /// <summary>
         /// <para>
@@ -195,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
             context.AwsRegion = this.AwsRegion;
+            context.CoreNetworkId = this.CoreNetworkId;
             context.GlobalNetworkId = this.GlobalNetworkId;
             #if MODULAR
             if (this.GlobalNetworkId == null && ParameterWasBound(nameof(this.GlobalNetworkId)))
@@ -234,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (cmdletContext.AwsRegion != null)
             {
                 request.AwsRegion = cmdletContext.AwsRegion;
+            }
+            if (cmdletContext.CoreNetworkId != null)
+            {
+                request.CoreNetworkId = cmdletContext.CoreNetworkId;
             }
             if (cmdletContext.GlobalNetworkId != null)
             {
@@ -342,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             public System.String AccountId { get; set; }
             public System.String AwsRegion { get; set; }
+            public System.String CoreNetworkId { get; set; }
             public System.String GlobalNetworkId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

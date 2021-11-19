@@ -95,10 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LambdaAuthorizerConfig_AuthorizerUri
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Lambda function to be called for authorization. This may be a standard
-        /// Lambda ARN, a version ARN (<code>.../v3</code>) or alias ARN. </para><para><i>Note</i>: This Lambda function must have the following resource-based policy assigned
-        /// to it. When configuring Lambda authorizers in the Console, this is done for you. To
-        /// do so with the Amazon Web Services CLI, run the following:</para><para><code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function"
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function to be called for authorization.
+        /// This can be a standard Lambda ARN, a version ARN (<code>.../v3</code>), or an alias
+        /// ARN. </para><para><b>Note</b>: This Lambda function must have the following resource-based policy assigned
+        /// to it. When configuring Lambda authorizers in the console, this is done for you. To
+        /// use the Command Line Interface (CLI), run the following:</para><para><code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function"
         /// --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</code></para>
         /// </para>
         /// </summary>
@@ -109,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_AuthTTL
         /// <summary>
         /// <para>
-        /// <para>The number of milliseconds a token is valid after being authenticated.</para>
+        /// <para>The number of milliseconds that a token is valid after being authenticated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_ClientId
         /// <summary>
         /// <para>
-        /// <para>The client identifier of the Relying party at the OpenID identity provider. This identifier
-        /// is typically obtained when the Relying party is registered with the OpenID identity
-        /// provider. You can specify a regular expression so the AppSync can validate against
+        /// <para>The client identifier of the relying party at the OpenID identity provider. This identifier
+        /// is typically obtained when the relying party is registered with the OpenID identity
+        /// provider. You can specify a regular expression so that AppSync can validate against
         /// multiple client identifiers at a time.</para>
         /// </para>
         /// </summary>
@@ -132,8 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LogConfig_CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
-        /// <para>The service role that AppSync will assume to publish to Amazon CloudWatch logs in
-        /// your account. </para>
+        /// <para>The service role that AppSync assumes to publish to CloudWatch logs in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LogConfig_FieldLogLevel
         /// <summary>
         /// <para>
-        /// <para>The field logging level. Values can be NONE, ERROR, or ALL. </para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
+        /// <para>The field logging level. Values can be NONE, ERROR, or ALL.</para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_IatTTL
         /// <summary>
         /// <para>
-        /// <para>The number of milliseconds a token is valid after being issued to a user.</para>
+        /// <para>The number of milliseconds that a token is valid after it's issued to a user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_Issuer
         /// <summary>
         /// <para>
-        /// <para>The issuer for the OpenID Connect configuration. The issuer returned by discovery
-        /// must exactly match the value of <code>iss</code> in the ID token.</para>
+        /// <para>The issuer for the OIDC configuration. The issuer returned by discovery must exactly
+        /// match the value of <code>iss</code> in the ID token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter UserPoolConfig
         /// <summary>
         /// <para>
-        /// <para>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code> object.</para>
+        /// <para>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter XrayEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag indicating whether to enable X-Ray tracing for the <code>GraphqlApi</code>.</para>
+        /// <para>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

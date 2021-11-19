@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter HttpConfig_AuthorizationConfig
         /// <summary>
         /// <para>
-        /// <para>The authorization config in case the HTTP endpoint requires authorization.</para>
+        /// <para>The authorization configuration in case the HTTP endpoint requires authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter HttpConfig_Endpoint
         /// <summary>
         /// <para>
-        /// <para>The HTTP URL endpoint. You can either specify the domain name or IP, and port combination,
-        /// and the URL scheme must be HTTP or HTTPS. If the port is not specified, AppSync uses
+        /// <para>The HTTP URL endpoint. You can specify either the domain name or IP, and port combination,
+        /// and the URL scheme must be HTTP or HTTPS. If you don't specify the port, AppSync uses
         /// the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</para>
         /// </para>
         /// </summary>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LambdaConfig
         /// <summary>
         /// <para>
-        /// <para>Amazon Web Services Lambda settings.</para>
+        /// <para>Lambda settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter RelationalDatabaseConfig_RelationalDatabaseSourceType
         /// <summary>
         /// <para>
-        /// <para>Source type for the relational database.</para><ul><li><para><b>RDS_HTTP_ENDPOINT</b>: The relational database source type is an Amazon RDS HTTP
-        /// endpoint.</para></li></ul>
+        /// <para>Source type for the relational database.</para><ul><li><para><b>RDS_HTTP_ENDPOINT</b>: The relational database source type is an Amazon Relational
+        /// Database Service (Amazon RDS) HTTP endpoint.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Identity and Access Management service role ARN for the data source. The system
-        /// assumes this role when accessing the data source.</para>
+        /// <para>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for
+        /// the data source. The system assumes this role when accessing the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

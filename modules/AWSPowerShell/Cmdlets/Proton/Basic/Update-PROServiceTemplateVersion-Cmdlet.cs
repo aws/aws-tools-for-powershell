@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To update a major version of a service template, include <code>majorVersion</code>.</para>
+        /// <para>To update a major version of a service template, include <code>major Version</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

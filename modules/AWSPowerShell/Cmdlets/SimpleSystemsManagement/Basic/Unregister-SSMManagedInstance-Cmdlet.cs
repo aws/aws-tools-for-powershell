@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Removes the server or virtual machine from the list of registered servers. You can
-    /// reregister the instance again at any time. If you don't plan to use Run Command on
-    /// the server, we suggest uninstalling SSM Agent first.
+    /// reregister the node again at any time. If you don't plan to use Run Command on the
+    /// server, we suggest uninstalling SSM Agent first.
     /// </summary>
     [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the managed instance when you registered it using the activation
-        /// process. </para>
+        /// <para>The ID assigned to the managed node when you registered it using the activation process.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

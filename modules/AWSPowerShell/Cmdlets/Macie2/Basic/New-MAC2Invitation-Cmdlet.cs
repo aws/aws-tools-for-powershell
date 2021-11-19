@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter DisableEmailNotification
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to send an email notification to the root user of each account that
-        /// the invitation will be sent to. This notification is in addition to an alert that
-        /// the root user receives in Personal Health Dashboard. To send an email notification
-        /// to the root user of each account, set this value to true.</para>
+        /// <para>Specifies whether to send the invitation as an email message. If this value is false,
+        /// Amazon Macie sends the invitation (as an email message) to the email address that
+        /// you specified for the recipient's account when you associated the account with your
+        /// account. The default value is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>A custom message to include in the invitation. Amazon Macie adds this message to the
-        /// standard content that it sends for an invitation.</para>
+        /// <para>Custom text to include in the email message that contains the invitation. The text
+        /// can contain as many as 80 alphanumeric characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

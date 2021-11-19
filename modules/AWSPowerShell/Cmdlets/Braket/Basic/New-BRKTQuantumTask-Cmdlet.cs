@@ -85,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         public System.String DeviceParameter { get; set; }
         #endregion
         
+        #region Parameter JobToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for an Amazon Braket job that associates it with the quantum task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobToken { get; set; }
+        #endregion
+        
         #region Parameter OutputS3Bucket
         /// <summary>
         /// <para>
@@ -214,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             }
             #endif
             context.DeviceParameter = this.DeviceParameter;
+            context.JobToken = this.JobToken;
             context.OutputS3Bucket = this.OutputS3Bucket;
             #if MODULAR
             if (this.OutputS3Bucket == null && ParameterWasBound(nameof(this.OutputS3Bucket)))
@@ -274,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (cmdletContext.DeviceParameter != null)
             {
                 request.DeviceParameters = cmdletContext.DeviceParameter;
+            }
+            if (cmdletContext.JobToken != null)
+            {
+                request.JobToken = cmdletContext.JobToken;
             }
             if (cmdletContext.OutputS3Bucket != null)
             {
@@ -356,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             public System.String ClientToken { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String DeviceParameter { get; set; }
+            public System.String JobToken { get; set; }
             public System.String OutputS3Bucket { get; set; }
             public System.String OutputS3KeyPrefix { get; set; }
             public System.Int64? Shot { get; set; }

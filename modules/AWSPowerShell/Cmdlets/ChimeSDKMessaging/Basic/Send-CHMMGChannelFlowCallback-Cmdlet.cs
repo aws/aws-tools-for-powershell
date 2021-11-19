@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class SendCHMMGChannelFlowCallbackCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        #region Parameter PushNotification_Body
+        /// <summary>
+        /// <para>
+        /// <para>The body of the push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelMessage_PushNotification_Body")]
+        public System.String PushNotification_Body { get; set; }
+        #endregion
+        
         #region Parameter CallbackId
         /// <summary>
         /// <para>
@@ -100,6 +111,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.Boolean? DeleteResource { get; set; }
         #endregion
         
+        #region Parameter ChannelMessage_MessageAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attributes for the message, used for message filtering along with a <code>FilterRule</code>
+        /// defined in the <code>PushNotificationPreferences</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelMessage_MessageAttributes")]
+        public System.Collections.Hashtable ChannelMessage_MessageAttribute { get; set; }
+        #endregion
+        
         #region Parameter ChannelMessage_MessageId
         /// <summary>
         /// <para>
@@ -125,6 +148,30 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ChannelMessage_Metadata { get; set; }
+        #endregion
+        
+        #region Parameter PushNotification_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title of the push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelMessage_PushNotification_Title")]
+        public System.String PushNotification_Title { get; set; }
+        #endregion
+        
+        #region Parameter PushNotification_Type
+        /// <summary>
+        /// <para>
+        /// <para>Enum value that indicates the type of the push notification for a message. <code>DEFAULT</code>:
+        /// Normal mobile push notification. <code>VOIP</code>: VOIP mobile push notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelMessage_PushNotification_Type")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.PushNotificationType")]
+        public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -197,6 +244,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ChannelMessage_Content = this.ChannelMessage_Content;
+            if (this.ChannelMessage_MessageAttribute != null)
+            {
+                context.ChannelMessage_MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ChannelMessage_MessageAttribute.Keys)
+                {
+                    context.ChannelMessage_MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.ChannelMessage_MessageAttribute[hashKey]));
+                }
+            }
             context.ChannelMessage_MessageId = this.ChannelMessage_MessageId;
             #if MODULAR
             if (this.ChannelMessage_MessageId == null && ParameterWasBound(nameof(this.ChannelMessage_MessageId)))
@@ -205,6 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ChannelMessage_Metadata = this.ChannelMessage_Metadata;
+            context.PushNotification_Body = this.PushNotification_Body;
+            context.PushNotification_Title = this.PushNotification_Title;
+            context.PushNotification_Type = this.PushNotification_Type;
             context.DeleteResource = this.DeleteResource;
             
             // allow further manipulation of loaded context prior to processing
@@ -244,6 +302,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 request.ChannelMessage.Content = requestChannelMessage_channelMessage_Content;
                 requestChannelMessageIsNull = false;
             }
+            Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> requestChannelMessage_channelMessage_MessageAttribute = null;
+            if (cmdletContext.ChannelMessage_MessageAttribute != null)
+            {
+                requestChannelMessage_channelMessage_MessageAttribute = cmdletContext.ChannelMessage_MessageAttribute;
+            }
+            if (requestChannelMessage_channelMessage_MessageAttribute != null)
+            {
+                request.ChannelMessage.MessageAttributes = requestChannelMessage_channelMessage_MessageAttribute;
+                requestChannelMessageIsNull = false;
+            }
             System.String requestChannelMessage_channelMessage_MessageId = null;
             if (cmdletContext.ChannelMessage_MessageId != null)
             {
@@ -262,6 +330,51 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (requestChannelMessage_channelMessage_Metadata != null)
             {
                 request.ChannelMessage.Metadata = requestChannelMessage_channelMessage_Metadata;
+                requestChannelMessageIsNull = false;
+            }
+            Amazon.ChimeSDKMessaging.Model.PushNotificationConfiguration requestChannelMessage_channelMessage_PushNotification = null;
+            
+             // populate PushNotification
+            var requestChannelMessage_channelMessage_PushNotificationIsNull = true;
+            requestChannelMessage_channelMessage_PushNotification = new Amazon.ChimeSDKMessaging.Model.PushNotificationConfiguration();
+            System.String requestChannelMessage_channelMessage_PushNotification_pushNotification_Body = null;
+            if (cmdletContext.PushNotification_Body != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification_pushNotification_Body = cmdletContext.PushNotification_Body;
+            }
+            if (requestChannelMessage_channelMessage_PushNotification_pushNotification_Body != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification.Body = requestChannelMessage_channelMessage_PushNotification_pushNotification_Body;
+                requestChannelMessage_channelMessage_PushNotificationIsNull = false;
+            }
+            System.String requestChannelMessage_channelMessage_PushNotification_pushNotification_Title = null;
+            if (cmdletContext.PushNotification_Title != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification_pushNotification_Title = cmdletContext.PushNotification_Title;
+            }
+            if (requestChannelMessage_channelMessage_PushNotification_pushNotification_Title != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification.Title = requestChannelMessage_channelMessage_PushNotification_pushNotification_Title;
+                requestChannelMessage_channelMessage_PushNotificationIsNull = false;
+            }
+            Amazon.ChimeSDKMessaging.PushNotificationType requestChannelMessage_channelMessage_PushNotification_pushNotification_Type = null;
+            if (cmdletContext.PushNotification_Type != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification_pushNotification_Type = cmdletContext.PushNotification_Type;
+            }
+            if (requestChannelMessage_channelMessage_PushNotification_pushNotification_Type != null)
+            {
+                requestChannelMessage_channelMessage_PushNotification.Type = requestChannelMessage_channelMessage_PushNotification_pushNotification_Type;
+                requestChannelMessage_channelMessage_PushNotificationIsNull = false;
+            }
+             // determine if requestChannelMessage_channelMessage_PushNotification should be set to null
+            if (requestChannelMessage_channelMessage_PushNotificationIsNull)
+            {
+                requestChannelMessage_channelMessage_PushNotification = null;
+            }
+            if (requestChannelMessage_channelMessage_PushNotification != null)
+            {
+                request.ChannelMessage.PushNotification = requestChannelMessage_channelMessage_PushNotification;
                 requestChannelMessageIsNull = false;
             }
              // determine if request.ChannelMessage should be set to null
@@ -337,8 +450,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String CallbackId { get; set; }
             public System.String ChannelArn { get; set; }
             public System.String ChannelMessage_Content { get; set; }
+            public Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> ChannelMessage_MessageAttribute { get; set; }
             public System.String ChannelMessage_MessageId { get; set; }
             public System.String ChannelMessage_Metadata { get; set; }
+            public System.String PushNotification_Body { get; set; }
+            public System.String PushNotification_Title { get; set; }
+            public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
             public System.Boolean? DeleteResource { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.ChannelFlowCallbackResponse, SendCHMMGChannelFlowCallbackCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

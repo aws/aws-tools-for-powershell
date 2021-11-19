@@ -29,6 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
     /// Get all users in a given studio membership.
+    /// 
+    ///  <note><para><code>ListStudioMembers</code> only returns admin members.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "NSStudioMemberList")]
     [OutputType("Amazon.NimbleStudio.Model.StudioMembership")]

@@ -47,15 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// Optionally enables privacy protection, so WHOIS queries return contact information
     /// either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
     /// associate, Gandi (for all other TLDs). If you don't enable privacy protection, WHOIS
-    /// queries return the information that you entered for the registrant, admin, and tech
-    /// contacts.
-    /// </para></li><li><para>
+    /// queries return the information that you entered for the administrative, registrant,
+    /// and technical contacts.
+    /// </para><note><para>
+    /// You must specify the same privacy setting for the administrative, registrant, and
+    /// technical contacts.
+    /// </para></note></li><li><para>
     /// If registration is successful, returns an operation ID that you can use to track the
     /// progress and completion of the action. If the request is not completed successfully,
     /// the domain registrant is notified by email.
     /// </para></li><li><para>
-    /// Charges your AWS account an amount based on the top-level domain. For more information,
-    /// see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.
+    /// Charges your Amazon Web Services account an amount based on the top-level domain.
+    /// For more information, see <a href="http://aws.amazon.com/route53/pricing/">Amazon
+    /// Route 53 Pricing</a>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Register", "R53DDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -178,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,8 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -536,7 +540,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the admin contact.</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the admin contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -550,7 +555,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the registrant contact (the domain owner).</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the registrant contact (the domain owner).</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -564,7 +570,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the technical contact.</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the technical contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

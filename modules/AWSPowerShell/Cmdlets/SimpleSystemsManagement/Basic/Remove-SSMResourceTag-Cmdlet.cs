@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// from the strings that come after the word <code>opsmetadata</code> in the ARN. For
         /// example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code>
         /// has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
-        /// <code>/aws/ssm/MyGroup/appmanager</code>.</para><para>For the Document and Parameter values, use the name of the resource.</para><note><para>The ManagedInstance type for this API operation is only for on-premises managed instances.
-        /// Specify the name of the managed instance in the following format: mi-ID_number. For
-        /// example, mi-1a2b3c4d5e6f.</para></note>
+        /// <code>/aws/ssm/MyGroup/appmanager</code>.</para><para>For the Document and Parameter values, use the name of the resource.</para><note><para>The <code>ManagedInstance</code> type for this API operation is only for on-premises
+        /// managed nodes. Specify the name of the managed node in the following format: mi-ID_number.
+        /// For example, mi-1a2b3c4d5e6f.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of resource from which you want to remove a tag.</para><note><para>The <code>ManagedInstance</code> type for this API operation is only for on-premises
-        /// managed instances. Specify the name of the managed instance in the following format:
-        /// <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
+        /// managed nodes. Specify the name of the managed node in the following format: <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

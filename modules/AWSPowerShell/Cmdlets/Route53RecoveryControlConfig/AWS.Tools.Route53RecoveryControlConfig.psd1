@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Route53RecoveryControlConfig module of AWS Tools for PowerShell lets developers and administrators manage AWS Route53 Recovery Control Config from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -86,11 +86,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-R53RCResourceTag', 
         'Get-R53RCAssociatedRoute53HealthCheckList', 
         'Get-R53RCCluster', 
         'Get-R53RCClusterList', 
         'Get-R53RCControlPanel', 
         'Get-R53RCControlPanelList', 
+        'Get-R53RCResourceTag', 
         'Get-R53RCRoutingControl', 
         'Get-R53RCRoutingControlList', 
         'Get-R53RCSafetyRule', 
@@ -101,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-R53RCSafetyRule', 
         'Remove-R53RCCluster', 
         'Remove-R53RCControlPanel', 
+        'Remove-R53RCResourceTag', 
         'Remove-R53RCRoutingControl', 
         'Remove-R53RCSafetyRule', 
         'Update-R53RCControlPanel', 

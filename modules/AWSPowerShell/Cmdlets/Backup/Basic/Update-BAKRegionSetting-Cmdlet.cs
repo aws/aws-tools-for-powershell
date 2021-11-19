@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class UpdateBAKRegionSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter ResourceTypeManagementPreference
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html">
+        /// Backup's advanced DynamoDB backup features</a> for the Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ResourceTypeManagementPreference { get; set; }
+        #endregion
+        
         #region Parameter ResourceTypeOptInPreference
         /// <summary>
         /// <para>
@@ -94,6 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = CreateSelectDelegate<Amazon.Backup.Model.UpdateRegionSettingsResponse, UpdateBAKRegionSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.ResourceTypeManagementPreference != null)
+            {
+                context.ResourceTypeManagementPreference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceTypeManagementPreference.Keys)
+                {
+                    context.ResourceTypeManagementPreference.Add((String)hashKey, (Boolean)(this.ResourceTypeManagementPreference[hashKey]));
+                }
+            }
             if (this.ResourceTypeOptInPreference != null)
             {
                 context.ResourceTypeOptInPreference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
@@ -118,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request
             var request = new Amazon.Backup.Model.UpdateRegionSettingsRequest();
             
+            if (cmdletContext.ResourceTypeManagementPreference != null)
+            {
+                request.ResourceTypeManagementPreference = cmdletContext.ResourceTypeManagementPreference;
+            }
             if (cmdletContext.ResourceTypeOptInPreference != null)
             {
                 request.ResourceTypeOptInPreference = cmdletContext.ResourceTypeOptInPreference;
@@ -183,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.Boolean> ResourceTypeManagementPreference { get; set; }
             public Dictionary<System.String, System.Boolean> ResourceTypeOptInPreference { get; set; }
             public System.Func<Amazon.Backup.Model.UpdateRegionSettingsResponse, UpdateBAKRegionSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

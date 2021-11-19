@@ -60,6 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ReturnConsumedCapacity
+        /// <summary>
+        /// <para>
+        /// <para>Determines the level of detail about either provisioned or on-demand throughput consumption
+        /// that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a>
+        /// and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ReturnConsumedCapacity")]
+        public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
+        #endregion
+        
         #region Parameter TransactStatement
         /// <summary>
         /// <para>
@@ -140,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ReturnConsumedCapacity = this.ReturnConsumedCapacity;
             if (this.TransactStatement != null)
             {
                 context.TransactStatement = new List<Amazon.DynamoDBv2.Model.ParameterizedStatement>(this.TransactStatement);
@@ -169,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ReturnConsumedCapacity != null)
+            {
+                request.ReturnConsumedCapacity = cmdletContext.ReturnConsumedCapacity;
             }
             if (cmdletContext.TransactStatement != null)
             {
@@ -236,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
             public List<Amazon.DynamoDBv2.Model.ParameterizedStatement> TransactStatement { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.ExecuteTransactionResponse, InvokeDDBDDBExecuteTransactionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Responses;

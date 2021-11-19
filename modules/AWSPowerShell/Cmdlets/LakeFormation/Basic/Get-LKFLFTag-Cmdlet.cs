@@ -28,7 +28,7 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Returns a tag definition.
+    /// Returns an LF-tag definition.
     /// </summary>
     [Cmdlet("Get", "LKFLFTag")]
     [OutputType("Amazon.LakeFormation.Model.GetLFTagResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The key-name for the tag.</para>
+        /// <para>The key-name for the LF-tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

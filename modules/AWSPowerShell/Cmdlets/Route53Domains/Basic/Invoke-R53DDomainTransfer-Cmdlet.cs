@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// Registration for a Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer
     /// Guide</i>.
     /// </para></li><li><para>
-    /// For information about how to transfer a domain from one AWS account to another, see
-    /// <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+    /// For information about how to transfer a domain from one Amazon Web Services account
+    /// to another, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
     /// 
     /// </para></li><li><para>
     /// For information about how to transfer a domain to another domain registrar, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html">Transferring
@@ -195,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -558,7 +558,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the admin contact.</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the admin contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +573,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the registrant contact (domain owner).</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the registrant contact (domain owner).</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -586,7 +588,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <code>true</code>, WHOIS ("who is") queries return contact information either for
         /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
         /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the technical contact.</para><para>Default: <code>true</code></para>
+        /// the information that you entered for the technical contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
+        /// technical contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

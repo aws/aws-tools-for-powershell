@@ -28,7 +28,7 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Describes one or more Amazon FSx for NetApp ONTAP volumes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volumes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FSXVolume")]
     [OutputType("Amazon.FSx.Model.Volume")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Enter a filter name:value pair to view a select set of volumes.</para>
+        /// <para>Enter a filter <code>Name</code> and <code>Values</code> pair to view a select set
+        /// of volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>IDs of the volumes whose descriptions you want to retrieve.</para>
+        /// <para>The IDs of the volumes whose descriptions you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

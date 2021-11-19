@@ -28,12 +28,11 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Modifies many of the details of the specified secret. 
+    /// Modifies the details of a secret, including metadata and the secret value. To change
+    /// the secret value, you can also use <a>PutSecretValue</a>.
     /// 
     ///  
     /// <para>
-    /// To change the secret value, you can also use <a>PutSecretValue</a>.
-    /// </para><para>
     /// To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.
     /// </para><para>
     /// We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
@@ -43,61 +42,31 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// created less than 24 hours ago. If you update the secret value more than once every
     /// 10 minutes, you create more versions than Secrets Manager removes, and you will reach
     /// the quota for secret versions.
-    /// </para><note><para>
-    /// The Secrets Manager console uses only the <code>SecretString</code> parameter and
-    /// therefore limits you to encrypting and storing only a text string. To encrypt and
-    /// store binary data as part of the version of a secret, you must use either the Amazon
-    /// Web Services CLI or one of the Amazon Web Services SDKs.
-    /// </para></note><ul><li><para>
-    /// If a version with a <code>VersionId</code> with the same value as the <code>ClientRequestToken</code>
-    /// parameter already exists, the operation results in an error. You cannot modify an
-    /// existing version, you can only create a new version.
-    /// </para></li><li><para>
+    /// </para><para>
     /// If you include <code>SecretString</code> or <code>SecretBinary</code> to create a
     /// new secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code>
     /// to the new version. 
-    /// </para></li></ul><note><ul><li><para>
-    /// If you call an operation to encrypt or decrypt the <code>SecretString</code> or <code>SecretBinary</code>
-    /// for a secret in the same account as the calling user and that secret doesn't specify
-    /// a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
-    /// Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
-    /// If this key doesn't already exist in your account then Secrets Manager creates it
-    /// for you automatically. All users and roles in the same Amazon Web Services account
-    /// automatically have access to use the default CMK. Note that if an Secrets Manager
-    /// API call results in Amazon Web Services creating the account's Amazon Web Services-managed
-    /// CMK, it can result in a one-time significant delay in returning the result.
-    /// </para></li><li><para>
-    /// If the secret resides in a different Amazon Web Services account from the credentials
-    /// calling an API that requires encryption or decryption of the secret value then you
-    /// must create and use a custom Amazon Web Services KMS CMK because you can't access
-    /// the default CMK for the account using credentials from a different Amazon Web Services
-    /// account. Store the ARN of the CMK in the secret when you create the secret or when
-    /// you update it by including it in the <code>KMSKeyId</code>. If you call an API that
-    /// must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using
-    /// credentials from a different account then the Amazon Web Services KMS key policy must
-    /// grant cross-account access to that other account's user or role for both the kms:GenerateDataKey
-    /// and kms:Decrypt operations.
-    /// </para></li></ul></note><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:UpdateSecret
-    /// </para></li><li><para>
-    /// kms:GenerateDataKey - needed only if you use a custom Amazon Web Services KMS key
-    /// to encrypt the secret. You do not need this permission to use the account's Amazon
-    /// Web Services managed CMK for Secrets Manager.
-    /// </para></li><li><para>
-    /// kms:Decrypt - needed only if you use a custom Amazon Web Services KMS key to encrypt
-    /// the secret. You do not need this permission to use the account's Amazon Web Services
-    /// managed CMK for Secrets Manager.
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To create a new secret, use <a>CreateSecret</a>.
-    /// </para></li><li><para>
-    /// To add only a new version to an existing secret, use <a>PutSecretValue</a>.
-    /// </para></li><li><para>
-    /// To get the details for a secret, use <a>DescribeSecret</a>.
-    /// </para></li><li><para>
-    /// To list the versions contained in a secret, use <a>ListSecretVersionIds</a>.
-    /// </para></li></ul>
+    /// </para><para>
+    /// If you call this operation with a <code>VersionId</code> that matches an existing
+    /// version's <code>ClientRequestToken</code>, the operation results in an error. You
+    /// can't modify an existing version, you can only create a new version. To remove a version,
+    /// remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.
+    /// </para><para>
+    /// If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services
+    /// managed key <code>aws/secretsmanager</code>. If this key doesn't already exist in
+    /// your account, then Secrets Manager creates it for you automatically. All users and
+    /// roles in the Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
+    /// Creating <code>aws/secretsmanager</code> can result in a one-time significant delay
+    /// in returning the result. 
+    /// </para><para>
+    /// If the secret is in a different Amazon Web Services account from the credentials calling
+    /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
+    /// and you must create and use a customer managed key. 
+    /// </para><para>
+    /// To run this command, you must have <code>secretsmanager:UpdateSecret</code> permissions.
+    /// If you use a customer managed key, you must also have <code>kms:GenerateDataKey</code>
+    /// and <code>kms:Decrypt</code> permissions .
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SECSecret", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.UpdateSecretResponse")]
@@ -111,22 +80,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If you want to add a new version to the secret, this parameter specifies
-        /// a unique identifier for the new version that helps ensure idempotency. </para><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDK to call
+        /// <para>If you include <code>SecretString</code> or <code>SecretBinary</code>, then Secrets
+        /// Manager creates a new version for the secret, and this parameter specifies the unique
+        /// identifier for the new version.</para><note><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call
         /// this operation, then you can leave this parameter empty. The CLI or SDK generates
-        /// a random UUID for you and includes that in the request. If you don't use the SDK and
-        /// instead generate a raw HTTP request to the Secrets Manager service endpoint, then
-        /// you must generate a <code>ClientRequestToken</code> yourself for new versions and
-        /// include that value in the request.</para><para>You typically only need to interact with this value if you implement your own retry
-        /// logic and want to ensure that a given secret is not created twice. We recommend that
-        /// you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
-        /// value to ensure uniqueness within the specified secret. </para><para>Secrets Manager uses this value to prevent the accidental creation of duplicate versions
-        /// if there are failures and retries during the Lambda rotation function's processing.</para><ul><li><para>If the <code>ClientRequestToken</code> value isn't already associated with a version
-        /// of the secret then a new version of the secret is created. </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
-        /// and <code>SecretBinary</code> values are the same as those in the request then the
-        /// request is ignored (the operation is idempotent). </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
-        /// and <code>SecretBinary</code> values are different from the request then an error
-        /// occurs because you cannot modify an existing secret value.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
+        /// a random UUID for you and includes it as the value for this parameter in the request.
+        /// If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager
+        /// service endpoint, then you must generate a <code>ClientRequestToken</code> yourself
+        /// for the new version and include the value in the request.</para></note><para>This value becomes the <code>VersionId</code> of the new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies an updated user-provided description of the secret.</para>
+        /// <para>The description of the secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,16 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies an updated ARN or alias of the Amazon Web Services KMS customer
-        /// master key (CMK) that Secrets Manager uses to encrypt the protected text in new versions
-        /// of this secret as well as any existing versions of this secret that have the staging
-        /// labels AWSCURRENT, AWSPENDING, or AWSPREVIOUS. For more information about staging
-        /// labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
-        /// Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.</para><important><para>You can only use the account's default CMK to encrypt and decrypt if you call this
-        /// operation using credentials from the same account that owns the secret. If the secret
-        /// is in a different account, then you must create a custom CMK and provide the ARN of
-        /// that CMK in this field. The user making the call must have permissions to both the
-        /// secret and the CMK in their respective accounts.</para></important>
+        /// <para>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt new
+        /// secret versions as well as any existing versions the staging labels <code>AWSCURRENT</code>,
+        /// <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>. For more information about versions
+        /// and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
+        /// Version</a>.</para><important><para>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code>
+        /// if you call this operation using credentials from the same Amazon Web Services account
+        /// that owns the secret. If the secret is in a different account, then you must use a
+        /// customer managed key and provide the ARN of that KMS key in this field. The user making
+        /// the call must have permissions to both the secret and the KMS key in their respective
+        /// accounts.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,12 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretBinary
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies updated binary data that you want to encrypt and store in the
-        /// new version of the secret. To use this parameter in the command-line tools, we recommend
-        /// that you store your binary data in a file and then use the appropriate technique for
-        /// your tool to pass the contents of the file as a parameter. Either <code>SecretBinary</code>
-        /// or <code>SecretString</code> must have a value, but not both. They cannot both be
-        /// empty.</para><para>This parameter is not accessible using the Secrets Manager console.</para>
+        /// <para>The binary data to encrypt and store in the new version of the secret. We recommend
+        /// that you store your binary data in a file and then pass the contents of the file as
+        /// a parameter. </para><para>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but
+        /// not both.</para><para>You can't access this parameter in the Secrets Manager console.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -182,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to modify or to which you want to add a new version.
-        /// You can specify either the Amazon Resource Name (ARN) or the friendly name of the
-        /// secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,15 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretString
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies updated text data that you want to encrypt and store in this
-        /// new version of the secret. Either <code>SecretBinary</code> or <code>SecretString</code>
-        /// must have a value, but not both. They cannot both be empty.</para><para>If you create this secret by using the Secrets Manager console then Secrets Manager
-        /// puts the protected secret text in only the <code>SecretString</code> parameter. The
-        /// Secrets Manager console stores the information as a JSON structure of key/value pairs
-        /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
-        /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
-        /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
-        /// User Guide.</para>
+        /// <para>The text data to encrypt and store in the new version of the secret. We recommend
+        /// you use a JSON structure of key/value pairs for your secret value. </para><para>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but
+        /// not both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

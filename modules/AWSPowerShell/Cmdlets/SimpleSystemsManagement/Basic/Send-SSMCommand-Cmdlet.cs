@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Runs commands on one or more managed instances.
+    /// Runs commands on one or more managed nodes.
     /// </summary>
     [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
@@ -132,12 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances where the command should run. Specifying instance IDs is
-        /// most useful when you are targeting a limited number of instances, though you can specify
-        /// up to 50 IDs.</para><para>To target a larger number of instances, or if you prefer not to list individual instance
-        /// IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
-        /// which accepts tag key-value pairs to identify the instances to send commands to, you
-        /// can a send command to tens, hundreds, or thousands of instances at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using
+        /// <para>The IDs of the managed nodes where the command should run. Specifying managed node
+        /// IDs is most useful when you are targeting a limited number of managed nodes, though
+        /// you can specify up to 50 IDs.</para><para>To target a larger number of managed nodes, or if you prefer not to list individual
+        /// node IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
+        /// which accepts tag key-value pairs to identify the managed nodes to send commands to,
+        /// you can a send command to tens, hundreds, or thousands of nodes at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using
         /// targets and rate controls to send commands to a fleet</a> in the <i>Amazon Web Services
         /// Systems Manager User Guide</i>.</para>
         /// </para>
@@ -150,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxConcurrency
         /// <summary>
         /// <para>
-        /// <para>(Optional) The maximum number of instances that are allowed to run the command at
-        /// the same time. You can specify a number such as 10 or a percentage such as 10%. The
-        /// default value is <code>50</code>. For more information about how to use <code>MaxConcurrency</code>,
+        /// <para>(Optional) The maximum number of managed nodes that are allowed to run the command
+        /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
+        /// The default value is <code>50</code>. For more information about how to use <code>MaxConcurrency</code>,
         /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
         /// concurrency controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
@@ -205,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationType
         /// <summary>
         /// <para>
-        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple instances, receive notification
-        /// on a per-instance basis when the status of a command changes. </para></li></ul>
+        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple managed nodes, receive notification
+        /// on a per-node basis when the status of a command changes. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,11 +271,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>An array of search criteria that targets instances using a <code>Key,Value</code>
+        /// <para>An array of search criteria that targets managed nodes using a <code>Key,Value</code>
         /// combination that you specify. Specifying targets is most useful when you want to send
-        /// a command to a large number of instances at once. Using <code>Targets</code>, which
-        /// accepts tag key-value pairs to identify instances, you can send a command to tens,
-        /// hundreds, or thousands of instances at once.</para><para>To send a command to a smaller number of instances, you can use the <code>InstanceIds</code>
+        /// a command to a large number of managed nodes at once. Using <code>Targets</code>,
+        /// which accepts tag key-value pairs to identify managed nodes, you can send a command
+        /// to tens, hundreds, or thousands of nodes at once.</para><para>To send a command to a smaller number of managed nodes, you can use the <code>InstanceIds</code>
         /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
         /// commands to a fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>

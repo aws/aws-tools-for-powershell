@@ -139,6 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
         #endregion
         
+        #region Parameter NewPrivateVirtualInterface_EnableSiteLink
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable SiteLink.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NewPrivateVirtualInterface_EnableSiteLink { get; set; }
+        #endregion
+        
         #region Parameter NewPrivateVirtualInterface_Mtu
         /// <summary>
         /// <para>
@@ -286,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPrivateVirtualInterface_AuthKey = this.NewPrivateVirtualInterface_AuthKey;
             context.NewPrivateVirtualInterface_CustomerAddress = this.NewPrivateVirtualInterface_CustomerAddress;
             context.NewPrivateVirtualInterface_DirectConnectGatewayId = this.NewPrivateVirtualInterface_DirectConnectGatewayId;
+            context.NewPrivateVirtualInterface_EnableSiteLink = this.NewPrivateVirtualInterface_EnableSiteLink;
             context.NewPrivateVirtualInterface_Mtu = this.NewPrivateVirtualInterface_Mtu;
             if (this.NewPrivateVirtualInterface_Tag != null)
             {
@@ -388,6 +399,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId != null)
             {
                 request.NewPrivateVirtualInterface.DirectConnectGatewayId = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId;
+                requestNewPrivateVirtualInterfaceIsNull = false;
+            }
+            System.Boolean? requestNewPrivateVirtualInterface_newPrivateVirtualInterface_EnableSiteLink = null;
+            if (cmdletContext.NewPrivateVirtualInterface_EnableSiteLink != null)
+            {
+                requestNewPrivateVirtualInterface_newPrivateVirtualInterface_EnableSiteLink = cmdletContext.NewPrivateVirtualInterface_EnableSiteLink.Value;
+            }
+            if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_EnableSiteLink != null)
+            {
+                request.NewPrivateVirtualInterface.EnableSiteLink = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_EnableSiteLink.Value;
                 requestNewPrivateVirtualInterfaceIsNull = false;
             }
             System.Int32? requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Mtu = null;
@@ -513,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.String NewPrivateVirtualInterface_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
             public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
+            public System.Boolean? NewPrivateVirtualInterface_EnableSiteLink { get; set; }
             public System.Int32? NewPrivateVirtualInterface_Mtu { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> NewPrivateVirtualInterface_Tag { get; set; }
             public System.String NewPrivateVirtualInterface_VirtualGatewayId { get; set; }

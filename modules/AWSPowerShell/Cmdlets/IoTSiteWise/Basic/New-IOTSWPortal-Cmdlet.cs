@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
         /// Amazon Web Services SSO</a> in the <i>IoT SiteWise User Guide</i>. This option is
         /// only available in Amazon Web Services Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses Identity and Access Management to authenticate
-        /// users and manage user permissions. This option is only available in the China Regions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
+        /// users and manage user permissions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

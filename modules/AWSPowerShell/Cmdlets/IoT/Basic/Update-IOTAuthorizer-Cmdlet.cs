@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String AuthorizerName { get; set; }
         #endregion
         
+        #region Parameter EnableCachingForHttp
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, the result from the authorizer’s Lambda function is cached
+        /// for the time specified in <code>refreshAfterInSeconds</code>. The cached result is
+        /// used while the device reuses the same HTTP connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCachingForHttp { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -173,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter AuthorizerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnableCachingForHttp = this.EnableCachingForHttp;
             context.Status = this.Status;
             context.TokenKeyName = this.TokenKeyName;
             if (this.TokenSigningPublicKey != null)
@@ -206,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AuthorizerName != null)
             {
                 request.AuthorizerName = cmdletContext.AuthorizerName;
+            }
+            if (cmdletContext.EnableCachingForHttp != null)
+            {
+                request.EnableCachingForHttp = cmdletContext.EnableCachingForHttp.Value;
             }
             if (cmdletContext.Status != null)
             {
@@ -282,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String AuthorizerFunctionArn { get; set; }
             public System.String AuthorizerName { get; set; }
+            public System.Boolean? EnableCachingForHttp { get; set; }
             public Amazon.IoT.AuthorizerStatus Status { get; set; }
             public System.String TokenKeyName { get; set; }
             public Dictionary<System.String, System.String> TokenSigningPublicKey { get; set; }

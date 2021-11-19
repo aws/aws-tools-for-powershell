@@ -28,10 +28,31 @@ using Amazon.TimestreamQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
-    /// Query is a synchronous operation that enables you to execute a query. Query will
-    /// timeout after 60 seconds. You must update the default timeout in the SDK to support
-    /// a timeout of 60 seconds. The result set will be truncated to 1MB. Service quotas apply.
-    /// For more information, see Quotas in the Timestream Developer Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <code>Query</code> is a synchronous operation that enables you to run a query against
+    /// your Amazon Timestream data. <code>Query</code> will time out after 60 seconds. You
+    /// must update the default timeout in the SDK to support a timeout of 60 seconds. See
+    /// the <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.run-query.html">code
+    /// sample</a> for details. 
+    /// 
+    ///  
+    /// <para>
+    /// Your query request will fail in the following cases:
+    /// </para><ul><li><para>
+    ///  If you submit a <code>Query</code> request with the same client token outside of
+    /// the 5-minute idempotency window. 
+    /// </para></li><li><para>
+    ///  If you submit a <code>Query</code> request with the same client token, but change
+    /// other parameters, within the 5-minute idempotency window. 
+    /// </para></li><li><para>
+    ///  If the size of the row (including the query metadata) exceeds 1 MB, then the query
+    /// will fail with the following error message: 
+    /// </para><para><code>Query aborted as max page response size has been exceeded by the output result
+    /// row</code></para></li><li><para>
+    ///  If the IAM principal of the query initiator and the result reader are not the same
+    /// and/or the query initiator and the result reader do not have the same query string
+    /// in the query requests, the query will fail with an <code>Invalid pagination token</code>
+    /// error. 
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Invoke", "TSQQuery")]
     [OutputType("Amazon.TimestreamQuery.Model.Row")]
@@ -46,10 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter MaxRow
         /// <summary>
         /// <para>
-        /// <para> The total number of rows to return in the output. If the total number of rows available
-        /// is more than the value specified, a NextToken is provided in the command's output.
-        /// To resume pagination, provide the NextToken value in the starting-token argument of
-        /// a subsequent command. </para>
+        /// <para> The total number of rows to be returned in the <code>Query</code> output. The initial
+        /// run of <code>Query</code> with a <code>MaxRows</code> value specified will return
+        /// the result set of the query in two cases: </para><ul><li><para>The size of the result is less than <code>1MB</code>.</para></li><li><para>The number of rows in the result set is less than the value of <code>maxRows</code>.</para></li></ul><para>Otherwise, the initial invocation of <code>Query</code> only returns a <code>NextToken</code>,
+        /// which can then be used in subsequent calls to fetch the result set. To resume pagination,
+        /// provide the <code>NextToken</code> value in the subsequent command.</para><para>If the row size is large (e.g. a row has many columns), Timestream may return fewer
+        /// rows to keep the response size from exceeding the 1 MB limit. If <code>MaxRows</code>
+        /// is not provided, Timestream will send the necessary number of rows to meet the 1 MB
+        /// limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para> The query to be executed by Timestream. </para>
+        /// <para> The query to be run by Timestream. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,13 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> Unique, case-sensitive string of up to 64 ASCII characters that you specify when
-        /// you make a Query request. Providing a <code>ClientToken</code> makes the call to <code>Query</code>
-        /// idempotent, meaning that multiple identical calls have the same effect as one single
-        /// call. </para><para>Your query request will fail in the following cases:</para><ul><li><para> If you submit a request with the same client token outside the 5-minute idepotency
-        /// window. </para></li><li><para> If you submit a request with the same client token but a change in other parameters
-        /// within the 5-minute idempotency window. </para></li></ul><para> After 4 hours, any request with the same client token is treated as a new request.
-        /// </para>
+        /// <para> Unique, case-sensitive string of up to 64 ASCII characters specified when a <code>Query</code>
+        /// request is made. Providing a <code>ClientToken</code> makes the call to <code>Query</code><i>idempotent</i>. This means that running the same query repeatedly will produce
+        /// the same result. In other words, making multiple identical <code>Query</code> requests
+        /// has the same effect as making a single request. When using <code>ClientToken</code>
+        /// in a query, note the following: </para><ul><li><para> If the Query API is instantiated without a <code>ClientToken</code>, the Query SDK
+        /// generates a <code>ClientToken</code> on your behalf.</para></li><li><para>If the <code>Query</code> invocation only contains the <code>ClientToken</code> but
+        /// does not include a <code>NextToken</code>, that invocation of <code>Query</code> is
+        /// assumed to be a new query run.</para></li><li><para>If the invocation contains <code>NextToken</code>, that particular invocation is assumed
+        /// to be a subsequent invocation of a prior call to the Query API, and a result set is
+        /// returned.</para></li><li><para> After 4 hours, any request with the same <code>ClientToken</code> is treated as a
+        /// new request. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token passed to get a set of results. </para>
+        /// <para> A pagination token used to return a set of results. When the <code>Query</code> API
+        /// is invoked using <code>NextToken</code>, that particular invocation is assumed to
+        /// be a subsequent invocation of a prior call to <code>Query</code>, and a result set
+        /// is returned. However, if the <code>Query</code> invocation only contains the <code>ClientToken</code>,
+        /// that invocation of <code>Query</code> is assumed to be a new query run. </para><para>Note the following when using NextToken in a query:</para><ul><li><para>A pagination token can be used for up to five <code>Query</code> invocations, OR for
+        /// a duration of up to 1 hour – whichever comes first.</para></li><li><para>Using the same <code>NextToken</code> will return the same set of records. To keep
+        /// paginating through the result set, you must to use the most recent <code>nextToken</code>.</para></li><li><para>Suppose a <code>Query</code> invocation returns two <code>NextToken</code> values,
+        /// <code>TokenA</code> and <code>TokenB</code>. If <code>TokenB</code> is used in a subsequent
+        /// <code>Query</code> invocation, then <code>TokenA</code> is invalidated and cannot
+        /// be reused.</para></li><li><para>To request a previous result set from a query after pagination has begun, you must
+        /// re-invoke the Query API.</para></li><li><para>The latest <code>NextToken</code> should be used to paginate until <code>null</code>
+        /// is returned, at which point a new <code>NextToken</code> should be used.</para></li><li><para> If the IAM principal of the query initiator and the result reader are not the same
+        /// and/or the query initiator and the result reader do not have the same query string
+        /// in the query requests, the query will fail with an <code>Invalid pagination token</code>
+        /// error. </para></li></ul>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

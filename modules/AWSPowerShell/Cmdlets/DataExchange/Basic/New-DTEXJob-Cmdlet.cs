@@ -39,6 +39,62 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     public partial class NewDTEXJobCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
+        #region Parameter ImportAssetFromApiGatewayApi_ApiDescription
+        /// <summary>
+        /// <para>
+        /// <para>The API description. Markdown supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ApiDescription")]
+        public System.String ImportAssetFromApiGatewayApi_ApiDescription { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_ApiId
+        /// <summary>
+        /// <para>
+        /// <para>The API Gateway API ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ApiId")]
+        public System.String ImportAssetFromApiGatewayApi_ApiId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_ApiKey
+        /// <summary>
+        /// <para>
+        /// <para>The API Gateway API key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ApiKey")]
+        public System.String ImportAssetFromApiGatewayApi_ApiKey { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_ApiName
+        /// <summary>
+        /// <para>
+        /// <para>The API name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ApiName")]
+        public System.String ImportAssetFromApiGatewayApi_ApiName { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash
+        /// <summary>
+        /// <para>
+        /// <para>The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is
+        /// used to ensure the integrity of the file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash")]
+        public System.String ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash { get; set; }
+        #endregion
+        
         #region Parameter ExportAssetsToS3_AssetDestination
         /// <summary>
         /// <para>
@@ -128,6 +184,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ExportRevisionsToS3_DataSetId { get; set; }
         #endregion
         
+        #region Parameter ImportAssetFromApiGatewayApi_DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The data set ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_DataSetId")]
+        public System.String ImportAssetFromApiGatewayApi_DataSetId { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetFromSignedUrl_DataSetId
         /// <summary>
         /// <para>
@@ -197,6 +264,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }
         #endregion
         
+        #region Parameter ImportAssetFromApiGatewayApi_ProtocolType
+        /// <summary>
+        /// <para>
+        /// <para>The protocol type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_ProtocolType")]
+        [AWSConstantClassSource("Amazon.DataExchange.ProtocolType")]
+        public Amazon.DataExchange.ProtocolType ImportAssetFromApiGatewayApi_ProtocolType { get; set; }
+        #endregion
+        
         #region Parameter ExportRevisionsToS3_RevisionDestination
         /// <summary>
         /// <para>
@@ -228,6 +307,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ExportAssetToSignedUrl_RevisionId")]
         public System.String ExportAssetToSignedUrl_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The revision ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_RevisionId")]
+        public System.String ImportAssetFromApiGatewayApi_RevisionId { get; set; }
         #endregion
         
         #region Parameter ImportAssetFromSignedUrl_RevisionId
@@ -262,6 +352,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetsFromS3_RevisionId")]
         public System.String ImportAssetsFromS3_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetFromApiGatewayApi_Stage
+        /// <summary>
+        /// <para>
+        /// <para>The API stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetFromApiGatewayApi_Stage")]
+        public System.String ImportAssetFromApiGatewayApi_Stage { get; set; }
         #endregion
         
         #region Parameter Encryption_Type
@@ -383,6 +484,15 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             {
                 context.ExportRevisionsToS3_RevisionDestination = new List<Amazon.DataExchange.Model.RevisionDestinationEntry>(this.ExportRevisionsToS3_RevisionDestination);
             }
+            context.ImportAssetFromApiGatewayApi_ApiDescription = this.ImportAssetFromApiGatewayApi_ApiDescription;
+            context.ImportAssetFromApiGatewayApi_ApiId = this.ImportAssetFromApiGatewayApi_ApiId;
+            context.ImportAssetFromApiGatewayApi_ApiKey = this.ImportAssetFromApiGatewayApi_ApiKey;
+            context.ImportAssetFromApiGatewayApi_ApiName = this.ImportAssetFromApiGatewayApi_ApiName;
+            context.ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash = this.ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash;
+            context.ImportAssetFromApiGatewayApi_DataSetId = this.ImportAssetFromApiGatewayApi_DataSetId;
+            context.ImportAssetFromApiGatewayApi_ProtocolType = this.ImportAssetFromApiGatewayApi_ProtocolType;
+            context.ImportAssetFromApiGatewayApi_RevisionId = this.ImportAssetFromApiGatewayApi_RevisionId;
+            context.ImportAssetFromApiGatewayApi_Stage = this.ImportAssetFromApiGatewayApi_Stage;
             context.ImportAssetFromSignedUrl_AssetName = this.ImportAssetFromSignedUrl_AssetName;
             context.ImportAssetFromSignedUrl_DataSetId = this.ImportAssetFromSignedUrl_DataSetId;
             context.ImportAssetFromSignedUrl_Md5Hash = this.ImportAssetFromSignedUrl_Md5Hash;
@@ -766,6 +876,111 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 request.Details.ImportAssetFromSignedUrl = requestDetails_details_ImportAssetFromSignedUrl;
                 requestDetailsIsNull = false;
             }
+            Amazon.DataExchange.Model.ImportAssetFromApiGatewayApiRequestDetails requestDetails_details_ImportAssetFromApiGatewayApi = null;
+            
+             // populate ImportAssetFromApiGatewayApi
+            var requestDetails_details_ImportAssetFromApiGatewayApiIsNull = true;
+            requestDetails_details_ImportAssetFromApiGatewayApi = new Amazon.DataExchange.Model.ImportAssetFromApiGatewayApiRequestDetails();
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiDescription = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ApiDescription != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiDescription = cmdletContext.ImportAssetFromApiGatewayApi_ApiDescription;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiDescription != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ApiDescription = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiDescription;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiId = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ApiId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiId = cmdletContext.ImportAssetFromApiGatewayApi_ApiId;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ApiId = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiId;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiKey = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ApiKey != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiKey = cmdletContext.ImportAssetFromApiGatewayApi_ApiKey;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiKey != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ApiKey = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiKey;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiName = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ApiName != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiName = cmdletContext.ImportAssetFromApiGatewayApi_ApiName;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiName != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ApiName = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiName;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiSpecificationMd5Hash = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiSpecificationMd5Hash = cmdletContext.ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiSpecificationMd5Hash != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ApiSpecificationMd5Hash = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ApiSpecificationMd5Hash;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_DataSetId = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_DataSetId = cmdletContext.ImportAssetFromApiGatewayApi_DataSetId;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.DataSetId = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_DataSetId;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            Amazon.DataExchange.ProtocolType requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ProtocolType = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_ProtocolType != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ProtocolType = cmdletContext.ImportAssetFromApiGatewayApi_ProtocolType;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ProtocolType != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.ProtocolType = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_ProtocolType;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_RevisionId = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_RevisionId = cmdletContext.ImportAssetFromApiGatewayApi_RevisionId;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.RevisionId = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_RevisionId;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_Stage = null;
+            if (cmdletContext.ImportAssetFromApiGatewayApi_Stage != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_Stage = cmdletContext.ImportAssetFromApiGatewayApi_Stage;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_Stage != null)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi.Stage = requestDetails_details_ImportAssetFromApiGatewayApi_importAssetFromApiGatewayApi_Stage;
+                requestDetails_details_ImportAssetFromApiGatewayApiIsNull = false;
+            }
+             // determine if requestDetails_details_ImportAssetFromApiGatewayApi should be set to null
+            if (requestDetails_details_ImportAssetFromApiGatewayApiIsNull)
+            {
+                requestDetails_details_ImportAssetFromApiGatewayApi = null;
+            }
+            if (requestDetails_details_ImportAssetFromApiGatewayApi != null)
+            {
+                request.Details.ImportAssetFromApiGatewayApi = requestDetails_details_ImportAssetFromApiGatewayApi;
+                requestDetailsIsNull = false;
+            }
              // determine if request.Details should be set to null
             if (requestDetailsIsNull)
             {
@@ -848,6 +1063,15 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public System.String Details_ExportRevisionsToS3_Encryption_KmsKeyArn { get; set; }
             public Amazon.DataExchange.ServerSideEncryptionTypes Details_ExportRevisionsToS3_Encryption_Type { get; set; }
             public List<Amazon.DataExchange.Model.RevisionDestinationEntry> ExportRevisionsToS3_RevisionDestination { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_ApiDescription { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_ApiId { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_ApiKey { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_ApiName { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_ApiSpecificationMd5Hash { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_DataSetId { get; set; }
+            public Amazon.DataExchange.ProtocolType ImportAssetFromApiGatewayApi_ProtocolType { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_RevisionId { get; set; }
+            public System.String ImportAssetFromApiGatewayApi_Stage { get; set; }
             public System.String ImportAssetFromSignedUrl_AssetName { get; set; }
             public System.String ImportAssetFromSignedUrl_DataSetId { get; set; }
             public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }

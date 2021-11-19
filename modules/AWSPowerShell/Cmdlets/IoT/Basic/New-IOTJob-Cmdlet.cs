@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Document { get; set; }
         #endregion
         
+        #region Parameter DocumentParameter
+        /// <summary>
+        /// <para>
+        /// <para>Parameters of a managed template that you can specify to create the job document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DocumentParameters")]
+        public System.Collections.Hashtable DocumentParameter { get; set; }
+        #endregion
+        
         #region Parameter DocumentSource
         /// <summary>
         /// <para>
@@ -299,6 +310,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.Description = this.Description;
             context.Document = this.Document;
+            if (this.DocumentParameter != null)
+            {
+                context.DocumentParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DocumentParameter.Keys)
+                {
+                    context.DocumentParameter.Add((String)hashKey, (String)(this.DocumentParameter[hashKey]));
+                }
+            }
             context.DocumentSource = this.DocumentSource;
             context.JobExecutionsRolloutConfig_ExponentialRate = this.JobExecutionsRolloutConfig_ExponentialRate;
             context.JobExecutionsRolloutConfig_MaximumPerMinute = this.JobExecutionsRolloutConfig_MaximumPerMinute;
@@ -371,6 +390,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Document != null)
             {
                 request.Document = cmdletContext.Document;
+            }
+            if (cmdletContext.DocumentParameter != null)
+            {
+                request.DocumentParameters = cmdletContext.DocumentParameter;
             }
             if (cmdletContext.DocumentSource != null)
             {
@@ -541,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.AbortCriteria> AbortConfig_CriteriaList { get; set; }
             public System.String Description { get; set; }
             public System.String Document { get; set; }
+            public Dictionary<System.String, System.String> DocumentParameter { get; set; }
             public System.String DocumentSource { get; set; }
             public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }

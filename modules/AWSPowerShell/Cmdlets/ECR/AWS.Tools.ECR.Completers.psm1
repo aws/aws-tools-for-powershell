@@ -97,6 +97,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.ScanType
+        "Write-ECRRegistryScanningConfiguration/ScanType"
+        {
+            $v = "BASIC","ENHANCED"
+            break
+        }
+
         # Amazon.ECR.TagStatus
         {
             ($_ -eq "Get-ECRImage/Filter_TagStatus") -Or
@@ -120,6 +127,7 @@ $ECR_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
+    "ScanType"=@("Write-ECRRegistryScanningConfiguration")
 }
 
 _awsArgumentCompleterRegistration $ECR_Completers $ECR_map
@@ -175,15 +183,19 @@ $ECR_SelectMap = @{
     "Select"=@("Get-ECRLayerAvailabilityBatch",
                "Remove-ECRImageBatch",
                "Get-ECRImageBatch",
+               "Get-ECRRepositoryScanningConfigurationBatch",
                "Complete-ECRLayerUpload",
+               "New-ECRPullThroughCacheRule",
                "New-ECRRepository",
                "Remove-ECRLifecyclePolicy",
+               "Remove-ECRPullThroughCacheRule",
                "Remove-ECRRegistryPolicy",
                "Remove-ECRRepository",
                "Remove-ECRRepositoryPolicy",
                "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
                "Get-ECRImageScanFinding",
+               "Get-ECRPullThroughCacheRule",
                "Get-ECRRegistry",
                "Get-ECRRepository",
                "Get-ECRAuthorizationToken",
@@ -191,6 +203,7 @@ $ECR_SelectMap = @{
                "Get-ECRLifecyclePolicy",
                "Get-ECRLifecyclePolicyPreview",
                "Get-ECRRegistryPolicy",
+               "Get-ECRRegistryScanningConfiguration",
                "Get-ECRRepositoryPolicy",
                "Start-ECRLayerUpload",
                "Get-ECRImage",
@@ -200,6 +213,7 @@ $ECR_SelectMap = @{
                "Write-ECRImageTagMutability",
                "Write-ECRLifecyclePolicy",
                "Write-ECRRegistryPolicy",
+               "Write-ECRRegistryScanningConfiguration",
                "Write-ECRReplicationConfiguration",
                "Set-ECRRepositoryPolicy",
                "Start-ECRImageScan",

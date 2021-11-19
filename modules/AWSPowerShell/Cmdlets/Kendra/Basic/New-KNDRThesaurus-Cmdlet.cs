@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
-        /// to access thesaurus file specified in <code>SourceS3Path</code>. </para>
+        /// <para>An IAM role that gives Amazon Kendra permissions to access thesaurus file specified
+        /// in <code>SourceS3Path</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

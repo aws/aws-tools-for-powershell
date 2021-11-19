@@ -28,8 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Bulk update custom inventory items on one more instance. The request adds an inventory
-    /// item, if it doesn't already exist, or updates an inventory item, if it does exist.
+    /// Bulk update custom inventory items on one or more managed nodes. The request adds
+    /// an inventory item, if it doesn't already exist, or updates an inventory item, if it
+    /// does exist.
     /// </summary>
     [Cmdlet("Write", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>An instance ID where you want to add or update inventory items.</para>
+        /// <para>An managed node ID where you want to add or update inventory items.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Item
         /// <summary>
         /// <para>
-        /// <para>The inventory items that you want to add or update on instances.</para>
+        /// <para>The inventory items that you want to add or update on managed nodes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DashboardId { get; set; }
         #endregion
         
+        #region Parameter GrantLinkPermission
+        /// <summary>
+        /// <para>
+        /// <para>Grants link permissions to all users in a defined namespace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GrantLinkPermissions")]
+        public Amazon.QuickSight.Model.ResourcePermission[] GrantLinkPermission { get; set; }
+        #endregion
+        
         #region Parameter GrantPermission
         /// <summary>
         /// <para>
@@ -83,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("GrantPermissions")]
         public Amazon.QuickSight.Model.ResourcePermission[] GrantPermission { get; set; }
+        #endregion
+        
+        #region Parameter RevokeLinkPermission
+        /// <summary>
+        /// <para>
+        /// <para>Revokes link permissions from all users in a defined namespace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RevokeLinkPermissions")]
+        public Amazon.QuickSight.Model.ResourcePermission[] RevokeLinkPermission { get; set; }
         #endregion
         
         #region Parameter RevokePermission
@@ -171,9 +193,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter DashboardId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.GrantLinkPermission != null)
+            {
+                context.GrantLinkPermission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.GrantLinkPermission);
+            }
             if (this.GrantPermission != null)
             {
                 context.GrantPermission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.GrantPermission);
+            }
+            if (this.RevokeLinkPermission != null)
+            {
+                context.RevokeLinkPermission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.RevokeLinkPermission);
             }
             if (this.RevokePermission != null)
             {
@@ -203,9 +233,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.DashboardId = cmdletContext.DashboardId;
             }
+            if (cmdletContext.GrantLinkPermission != null)
+            {
+                request.GrantLinkPermissions = cmdletContext.GrantLinkPermission;
+            }
             if (cmdletContext.GrantPermission != null)
             {
                 request.GrantPermissions = cmdletContext.GrantPermission;
+            }
+            if (cmdletContext.RevokeLinkPermission != null)
+            {
+                request.RevokeLinkPermissions = cmdletContext.RevokeLinkPermission;
             }
             if (cmdletContext.RevokePermission != null)
             {
@@ -274,7 +312,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public System.String DashboardId { get; set; }
+            public List<Amazon.QuickSight.Model.ResourcePermission> GrantLinkPermission { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> GrantPermission { get; set; }
+            public List<Amazon.QuickSight.Model.ResourcePermission> RevokeLinkPermission { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> RevokePermission { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateDashboardPermissionsResponse, UpdateQSDashboardPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

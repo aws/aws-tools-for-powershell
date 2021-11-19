@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Gets information about a Device Advisor test suite.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDASuiteDefinition")]
     [OutputType("Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse")]
@@ -42,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite to get.</para>
+        /// <para>Suite definition ID of the test suite to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

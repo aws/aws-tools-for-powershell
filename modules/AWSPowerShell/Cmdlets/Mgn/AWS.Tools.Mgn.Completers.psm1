@@ -127,6 +127,13 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.ReplicationType
+        "Update-MGNSourceServerReplicationType/ReplicationType"
+        {
+            $v = "AGENT_BASED","SNAPSHOT_SHIPPING"
+            break
+        }
+
         # Amazon.Mgn.TargetInstanceTypeRightSizingMethod
         "Update-MGNLaunchConfiguration/TargetInstanceTypeRightSizingMethod"
         {
@@ -148,6 +155,7 @@ $MGN_map = @{
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "LaunchDisposition"=@("Update-MGNLaunchConfiguration")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
+    "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "TargetInstanceTypeRightSizingMethod"=@("Update-MGNLaunchConfiguration")
 }
 
@@ -206,10 +214,12 @@ $MGN_SelectMap = @{
                "Remove-MGNJob",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
+               "Remove-MGNVcenterClient",
                "Get-MGNJobLogItem",
                "Get-MGNJob",
                "Get-MGNReplicationConfigurationTemplate",
                "Get-MGNSourceServer",
+               "Get-MGNVcenterClient",
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
@@ -219,13 +229,15 @@ $MGN_SelectMap = @{
                "Set-MGNAsArchived",
                "Resume-MGNDataReplication",
                "Start-MGNCutover",
+               "Start-MGNReplication",
                "Start-MGNTest",
                "Add-MGNResourceTag",
                "Remove-MGNTargetInstance",
                "Remove-MGNResourceTag",
                "Update-MGNLaunchConfiguration",
                "Update-MGNReplicationConfiguration",
-               "Update-MGNReplicationConfigurationTemplate")
+               "Update-MGNReplicationConfigurationTemplate",
+               "Update-MGNSourceServerReplicationType")
 }
 
 _awsArgumentCompleterRegistration $MGN_SelectCompleters $MGN_SelectMap

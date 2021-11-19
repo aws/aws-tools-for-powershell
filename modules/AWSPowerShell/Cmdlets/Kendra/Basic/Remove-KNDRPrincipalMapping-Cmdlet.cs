@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// list of users or sub groups that belong to the "Engineering" group when calling <code>PutPrincipalMapping</code>.
     /// You can update your internal list of users or sub groups and input this list when
     /// calling <code>PutPrincipalMapping</code>.
+    /// </para><para><code>DeletePrincipalMapping</code> is currently not supported in the Amazon Web
+    /// Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KNDRPrincipalMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
     /// This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s.
-    /// This will be used by admins who want to grant user permissions on certain LFTags.
+    /// This will be used by admins who want to grant user permissions on certain LF-tags.
     /// Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find
     /// all resources where the given <code>LFTag</code>s are valid to verify whether the
     /// returned resources can be shared.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

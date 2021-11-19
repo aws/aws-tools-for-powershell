@@ -35,17 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
     /// Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide.</i><para>
     /// You can create customizations for your Amazon Web Services account or, if you specify
-    /// a namespace, for a Amazon QuickSight namespace instead. Customizations that apply
-    /// to a namespace always override customizations that apply to an Amazon Web Services
-    /// account. To find out which customizations apply, use the <code>DescribeAccountCustomization</code>
+    /// a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace
+    /// always override customizations that apply to an Amazon Web Services account. To find
+    /// out which customizations apply, use the <code>DescribeAccountCustomization</code>
     /// API operation.
     /// </para><para>
     /// Before you use the <code>CreateAccountCustomization</code> API operation to add a
     /// theme as the namespace default, make sure that you first share the theme with the
     /// namespace. If you don't share it with the namespace, the theme isn't visible to your
     /// users even if you make it the default theme. To check if the theme is shared, view
-    /// the current permissions by using the <code><a>DescribeThemePermissions</a></code>
-    /// API operation. To share the theme, grant permissions by using the <code><a>UpdateThemePermissions</a></code> API operation. 
+    /// the current permissions by using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html">DescribeThemePermissions</a></code> API operation. To share the theme, grant permissions by using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html">UpdateThemePermissions</a></code> API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AccountCustomization_DefaultEmailCustomizationTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The default email customization template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountCustomization_DefaultEmailCustomizationTemplate { get; set; }
         #endregion
         
         #region Parameter AccountCustomization_DefaultTheme
@@ -167,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountCustomization_DefaultEmailCustomizationTemplate = this.AccountCustomization_DefaultEmailCustomizationTemplate;
             context.AccountCustomization_DefaultTheme = this.AccountCustomization_DefaultTheme;
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
@@ -200,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate AccountCustomization
             var requestAccountCustomizationIsNull = true;
             request.AccountCustomization = new Amazon.QuickSight.Model.AccountCustomization();
+            System.String requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate = null;
+            if (cmdletContext.AccountCustomization_DefaultEmailCustomizationTemplate != null)
+            {
+                requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate = cmdletContext.AccountCustomization_DefaultEmailCustomizationTemplate;
+            }
+            if (requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate != null)
+            {
+                request.AccountCustomization.DefaultEmailCustomizationTemplate = requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate;
+                requestAccountCustomizationIsNull = false;
+            }
             System.String requestAccountCustomization_accountCustomization_DefaultTheme = null;
             if (cmdletContext.AccountCustomization_DefaultTheme != null)
             {
@@ -288,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountCustomization_DefaultEmailCustomizationTemplate { get; set; }
             public System.String AccountCustomization_DefaultTheme { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Namespace { get; set; }

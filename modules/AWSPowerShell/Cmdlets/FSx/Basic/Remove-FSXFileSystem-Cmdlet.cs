@@ -28,27 +28,29 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Deletes a file system, deleting its contents. After deletion, the file system no longer
-    /// exists, and its data is gone. Any existing automatic backups will also be deleted.
+    /// Deletes a file system. After deletion, the file system no longer exists, and its data
+    /// is gone. Any existing automatic backups and snapshots are also deleted.
     /// 
     ///  
     /// <para>
     /// To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes
-    /// and SVMs on the file system. Then provide a <code>FileSystemId</code> value to the
-    /// <code>DeleFileSystem</code> operation.
+    /// and storage virtual machines (SVMs) on the file system. Then provide a <code>FileSystemId</code>
+    /// value to the <code>DeleFileSystem</code> operation.
     /// </para><para>
     /// By default, when you delete an Amazon FSx for Windows File Server file system, a final
-    /// backup is created upon deletion. This final backup is not subject to the file system's
+    /// backup is created upon deletion. This final backup isn't subject to the file system's
     /// retention policy, and must be manually deleted.
     /// </para><para>
-    /// The <code>DeleteFileSystem</code> action returns while the file system has the <code>DELETING</code>
-    /// status. You can check the file system deletion status by calling the <a>DescribeFileSystems</a>
-    /// action, which returns a list of file systems in your account. If you pass the file
-    /// system ID for a deleted file system, the <a>DescribeFileSystems</a> returns a <code>FileSystemNotFound</code>
-    /// error.
+    /// The <code>DeleteFileSystem</code> operation returns while the file system has the
+    /// <code>DELETING</code> status. You can check the file system deletion status by calling
+    /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a>
+    /// operation, which returns a list of file systems in your account. If you pass the file
+    /// system ID for a deleted file system, the <code>DescribeFileSystems</code> operation
+    /// returns a <code>FileSystemNotFound</code> error.
     /// </para><note><para>
-    /// Deleting an Amazon FSx for Lustre file system will fail with a 400 BadRequest if a
-    /// data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state.
+    /// If a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state,
+    /// deleting an Amazon FSx for Lustre file system will fail with an HTTP status code 400
+    /// (Bad Request).
     /// </para></note><important><para>
     /// The data in a deleted file system is also deleted and can't be recovered by any means.
     /// </para></important>
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion.
-        /// This is automatically filled on your behalf when using the Command Line Interface
+        /// This token is automatically filled on your behalf when using the Command Line Interface
         /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
         /// </summary>
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system you want to delete.</para>
+        /// <para>The ID of the file system that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.Tag[] LustreConfiguration_FinalBackupTag { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_FinalBackupTag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_FinalBackupTags")]
+        public Amazon.FSx.Model.Tag[] OpenZFSConfiguration_FinalBackupTag { get; set; }
+        #endregion
+        
         #region Parameter WindowsConfiguration_FinalBackupTag
         /// <summary>
         /// <para>
@@ -123,11 +136,25 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the
         /// file system you are deleting. By default, Amazon FSx will not take a final backup
         /// on your behalf when the <code>DeleteFileSystem</code> operation is invoked. (Default
-        /// = true)</para>
+        /// = true)</para><note><para>The <code>fsx:CreateBackup</code> permission is required if you set <code>SkipFinalBackup</code>
+        /// to <code>false</code> in order to delete the file system and take a final backup.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? LustreConfiguration_SkipFinalBackup { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_SkipFinalBackup
+        /// <summary>
+        /// <para>
+        /// <para>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when the <code>DeleteFileSystem</code>
+        /// operation is invoked. Doing this helps protect you from data loss, and we highly recommend
+        /// taking the final backup. If you want to skip this backup, use this value to do so.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OpenZFSConfiguration_SkipFinalBackup { get; set; }
         #endregion
         
         #region Parameter WindowsConfiguration_SkipFinalBackup
@@ -216,6 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.LustreConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.LustreConfiguration_FinalBackupTag);
             }
             context.LustreConfiguration_SkipFinalBackup = this.LustreConfiguration_SkipFinalBackup;
+            if (this.OpenZFSConfiguration_FinalBackupTag != null)
+            {
+                context.OpenZFSConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.OpenZFSConfiguration_FinalBackupTag);
+            }
+            context.OpenZFSConfiguration_SkipFinalBackup = this.OpenZFSConfiguration_SkipFinalBackup;
             if (this.WindowsConfiguration_FinalBackupTag != null)
             {
                 context.WindowsConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.WindowsConfiguration_FinalBackupTag);
@@ -273,6 +305,35 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestLustreConfigurationIsNull)
             {
                 request.LustreConfiguration = null;
+            }
+            
+             // populate OpenZFSConfiguration
+            var requestOpenZFSConfigurationIsNull = true;
+            request.OpenZFSConfiguration = new Amazon.FSx.Model.DeleteFileSystemOpenZFSConfiguration();
+            List<Amazon.FSx.Model.Tag> requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag = null;
+            if (cmdletContext.OpenZFSConfiguration_FinalBackupTag != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag = cmdletContext.OpenZFSConfiguration_FinalBackupTag;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag != null)
+            {
+                request.OpenZFSConfiguration.FinalBackupTags = requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.Boolean? requestOpenZFSConfiguration_openZFSConfiguration_SkipFinalBackup = null;
+            if (cmdletContext.OpenZFSConfiguration_SkipFinalBackup != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_SkipFinalBackup = cmdletContext.OpenZFSConfiguration_SkipFinalBackup.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_SkipFinalBackup != null)
+            {
+                request.OpenZFSConfiguration.SkipFinalBackup = requestOpenZFSConfiguration_openZFSConfiguration_SkipFinalBackup.Value;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+             // determine if request.OpenZFSConfiguration should be set to null
+            if (requestOpenZFSConfigurationIsNull)
+            {
+                request.OpenZFSConfiguration = null;
             }
             
              // populate WindowsConfiguration
@@ -368,6 +429,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String FileSystemId { get; set; }
             public List<Amazon.FSx.Model.Tag> LustreConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? LustreConfiguration_SkipFinalBackup { get; set; }
+            public List<Amazon.FSx.Model.Tag> OpenZFSConfiguration_FinalBackupTag { get; set; }
+            public System.Boolean? OpenZFSConfiguration_SkipFinalBackup { get; set; }
             public List<Amazon.FSx.Model.Tag> WindowsConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? WindowsConfiguration_SkipFinalBackup { get; set; }
             public System.Func<Amazon.FSx.Model.DeleteFileSystemResponse, RemoveFSXFileSystemCmdlet, object> Select { get; set; } =

@@ -32,19 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// from the specified version of a secret, whichever contains content.
     /// 
     ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:GetSecretValue
-    /// </para></li><li><para>
-    /// kms:Decrypt - required only if you use a customer-managed Amazon Web Services KMS
-    /// key to encrypt the secret. You do not need this permission to use the account's default
-    /// Amazon Web Services managed CMK for Secrets Manager.
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To create a new version of the secret with different encrypted information, use <a>PutSecretValue</a>.
-    /// </para></li><li><para>
-    /// To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.
-    /// </para></li></ul>
+    /// <para>
+    /// For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve
+    /// secrets</a>. 
+    /// </para><para>
+    /// To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
+    /// If the secret is encrypted using a customer-managed key instead of the Amazon Web
+    /// Services managed key <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>
+    /// permissions for that key.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SECSecretValue")]
     [OutputType("Amazon.SecretsManager.Model.GetSecretValueResponse")]
@@ -58,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret containing the version that you want to retrieve. You can specify
-        /// either the Amazon Resource Name (ARN) or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret to retrieve.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,11 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>Specifies the unique identifier of the version of the secret that you want to retrieve.
-        /// If you specify both this parameter and <code>VersionStage</code>, the two parameters
-        /// must refer to the same secret version. If you don't specify either a <code>VersionStage</code>
-        /// or <code>VersionId</code> then the default is to perform the operation on the version
-        /// with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</para><para>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
+        /// <para>The unique identifier of the version of the secret to retrieve. If you include both
+        /// this parameter and <code>VersionStage</code>, the two parameters must refer to the
+        /// same secret version. If you don't specify either a <code>VersionStage</code> or <code>VersionId</code>,
+        /// then Secrets Manager returns the <code>AWSCURRENT</code> version.</para><para>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value with 32 hexadecimal digits.</para>
         /// </para>
         /// </summary>
@@ -91,12 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter VersionStage
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret version that you want to retrieve by the staging label attached
-        /// to the version.</para><para>Staging labels are used to keep track of different versions during the rotation process.
-        /// If you specify both this parameter and <code>VersionId</code>, the two parameters
-        /// must refer to the same secret version . If you don't specify either a <code>VersionStage</code>
-        /// or <code>VersionId</code>, then the default is to perform the operation on the version
-        /// with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</para>
+        /// <para>The staging label of the version of the secret to retrieve. </para><para>Secrets Manager uses staging labels to keep track of different versions during the
+        /// rotation process. If you include both this parameter and <code>VersionId</code>, the
+        /// two parameters must refer to the same secret version. If you don't specify either
+        /// a <code>VersionStage</code> or <code>VersionId</code>, Secrets Manager returns the
+        /// <code>AWSCURRENT</code> version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

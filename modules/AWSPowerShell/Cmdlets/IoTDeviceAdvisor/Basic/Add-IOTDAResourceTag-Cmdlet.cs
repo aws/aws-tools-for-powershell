@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Adds to and modifies existing tags of an IoT Device Advisor resource.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IOTDAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

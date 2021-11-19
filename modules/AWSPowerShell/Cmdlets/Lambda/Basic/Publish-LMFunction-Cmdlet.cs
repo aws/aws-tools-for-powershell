@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The name of the method within your code that Lambda calls to execute your function.
-        /// The format includes the file name. It can also include namespaces and other qualifiers,
-        /// depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
+        /// Handler is required if the deployment package is a .zip file archive. The format includes
+        /// the file name. It can also include namespaces and other qualifiers, depending on the
+        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
         /// Model</a>.</para>
         /// </para>
         /// </summary>
@@ -322,7 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Runtime
         /// <summary>
         /// <para>
-        /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</para>
+        /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.
+        /// Runtime is required if the deployment package is a .zip file archive. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

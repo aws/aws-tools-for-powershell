@@ -63,7 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter Output_S3Location_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket that contains the training output.</para>
+        /// <para>The S3 bucket that contains the training or model packaging job output. If you are
+        /// training a model, the bucket must in your AWS account. If you use an S3 bucket for
+        /// a model packaging job, the S3 bucket must be in the same AWS Region and AWS account
+        /// in which you use AWS IoT Greengrass.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
-        /// The key is used to encrypt training and test images copied into the service for model
-        /// training. Your source images are unaffected. If this parameter is not specified, the
-        /// copied images are encrypted by a key that AWS owns and manages.</para>
+        /// <para>The identifier for your AWS KMS key. The key is used to encrypt training and test
+        /// images copied into the service for model training. Your source images are unaffected.
+        /// If this parameter is not specified, the copied images are encrypted by a key that
+        /// AWS owns and manages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter Output_S3Location_Prefix
         /// <summary>
         /// <para>
-        /// <para>The path of the folder, within the S3 bucket, that contains the training output.</para>
+        /// <para>The path of the folder, within the S3 bucket, that contains the output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,13 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
-        /// completes only once. You choose the value to pass. For example, An issue, such as
-        /// an network outage, might prevent you from getting a response from <code>CreateModel</code>.
-        /// In this case, safely retry your call to <code>CreateModel</code> by using the same
-        /// <code>ClientToken</code> parameter value. An error occurs if the other input parameters
-        /// are not the same as in the first request. Using a different value for <code>ClientToken</code>
-        /// is considered a new call to <code>CreateModel</code>. An idempotency token is active
-        /// for 8 hours.</para>
+        /// completes only once. You choose the value to pass. For example, An issue might prevent
+        /// you from getting a response from <code>CreateModel</code>. In this case, safely retry
+        /// your call to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter
+        /// value. </para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
+        /// inserts a value for you. This prevents retries after a network error from starting
+        /// multiple training jobs. You'll need to provide your own value for other use cases.
+        /// </para><para>An error occurs if the other input parameters are not the same as in the first request.
+        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>.
+        /// An idempotency token is active for 8 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

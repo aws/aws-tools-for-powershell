@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ShipmentState
         /// <summary>
         /// <para>
-        /// <para>The state of a device when it is being shipped. </para><para>Set to <code>RECEIVED</code> when the device arrives at your location.</para><para>Set to <code>RETURNED</code> when you have returned the device to AWS.</para>
+        /// <para>The state of a device when it is being shipped. </para><para>Set to <code>RECEIVED</code> when the device arrives at your location.</para><para>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

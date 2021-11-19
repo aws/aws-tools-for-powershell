@@ -25,7 +25,7 @@
         <Property>LastEvaluatedTableName</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="Responses" Verb="Invoke" Noun="DDBBatchExecuteStatement" ShouldProcessTarget="Statements" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="Responses" Verb="Invoke" Noun="DDBBatchExecuteStatement" ShouldProcessTarget="Statements" PipelineParameter="ReturnConsumedCapacity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

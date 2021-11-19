@@ -125,6 +125,13 @@ $IAMAA_Completers = {
             break
         }
 
+        # Amazon.AccessAnalyzer.ValidatePolicyResourceType
+        "Use-IAMAAPolicyValidation/ValidatePolicyResourceType"
+        {
+            $v = "AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
+            break
+        }
+
 
     }
 
@@ -140,6 +147,7 @@ $IAMAA_map = @{
     "Sort_OrderBy"=@("Get-IAMAAFindingList")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
+    "ValidatePolicyResourceType"=@("Use-IAMAAPolicyValidation")
 }
 
 _awsArgumentCompleterRegistration $IAMAA_Completers $IAMAA_map

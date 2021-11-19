@@ -132,6 +132,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Int32? NumberOfNode { get; set; }
         #endregion
         
+        #region Parameter ReservedNodeId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the reserved node.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReservedNodeId { get; set; }
+        #endregion
+        
+        #region Parameter TargetReservedNodeOfferingId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the target reserved node offering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetReservedNodeOfferingId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
@@ -204,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterType = this.ClusterType;
             context.NodeType = this.NodeType;
             context.NumberOfNode = this.NumberOfNode;
+            context.ReservedNodeId = this.ReservedNodeId;
+            context.TargetReservedNodeOfferingId = this.TargetReservedNodeOfferingId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -239,6 +261,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.NumberOfNode != null)
             {
                 request.NumberOfNodes = cmdletContext.NumberOfNode.Value;
+            }
+            if (cmdletContext.ReservedNodeId != null)
+            {
+                request.ReservedNodeId = cmdletContext.ReservedNodeId;
+            }
+            if (cmdletContext.TargetReservedNodeOfferingId != null)
+            {
+                request.TargetReservedNodeOfferingId = cmdletContext.TargetReservedNodeOfferingId;
             }
             
             CmdletOutput output;
@@ -306,6 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ClusterType { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNode { get; set; }
+            public System.String ReservedNodeId { get; set; }
+            public System.String TargetReservedNodeOfferingId { get; set; }
             public System.Func<Amazon.Redshift.Model.ResizeClusterResponse, SetRSClusterSizeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

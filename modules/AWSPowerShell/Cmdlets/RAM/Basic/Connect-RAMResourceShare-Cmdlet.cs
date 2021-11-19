@@ -28,7 +28,10 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Associates the specified resource share with the specified principals and resources.
+    /// Adds the specified list of principals and list of resources to a resource share. Principals
+    /// that already have access to this resource share immediately receive access to the
+    /// added resources. Newly added principals immediately receive access to the resources
+    /// shared in this resource share.
     /// </summary>
     [Cmdlet("Connect", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShareAssociation")]
@@ -43,9 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principals to associate with the resource share. The possible values are:</para><ul><li><para>An Amazon Web Services account ID</para></li><li><para>An Amazon Resource Name (ARN) of an organization in Organizations</para></li><li><para>An ARN of an organizational unit (OU) in Organizations</para></li><li><para>An ARN of an IAM role</para></li><li><para>An ARN of an IAM user</para></li></ul><note><para>Not all resource types can be shared with IAM roles and IAM users. For more information,
+        /// <para>Specifies a list of principals to whom you want to the resource share. This can be
+        /// <code>null</code> if you want to add only resources.</para><para>What the principals can do with the resources in the share is determined by the RAM
+        /// permissions that you associate with the resource share. See <a>AssociateResourceSharePermission</a>.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <code>123456789012</code></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code></para></li><li><para>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code></para></li><li><para>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
-        /// with IAM roles and IAM users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
+        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the resources.</para>
+        /// <para>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a> of the resources that you want to share. This can be <code>null</code>
+        /// if you want to add only principals.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource share that you want to add principals or resources
+        /// to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

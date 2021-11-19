@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Generates an activation code and activation ID you can use to register your on-premises
-    /// server or virtual machine (VM) with Amazon Web Services Systems Manager. Registering
-    /// these machines with Systems Manager makes it possible to manage them using Systems
-    /// Manager capabilities. You use the activation code and ID when installing SSM Agent
-    /// on machines in your hybrid environment. For more information about requirements for
-    /// managing on-premises instances and VMs using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
+    /// servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager.
+    /// Registering these machines with Systems Manager makes it possible to manage them using
+    /// Systems Manager capabilities. You use the activation code and ID when installing SSM
+    /// Agent on machines in your hybrid environment. For more information about requirements
+    /// for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
     /// up Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon
     /// Web Services Systems Manager User Guide</i>. 
     /// 
     ///  <note><para>
-    /// On-premises servers or VMs that are registered with Systems Manager and Amazon Elastic
-    /// Compute Cloud (Amazon EC2) instances that you manage with Systems Manager are all
-    /// called <i>managed instances</i>.
+    /// Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises
+    /// servers and VMs that are configured for Systems Manager are all called <i>managed
+    /// nodes</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DefaultInstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the registered, managed instance as it will appear in the Amazon Web Services
+        /// <para>The name of the registered, managed node as it will appear in the Amazon Web Services
         /// Systems Manager console or when you use the Amazon Web Services command line tools
         /// to list Systems Manager resources.</para><important><para>Don't enter personally identifiable information in this field.</para></important>
         /// </para>
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
-        /// to the managed instance. This IAM role must provide AssumeRole permissions for the
-        /// Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
+        /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
+        /// Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For
+        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
         /// an IAM service role for a hybrid environment</a> in the <i>Amazon Web Services Systems
         /// Manager User Guide</i>.</para>
         /// </para>
@@ -112,12 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RegistrationLimit
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of managed instances you want to register. The default
-        /// value is <code>1</code>.</para>
+        /// <para>Specify the maximum number of managed nodes you want to register. The default value
+        /// is <code>1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RegistrationLimit { get; set; }
+        #endregion
+        
+        #region Parameter RegistrationMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for internal use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SimpleSystemsManagement.Model.RegistrationMetadataItem[] RegistrationMetadata { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -130,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// following key-value pairs:</para><ul><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><important><para>When you install SSM Agent on your on-premises servers and VMs, you specify an activation
         /// ID and code. When you specify the activation ID and code, tags assigned to the activation
         /// are automatically applied to the on-premises servers or VMs.</para></important><para>You can't add tags to or delete tags from an existing activation. You can tag your
-        /// on-premises servers and VMs after they connect to Systems Manager for the first time
-        /// and are assigned a managed instance ID. This means they are listed in the Amazon Web
-        /// Services Systems Manager console with an ID that is prefixed with "mi-". For information
-        /// about how to add tags to your managed instances, see <a>AddTagsToResource</a>. For
-        /// information about how to remove tags from your managed instances, see <a>RemoveTagsFromResource</a>.</para>
+        /// on-premises servers, edge devices, and VMs after they connect to Systems Manager for
+        /// the first time and are assigned a managed node ID. This means they are listed in the
+        /// Amazon Web Services Systems Manager console with an ID that is prefixed with "mi-".
+        /// For information about how to add tags to your managed nodes, see <a>AddTagsToResource</a>.
+        /// For information about how to remove tags from your managed nodes, see <a>RemoveTagsFromResource</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             #endif
             context.RegistrationLimit = this.RegistrationLimit;
+            if (this.RegistrationMetadata != null)
+            {
+                context.RegistrationMetadata = new List<Amazon.SimpleSystemsManagement.Model.RegistrationMetadataItem>(this.RegistrationMetadata);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
@@ -233,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.RegistrationLimit != null)
             {
                 request.RegistrationLimit = cmdletContext.RegistrationLimit.Value;
+            }
+            if (cmdletContext.RegistrationMetadata != null)
+            {
+                request.RegistrationMetadata = cmdletContext.RegistrationMetadata;
             }
             if (cmdletContext.Tag != null)
             {
@@ -304,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.DateTime? ExpirationDate { get; set; }
             public System.String IamRole { get; set; }
             public System.Int32? RegistrationLimit { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.RegistrationMetadataItem> RegistrationMetadata { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.CreateActivationResponse, NewSSMActivationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

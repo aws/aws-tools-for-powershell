@@ -28,8 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Returns all the domain-related billing records for the current AWS account for a specified
-    /// period<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all the domain-related billing records for the current Amazon Web Services
+    /// account for a specified period<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53DBillingRecord")]
     [OutputType("Amazon.Route53Domains.Model.BillingRecord")]
@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>For an initial request for a list of billing records, omit this element. If the number
-        /// of billing records that are associated with the current AWS account during the specified
-        /// period is greater than the value that you specified for <code>MaxItems</code>, you
-        /// can use <code>Marker</code> to return additional billing records. Get the value of
-        /// <code>NextPageMarker</code> from the previous response, and submit another request
+        /// of billing records that are associated with the current Amazon Web Services account
+        /// during the specified period is greater than the value that you specified for <code>MaxItems</code>,
+        /// you can use <code>Marker</code> to return additional billing records. Get the value
+        /// of <code>NextPageMarker</code> from the previous response, and submit another request
         /// that includes the value of <code>NextPageMarker</code> in the <code>Marker</code>
         /// element. </para><para>Constraints: The marker must match the value of <code>NextPageMarker</code> that was
         /// returned in the previous response.</para>

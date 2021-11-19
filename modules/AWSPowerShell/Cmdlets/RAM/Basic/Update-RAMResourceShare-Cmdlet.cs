@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Updates the specified resource share that you own.
+    /// Modifies some of the properties of the specified resource share.
     /// </summary>
     [Cmdlet("Update", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShare")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter AllowExternalPrincipal
         /// <summary>
         /// <para>
-        /// <para>Indicates whether principals outside your organization in Organizations can be associated
+        /// <para>Specifies whether principals outside your organization in Organizations can be associated
         /// with a resource share.</para>
         /// </para>
         /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the resource share.</para>
+        /// <para>If specified, the new name that you want to attach to the resource share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource share that you want to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +83,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

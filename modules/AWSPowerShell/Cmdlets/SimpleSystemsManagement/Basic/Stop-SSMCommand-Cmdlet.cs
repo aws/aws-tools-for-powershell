@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>(Optional) A list of instance IDs on which you want to cancel the command. If not
-        /// provided, the command is canceled on every instance on which it was requested.</para>
+        /// <para>(Optional) A list of managed node IDs on which you want to cancel the command. If
+        /// not provided, the command is canceled on every node on which it was requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

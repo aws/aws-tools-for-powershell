@@ -129,6 +129,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotRecommendation" OutputProperty="*" Verb="Get" Noun="BotRecommendation" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -169,6 +173,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBotRecommendations" OutputProperty="*" Verb="Get" Noun="BotRecommendationList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBots" OutputProperty="BotSummaries" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -197,6 +205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendedIntents" OutputProperty="*" Verb="Get" Noun="RecommendedIntentList" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSlots" OutputProperty="*" Verb="Get" Noun="SlotList" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -206,6 +218,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAssociatedTranscripts" OutputProperty="*" Verb="Search" Noun="AssociatedTranscript" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBotRecommendation" OutputProperty="*" Verb="Start" Noun="BotRecommendation" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -230,6 +250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBotLocale" OutputProperty="*" Verb="Update" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBotRecommendation" OutputProperty="*" Verb="Update" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

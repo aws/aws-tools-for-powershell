@@ -91,6 +91,17 @@ $RAM_Completers = {
             break
         }
 
+        # Amazon.RAM.ResourceRegionScopeFilter
+        {
+            ($_ -eq "Get-RAMPendingInvitationResourceList/ResourceRegionScope") -Or
+            ($_ -eq "Get-RAMResourceList/ResourceRegionScope") -Or
+            ($_ -eq "Get-RAMResourceTypeList/ResourceRegionScope")
+        }
+        {
+            $v = "ALL","GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.RAM.ResourceShareAssociationStatus
         "Get-RAMResourceShareAssociation/AssociationStatus"
         {
@@ -124,6 +135,7 @@ $RAM_map = @{
     "AssociationStatus"=@("Get-RAMResourceShareAssociation")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
     "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
+    "ResourceRegionScope"=@("Get-RAMPendingInvitationResourceList","Get-RAMResourceList","Get-RAMResourceTypeList")
     "ResourceShareStatus"=@("Get-RAMResourceShare")
 }
 

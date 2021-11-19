@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AnalyzeID" OutputProperty="*" Verb="Invoke" Noun="AnalyzeID" ShouldProcessTarget="DocumentPages" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetectDocumentText" OutputProperty="Blocks" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

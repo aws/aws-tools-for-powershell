@@ -28,9 +28,9 @@ using Amazon.Route53RecoveryControlConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
-    /// Update a safety rule (an assertion rule or gating rule) for the routing controls in
-    /// a control panel. You can only update the name and the waiting period for a safety
-    /// rule. To make other updates, delete the safety rule and create a new safety rule.
+    /// Update a safety rule (an assertion rule or gating rule). You can only update the name
+    /// and the waiting period for a safety rule. To make other updates, delete the safety
+    /// rule and create a new one.
     /// </summary>
     [Cmdlet("Update", "R53RCSafetyRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter GatingRuleUpdate_Name
         /// <summary>
         /// <para>
-        /// <para>The name for the gating rule.</para>
+        /// <para>The name for the gating rule. You can use any non-white space character in the name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
     /// Creates a replication job. The replication job schedules periodic replication runs
-    /// to replicate your server to AWS. Each replication run creates an Amazon Machine Image
-    /// (AMI).
+    /// to replicate your server to Amazon Web Services. Each replication run creates an Amazon
+    /// Machine Image (AMI).
     /// </summary>
     [Cmdlet("New", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role to be used by the AWS SMS.</para>
+        /// <para>The name of the IAM role to be used by the Server Migration Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

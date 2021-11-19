@@ -71,7 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// linked geofence collections, nor stored. This helps control costs by reducing the
         /// number of geofence evaluations and historical device positions to paginate through.
         /// Distance-based filtering can also reduce the effects of GPS noise when displaying
-        /// device trajectories on a map. </para></li></ul><para>This field is optional. If not specified, the default value is <code>TimeBased</code>.</para>
+        /// device trajectories on a map. </para></li><li><para><code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+        /// location updates are ignored. For example, if two consecutive updates from a device
+        /// have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
+        /// has moved less than 15 m. Ignored location updates are neither evaluated against linked
+        /// geofence collections, nor stored. This can reduce the effects of GPS noise when displaying
+        /// device trajectories on a map, and can help control your costs by reducing the number
+        /// of geofence evaluations. </para></li></ul><para>This field is optional. If not specified, the default value is <code>TimeBased</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,17 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for the tracker resource.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Optionally specifies the pricing plan for the tracker resource. Defaults to <code>RequestBasedUsage</code>.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
@@ -208,12 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             context.KmsKeyId = this.KmsKeyId;
             context.PositionFiltering = this.PositionFiltering;
             context.PricingPlan = this.PricingPlan;
-            #if MODULAR
-            if (this.PricingPlan == null && ParameterWasBound(nameof(this.PricingPlan)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PricingPlan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PricingPlanDataSource = this.PricingPlanDataSource;
             if (this.Tag != null)
             {

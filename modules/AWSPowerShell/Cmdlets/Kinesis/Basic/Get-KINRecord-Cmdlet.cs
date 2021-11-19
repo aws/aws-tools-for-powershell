@@ -60,14 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// is 10,000.
     /// </para><para>
     /// The size of the data returned by <a>GetRecords</a> varies depending on the utilization
-    /// of the shard. The maximum size of data that <a>GetRecords</a> can return is 10 MiB.
-    /// If a call returns this amount of data, subsequent calls made within the next 5 seconds
-    /// throw <code>ProvisionedThroughputExceededException</code>. If there is insufficient
-    /// provisioned throughput on the stream, subsequent calls made within the next 1 second
-    /// throw <code>ProvisionedThroughputExceededException</code>. <a>GetRecords</a> doesn't
-    /// return any data when it throws an exception. For this reason, we recommend that you
-    /// wait 1 second between calls to <a>GetRecords</a>. However, it's possible that the
-    /// application will get exceptions for longer than 1 second.
+    /// of the shard. It is recommended that consumer applications retrieve records via the
+    /// <code>GetRecords</code> command using the 5 TPS limit to remain caught up. Retrieving
+    /// records less frequently can lead to consumer applications falling behind. The maximum
+    /// size of data that <a>GetRecords</a> can return is 10 MiB. If a call returns this amount
+    /// of data, subsequent calls made within the next 5 seconds throw <code>ProvisionedThroughputExceededException</code>.
+    /// If there is insufficient provisioned throughput on the stream, subsequent calls made
+    /// within the next 1 second throw <code>ProvisionedThroughputExceededException</code>.
+    /// <a>GetRecords</a> doesn't return any data when it throws an exception. For this reason,
+    /// we recommend that you wait 1 second between calls to <a>GetRecords</a>. However, it's
+    /// possible that the application will get exceptions for longer than 1 second.
     /// </para><para>
     /// To detect whether the application is falling behind in processing, you can use the
     /// <code>MillisBehindLatest</code> response attribute. You can also monitor the stream

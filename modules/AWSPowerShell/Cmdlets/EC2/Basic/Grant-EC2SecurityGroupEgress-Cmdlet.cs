@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
-    /// address ranges, or to the instances that are associated with the specified destination
+    /// address ranges, or to the instances that are associated with the specified source
     /// security groups.
     /// </para><para>
     /// You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols,

@@ -122,6 +122,32 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         public System.String[] Filters_Status { get; set; }
         #endregion
         
+        #region Parameter ResourceCollection_Tag
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services tags that are used by resources in the resource collection.</para><para>Tags help you identify and organize your Amazon Web Services resources. Many Amazon
+        /// Web Services services support tagging, so you can assign the same tag to resources
+        /// from different services to indicate that the resources are related. For example, you
+        /// can assign the same tag to an Amazon DynamoDB table resource that you assign to an
+        /// Lambda function. For more information about using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+        /// best practices</a> whitepaper. </para><para>Each Amazon Web Services tag has two parts. </para><ul><li><para>A tag <i>key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
+        /// <code>Project</code>, or <code>Secret</code>). Tag <i>keys</i> are case-sensitive.</para></li><li><para>An optional field known as a tag <i>value</i> (for example, <code>111122223333</code>,
+        /// <code>Production</code>, or a team name). Omitting the tag <i>value</i> is the same
+        /// as using an empty string. Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</para></li></ul><para>Together these are known as <i>key</i>-<i>value</i> pairs.</para><important><para>The string used for a <i>key</i> in a tag that you use to define your resource coverage
+        /// must begin with the prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+        /// <code>Devops-guru-deployment-application</code> or <code>Devops-guru-rds-application</code>.
+        /// While <i>keys</i> are case-sensitive, the case of <i>key</i> characters don't matter
+        /// to DevOps Guru. For example, DevOps Guru works with a <i>key</i> named <code>devops-guru-rds</code>
+        /// and a <i>key</i> named <code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i>
+        /// pairs in your application might be <code>Devops-Guru-production-application/RDS</code>
+        /// or <code>Devops-Guru-production-application/containers</code>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ResourceCollection_Tags")]
+        public Amazon.DevOpsGuru.Model.TagCollection[] ResourceCollection_Tag { get; set; }
+        #endregion
+        
         #region Parameter StartTimeRange_ToTime
         /// <summary>
         /// <para>
@@ -262,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             {
                 context.CloudFormation_StackName = new List<System.String>(this.CloudFormation_StackName);
             }
+            if (this.ResourceCollection_Tag != null)
+            {
+                context.ResourceCollection_Tag = new List<Amazon.DevOpsGuru.Model.TagCollection>(this.ResourceCollection_Tag);
+            }
             if (this.ServiceCollection_ServiceName != null)
             {
                 context.ServiceCollection_ServiceName = new List<System.String>(this.ServiceCollection_ServiceName);
@@ -333,11 +363,46 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 request.Filters.Statuses = requestFilters_filters_Status;
                 requestFiltersIsNull = false;
             }
+            Amazon.DevOpsGuru.Model.ServiceCollection requestFilters_filters_ServiceCollection = null;
+            
+             // populate ServiceCollection
+            var requestFilters_filters_ServiceCollectionIsNull = true;
+            requestFilters_filters_ServiceCollection = new Amazon.DevOpsGuru.Model.ServiceCollection();
+            List<System.String> requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = null;
+            if (cmdletContext.ServiceCollection_ServiceName != null)
+            {
+                requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = cmdletContext.ServiceCollection_ServiceName;
+            }
+            if (requestFilters_filters_ServiceCollection_serviceCollection_ServiceName != null)
+            {
+                requestFilters_filters_ServiceCollection.ServiceNames = requestFilters_filters_ServiceCollection_serviceCollection_ServiceName;
+                requestFilters_filters_ServiceCollectionIsNull = false;
+            }
+             // determine if requestFilters_filters_ServiceCollection should be set to null
+            if (requestFilters_filters_ServiceCollectionIsNull)
+            {
+                requestFilters_filters_ServiceCollection = null;
+            }
+            if (requestFilters_filters_ServiceCollection != null)
+            {
+                request.Filters.ServiceCollection = requestFilters_filters_ServiceCollection;
+                requestFiltersIsNull = false;
+            }
             Amazon.DevOpsGuru.Model.ResourceCollection requestFilters_filters_ResourceCollection = null;
             
              // populate ResourceCollection
             var requestFilters_filters_ResourceCollectionIsNull = true;
             requestFilters_filters_ResourceCollection = new Amazon.DevOpsGuru.Model.ResourceCollection();
+            List<Amazon.DevOpsGuru.Model.TagCollection> requestFilters_filters_ResourceCollection_resourceCollection_Tag = null;
+            if (cmdletContext.ResourceCollection_Tag != null)
+            {
+                requestFilters_filters_ResourceCollection_resourceCollection_Tag = cmdletContext.ResourceCollection_Tag;
+            }
+            if (requestFilters_filters_ResourceCollection_resourceCollection_Tag != null)
+            {
+                requestFilters_filters_ResourceCollection.Tags = requestFilters_filters_ResourceCollection_resourceCollection_Tag;
+                requestFilters_filters_ResourceCollectionIsNull = false;
+            }
             Amazon.DevOpsGuru.Model.CloudFormationCollection requestFilters_filters_ResourceCollection_filters_ResourceCollection_CloudFormation = null;
             
              // populate CloudFormation
@@ -371,31 +436,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_ResourceCollection != null)
             {
                 request.Filters.ResourceCollection = requestFilters_filters_ResourceCollection;
-                requestFiltersIsNull = false;
-            }
-            Amazon.DevOpsGuru.Model.ServiceCollection requestFilters_filters_ServiceCollection = null;
-            
-             // populate ServiceCollection
-            var requestFilters_filters_ServiceCollectionIsNull = true;
-            requestFilters_filters_ServiceCollection = new Amazon.DevOpsGuru.Model.ServiceCollection();
-            List<System.String> requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = null;
-            if (cmdletContext.ServiceCollection_ServiceName != null)
-            {
-                requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = cmdletContext.ServiceCollection_ServiceName;
-            }
-            if (requestFilters_filters_ServiceCollection_serviceCollection_ServiceName != null)
-            {
-                requestFilters_filters_ServiceCollection.ServiceNames = requestFilters_filters_ServiceCollection_serviceCollection_ServiceName;
-                requestFilters_filters_ServiceCollectionIsNull = false;
-            }
-             // determine if requestFilters_filters_ServiceCollection should be set to null
-            if (requestFilters_filters_ServiceCollectionIsNull)
-            {
-                requestFilters_filters_ServiceCollection = null;
-            }
-            if (requestFilters_filters_ServiceCollection != null)
-            {
-                request.Filters.ServiceCollection = requestFilters_filters_ServiceCollection;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -527,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         {
             public List<System.String> AccountId { get; set; }
             public List<System.String> CloudFormation_StackName { get; set; }
+            public List<Amazon.DevOpsGuru.Model.TagCollection> ResourceCollection_Tag { get; set; }
             public List<System.String> ServiceCollection_ServiceName { get; set; }
             public List<System.String> Filters_Severity { get; set; }
             public List<System.String> Filters_Status { get; set; }

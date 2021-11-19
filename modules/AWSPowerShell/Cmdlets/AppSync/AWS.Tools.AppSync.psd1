@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The AppSync module of AWS Tools for PowerShell lets developers and administrators manage AWS AppSync from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -88,10 +88,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-ASYNResourceTag', 
         'Clear-ASYNApiCache', 
+        'Get-ASYNApiAssociation', 
         'Get-ASYNApiCache', 
         'Get-ASYNApiKeyList', 
         'Get-ASYNDataSource', 
         'Get-ASYNDataSourceList', 
+        'Get-ASYNDomainName', 
+        'Get-ASYNDomainNameList', 
         'Get-ASYNFunction', 
         'Get-ASYNFunctionList', 
         'Get-ASYNGraphqlApi', 
@@ -107,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ASYNApiCache', 
         'New-ASYNApiKey', 
         'New-ASYNDataSource', 
+        'New-ASYNDomainName', 
         'New-ASYNFunction', 
         'New-ASYNGraphqlApi', 
         'New-ASYNResolver', 
@@ -114,15 +118,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ASYNApiCache', 
         'Remove-ASYNApiKey', 
         'Remove-ASYNDataSource', 
+        'Remove-ASYNDomainName', 
         'Remove-ASYNFunction', 
         'Remove-ASYNGraphqlApi', 
         'Remove-ASYNResolver', 
         'Remove-ASYNResourceTag', 
         'Remove-ASYNType', 
+        'Start-ASYNApiAssociation', 
         'Start-ASYNSchemaCreation', 
+        'Stop-ASYNApiAssociation', 
         'Update-ASYNApiCache', 
         'Update-ASYNApiKey', 
         'Update-ASYNDataSource', 
+        'Update-ASYNDomainName', 
         'Update-ASYNFunction', 
         'Update-ASYNGraphqlApi', 
         'Update-ASYNResolver', 

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID for which you want inventory information.</para>
+        /// <para>The managed node ID for which you want inventory information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

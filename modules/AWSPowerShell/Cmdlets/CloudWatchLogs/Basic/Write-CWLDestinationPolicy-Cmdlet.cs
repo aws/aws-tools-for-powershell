@@ -86,6 +86,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String DestinationName { get; set; }
         #endregion
         
+        #region Parameter ForceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Specify true if you are updating an existing destination policy to grant permission
+        /// to an organization ID instead of granting permission to individual AWS accounts. Before
+        /// you update a destination policy this way, you must first update the subscription filters
+        /// in the accounts that send logs to this destination. If you do not, the subscription
+        /// filters might stop working. By specifying <code>true</code> for <code>forceUpdate</code>,
+        /// you are affirming that you have already updated the subscription filters. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html">
+        /// Updating an existing cross-account subscription</a></para><para>If you omit this parameter, the default of <code>false</code> is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceUpdate { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -160,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter DestinationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceUpdate = this.ForceUpdate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.DestinationName != null)
             {
                 request.DestinationName = cmdletContext.DestinationName;
+            }
+            if (cmdletContext.ForceUpdate != null)
+            {
+                request.ForceUpdate = cmdletContext.ForceUpdate.Value;
             }
             
             CmdletOutput output;
@@ -247,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.String AccessPolicy { get; set; }
             public System.String DestinationName { get; set; }
+            public System.Boolean? ForceUpdate { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.PutDestinationPolicyResponse, WriteCWLDestinationPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -75,6 +75,56 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Network Manager
 
 
+$NMGR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.NetworkManager.AttachmentState
+        "Get-NMGRAttachmentList/State"
+        {
+            $v = "AVAILABLE","CREATING","DELETING","FAILED","PENDING_ATTACHMENT_ACCEPTANCE","PENDING_NETWORK_UPDATE","PENDING_TAG_ACCEPTANCE","REJECTED","UPDATING"
+            break
+        }
+
+        # Amazon.NetworkManager.AttachmentType
+        "Get-NMGRAttachmentList/AttachmentType"
+        {
+            $v = "CONNECT","SITE_TO_SITE_VPN","VPC"
+            break
+        }
+
+        # Amazon.NetworkManager.CoreNetworkPolicyAlias
+        "Get-NMGRCoreNetworkPolicy/Alias"
+        {
+            $v = "LATEST","LIVE"
+            break
+        }
+
+        # Amazon.NetworkManager.TunnelProtocol
+        "New-NMGRConnectAttachment/Options_Protocol"
+        {
+            $v = "GRE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NMGR_map = @{
+    "Alias"=@("Get-NMGRCoreNetworkPolicy")
+    "AttachmentType"=@("Get-NMGRAttachmentList")
+    "Options_Protocol"=@("New-NMGRConnectAttachment")
+    "State"=@("Get-NMGRAttachmentList")
+}
+
+_awsArgumentCompleterRegistration $NMGR_Completers $NMGR_map
+
 $NMGR_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,25 +173,45 @@ $NMGR_SelectCompleters = {
 }
 
 $NMGR_SelectMap = @{
-    "Select"=@("Register-NMGRCustomerGateway",
+    "Select"=@("Confirm-NMGRAttachment",
+               "Add-NMGRConnectPeerAssociation",
+               "Register-NMGRCustomerGateway",
                "Register-NMGRLink",
                "Register-NMGRTransitGatewayConnectPeer",
+               "New-NMGRConnectAttachment",
                "New-NMGRConnection",
+               "New-NMGRConnectPeer",
+               "New-NMGRCoreNetwork",
                "New-NMGRDevice",
                "New-NMGRGlobalNetwork",
                "New-NMGRLink",
                "New-NMGRSite",
+               "New-NMGRSiteToSiteVpnAttachment",
+               "New-NMGRVpcAttachment",
+               "Remove-NMGRAttachment",
                "Remove-NMGRConnection",
+               "Remove-NMGRConnectPeer",
+               "Remove-NMGRCoreNetwork",
+               "Remove-NMGRCoreNetworkPolicyVersion",
                "Remove-NMGRDevice",
                "Remove-NMGRGlobalNetwork",
                "Remove-NMGRLink",
+               "Remove-NMGRResourcePolicy",
                "Remove-NMGRSite",
                "Unregister-NMGRTransitGateway",
                "Get-NMGRGlobalNetwork",
+               "Remove-NMGRConnectPeerAssociation",
                "Unregister-NMGRCustomerGateway",
                "Unregister-NMGRLink",
                "Unregister-NMGRTransitGatewayConnectPeer",
+               "Enable-NMGRCoreNetworkChangeSet",
+               "Get-NMGRConnectAttachment",
                "Get-NMGRConnection",
+               "Get-NMGRConnectPeer",
+               "Get-NMGRConnectPeerAssociation",
+               "Get-NMGRCoreNetwork",
+               "Get-NMGRCoreNetworkChangeSet",
+               "Get-NMGRCoreNetworkPolicy",
                "Get-NMGRCustomerGatewayAssociation",
                "Get-NMGRDevice",
                "Get-NMGRLinkAssociation",
@@ -151,21 +221,34 @@ $NMGR_SelectMap = @{
                "Get-NMGRNetworkResource",
                "Get-NMGRNetworkRoute",
                "Get-NMGRNetworkTelemetry",
+               "Get-NMGRResourcePolicy",
                "Get-NMGRRouteAnalysis",
                "Get-NMGRSite",
+               "Get-NMGRSiteToSiteVpnAttachment",
                "Get-NMGRTransitGatewayConnectPeerAssociation",
                "Get-NMGRTransitGatewayRegistration",
+               "Get-NMGRVpcAttachment",
+               "Get-NMGRAttachmentList",
+               "Get-NMGRConnectPeerList",
+               "Get-NMGRCoreNetworkPolicyVersionList",
+               "Get-NMGRCoreNetworkList",
                "Get-NMGRResourceTag",
+               "Write-NMGRCoreNetworkPolicy",
+               "Write-NMGRResourcePolicy",
                "Register-NMGRTransitGateway",
+               "Deny-NMGRAttachment",
+               "Restore-NMGRCoreNetworkPolicyVersion",
                "Start-NMGRRouteAnalysis",
                "Add-NMGRResourceTag",
                "Remove-NMGRResourceTag",
                "Update-NMGRConnection",
+               "Update-NMGRCoreNetwork",
                "Update-NMGRDevice",
                "Update-NMGRGlobalNetwork",
                "Update-NMGRLink",
                "Update-NMGRNetworkResourceMetadata",
-               "Update-NMGRSite")
+               "Update-NMGRSite",
+               "Update-NMGRVpcAttachment")
 }
 
 _awsArgumentCompleterRegistration $NMGR_SelectCompleters $NMGR_SelectMap

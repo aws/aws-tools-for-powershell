@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the folder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderId
         /// <summary>
         /// <para>
-        /// <para>The folder ID.</para>
+        /// <para>The ID of the folder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

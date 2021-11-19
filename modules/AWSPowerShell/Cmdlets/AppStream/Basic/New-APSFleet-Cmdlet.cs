@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a fleet. A fleet consists of streaming instances that run a specified image.
+    /// Creates a fleet. A fleet consists of streaming instances that run a specified image
+    /// when using Always-On or On-Demand.
     /// </summary>
     [Cmdlet("New", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Fleet")]
@@ -56,13 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The desired number of streaming instances.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ComputeCapacity_DesiredInstances")]
         public System.Int32? ComputeCapacity_DesiredInstance { get; set; }
         #endregion
@@ -192,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type to use when launching fleet instances. The following instance types
-        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
+        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul><para>The following instance types are available for Elastic fleets:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,6 +199,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter MaxConcurrentSession
+        /// <summary>
+        /// <para>
+        /// <para>The maximum concurrent sessions of the Elastic fleet. This is required for Elastic
+        /// fleets, and not allowed for other fleet types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxConcurrentSessions")]
+        public System.Int32? MaxConcurrentSession { get; set; }
         #endregion
         
         #region Parameter MaxUserDurationInSecond
@@ -245,6 +252,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
+        #endregion
+        
+        #region Parameter Platform
+        /// <summary>
+        /// <para>
+        /// <para>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
+        /// fleets. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.PlatformType")]
+        public Amazon.AppStream.PlatformType Platform { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -298,6 +317,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter UsbDeviceFilterString
+        /// <summary>
+        /// <para>
+        /// <para>The USB device filter strings that specify which USB devices a user can redirect to
+        /// the fleet streaming session, when using the Windows native client. This is allowed
+        /// but not required for Elastic fleets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UsbDeviceFilterStrings")]
+        public System.String[] UsbDeviceFilterString { get; set; }
         #endregion
         
         #region Parameter Select
@@ -362,12 +394,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComputeCapacity_DesiredInstance = this.ComputeCapacity_DesiredInstance;
-            #if MODULAR
-            if (this.ComputeCapacity_DesiredInstance == null && ParameterWasBound(nameof(this.ComputeCapacity_DesiredInstance)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ComputeCapacity_DesiredInstance which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             context.DisconnectTimeoutInSecond = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
@@ -386,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxConcurrentSession = this.MaxConcurrentSession;
             context.MaxUserDurationInSecond = this.MaxUserDurationInSecond;
             context.Name = this.Name;
             #if MODULAR
@@ -394,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Platform = this.Platform;
             context.StreamView = this.StreamView;
             if (this.Tag != null)
             {
@@ -402,6 +430,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 {
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
+            }
+            if (this.UsbDeviceFilterString != null)
+            {
+                context.UsbDeviceFilterString = new List<System.String>(this.UsbDeviceFilterString);
             }
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -515,6 +547,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.InstanceType = cmdletContext.InstanceType;
             }
+            if (cmdletContext.MaxConcurrentSession != null)
+            {
+                request.MaxConcurrentSessions = cmdletContext.MaxConcurrentSession.Value;
+            }
             if (cmdletContext.MaxUserDurationInSecond != null)
             {
                 request.MaxUserDurationInSeconds = cmdletContext.MaxUserDurationInSecond.Value;
@@ -523,6 +559,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Platform != null)
+            {
+                request.Platform = cmdletContext.Platform;
+            }
             if (cmdletContext.StreamView != null)
             {
                 request.StreamView = cmdletContext.StreamView;
@@ -530,6 +570,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.UsbDeviceFilterString != null)
+            {
+                request.UsbDeviceFilterStrings = cmdletContext.UsbDeviceFilterString;
             }
             
              // populate VpcConfig
@@ -634,10 +678,13 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageArn { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
+            public System.Int32? MaxConcurrentSession { get; set; }
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
+            public Amazon.AppStream.PlatformType Platform { get; set; }
             public Amazon.AppStream.StreamView StreamView { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public List<System.String> UsbDeviceFilterString { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.AppStream.Model.CreateFleetResponse, NewAPSFleetCmdlet, object> Select { get; set; } =

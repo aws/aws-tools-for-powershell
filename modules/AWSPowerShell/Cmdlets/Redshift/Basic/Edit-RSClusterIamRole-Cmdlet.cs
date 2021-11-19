@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DefaultIamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster
+        /// when the cluster was last modified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultIamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter RemoveIamRole
         /// <summary>
         /// <para>
@@ -161,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DefaultIamRoleArn = this.DefaultIamRoleArn;
             if (this.RemoveIamRole != null)
             {
                 context.RemoveIamRole = new List<System.String>(this.RemoveIamRole);
@@ -188,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.DefaultIamRoleArn != null)
+            {
+                request.DefaultIamRoleArn = cmdletContext.DefaultIamRoleArn;
             }
             if (cmdletContext.RemoveIamRole != null)
             {
@@ -256,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public List<System.String> AddIamRole { get; set; }
             public System.String ClusterIdentifier { get; set; }
+            public System.String DefaultIamRoleArn { get; set; }
             public List<System.String> RemoveIamRole { get; set; }
             public System.Func<Amazon.Redshift.Model.ModifyClusterIamRolesResponse, EditRSClusterIamRoleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;

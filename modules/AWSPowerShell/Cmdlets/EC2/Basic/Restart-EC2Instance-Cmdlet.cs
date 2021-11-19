@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs
     /// a hard reboot.
     /// </para><para>
-    /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting
-    /// console output and rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.
+    /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot
+    /// an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Restart", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

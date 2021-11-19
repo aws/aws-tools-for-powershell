@@ -87,6 +87,27 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter QueryAsOfTime
+        /// <summary>
+        /// <para>
+        /// <para>The time as of when to read the table contents. If not set, the most recent transaction
+        /// commit time will be used. Cannot be specified along with <code>TransactionId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? QueryAsOfTime { get; set; }
+        #endregion
+        
+        #region Parameter TransactionId
+        /// <summary>
+        /// <para>
+        /// <para>The transaction ID at which to read the table contents. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransactionId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Table'.
@@ -147,6 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryAsOfTime = this.QueryAsOfTime;
+            context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -174,6 +197,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.QueryAsOfTime != null)
+            {
+                request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             CmdletOutput output;
@@ -239,6 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Name { get; set; }
+            public System.DateTime? QueryAsOfTime { get; set; }
+            public System.String TransactionId { get; set; }
             public System.Func<Amazon.Glue.Model.GetTableResponse, GetGLUETableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Table;
         }

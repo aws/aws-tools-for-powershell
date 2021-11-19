@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the current snapshot for the patch baseline the instance uses. This API
-    /// is primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document
+    /// Retrieves the current snapshot for the patch baseline the managed node uses. This
+    /// API is primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document
     /// (SSM document).
     /// 
     ///  <note><para>
@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// system attempts to use your local Amazon Web Services credentials and the operation
     /// fails. To avoid this, you can run the command in the Amazon Web Services Systems Manager
     /// console. Use Run Command, a capability of Amazon Web Services Systems Manager, with
-    /// an SSM document that enables you to target an instance with a script or command. For
-    /// example, run the command using the <code>AWS-RunShellScript</code> document or the
-    /// <code>AWS-RunPowerShellScript</code> document.
+    /// an SSM document that enables you to target a managed node with a script or command.
+    /// For example, run the command using the <code>AWS-RunShellScript</code> document or
+    /// the <code>AWS-RunPowerShellScript</code> document.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SSMDeployablePatchSnapshotForInstance")]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the list of approved patches includes non-security updates that
-        /// should be applied to the instances. The default value is <code>false</code>. Applies
-        /// to Linux instances only.</para>
+        /// should be applied to the managed nodes. The default value is <code>false</code>. Applies
+        /// to Linux managed nodes only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance for which the appropriate patch snapshot should be retrieved.</para>
+        /// <para>The ID of the managed node for which the appropriate patch snapshot should be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter BaselineOverride_Source
         /// <summary>
         /// <para>
-        /// <para>Information about the patches to use to update the instances, including target operating
-        /// systems and source repositories. Applies to Linux instances only.</para>
+        /// <para>Information about the patches to use to update the managed nodes, including target
+        /// operating systems and source repositories. Applies to Linux managed nodes only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter ControlPanelArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the control panel that you're getting routing control
-        /// details for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the control panel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

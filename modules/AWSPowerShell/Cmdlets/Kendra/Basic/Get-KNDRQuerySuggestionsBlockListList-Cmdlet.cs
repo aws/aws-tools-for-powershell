@@ -34,6 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <para>
     /// For information on the current quota limits for block lists, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
     /// for Amazon Kendra</a>.
+    /// </para><para><code>ListQuerySuggestionsBlockLists</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRQuerySuggestionsBlockListList")]

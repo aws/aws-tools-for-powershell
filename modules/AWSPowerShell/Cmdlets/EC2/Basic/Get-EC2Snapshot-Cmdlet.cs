@@ -98,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// console. We recommend that you use the related parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
         /// that you use the related parameter instead of this filter.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
         /// 80%).</para></li><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>start-time</code> - The time stamp when the snapshot was initiated.</para></li><li><para><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code>
-        /// | <code>error</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// | <code>error</code>).</para></li><li><para><code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code>
+        /// | <code>standard</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>A set of custom permissions includes any combination of these restrictions. Currently,
         /// you need to create the profile names for custom permission sets by using the Amazon
         /// QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign
-        /// the named set of permissions to a Amazon QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
-        /// override the permissions typically granted by assigning Amazon QuickSight users to
-        /// one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
+        /// the named set of permissions to a QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
+        /// they override the permissions typically granted by assigning Amazon QuickSight users
+        /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// parameter which is only needed when the external provider is custom.</para></li><li><para><code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code>
         /// type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom
         /// OIDC provider URL.</para></li><li><para><code>NONE</code>: This clears all the previously saved external login information
-        /// for a user. Use <code><a>DescribeUser</a></code> API to check the external login
-        /// information.</para></li></ul>
+        /// for a user. Use the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html">DescribeUser</a></code> API operation to check the external login information.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

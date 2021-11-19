@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Source_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon KMS key required to decrypt the contents of the grammar, if any.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExternalSourceSetting_GrammarSlotTypeSetting_Source_KmsKeyArn")]
+        public System.String Source_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter LocaleId
         /// <summary>
         /// <para>
@@ -135,15 +146,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// is returned.</para></li></ul><para>If you don't specify the valueSelectionStrategy, the default is OriginalValue. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.LexModelsV2.SlotValueResolutionStrategy")]
         public Amazon.LexModelsV2.SlotValueResolutionStrategy ValueSelectionSetting_ResolutionStrategy { get; set; }
+        #endregion
+        
+        #region Parameter Source_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket that contains the grammar source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3BucketName")]
+        public System.String Source_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter Source_S3ObjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The path to the grammar in the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExternalSourceSetting_GrammarSlotTypeSetting_Source_S3ObjectKey")]
+        public System.String Source_S3ObjectKey { get; set; }
         #endregion
         
         #region Parameter SlotTypeId
@@ -268,6 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             #endif
             context.Description = this.Description;
+            context.Source_KmsKeyArn = this.Source_KmsKeyArn;
+            context.Source_S3BucketName = this.Source_S3BucketName;
+            context.Source_S3ObjectKey = this.Source_S3ObjectKey;
             context.LocaleId = this.LocaleId;
             #if MODULAR
             if (this.LocaleId == null && ParameterWasBound(nameof(this.LocaleId)))
@@ -296,12 +326,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             context.RegexFilter_Pattern = this.RegexFilter_Pattern;
             context.ValueSelectionSetting_ResolutionStrategy = this.ValueSelectionSetting_ResolutionStrategy;
-            #if MODULAR
-            if (this.ValueSelectionSetting_ResolutionStrategy == null && ParameterWasBound(nameof(this.ValueSelectionSetting_ResolutionStrategy)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ValueSelectionSetting_ResolutionStrategy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -329,6 +353,75 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ExternalSourceSetting
+            var requestExternalSourceSettingIsNull = true;
+            request.ExternalSourceSetting = new Amazon.LexModelsV2.Model.ExternalSourceSetting();
+            Amazon.LexModelsV2.Model.GrammarSlotTypeSetting requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting = null;
+            
+             // populate GrammarSlotTypeSetting
+            var requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSettingIsNull = true;
+            requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting = new Amazon.LexModelsV2.Model.GrammarSlotTypeSetting();
+            Amazon.LexModelsV2.Model.GrammarSlotTypeSource requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source = null;
+            
+             // populate Source
+            var requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_SourceIsNull = true;
+            requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source = new Amazon.LexModelsV2.Model.GrammarSlotTypeSource();
+            System.String requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_KmsKeyArn = null;
+            if (cmdletContext.Source_KmsKeyArn != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_KmsKeyArn = cmdletContext.Source_KmsKeyArn;
+            }
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_KmsKeyArn != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source.KmsKeyArn = requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_KmsKeyArn;
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_SourceIsNull = false;
+            }
+            System.String requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3BucketName = null;
+            if (cmdletContext.Source_S3BucketName != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3BucketName = cmdletContext.Source_S3BucketName;
+            }
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3BucketName != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source.S3BucketName = requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3BucketName;
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_SourceIsNull = false;
+            }
+            System.String requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3ObjectKey = null;
+            if (cmdletContext.Source_S3ObjectKey != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3ObjectKey = cmdletContext.Source_S3ObjectKey;
+            }
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3ObjectKey != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source.S3ObjectKey = requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source_source_S3ObjectKey;
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_SourceIsNull = false;
+            }
+             // determine if requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source should be set to null
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_SourceIsNull)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source = null;
+            }
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source != null)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting.Source = requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting_externalSourceSetting_GrammarSlotTypeSetting_Source;
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSettingIsNull = false;
+            }
+             // determine if requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting should be set to null
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSettingIsNull)
+            {
+                requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting = null;
+            }
+            if (requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting != null)
+            {
+                request.ExternalSourceSetting.GrammarSlotTypeSetting = requestExternalSourceSetting_externalSourceSetting_GrammarSlotTypeSetting;
+                requestExternalSourceSettingIsNull = false;
+            }
+             // determine if request.ExternalSourceSetting should be set to null
+            if (requestExternalSourceSettingIsNull)
+            {
+                request.ExternalSourceSetting = null;
             }
             if (cmdletContext.LocaleId != null)
             {
@@ -458,6 +551,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
             public System.String Description { get; set; }
+            public System.String Source_KmsKeyArn { get; set; }
+            public System.String Source_S3BucketName { get; set; }
+            public System.String Source_S3ObjectKey { get; set; }
             public System.String LocaleId { get; set; }
             public System.String ParentSlotTypeSignature { get; set; }
             public System.String SlotTypeId { get; set; }

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Deletes a Device Advisor test suite.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTDASuiteDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite to be deleted.</para>
+        /// <para>Suite definition ID of the test suite to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

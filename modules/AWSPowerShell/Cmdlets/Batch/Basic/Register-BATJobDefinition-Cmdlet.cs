@@ -194,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The name of the job definition to register. Up to 128 letters (uppercase and lowercase),
-        /// numbers, hyphens, and underscores are allowed.</para>
+        /// <para>The name of the job definition to register. It can be up to 128 letters long. It can
+        /// contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

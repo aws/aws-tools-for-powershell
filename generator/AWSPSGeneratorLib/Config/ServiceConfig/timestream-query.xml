@@ -9,9 +9,11 @@
     <ServiceClientInterface>IAmazonTimestreamQuery</ServiceClientInterface>
     <ServiceClient>AmazonTimestreamQueryClient</ServiceClient>
     <ServiceModuleGuid>1e182d35-38b6-4473-bebe-cc229e37ca20</ServiceModuleGuid>
-    <AutoIterate Start="NextToken" Next="NextToken" />
     <PipelineParameter />
-    <VerbMappings />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings>
+        <Map From="Prepare" To="Initialize" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -19,15 +21,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="Query" Verb="Invoke" OutputProperty="Rows" Noun="Query" PipelineParameter="QueryString" IgnoreSupportsShouldProcess="true" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CancelQuery" OutputProperty="CancellationMessage" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="Arn" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledQuery" Verb="Remove" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledQuery" OutputProperty="ScheduledQuery" Verb="Get" Noun="ScheduledQuery" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteScheduledQuery" Verb="Start" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScheduledQueries" OutputProperty="ScheduledQueries" Verb="Get" Noun="ScheduledQueryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PrepareQuery" OutputProperty="*" Verb="Initialize" Noun="Query" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Query" OutputProperty="Rows" Verb="Invoke" Noun="Query" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScheduledQuery" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

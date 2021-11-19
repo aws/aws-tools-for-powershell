@@ -125,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String[] LaunchProfileProtocolVersion { get; set; }
         #endregion
         
+        #region Parameter Root_Linux
+        /// <summary>
+        /// <para>
+        /// <para>The folder path in Linux workstations where files are uploaded. The default path is
+        /// <code>$HOME/Downloads</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_SessionStorage_Root_Linux")]
+        public System.String Root_Linux { get; set; }
+        #endregion
+        
         #region Parameter StreamConfiguration_MaxSessionLengthInMinute
         /// <summary>
         /// <para>
@@ -142,15 +154,30 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StreamConfiguration_MaxStoppedSessionLengthInMinute
         /// <summary>
         /// <para>
-        /// <para>The length of time, in minutes, that a streaming session can be active before it is
-        /// stopped or terminated. After this point, Nimble Studio automatically terminates or
-        /// stops the session. The default length of time is 690 minutes, and the maximum length
-        /// of time is 30 days.</para>
+        /// <para>Integer that determines if you can start and stop your sessions and how long a session
+        /// can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</para><para>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+        /// StopStreamingSession, the session fails. If the time that a session stays in the READY
+        /// state exceeds the maxSessionLengthInMinutes value, the session will automatically
+        /// be terminated by AWS (instead of stopped).</para><para>If the value is set to a positive number, the session can be stopped. You can call
+        /// StopStreamingSession to stop sessions in the READY state. If the time that a session
+        /// stays in the READY state exceeds the maxSessionLengthInMinutes value, the session
+        /// will automatically be stopped by AWS (instead of terminated).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StreamConfiguration_MaxStoppedSessionLengthInMinutes")]
         public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
+        #endregion
+        
+        #region Parameter SessionStorage_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Allows artists to upload files to their workstations. The only valid option is <code>UPLOAD</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_SessionStorage_Mode")]
+        public System.String[] SessionStorage_Mode { get; set; }
         #endregion
         
         #region Parameter Name
@@ -234,6 +261,18 @@ namespace Amazon.PowerShell.Cmdlets.NS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Root_Window
+        /// <summary>
+        /// <para>
+        /// <para>The folder path in Windows workstations where files are uploaded. The default path
+        /// is <code>%HOMEPATH%\Downloads</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_SessionStorage_Root_Windows")]
+        public System.String Root_Window { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -357,6 +396,12 @@ namespace Amazon.PowerShell.Cmdlets.NS
             #endif
             context.StreamConfiguration_MaxSessionLengthInMinute = this.StreamConfiguration_MaxSessionLengthInMinute;
             context.StreamConfiguration_MaxStoppedSessionLengthInMinute = this.StreamConfiguration_MaxStoppedSessionLengthInMinute;
+            if (this.SessionStorage_Mode != null)
+            {
+                context.SessionStorage_Mode = new List<System.String>(this.SessionStorage_Mode);
+            }
+            context.Root_Linux = this.Root_Linux;
+            context.Root_Window = this.Root_Window;
             if (this.StreamConfiguration_StreamingImageId != null)
             {
                 context.StreamConfiguration_StreamingImageId = new List<System.String>(this.StreamConfiguration_StreamingImageId);
@@ -482,6 +527,66 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 request.StreamConfiguration.StreamingImageIds = requestStreamConfiguration_streamConfiguration_StreamingImageId;
                 requestStreamConfigurationIsNull = false;
             }
+            Amazon.NimbleStudio.Model.StreamConfigurationSessionStorage requestStreamConfiguration_streamConfiguration_SessionStorage = null;
+            
+             // populate SessionStorage
+            var requestStreamConfiguration_streamConfiguration_SessionStorageIsNull = true;
+            requestStreamConfiguration_streamConfiguration_SessionStorage = new Amazon.NimbleStudio.Model.StreamConfigurationSessionStorage();
+            List<System.String> requestStreamConfiguration_streamConfiguration_SessionStorage_sessionStorage_Mode = null;
+            if (cmdletContext.SessionStorage_Mode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_sessionStorage_Mode = cmdletContext.SessionStorage_Mode;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage_sessionStorage_Mode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage.Mode = requestStreamConfiguration_streamConfiguration_SessionStorage_sessionStorage_Mode;
+                requestStreamConfiguration_streamConfiguration_SessionStorageIsNull = false;
+            }
+            Amazon.NimbleStudio.Model.StreamingSessionStorageRoot requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root = null;
+            
+             // populate Root
+            var requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_RootIsNull = true;
+            requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root = new Amazon.NimbleStudio.Model.StreamingSessionStorageRoot();
+            System.String requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Linux = null;
+            if (cmdletContext.Root_Linux != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Linux = cmdletContext.Root_Linux;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Linux != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root.Linux = requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Linux;
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_RootIsNull = false;
+            }
+            System.String requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Window = null;
+            if (cmdletContext.Root_Window != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Window = cmdletContext.Root_Window;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Window != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root.Windows = requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root_root_Window;
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_RootIsNull = false;
+            }
+             // determine if requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root should be set to null
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_RootIsNull)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root = null;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage.Root = requestStreamConfiguration_streamConfiguration_SessionStorage_streamConfiguration_SessionStorage_Root;
+                requestStreamConfiguration_streamConfiguration_SessionStorageIsNull = false;
+            }
+             // determine if requestStreamConfiguration_streamConfiguration_SessionStorage should be set to null
+            if (requestStreamConfiguration_streamConfiguration_SessionStorageIsNull)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionStorage = null;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionStorage != null)
+            {
+                request.StreamConfiguration.SessionStorage = requestStreamConfiguration_streamConfiguration_SessionStorage;
+                requestStreamConfigurationIsNull = false;
+            }
              // determine if request.StreamConfiguration should be set to null
             if (requestStreamConfigurationIsNull)
             {
@@ -569,6 +674,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public List<System.String> StreamConfiguration_Ec2InstanceType { get; set; }
             public System.Int32? StreamConfiguration_MaxSessionLengthInMinute { get; set; }
             public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
+            public List<System.String> SessionStorage_Mode { get; set; }
+            public System.String Root_Linux { get; set; }
+            public System.String Root_Window { get; set; }
             public List<System.String> StreamConfiguration_StreamingImageId { get; set; }
             public List<System.String> StudioComponentId { get; set; }
             public System.String StudioId { get; set; }

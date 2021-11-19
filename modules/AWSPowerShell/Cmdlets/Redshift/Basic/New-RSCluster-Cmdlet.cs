@@ -213,6 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String DBName { get; set; }
         #endregion
         
+        #region Parameter DefaultIamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster
+        /// when the cluster was created. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultIamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
@@ -543,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterType = this.ClusterType;
             context.ClusterVersion = this.ClusterVersion;
             context.DBName = this.DBName;
+            context.DefaultIamRoleArn = this.DefaultIamRoleArn;
             context.ElasticIp = this.ElasticIp;
             context.Encrypted = this.Encrypted;
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
@@ -656,6 +668,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.DBName != null)
             {
                 request.DBName = cmdletContext.DBName;
+            }
+            if (cmdletContext.DefaultIamRoleArn != null)
+            {
+                request.DefaultIamRoleArn = cmdletContext.DefaultIamRoleArn;
             }
             if (cmdletContext.ElasticIp != null)
             {
@@ -807,6 +823,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ClusterType { get; set; }
             public System.String ClusterVersion { get; set; }
             public System.String DBName { get; set; }
+            public System.String DefaultIamRoleArn { get; set; }
             public System.String ElasticIp { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }

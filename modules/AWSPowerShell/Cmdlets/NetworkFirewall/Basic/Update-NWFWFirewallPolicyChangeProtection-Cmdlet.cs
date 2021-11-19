@@ -28,7 +28,10 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    
+    /// Modifies the flag, <code>ChangeProtection</code>, which indicates whether it is possible
+    /// to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
+    /// from changes. This setting helps protect against accidentally changing a firewall
+    /// that's in use.
     /// </summary>
     [Cmdlet("Update", "NWFWFirewallPolicyChangeProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkFirewall.Model.UpdateFirewallPolicyChangeProtectionResponse")]

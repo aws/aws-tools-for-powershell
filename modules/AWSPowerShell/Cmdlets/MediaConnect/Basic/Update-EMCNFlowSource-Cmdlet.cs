@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The maximum latency in milliseconds. This parameter
-        /// applies only to RIST-based and Zixi-based streams.
+        /// applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,6 +171,28 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaConnect.Protocol")]
         public Amazon.MediaConnect.Protocol Protocol { get; set; }
+        #endregion
+        
+        #region Parameter SenderControlPort
+        /// <summary>
+        /// <para>
+        /// The port that the flow uses to send
+        /// outbound requests to initiate connection with the sender.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SenderControlPort { get; set; }
+        #endregion
+        
+        #region Parameter SenderIpAddress
+        /// <summary>
+        /// <para>
+        /// The IP address that the flow communicates
+        /// with to initiate connection with the sender.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SenderIpAddress { get; set; }
         #endregion
         
         #region Parameter SourceArn
@@ -305,6 +327,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             }
             context.MinLatency = this.MinLatency;
             context.Protocol = this.Protocol;
+            context.SenderControlPort = this.SenderControlPort;
+            context.SenderIpAddress = this.SenderIpAddress;
             context.SourceArn = this.SourceArn;
             #if MODULAR
             if (this.SourceArn == null && ParameterWasBound(nameof(this.SourceArn)))
@@ -374,6 +398,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.SenderControlPort != null)
+            {
+                request.SenderControlPort = cmdletContext.SenderControlPort.Value;
+            }
+            if (cmdletContext.SenderIpAddress != null)
+            {
+                request.SenderIpAddress = cmdletContext.SenderIpAddress;
             }
             if (cmdletContext.SourceArn != null)
             {
@@ -463,6 +495,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest> MediaStreamSourceConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
+            public System.Int32? SenderControlPort { get; set; }
+            public System.String SenderIpAddress { get; set; }
             public System.String SourceArn { get; set; }
             public System.String StreamId { get; set; }
             public System.String VpcInterfaceName { get; set; }

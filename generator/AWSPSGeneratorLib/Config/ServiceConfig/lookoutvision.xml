@@ -54,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelPackagingJob" OutputProperty="ModelPackagingDescription" Verb="Get" Noun="ModelPackagingJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeProject" OutputProperty="ProjectDescription" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelPackagingJobs" OutputProperty="ModelPackagingJobs" Verb="Get" Noun="ModelPackagingJobList" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +87,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartModel" OutputProperty="Status" Verb="Start" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartModelPackagingJob" OutputProperty="JobName" Verb="Start" Noun="ModelPackagingJob" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

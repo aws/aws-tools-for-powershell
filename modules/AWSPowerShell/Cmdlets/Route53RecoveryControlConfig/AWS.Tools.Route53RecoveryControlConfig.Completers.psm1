@@ -170,6 +170,9 @@ $R53RC_SelectMap = @{
                "Get-R53RCControlPanelList",
                "Get-R53RCRoutingControlList",
                "Get-R53RCSafetyRuleList",
+               "Get-R53RCResourceTag",
+               "Add-R53RCResourceTag",
+               "Remove-R53RCResourceTag",
                "Update-R53RCControlPanel",
                "Update-R53RCRoutingControl",
                "Update-R53RCSafetyRule")

@@ -30,17 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Creates a custom DB engine version (CEV). A CEV is a binary volume snapshot of a database
     /// engine and specific AMI. The only supported engine is Oracle Database 19c Enterprise
-    /// Edition with the January 2021 or later RU/RUR. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
-    /// Amazon RDS Custom requirements and limitations</a> in the <i>Amazon RDS User Guide</i>.
+    /// Edition with the January 2021 or later RU/RUR.
     /// 
     ///  
     /// <para>
     /// Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI)
     /// and database software. The Amazon RDS database software is preinstalled, so you need
-    /// only select a DB engine and version, and create your database. With Amazon RDS Custom,
-    /// you upload your database installation files in Amazon S3. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.html#custom-cev.preparing">
-    /// Preparing to create a CEV</a> in the <i>Amazon RDS User Guide</i>.
+    /// only select a DB engine and version, and create your database. With Amazon RDS Custom
+    /// for Oracle, you upload your database installation files in Amazon S3.
     /// </para><para>
     /// When you create a custom engine version, you specify the files in a JSON document
     /// called a CEV manifest. This document describes installation .zip files stored in Amazon
@@ -49,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// Creation takes approximately two hours. If creation fails, RDS Custom issues <code>RDS-EVENT-0196</code>
     /// with the message <code>Creation failed for custom engine version</code>, and includes
-    /// details about the failure. For example, the event prints missing files. 
+    /// details about the failure. For example, the event prints missing files.
     /// </para><para>
     /// After you create the CEV, it is available for use. You can create multiple CEVs, and
     /// create multiple RDS Custom instances from any CEV. You can also change the status
@@ -138,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of your CEV. The name format is <code>19.<i>customized_string</i></code>.
         /// For example, a valid name is <code>19.my_cev1</code>. This setting is required for
-        /// RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
-        /// <code>EngineVersion</code> is unique per customer per Region.</para>
+        /// RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
+        /// and <code>EngineVersion</code> is unique per customer per Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

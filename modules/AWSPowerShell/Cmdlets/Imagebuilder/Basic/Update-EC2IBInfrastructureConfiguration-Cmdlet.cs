@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket in which to store the logs.</para>
+        /// <para>The S3 bucket in which to store the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 path in which to store the logs.</para>
+        /// <para>The Amazon S3 path to the bucket where the logs are stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>The SNS topic on which to send image build events.</para>
+        /// <para>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
+        /// notifications.</para><note><para>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted
+        /// using keys from other accounts. The key that is used to encrypt the SNS topic must
+        /// reside in the account that the Image Builder service runs under.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

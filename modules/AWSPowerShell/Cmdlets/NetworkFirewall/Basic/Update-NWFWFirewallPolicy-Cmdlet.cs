@@ -90,12 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatefulEngineOptions_RuleOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. By default,
-        /// Network Firewall leaves the rule evaluation order up to the Suricata rule processing
-        /// engine. If you set this to <code>STRICT_ORDER</code>, your rules are evaluated in
-        /// the exact order that you provide them in the policy. With strict ordering, the rule
-        /// groups are evaluated by order of priority, starting from the lowest number, and the
-        /// rules in each rule group are processed in the order that they're defined. </para>
+        /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code>
+        /// is the default behavior. Stateful rules are provided to the rule engine as Suricata
+        /// compatible strings, and Suricata evaluates them based on certain settings. For more
+        /// information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
+        /// order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter FirewallPolicy_StatefulDefaultAction
         /// <summary>
         /// <para>
-        /// <para>The default actions to take on a packet that doesn't match any stateful rules.</para>
+        /// <para>The default actions to take on a packet that doesn't match any stateful rules. The
+        /// stateful default action is optional, and is only valid when using the strict rule
+        /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-strict-rule-evaluation-order.html">Strict
+        /// evaluation order</a> in the <i>AWS Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

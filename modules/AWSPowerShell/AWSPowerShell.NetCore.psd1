@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The AWS Tools for PowerShell lets developers and administrators manage their AWS services from the PowerShell scripting environment.
@@ -60,6 +60,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AlexaForBusiness.dll',
         'AWSSDK.Amplify.dll',
         'AWSSDK.AmplifyBackend.dll',
+        'AWSSDK.AmplifyUIBuilder.dll',
         'AWSSDK.APIGateway.dll',
         'AWSSDK.ApiGatewayManagementApi.dll',
         'AWSSDK.ApiGatewayV2.dll',
@@ -86,6 +87,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AWSMarketplaceMetering.dll',
         'AWSSDK.AWSSupport.dll',
         'AWSSDK.Backup.dll',
+        'AWSSDK.BackupGateway.dll',
         'AWSSDK.Batch.dll',
         'AWSSDK.Braket.dll',
         'AWSSDK.Budgets.dll',
@@ -106,7 +108,9 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CloudTrail.dll',
         'AWSSDK.CloudWatch.dll',
         'AWSSDK.CloudWatchEvents.dll',
+        'AWSSDK.CloudWatchEvidently.dll',
         'AWSSDK.CloudWatchLogs.dll',
+        'AWSSDK.CloudWatchRUM.dll',
         'AWSSDK.CodeArtifact.dll',
         'AWSSDK.CodeBuild.dll',
         'AWSSDK.CodeCommit.dll',
@@ -188,6 +192,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Imagebuilder.dll',
         'AWSSDK.ImportExport.dll',
         'AWSSDK.Inspector.dll',
+        'AWSSDK.Inspector2.dll',
         'AWSSDK.IoT.dll',
         'AWSSDK.IoTDeviceAdvisor.dll',
         'AWSSDK.IoTEvents.dll',
@@ -197,6 +202,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.IoTSecureTunneling.dll',
         'AWSSDK.IoTSiteWise.dll',
         'AWSSDK.IoTThingsGraph.dll',
+        'AWSSDK.IoTTwinMaker.dll',
         'AWSSDK.IoTWireless.dll',
         'AWSSDK.IVS.dll',
         'AWSSDK.Kafka.dll',
@@ -241,6 +247,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Mgn.dll',
         'AWSSDK.MigrationHub.dll',
         'AWSSDK.MigrationHubConfig.dll',
+        'AWSSDK.MigrationHubRefactorSpaces.dll',
         'AWSSDK.MigrationHubStrategyRecommendations.dll',
         'AWSSDK.Mobile.dll',
         'AWSSDK.MQ.dll',
@@ -272,6 +279,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.RAM.dll',
         'AWSSDK.RDS.dll',
         'AWSSDK.RDSDataService.dll',
+        'AWSSDK.RecycleBin.dll',
         'AWSSDK.Redshift.dll',
         'AWSSDK.RedshiftDataAPIService.dll',
         'AWSSDK.Rekognition.dll',
@@ -335,6 +343,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.WorkMail.dll',
         'AWSSDK.WorkMailMessageFlow.dll',
         'AWSSDK.WorkSpaces.dll',
+        'AWSSDK.WorkSpacesWeb.dll',
         'AWSSDK.XRay.dll',
         'aws-crt.dll',
         'aws-crt-auth.dll',

@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
     /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
     /// resolution</a>: set <code>Matching</code> to true. 
+    /// </para><para>
+    /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
+    /// confused deputy prevention</a> for sample policies that you should apply. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CPFDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,6 +53,33 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     )]
     public partial class NewCPFDomainCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConflictResolution_ConflictResolvingModel
+        /// <summary>
+        /// <para>
+        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><code>RECENCY</code>: Uses the data that was most recently updated.</para></li><li><para><code>SOURCE</code>: Uses the data from a specific source. For example, if a company
+        /// has been aquired or two departments have merged, data from the specified source is
+        /// used. If two duplicate profiles are from the same source, then <code>RECENCY</code>
+        /// is used again.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_AutoMerging_ConflictResolution_ConflictResolvingModel")]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.ConflictResolvingModel")]
+        public Amazon.CustomerProfiles.ConflictResolvingModel ConflictResolution_ConflictResolvingModel { get; set; }
+        #endregion
+        
+        #region Parameter JobSchedule_DayOfTheWeek
+        /// <summary>
+        /// <para>
+        /// <para>The day when the Identity Resolution Job should run every week.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_JobSchedule_DayOfTheWeek")]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.JobScheduleDayOfTheWeek")]
+        public Amazon.CustomerProfiles.JobScheduleDayOfTheWeek JobSchedule_DayOfTheWeek { get; set; }
+        #endregion
         
         #region Parameter DeadLetterQueueUrl
         /// <summary>
@@ -110,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter AutoMerging_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>The flag that enables the auto-merging of duplicate profiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_AutoMerging_Enabled")]
+        public System.Boolean? AutoMerging_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Matching_Enabled
         /// <summary>
         /// <para>
@@ -118,6 +159,51 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Matching_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Consolidation_MatchingAttributesList
+        /// <summary>
+        /// <para>
+        /// <para>A list of matching criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_AutoMerging_Consolidation_MatchingAttributesList")]
+        public System.String[][] Consolidation_MatchingAttributesList { get; set; }
+        #endregion
+        
+        #region Parameter S3Exporting_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket where Identity Resolution Jobs write result files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_ExportingConfig_S3Exporting_S3BucketName")]
+        public System.String S3Exporting_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter S3Exporting_S3KeyName
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key name of the location where Identity Resolution Jobs write result files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_ExportingConfig_S3Exporting_S3KeyName")]
+        public System.String S3Exporting_S3KeyName { get; set; }
+        #endregion
+        
+        #region Parameter ConflictResolution_SourceName
+        /// <summary>
+        /// <para>
+        /// <para>The <code>ObjectType</code> name that is used to resolve profile merging conflicts
+        /// when choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_AutoMerging_ConflictResolution_SourceName")]
+        public System.String ConflictResolution_SourceName { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -129,6 +215,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter JobSchedule_Time
+        /// <summary>
+        /// <para>
+        /// <para>The time when the Identity Resolution Job should run every week.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_JobSchedule_Time")]
+        public System.String JobSchedule_Time { get; set; }
         #endregion
         
         #region Parameter Select
@@ -208,7 +305,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConflictResolution_ConflictResolvingModel = this.ConflictResolution_ConflictResolvingModel;
+            context.ConflictResolution_SourceName = this.ConflictResolution_SourceName;
+            if (this.Consolidation_MatchingAttributesList != null)
+            {
+                context.Consolidation_MatchingAttributesList = new List<List<System.String>>();
+                foreach (var innerList in this.Consolidation_MatchingAttributesList)
+                {
+                    context.Consolidation_MatchingAttributesList.Add(new List<System.String>(innerList));
+                }
+            }
+            context.AutoMerging_Enabled = this.AutoMerging_Enabled;
             context.Matching_Enabled = this.Matching_Enabled;
+            context.S3Exporting_S3BucketName = this.S3Exporting_S3BucketName;
+            context.S3Exporting_S3KeyName = this.S3Exporting_S3KeyName;
+            context.JobSchedule_DayOfTheWeek = this.JobSchedule_DayOfTheWeek;
+            context.JobSchedule_Time = this.JobSchedule_Time;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -261,6 +373,176 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestMatching_matching_Enabled != null)
             {
                 request.Matching.Enabled = requestMatching_matching_Enabled.Value;
+                requestMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.ExportingConfig requestMatching_matching_ExportingConfig = null;
+            
+             // populate ExportingConfig
+            var requestMatching_matching_ExportingConfigIsNull = true;
+            requestMatching_matching_ExportingConfig = new Amazon.CustomerProfiles.Model.ExportingConfig();
+            Amazon.CustomerProfiles.Model.S3ExportingConfig requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting = null;
+            
+             // populate S3Exporting
+            var requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3ExportingIsNull = true;
+            requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting = new Amazon.CustomerProfiles.Model.S3ExportingConfig();
+            System.String requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3BucketName = null;
+            if (cmdletContext.S3Exporting_S3BucketName != null)
+            {
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3BucketName = cmdletContext.S3Exporting_S3BucketName;
+            }
+            if (requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3BucketName != null)
+            {
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting.S3BucketName = requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3BucketName;
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3ExportingIsNull = false;
+            }
+            System.String requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3KeyName = null;
+            if (cmdletContext.S3Exporting_S3KeyName != null)
+            {
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3KeyName = cmdletContext.S3Exporting_S3KeyName;
+            }
+            if (requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3KeyName != null)
+            {
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting.S3KeyName = requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting_s3Exporting_S3KeyName;
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3ExportingIsNull = false;
+            }
+             // determine if requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting should be set to null
+            if (requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3ExportingIsNull)
+            {
+                requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting = null;
+            }
+            if (requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting != null)
+            {
+                requestMatching_matching_ExportingConfig.S3Exporting = requestMatching_matching_ExportingConfig_matching_ExportingConfig_S3Exporting;
+                requestMatching_matching_ExportingConfigIsNull = false;
+            }
+             // determine if requestMatching_matching_ExportingConfig should be set to null
+            if (requestMatching_matching_ExportingConfigIsNull)
+            {
+                requestMatching_matching_ExportingConfig = null;
+            }
+            if (requestMatching_matching_ExportingConfig != null)
+            {
+                request.Matching.ExportingConfig = requestMatching_matching_ExportingConfig;
+                requestMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.JobSchedule requestMatching_matching_JobSchedule = null;
+            
+             // populate JobSchedule
+            var requestMatching_matching_JobScheduleIsNull = true;
+            requestMatching_matching_JobSchedule = new Amazon.CustomerProfiles.Model.JobSchedule();
+            Amazon.CustomerProfiles.JobScheduleDayOfTheWeek requestMatching_matching_JobSchedule_jobSchedule_DayOfTheWeek = null;
+            if (cmdletContext.JobSchedule_DayOfTheWeek != null)
+            {
+                requestMatching_matching_JobSchedule_jobSchedule_DayOfTheWeek = cmdletContext.JobSchedule_DayOfTheWeek;
+            }
+            if (requestMatching_matching_JobSchedule_jobSchedule_DayOfTheWeek != null)
+            {
+                requestMatching_matching_JobSchedule.DayOfTheWeek = requestMatching_matching_JobSchedule_jobSchedule_DayOfTheWeek;
+                requestMatching_matching_JobScheduleIsNull = false;
+            }
+            System.String requestMatching_matching_JobSchedule_jobSchedule_Time = null;
+            if (cmdletContext.JobSchedule_Time != null)
+            {
+                requestMatching_matching_JobSchedule_jobSchedule_Time = cmdletContext.JobSchedule_Time;
+            }
+            if (requestMatching_matching_JobSchedule_jobSchedule_Time != null)
+            {
+                requestMatching_matching_JobSchedule.Time = requestMatching_matching_JobSchedule_jobSchedule_Time;
+                requestMatching_matching_JobScheduleIsNull = false;
+            }
+             // determine if requestMatching_matching_JobSchedule should be set to null
+            if (requestMatching_matching_JobScheduleIsNull)
+            {
+                requestMatching_matching_JobSchedule = null;
+            }
+            if (requestMatching_matching_JobSchedule != null)
+            {
+                request.Matching.JobSchedule = requestMatching_matching_JobSchedule;
+                requestMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.AutoMerging requestMatching_matching_AutoMerging = null;
+            
+             // populate AutoMerging
+            var requestMatching_matching_AutoMergingIsNull = true;
+            requestMatching_matching_AutoMerging = new Amazon.CustomerProfiles.Model.AutoMerging();
+            System.Boolean? requestMatching_matching_AutoMerging_autoMerging_Enabled = null;
+            if (cmdletContext.AutoMerging_Enabled != null)
+            {
+                requestMatching_matching_AutoMerging_autoMerging_Enabled = cmdletContext.AutoMerging_Enabled.Value;
+            }
+            if (requestMatching_matching_AutoMerging_autoMerging_Enabled != null)
+            {
+                requestMatching_matching_AutoMerging.Enabled = requestMatching_matching_AutoMerging_autoMerging_Enabled.Value;
+                requestMatching_matching_AutoMergingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.Consolidation requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation = null;
+            
+             // populate Consolidation
+            var requestMatching_matching_AutoMerging_matching_AutoMerging_ConsolidationIsNull = true;
+            requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation = new Amazon.CustomerProfiles.Model.Consolidation();
+            List<List<System.String>> requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation_consolidation_MatchingAttributesList = null;
+            if (cmdletContext.Consolidation_MatchingAttributesList != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation_consolidation_MatchingAttributesList = cmdletContext.Consolidation_MatchingAttributesList;
+            }
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation_consolidation_MatchingAttributesList != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation.MatchingAttributesList = requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation_consolidation_MatchingAttributesList;
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConsolidationIsNull = false;
+            }
+             // determine if requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation should be set to null
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_ConsolidationIsNull)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation = null;
+            }
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation != null)
+            {
+                requestMatching_matching_AutoMerging.Consolidation = requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation;
+                requestMatching_matching_AutoMergingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.ConflictResolution requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution = null;
+            
+             // populate ConflictResolution
+            var requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolutionIsNull = true;
+            requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution = new Amazon.CustomerProfiles.Model.ConflictResolution();
+            Amazon.CustomerProfiles.ConflictResolvingModel requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_ConflictResolvingModel = null;
+            if (cmdletContext.ConflictResolution_ConflictResolvingModel != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_ConflictResolvingModel = cmdletContext.ConflictResolution_ConflictResolvingModel;
+            }
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_ConflictResolvingModel != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution.ConflictResolvingModel = requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_ConflictResolvingModel;
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolutionIsNull = false;
+            }
+            System.String requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_SourceName = null;
+            if (cmdletContext.ConflictResolution_SourceName != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_SourceName = cmdletContext.ConflictResolution_SourceName;
+            }
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_SourceName != null)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution.SourceName = requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution_conflictResolution_SourceName;
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolutionIsNull = false;
+            }
+             // determine if requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution should be set to null
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolutionIsNull)
+            {
+                requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution = null;
+            }
+            if (requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution != null)
+            {
+                requestMatching_matching_AutoMerging.ConflictResolution = requestMatching_matching_AutoMerging_matching_AutoMerging_ConflictResolution;
+                requestMatching_matching_AutoMergingIsNull = false;
+            }
+             // determine if requestMatching_matching_AutoMerging should be set to null
+            if (requestMatching_matching_AutoMergingIsNull)
+            {
+                requestMatching_matching_AutoMerging = null;
+            }
+            if (requestMatching_matching_AutoMerging != null)
+            {
+                request.Matching.AutoMerging = requestMatching_matching_AutoMerging;
                 requestMatchingIsNull = false;
             }
              // determine if request.Matching should be set to null
@@ -337,7 +619,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String DefaultEncryptionKey { get; set; }
             public System.Int32? DefaultExpirationDay { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.CustomerProfiles.ConflictResolvingModel ConflictResolution_ConflictResolvingModel { get; set; }
+            public System.String ConflictResolution_SourceName { get; set; }
+            public List<List<System.String>> Consolidation_MatchingAttributesList { get; set; }
+            public System.Boolean? AutoMerging_Enabled { get; set; }
             public System.Boolean? Matching_Enabled { get; set; }
+            public System.String S3Exporting_S3BucketName { get; set; }
+            public System.String S3Exporting_S3KeyName { get; set; }
+            public Amazon.CustomerProfiles.JobScheduleDayOfTheWeek JobSchedule_DayOfTheWeek { get; set; }
+            public System.String JobSchedule_Time { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateDomainResponse, NewCPFDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

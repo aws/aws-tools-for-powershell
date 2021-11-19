@@ -105,6 +105,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AllocateIpamPoolCidr" OutputProperty="IpamPoolAllocation" Verb="New" Noun="IpamPoolCidr" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ApplySecurityGroupsToClientVpnTargetNetwork" OutputProperty="SecurityGroupIds" Verb="Add" Noun="SecurityGroupToClientVpnTargetNetwork" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -328,6 +332,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpam" OutputProperty="Ipam" Verb="New" Noun="Ipam" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamPool" OutputProperty="IpamPool" Verb="New" Noun="IpamPool" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamScope" OutputProperty="IpamScope" Verb="New" Noun="IpamScope" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateKeyPair" OutputProperty="KeyPair" Verb="New" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -364,6 +380,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInsightsAccessScope" OutputProperty="*" Verb="New" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNetworkInsightsPath" OutputProperty="NetworkInsightsPath" Verb="New" Noun="NetworkInsightsPath" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -380,6 +400,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePlacementGroup" OutputProperty="*" Verb="New" Noun="PlacementGroup" ShouldProcessTarget="GroupName" PositionalParameters="Strategy" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePublicIpv4Pool" OutputProperty="PoolId" Verb="New" Noun="PublicIpv4Pool" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -579,6 +603,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpam" OutputProperty="Ipam" Verb="Remove" Noun="Ipam" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamPool" OutputProperty="IpamPool" Verb="Remove" Noun="IpamPool" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamScope" OutputProperty="IpamScope" Verb="Remove" Noun="IpamScope" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteKeyPair" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -615,6 +651,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInsightsAccessScope" OutputProperty="NetworkInsightsAccessScopeId" Verb="Remove" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="NetworkInsightsAccessScopeId" PipelineParameter="NetworkInsightsAccessScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInsightsAccessScopeAnalysis" OutputProperty="NetworkInsightsAccessScopeAnalysisId" Verb="Remove" Noun="NetworkInsightsAccessScopeAnalysis" ShouldProcessTarget="NetworkInsightsAccessScopeAnalysisId" PipelineParameter="NetworkInsightsAccessScopeAnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkInsightsAnalysis" OutputProperty="NetworkInsightsAnalysisId" Verb="Remove" Noun="NetworkInsightsAnalysis" ShouldProcessTarget="NetworkInsightsAnalysisId" PipelineParameter="NetworkInsightsAnalysisId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -634,6 +678,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePlacementGroup" Verb="Remove" Noun="PlacementGroup" ShouldProcessTarget="GroupName" ShouldProcessMsgNoun="Placement Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePublicIpv4Pool" OutputProperty="ReturnValue" Verb="Remove" Noun="PublicIpv4Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -768,6 +816,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeprovisionByoipCidr" OutputProperty="ByoipCidr" Verb="Unregister" Noun="ByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeprovisionIpamPoolCidr" OutputProperty="IpamPoolCidr" Verb="Unregister" Noun="IpamPoolCidr" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeprovisionPublicIpv4PoolCidr" OutputProperty="*" Verb="Unregister" Noun="PublicIpv4PoolCidr" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -994,6 +1050,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpams" OutputProperty="Ipams" Verb="Get" Noun="Ipam" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamScopes" OutputProperty="IpamScopes" Verb="Get" Noun="IpamScope" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIpv6Pools" OutputProperty="Ipv6Pools" Verb="Get" Noun="Ipv6Pool" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1047,6 +1115,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNetworkAcls" OutputProperty="NetworkAcls" Verb="Get" Noun="NetworkAcl" PositionalParameters="Filters" PipelineParameter="NetworkAclIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopeAnalyses" OutputProperty="NetworkInsightsAccessScopeAnalyses" Verb="Get" Noun="NetworkInsightsAccessScopeAnalysis" PipelineParameter="NetworkInsightsAccessScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopes" OutputProperty="NetworkInsightsAccessScopes" Verb="Get" Noun="NetworkInsightsAccessScope" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1160,6 +1236,10 @@
                 <Param Name="NextToken" ParameterSetName="ByFilter" />
             </Params>
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="1000" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotTierStatus" OutputProperty="SnapshotTierStatuses" Verb="Get" Noun="SnapshotTierStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" PipelineParameter="" NoPipelineParameter="false">
@@ -1368,6 +1448,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Disable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1441,6 +1525,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableImageDeprecation" OutputProperty="Return" Verb="Enable" Noun="ImageDeprecation" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Enable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1536,6 +1624,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamAddressHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="IpamAddressHistory" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamPoolAllocations" OutputProperty="IpamPoolAllocations" Verb="Get" Noun="IpamPoolAllocation" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamPoolCidrs" OutputProperty="IpamPoolCidrs" Verb="Get" Noun="IpamPoolCidr" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamResourceCidrs" OutputProperty="IpamResourceCidrs" Verb="Get" Noun="IpamResourceCidr" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLaunchTemplateData" OutputProperty="LaunchTemplateData" Verb="Get" Noun="LaunchTemplateData" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1545,6 +1649,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetManagedPrefixListEntries" OutputProperty="Entries" Verb="Get" Noun="ManagedPrefixListEntry" PipelineParameter="PrefixListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkInsightsAccessScopeAnalysisFindings" OutputProperty="*" Verb="Get" Noun="NetworkInsightsAccessScopeAnalysisFinding" PipelineParameter="NetworkInsightsAccessScopeAnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkInsightsAccessScopeContent" OutputProperty="NetworkInsightsAccessScopeContent" Verb="Get" Noun="NetworkInsightsAccessScopeContent" PipelineParameter="NetworkInsightsAccessScopeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1634,6 +1746,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyAddressAttribute" OutputProperty="Address" Verb="Edit" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1716,6 +1832,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpam" OutputProperty="Ipam" Verb="Edit" Noun="Ipam" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamPool" OutputProperty="IpamPool" Verb="Edit" Noun="IpamPool" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamResourceCidr" OutputProperty="IpamResourceCidr" Verb="Edit" Noun="IpamResourceCidr" ShouldProcessTarget="CurrentIpamScopeId" PipelineParameter="CurrentIpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamScope" OutputProperty="IpamScope" Verb="Edit" Noun="IpamScope" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyLaunchTemplate" OutputProperty="LaunchTemplate" Verb="Edit" Noun="LaunchTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1730,6 +1862,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyPrivateDnsNameOptions" OutputProperty="Return" Verb="Edit" Noun="PrivateDnsNameOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyReservedInstances" OutputProperty="ReservedInstancesModificationId" Verb="Edit" Noun="ReservedInstance" ShouldProcessTarget="ReservedInstancesIds" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1742,6 +1878,10 @@
             <Params>
                 <Param Name="GroupNames" NewName="GroupName" Alias="UserGroup" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySnapshotTier" OutputProperty="*" Verb="Edit" Noun="SnapshotTier" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifySpotFleetRequest" OutputProperty="Return" Verb="Edit" Noun="SpotFleetRequest" ShouldProcessTarget="SpotFleetRequestId" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false">
@@ -1840,7 +1980,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="MoveByoipCidrToIpam" OutputProperty="ByoipCidr" Verb="Move" Noun="ByoipCidrToIpam" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ProvisionByoipCidr" OutputProperty="ByoipCidr" Verb="Register" Noun="ByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProvisionIpamPoolCidr" OutputProperty="IpamPoolCidr" Verb="Register" Noun="IpamPoolCidr" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProvisionPublicIpv4PoolCidr" OutputProperty="*" Verb="Register" Noun="PublicIpv4PoolCidr" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1901,6 +2053,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReleaseHosts" OutputProperty="*" Verb="Remove" Noun="Host" ShouldProcessTarget="HostIds" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="ReleaseHosts">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseIpamPoolAllocation" OutputProperty="Success" Verb="Remove" Noun="IpamPoolAllocation" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1995,6 +2151,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RestoreSnapshotFromRecycleBin" OutputProperty="*" Verb="Restore" Noun="SnapshotFromRecycleBin" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreSnapshotTier" OutputProperty="*" Verb="Restore" Noun="SnapshotTier" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeClientVpnIngress" OutputProperty="Status" Verb="Revoke" Noun="ClientVpnIngress" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2054,6 +2218,10 @@
             <Params>
                 <Param Name="InstanceIds" NewName="InstanceId" Alias="Instance" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNetworkInsightsAccessScopeAnalysis" OutputProperty="NetworkInsightsAccessScopeAnalysis" Verb="Start" Noun="NetworkInsightsAccessScopeAnalysis" ShouldProcessTarget="NetworkInsightsAccessScopeId" PipelineParameter="NetworkInsightsAccessScopeId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartNetworkInsightsAnalysis" OutputProperty="NetworkInsightsAnalysis" Verb="Start" Noun="NetworkInsightsAnalysis" ShouldProcessTarget="NetworkInsightsPathId" PipelineParameter="NetworkInsightsPathId" NoPipelineParameter="false">

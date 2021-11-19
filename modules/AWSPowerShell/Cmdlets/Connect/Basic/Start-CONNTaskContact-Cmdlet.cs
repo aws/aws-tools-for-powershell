@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Initiates a contact flow to start a new task immediately or at a future date and time.
+    /// Initiates a contact flow to start a new task.
     /// </summary>
     [Cmdlet("Start", "CONNTaskContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

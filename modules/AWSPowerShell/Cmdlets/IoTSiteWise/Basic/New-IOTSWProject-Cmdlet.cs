@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Creates a project in the specified portal.
+    /// 
+    ///  <note><para>
+    /// Make sure that the project name and description don't contain confidential information.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTSWProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateProjectResponse")]

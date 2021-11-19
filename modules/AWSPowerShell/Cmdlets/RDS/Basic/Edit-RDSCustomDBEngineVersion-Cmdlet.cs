@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// These calls originate from the MediaImport service for the <code>ModifyCustomDbEngineVersion</code>
     /// event.
     /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">Modifying
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying
     /// CEV status</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     /// </summary>
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The custom engine version (CEV) that you want to modify. This option is required for
-        /// RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
-        /// <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</para>
+        /// RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
+        /// and <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

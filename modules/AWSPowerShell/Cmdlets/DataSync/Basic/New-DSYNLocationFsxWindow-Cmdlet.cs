@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the security groups that are to use to configure
+        /// <para>The Amazon Resource Names (ARNs) of the security groups that are used to configure
         /// the FSx for Windows File Server file system.</para>
         /// </para>
         /// </summary>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows
+        /// <para>A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
         /// File Server file system is used to read data from the Amazon FSx for Windows File
         /// Server source location or write data to the FSx for Windows File Server destination.</para>
         /// </para>

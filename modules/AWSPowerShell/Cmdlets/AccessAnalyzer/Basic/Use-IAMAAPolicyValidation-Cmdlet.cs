@@ -93,6 +93,23 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         public Amazon.AccessAnalyzer.PolicyType PolicyType { get; set; }
         #endregion
         
+        #region Parameter ValidatePolicyResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of resource to attach to your resource policy. Specify a value for the policy
+        /// validation resource type only if the policy type is <code>RESOURCE_POLICY</code>.
+        /// For example, to validate a resource policy to attach to an Amazon S3 bucket, you can
+        /// choose <code>AWS::S3::Bucket</code> for the policy validation resource type.</para><para>For resource types not supported as valid values, IAM Access Analyzer runs policy
+        /// checks that apply to all resource policies. For example, to validate a resource policy
+        /// to attach to a KMS key, do not specify a value for the policy validation resource
+        /// type and IAM Access Analyzer will run policy checks that apply to all resource policies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AccessAnalyzer.ValidatePolicyResourceType")]
+        public Amazon.AccessAnalyzer.ValidatePolicyResourceType ValidatePolicyResourceType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -206,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 WriteWarning("You are passing $null as a value for parameter PolicyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ValidatePolicyResourceType = this.ValidatePolicyResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             if (cmdletContext.PolicyType != null)
             {
                 request.PolicyType = cmdletContext.PolicyType;
+            }
+            if (cmdletContext.ValidatePolicyResourceType != null)
+            {
+                request.ValidatePolicyResourceType = cmdletContext.ValidatePolicyResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -332,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             public System.String NextToken { get; set; }
             public System.String PolicyDocument { get; set; }
             public Amazon.AccessAnalyzer.PolicyType PolicyType { get; set; }
+            public Amazon.AccessAnalyzer.ValidatePolicyResourceType ValidatePolicyResourceType { get; set; }
             public System.Func<Amazon.AccessAnalyzer.Model.ValidatePolicyResponse, UseIAMAAPolicyValidationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Findings;
         }

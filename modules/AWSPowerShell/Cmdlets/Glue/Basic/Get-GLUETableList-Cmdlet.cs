@@ -80,6 +80,27 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Expression { get; set; }
         #endregion
         
+        #region Parameter QueryAsOfTime
+        /// <summary>
+        /// <para>
+        /// <para>The time as of when to read the table contents. If not set, the most recent transaction
+        /// commit time will be used. Cannot be specified along with <code>TransactionId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? QueryAsOfTime { get; set; }
+        #endregion
+        
+        #region Parameter TransactionId
+        /// <summary>
+        /// <para>
+        /// <para>The transaction ID at which to read the table contents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransactionId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -185,6 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.NextToken = this.NextToken;
+            context.QueryAsOfTime = this.QueryAsOfTime;
+            context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,6 +244,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.QueryAsOfTime != null)
+            {
+                request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             // Initialize loop variant and commence piping
@@ -288,6 +319,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Expression != null)
             {
                 request.Expression = cmdletContext.Expression;
+            }
+            if (cmdletContext.QueryAsOfTime != null)
+            {
+                request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             // Initialize loop variants and commence piping
@@ -413,6 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Expression { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.DateTime? QueryAsOfTime { get; set; }
+            public System.String TransactionId { get; set; }
             public System.Func<Amazon.Glue.Model.GetTablesResponse, GetGLUETableListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableList;
         }

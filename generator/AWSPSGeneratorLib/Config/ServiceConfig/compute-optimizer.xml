@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="DeleteRecommendationPreferences" Verb="Remove" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRecommendationExportJobs" OutputProperty="RecommendationExportJobs" Verb="Get" Noun="RecommendationExportJob" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEffectiveRecommendationPreferences" OutputProperty="EnhancedInfrastructureMetrics" Verb="Get" Noun="EffectiveRecommendationPreference" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEnrollmentStatus" OutputProperty="*" Verb="Get" Noun="EnrollmentStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,7 +75,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendationPreferences" OutputProperty="RecommendationPreferencesDetails" Verb="Get" Noun="RecommendationPreference" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRecommendationSummaries" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecommendationPreferences" Verb="Write" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

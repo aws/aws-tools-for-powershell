@@ -111,6 +111,16 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.StreamMode
+        {
+            ($_ -eq "New-KINStream/StreamModeDetails_StreamMode") -Or
+            ($_ -eq "Update-KINStreamMode/StreamModeDetails_StreamMode")
+        }
+        {
+            $v = "ON_DEMAND","PROVISIONED"
+            break
+        }
+
 
     }
 
@@ -124,6 +134,7 @@ $KIN_map = @{
     "ScalingType"=@("Update-KINShardCount")
     "ShardFilter_Type"=@("Get-KINShardList")
     "ShardIteratorType"=@("Get-KINShardIterator")
+    "StreamModeDetails_StreamMode"=@("New-KINStream","Update-KINStreamMode")
 }
 
 _awsArgumentCompleterRegistration $KIN_Completers $KIN_map
@@ -202,7 +213,8 @@ $KIN_SelectMap = @{
                "Split-KINShard",
                "Start-KINStreamEncryption",
                "Stop-KINStreamEncryption",
-               "Update-KINShardCount")
+               "Update-KINShardCount",
+               "Update-KINStreamMode")
 }
 
 _awsArgumentCompleterRegistration $KIN_SelectCompleters $KIN_SelectMap

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para><para>
     /// If more than five <code>PUT</code> actions for a group are currently processing, a
     /// validation exception is thrown.
+    /// </para><para><code>PutPrincipalMapping</code> is currently not supported in the Amazon Web Services
+    /// GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "KNDRPrincipalMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

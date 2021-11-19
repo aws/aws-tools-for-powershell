@@ -54,7 +54,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAutoMergingPreview" OutputProperty="*" Verb="Get" Noun="AutoMergingPreview" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityResolutionJob" OutputProperty="*" Verb="Get" Noun="IdentityResolutionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +87,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="Items" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityResolutionJobs" OutputProperty="IdentityResolutionJobsList" Verb="Get" Noun="IdentityResolutionJobList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,7 +119,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="Uri" PipelineParameter="Uri" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ObjectTypeNames" NewName="ObjectTypeNames" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutProfileObject" OutputProperty="ProfileObjectUniqueKey" Verb="Write" Noun="ProfileObject" ShouldProcessTarget="Object" PipelineParameter="ObjectTypeName" NoPipelineParameter="false">

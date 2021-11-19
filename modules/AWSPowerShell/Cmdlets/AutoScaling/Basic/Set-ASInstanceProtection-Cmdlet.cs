@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information about preventing instances that are part of an Auto Scaling group
-    /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-    /// scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+    /// instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group,
     /// the call fails.

@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the high-level patch state of one or more instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the high-level patch state of one or more managed nodes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstancePatchState")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstancePatchState")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance for which patch state information should be retrieved.</para>
+        /// <para>The ID of the managed node for which patch state information should be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances to return (per page).</para>
+        /// <para>The maximum number of managed nodes to return (per page).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

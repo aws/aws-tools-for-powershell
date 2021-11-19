@@ -117,7 +117,7 @@ $DGURU_Completers = {
         # Amazon.DevOpsGuru.OrganizationResourceCollectionType
         "Get-DGURUOrganizationResourceCollectionHealth/OrganizationResourceCollectionType"
         {
-            $v = "AWS_ACCOUNT","AWS_CLOUD_FORMATION","AWS_SERVICE"
+            $v = "AWS_ACCOUNT","AWS_CLOUD_FORMATION","AWS_SERVICE","AWS_TAGS"
             break
         }
 
@@ -127,7 +127,7 @@ $DGURU_Completers = {
             ($_ -eq "Get-DGURUResourceCollectionHealth/ResourceCollectionType")
         }
         {
-            $v = "AWS_CLOUD_FORMATION","AWS_SERVICE"
+            $v = "AWS_CLOUD_FORMATION","AWS_SERVICE","AWS_TAGS"
             break
         }
 

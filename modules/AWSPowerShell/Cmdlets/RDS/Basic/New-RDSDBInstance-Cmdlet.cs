@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The amount of storage in gibibytes (GiB) to allocate for the DB instance.</para><para>Type: Integer</para><para><b>Amazon Aurora</b></para><para>Not applicable. Aurora cluster volumes automatically grow as the amount of data in
         /// your database increases, though you are only charged for the space that you use in
-        /// an Aurora cluster volume.</para><para><b>Amazon RDS Custom</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536.</para></li></ul><para><b>MySQL</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>MariaDB</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>Oracle</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 10 to 3072.</para></li></ul><para><b>SQL Server</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 200 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 16384.</para></li></ul></li><li><para>Provisioned IOPS storage (io1):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 200 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 100 to 16384.</para></li></ul></li><li><para>Magnetic storage (standard):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 200 to 1024.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 1024.</para></li></ul></li></ul>
+        /// an Aurora cluster volume.</para><para><b>Amazon RDS Custom</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom
+        /// for Oracle, 16384 for RDS Custom for SQL Server.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom
+        /// for Oracle, 16384 for RDS Custom for SQL Server.</para></li></ul><para><b>MySQL</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>MariaDB</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>Oracle</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 10 to 3072.</para></li></ul><para><b>SQL Server</b></para><para>Constraints to the amount of storage for each storage type are the following: </para><ul><li><para>General Purpose (SSD) storage (gp2):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 16384.</para></li></ul></li><li><para>Provisioned IOPS storage (io1):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 100 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 100 to 16384.</para></li></ul></li><li><para>Magnetic storage (standard):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 1024.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 1024.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The Availability Zone (AZ) where the database will be created. For information on
         /// Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
+        /// and Availability Zones</a>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. Availability Zones are managed by the DB cluster. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
         /// Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
         /// same Amazon Web Services Region as the current endpoint. </para><note><para>If you're creating a DB instance in an RDS on VMware environment, specify the identifier
@@ -87,11 +89,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
         /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li><li><para>Can't be set to 0 or 35 for an RDS Custom DB instance</para></li></ul>
+        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li><li><para>Can't be set to 0 or 35 for an RDS Custom for Oracle DB instance</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? BackupRetentionPeriod { get; set; }
+        #endregion
+        
+        #region Parameter BackupTarget
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where automated backups and manual snapshots are stored.</para><para>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code>
+        /// (Amazon Web Services Region). The default is <code>region</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackupTarget { get; set; }
         #endregion
         
         #region Parameter CharacterSetName
@@ -145,10 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
-        /// all database engines. For the full list of DB instance classes, and availability for
-        /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// <para>The compute and memory capacity of the DB instance, for example db.m4.large. Not all
+        /// DB instance classes are available in all Amazon Web Services Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -191,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// isn't specified, a database named <code>postgres</code> is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>,
         /// the default value <code>ORCL</code> is used. You can't specify the string NULL, or
-        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>Amazon RDS Custom</b></para><para>The Oracle System ID (SID) of the created RDS Custom DB instance. If you don't specify
-        /// a value, the default value is <code>ORCL</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>It must contain 1 to 8 alphanumeric characters.</para></li><li><para>It must contain a letter.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora MySQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora MySQL
+        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>Amazon RDS Custom for Oracle</b></para><para>The Oracle System ID (SID) of the created RDS Custom DB instance. If you don't specify
+        /// a value, the default value is <code>ORCL</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>It must contain 1 to 8 alphanumeric characters.</para></li><li><para>It must contain a letter.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon RDS Custom for SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora MySQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora MySQL
         /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
         /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 64 alphanumeric characters.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon Aurora PostgreSQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
         /// DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL
@@ -242,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
         /// Deleting a DB Instance</a>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. You can enable or disable deletion protection for the DB cluster.
         /// For more information, see <code>CreateDBCluster</code>. DB instances in a DB cluster
         /// can be deleted even when deletion protection is enabled for the DB cluster. </para>
@@ -313,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora. In Aurora, mapping Amazon
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora. In Aurora, mapping Amazon
         /// Web Services IAM accounts to database accounts is managed by the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
@@ -340,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every Amazon Web Services Region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee (for RDS Custom instances)</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every Amazon Web Services Region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee (for RDS Custom for Oracle instances)</code></para></li><li><para><code>custom-sqlserver-ee (for RDS Custom for SQL Server instances)</code></para></li><li><para><code>custom-sqlserver-se (for RDS Custom for SQL Server instances)</code></para></li><li><para><code>custom-sqlserver-web (for RDS Custom for SQL Server instances)</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -361,14 +375,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// action.</para><para>The following are the database engines and links to information about the major and
         /// minor versions that are available with Amazon RDS. Not every database engine is available
         /// for every Amazon Web Services Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
-        /// is managed by the DB cluster.</para><para><b>Amazon RDS Custom</b></para><para>A custom engine version (CEV) that you have previously created. This setting is required
-        /// for RDS Custom. The CEV name has the following format: <code>19.<i>customized_string</i></code>. An example identifier is <code>19.my_cev1</code>. For more information, see
+        /// is managed by the DB cluster.</para><para><b>Amazon RDS Custom for Oracle</b></para><para>A custom engine version (CEV) that you have previously created. This setting is required
+        /// for RDS Custom for Oracle. The CEV name has the following format: <code>19.<i>customized_string</i></code>. An example identifier is <code>19.my_cev1</code>. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
-        /// Creating an RDS Custom DB instance</a> in the <i>Amazon RDS User Guide.</i>.</para><para><b>MariaDB</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
-        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft
-        /// SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
-        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle
-        /// Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
+        /// Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide.</i>.</para><para><b>Amazon RDS Custom for SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS
+        /// Custom for SQL Server general requirements</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MariaDB</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
+        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Microsoft SQL Server</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft
+        /// SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
+        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle
+        /// Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
         /// RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -380,8 +395,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for the DB instance. For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
+        /// allocated for the DB instance. For information about valid <code>Iops</code> values,
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
         /// Guide</i>. </para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple
         /// between .5 and 50 of the storage amount for the DB instance. For SQL Server DB instances,
         /// must be a multiple between 1 and 50 of the storage amount for the DB instance. </para>
@@ -400,10 +416,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// For more information, see <code>CreateDBCluster</code>.</para><para>If <code>StorageEncrypted</code> is enabled, and you do not specify a value for the
         /// <code>KmsKeyId</code> parameter, then Amazon RDS uses your default KMS key. There
         /// is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
-        /// account has a different default KMS key for each Amazon Web Services Region.</para><para><b>Amazon RDS Custom</b></para><para>A KMS key is required for RDS Custom Oracle instances. For most RDS engines, if you
-        /// leave this parameter empty while enabling <code>StorageEncrypted</code>, the engine
-        /// uses the default KMS key. However, RDS Custom for Oracle doesn't use the default key
-        /// when this parameter is empty. You must explicitly specify a key.</para>
+        /// account has a different default KMS key for each Amazon Web Services Region.</para><para><b>Amazon RDS Custom</b></para><para>A KMS key is required for RDS Custom instances. For most RDS engines, if you leave
+        /// this parameter empty while enabling <code>StorageEncrypted</code>, the engine uses
+        /// the default KMS key. However, RDS Custom doesn't use the default key when this parameter
+        /// is empty. You must explicitly specify a key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name for the master user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The name for the master user is managed by the DB cluster. </para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Required for MariaDB.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Required for SQL Server.</para></li><li><para>Must be 1 to 128 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Required for MySQL.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Required for Oracle.</para></li><li><para>Must be 1 to 30 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Required for PostgreSQL.</para></li><li><para>Must be 1 to 63 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name for the master user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The name for the master user is managed by the DB cluster. </para><para><b>Amazon RDS</b></para><para>Constraints:</para><ul><li><para>Required.</para></li><li><para>Must be 1 to 16 letters, numbers, or underscores.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -611,18 +627,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
-        /// IP address from within the DB instance's VPC, and to the public IP address from outside
-        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
-        /// security group it uses, and that public access is not permitted if the security group
-        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB instance's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB instance's VPC.
+        /// Access to the DB instance is ultimately controlled by the security group it uses.
+        /// That public access is not permitted if the security group assigned to the DB instance
+        /// doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
         /// a DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
         /// is specified.</para><para>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code>
-        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target region doesn’t have an Internet gateway attached
-        /// to it, the DB instance is private.</para></li><li><para>If the default VPC in the target region has an Internet gateway attached to it, the
+        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached
+        /// to it, the DB instance is private.</para></li><li><para>If the default VPC in the target Region has an internet gateway attached to it, the
         /// DB instance is public.</para></li></ul><para>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code>
-        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an Internet gateway attached to
-        /// it, the DB instance is private.</para></li><li><para>If the subnets are part of a VPC that has an Internet gateway attached to it, the
+        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an internet gateway attached to
+        /// it, the DB instance is private.</para></li><li><para>If the subnets are part of a VPC that has an internet gateway attached to it, the
         /// DB instance is public.</para></li></ul>
         /// </para>
         /// </summary>
@@ -634,8 +651,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance is encrypted. By default, it isn't
-        /// encrypted.</para><para>For RDS Custom Oracle instances, either set this parameter to <code>true</code> or
-        /// leave it unset. If you set this parameter to <code>false</code>, RDS reports an error.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The encryption for DB instances is managed by the DB cluster.</para>
+        /// encrypted.</para><para>For RDS Custom instances, either set this parameter to <code>true</code> or leave
+        /// it unset. If you set this parameter to <code>false</code>, RDS reports an error.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The encryption for DB instances is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -774,6 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
+            context.BackupTarget = this.BackupTarget;
             context.CharacterSetName = this.CharacterSetName;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
@@ -883,6 +901,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BackupRetentionPeriod != null)
             {
                 request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
+            }
+            if (cmdletContext.BackupTarget != null)
+            {
+                request.BackupTarget = cmdletContext.BackupTarget;
             }
             if (cmdletContext.CharacterSetName != null)
             {
@@ -1129,6 +1151,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String BackupTarget { get; set; }
             public System.String CharacterSetName { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String CustomIamInstanceProfile { get; set; }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Updates the status of the Amazon Web Services Systems Manager document (SSM document)
-    /// associated with the specified instance.
+    /// associated with the specified managed node.
     /// 
     ///  
     /// <para><code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The managed node ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

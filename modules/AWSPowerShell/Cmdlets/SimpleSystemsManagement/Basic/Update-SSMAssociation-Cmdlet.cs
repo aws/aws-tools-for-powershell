@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of targets allowed to run the association at the same time. You
         /// can specify a number, for example 10, or a percentage of the target set, for example
         /// 10%. The default value is 100%, which means all targets run the association at the
-        /// same time.</para><para>If a new instance starts and attempts to run an association while Systems Manager
+        /// same time.</para><para>If a new managed node starts and attempts to run an association while Systems Manager
         /// is running <code>MaxConcurrency</code> associations, the association is allowed to
-        /// run. During the next association interval, the new instance will process its association
+        /// run. During the next association interval, the new managed node will process its association
         /// within the limit specified for <code>MaxConcurrency</code>.</para>
         /// </para>
         /// </summary>
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// of errors, for example 10, or a percentage of the target set, for example 10%. If
         /// you specify 3, for example, the system stops sending requests when the fourth error
         /// is received. If you specify 0, then the system stops sending requests after the first
-        /// error is returned. If you run an association on 50 instances and set <code>MaxError</code>
+        /// error is returned. If you run an association on 50 managed nodes and set <code>MaxError</code>
         /// to 10%, then the system stops sending the request when the sixth error is received.</para><para>Executions that are already running an association when <code>MaxErrors</code> is
         /// reached are allowed to complete, but some of these executions may fail as well. If
         /// you need to ensure that there won't be more than max-errors failed executions, set
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the SSM Command document or Automation runbook that contains the configuration
-        /// information for the instance.</para><para>You can specify Amazon Web Services-predefined documents, documents you created, or
+        /// information for the managed node.</para><para>You can specify Amazon Web Services-predefined documents, documents you created, or
         /// a document that is shared with you from another account.</para><para>For Systems Manager document (SSM document) that are shared with you from other Amazon
         /// Web Services accounts, you must specify the complete SSM document ARN, in the following
         /// format:</para><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For Amazon Web Services-predefined documents and SSM documents you created in your

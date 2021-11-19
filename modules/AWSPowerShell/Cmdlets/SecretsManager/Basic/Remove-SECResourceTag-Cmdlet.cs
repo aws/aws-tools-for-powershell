@@ -28,7 +28,7 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Removes one or more tags from the specified secret.
+    /// Removes specific tags from a secret.
     /// 
     ///  
     /// <para>
@@ -39,15 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// permissions. If successfully completing this operation would result in you losing
     /// your permissions for this secret, then the operation is blocked and returns an Access
     /// Denied error.
-    /// </para></important><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:UntagResource
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To add one or more tags to the collection attached to a secret, use <a>TagResource</a>.
-    /// </para></li><li><para>
-    /// To view the list of tags attached to a secret, use <a>DescribeSecret</a>.
-    /// </para></li></ul>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "SECResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -62,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the secret that you want to remove tags from. You can specify either
-        /// the Amazon Resource Name (ARN) or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>A list of tag key names to remove from the secret. You don't specify the value. Both
-        /// the key and its associated value are removed.</para><para>This parameter to the API requires a JSON text string argument.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
+        /// the key and its associated value are removed.</para><para>This parameter requires a JSON text string argument.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
         /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
         /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
         /// User Guide.</para>

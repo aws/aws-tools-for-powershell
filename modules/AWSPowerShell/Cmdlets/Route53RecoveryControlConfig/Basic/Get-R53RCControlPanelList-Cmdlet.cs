@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryControlConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
-    /// Returns an array of control panels for a cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of control panels in an account or in a cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RCControlPanelList")]
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.ControlPanel")]

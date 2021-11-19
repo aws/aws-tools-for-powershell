@@ -123,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceRecommendationsJob" OutputProperty="JobArn" Verb="New" Noun="InferenceRecommendationsJob" AnonymousShouldProcessTarget="true" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLabelingJob" OutputProperty="LabelingJobArn" Verb="New" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -158,6 +162,27 @@
                 <Param Name="ModelMetrics_ModelDataQuality_Statistics_ContentType" NewName="ModelMetrics_ModelDataQuality_Statistics_ContentType" Alias="ModelDataQuality_Statistics_ContentType" />
                 <Param Name="ModelMetrics_ModelQuality_Statistics_ContentType" NewName="ModelMetrics_ModelQuality_Statistics_ContentType" />
                 <Param Name="ModelMetrics_ModelDataQuality_Statistics_S3Uri" NewName="ModelMetrics_ModelDataQuality_Statistics_S3Uri" Alias="ModelDataQuality_Statistics_S3Uri" />
+                <Param Name="DriftCheckBaselines_Bias_ConfigFile_ContentDigest" NewName="DriftCheckBaselines_Bias_ConfigFile_ContentDigest" Alias="ConfigFile_ContentDigest" />
+                <Param Name="DriftCheckBaselines_Explainability_ConfigFile_ContentDigest" NewName="DriftCheckBaselines_Explainability_ConfigFile_ContentDigest" />
+                <Param Name="DriftCheckBaselines_Bias_ConfigFile_ContentType" NewName="DriftCheckBaselines_Bias_ConfigFile_ContentType" Alias="ConfigFile_ContentType" />
+                <Param Name="DriftCheckBaselines_Explainability_ConfigFile_ContentType" NewName="DriftCheckBaselines_Explainability_ConfigFile_ContentType" />
+                <Param Name="DriftCheckBaselines_Bias_ConfigFile_S3Uri" NewName="DriftCheckBaselines_Bias_ConfigFile_S3Uri" Alias="ConfigFile_S3Uri" />
+                <Param Name="DriftCheckBaselines_Explainability_ConfigFile_S3Uri" NewName="DriftCheckBaselines_Explainability_ConfigFile_S3Uri" />
+                <Param Name="DriftCheckBaselines_Explainability_Constraints_ContentDigest" NewName="DriftCheckBaselines_Explainability_Constraints_ContentDigest" Alias="Constraints_ContentDigest" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest" NewName="DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Constraints_ContentDigest" NewName="DriftCheckBaselines_ModelQuality_Constraints_ContentDigest" />
+                <Param Name="DriftCheckBaselines_Explainability_Constraints_ContentType" NewName="DriftCheckBaselines_Explainability_Constraints_ContentType" Alias="Constraints_ContentType" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Constraints_ContentType" NewName="DriftCheckBaselines_ModelDataQuality_Constraints_ContentType" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Constraints_ContentType" NewName="DriftCheckBaselines_ModelQuality_Constraints_ContentType" />
+                <Param Name="DriftCheckBaselines_Explainability_Constraints_S3Uri" NewName="DriftCheckBaselines_Explainability_Constraints_S3Uri" Alias="Constraints_S3Uri" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri" NewName="DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Constraints_S3Uri" NewName="DriftCheckBaselines_ModelQuality_Constraints_S3Uri" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest" NewName="DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest" Alias="Statistics_ContentDigest" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Statistics_ContentDigest" NewName="DriftCheckBaselines_ModelQuality_Statistics_ContentDigest" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Statistics_ContentType" NewName="DriftCheckBaselines_ModelDataQuality_Statistics_ContentType" Alias="Statistics_ContentType" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Statistics_ContentType" NewName="DriftCheckBaselines_ModelQuality_Statistics_ContentType" />
+                <Param Name="DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri" NewName="DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri" Alias="Statistics_S3Uri" />
+                <Param Name="DriftCheckBaselines_ModelQuality_Statistics_S3Uri" NewName="DriftCheckBaselines_ModelQuality_Statistics_S3Uri" />
                 <Param Name="ModelMetrics_ModelQuality_Statistics_S3Uri" NewName="ModelMetrics_ModelQuality_Statistics_S3Uri" />
             </Params>
             <TypesNotToFlatten />
@@ -482,7 +507,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInferenceRecommendationsJob" OutputProperty="*" Verb="Get" Noun="InferenceRecommendationsJob" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLabelingJob" OutputProperty="*" Verb="Get" Noun="LabelingJob" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLineageGroup" OutputProperty="*" Verb="Get" Noun="LineageGroup" PipelineParameter="LineageGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -591,6 +624,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeviceFleetReport" OutputProperty="*" Verb="Get" Noun="DeviceFleetReport" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLineageGroupPolicy" OutputProperty="*" Verb="Get" Noun="LineageGroupPolicy" PipelineParameter="LineageGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -706,6 +743,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceRecommendationsJobs" OutputProperty="InferenceRecommendationsJobs" Verb="Get" Noun="InferenceRecommendationsJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -714,11 +755,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLineageGroups" OutputProperty="LineageGroupSummaries" Verb="Get" Noun="LineageGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelBiasJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelBiasJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListModelExplainabilityJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelExplainabilityJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelMetadata" OutputProperty="ModelMetadataSummaries" Verb="Get" Noun="ModelMetadataList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -826,6 +875,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="QueryLineage" OutputProperty="*" Verb="Find" Noun="Lineage" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterDevices" Verb="Register" Noun="Device" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -875,6 +928,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopHyperParameterTuningJob" Verb="Stop" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInferenceRecommendationsJob" Verb="Stop" Noun="InferenceRecommendationsJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

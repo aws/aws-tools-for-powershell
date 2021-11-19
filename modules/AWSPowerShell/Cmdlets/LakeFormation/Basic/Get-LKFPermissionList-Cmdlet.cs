@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLocation_CatalogId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the Data Catalog where the location is registered with AWS Lake
-        /// Formation. By default, it is the account ID of the caller.</para>
+        /// <para>The identifier for the Data Catalog where the location is registered with Lake Formation.
+        /// By default, it is the account ID of the caller.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,6 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String[] TableWithColumns_ColumnName { get; set; }
         #endregion
         
+        #region Parameter DataCellsFilter_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>A database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_DataCellsFilter_DatabaseName")]
+        public System.String DataCellsFilter_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter Table_DatabaseName
         /// <summary>
         /// <para>
@@ -186,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter Principal_DataLakePrincipalIdentifier
         /// <summary>
         /// <para>
-        /// <para>An identifier for the AWS Lake Formation principal.</para>
+        /// <para>An identifier for the Lake Formation principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,12 +218,22 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTagPolicy_Expression
         /// <summary>
         /// <para>
-        /// <para>A list of tag conditions that apply to the resource's tag policy.</para>
+        /// <para>A list of LF-tag conditions that apply to the resource's LF-tag policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_LFTagPolicy_Expression")]
         public Amazon.LakeFormation.Model.LFTag[] LFTagPolicy_Expression { get; set; }
+        #endregion
+        
+        #region Parameter IncludeRelated
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that related permissions should be included in the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncludeRelated { get; set; }
         #endregion
         
         #region Parameter Database_Name
@@ -224,6 +245,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_Database_Name")]
         public System.String Database_Name { get; set; }
+        #endregion
+        
+        #region Parameter DataCellsFilter_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the data cells filter. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_DataCellsFilter_Name")]
+        public System.String DataCellsFilter_Name { get; set; }
         #endregion
         
         #region Parameter Table_Name
@@ -263,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTagPolicy_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type for which the tag policy applies.</para>
+        /// <para>The resource type for which the LF-tag policy applies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,6 +315,28 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public Amazon.LakeFormation.DataLakeResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter DataCellsFilter_TableCatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the catalog to which the table belongs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_DataCellsFilter_TableCatalogId")]
+        public System.String DataCellsFilter_TableCatalogId { get; set; }
+        #endregion
+        
+        #region Parameter DataCellsFilter_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_DataCellsFilter_TableName")]
+        public System.String DataCellsFilter_TableName { get; set; }
+        #endregion
+        
         #region Parameter Table_TableWildcard
         /// <summary>
         /// <para>
@@ -298,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTag_TagKey
         /// <summary>
         /// <para>
-        /// <para>The key-name for the tag.</para>
+        /// <para>The key-name for the LF-tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CatalogId = this.CatalogId;
+            context.IncludeRelated = this.IncludeRelated;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -418,6 +473,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             context.Resource_Catalog = this.Resource_Catalog;
             context.Database_CatalogId = this.Database_CatalogId;
             context.Database_Name = this.Database_Name;
+            context.DataCellsFilter_DatabaseName = this.DataCellsFilter_DatabaseName;
+            context.DataCellsFilter_Name = this.DataCellsFilter_Name;
+            context.DataCellsFilter_TableCatalogId = this.DataCellsFilter_TableCatalogId;
+            context.DataCellsFilter_TableName = this.DataCellsFilter_TableName;
             context.DataLocation_CatalogId = this.DataLocation_CatalogId;
             context.DataLocation_ResourceArn = this.DataLocation_ResourceArn;
             context.LFTag_CatalogId = this.LFTag_CatalogId;
@@ -472,6 +531,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
+            }
+            if (cmdletContext.IncludeRelated != null)
+            {
+                request.IncludeRelated = cmdletContext.IncludeRelated;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -668,6 +731,61 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTagPolicy != null)
             {
                 request.Resource.LFTagPolicy = requestResource_resource_LFTagPolicy;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.DataCellsFilterResource requestResource_resource_DataCellsFilter = null;
+            
+             // populate DataCellsFilter
+            var requestResource_resource_DataCellsFilterIsNull = true;
+            requestResource_resource_DataCellsFilter = new Amazon.LakeFormation.Model.DataCellsFilterResource();
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName = null;
+            if (cmdletContext.DataCellsFilter_DatabaseName != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName = cmdletContext.DataCellsFilter_DatabaseName;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName != null)
+            {
+                requestResource_resource_DataCellsFilter.DatabaseName = requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_Name = null;
+            if (cmdletContext.DataCellsFilter_Name != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_Name = cmdletContext.DataCellsFilter_Name;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_Name != null)
+            {
+                requestResource_resource_DataCellsFilter.Name = requestResource_resource_DataCellsFilter_dataCellsFilter_Name;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId = null;
+            if (cmdletContext.DataCellsFilter_TableCatalogId != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId = cmdletContext.DataCellsFilter_TableCatalogId;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId != null)
+            {
+                requestResource_resource_DataCellsFilter.TableCatalogId = requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_TableName = null;
+            if (cmdletContext.DataCellsFilter_TableName != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_TableName = cmdletContext.DataCellsFilter_TableName;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_TableName != null)
+            {
+                requestResource_resource_DataCellsFilter.TableName = requestResource_resource_DataCellsFilter_dataCellsFilter_TableName;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+             // determine if requestResource_resource_DataCellsFilter should be set to null
+            if (requestResource_resource_DataCellsFilterIsNull)
+            {
+                requestResource_resource_DataCellsFilter = null;
+            }
+            if (requestResource_resource_DataCellsFilter != null)
+            {
+                request.Resource.DataCellsFilter = requestResource_resource_DataCellsFilter;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.TableResource requestResource_resource_Table = null;
@@ -873,6 +991,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             {
                 request.CatalogId = cmdletContext.CatalogId;
             }
+            if (cmdletContext.IncludeRelated != null)
+            {
+                request.IncludeRelated = cmdletContext.IncludeRelated;
+            }
             
              // populate Principal
             var requestPrincipalIsNull = true;
@@ -1064,6 +1186,61 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTagPolicy != null)
             {
                 request.Resource.LFTagPolicy = requestResource_resource_LFTagPolicy;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.DataCellsFilterResource requestResource_resource_DataCellsFilter = null;
+            
+             // populate DataCellsFilter
+            var requestResource_resource_DataCellsFilterIsNull = true;
+            requestResource_resource_DataCellsFilter = new Amazon.LakeFormation.Model.DataCellsFilterResource();
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName = null;
+            if (cmdletContext.DataCellsFilter_DatabaseName != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName = cmdletContext.DataCellsFilter_DatabaseName;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName != null)
+            {
+                requestResource_resource_DataCellsFilter.DatabaseName = requestResource_resource_DataCellsFilter_dataCellsFilter_DatabaseName;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_Name = null;
+            if (cmdletContext.DataCellsFilter_Name != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_Name = cmdletContext.DataCellsFilter_Name;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_Name != null)
+            {
+                requestResource_resource_DataCellsFilter.Name = requestResource_resource_DataCellsFilter_dataCellsFilter_Name;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId = null;
+            if (cmdletContext.DataCellsFilter_TableCatalogId != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId = cmdletContext.DataCellsFilter_TableCatalogId;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId != null)
+            {
+                requestResource_resource_DataCellsFilter.TableCatalogId = requestResource_resource_DataCellsFilter_dataCellsFilter_TableCatalogId;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+            System.String requestResource_resource_DataCellsFilter_dataCellsFilter_TableName = null;
+            if (cmdletContext.DataCellsFilter_TableName != null)
+            {
+                requestResource_resource_DataCellsFilter_dataCellsFilter_TableName = cmdletContext.DataCellsFilter_TableName;
+            }
+            if (requestResource_resource_DataCellsFilter_dataCellsFilter_TableName != null)
+            {
+                requestResource_resource_DataCellsFilter.TableName = requestResource_resource_DataCellsFilter_dataCellsFilter_TableName;
+                requestResource_resource_DataCellsFilterIsNull = false;
+            }
+             // determine if requestResource_resource_DataCellsFilter should be set to null
+            if (requestResource_resource_DataCellsFilterIsNull)
+            {
+                requestResource_resource_DataCellsFilter = null;
+            }
+            if (requestResource_resource_DataCellsFilter != null)
+            {
+                request.Resource.DataCellsFilter = requestResource_resource_DataCellsFilter;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.TableResource requestResource_resource_Table = null;
@@ -1330,12 +1507,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CatalogId { get; set; }
+            public System.String IncludeRelated { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
             public Amazon.LakeFormation.Model.CatalogResource Resource_Catalog { get; set; }
             public System.String Database_CatalogId { get; set; }
             public System.String Database_Name { get; set; }
+            public System.String DataCellsFilter_DatabaseName { get; set; }
+            public System.String DataCellsFilter_Name { get; set; }
+            public System.String DataCellsFilter_TableCatalogId { get; set; }
+            public System.String DataCellsFilter_TableName { get; set; }
             public System.String DataLocation_CatalogId { get; set; }
             public System.String DataLocation_ResourceArn { get; set; }
             public System.String LFTag_CatalogId { get; set; }

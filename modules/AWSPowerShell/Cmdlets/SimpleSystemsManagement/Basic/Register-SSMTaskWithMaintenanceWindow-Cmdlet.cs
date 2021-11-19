@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationType
         /// <summary>
         /// <para>
-        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple instances, receive notification
-        /// on a per-instance basis when the status of a command changes. </para></li></ul>
+        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple managed nodes, receive notification
+        /// on a per-node basis when the status of a command changes. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,12 +416,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or maintenance window targets).</para><note><para>One or more targets must be specified for maintenance window Run Command-type tasks.
+        /// <para>The targets (either managed nodes or maintenance window targets).</para><note><para>One or more targets must be specified for maintenance window Run Command-type tasks.
         /// Depending on the task, targets are optional for other maintenance window task types
         /// (Automation, Lambda, and Step Functions). For more information about running tasks
         /// that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
         /// maintenance window tasks without targets</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para></note><para>Specify instances using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
+        /// Manager User Guide</i>.</para></note><para>Specify managed nodes using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

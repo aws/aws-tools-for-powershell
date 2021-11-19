@@ -38,7 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code>
     /// request element to grant access to other people. The <code>Permissions</code> request
     /// element specifies the kind of access the grantee has to the logs.
-    /// </para><para><b>Grantee Values</b></para><para>
+    /// </para><important><para>
+    /// If the target bucket for log delivery uses the bucket owner enforced setting for S3
+    /// Object Ownership, you can't use the <code>Grantee</code> request element to grant
+    /// access to others. Permissions can only be granted using policies. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+    /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></important><para><b>Grantee Values</b></para><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (using
     /// request elements) in the following ways:
     /// </para><ul><li><para>
@@ -57,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// To enable logging, you use LoggingEnabled and its children request elements. To disable
     /// logging, you use an empty BucketLoggingStatus request element:
     /// </para><para><code>&lt;BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" /&gt;</code></para><para>
-    /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server
-    /// Access Logging</a>. 
+    /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server
+    /// Access Logging</a> in the <i>Amazon S3 User Guide</i>. 
     /// </para><para>
     /// For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.
     /// For more information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.
@@ -101,6 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// A collection of grants.
+        /// 
+        /// <para>Buckets that use the bucket owner enforced setting for Object Ownership don't support
+        /// target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+        /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

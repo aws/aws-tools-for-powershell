@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The GreengrassV2 module of AWS Tools for PowerShell lets developers and administrators manage AWS GreengrassV2 from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -88,12 +88,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-GGV2BatchClientDeviceWithCoreDevice', 
         'Add-GGV2ResourceTag', 
+        'Add-GGV2ServiceRoleToAccount', 
         'Get-GGV2ClientDevicesAssociatedWithCoreDeviceList', 
         'Get-GGV2Component', 
         'Get-GGV2ComponentList', 
         'Get-GGV2ComponentMetadata', 
         'Get-GGV2ComponentVersionArtifact', 
         'Get-GGV2ComponentVersionList', 
+        'Get-GGV2ConnectivityInfo', 
         'Get-GGV2CoreDevice', 
         'Get-GGV2CoreDeviceList', 
         'Get-GGV2Deployment', 
@@ -101,14 +103,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GGV2EffectiveDeploymentList', 
         'Get-GGV2InstalledComponentList', 
         'Get-GGV2ResourceTag', 
+        'Get-GGV2ServiceRoleForAccount', 
         'New-GGV2ComponentVersion', 
         'New-GGV2Deployment', 
         'Remove-GGV2BatchClientDeviceFromCoreDevice', 
         'Remove-GGV2Component', 
         'Remove-GGV2CoreDevice', 
         'Remove-GGV2ResourceTag', 
+        'Remove-GGV2ServiceRoleFromAccount', 
         'Resolve-GGV2ComponentCandidate', 
-        'Stop-GGV2Deployment')
+        'Stop-GGV2Deployment', 
+        'Update-GGV2ConnectivityInfo')
 
     # Variables to export from this module
     VariablesToExport = '*'

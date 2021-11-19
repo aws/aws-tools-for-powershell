@@ -16,7 +16,7 @@
     <WarningsAsErrors>NU1605,CS0108</WarningsAsErrors>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>
-    <Copyright>Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
+    <Copyright>Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
     <Company>Amazon.com, Inc</Company>
     <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
   </PropertyGroup>
@@ -75,6 +75,9 @@
     </Reference>
     <Reference Include="AWSSDK.AmplifyBackend">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AmplifyBackend.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AmplifyUIBuilder">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AmplifyUIBuilder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.APIGateway.dll</HintPath>
@@ -154,6 +157,9 @@
     <Reference Include="AWSSDK.Backup">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Backup.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BackupGateway">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupGateway.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
@@ -214,8 +220,14 @@
     <Reference Include="AWSSDK.CloudWatchEvents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudWatchEvidently">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvidently.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchRUM">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchRUM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeArtifact">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeArtifact.dll</HintPath>
@@ -460,6 +472,9 @@
     <Reference Include="AWSSDK.Inspector">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Inspector2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
     </Reference>
@@ -486,6 +501,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTThingsGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTTwinMaker">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTTwinMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTWireless">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTWireless.dll</HintPath>
@@ -619,6 +637,9 @@
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHubRefactorSpaces">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
     </Reference>
@@ -711,6 +732,9 @@
     </Reference>
     <Reference Include="AWSSDK.RDSDataService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RDSDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RecycleBin">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RecycleBin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Redshift.dll</HintPath>
@@ -901,6 +925,9 @@
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WorkSpacesWeb">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesWeb.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.XRay.dll</HintPath>
     </Reference>
@@ -926,6 +953,9 @@
     </Reference>
     <Reference Include="AWSSDK.AmplifyBackend">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AmplifyBackend.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AmplifyUIBuilder">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AmplifyUIBuilder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.APIGateway.dll</HintPath>
@@ -1005,6 +1035,9 @@
     <Reference Include="AWSSDK.Backup">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Backup.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BackupGateway">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BackupGateway.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
     </Reference>
@@ -1065,8 +1098,14 @@
     <Reference Include="AWSSDK.CloudWatchEvents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudWatchEvidently">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchEvidently.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchRUM">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchRUM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeArtifact">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeArtifact.dll</HintPath>
@@ -1311,6 +1350,9 @@
     <Reference Include="AWSSDK.Inspector">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Inspector.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Inspector2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Inspector2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoT.dll</HintPath>
     </Reference>
@@ -1337,6 +1379,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTThingsGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTTwinMaker">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTTwinMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTWireless">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTWireless.dll</HintPath>
@@ -1470,6 +1515,9 @@
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHubRefactorSpaces">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
     </Reference>
@@ -1562,6 +1610,9 @@
     </Reference>
     <Reference Include="AWSSDK.RDSDataService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RDSDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RecycleBin">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RecycleBin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Redshift.dll</HintPath>
@@ -1751,6 +1802,9 @@
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkSpacesWeb">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpacesWeb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.XRay.dll</HintPath>

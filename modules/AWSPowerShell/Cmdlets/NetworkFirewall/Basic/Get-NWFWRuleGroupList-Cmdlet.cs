@@ -42,6 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class GetNWFWRuleGroupListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of the request. The default setting of <code>ACCOUNT</code> or a setting
+        /// of <code>NULL</code> returns all of the rule groups in your account. A setting of
+        /// <code>MANAGED</code> returns all available managed rule groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.ResourceManagedStatus")]
+        public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -96,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Scope = this.Scope;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
             }
             
             CmdletOutput output;
@@ -183,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.ListRuleGroupsResponse, GetNWFWRuleGroupListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RuleGroups;
         }

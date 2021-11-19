@@ -39,6 +39,34 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class WriteIOTSWStorageConfigurationCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        #region Parameter DisassociatedDataStorage
+        /// <summary>
+        /// <para>
+        /// <para>Contains the storage configuration for time series (data streams) that aren't associated
+        /// with asset properties. The <code>disassociatedDataStorage</code> can be one of the
+        /// following values:</para><ul><li><para><code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with
+        /// asset properties.</para><important><para>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</para></important></li><li><para><code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that
+        /// aren't associated with asset properties.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data
+        /// streams</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.DisassociatedDataStorageState")]
+        public Amazon.IoTSiteWise.DisassociatedDataStorageState DisassociatedDataStorage { get; set; }
+        #endregion
+        
+        #region Parameter RetentionPeriod_NumberOfDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days that your data is kept.</para><note><para>If you specified a value for this parameter, the <code>unlimited</code> parameter
+        /// must be <code>false</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetentionPeriod_NumberOfDays")]
+        public System.Int32? RetentionPeriod_NumberOfDay { get; set; }
+        #endregion
+        
         #region Parameter CustomerManagedS3Storage_RoleArn
         /// <summary>
         /// <para>
@@ -69,11 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The type of storage that you specified for your data. The storage type can be one
-        /// of the following values:</para><ul><li><para><code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a
-        /// service managed database.</para></li><li><para><code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service
-        /// managed database and saves a copy of your raw data and metadata in an Amazon S3 object
-        /// that you specified.</para></li></ul>
+        /// <para>The storage tier that you specified for your data. The <code>storageType</code> parameter
+        /// can be one of the following values:</para><ul><li><para><code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot
+        /// tier. The hot tier is a service-managed database.</para></li><li><para><code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold
+        /// tier and the cold tier. The cold tier is a customer-managed Amazon S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.IoTSiteWise.StorageType")]
         public Amazon.IoTSiteWise.StorageType StorageType { get; set; }
+        #endregion
+        
+        #region Parameter RetentionPeriod_Unlimited
+        /// <summary>
+        /// <para>
+        /// <para>If true, your data is kept indefinitely.</para><note><para>If configured to <code>true</code>, you must not specify a value for the <code>numberOfDays</code>
+        /// parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetentionPeriod_Unlimited { get; set; }
         #endregion
         
         #region Parameter Select
@@ -148,8 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.StorageType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DisassociatedDataStorage = this.DisassociatedDataStorage;
             context.CustomerManagedS3Storage_RoleArn = this.CustomerManagedS3Storage_RoleArn;
             context.CustomerManagedS3Storage_S3ResourceArn = this.CustomerManagedS3Storage_S3ResourceArn;
+            context.RetentionPeriod_NumberOfDay = this.RetentionPeriod_NumberOfDay;
+            context.RetentionPeriod_Unlimited = this.RetentionPeriod_Unlimited;
             context.StorageType = this.StorageType;
             #if MODULAR
             if (this.StorageType == null && ParameterWasBound(nameof(this.StorageType)))
@@ -173,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.PutStorageConfigurationRequest();
             
+            if (cmdletContext.DisassociatedDataStorage != null)
+            {
+                request.DisassociatedDataStorage = cmdletContext.DisassociatedDataStorage;
+            }
             
              // populate MultiLayerStorage
             var requestMultiLayerStorageIsNull = true;
@@ -216,6 +261,35 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestMultiLayerStorageIsNull)
             {
                 request.MultiLayerStorage = null;
+            }
+            
+             // populate RetentionPeriod
+            var requestRetentionPeriodIsNull = true;
+            request.RetentionPeriod = new Amazon.IoTSiteWise.Model.RetentionPeriod();
+            System.Int32? requestRetentionPeriod_retentionPeriod_NumberOfDay = null;
+            if (cmdletContext.RetentionPeriod_NumberOfDay != null)
+            {
+                requestRetentionPeriod_retentionPeriod_NumberOfDay = cmdletContext.RetentionPeriod_NumberOfDay.Value;
+            }
+            if (requestRetentionPeriod_retentionPeriod_NumberOfDay != null)
+            {
+                request.RetentionPeriod.NumberOfDays = requestRetentionPeriod_retentionPeriod_NumberOfDay.Value;
+                requestRetentionPeriodIsNull = false;
+            }
+            System.Boolean? requestRetentionPeriod_retentionPeriod_Unlimited = null;
+            if (cmdletContext.RetentionPeriod_Unlimited != null)
+            {
+                requestRetentionPeriod_retentionPeriod_Unlimited = cmdletContext.RetentionPeriod_Unlimited.Value;
+            }
+            if (requestRetentionPeriod_retentionPeriod_Unlimited != null)
+            {
+                request.RetentionPeriod.Unlimited = requestRetentionPeriod_retentionPeriod_Unlimited.Value;
+                requestRetentionPeriodIsNull = false;
+            }
+             // determine if request.RetentionPeriod should be set to null
+            if (requestRetentionPeriodIsNull)
+            {
+                request.RetentionPeriod = null;
             }
             if (cmdletContext.StorageType != null)
             {
@@ -282,8 +356,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTSiteWise.DisassociatedDataStorageState DisassociatedDataStorage { get; set; }
             public System.String CustomerManagedS3Storage_RoleArn { get; set; }
             public System.String CustomerManagedS3Storage_S3ResourceArn { get; set; }
+            public System.Int32? RetentionPeriod_NumberOfDay { get; set; }
+            public System.Boolean? RetentionPeriod_Unlimited { get; set; }
             public Amazon.IoTSiteWise.StorageType StorageType { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.PutStorageConfigurationResponse, WriteIOTSWStorageConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

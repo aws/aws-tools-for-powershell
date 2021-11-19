@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To view environment template major version detail data, include <code>majorVersion</code>.</para>
+        /// <para>To view environment template major version detail data, include <code>major Version</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,8 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_CreateDatabaseDefaultPermission
         /// <summary>
         /// <para>
-        /// <para>A structure representing a list of up to three principal permissions entries for default
-        /// create database permissions.</para>
+        /// <para>Specifies whether access control on newly created database is managed by Lake Formation
+        /// permissions or exclusively by IAM permissions. You can override this default setting
+        /// when you create a database.</para><para>A null value indicates access control by Lake Formation permissions. A value that
+        /// assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions.
+        /// This is referred to as the setting "Use only IAM access control," and is for backward
+        /// compatibility with the Glue permission model implemented by IAM permissions.</para><para>The only permitted values are an empty array or an array that contains a single JSON
+        /// object that grants ALL to IAM_ALLOWED_PRINCIPALS.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing
+        /// the Default Security Settings for Your Data Lake</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_CreateTableDefaultPermission
         /// <summary>
         /// <para>
-        /// <para>A structure representing a list of up to three principal permissions entries for default
-        /// create table permissions.</para>
+        /// <para>Specifies whether access control on newly created table is managed by Lake Formation
+        /// permissions or exclusively by IAM permissions.</para><para>A null value indicates access control by Lake Formation permissions. A value that
+        /// assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions.
+        /// This is referred to as the setting "Use only IAM access control," and is for backward
+        /// compatibility with the Glue permission model implemented by IAM permissions.</para><para>The only permitted values are an empty array or an array that contains a single JSON
+        /// object that grants ALL to IAM_ALLOWED_PRINCIPALS.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing
+        /// the Default Security Settings for Your Data Lake</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_DataLakeAdmin
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Lake Formation principals. Supported principals are IAM users or IAM
-        /// roles.</para>
+        /// <para>A list of Lake Formation principals. Supported principals are IAM users or IAM roles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>A list of the resource-owning account IDs that the caller's account can use to share
         /// their user access details (user ARNs). The user ARNs can be logged in the resource
-        /// owner's AWS CloudTrail log.</para><para>You may want to specify this property when you are in a high-trust boundary, such
+        /// owner's CloudTrail log.</para><para>You may want to specify this property when you are in a high-trust boundary, such
         /// as the same team or company. </para>
         /// </para>
         /// </summary>

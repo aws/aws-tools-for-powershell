@@ -34,7 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a>
     /// action.
-    /// </para>
+    /// </para><note><para>
+    /// This call is asynchronous. It might take several seconds for the detachment to propagate.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IOTThingFromBillingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

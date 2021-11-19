@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An IAM role that allows the IoT service principal assumes to access your S3 files.</para>
+        /// <para>An IAM role that allows the IoT service principal to access your S3 files.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

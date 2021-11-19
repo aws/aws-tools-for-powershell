@@ -57,13 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para></li><li><para>
     /// Scale down below half your current shard count for a stream
     /// </para></li><li><para>
-    /// Scale up to more than 500 shards in a stream
+    /// Scale up to more than 10000 shards in a stream
     /// </para></li><li><para>
-    /// Scale a stream with more than 500 shards down unless the result is less than 500 shards
+    /// Scale a stream with more than 10000 shards down unless the result is less than 10000
+    /// shards
     /// </para></li><li><para>
     /// Scale up to more than the shard limit for your account
     /// </para></li></ul><para>
-    /// For the default limits for an AWS account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
+    /// For the default limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
     /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>. To request an
     /// increase in the call rate limit, the shard limit for this API, or your overall shard
     /// limit, use the <a href="https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&amp;limitType=service-code-kinesis">limits
@@ -117,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The new number of shards. This value has the following default limits. By default,
-        /// you cannot do the following: </para><ul><li><para>Set this value to more than double your current shard count for a stream.</para></li><li><para>Set this value below half your current shard count for a stream.</para></li><li><para>Set this value to more than 500 shards in a stream (the default limit for shard count
-        /// per stream is 500 per account per region), unless you request a limit increase.</para></li><li><para>Scale a stream with more than 500 shards down unless you set this value to less than
-        /// 500 shards.</para></li></ul>
+        /// you cannot do the following: </para><ul><li><para>Set this value to more than double your current shard count for a stream.</para></li><li><para>Set this value below half your current shard count for a stream.</para></li><li><para>Set this value to more than 10000 shards in a stream (the default limit for shard
+        /// count per stream is 10000 per account per region), unless you request a limit increase.</para></li><li><para>Scale a stream with more than 10000 shards down unless you set this value to less
+        /// than 10000 shards.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

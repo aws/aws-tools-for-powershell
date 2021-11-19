@@ -28,11 +28,16 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Returns a list of predictors created using the <a>CreatePredictor</a> operation. For
-    /// each predictor, this operation returns a summary of its properties, including its
-    /// Amazon Resource Name (ARN). You can retrieve the complete set of properties by using
-    /// the ARN with the <a>DescribePredictor</a> operation. You can filter the list using
-    /// an array of <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of predictors created using the <a>CreateAutoPredictor</a> or <a>CreatePredictor</a>
+    /// operations. For each predictor, this operation returns a summary of its properties,
+    /// including its Amazon Resource Name (ARN). 
+    /// 
+    ///  
+    /// <para>
+    /// You can retrieve the complete set of properties by using the ARN with the <a>DescribeAutoPredictor</a>
+    /// and <a>DescribePredictor</a> operations. You can filter the list using an array of
+    /// <a>Filter</a> objects.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCPredictorList")]
     [OutputType("Amazon.ForecastService.Model.PredictorSummary")]

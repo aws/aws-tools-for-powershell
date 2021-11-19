@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// ExecutionType: Specify patch, association, or Custom:<code>string</code>.
     /// </para></li><li><para>
     /// ExecutionTime. The time the patch, association, or custom compliance item was applied
-    /// to the instance.
+    /// to the managed node.
     /// </para></li><li><para>
     /// Id: The patch, association, or custom compliance ID.
     /// </para></li><li><para>
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specify an ID for this resource. For a managed instance, this is the instance ID.</para>
+        /// <para>Specify an ID for this resource. For a managed node, this is the node ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

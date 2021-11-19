@@ -39,6 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// API. To detach the load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a>
     /// API.
     /// </para><para>
+    /// This operation is additive and does not detach existing Classic Load Balancers or
+    /// target groups from the Auto Scaling group.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
     /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>. 

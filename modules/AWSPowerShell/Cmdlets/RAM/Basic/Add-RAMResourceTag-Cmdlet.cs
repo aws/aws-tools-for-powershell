@@ -28,7 +28,9 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Adds the specified tags to the specified resource share that you own.
+    /// Adds the specified tag keys and values to the specified resource share. The tags are
+    /// attached only to the resource share, not to the resources that are in the resource
+    /// share.
     /// </summary>
     [Cmdlet("Add", "RAMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource share that you want to add tags to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para>
+        /// <para>A list of one or more tag key and value pairs. The tag key must be present and not
+        /// be an empty string. The tag value must be present but can be an empty string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

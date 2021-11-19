@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>The ARN of the Kinesis data stream that you want to register the consumer with. For
         /// more info, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class UpdateDCVirtualInterfaceAttributeCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter EnableSiteLink
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable SiteLink.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableSiteLink { get; set; }
+        #endregion
+        
         #region Parameter Mtu
         /// <summary>
         /// <para>
@@ -75,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VirtualInterfaceId { get; set; }
+        #endregion
+        
+        #region Parameter VirtualInterfaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the virtual private interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VirtualInterfaceName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -138,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 context.Select = (response, cmdlet) => this.VirtualInterfaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EnableSiteLink = this.EnableSiteLink;
             context.Mtu = this.Mtu;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
             #if MODULAR
@@ -146,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 WriteWarning("You are passing $null as a value for parameter VirtualInterfaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VirtualInterfaceName = this.VirtualInterfaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesRequest();
             
+            if (cmdletContext.EnableSiteLink != null)
+            {
+                request.EnableSiteLink = cmdletContext.EnableSiteLink.Value;
+            }
             if (cmdletContext.Mtu != null)
             {
                 request.Mtu = cmdletContext.Mtu.Value;
@@ -169,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.VirtualInterfaceId != null)
             {
                 request.VirtualInterfaceId = cmdletContext.VirtualInterfaceId;
+            }
+            if (cmdletContext.VirtualInterfaceName != null)
+            {
+                request.VirtualInterfaceName = cmdletContext.VirtualInterfaceName;
             }
             
             CmdletOutput output;
@@ -231,8 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableSiteLink { get; set; }
             public System.Int32? Mtu { get; set; }
             public System.String VirtualInterfaceId { get; set; }
+            public System.String VirtualInterfaceName { get; set; }
             public System.Func<Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse, UpdateDCVirtualInterfaceAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

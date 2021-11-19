@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>A custom description of the filter. The description can contain as many as 512 characters.</para><para>We strongly recommend that you avoid including any sensitive data in the description
-        /// of a filter. Other users of your account might be able to see the filter's description,
-        /// depending on the actions that they're allowed to perform in Amazon Macie.</para>
+        /// of a filter. Other users of your account might be able to see this description, depending
+        /// on the actions that they're allowed to perform in Amazon Macie.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>A custom name for the filter. The name must contain at least 3 characters and can
         /// contain as many as 64 characters.</para><para>We strongly recommend that you avoid including any sensitive data in the name of a
-        /// filter. Other users of your account might be able to see the filter's name, depending
-        /// on the actions that they're allowed to perform in Amazon Macie.</para>
+        /// filter. Other users of your account might be able to see this name, depending on the
+        /// actions that they're allowed to perform in Amazon Macie.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
+    /// Creates an Amazon QuickSight user, whose identity is associated with the Identity
     /// and Access Management (IAM) identity or role specified in the request.
     /// </summary>
     [Cmdlet("Register", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,13 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>(Enterprise edition only) The name of the custom permissions profile that you want
         /// to assign to this user. Customized permissions allows you to control a user's access
-        /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>To add custom permissions to an existing user, use <code><a>UpdateUser</a></code>
-        /// instead.</para><para>A set of custom permissions includes any combination of these restrictions. Currently,
+        /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>To add custom permissions to an existing user, use <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a></code> instead.</para><para>A set of custom permissions includes any combination of these restrictions. Currently,
         /// you need to create the profile names for custom permission sets by using the Amazon
         /// QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign
-        /// the named set of permissions to a Amazon QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
-        /// override the permissions typically granted by assigning Amazon QuickSight users to
-        /// one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
+        /// the named set of permissions to a QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
+        /// they override the permissions typically granted by assigning Amazon QuickSight users
+        /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IamArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAMuser or role that you are registering with Amazon QuickSight. </para>
+        /// <para>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Amazon QuickSight supports several ways of managing the identity of users. This parameter
-        /// accepts two values:</para><ul><li><para><code>IAM</code>: A user whose identity maps to an existing IAMuser or role. </para></li><li><para><code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by
+        /// accepts two values:</para><ul><li><para><code>IAM</code>: A user whose identity maps to an existing IAM user or role. </para></li><li><para><code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by
         /// Amazon QuickSight. </para></li></ul>
         /// </para>
         /// </summary>
@@ -182,10 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>You need to use this parameter only when you register one or more users using an assumed
-        /// IAMrole. You don't need to provide the session name for other scenarios, for example
-        /// when you are registering an IAMuser or an Amazon QuickSight user. You can register
-        /// multiple users using the same IAMrole if each user has a different session name. For
-        /// more information on assuming IAMroles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>AWS CLI Reference.</i></para>
+        /// IAM role. You don't need to provide the session name for other scenarios, for example
+        /// when you are registering an IAM user or an Amazon QuickSight user. You can register
+        /// multiple users using the same IAM role if each user has a different session name.
+        /// For more information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>CLI Reference.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

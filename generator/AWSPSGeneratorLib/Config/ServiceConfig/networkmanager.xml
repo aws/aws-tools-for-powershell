@@ -19,6 +19,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptAttachment" OutputProperty="Attachment" Verb="Confirm" Noun="Attachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateConnectPeer" OutputProperty="ConnectPeerAssociation" Verb="Add" Noun="ConnectPeerAssociation" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateCustomerGateway" OutputProperty="CustomerGatewayAssociation" Verb="Register" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayArn" PipelineParameter="CustomerGatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,7 +39,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectAttachment" OutputProperty="ConnectAttachment" Verb="New" Noun="ConnectAttachment" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnection" OutputProperty="Connection" Verb="New" Noun="Connection" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectPeer" OutputProperty="ConnectPeer" Verb="New" Noun="ConnectPeer" ShouldProcessTarget="ConnectAttachmentId" PipelineParameter="ConnectAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoreNetwork" OutputProperty="CoreNetwork" Verb="New" Noun="CoreNetwork" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,7 +71,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSiteToSiteVpnAttachment" OutputProperty="SiteToSiteVpnAttachment" Verb="New" Noun="SiteToSiteVpnAttachment" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcAttachment" OutputProperty="VpcAttachment" Verb="New" Noun="VpcAttachment" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="Attachment" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectPeer" OutputProperty="ConnectPeer" Verb="Remove" Noun="ConnectPeer" ShouldProcessTarget="ConnectPeerId" PipelineParameter="ConnectPeerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoreNetwork" OutputProperty="CoreNetwork" Verb="Remove" Noun="CoreNetwork" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoreNetworkPolicyVersion" OutputProperty="CoreNetworkPolicy" Verb="Remove" Noun="CoreNetworkPolicyVersion" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSite" OutputProperty="Site" Verb="Remove" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeGlobalNetworks" OutputProperty="GlobalNetworks" Verb="Get" Noun="GlobalNetwork" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateConnectPeer" OutputProperty="ConnectPeerAssociation" Verb="Remove" Noun="ConnectPeerAssociation" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,7 +143,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteCoreNetworkChangeSet" Verb="Enable" Noun="CoreNetworkChangeSet" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectAttachment" OutputProperty="ConnectAttachment" Verb="Get" Noun="ConnectAttachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectPeer" OutputProperty="ConnectPeer" Verb="Get" Noun="ConnectPeer" PipelineParameter="ConnectPeerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectPeerAssociations" OutputProperty="ConnectPeerAssociations" Verb="Get" Noun="ConnectPeerAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreNetwork" OutputProperty="CoreNetwork" Verb="Get" Noun="CoreNetwork" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreNetworkChangeSet" OutputProperty="CoreNetworkChanges" Verb="Get" Noun="CoreNetworkChangeSet" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreNetworkPolicy" OutputProperty="CoreNetworkPolicy" Verb="Get" Noun="CoreNetworkPolicy" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,11 +211,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="PolicyDocument" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRouteAnalysis" OutputProperty="RouteAnalysis" Verb="Get" Noun="RouteAnalysis" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSites" OutputProperty="Sites" Verb="Get" Noun="Site" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSiteToSiteVpnAttachment" OutputProperty="SiteToSiteVpnAttachment" Verb="Get" Noun="SiteToSiteVpnAttachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -147,11 +235,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVpcAttachment" OutputProperty="VpcAttachment" Verb="Get" Noun="VpcAttachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachments" OutputProperty="Attachments" Verb="Get" Noun="AttachmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectPeers" OutputProperty="ConnectPeers" Verb="Get" Noun="ConnectPeerList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreNetworkPolicyVersions" OutputProperty="CoreNetworkPolicyVersions" Verb="Get" Noun="CoreNetworkPolicyVersionList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreNetworks" OutputProperty="CoreNetworks" Verb="Get" Noun="CoreNetworkList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutCoreNetworkPolicy" OutputProperty="CoreNetworkPolicy" Verb="Write" Noun="CoreNetworkPolicy" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterTransitGateway" OutputProperty="TransitGatewayRegistration" Verb="Register" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayArn" PipelineParameter="TransitGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectAttachment" OutputProperty="Attachment" Verb="Deny" Noun="Attachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreCoreNetworkPolicyVersion" OutputProperty="CoreNetworkPolicy" Verb="Restore" Noun="CoreNetworkPolicyVersion" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +292,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="Connection" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCoreNetwork" OutputProperty="CoreNetwork" Verb="Update" Noun="CoreNetwork" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,6 +316,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSite" OutputProperty="Site" Verb="Update" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVpcAttachment" OutputProperty="VpcAttachment" Verb="Update" Noun="VpcAttachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

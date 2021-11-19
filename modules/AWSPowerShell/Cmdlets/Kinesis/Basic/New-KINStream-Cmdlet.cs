@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// up to a maximum data write total of 1 MiB per second. If the amount of data input
     /// increases or decreases, you can add or remove shards.
     /// </para><para>
-    /// The stream name identifies the stream. The name is scoped to the AWS account used
-    /// by the application. It is also scoped by AWS Region. That is, two streams in two different
-    /// accounts can have the same name, and two streams in the same account, but in two different
-    /// Regions, can have the same name.
+    /// The stream name identifies the stream. The name is scoped to the Amazon Web Services
+    /// account used by the application. It is also scoped by Amazon Web Services Region.
+    /// That is, two streams in two different accounts can have the same name, and two streams
+    /// in the same account, but in two different Regions, can have the same name.
     /// </para><para><code>CreateStream</code> is an asynchronous operation. Upon receiving a <code>CreateStream</code>
     /// request, Kinesis Data Streams immediately returns and sets the stream status to <code>CREATING</code>.
     /// After the stream is created, Kinesis Data Streams sets the stream status to <code>ACTIVE</code>.
@@ -58,12 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para></li><li><para>
     /// Create more shards than are authorized for your account.
     /// </para></li></ul><para>
-    /// For the default shard limit for an AWS account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
+    /// For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
     /// Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-    /// AWS Support</a>.
+    /// Amazon Web Services Support</a>.
     /// </para><para>
-    /// You can use <code>DescribeStream</code> to check the stream status, which is returned
+    /// You can use <a>DescribeStreamSummary</a> to check the stream status, which is returned
     /// in <code>StreamStatus</code>.
     /// </para><para><a>CreateStream</a> has a limit of five transactions per second per account.
     /// </para>
@@ -85,23 +85,31 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// of the number of shards; more shards are required for greater provisioned throughput.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? ShardCount { get; set; }
+        #endregion
+        
+        #region Parameter StreamModeDetails_StreamMode
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the capacity mode to which you want to set your data stream. Currently,
+        /// in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode
+        /// and a <b>provisioned</b> capacity mode for your data streams. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kinesis.StreamMode")]
+        public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
         #endregion
         
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>A name to identify the stream. The stream name is scoped to the AWS account used by
-        /// the application that creates the stream. It is also scoped by AWS Region. That is,
-        /// two streams in two different AWS accounts can have the same name. Two streams in the
-        /// same AWS account but in two different Regions can also have the same name.</para>
+        /// <para>A name to identify the stream. The stream name is scoped to the Amazon Web Services
+        /// account used by the application that creates the stream. It is also scoped by Amazon
+        /// Web Services Region. That is, two streams in two different Amazon Web Services accounts
+        /// can have the same name. Two streams in the same Amazon Web Services account but in
+        /// two different Regions can also have the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,12 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ShardCount = this.ShardCount;
-            #if MODULAR
-            if (this.ShardCount == null && ParameterWasBound(nameof(this.ShardCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ShardCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.StreamModeDetails_StreamMode = this.StreamModeDetails_StreamMode;
             context.StreamName = this.StreamName;
             #if MODULAR
             if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
@@ -208,6 +211,25 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.ShardCount != null)
             {
                 request.ShardCount = cmdletContext.ShardCount.Value;
+            }
+            
+             // populate StreamModeDetails
+            var requestStreamModeDetailsIsNull = true;
+            request.StreamModeDetails = new Amazon.Kinesis.Model.StreamModeDetails();
+            Amazon.Kinesis.StreamMode requestStreamModeDetails_streamModeDetails_StreamMode = null;
+            if (cmdletContext.StreamModeDetails_StreamMode != null)
+            {
+                requestStreamModeDetails_streamModeDetails_StreamMode = cmdletContext.StreamModeDetails_StreamMode;
+            }
+            if (requestStreamModeDetails_streamModeDetails_StreamMode != null)
+            {
+                request.StreamModeDetails.StreamMode = requestStreamModeDetails_streamModeDetails_StreamMode;
+                requestStreamModeDetailsIsNull = false;
+            }
+             // determine if request.StreamModeDetails should be set to null
+            if (requestStreamModeDetailsIsNull)
+            {
+                request.StreamModeDetails = null;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -275,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? ShardCount { get; set; }
+            public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.CreateStreamResponse, NewKINStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

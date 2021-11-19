@@ -31,11 +31,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelTransaction" Verb="Stop" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Write" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataCellsFilter" Verb="New" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLFTag" Verb="New" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteObjectsOnCancel" Verb="Remove" Noun="ObjectsOnCancel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -44,6 +64,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeResource" OutputProperty="ResourceInfo" Verb="Get" Noun="Resource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransaction" OutputProperty="TransactionDescription" Verb="Get" Noun="Transaction" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExtendTransaction" Verb="Invoke" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,11 +87,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryState" OutputProperty="*" Verb="Get" Noun="QueryState" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryStatistics" OutputProperty="*" Verb="Get" Noun="QueryStatistic" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceLFTags" OutputProperty="*" Verb="Get" Noun="ResourceLFTag" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableObjects" OutputProperty="Objects" Verb="Get" Noun="TableObject" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkUnitResults" OutputProperty="ResultStream" Verb="Get" Noun="WorkUnitResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkUnits" OutputProperty="*" Verb="Get" Noun="WorkUnit" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataCellsFilter" OutputProperty="DataCellsFilters" Verb="Get" Noun="DataCellsFilterList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +128,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTableStorageOptimizers" OutputProperty="StorageOptimizerList" Verb="Get" Noun="TableStorageOptimizerList" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,11 +163,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartQueryPlanning" OutputProperty="QueryId" Verb="Start" Noun="QueryPlanning" ShouldProcessTarget="QueryPlanningContext_DatabaseName" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="TransactionType" PipelineParameter="TransactionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLFTag" Verb="Update" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTableObjects" Verb="Update" Noun="TableObject" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTableStorageOptimizer" OutputProperty="Result" Verb="Update" Noun="TableStorageOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

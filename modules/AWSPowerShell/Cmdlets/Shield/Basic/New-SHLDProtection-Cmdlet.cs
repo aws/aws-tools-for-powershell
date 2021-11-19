@@ -30,15 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// <summary>
     /// Enables Shield Advanced for a specific Amazon Web Services resource. The resource
     /// can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Global
-    /// Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
+    /// Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
     /// 
     ///  
     /// <para>
-    /// You can add protection to only a single resource with each CreateProtection request.
-    /// If you want to add protection to multiple resources at once, use the <a href="https://console.aws.amazon.com/waf/">WAF
-    /// console</a>. For more information see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting
-    /// Started with Shield Advanced</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Add
-    /// Shield Advanced Protection to more Amazon Web Services Resources</a>.
+    /// You can add protection to only a single resource with each <code>CreateProtection</code>
+    /// request. You can add protection to multiple resources at once through the Shield Advanced
+    /// console at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.
+    /// For more information see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting
+    /// Started with Shield Advanced</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Adding
+    /// Shield Advanced protection to Amazon Web Services resources</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHLDProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></code></para></li><li><para>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></code></para></li><li><para>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></code></para></li><li><para>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></code></para></li></ul>
+        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></code></para></li><li><para>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></code></para></li><li><para>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></code></para></li><li><para>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

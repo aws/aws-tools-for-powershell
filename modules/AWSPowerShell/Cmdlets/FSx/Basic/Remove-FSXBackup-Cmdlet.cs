@@ -28,13 +28,13 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no
-    /// longer exists, and its data is gone.
+    /// Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and its
+    /// data is gone.
     /// 
     ///  
     /// <para>
-    /// The <code>DeleteBackup</code> call returns instantly. The backup will not show up
-    /// in later <code>DescribeBackups</code> calls.
+    /// The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
+    /// later <code>DescribeBackups</code> calls.
     /// </para><important><para>
     /// The data in a deleted backup is also deleted and can't be recovered by any means.
     /// </para></important>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the backup you want to delete.</para>
+        /// <para>The ID of the backup that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion.
-        /// This is automatically filled on your behalf when using the CLI or SDK.</para>
+        /// This parameter is automatically filled on your behalf when using the CLI or SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

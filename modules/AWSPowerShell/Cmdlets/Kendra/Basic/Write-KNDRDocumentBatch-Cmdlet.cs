@@ -52,6 +52,58 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class WriteKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
+        /// key used for the condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey")]
+        public System.String CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
+        /// key used for the condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey")]
+        public System.String CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue
+        /// <summary>
+        /// <para>
+        /// <para>A date expressed as an ISO 8601 string.</para><para>It is important for the time zone to be included in the ISO 8601 date-time format.
+        /// For example, 20120325T123010+01:00 is the ISO 8601 date-time format for March 25th
+        /// 2012 at 12:30PM (plus 10 seconds) in Central European Time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue")]
+        public System.DateTime? CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue
+        /// <summary>
+        /// <para>
+        /// <para>A date expressed as an ISO 8601 string.</para><para>It is important for the time zone to be included in the ISO 8601 date-time format.
+        /// For example, 20120325T123010+01:00 is the ISO 8601 date-time format for March 25th
+        /// 2012 at 12:30PM (plus 10 seconds) in Central European Time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue")]
+        public System.DateTime? CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue { get; set; }
+        #endregion
+        
         #region Parameter Document
         /// <summary>
         /// <para>
@@ -91,6 +143,103 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String IndexId { get; set; }
         #endregion
         
+        #region Parameter CustomDocumentEnrichmentConfiguration_InlineConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information to alter document attributes or metadata fields and content
+        /// when ingesting documents into Amazon Kendra.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomDocumentEnrichmentConfiguration_InlineConfigurations")]
+        public Amazon.Kendra.Model.InlineCustomDocumentEnrichmentConfiguration[] CustomDocumentEnrichmentConfiguration_InlineConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter PostExtractionHookConfiguration_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
+        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_LambdaArn")]
+        public System.String PostExtractionHookConfiguration_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter PreExtractionHookConfiguration_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
+        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_LambdaArn")]
+        public System.String PreExtractionHookConfiguration_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue
+        /// <summary>
+        /// <para>
+        /// <para>A long integer value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue")]
+        public System.Int64? CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue
+        /// <summary>
+        /// <para>
+        /// <para>A long integer value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue")]
+        public System.Int64? CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator
+        /// <summary>
+        /// <para>
+        /// <para>The condition operator.</para><para>For example, you can use 'Contains' to partially match a string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_Operator")]
+        [AWSConstantClassSource("Amazon.Kendra.ConditionOperator")]
+        public Amazon.Kendra.ConditionOperator CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator
+        /// <summary>
+        /// <para>
+        /// <para>The condition operator.</para><para>For example, you can use 'Contains' to partially match a string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_Operator")]
+        [AWSConstantClassSource("Amazon.Kendra.ConditionOperator")]
+        public Amazon.Kendra.ConditionOperator CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
+        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
+        /// content during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDocumentEnrichmentConfiguration_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -101,6 +250,76 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter PostExtractionHookConfiguration_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>Stores the original, raw documents or the structured, parsed documents before and
+        /// after altering them. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda">Data
+        /// contracts for Lambda functions</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_S3Bucket")]
+        public System.String PostExtractionHookConfiguration_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter PreExtractionHookConfiguration_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>Stores the original, raw documents or the structured, parsed documents before and
+        /// after altering them. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda">Data
+        /// contracts for Lambda functions</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_S3Bucket")]
+        public System.String PreExtractionHookConfiguration_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue
+        /// <summary>
+        /// <para>
+        /// <para>A list of strings. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue")]
+        public System.String[] CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue
+        /// <summary>
+        /// <para>
+        /// <para>A list of strings. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue")]
+        public System.String[] CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue
+        /// <summary>
+        /// <para>
+        /// <para>A string, such as "department".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue")]
+        public System.String CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue
+        /// <summary>
+        /// <para>
+        /// <para>A string, such as "department".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue")]
+        public System.String CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue { get; set; }
         #endregion
         
         #region Parameter Select
@@ -164,6 +383,33 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CustomDocumentEnrichmentConfiguration_InlineConfiguration != null)
+            {
+                context.CustomDocumentEnrichmentConfiguration_InlineConfiguration = new List<Amazon.Kendra.Model.InlineCustomDocumentEnrichmentConfiguration>(this.CustomDocumentEnrichmentConfiguration_InlineConfiguration);
+            }
+            context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+            context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue;
+            context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue;
+            if (this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = new List<System.String>(this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue);
+            }
+            context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+            context.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator = this.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator;
+            context.PostExtractionHookConfiguration_LambdaArn = this.PostExtractionHookConfiguration_LambdaArn;
+            context.PostExtractionHookConfiguration_S3Bucket = this.PostExtractionHookConfiguration_S3Bucket;
+            context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+            context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue;
+            context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue;
+            if (this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = new List<System.String>(this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue);
+            }
+            context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+            context.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator = this.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator;
+            context.PreExtractionHookConfiguration_LambdaArn = this.PreExtractionHookConfiguration_LambdaArn;
+            context.PreExtractionHookConfiguration_S3Bucket = this.PreExtractionHookConfiguration_S3Bucket;
+            context.CustomDocumentEnrichmentConfiguration_RoleArn = this.CustomDocumentEnrichmentConfiguration_RoleArn;
             if (this.Document != null)
             {
                 context.Document = new List<Amazon.Kendra.Model.Document>(this.Document);
@@ -198,6 +444,285 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.BatchPutDocumentRequest();
             
+            
+             // populate CustomDocumentEnrichmentConfiguration
+            var requestCustomDocumentEnrichmentConfigurationIsNull = true;
+            request.CustomDocumentEnrichmentConfiguration = new Amazon.Kendra.Model.CustomDocumentEnrichmentConfiguration();
+            List<Amazon.Kendra.Model.InlineCustomDocumentEnrichmentConfiguration> requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_InlineConfiguration = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_InlineConfiguration != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_InlineConfiguration = cmdletContext.CustomDocumentEnrichmentConfiguration_InlineConfiguration;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_InlineConfiguration != null)
+            {
+                request.CustomDocumentEnrichmentConfiguration.InlineConfigurations = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_InlineConfiguration;
+                requestCustomDocumentEnrichmentConfigurationIsNull = false;
+            }
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_RoleArn = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_RoleArn != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_RoleArn = cmdletContext.CustomDocumentEnrichmentConfiguration_RoleArn;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_RoleArn != null)
+            {
+                request.CustomDocumentEnrichmentConfiguration.RoleArn = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_RoleArn;
+                requestCustomDocumentEnrichmentConfigurationIsNull = false;
+            }
+            Amazon.Kendra.Model.HookConfiguration requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration = null;
+            
+             // populate PostExtractionHookConfiguration
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfigurationIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration = new Amazon.Kendra.Model.HookConfiguration();
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_LambdaArn = null;
+            if (cmdletContext.PostExtractionHookConfiguration_LambdaArn != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_LambdaArn = cmdletContext.PostExtractionHookConfiguration_LambdaArn;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_LambdaArn != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration.LambdaArn = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_LambdaArn;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfigurationIsNull = false;
+            }
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_S3Bucket = null;
+            if (cmdletContext.PostExtractionHookConfiguration_S3Bucket != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_S3Bucket = cmdletContext.PostExtractionHookConfiguration_S3Bucket;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_S3Bucket != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration.S3Bucket = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_postExtractionHookConfiguration_S3Bucket;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfigurationIsNull = false;
+            }
+            Amazon.Kendra.Model.DocumentAttributeCondition requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition = null;
+            
+             // populate InvocationCondition
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationConditionIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition = new Amazon.Kendra.Model.DocumentAttributeCondition();
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition.ConditionDocumentAttributeKey = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+            Amazon.Kendra.ConditionOperator requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition.Operator = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+            Amazon.Kendra.Model.DocumentAttributeValue requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue = null;
+            
+             // populate ConditionOnValue
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue = new Amazon.Kendra.Model.DocumentAttributeValue();
+            System.DateTime? requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue.Value;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue.DateValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue.Value;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            System.Int64? requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue.Value;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue.LongValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue.Value;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            List<System.String> requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue.StringListValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue.StringValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition.ConditionOnValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationConditionIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration.InvocationCondition = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfigurationIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfigurationIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration != null)
+            {
+                request.CustomDocumentEnrichmentConfiguration.PostExtractionHookConfiguration = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PostExtractionHookConfiguration;
+                requestCustomDocumentEnrichmentConfigurationIsNull = false;
+            }
+            Amazon.Kendra.Model.HookConfiguration requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration = null;
+            
+             // populate PreExtractionHookConfiguration
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfigurationIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration = new Amazon.Kendra.Model.HookConfiguration();
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_LambdaArn = null;
+            if (cmdletContext.PreExtractionHookConfiguration_LambdaArn != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_LambdaArn = cmdletContext.PreExtractionHookConfiguration_LambdaArn;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_LambdaArn != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration.LambdaArn = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_LambdaArn;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfigurationIsNull = false;
+            }
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_S3Bucket = null;
+            if (cmdletContext.PreExtractionHookConfiguration_S3Bucket != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_S3Bucket = cmdletContext.PreExtractionHookConfiguration_S3Bucket;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_S3Bucket != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration.S3Bucket = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_preExtractionHookConfiguration_S3Bucket;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfigurationIsNull = false;
+            }
+            Amazon.Kendra.Model.DocumentAttributeCondition requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition = null;
+            
+             // populate InvocationCondition
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationConditionIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition = new Amazon.Kendra.Model.DocumentAttributeCondition();
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition.ConditionDocumentAttributeKey = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+            Amazon.Kendra.ConditionOperator requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition.Operator = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+            Amazon.Kendra.Model.DocumentAttributeValue requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue = null;
+            
+             // populate ConditionOnValue
+            var requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = true;
+            requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue = new Amazon.Kendra.Model.DocumentAttributeValue();
+            System.DateTime? requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue.Value;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue.DateValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue.Value;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            System.Int64? requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue.Value;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue.LongValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue.Value;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            List<System.String> requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue.StringListValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+            System.String requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = null;
+            if (cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue = cmdletContext.CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue.StringValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValueIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition.ConditionOnValue = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationConditionIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationConditionIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition != null)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration.InvocationCondition = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition;
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfigurationIsNull = false;
+            }
+             // determine if requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration should be set to null
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfigurationIsNull)
+            {
+                requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration = null;
+            }
+            if (requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration != null)
+            {
+                request.CustomDocumentEnrichmentConfiguration.PreExtractionHookConfiguration = requestCustomDocumentEnrichmentConfiguration_customDocumentEnrichmentConfiguration_PreExtractionHookConfiguration;
+                requestCustomDocumentEnrichmentConfigurationIsNull = false;
+            }
+             // determine if request.CustomDocumentEnrichmentConfiguration should be set to null
+            if (requestCustomDocumentEnrichmentConfigurationIsNull)
+            {
+                request.CustomDocumentEnrichmentConfiguration = null;
+            }
             if (cmdletContext.Document != null)
             {
                 request.Documents = cmdletContext.Document;
@@ -271,6 +796,24 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Kendra.Model.InlineCustomDocumentEnrichmentConfiguration> CustomDocumentEnrichmentConfiguration_InlineConfiguration { get; set; }
+            public System.String CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey { get; set; }
+            public System.DateTime? CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue { get; set; }
+            public System.Int64? CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue { get; set; }
+            public List<System.String> CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue { get; set; }
+            public System.String CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue { get; set; }
+            public Amazon.Kendra.ConditionOperator CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator { get; set; }
+            public System.String PostExtractionHookConfiguration_LambdaArn { get; set; }
+            public System.String PostExtractionHookConfiguration_S3Bucket { get; set; }
+            public System.String CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey { get; set; }
+            public System.DateTime? CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue { get; set; }
+            public System.Int64? CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue { get; set; }
+            public List<System.String> CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue { get; set; }
+            public System.String CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue { get; set; }
+            public Amazon.Kendra.ConditionOperator CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator { get; set; }
+            public System.String PreExtractionHookConfiguration_LambdaArn { get; set; }
+            public System.String PreExtractionHookConfiguration_S3Bucket { get; set; }
+            public System.String CustomDocumentEnrichmentConfiguration_RoleArn { get; set; }
             public List<Amazon.Kendra.Model.Document> Document { get; set; }
             public System.String IndexId { get; set; }
             public System.String RoleArn { get; set; }

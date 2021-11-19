@@ -178,6 +178,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para> This flag, when set to True, specifies whether the <code>UpdateElasticsearchDomain</code>
+        /// request should return the results of validation checks without actually applying the
+        /// change. This flag, when set to True, specifies the deployment mechanism through which
+        /// the update shall be applied on the domain. This will not actually perform the Update.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EBSOptions_EBSEnabled
         /// <summary>
         /// <para>
@@ -666,6 +680,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.EBSOptions_EBSEnabled = this.EBSOptions_EBSEnabled;
             context.EBSOptions_Iops = this.EBSOptions_Iops;
             context.EBSOptions_VolumeSize = this.EBSOptions_VolumeSize;
@@ -1059,6 +1074,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.DomainName = cmdletContext.DomainName;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             
              // populate EBSOptions
             var requestEBSOptionsIsNull = true;
@@ -1421,6 +1440,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Boolean? DomainEndpointOptions_EnforceHTTPS { get; set; }
             public Amazon.Elasticsearch.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
             public System.String DomainName { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? EBSOptions_EBSEnabled { get; set; }
             public System.Int32? EBSOptions_Iops { get; set; }
             public System.Int32? EBSOptions_VolumeSize { get; set; }

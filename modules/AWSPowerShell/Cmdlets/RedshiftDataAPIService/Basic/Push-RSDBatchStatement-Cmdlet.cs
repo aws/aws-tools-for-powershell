@@ -33,12 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// the following combinations of request parameters: 
     /// 
     ///  <ul><li><para>
-    /// Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database
-    /// name, and the cluster identifier that matches the cluster in the secret. 
+    /// Secrets Manager - when connecting to a cluster, specify the Amazon Resource Name (ARN)
+    /// of the secret, the database name, and the cluster identifier that matches the cluster
+    /// in the secret. When connecting to a serverless endpoint, specify the Amazon Resource
+    /// Name (ARN) of the secret and the database name. 
     /// </para></li><li><para>
-    /// Temporary credentials - specify the cluster identifier, the database name, and the
-    /// database user name. Permission to call the <code>redshift:GetClusterCredentials</code>
-    /// operation is required to use this method. 
+    /// Temporary credentials - when connecting to a cluster, specify the cluster identifier,
+    /// the database name, and the database user name. Also, permission to call the <code>redshift:GetClusterCredentials</code>
+    /// operation is required. When connecting to a serverless endpoint, specify the database
+    /// name. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Push", "RSDBatchStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,18 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier. This parameter is required when authenticating using either
-        /// Secrets Manager or temporary credentials. </para>
+        /// <para>The cluster identifier. This parameter is required when connecting to a cluster and
+        /// authenticating using either Secrets Manager or temporary credentials. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
@@ -89,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter DbUser
         /// <summary>
         /// <para>
-        /// <para>The database user name. This parameter is required when authenticating using temporary
-        /// credentials. </para>
+        /// <para>The database user name. This parameter is required when connecting to a cluster and
+        /// authenticating using temporary credentials. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,12 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClusterIdentifier = this.ClusterIdentifier;
-            #if MODULAR
-            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Database = this.Database;
             #if MODULAR
             if (this.Database == null && ParameterWasBound(nameof(this.Database)))

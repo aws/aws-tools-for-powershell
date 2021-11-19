@@ -44,14 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging
     /// on data set, data source, dashboard, and template. 
     /// </para><para>
-    /// Tagging for Amazon QuickSight works in a similar way to tagging for other AWS services,
-    /// except for the following:
+    /// Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web
+    /// Services services, except for the following:
     /// </para><ul><li><para>
-    /// You can't use tags to track AWS costs for Amazon QuickSight. This restriction is because
-    /// Amazon QuickSight costs are based on users and SPICE capacity, which aren't taggable
-    /// resources.
+    /// You can't use tags to track costs for Amazon QuickSight. This isn't possible because
+    /// you can't tag the resources that Amazon QuickSight costs are based on, for example
+    /// Amazon QuickSight storage capacity (SPICE), number of users, type of users, and usage
+    /// metrics.
     /// </para></li><li><para>
-    /// Amazon QuickSight doesn't currently support the Tag Editor for Resource Groups.
+    /// Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Add", "QSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

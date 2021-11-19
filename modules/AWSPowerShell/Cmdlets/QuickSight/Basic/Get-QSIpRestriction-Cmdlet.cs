@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Provides a summary and status of IP Rules.
+    /// Provides a summary and status of IP rules.
     /// </summary>
     [Cmdlet("Get", "QSIpRestriction")]
     [OutputType("Amazon.QuickSight.Model.DescribeIpRestrictionResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Your AWS account ID.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the IP rules.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

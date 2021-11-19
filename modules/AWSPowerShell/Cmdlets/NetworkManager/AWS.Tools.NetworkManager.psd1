@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The NetworkManager module of AWS Tools for PowerShell lets developers and administrators manage AWS Network Manager from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -86,8 +86,22 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-NMGRConnectPeerAssociation', 
         'Add-NMGRResourceTag', 
+        'Confirm-NMGRAttachment', 
+        'Deny-NMGRAttachment', 
+        'Enable-NMGRCoreNetworkChangeSet', 
+        'Get-NMGRAttachmentList', 
+        'Get-NMGRConnectAttachment', 
         'Get-NMGRConnection', 
+        'Get-NMGRConnectPeer', 
+        'Get-NMGRConnectPeerAssociation', 
+        'Get-NMGRConnectPeerList', 
+        'Get-NMGRCoreNetwork', 
+        'Get-NMGRCoreNetworkChangeSet', 
+        'Get-NMGRCoreNetworkList', 
+        'Get-NMGRCoreNetworkPolicy', 
+        'Get-NMGRCoreNetworkPolicyVersionList', 
         'Get-NMGRCustomerGatewayAssociation', 
         'Get-NMGRDevice', 
         'Get-NMGRGlobalNetwork', 
@@ -98,37 +112,56 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NMGRNetworkResourceRelationship', 
         'Get-NMGRNetworkRoute', 
         'Get-NMGRNetworkTelemetry', 
+        'Get-NMGRResourcePolicy', 
         'Get-NMGRResourceTag', 
         'Get-NMGRRouteAnalysis', 
         'Get-NMGRSite', 
+        'Get-NMGRSiteToSiteVpnAttachment', 
         'Get-NMGRTransitGatewayConnectPeerAssociation', 
         'Get-NMGRTransitGatewayRegistration', 
+        'Get-NMGRVpcAttachment', 
+        'New-NMGRConnectAttachment', 
         'New-NMGRConnection', 
+        'New-NMGRConnectPeer', 
+        'New-NMGRCoreNetwork', 
         'New-NMGRDevice', 
         'New-NMGRGlobalNetwork', 
         'New-NMGRLink', 
         'New-NMGRSite', 
+        'New-NMGRSiteToSiteVpnAttachment', 
+        'New-NMGRVpcAttachment', 
         'Register-NMGRCustomerGateway', 
         'Register-NMGRLink', 
         'Register-NMGRTransitGateway', 
         'Register-NMGRTransitGatewayConnectPeer', 
+        'Remove-NMGRAttachment', 
         'Remove-NMGRConnection', 
+        'Remove-NMGRConnectPeer', 
+        'Remove-NMGRConnectPeerAssociation', 
+        'Remove-NMGRCoreNetwork', 
+        'Remove-NMGRCoreNetworkPolicyVersion', 
         'Remove-NMGRDevice', 
         'Remove-NMGRGlobalNetwork', 
         'Remove-NMGRLink', 
+        'Remove-NMGRResourcePolicy', 
         'Remove-NMGRResourceTag', 
         'Remove-NMGRSite', 
+        'Restore-NMGRCoreNetworkPolicyVersion', 
         'Start-NMGRRouteAnalysis', 
         'Unregister-NMGRCustomerGateway', 
         'Unregister-NMGRLink', 
         'Unregister-NMGRTransitGateway', 
         'Unregister-NMGRTransitGatewayConnectPeer', 
         'Update-NMGRConnection', 
+        'Update-NMGRCoreNetwork', 
         'Update-NMGRDevice', 
         'Update-NMGRGlobalNetwork', 
         'Update-NMGRLink', 
         'Update-NMGRNetworkResourceMetadata', 
-        'Update-NMGRSite')
+        'Update-NMGRSite', 
+        'Update-NMGRVpcAttachment', 
+        'Write-NMGRCoreNetworkPolicy', 
+        'Write-NMGRResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

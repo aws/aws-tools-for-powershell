@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// search queries in your index.
     /// </para><para>
     /// You can still enable/disable query suggestions at any time.
+    /// </para><para><code>UpdateQuerySuggestionsConfig</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KNDRQuerySuggestionsConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// This operation renews a domain for the specified number of years. The cost of renewing
-    /// your domain is billed to your AWS account.
+    /// your domain is billed to your Amazon Web Services account.
     /// 
     ///  
     /// <para>

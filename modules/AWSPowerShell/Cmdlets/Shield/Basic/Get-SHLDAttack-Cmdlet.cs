@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter AttackId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) for the attack that to be described.</para>
+        /// <para>The unique identifier (ID) for the attack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

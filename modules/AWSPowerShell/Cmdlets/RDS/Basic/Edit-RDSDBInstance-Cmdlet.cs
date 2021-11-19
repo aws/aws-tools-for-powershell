@@ -75,11 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB instance. By default, this parameter is disabled. </para><para> If this parameter is disabled, changes to the DB instance are applied during the
+        /// setting for the DB instance. By default, this parameter is disabled.</para><para> If this parameter is disabled, changes to the DB instance are applied during the
         /// next maintenance window. Some parameter changes can cause an outage and are applied
         /// on the next call to <a>RebootDBInstance</a>, or the next failure reboot. Review the
         /// table of parameters in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-        /// a DB Instance</a> in the <i>Amazon RDS User Guide.</i> to see the impact of enabling
+        /// a DB Instance</a> in the <i>Amazon RDS User Guide</i> to see the impact of enabling
         /// or disabling <code>ApplyImmediately</code> for each modified parameter and to determine
         /// when the changes are applied. </para>
         /// </para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// parameter is enabled for this request. If you change the parameter from one non-zero
         /// value to another non-zero value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
         /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source
-        /// to read replicas. It can't be set to 0 or 35 for an RDS Custom DB instance.</para></li><li><para>It can be specified for a MySQL read replica only if the source is running MySQL 5.6
+        /// to read replicas. It can't be set to 0 or 35 for an RDS Custom for Oracle DB instance.</para></li><li><para>It can be specified for a MySQL read replica only if the source is running MySQL 5.6
         /// or later.</para></li><li><para>It can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
         /// 9.3.5.</para></li></ul>
         /// </para>
@@ -187,13 +187,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
-        /// all database engines. For the full list of DB instance classes, and availability for
-        /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// <para>The new compute and memory capacity of the DB instance, for example db.m4.large. Not
+        /// all DB instance classes are available in all Amazon Web Services Regions, or for all
+        /// database engines. For the full list of DB instance classes, and availability for your
+        /// engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the <i>Amazon RDS User Guide</i>. </para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
-        /// is enabled for this request. </para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Uses existing setting</para>
+        /// is enabled for this request. </para><para>This setting doesn't apply to RDS Custom for Oracle.</para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
         /// Deleting a DB Instance</a>. </para>
         /// </para>
         /// </summary>
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts
         /// to database accounts is managed by the DB cluster.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>This setting doesn't apply to RDS Custom.</para>
@@ -384,8 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// must be specified. The new DB parameter group can be the default for that DB parameter
         /// group family.</para><para>If you specify only a major version, Amazon RDS will update the DB instance to the
         /// default minor version if the current minor version is lower. For information about
-        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>In RDS Custom, this parameter is supported for read replicas only if they are in the
-        /// <code>PATCH_DB_FAILURE</code> lifecycle. </para>
+        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>In RDS Custom for Oracle, this parameter is supported for read replicas only if they
+        /// are in the <code>PATCH_DB_FAILURE</code> lifecycle. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -621,15 +621,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible. </para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
-        /// IP address from within the DB instance's VPC, and to the public IP address from outside
-        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
-        /// security group it uses, and that public access is not permitted if the security group
-        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// <para>A value that indicates whether the DB instance is publicly accessible. </para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB cluster's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
+        /// public access isn't permitted if the security group assigned to the DB cluster doesn't
+        /// permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
         /// a DNS name that resolves to a private IP address.</para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
         /// must be part of a public subnet and <code>PubliclyAccessible</code> must be enabled
         /// for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

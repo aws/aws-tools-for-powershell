@@ -28,7 +28,7 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Creates a new ledger in your account in the current Region.
+    /// Creates a new ledger in your Amazon Web Services account in the current Region.
     /// </summary>
     [Cmdlet("New", "QLDBLedger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QLDB.Model.CreateLedgerResponse")]
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// account that you create, own, and manage.</para><para>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
         /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para></li></ul><para>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name
         /// (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.
-        /// To specify a key in a different account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
+        /// To specify a key in a different Amazon Web Services account, you must use the key
+        /// ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
         /// identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The name of the ledger that you want to create. The name must be unique among all
-        /// of the ledgers in your account in the current Region.</para><para>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas
+        /// of the ledgers in your Amazon Web Services account in the current Region.</para><para>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas
         /// in Amazon QLDB</a> in the <i>Amazon QLDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>

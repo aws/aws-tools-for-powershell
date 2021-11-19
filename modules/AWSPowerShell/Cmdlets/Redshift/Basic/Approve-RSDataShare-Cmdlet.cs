@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// From a data producer account, authorizes the sharing of a datashare with one or more
-    /// consumer accounts. To authorize a datashare for a data consumer, the producer account
-    /// must have the correct access privileges.
+    /// consumer accounts or managing entities. To authorize a datashare for a data consumer,
+    /// the producer account must have the correct access privileges.
     /// </summary>
     [Cmdlet("Approve", "RSDataShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.AuthorizeDataShareResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The identifier of the data consumer that is authorized to access the datashare. This
-        /// identifier is an AWS account ID.</para>
+        /// identifier is an Amazon Web Services account ID or a keyword, such as ADX.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeEnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name for your compute environment. Up to 128 letters (uppercase and lowercase),
-        /// numbers, hyphens, and underscores are allowed.</para>
+        /// <para>The name for your compute environment. It can be up to 128 letters long. It can contain
+        /// uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -454,8 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The maximum number of vCPUs for an unmanaged compute environment. This parameter is
         /// only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
-        /// If this parameter is not provided for a fair share job queue, no vCPU capacity will
-        /// be reserved.</para><note><para>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</para></note>
+        /// If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</para><note><para>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

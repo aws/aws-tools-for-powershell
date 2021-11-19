@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String AuthorizerName { get; set; }
         #endregion
         
+        #region Parameter EnableCachingForHttp
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, the result from the authorizer’s Lambda function is cached
+        /// for clients that use persistent HTTP connections. The results are cached for the time
+        /// specified by the Lambda function in <code>refreshAfterInSeconds</code>. This value
+        /// does not affect authorization of clients that use MQTT connections.</para><para>The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCachingForHttp { get; set; }
+        #endregion
+        
         #region Parameter SigningDisabled
         /// <summary>
         /// <para>
@@ -208,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter AuthorizerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnableCachingForHttp = this.EnableCachingForHttp;
             context.SigningDisabled = this.SigningDisabled;
             context.Status = this.Status;
             if (this.Tag != null)
@@ -246,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AuthorizerName != null)
             {
                 request.AuthorizerName = cmdletContext.AuthorizerName;
+            }
+            if (cmdletContext.EnableCachingForHttp != null)
+            {
+                request.EnableCachingForHttp = cmdletContext.EnableCachingForHttp.Value;
             }
             if (cmdletContext.SigningDisabled != null)
             {
@@ -330,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String AuthorizerFunctionArn { get; set; }
             public System.String AuthorizerName { get; set; }
+            public System.Boolean? EnableCachingForHttp { get; set; }
             public System.Boolean? SigningDisabled { get; set; }
             public Amazon.IoT.AuthorizerStatus Status { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }

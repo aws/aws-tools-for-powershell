@@ -143,6 +143,7 @@ $EC2IB_Completers = {
         # Amazon.Imagebuilder.Platform
         {
             ($_ -eq "Import-EC2IBComponent/Platform") -Or
+            ($_ -eq "Import-EC2IBVmImage/Platform") -Or
             ($_ -eq "New-EC2IBComponent/Platform") -Or
             ($_ -eq "New-EC2IBContainerRecipe/PlatformOverride")
         }
@@ -163,7 +164,7 @@ $EC2IB_map = @{
     "ContainerType"=@("New-EC2IBContainerRecipe")
     "Format"=@("Import-EC2IBComponent")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
-    "Platform"=@("Import-EC2IBComponent","New-EC2IBComponent")
+    "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
     "Schedule_PipelineExecutionStartCondition"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
     "Status"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
@@ -248,6 +249,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageRecipePolicy",
                "Get-EC2IBInfrastructureConfiguration",
                "Import-EC2IBComponent",
+               "Import-EC2IBVmImage",
                "Get-EC2IBComponentBuildVersionList",
                "Get-EC2IBComponentList",
                "Get-EC2IBContainerRecipeList",

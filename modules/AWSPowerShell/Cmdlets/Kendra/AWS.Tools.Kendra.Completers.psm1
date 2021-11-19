@@ -80,6 +80,20 @@ $KNDR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Kendra.ConditionOperator
+        {
+            ($_ -eq "New-KNDRDataSource/CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Update-KNDRDataSource/CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Write-KNDRDocumentBatch/CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "New-KNDRDataSource/CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Update-KNDRDataSource/CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Write-KNDRDocumentBatch/CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator")
+        }
+        {
+            $v = "BeginsWith","Contains","Equals","Exists","GreaterThan","GreaterThanOrEquals","LessThan","LessThanOrEquals","NotContains","NotEquals","NotExists"
+            break
+        }
+
         # Amazon.Kendra.DataSourceSyncJobStatus
         "Get-KNDRDataSourceSyncJobList/StatusFilter"
         {
@@ -105,6 +119,20 @@ $KNDR_Completers = {
         "New-KNDRIndex/Edition"
         {
             $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION"
+            break
+        }
+
+        # Amazon.Kendra.Interval
+        "Get-KNDRSnapshot/Interval"
+        {
+            $v = "ONE_MONTH_AGO","ONE_WEEK_AGO","THIS_MONTH","THIS_WEEK","TWO_MONTHS_AGO","TWO_WEEKS_AGO"
+            break
+        }
+
+        # Amazon.Kendra.MetricType
+        "Get-KNDRSnapshot/MetricType"
+        {
+            $v = "AGG_QUERY_DOC_METRICS","DOCS_BY_CLICK_COUNT","QUERIES_BY_COUNT","QUERIES_BY_ZERO_CLICK_RATE","QUERIES_BY_ZERO_RESULT_RATE","TREND_QUERY_DOC_METRICS"
             break
         }
 
@@ -158,8 +186,12 @@ $KNDR_Completers = {
 }
 
 $KNDR_map = @{
+    "CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
+    "CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
     "Edition"=@("New-KNDRIndex")
     "FileFormat"=@("New-KNDRFaq")
+    "Interval"=@("Get-KNDRSnapshot")
+    "MetricType"=@("Get-KNDRSnapshot")
     "Mode"=@("Update-KNDRQuerySuggestionsConfig")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
@@ -219,31 +251,42 @@ $KNDR_SelectCompleters = {
 }
 
 $KNDR_SelectMap = @{
-    "Select"=@("Remove-KNDRDocumentBatch",
+    "Select"=@("Add-KNDREntitiesToExperience",
+               "Add-KNDRPersonasToEntity",
+               "Remove-KNDRDocumentBatch",
                "Get-KNDRGetDocumentStatus",
                "Write-KNDRDocumentBatch",
                "Clear-KNDRQuerySuggestion",
                "New-KNDRDataSource",
+               "New-KNDRExperience",
                "New-KNDRFaq",
                "New-KNDRIndex",
                "New-KNDRQuerySuggestionsBlockList",
                "New-KNDRThesaurus",
                "Remove-KNDRDataSource",
+               "Remove-KNDRExperience",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
                "Remove-KNDRPrincipalMapping",
                "Remove-KNDRQuerySuggestionsBlockList",
                "Remove-KNDRThesaurus",
                "Get-KNDRDataSource",
+               "Get-KNDRExperience",
                "Get-KNDRFaq",
                "Get-KNDRIndex",
                "Get-KNDRPrincipalMapping",
                "Get-KNDRQuerySuggestionsBlockList",
                "Get-KNDRQuerySuggestionsConfig",
                "Get-KNDRThesaurus",
+               "Remove-KNDREntitiesFromExperience",
+               "Remove-KNDRPersonasFromEntity",
                "Get-KNDRQuerySuggestion",
+               "Get-KNDRSnapshot",
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
+               "Get-KNDREntityPersonaList",
+               "Get-KNDRExperienceEntityList",
+               "Get-KNDRExperienceList",
                "Get-KNDRFaqList",
                "Get-KNDRGroupsOlderThanOrderingIdList",
                "Get-KNDRIndexList",
@@ -258,6 +301,7 @@ $KNDR_SelectMap = @{
                "Add-KNDRResourceTag",
                "Remove-KNDRResourceTag",
                "Update-KNDRDataSource",
+               "Update-KNDRExperience",
                "Update-KNDRIndex",
                "Update-KNDRQuerySuggestionsBlockList",
                "Update-KNDRQuerySuggestionsConfig",

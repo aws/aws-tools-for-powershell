@@ -90,9 +90,17 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.ResourceManagedStatus
+        "Get-NWFWRuleGroupList/Scope"
+        {
+            $v = "ACCOUNT","MANAGED"
+            break
+        }
+
         # Amazon.NetworkFirewall.RuleGroupType
         {
             ($_ -eq "Get-NWFWRuleGroup/Type") -Or
+            ($_ -eq "Get-NWFWRuleGroupMetadata/Type") -Or
             ($_ -eq "New-NWFWRuleGroup/Type") -Or
             ($_ -eq "Remove-NWFWRuleGroup/Type") -Or
             ($_ -eq "Update-NWFWRuleGroup/Type")
@@ -126,7 +134,8 @@ $NWFW_map = @{
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
-    "Type"=@("Get-NWFWRuleGroup","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Scope"=@("Get-NWFWRuleGroupList")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map
@@ -193,6 +202,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
+               "Get-NWFWRuleGroupMetadata",
                "Unregister-NWFWSubnet",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",

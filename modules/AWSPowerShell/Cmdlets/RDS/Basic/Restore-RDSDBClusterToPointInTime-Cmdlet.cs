@@ -35,15 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB security group. 
     /// 
     ///  <note><para>
-    /// This action only restores the DB cluster, not the DB instances for that DB cluster.
-    /// You must invoke the <code>CreateDBInstance</code> action to create DB instances for
-    /// the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>.
-    /// You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code>
-    /// action has completed and the DB cluster is available.
+    /// For Aurora, this action only restores the DB cluster, not the DB instances for that
+    /// DB cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+    /// instances for the restored DB cluster, specifying the identifier of the restored DB
+    /// cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+    /// the <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster
+    /// is available.
     /// </para></note><para>
-    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide.</i></para><note><para>
+    /// The Multi-AZ DB clusters feature is in preview and is subject to change.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0.</para><note><para>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</para></note><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul><para>Valid for: Aurora MySQL DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the restored DB cluster to snapshots
-        /// of the restored DB cluster. The default is not to copy them.</para>
+        /// of the restored DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,12 +113,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DBClusterInstanceClass
+        /// <summary>
+        /// <para>
+        /// <para>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster,
+        /// for example db.m6g.xlarge. Not all DB instance classes are available in all Amazon
+        /// Web Services Regions, or for all database engines.</para><para>For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// instance class</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBClusterInstanceClass { get; set; }
+        #endregion
+        
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to associate with this DB cluster. If this
         /// argument is omitted, the default DB cluster parameter group for the specified engine
-        /// is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The DB subnet group name to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The DB subnet group name to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetgroup</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. </para>
+        /// protection isn't enabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
         /// must be created prior to this operation. </para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
         /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para>
+        /// Service.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// values in the list depend on the DB engine being used.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para>
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,11 +216,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
         /// clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
         /// cluster. To create a clone that is an Aurora Serverless cluster, the original cluster
-        /// must be an Aurora Serverless cluster or an encrypted provisioned cluster.</para>
+        /// must be an Aurora Serverless cluster or an encrypted provisioned cluster.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineMode { get; set; }
+        #endregion
+        
+        #region Parameter Iops
+        /// <summary>
+        /// <para>
+        /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
+        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
+        /// Guide</i>. </para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// instance. </para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Iops { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -217,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// occurs:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
         /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then
-        /// the restore request is rejected.</para>
+        /// the restore request is rejected.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group for the new DB cluster.</para>
+        /// <para>The name of the option group for the new DB cluster.</para><para>DB clusters are associated with a default option group that can't be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,17 +296,40 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: A value from <code>1150-65535</code>. </para><para>Default: The default port for the engine.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: A value from <code>1150-65535</code>. </para><para>Default: The default port for the engine.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Port { get; set; }
         #endregion
         
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB cluster's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
+        /// public access is not permitted if the security group assigned to the DB cluster doesn't
+        /// permit it.</para><para>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a
+        /// DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
+        /// is specified.</para><para>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code>
+        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached
+        /// to it, the DB cluster is private.</para></li><li><para>If the default VPC in the target Region has an internet gateway attached to it, the
+        /// DB cluster is public.</para></li></ul><para>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code>
+        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an internet gateway attached to
+        /// it, the DB cluster is private.</para></li><li><para>If the subnets are part of a VPC that has an internet gateway attached to it, the
+        /// DB cluster is public.</para></li></ul><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PubliclyAccessible { get; set; }
+        #endregion
+        
         #region Parameter UtcRestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster.</para></li><li><para><code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
         /// DB cluster.</para></li></ul><para>Constraints: You can't specify <code>copy-on-write</code> if the engine version of
         /// the source DB cluster is earlier than 1.11.</para><para>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
-        /// restored as a full copy of the source DB cluster.</para>
+        /// restored as a full copy of the source DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the source DB cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul>
+        /// <para>The identifier of the source DB cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -333,6 +387,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceDBClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage type to be associated with the each DB instance in the Multi-AZ
+        /// DB cluster.</para><para> Valid values: <code>io1</code></para><para> When specified, a value for the <code>Iops</code> parameter is required. </para><para> Default: <code>io1</code></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -366,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to restore the DB cluster to the latest restorable
         /// backup time. By default, the DB cluster isn't restored to the latest restorable backup
-        /// time. </para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para>
+        /// time. </para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups that the new DB cluster belongs to.</para>
+        /// <para>A list of VPC security groups that the new DB cluster belongs to.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
         /// the latest assignment to either one of the two property is reflected in the value
         /// of both. RestoreToTime is provided for backwards compatibility only and assigning
-        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -471,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DBClusterInstanceClass = this.DBClusterInstanceClass;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
@@ -482,9 +548,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineMode = this.EngineMode;
+            context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
+            context.PubliclyAccessible = this.PubliclyAccessible;
             context.UtcRestoreToTime = this.UtcRestoreToTime;
             context.RestoreType = this.RestoreType;
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
@@ -500,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter SourceDBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -540,6 +609,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
+            if (cmdletContext.DBClusterInstanceClass != null)
+            {
+                request.DBClusterInstanceClass = cmdletContext.DBClusterInstanceClass;
+            }
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
                 request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
@@ -572,6 +645,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EngineMode = cmdletContext.EngineMode;
             }
+            if (cmdletContext.Iops != null)
+            {
+                request.Iops = cmdletContext.Iops.Value;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -583,6 +660,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
+            }
+            if (cmdletContext.PubliclyAccessible != null)
+            {
+                request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
             if (cmdletContext.UtcRestoreToTime != null)
             {
@@ -664,6 +745,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceDBClusterIdentifier != null)
             {
                 request.SourceDBClusterIdentifier = cmdletContext.SourceDBClusterIdentifier;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -751,6 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int64? BacktrackWindow { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterInstanceClass { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
@@ -759,9 +845,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineMode { get; set; }
+            public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
             public System.DateTime? UtcRestoreToTime { get; set; }
             public System.String RestoreType { get; set; }
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
@@ -771,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }

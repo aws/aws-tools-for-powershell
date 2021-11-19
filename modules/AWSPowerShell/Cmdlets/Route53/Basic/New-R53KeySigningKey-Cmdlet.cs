@@ -77,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter KeyManagementServiceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in
-        /// Key Management Service (KMS). The <code>KeyManagementServiceArn</code> must be unique
-        /// for each key-signing key (KSK) in a single hosted zone. To see an example of <code>KeyManagementServiceArn</code>
-        /// that grants the correct permissions for DNSSEC, scroll down to <b>Example</b>. </para><para>You must configure the customer managed CMK as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
-        /// your account. Specify the following:</para><ul><li><para><code>"Service": "dnssec-route53.amazonaws.com"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed CMK in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key
+        /// <para>The Amazon resource name (ARN) for a customer managed key in Key Management Service
+        /// (KMS). The <code>KeyManagementServiceArn</code> must be unique for each key-signing
+        /// key (KSK) in a single hosted zone. To see an example of <code>KeyManagementServiceArn</code>
+        /// that grants the correct permissions for DNSSEC, scroll down to <b>Example</b>. </para><para>You must configure the customer managed customer managed key as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
+        /// your account. Specify the following:</para><ul><li><para><code>"Service": "dnssec-route53.amazonaws.com"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed key in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key
         /// Management Service concepts</a>.</para>
         /// </para>
         /// </summary>

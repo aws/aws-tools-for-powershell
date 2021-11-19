@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// An environment account connection is a secure bi-directional connection between a
     /// <i>management account</i> and an <i>environment account</i> that maintains authorization
     /// and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
+    /// account connections</a> in the <i>Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Proton environment that's created in the associated management
-        /// account.</para>
+        /// <para>The name of the Proton environment that's created in the associated management account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,10 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The ID of the management account that accepts or rejects the environment account connection.
-        /// You create an manage the AWS Proton environment in this account. If the management
-        /// account accepts the environment account connection, AWS Proton can use the associated
-        /// IAM role to provision environment infrastructure resources in the associated environment
-        /// account.</para>
+        /// You create an manage the Proton environment in this account. If the management account
+        /// accepts the environment account connection, Proton can use the associated IAM role
+        /// to provision environment infrastructure resources in the associated environment account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment
-        /// account. AWS Proton uses this role to provision infrastructure resources in the associated
+        /// account. Proton uses this role to provision infrastructure resources in the associated
         /// environment account.</para>
         /// </para>
         /// </summary>
@@ -108,11 +106,23 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags for your environment account connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Proton.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>When included, if two identicial requests are made with the same client token, AWS
-        /// Proton returns the environment account connection that the first request created.</para>
+        /// <para>When included, if two identical requests are made with the same client token, Proton
+        /// returns the environment account connection that the first request created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Proton.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -279,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String EnvironmentName { get; set; }
             public System.String ManagementAccountId { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.Proton.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Proton.Model.CreateEnvironmentAccountConnectionResponse, NewPROEnvironmentAccountConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EnvironmentAccountConnection;
         }

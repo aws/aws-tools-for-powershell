@@ -28,19 +28,20 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates a backup of an existing Amazon FSx for Windows File Server or Amazon FSx for
-    /// Lustre file system, or of an Amazon FSx for NetApp ONTAP volume. Creating regular
-    /// backups is a best practice, enabling you to restore a file system or volume from a
-    /// backup if an issue arises with the original file system or volume.
+    /// Creates a backup of an existing Amazon FSx for Windows File Server file system, Amazon
+    /// FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx for
+    /// OpenZFS file system. We recommend creating regular backups so that you can restore
+    /// a file system or volume from a backup if an issue arises with the original file system
+    /// or volume.
     /// 
     ///  
     /// <para>
     /// For Amazon FSx for Lustre file systems, you can create a backup only for file systems
-    /// with the following configuration:
+    /// that have the following configuration:
     /// </para><ul><li><para>
-    /// a Persistent deployment type
+    /// A Persistent deployment type
     /// </para></li><li><para>
-    /// is <i>not</i> linked to a data repository.
+    /// Are <i>not</i> linked to a data repository
     /// </para></li></ul><para>
     /// For more information about backups, see the following:
     /// </para><ul><li><para>
@@ -52,12 +53,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para></li><li><para>
     /// For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working
     /// with FSx for NetApp ONTAP backups</a>.
+    /// </para></li><li><para>
+    /// For Amazon FSx for OpenZFS, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html">Working
+    /// with FSx for OpenZFS backups</a>.
     /// </para></li></ul><para>
-    /// If a backup with the specified client request token exists, and the parameters match,
-    /// this operation returns the description of the existing backup. If a backup specified
-    /// client request token exists, and the parameters don't match, this operation returns
-    /// <code>IncompatibleParameterError</code>. If a backup with the specified client request
-    /// token doesn't exist, <code>CreateBackup</code> does the following: 
+    /// If a backup with the specified client request token exists and the parameters match,
+    /// this operation returns the description of the existing backup. If a backup with the
+    /// specified client request token exists and the parameters don't match, this operation
+    /// returns <code>IncompatibleParameterError</code>. If a backup with the specified client
+    /// request token doesn't exist, <code>CreateBackup</code> does the following: 
     /// </para><ul><li><para>
     /// Creates a new Amazon FSx backup with an assigned ID, and an initial lifecycle state
     /// of <code>CREATING</code>.
@@ -72,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para><para>
     /// The <code>CreateBackup</code> operation returns while the backup's lifecycle state
     /// is still <code>CREATING</code>. You can check the backup creation status by calling
-    /// the <a>DescribeBackups</a> operation, which returns the backup state along with other
-    /// information.
+    /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html">DescribeBackups</a>
+    /// operation, which returns the backup state along with other information.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FSXBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>(Optional) The tags to apply to the backup at backup creation. The key value of the
         /// <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code>
-        /// to true, and you specify one or more tags using the <code>CreateBackup</code> action,
-        /// no existing file system tags are copied from the file system to the backup.</para>
+        /// to <code>true</code>, and you specify one or more tags using the <code>CreateBackup</code>
+        /// operation, no existing file system tags are copied from the file system to the backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The ID of he FSx for NetApp ONTAP volume to back up.</para>
+        /// <para>(Optional) The ID of the FSx for ONTAP volume to back up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

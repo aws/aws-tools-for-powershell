@@ -83,7 +83,8 @@ $MSK_Completers = {
         # Amazon.Kafka.ClientBroker
         {
             ($_ -eq "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
-            ($_ -eq "Update-MSKSecurity/EncryptionInfo_EncryptionInTransit_ClientBroker")
+            ($_ -eq "Update-MSKSecurity/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
+            ($_ -eq "New-MSKClusterV2/Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker")
         }
         {
             $v = "PLAINTEXT","TLS","TLS_PLAINTEXT"
@@ -93,7 +94,8 @@ $MSK_Completers = {
         # Amazon.Kafka.EnhancedMonitoring
         {
             ($_ -eq "New-MSKCluster/EnhancedMonitoring") -Or
-            ($_ -eq "Update-MSKMonitoring/EnhancedMonitoring")
+            ($_ -eq "Update-MSKMonitoring/EnhancedMonitoring") -Or
+            ($_ -eq "New-MSKClusterV2/Provisioned_EnhancedMonitoring")
         }
         {
             $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER","PER_TOPIC_PER_PARTITION"
@@ -111,6 +113,8 @@ $MSK_Completers = {
 $MSK_map = @{
     "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
+    "Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKClusterV2")
+    "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
 }
 
 _awsArgumentCompleterRegistration $MSK_Completers $MSK_map
@@ -166,17 +170,20 @@ $MSK_SelectMap = @{
     "Select"=@("Register-MSKAssociateScramSecret",
                "Unregister-MSKDisassociateScramSecret",
                "New-MSKCluster",
+               "New-MSKClusterV2",
                "New-MSKConfiguration",
                "Remove-MSKCluster",
                "Remove-MSKConfiguration",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
+               "Get-MSKClusterV2",
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
                "Get-MSKBootstrapBroker",
                "Get-MSKCompatibleKafkaVersion",
                "Get-MSKClusterOperationList",
                "Get-MSKClusterList",
+               "Get-MSKClustersV2List",
                "Get-MSKConfigurationRevisionList",
                "Get-MSKConfigurationList",
                "Get-MSKKafkaVersionList",

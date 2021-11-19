@@ -28,11 +28,11 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Updates the list of possible values for the specified tag key. If the tag does not
-    /// exist, the operation throws an EntityNotFoundException. The values in the delete key
-    /// values will be deleted from list of possible values. If any value in the delete key
-    /// values is attached to a resource, then API errors out with a 400 Exception - "Update
-    /// not allowed". Untag the attribute before deleting the tag key's value.
+    /// Updates the list of possible values for the specified LF-tag key. If the LF-tag does
+    /// not exist, the operation throws an EntityNotFoundException. The values in the delete
+    /// key values will be deleted from list of possible values. If any value in the delete
+    /// key values is attached to a resource, then API errors out with a 400 Exception - "Update
+    /// not allowed". Untag the attribute before deleting the LF-tag key's value.
     /// </summary>
     [Cmdlet("Update", "LKFLFTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The key-name for the tag for which to add or delete values.</para>
+        /// <para>The key-name for the LF-tag for which to add or delete values.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TagValuesToAdd
         /// <summary>
         /// <para>
-        /// <para>A list of tag values to add from the tag.</para>
+        /// <para>A list of LF-tag values to add from the LF-tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TagValuesToDelete
         /// <summary>
         /// <para>
-        /// <para>A list of tag values to delete from the tag.</para>
+        /// <para>A list of LF-tag values to delete from the LF-tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

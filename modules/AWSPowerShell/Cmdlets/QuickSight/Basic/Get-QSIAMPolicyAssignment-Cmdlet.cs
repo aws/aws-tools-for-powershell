@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes an existing IAMpolicy assignment, as specified by the assignment name.
+    /// Describes an existing IAM policy assignment, as specified by the assignment name.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignment")]
     [OutputType("Amazon.QuickSight.Model.IAMPolicyAssignment")]

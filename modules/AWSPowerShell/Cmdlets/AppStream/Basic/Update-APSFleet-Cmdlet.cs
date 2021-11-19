@@ -33,11 +33,25 @@ namespace Amazon.PowerShell.Cmdlets.APS
     ///  
     /// <para>
     /// If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
-    /// the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update
-    /// the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>,
+    /// the fleet name.
+    /// </para><para>
+    /// If the fleet is in the <code>RUNNING</code> state, you can update the following based
+    /// on the fleet type:
+    /// </para><ul><li><para>
+    /// Always-On and On-Demand fleet types
+    /// </para><para>
+    /// You can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>,
     /// <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code>
-    /// attributes. If the fleet is in the <code>STARTING</code> or <code>STOPPING</code>
-    /// state, you can't update it.
+    /// attributes.
+    /// </para></li><li><para>
+    /// Elastic fleet type
+    /// </para><para>
+    /// You can update the <code>DisplayName</code>, <code>IdleDisconnectTimeoutInSeconds</code>,
+    /// <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, and <code>UsbDeviceFilterStrings</code>
+    /// attributes.
+    /// </para></li></ul><para>
+    /// If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't
+    /// update it.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -192,11 +206,22 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type to use when launching fleet instances. The following instance types
-        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
+        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul><para>The following instance types are available for Elastic fleets:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter MaxConcurrentSession
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of concurrent sessions for a fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxConcurrentSessions")]
+        public System.Int32? MaxConcurrentSession { get; set; }
         #endregion
         
         #region Parameter MaxUserDurationInSecond
@@ -231,6 +256,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
+        #endregion
+        
+        #region Parameter Platform
+        /// <summary>
+        /// <para>
+        /// <para>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for
+        /// Elastic fleets. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.PlatformType")]
+        public Amazon.AppStream.PlatformType Platform { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -269,6 +306,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter UsbDeviceFilterString
+        /// <summary>
+        /// <para>
+        /// <para>The USB device filter strings that specify which USB devices a user can redirect to
+        /// the fleet streaming session, when using the Windows native client. This is allowed
+        /// but not required for Elastic fleets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UsbDeviceFilterStrings")]
+        public System.String[] UsbDeviceFilterString { get; set; }
         #endregion
         
         #region Parameter DeleteVpcConfig
@@ -363,9 +413,15 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.ImageArn = this.ImageArn;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
+            context.MaxConcurrentSession = this.MaxConcurrentSession;
             context.MaxUserDurationInSecond = this.MaxUserDurationInSecond;
             context.Name = this.Name;
+            context.Platform = this.Platform;
             context.StreamView = this.StreamView;
+            if (this.UsbDeviceFilterString != null)
+            {
+                context.UsbDeviceFilterString = new List<System.String>(this.UsbDeviceFilterString);
+            }
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -484,6 +540,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.InstanceType = cmdletContext.InstanceType;
             }
+            if (cmdletContext.MaxConcurrentSession != null)
+            {
+                request.MaxConcurrentSessions = cmdletContext.MaxConcurrentSession.Value;
+            }
             if (cmdletContext.MaxUserDurationInSecond != null)
             {
                 request.MaxUserDurationInSeconds = cmdletContext.MaxUserDurationInSecond.Value;
@@ -492,9 +552,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Platform != null)
+            {
+                request.Platform = cmdletContext.Platform;
+            }
             if (cmdletContext.StreamView != null)
             {
                 request.StreamView = cmdletContext.StreamView;
+            }
+            if (cmdletContext.UsbDeviceFilterString != null)
+            {
+                request.UsbDeviceFilterStrings = cmdletContext.UsbDeviceFilterString;
             }
             
              // populate VpcConfig
@@ -601,9 +669,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageArn { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
+            public System.Int32? MaxConcurrentSession { get; set; }
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
+            public Amazon.AppStream.PlatformType Platform { get; set; }
             public Amazon.AppStream.StreamView StreamView { get; set; }
+            public List<System.String> UsbDeviceFilterString { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.AppStream.Model.UpdateFleetResponse, UpdateAPSFleetCmdlet, object> Select { get; set; } =

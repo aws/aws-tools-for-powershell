@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether
         /// to include or exclude the resources that match the statement from the list. The match
         /// statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><code>Condition</code> - The condition to apply. Valid values are <code>IS</code>
-        /// and <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>PredictorArn</code>
+        /// and <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>ResourceArn</code>
         /// and <code>Status</code>.</para></li><li><para><code>Value</code> - The value to match.</para></li></ul>
         /// </para>
         /// </summary>

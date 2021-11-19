@@ -98,7 +98,7 @@ $APS_Completers = {
         # Amazon.AppStream.FleetType
         "New-APSFleet/FleetType"
         {
-            $v = "ALWAYS_ON","ON_DEMAND"
+            $v = "ALWAYS_ON","ELASTIC","ON_DEMAND"
             break
         }
 
@@ -106,6 +106,16 @@ $APS_Completers = {
         "New-APSUser/MessageAction"
         {
             $v = "RESEND","SUPPRESS"
+            break
+        }
+
+        # Amazon.AppStream.PlatformType
+        {
+            ($_ -eq "New-APSFleet/Platform") -Or
+            ($_ -eq "Update-APSFleet/Platform")
+        }
+        {
+            $v = "AMAZON_LINUX2","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019"
             break
         }
 
@@ -138,6 +148,7 @@ $APS_map = @{
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
+    "Platform"=@("New-APSFleet","Update-APSFleet")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
 }
@@ -192,10 +203,13 @@ $APS_SelectCompleters = {
 }
 
 $APS_SelectMap = @{
-    "Select"=@("Register-APSFleet",
+    "Select"=@("Register-APSApplicationFleet",
+               "Register-APSFleet",
                "Register-APSUserStackBatch",
                "Unregister-APSUserStackBatch",
                "Copy-APSImage",
+               "New-APSAppBlock",
+               "New-APSApplication",
                "New-APSDirectoryConfig",
                "New-APSFleet",
                "New-APSImageBuilder",
@@ -205,6 +219,8 @@ $APS_SelectMap = @{
                "New-APSUpdatedImage",
                "New-APSUsageReportSubscription",
                "New-APSUser",
+               "Remove-APSAppBlock",
+               "Remove-APSApplication",
                "Remove-APSDirectoryConfig",
                "Remove-APSFleet",
                "Remove-APSImage",
@@ -213,6 +229,9 @@ $APS_SelectMap = @{
                "Remove-APSStack",
                "Remove-APSUsageReportSubscription",
                "Remove-APSUser",
+               "Get-APSAppBlock",
+               "Get-APSApplicationFleetAssociation",
+               "Get-APSApplication",
                "Get-APSDirectoryConfigList",
                "Get-APSFleetList",
                "Get-APSImageBuilderList",
@@ -224,6 +243,7 @@ $APS_SelectMap = @{
                "Get-APSUser",
                "Get-APSUserStackAssociation",
                "Disable-APSUser",
+               "Unregister-APSApplicationFleet",
                "Unregister-APSFleet",
                "Enable-APSUser",
                "Revoke-APSSession",
@@ -236,6 +256,7 @@ $APS_SelectMap = @{
                "Stop-APSImageBuilder",
                "Add-APSResourceTag",
                "Remove-APSResourceTag",
+               "Update-APSApplication",
                "Update-APSDirectoryConfig",
                "Update-APSFleet",
                "Update-APSImagePermission",

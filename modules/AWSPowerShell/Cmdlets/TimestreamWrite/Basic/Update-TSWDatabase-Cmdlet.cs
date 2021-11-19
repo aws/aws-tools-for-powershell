@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     /// Modifies the KMS key for an existing database. While updating the database, you must
     /// specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>).
     /// If there are any concurrent <code>UpdateDatabase</code> requests, first writer wins.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code
+    /// sample</a> for details.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "TSWDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TimestreamWrite.Model.Database")]

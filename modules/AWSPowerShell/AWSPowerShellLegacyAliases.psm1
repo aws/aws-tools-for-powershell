@@ -393,6 +393,11 @@ Set-Alias -Name New-SGTapes -Value New-SGTape
 Set-Alias -Name Remove-SGChapCredentials -Value Remove-SGChapCredential
 Set-Alias -Name Update-SGChapCredentials -Value Update-SGChapCredential
 
+# WellArchitected
+Set-Alias -Name Add-WATLense -Value Register-WATLens
+Set-Alias -Name Get-WATLenseList -Value Get-WATLensList
+Set-Alias -Name Remove-WATLense -Value Unregister-WATLens
+
 # WorkSpaces
 Set-Alias -Name Get-WKSWorkspaceBundles -Value Get-WKSWorkspaceBundle
 Set-Alias -Name Get-WKSWorkspaceDirectories -Value Get-WKSWorkspaceDirectory

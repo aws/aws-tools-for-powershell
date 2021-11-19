@@ -28,17 +28,9 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Generates a random password of the specified complexity. This operation is intended
-    /// for use in the Lambda rotation function. Per best practice, we recommend that you
-    /// specify the maximum length and include every character type that the system you are
-    /// generating a password for can support.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:GetRandomPassword
-    /// </para></li></ul>
+    /// Generates a random password. We recommend that you specify the maximum length and
+    /// include every character type that the system you are generating a password for can
+    /// support.
     /// </summary>
     [Cmdlet("Get", "SECRandomPassword")]
     [OutputType("System.String")]
@@ -53,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ExcludeCharacter
         /// <summary>
         /// <para>
-        /// <para>A string that includes characters that should not be included in the generated password.
-        /// The default is that all characters from the included sets can be used.</para>
+        /// <para>A string of the characters that you don't want in the password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ExcludeLowercase
         /// <summary>
         /// <para>
-        /// <para>Specifies that the generated password should not include lowercase letters. The default
-        /// if you do not include this switch parameter is that lowercase letters can be included.</para>
+        /// <para>Specifies whether to exclude lowercase letters from the password. If you don't include
+        /// this switch, the password can contain lowercase letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ExcludeNumber
         /// <summary>
         /// <para>
-        /// <para>Specifies that the generated password should not include digits. The default if you
-        /// do not include this switch parameter is that digits can be included.</para>
+        /// <para>Specifies whether to exclude numbers from the password. If you don't include this
+        /// switch, the password can contain numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,11 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ExcludePunctuation
         /// <summary>
         /// <para>
-        /// <para>Specifies that the generated password should not include punctuation characters. The
-        /// default if you do not include this switch parameter is that punctuation characters
-        /// can be included.</para><para>The following are the punctuation characters that <i>can</i> be included in the generated
-        /// password if you don't explicitly exclude them with <code>ExcludeCharacters</code>
-        /// or <code>ExcludePunctuation</code>:</para><para><code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code></para>
+        /// <para>Specifies whether to exclude the following punctuation characters from the password:
+        /// <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>.
+        /// If you don't include this switch, the password can contain punctuation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ExcludeUppercase
         /// <summary>
         /// <para>
-        /// <para>Specifies that the generated password should not include uppercase letters. The default
-        /// if you do not include this switch parameter is that uppercase letters can be included.</para>
+        /// <para>Specifies whether to exclude uppercase letters from the password. If you don't include
+        /// this switch, the password can contain uppercase letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter IncludeSpace
         /// <summary>
         /// <para>
-        /// <para>Specifies that the generated password can include the space character. The default
-        /// if you do not include this switch parameter is that the space character is not included.</para>
+        /// <para>Specifies whether to include the space character. If you include this switch, the
+        /// password can contain space characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter PasswordLength
         /// <summary>
         /// <para>
-        /// <para>The desired length of the generated password. The default value if you do not include
-        /// this parameter is 32 characters.</para>
+        /// <para>The length of the password. If you don't include this parameter, the default length
+        /// is 32 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RequireEachIncludedType
         /// <summary>
         /// <para>
-        /// <para>A boolean value that specifies whether the generated password must include at least
-        /// one of every allowed character type. The default value is <code>True</code> and the
-        /// operation requires at least one of every character type.</para>
+        /// <para>Specifies whether to include at least one upper and lowercase letter, one number,
+        /// and one punctuation. If you don't include this switch, the password contains at least
+        /// one of every character type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

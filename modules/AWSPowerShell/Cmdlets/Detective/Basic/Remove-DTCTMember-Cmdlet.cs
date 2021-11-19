@@ -28,11 +28,25 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Deletes one or more member accounts from the administrator account's behavior graph.
-    /// This operation can only be called by a Detective administrator account. That account
-    /// cannot use <code>DeleteMembers</code> to delete their own account from the behavior
-    /// graph. To disable a behavior graph, the administrator account uses the <code>DeleteGraph</code>
-    /// API method.
+    /// Removes the specified member accounts from the behavior graph. The removed accounts
+    /// no longer contribute data to the behavior graph. This operation can only be called
+    /// by the administrator account for the behavior graph.
+    /// 
+    ///  
+    /// <para>
+    /// For invited accounts, the removed accounts are deleted from the list of accounts in
+    /// the behavior graph. To restore the account, the administrator account must send another
+    /// invitation.
+    /// </para><para>
+    /// For organization accounts in the organization behavior graph, the Detective administrator
+    /// account can always enable the organization account again. Organization accounts that
+    /// are not enabled as member accounts are not included in the <code>ListMembers</code>
+    /// results for the organization behavior graph.
+    /// </para><para>
+    /// An administrator account cannot use <code>DeleteMembers</code> to remove their own
+    /// account from the behavior graph. To disable a behavior graph, the administrator account
+    /// uses the <code>DeleteGraph</code> API method.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "DTCTMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Detective.Model.DeleteMembersResponse")]
@@ -46,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The list of AWS account identifiers for the member accounts to delete from the behavior
-        /// graph. You can delete up to 50 member accounts at a time.</para>
+        /// <para>The list of Amazon Web Services account identifiers for the member accounts to remove
+        /// from the behavior graph. You can remove up to 50 member accounts at a time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph to delete members from.</para>
+        /// <para>The ARN of the behavior graph to remove members from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

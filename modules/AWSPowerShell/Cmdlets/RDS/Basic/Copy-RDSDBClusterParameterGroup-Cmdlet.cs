@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Copies the specified DB cluster parameter group.
-    /// 
-    ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Copy", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterParameterGroup")]

@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Designates an account as the delegated Amazon Macie administrator account for an Amazon
-    /// Web Services organization.
+    /// Designates an account as the delegated Amazon Macie administrator account for an organization
+    /// in Organizations.
     /// </summary>
     [Cmdlet("Enable", "MAC2OrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

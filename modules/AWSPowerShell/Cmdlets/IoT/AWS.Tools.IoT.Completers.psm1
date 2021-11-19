@@ -221,6 +221,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.DeviceDefenderIndexingMode
+        "Update-IOTIndexingConfiguration/ThingIndexingConfiguration_DeviceDefenderIndexingMode"
+        {
+            $v = "OFF","VIOLATIONS"
+            break
+        }
+
         # Amazon.IoT.DimensionType
         "New-IOTDimension/Type"
         {
@@ -312,6 +319,13 @@ $IOT_Completers = {
         "Get-IOTMitigationActionList/ActionType"
         {
             $v = "ADD_THINGS_TO_THING_GROUP","ENABLE_IOT_LOGGING","PUBLISH_FINDING_TO_SNS","REPLACE_DEFAULT_POLICY_VERSION","UPDATE_CA_CERTIFICATE","UPDATE_DEVICE_CERTIFICATE"
+            break
+        }
+
+        # Amazon.IoT.NamedShadowIndexingMode
+        "Update-IOTIndexingConfiguration/ThingIndexingConfiguration_NamedShadowIndexingMode"
+        {
+            $v = "OFF","ON"
             break
         }
 
@@ -442,6 +456,8 @@ $IOT_map = @{
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
     "TaskType"=@("Get-IOTTaskList")
     "ThingGroupIndexingConfiguration_ThingGroupIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "ThingIndexingConfiguration_DeviceDefenderIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "ThingIndexingConfiguration_NamedShadowIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "TopicRulePayload_ErrorAction_DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -600,6 +616,7 @@ $IOT_SelectMap = @{
                "Get-IOTJob",
                "Get-IOTJobExecution",
                "Get-IOTJobTemplate",
+               "Get-IOTManagedJobTemplate",
                "Get-IOTMitigationAction",
                "Get-IOTProvisioningTemplate",
                "Get-IOTProvisioningTemplateVersion",
@@ -656,6 +673,7 @@ $IOT_SelectMap = @{
                "Get-IOTJobExecutionsForThingList",
                "Get-IOTJobList",
                "Get-IOTJobTemplateList",
+               "Get-IOTManagedJobTemplateList",
                "Get-IOTMitigationActionList",
                "Get-IOTOTAUpdateList",
                "Get-IOTOutgoingCertificate",

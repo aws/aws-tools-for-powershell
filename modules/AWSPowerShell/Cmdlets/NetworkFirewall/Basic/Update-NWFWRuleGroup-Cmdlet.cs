@@ -147,10 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatefulRuleOptions_RuleOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. By default,
-        /// Network Firewall leaves the rule evaluation order up to the Suricata rule processing
-        /// engine. If you set this to <code>STRICT_ORDER</code>, your rules are evaluated in
-        /// the exact order that they're listed in your Suricata rules string. </para>
+        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code>
+        /// is the default behavior. Stateful rules are provided to the rule engine as Suricata
+        /// compatible strings, and Suricata evaluates them based on certain settings. For more
+        /// information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
+        /// order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSourceList_Target
         /// <summary>
         /// <para>
-        /// <para>The domains that you want to inspect for in your traffic flows. To provide multiple
-        /// domains, separate them with commas. Valid domain specifications are the following:</para><ul><li><para>Explicit names. For example, <code>abc.example.com</code> matches only the domain
+        /// <para>The domains that you want to inspect for in your traffic flows. Valid domain specifications
+        /// are the following:</para><ul><li><para>Explicit names. For example, <code>abc.example.com</code> matches only the domain
         /// <code>abc.example.com</code>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'.
         /// For example,<code>.example.com</code> matches <code>example.com</code> and matches
         /// all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and

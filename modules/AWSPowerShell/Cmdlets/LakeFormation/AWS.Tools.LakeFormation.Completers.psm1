@@ -87,6 +87,13 @@ $LKF_Completers = {
             break
         }
 
+        # Amazon.LakeFormation.OptimizerType
+        "Get-LKFTableStorageOptimizerList/StorageOptimizerType"
+        {
+            $v = "ALL","COMPACTION","GARBAGE_COLLECTION"
+            break
+        }
+
         # Amazon.LakeFormation.ResourceShareType
         "Get-LKFLFTagList/ResourceShareType"
         {
@@ -108,6 +115,20 @@ $LKF_Completers = {
             break
         }
 
+        # Amazon.LakeFormation.TransactionStatusFilter
+        "Get-LKFTransactionList/StatusFilter"
+        {
+            $v = "ABORTED","ACTIVE","ALL","COMMITTED","COMPLETED"
+            break
+        }
+
+        # Amazon.LakeFormation.TransactionType
+        "Start-LKFTransaction/TransactionType"
+        {
+            $v = "READ_AND_WRITE","READ_ONLY"
+            break
+        }
+
 
     }
 
@@ -120,6 +141,9 @@ $LKF_map = @{
     "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
+    "StatusFilter"=@("Get-LKFTransactionList")
+    "StorageOptimizerType"=@("Get-LKFTableStorageOptimizerList")
+    "TransactionType"=@("Start-LKFTransaction")
 }
 
 _awsArgumentCompleterRegistration $LKF_Completers $LKF_map
@@ -175,26 +199,45 @@ $LKF_SelectMap = @{
     "Select"=@("Add-LKFLFTagsToResource",
                "Grant-LKFPermissionBatch",
                "Revoke-LKFPermissionBatch",
+               "Stop-LKFTransaction",
+               "Write-LKFTransaction",
+               "New-LKFDataCellsFilter",
                "New-LKFLFTag",
+               "Remove-LKFDataCellsFilter",
                "Remove-LKFLFTag",
+               "Remove-LKFObjectsOnCancel",
                "Unregister-LKFResource",
                "Get-LKFResource",
+               "Get-LKFTransaction",
+               "Invoke-LKFTransaction",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
                "Get-LKFLFTag",
+               "Get-LKFQueryState",
+               "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
+               "Get-LKFTableObject",
+               "Get-LKFWorkUnitResult",
+               "Get-LKFWorkUnit",
                "Grant-LKFPermission",
+               "Get-LKFDataCellsFilterList",
                "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",
+               "Get-LKFTableStorageOptimizerList",
+               "Get-LKFTransactionList",
                "Write-LKFDataLakeSetting",
                "Register-LKFResource",
                "Remove-LKFLFTagsFromResource",
                "Revoke-LKFPermission",
                "Search-LKFDatabasesByLFTag",
                "Search-LKFTablesByLFTag",
+               "Start-LKFQueryPlanning",
+               "Start-LKFTransaction",
                "Update-LKFLFTag",
-               "Update-LKFResource")
+               "Update-LKFResource",
+               "Update-LKFTableObject",
+               "Update-LKFTableStorageOptimizer")
 }
 
 _awsArgumentCompleterRegistration $LKF_SelectCompleters $LKF_SelectMap

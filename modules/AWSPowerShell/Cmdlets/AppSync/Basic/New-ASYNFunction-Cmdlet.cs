@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     /// 
     ///  
     /// <para>
-    /// A function is a reusable entity. Multiple functions can be used to compose the resolver
+    /// A function is a reusable entity. You can use multiple functions to compose the resolver
     /// logic.
     /// </para>
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter SyncConfig_ConflictDetection
         /// <summary>
         /// <para>
-        /// <para>The Conflict Detection strategy to use.</para><ul><li><para><b>VERSION</b>: Detect conflicts based on object versions for this resolver.</para></li><li><para><b>NONE</b>: Do not detect conflicts when executing this resolver.</para></li></ul>
+        /// <para>The Conflict Detection strategy to use.</para><ul><li><para><b>VERSION</b>: Detect conflicts based on object versions for this resolver.</para></li><li><para><b>NONE</b>: Do not detect conflicts when invoking this resolver.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The Conflict Resolution strategy to perform in the event of a conflict.</para><ul><li><para><b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions
-        /// do not match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.</para></li></ul>
+        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <code>LambdaConflictHandlerConfig</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>The <code>version</code> of the request mapping template. Currently the supported
-        /// value is 2018-05-29. </para>
+        /// <para>The <code>version</code> of the request mapping template. Currently, the supported
+        /// value is 2018-05-29.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LambdaConflictHandlerConfig_LambdaConflictHandlerArn
         /// <summary>
         /// <para>
-        /// <para>The Arn for the Lambda function to use as the Conflict Handler.</para>
+        /// <para>The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ResponseMappingTemplate
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> response mapping template. </para>
+        /// <para>The <code>Function</code> response mapping template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

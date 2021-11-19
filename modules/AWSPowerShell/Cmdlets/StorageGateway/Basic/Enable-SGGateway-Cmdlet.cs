@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <code>CACHED</code>.</para><para>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> | <code>FILE_S3</code>
-        /// | <code>FILE_FSX_SMB|</code></para>
+        /// default value is <code>CACHED</code>.</para><para>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> | <code>VTL_SNOW</code>
+        /// | <code>FILE_S3</code> | <code>FILE_FSX_SMB</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

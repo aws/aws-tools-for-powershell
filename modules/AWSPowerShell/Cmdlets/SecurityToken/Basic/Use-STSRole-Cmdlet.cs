@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// access. For a comparison of <code>AssumeRole</code> with other API operations that
     /// produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
-    /// the STS API operations</a> in the <i>IAM User Guide</i>.
+    /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para><b>Permissions</b></para><para>
     /// The temporary security credentials created by <code>AssumeRole</code> can be used
     /// to make API calls to any Amazon Web Services service with the following exception:
-    /// You cannot call the STS <code>GetFederationToken</code> or <code>GetSessionToken</code>
+    /// You cannot call the Amazon Web Services STS <code>GetFederationToken</code> or <code>GetSessionToken</code>
     /// API operations.
     /// </para><para>
     /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
@@ -57,24 +57,32 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
     /// Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// To assume a role from a different account, your account must be trusted by the role.
-    /// The trust relationship is defined in the role's trust policy when the role is created.
-    /// That trust policy states which accounts are allowed to delegate that access to users
-    /// in the account. 
+    /// When you create a role, you create two policies: A role trust policy that specifies
+    /// <i>who</i> can assume the role and a permissions policy that specifies <i>what</i>
+    /// can be done with the role. You specify the trusted principal who is allowed to assume
+    /// the role in the role trust policy.
+    /// </para><para>
+    /// To assume a role from a different account, your Amazon Web Services account must be
+    /// trusted by the role. The trust relationship is defined in the role's trust policy
+    /// when the role is created. That trust policy states which accounts are allowed to delegate
+    /// that access to users in the account. 
     /// </para><para>
     /// A user who wants to access a role in a different account must also have permissions
     /// that are delegated from the user account administrator. The administrator must attach
     /// a policy that allows the user to call <code>AssumeRole</code> for the ARN of the role
-    /// in the other account. If the user is in the same account as the role, then you can
-    /// do either of the following:
+    /// in the other account.
+    /// </para><para>
+    /// To allow a user to assume a role in the same account, you can do either of the following:
     /// </para><ul><li><para>
-    /// Attach a policy to the user (identical to the previous user in a different account).
+    /// Attach a policy to the user that allows the user to call <code>AssumeRole</code> (as
+    /// long as the role's trust policy trusts the account).
     /// </para></li><li><para>
     /// Add the user as a principal directly in the role's trust policy.
     /// </para></li></ul><para>
-    /// In this case, the trust policy acts as an IAM resource-based policy. Users in the
-    /// same account as the role do not need explicit permission to assume the role. For more
-    /// information about trust policies and resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM
+    /// You can do either because the role’s trust policy acts as an IAM resource-based policy.
+    /// When a resource-based policy grants access to a principal in the same account, no
+    /// additional identity-based policy is required. For more information about trust policies
+    /// and resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM
     /// Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para><b>Tags</b></para><para>
     /// (Optional) You can pass tag key-value pairs to your session. These tags are called
@@ -119,20 +127,27 @@ namespace Amazon.PowerShell.Cmdlets.STS
         #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
-        /// <para>The duration, in seconds, of the role session. The value specified can can range from
-        /// 900 seconds (15 minutes) up to the maximum session duration that is set for the role.
-        /// The maximum session duration setting can have a value from 1 hour to 12 hours. If
-        /// you specify a value higher than this setting or the administrator setting (whichever
-        /// is lower), the operation fails. For example, if you specify a session duration of
-        /// 12 hours, but your administrator set the maximum session duration to 6 hours, your
-        /// operation fails. To learn how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View
+        /// <para>The duration, in seconds, of the role session. The value specified can range from
+        /// 900 seconds (15 minutes) up to the maximum session duration set for the role. The
+        /// maximum session duration setting can have a value from 1 hour to 12 hours. If you
+        /// specify a value higher than this setting or the administrator setting (whichever is
+        /// lower), the operation fails. For example, if you specify a session duration of 12
+        /// hours, but your administrator set the maximum session duration to 6 hours, your operation
+        /// fails. </para><para>Role chaining limits your Amazon Web Services CLI or Amazon Web Services API role
+        /// session to a maximum of one hour. When you use the <code>AssumeRole</code> API operation
+        /// to assume a role, you can specify the duration of your role session with the <code>DurationSeconds</code>
+        /// parameter. You can specify a parameter value of up to 43200 seconds (12 hours), depending
+        /// on the maximum session duration setting for your role. However, if you assume a role
+        /// using role chaining and provide a <code>DurationSeconds</code> parameter value greater
+        /// than one hour, the operation fails. To learn how to view the maximum value for your
+        /// role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View
         /// the Maximum Session Duration Setting for a Role</a> in the <i>IAM User Guide</i>.</para><para>By default, the value is set to <code>3600</code> seconds. </para><note><para>The <code>DurationSeconds</code> parameter is separate from the duration of a console
         /// session that you might request using the returned credentials. The request to the
         /// federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
         /// parameter that specifies the maximum length of the console session. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating
-        /// a URL that Enables Federated Users to Access the Management Console</a> in the <i>IAM
-        /// User Guide</i>.</para></note>
+        /// a URL that Enables Federated Users to Access the Amazon Web Services Management Console</a>
+        /// in the <i>IAM User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -294,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <para>
         /// <para>A list of session tags that you want to pass. Each session tag consists of a key name
         /// and an associated value. For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Tagging
-        /// STS Sessions</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. You can pass up to 50 session tags. The plaintext session
+        /// Amazon Web Services STS Sessions</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. You can pass up to 50 session tags. The plaintext session
         /// tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters.
         /// For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
         /// and STS Character Limits</a> in the <i>IAM User Guide</i>.</para><note><para>An Amazon Web Services conversion compresses the passed session policies and session

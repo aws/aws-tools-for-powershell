@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para> Each audit supression must have a unique client request token. If you try to create
         /// a new audit suppression with the same token as one that already exists, an exception
         /// occurs. If you omit this value, Amazon Web Services SDKs will automatically generate
-        /// a unique client request. </para>
+        /// a unique client request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

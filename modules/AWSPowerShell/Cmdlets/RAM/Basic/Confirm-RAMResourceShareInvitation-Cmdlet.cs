@@ -29,6 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
     /// Accepts an invitation to a resource share from another Amazon Web Services account.
+    /// After you accept the invitation, the resources included in the resource share are
+    /// available to interact with in the relevant Amazon Web Services Management Consoles
+    /// and tools.
     /// </summary>
     [Cmdlet("Confirm", "RAMResourceShareInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShareInvitation")]
@@ -43,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareInvitationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the invitation.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the invitation that you want to accept.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

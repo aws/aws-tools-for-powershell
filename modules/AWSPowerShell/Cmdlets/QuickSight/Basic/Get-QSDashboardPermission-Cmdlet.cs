@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to the IAMpolicy.</para>
+        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

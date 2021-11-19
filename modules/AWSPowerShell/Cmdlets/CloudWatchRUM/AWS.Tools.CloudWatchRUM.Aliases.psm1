@@ -1,0 +1,3 @@
+﻿# CloudWatchRUM
+
+Export-ModuleMember -Alias *

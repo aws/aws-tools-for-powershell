@@ -28,7 +28,8 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the RAM permissions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of available RAM permissions that you can use for the supported resource
+    /// types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMPermissionList")]
     [OutputType("Amazon.RAM.Model.ResourceSharePermissionSummary")]
@@ -43,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Specifies the resource type for which to list permissions. For example, to list only
-        /// permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</para>
+        /// <para>Specifies that you want to list permissions for only the specified resource type.
+        /// For example, to list only permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.
+        /// You can use the <a>ListResourceTypes</a> operation to get the specific string required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// <para>Specifies the total number of results that you want included on each page of the response.
+        /// If you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// response element is returned with a value (not null). Include the specified value
+        /// as the <code>NextToken</code> request parameter in the next call to the operation
+        /// to get the next part of the results. Note that the service might return fewer results
+        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -72,7 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
+        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
+        /// that more output is available. Set this parameter to the value provided by the previous
+        /// call's <code>NextToken</code> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

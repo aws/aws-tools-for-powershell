@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_BackupPlanName
         /// <summary>
         /// <para>
-        /// <para>The optional display name of a backup plan.</para>
+        /// <para>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Identifies the request and allows failed requests to be retried without the risk of
         /// running the operation twice. If the request includes a <code>CreatorRequestId</code>
-        /// that matches an existing backup plan, that plan is returned. This parameter is optional.</para>
+        /// that matches an existing backup plan, that plan is returned. This parameter is optional.</para><para>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

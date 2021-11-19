@@ -45,14 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         /// <para>The base version of the lens.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BaseLensVersion { get; set; }
         #endregion
         
@@ -71,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LensAlias { get; set; }
+        #endregion
+        
+        #region Parameter TargetLensVersion
+        /// <summary>
+        /// <para>
+        /// <para>The lens version to target a difference for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetLensVersion { get; set; }
         #endregion
         
         #region Parameter Select
@@ -99,12 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BaseLensVersion = this.BaseLensVersion;
-            #if MODULAR
-            if (this.BaseLensVersion == null && ParameterWasBound(nameof(this.BaseLensVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BaseLensVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LensAlias = this.LensAlias;
             #if MODULAR
             if (this.LensAlias == null && ParameterWasBound(nameof(this.LensAlias)))
@@ -112,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 WriteWarning("You are passing $null as a value for parameter LensAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TargetLensVersion = this.TargetLensVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -135,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.LensAlias != null)
             {
                 request.LensAlias = cmdletContext.LensAlias;
+            }
+            if (cmdletContext.TargetLensVersion != null)
+            {
+                request.TargetLensVersion = cmdletContext.TargetLensVersion;
             }
             
             CmdletOutput output;
@@ -199,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             public System.String BaseLensVersion { get; set; }
             public System.String LensAlias { get; set; }
+            public System.String TargetLensVersion { get; set; }
             public System.Func<Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse, GetWATLensVersionDifferenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

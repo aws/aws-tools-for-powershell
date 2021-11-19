@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnLevelPermissionRule
         /// <summary>
         /// <para>
-        /// <para>A set of one or more definitions of a <code><a>ColumnLevelPermissionRule</a></code>.</para>
+        /// <para>A set of one or more definitions of a <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

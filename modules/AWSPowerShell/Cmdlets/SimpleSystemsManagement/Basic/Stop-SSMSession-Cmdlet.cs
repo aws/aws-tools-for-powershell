@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Permanently ends a session and closes the data connection between the Session Manager
-    /// client and SSM Agent on the instance. A terminated session isn't be resumed.
+    /// client and SSM Agent on the managed node. A terminated session isn't be resumed.
     /// </summary>
     [Cmdlet("Stop", "SSMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

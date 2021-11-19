@@ -28,11 +28,11 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create an AWS Proton service. An AWS Proton service is an instantiation of a service
-    /// template and often includes several service instances and pipeline. For more information,
-    /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a>
-    /// in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
-    /// in the <i>AWS Proton User Guide</i>.
+    /// Create an Proton service. An Proton service is an instantiation of a service template
+    /// and often includes several service instances and pipeline. For more information, see
+    /// <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a>
+    /// in the <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
+    /// in the <i>Proton User Guide</i>.
     /// </summary>
     [Cmdlet("New", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Service")]
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the code repository branch that holds the code that's deployed in AWS
-        /// Proton. <i>Don't</i> include this parameter if your service template <i>doesn't</i>
-        /// include a service pipeline.</para>
+        /// <para>The name of the code repository branch that holds the code that's deployed in Proton.
+        /// <i>Don't</i> include this parameter if your service template <i>doesn't</i> include
+        /// a service pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the AWS Proton service.</para>
+        /// <para>A description of the Proton service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the repository connection. For more information,
         /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set
-        /// up repository connection</a> in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting
-        /// up with AWS Proton</a> in the <i>AWS Proton User Guide</i>. <i>Don't</i> include this
-        /// parameter if your service template <i>doesn't</i> include a service pipeline.</para>
+        /// up repository connection</a> in the <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting
+        /// up with Proton</a> in the <i>Proton User Guide</i>. <i>Don't</i> include this parameter
+        /// if your service template <i>doesn't</i> include a service pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// schema file. The spec file is in YAML format. Don’t include pipeline inputs in the
         /// spec if your service template <i>doesn’t</i> include a service pipeline. For more
         /// information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create
-        /// a service</a> in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create
-        /// a service</a> in the <i>AWS Proton User Guide</i>.</para>
+        /// a service</a> in the <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create
+        /// a service</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your service. For more information, see <i>AWS Proton resources and
-        /// tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
-        /// Proton User Guide</a>.</para>
+        /// <para>Create tags for your service. For more information, see <i>Proton resources and tagging</i>
+        /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// User Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMajorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the major version of the service template that was used to create the service.</para>
+        /// <para>The major version of the service template that was used to create the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMinorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the minor version of the service template that was used to create the service.</para>
+        /// <para>The minor version of the service template that was used to create the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

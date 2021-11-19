@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The SageMaker module of AWS Tools for PowerShell lets developers and administrators manage Amazon SageMaker Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-SMResourceTag', 
         'Disable-SMSagemakerServicecatalogPortfolio', 
         'Enable-SMSagemakerServicecatalogPortfolio', 
+        'Find-SMLineage', 
         'Get-SMAction', 
         'Get-SMActionList', 
         'Get-SMAlgorithm', 
@@ -140,15 +141,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SMImageList', 
         'Get-SMImageVersion', 
         'Get-SMImageVersionList', 
+        'Get-SMInferenceRecommendationsJob', 
+        'Get-SMInferenceRecommendationsJobList', 
         'Get-SMLabelingJob', 
         'Get-SMLabelingJobList', 
         'Get-SMLabelingJobListForWorkteam', 
+        'Get-SMLineageGroup', 
+        'Get-SMLineageGroupList', 
+        'Get-SMLineageGroupPolicy', 
         'Get-SMModel', 
         'Get-SMModelBiasJobDefinition', 
         'Get-SMModelBiasJobDefinitionList', 
         'Get-SMModelExplainabilityJobDefinition', 
         'Get-SMModelExplainabilityJobDefinitionList', 
         'Get-SMModelList', 
+        'Get-SMModelMetadataList', 
         'Get-SMModelPackage', 
         'Get-SMModelPackageGroup', 
         'Get-SMModelPackageGroupList', 
@@ -219,6 +226,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-SMHyperParameterTuningJob', 
         'New-SMImage', 
         'New-SMImageVersion', 
+        'New-SMInferenceRecommendationsJob', 
         'New-SMLabelingJob', 
         'New-SMModel', 
         'New-SMModelBiasJobDefinition', 
@@ -294,6 +302,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-SMCompilationJob', 
         'Stop-SMEdgePackagingJob', 
         'Stop-SMHyperParameterTuningJob', 
+        'Stop-SMInferenceRecommendationsJob', 
         'Stop-SMLabelingJob', 
         'Stop-SMMonitoringSchedule', 
         'Stop-SMNotebookInstance', 

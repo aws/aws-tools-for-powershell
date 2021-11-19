@@ -125,6 +125,7 @@ $TXT_SelectCompleters = {
 $TXT_SelectMap = @{
     "Select"=@("Invoke-TXTDocumentAnalysis",
                "Invoke-TXTExpenseAnalysis",
+               "Invoke-TXTAnalyzeID",
                "Find-TXTDocumentText",
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",

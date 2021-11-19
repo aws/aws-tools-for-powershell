@@ -213,10 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>When CloudWatch has insufficient data about the metric to determine the alarm state,
-        /// the status that you want Amazon Route 53 to assign to the health check:</para><ul><li><para><code>Healthy</code>: Route 53 considers the health check to be healthy.</para></li><li><para><code>Unhealthy</code>: Route 53 considers the health check to be unhealthy.</para></li><li><para><code>LastKnownStatus</code>: Route 53 uses the status of the health check from the
-        /// last time CloudWatch had sufficient data to determine the alarm state. For new health
-        /// checks that have no last known status, the default status for the health check is
-        /// healthy.</para></li></ul>
+        /// the status that you want Amazon Route 53 to assign to the health check:</para><ul><li><para><code>Healthy</code>: Route 53 considers the health check to be healthy.</para></li><li><para><code>Unhealthy</code>: Route 53 considers the health check to be unhealthy.</para></li><li><para><code>LastKnownStatus</code>: By default, Route 53 uses the status of the health
+        /// check from the last time CloudWatch had sufficient data to determine the alarm state.
+        /// For new health checks that have no last known status, the status for the health check
+        /// is healthy.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

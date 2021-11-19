@@ -28,24 +28,18 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Lists all of the versions attached to the specified secret. The output does not include
-    /// the <code>SecretString</code> or <code>SecretBinary</code> fields. By default, the
-    /// list includes only versions that have at least one staging label in <code>VersionStage</code>
-    /// attached.
+    /// Lists the versions for a secret. 
     /// 
-    ///  <note><para>
-    /// Always check the <code>NextToken</code> response parameter when calling any of the
-    /// <code>List*</code> operations. These operations can occasionally return an empty or
-    /// shorter than expected list of results even when there more results become available.
-    /// When this happens, the <code>NextToken</code> response parameter contains a value
-    /// to pass to the next call to the same API to request the next part of the list.
-    /// </para></note><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:ListSecretVersionIds
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To list the secrets in an account, use <a>ListSecrets</a>.
-    /// </para></li></ul><br/><br/>In the AWS.Tools.SecretsManager module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  
+    /// <para>
+    /// To list the secrets in the account, use <a>ListSecrets</a>.
+    /// </para><para>
+    /// To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
+    /// call <a>GetSecretValue</a>.
+    /// </para><para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have <code>secretsmanager:ListSecretVersionIds</code>
+    /// permissions.
+    /// </para><br/><br/>In the AWS.Tools.SecretsManager module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECSecretVersionIdList")]
     [OutputType("Amazon.SecretsManager.Model.ListSecretVersionIdsResponse")]
@@ -59,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter IncludeDeprecated
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies that you want the results to include versions that do not have
-        /// any staging labels attached to them. Such versions are considered deprecated and are
-        /// subject to deletion by Secrets Manager as needed.</para>
+        /// <para>Specifies whether to include versions of secrets that don't have any staging labels
+        /// attached to them. Versions without staging labels are considered deprecated and are
+        /// subject to deletion by Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the secret containing the versions you want to list. You can specify
-        /// either the Amazon Resource Name (ARN) or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret whose versions you want to list.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,14 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results you want to include in the response. If you
-        /// don't include this parameter, it defaults to a value that's specific to the operation.
-        /// If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-        /// response element is present and has a value (isn't null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that Secrets Manager might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
+        /// To get the next results, call <code>ListSecretVersionIds</code> again with the value
+        /// from <code>NextToken</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request indicating there's more output available. In a subsequent
-        /// call, set it to the value of the previous call <code>NextToken</code> response to
-        /// indicate where the output should continue from.</para>
+        /// <para>A token that indicates where the output should continue from, if a previous call did
+        /// not show all results. To get the next results, call <code>ListSecretVersionIds</code>
+        /// again with this value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.SecretsManager module, this parameter is only used if you are manually controlling output pagination of the service API call.

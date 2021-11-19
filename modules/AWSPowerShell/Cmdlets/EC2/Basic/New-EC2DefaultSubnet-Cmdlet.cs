@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter Ipv6Native
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
+        /// for this Availability Zone, you must delete it before you can create an IPv6 only
+        /// subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ipv6Native { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Subnet'.
@@ -128,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Ipv6Native = this.Ipv6Native;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.Ipv6Native != null)
+            {
+                request.Ipv6Native = cmdletContext.Ipv6Native.Value;
             }
             
             CmdletOutput output;
@@ -210,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.Boolean? Ipv6Native { get; set; }
             public System.Func<Amazon.EC2.Model.CreateDefaultSubnetResponse, NewEC2DefaultSubnetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Subnet;
         }

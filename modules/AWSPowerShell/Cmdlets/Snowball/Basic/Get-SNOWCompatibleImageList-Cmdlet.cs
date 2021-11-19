@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
     /// This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
-    /// that are owned by your AWS account that would be supported for use on a Snow device.
-    /// Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM, Ubuntu
-    /// Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images, available on the
-    /// AWS Marketplace.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that are owned by your Amazon Web Services accountthat would be supported for use
+    /// on a Snow device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with
+    /// Updates HVM, Ubuntu Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images,
+    /// available on the Amazon Web Services Marketplace.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNOWCompatibleImageList")]
     [OutputType("Amazon.Snowball.Model.CompatibleImage")]

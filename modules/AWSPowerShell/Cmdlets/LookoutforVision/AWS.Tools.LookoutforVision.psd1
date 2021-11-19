@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The LookoutforVision module of AWS Tools for PowerShell lets developers and administrators manage Amazon Lookout for Vision from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LFVDatasetEntryList', 
         'Get-LFVModel', 
         'Get-LFVModelList', 
+        'Get-LFVModelPackagingJob', 
+        'Get-LFVModelPackagingJobList', 
         'Get-LFVProject', 
         'Get-LFVProjectList', 
         'Get-LFVResourceTag', 
@@ -103,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LFVProject', 
         'Remove-LFVResourceTag', 
         'Start-LFVModel', 
+        'Start-LFVModelPackagingJob', 
         'Stop-LFVModel', 
         'Update-LFVDatasetEntry')
 

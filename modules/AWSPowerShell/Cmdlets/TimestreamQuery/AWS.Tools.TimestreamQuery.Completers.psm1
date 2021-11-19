@@ -75,6 +75,40 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Timestream Query
 
 
+$TSQ_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.TimestreamQuery.S3EncryptionOption
+        "New-TSQScheduledQuery/ErrorReportConfiguration_S3Configuration_EncryptionOption"
+        {
+            $v = "SSE_KMS","SSE_S3"
+            break
+        }
+
+        # Amazon.TimestreamQuery.ScheduledQueryState
+        "Update-TSQScheduledQuery/State"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TSQ_map = @{
+    "ErrorReportConfiguration_S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
+    "State"=@("Update-TSQScheduledQuery")
+}
+
+_awsArgumentCompleterRegistration $TSQ_Completers $TSQ_map
+
 $TSQ_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,9 +157,19 @@ $TSQ_SelectCompleters = {
 }
 
 $TSQ_SelectMap = @{
-    "Select"=@("Invoke-TSQQuery",
-               "Stop-TSQQuery",
-               "Get-TSQEndpointList")
+    "Select"=@("Stop-TSQQuery",
+               "New-TSQScheduledQuery",
+               "Remove-TSQScheduledQuery",
+               "Get-TSQEndpointList",
+               "Get-TSQScheduledQuery",
+               "Start-TSQScheduledQuery",
+               "Get-TSQScheduledQueryList",
+               "Get-TSQResourceTag",
+               "Initialize-TSQQuery",
+               "Invoke-TSQQuery",
+               "Add-TSQResourceTag",
+               "Remove-TSQResourceTag",
+               "Update-TSQScheduledQuery")
 }
 
 _awsArgumentCompleterRegistration $TSQ_SelectCompleters $TSQ_SelectMap

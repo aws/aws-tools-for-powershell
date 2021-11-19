@@ -28,7 +28,8 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Creates a shipping label that will be used to return the Snow device to AWS.
+    /// Creates a shipping label that will be used to return the Snow device to Amazon Web
+    /// Services.
     /// </summary>
     [Cmdlet("New", "SNOWReturnShippingLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Snowball.ShippingLabelStatus")]
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The shipping speed for a particular job. This speed doesn't dictate how soon the device
-        /// is returned to AWS. This speed represents how quickly it moves to its destination
-        /// while in transit. Regional shipping speeds are as follows:</para>
+        /// is returned to Amazon Web Services. This speed represents how quickly it moves to
+        /// its destination while in transit. Regional shipping speeds are as follows:</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

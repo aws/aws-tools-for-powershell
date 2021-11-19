@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To create a new minor version of the environment template, include a <code>majorVersion</code>.</para><para>To create a new major and minor version of the environment template, <i>exclude</i><code>majorVersion</code>.</para>
+        /// <para>To create a new minor version of the environment template, include a <code>major Version</code>.</para><para>To create a new major and minor version of the environment template, <i>exclude</i><code>major Version</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>When included, if two identicial requests are made with the same client token, AWS
-        /// Proton returns the environment template version that the first request created.</para>
+        /// <para>When included, if two identical requests are made with the same client token, Proton
+        /// returns the environment template version that the first request created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

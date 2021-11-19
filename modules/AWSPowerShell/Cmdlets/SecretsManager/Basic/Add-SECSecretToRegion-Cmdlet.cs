@@ -28,8 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Converts an existing secret to a multi-Region secret and begins replication the secret
-    /// to a list of new regions.
+    /// Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region
+    /// secrets</a>.
     /// </summary>
     [Cmdlet("Add", "SECSecretToRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.ReplicateSecretToRegionsResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter AddReplicaRegion
         /// <summary>
         /// <para>
-        /// <para>Add Regions to replicate the secret.</para>
+        /// <para>A list of Regions in which to replicate the secret.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ForceOverwriteReplicaSecret
         /// <summary>
         /// <para>
-        /// <para>(Optional) If set, Secrets Manager replication overwrites a secret with the same name
-        /// in the destination region.</para>
+        /// <para>Specifies whether to overwrite a secret with the same name in the destination Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Use the <code>Secret Id</code> to replicate a secret to regions.</para>
+        /// <para>The ARN or name of the secret to replicate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

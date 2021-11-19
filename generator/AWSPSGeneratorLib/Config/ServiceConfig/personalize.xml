@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBatchSegmentJob" OutputProperty="BatchSegmentJobArn" Verb="New" Noun="BatchSegmentJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignArn" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="FilterArn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecommender" OutputProperty="RecommenderArn" Verb="New" Noun="Recommender" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecommender" Verb="Remove" Noun="Recommender" ShouldProcessTarget="RecommenderArn" PipelineParameter="RecommenderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSchema" Verb="Remove" Noun="Schema" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBatchInferenceJob" OutputProperty="BatchInferenceJob" Verb="Get" Noun="BatchInferenceJob" PipelineParameter="BatchInferenceJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBatchSegmentJob" OutputProperty="BatchSegmentJob" Verb="Get" Noun="BatchSegmentJob" PipelineParameter="BatchSegmentJobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecommender" OutputProperty="Recommender" Verb="Get" Noun="Recommender" PipelineParameter="RecommenderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSchema" OutputProperty="Schema" Verb="Get" Noun="Schema" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -152,6 +172,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBatchSegmentJobs" OutputProperty="BatchSegmentJobs" Verb="Get" Noun="BatchSegmentJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommenders" OutputProperty="Recommenders" Verb="Get" Noun="RecommenderList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -204,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaign" OutputProperty="CampaignArn" Verb="Update" Noun="Campaign" ShouldProcessTarget="CampaignArn" PipelineParameter="CampaignArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecommender" OutputProperty="RecommenderArn" Verb="Update" Noun="Recommender" ShouldProcessTarget="RecommenderArn" PipelineParameter="RecommenderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

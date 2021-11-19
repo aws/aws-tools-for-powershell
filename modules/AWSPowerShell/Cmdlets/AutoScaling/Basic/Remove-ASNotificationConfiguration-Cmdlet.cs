@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TopicARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-        /// topic.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

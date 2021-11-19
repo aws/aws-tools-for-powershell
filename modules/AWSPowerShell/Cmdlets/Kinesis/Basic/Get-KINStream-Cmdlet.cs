@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Describes the specified Kinesis data stream.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a>
+    /// API to get a summarized description of the specified Kinesis data stream and the <a>ListShards</a>
+    /// API to list the shards in a specified data stream and obtain information about each
+    /// shard. 
+    /// </para></note><para>
     /// The information returned includes the stream name, Amazon Resource Name (ARN), creation
     /// time, enhanced metric configuration, and shard map. The shard map is an array of shard
     /// objects. For each shard object, there is the hash key and sequence number ranges that
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
-        /// <para>The shard ID of the shard to start with.</para>
+        /// <para>The shard ID of the shard to start with.</para><para>Specify this parameter to indicate that you want to describe the stream starting with
+        /// the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</para><para>If you don't specify this parameter, the default behavior for <code>DescribeStream</code>
+        /// is to describe the stream starting with the first shard in the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of shards to return in a single call. The default value is 100.
-        /// If you specify a value greater than 100, at most 100 shards are returned.</para>
+        /// If you specify a value greater than 100, at most 100 results are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

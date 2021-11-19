@@ -80,6 +80,17 @@ $PERS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Personalize.Domain
+        {
+            ($_ -eq "Get-PERSRecipeList/Domain") -Or
+            ($_ -eq "New-PERSDatasetGroup/Domain") -Or
+            ($_ -eq "New-PERSSchema/Domain")
+        }
+        {
+            $v = "ECOMMERCE","VIDEO_ON_DEMAND"
+            break
+        }
+
         # Amazon.Personalize.IngestionMode
         "New-PERSDatasetExportJob/IngestionMode"
         {
@@ -117,6 +128,7 @@ $PERS_Completers = {
 }
 
 $PERS_map = @{
+    "Domain"=@("Get-PERSRecipeList","New-PERSDatasetGroup","New-PERSSchema")
     "IngestionMode"=@("New-PERSDatasetExportJob")
     "RecipeProvider"=@("Get-PERSRecipeList")
     "SolutionConfig_OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")
@@ -174,6 +186,7 @@ $PERS_SelectCompleters = {
 
 $PERS_SelectMap = @{
     "Select"=@("New-PERSBatchInferenceJob",
+               "New-PERSBatchSegmentJob",
                "New-PERSCampaign",
                "New-PERSDataset",
                "New-PERSDatasetExportJob",
@@ -181,6 +194,7 @@ $PERS_SelectMap = @{
                "New-PERSDatasetImportJob",
                "New-PERSEventTracker",
                "New-PERSFilter",
+               "New-PERSRecommender",
                "New-PERSSchema",
                "New-PERSSolution",
                "New-PERSSolutionVersion",
@@ -189,10 +203,12 @@ $PERS_SelectMap = @{
                "Remove-PERSDatasetGroup",
                "Remove-PERSEventTracker",
                "Remove-PERSFilter",
+               "Remove-PERSRecommender",
                "Remove-PERSSchema",
                "Remove-PERSSolution",
                "Get-PERSAlgorithm",
                "Get-PERSBatchInferenceJob",
+               "Get-PERSBatchSegmentJob",
                "Get-PERSCampaign",
                "Get-PERSDataset",
                "Get-PERSDatasetExportJob",
@@ -202,11 +218,13 @@ $PERS_SelectMap = @{
                "Get-PERSFeatureTransformation",
                "Get-PERSFilter",
                "Get-PERSRecipe",
+               "Get-PERSRecommender",
                "Get-PERSSchema",
                "Get-PERSSolution",
                "Get-PERSSolutionVersion",
                "Get-PERSSolutionMetric",
                "Get-PERSBatchInferenceJobList",
+               "Get-PERSBatchSegmentJobList",
                "Get-PERSCampaignList",
                "Get-PERSDatasetExportJobList",
                "Get-PERSDatasetGroupList",
@@ -215,11 +233,13 @@ $PERS_SelectMap = @{
                "Get-PERSEventTrackerList",
                "Get-PERSFilterList",
                "Get-PERSRecipeList",
+               "Get-PERSRecommenderList",
                "Get-PERSSchemaList",
                "Get-PERSSolutionList",
                "Get-PERSSolutionVersionList",
                "Stop-PERSSolutionVersionCreation",
-               "Update-PERSCampaign")
+               "Update-PERSCampaign",
+               "Update-PERSRecommender")
 }
 
 _awsArgumentCompleterRegistration $PERS_SelectCompleters $PERS_SelectMap

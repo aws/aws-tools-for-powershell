@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of service role in the customer's account that AWS CloudFormation uses to
-        /// launch the application.</para>
+        /// <para>The name of service role in the customer's account that CloudFormation uses to launch
+        /// the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

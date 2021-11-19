@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>To view a list of minor of versions under a major version of an environment template,
-        /// include <code>majorVersion</code>.</para><para>To view a list of major versions of an environment template, <i>exclude</i><code>majorVersion</code>.</para>
+        /// include <code>major Version</code>.</para><para>To view a list of major versions of an environment template, <i>exclude</i><code>major
+        /// Version</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates content and status of IP Rules.
+    /// Updates the content and status of IP rules. To use this operation, you need to provide
+    /// the entire map of rules. You can use the <code>DescribeIpRestriction</code> operation
+    /// to get the current rule map.
     /// </summary>
     [Cmdlet("Update", "QSIpRestriction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Your AWS account ID.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the IP rules.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether or not IP rules are enabled.</para>
+        /// <para>A value that specifies whether IP rules are turned on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IpRestrictionRuleMap
         /// <summary>
         /// <para>
-        /// <para>Describes updated IP rules.</para>
+        /// <para>A map that describes the updated IP rules with CIDR ranges and descriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

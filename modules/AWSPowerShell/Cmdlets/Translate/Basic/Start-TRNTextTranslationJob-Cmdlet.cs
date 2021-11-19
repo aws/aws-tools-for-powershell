@@ -102,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter EncryptionKey_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
-        /// terminology.</para>
+        /// <para>The Amazon Resource Name (ARN) of the encryption key being used to encrypt this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,6 +134,22 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ParallelDataNames")]
         public System.String[] ParallelDataName { get; set; }
+        #endregion
+        
+        #region Parameter Settings_Profanity
+        /// <summary>
+        /// <para>
+        /// <para>Enable the profanity setting if you want Amazon Translate to mask profane words and
+        /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
+        /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
+        /// regardless of the length or number of words.</para><para>Amazon Translate does not detect profanity in all of its supported languages. For
+        /// languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported
+        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Profanity")]
+        public Amazon.Translate.Profanity Settings_Profanity { get; set; }
         #endregion
         
         #region Parameter InputDataConfig_S3Uri
@@ -225,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter EncryptionKey_Type
         /// <summary>
         /// <para>
-        /// <para>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</para>
+        /// <para>The type of encryption key used by Amazon Translate to encrypt this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 context.ParallelDataName = new List<System.String>(this.ParallelDataName);
             }
+            context.Settings_Profanity = this.Settings_Profanity;
             context.SourceLanguageCode = this.SourceLanguageCode;
             #if MODULAR
             if (this.SourceLanguageCode == null && ParameterWasBound(nameof(this.SourceLanguageCode)))
@@ -458,6 +474,25 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 request.ParallelDataNames = cmdletContext.ParallelDataName;
             }
+            
+             // populate Settings
+            var requestSettingsIsNull = true;
+            request.Settings = new Amazon.Translate.Model.TranslationSettings();
+            Amazon.Translate.Profanity requestSettings_settings_Profanity = null;
+            if (cmdletContext.Settings_Profanity != null)
+            {
+                requestSettings_settings_Profanity = cmdletContext.Settings_Profanity;
+            }
+            if (requestSettings_settings_Profanity != null)
+            {
+                request.Settings.Profanity = requestSettings_settings_Profanity;
+                requestSettingsIsNull = false;
+            }
+             // determine if request.Settings should be set to null
+            if (requestSettingsIsNull)
+            {
+                request.Settings = null;
+            }
             if (cmdletContext.SourceLanguageCode != null)
             {
                 request.SourceLanguageCode = cmdletContext.SourceLanguageCode;
@@ -540,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<System.String> ParallelDataName { get; set; }
+            public Amazon.Translate.Profanity Settings_Profanity { get; set; }
             public System.String SourceLanguageCode { get; set; }
             public List<System.String> TargetLanguageCode { get; set; }
             public List<System.String> TerminologyName { get; set; }

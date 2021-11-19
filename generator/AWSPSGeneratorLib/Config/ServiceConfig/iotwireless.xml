@@ -190,6 +190,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkAnalyzerConfiguration" OutputProperty="*" Verb="Get" Noun="NetworkAnalyzerConfiguration" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -347,6 +351,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMulticastGroup" Verb="Update" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetworkAnalyzerConfiguration" Verb="Update" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

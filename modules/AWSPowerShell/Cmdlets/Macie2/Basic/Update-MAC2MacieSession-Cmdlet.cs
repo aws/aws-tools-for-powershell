@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Suspends or re-enables an Amazon Macie account, or updates the configuration settings
-    /// for a Macie account.
+    /// Suspends or re-enables Amazon Macie, or updates the configuration settings for a Macie
+    /// account.
     /// </summary>
     [Cmdlet("Update", "MAC2MacieSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

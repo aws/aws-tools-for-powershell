@@ -28,7 +28,9 @@ using Amazon.TimestreamWrite.Model;
 namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
-    /// A list of tables, along with the name, status and retention properties of each table.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// A list of tables, along with the name, status and retention properties of each table.
+    /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code
+    /// sample</a> for details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TSWTableList")]
     [OutputType("Amazon.TimestreamWrite.Model.Table")]

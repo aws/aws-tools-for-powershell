@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The WellArchitected module of AWS Tools for PowerShell lets developers and administrators manage AWS Well-Architected Tool from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -86,16 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-WATLense', 
         'Add-WATResourceTag', 
         'Convert-WATLensReview', 
+        'Export-WATLens', 
         'Get-WATAnswer', 
         'Get-WATAnswerList', 
-        'Get-WATLenseList', 
+        'Get-WATLens', 
+        'Get-WATLensList', 
         'Get-WATLensReview', 
         'Get-WATLensReviewImprovementList', 
         'Get-WATLensReviewList', 
         'Get-WATLensReviewReport', 
+        'Get-WATLensShareList', 
         'Get-WATLensVersionDifference', 
         'Get-WATMilestone', 
         'Get-WATMilestoneList', 
@@ -105,13 +107,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WATWorkload', 
         'Get-WATWorkloadList', 
         'Get-WATWorkloadShareList', 
+        'Import-WATLens', 
+        'New-WATLensShare', 
+        'New-WATLensVersion', 
         'New-WATMilestone', 
         'New-WATWorkload', 
         'New-WATWorkloadShare', 
-        'Remove-WATLense', 
+        'Register-WATLens', 
+        'Remove-WATLens', 
+        'Remove-WATLensShare', 
         'Remove-WATResourceTag', 
         'Remove-WATWorkload', 
         'Remove-WATWorkloadShare', 
+        'Unregister-WATLens', 
         'Update-WATAnswer', 
         'Update-WATLensReview', 
         'Update-WATShareInvitation', 
@@ -122,7 +130,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @()
+    AliasesToExport = @(
+        'Add-WATLense', 
+        'Remove-WATLense', 
+        'Get-WATLenseList')
 
     # List of all modules packaged with this module
     ModuleList = @()

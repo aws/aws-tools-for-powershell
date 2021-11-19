@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CpuOption
         /// <summary>
         /// <para>
-        /// <para>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing
+        /// <para>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize
         /// CPU options</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -286,6 +286,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EnclaveOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord { get; set; }
+        #endregion
+        
+        #region Parameter PrivateDnsNameOptions_EnableResourceNameDnsARecord
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PrivateDnsNameOptions_EnableResourceNameDnsARecord { get; set; }
+        #endregion
+        
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
@@ -308,6 +328,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HostId","Placement_Host")]
         public System.String Placement_HostId { get; set; }
+        #endregion
+        
+        #region Parameter PrivateDnsNameOptions_HostnameType
+        /// <summary>
+        /// <para>
+        /// <para>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+        /// must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS
+        /// name must be based on the instance ID. For dual-stack subnets, you can specify whether
+        /// DNS names use the instance IPv4 address or the instance ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.HostnameType")]
+        public Amazon.EC2.HostnameType PrivateDnsNameOptions_HostnameType { get; set; }
         #endregion
         
         #region Parameter Placement_HostResourceGroupArn
@@ -565,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_PartitionNumber
         /// <summary>
         /// <para>
-        /// <para>The number of the partition the instance is in. Valid only if the placement group
+        /// <para>The number of the partition that the instance is in. Valid only if the placement group
         /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
@@ -841,6 +875,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Placement_PartitionNumber = this.Placement_PartitionNumber;
             context.Placement_SpreadDomain = this.Placement_SpreadDomain;
             context.Placement_Tenancy = this.Placement_Tenancy;
+            context.PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord = this.PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord;
+            context.PrivateDnsNameOptions_EnableResourceNameDnsARecord = this.PrivateDnsNameOptions_EnableResourceNameDnsARecord;
+            context.PrivateDnsNameOptions_HostnameType = this.PrivateDnsNameOptions_HostnameType;
             context.PrivateIpAddress = this.PrivateIpAddress;
             context.RamdiskId = this.RamdiskId;
             if (this.SecurityGroupId != null)
@@ -1239,6 +1276,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Placement = null;
             }
+            
+             // populate PrivateDnsNameOptions
+            var requestPrivateDnsNameOptionsIsNull = true;
+            request.PrivateDnsNameOptions = new Amazon.EC2.Model.PrivateDnsNameOptionsRequest();
+            System.Boolean? requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsAAAARecord = null;
+            if (cmdletContext.PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord != null)
+            {
+                requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsAAAARecord = cmdletContext.PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord.Value;
+            }
+            if (requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsAAAARecord != null)
+            {
+                request.PrivateDnsNameOptions.EnableResourceNameDnsAAAARecord = requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsAAAARecord.Value;
+                requestPrivateDnsNameOptionsIsNull = false;
+            }
+            System.Boolean? requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsARecord = null;
+            if (cmdletContext.PrivateDnsNameOptions_EnableResourceNameDnsARecord != null)
+            {
+                requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsARecord = cmdletContext.PrivateDnsNameOptions_EnableResourceNameDnsARecord.Value;
+            }
+            if (requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsARecord != null)
+            {
+                request.PrivateDnsNameOptions.EnableResourceNameDnsARecord = requestPrivateDnsNameOptions_privateDnsNameOptions_EnableResourceNameDnsARecord.Value;
+                requestPrivateDnsNameOptionsIsNull = false;
+            }
+            Amazon.EC2.HostnameType requestPrivateDnsNameOptions_privateDnsNameOptions_HostnameType = null;
+            if (cmdletContext.PrivateDnsNameOptions_HostnameType != null)
+            {
+                requestPrivateDnsNameOptions_privateDnsNameOptions_HostnameType = cmdletContext.PrivateDnsNameOptions_HostnameType;
+            }
+            if (requestPrivateDnsNameOptions_privateDnsNameOptions_HostnameType != null)
+            {
+                request.PrivateDnsNameOptions.HostnameType = requestPrivateDnsNameOptions_privateDnsNameOptions_HostnameType;
+                requestPrivateDnsNameOptionsIsNull = false;
+            }
+             // determine if request.PrivateDnsNameOptions should be set to null
+            if (requestPrivateDnsNameOptionsIsNull)
+            {
+                request.PrivateDnsNameOptions = null;
+            }
             if (cmdletContext.PrivateIpAddress != null)
             {
                 request.PrivateIpAddress = cmdletContext.PrivateIpAddress;
@@ -1370,6 +1446,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? Placement_PartitionNumber { get; set; }
             public System.String Placement_SpreadDomain { get; set; }
             public Amazon.EC2.Tenancy Placement_Tenancy { get; set; }
+            public System.Boolean? PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord { get; set; }
+            public System.Boolean? PrivateDnsNameOptions_EnableResourceNameDnsARecord { get; set; }
+            public Amazon.EC2.HostnameType PrivateDnsNameOptions_HostnameType { get; set; }
             public System.String PrivateIpAddress { get; set; }
             public System.String RamdiskId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }

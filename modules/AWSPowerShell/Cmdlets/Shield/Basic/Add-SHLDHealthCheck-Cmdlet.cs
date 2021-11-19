@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// <summary>
     /// Adds health-based detection to the Shield Advanced protection for a resource. Shield
     /// Advanced health-based detection uses the health of your Amazon Web Services resource
-    /// to improve responsiveness and accuracy in attack detection and mitigation. 
+    /// to improve responsiveness and accuracy in attack detection and response. 
     /// 
     ///  
     /// <para>
-    /// You define the health check in Route 53 and then associate it with your Shield Advanced
+    /// You define the health check in Route 53 and then associate it with your Shield Advanced
     /// protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield
     /// Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. 
     /// </para>

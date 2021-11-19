@@ -50,6 +50,28 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? Filters_IsArchived { get; set; }
         #endregion
         
+        #region Parameter Filters_LifeCycleState
+        /// <summary>
+        /// <para>
+        /// <para>Request to filter Source Servers list by life cycle states.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_LifeCycleStates")]
+        public System.String[] Filters_LifeCycleState { get; set; }
+        #endregion
+        
+        #region Parameter Filters_ReplicationType
+        /// <summary>
+        /// <para>
+        /// <para>Request to filter Source Servers list by replication type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ReplicationTypes")]
+        public System.String[] Filters_ReplicationType { get; set; }
+        #endregion
+        
         #region Parameter Filters_SourceServerIDs
         /// <summary>
         /// <para>
@@ -107,6 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Filters_IsArchived = this.Filters_IsArchived;
+            if (this.Filters_LifeCycleState != null)
+            {
+                context.Filters_LifeCycleState = new List<System.String>(this.Filters_LifeCycleState);
+            }
+            if (this.Filters_ReplicationType != null)
+            {
+                context.Filters_ReplicationType = new List<System.String>(this.Filters_ReplicationType);
+            }
             if (this.Filters_SourceServerIDs != null)
             {
                 context.Filters_SourceServerIDs = new List<System.String>(this.Filters_SourceServerIDs);
@@ -141,6 +171,26 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestFilters_filters_IsArchived != null)
             {
                 request.Filters.IsArchived = requestFilters_filters_IsArchived.Value;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_LifeCycleState = null;
+            if (cmdletContext.Filters_LifeCycleState != null)
+            {
+                requestFilters_filters_LifeCycleState = cmdletContext.Filters_LifeCycleState;
+            }
+            if (requestFilters_filters_LifeCycleState != null)
+            {
+                request.Filters.LifeCycleStates = requestFilters_filters_LifeCycleState;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ReplicationType = null;
+            if (cmdletContext.Filters_ReplicationType != null)
+            {
+                requestFilters_filters_ReplicationType = cmdletContext.Filters_ReplicationType;
+            }
+            if (requestFilters_filters_ReplicationType != null)
+            {
+                request.Filters.ReplicationTypes = requestFilters_filters_ReplicationType;
                 requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_SourceServerIDs = null;
@@ -228,6 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Filters_IsArchived { get; set; }
+            public List<System.String> Filters_LifeCycleState { get; set; }
+            public List<System.String> Filters_ReplicationType { get; set; }
             public List<System.String> Filters_SourceServerIDs { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

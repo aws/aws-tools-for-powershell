@@ -28,9 +28,9 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Create a list of the Outposts for your AWS account. Add filters to your request to
-    /// return a more specific list of results. Use filters to match an Outpost lifecycle
-    /// status, Availibility Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>).
+    /// Create a list of the Outposts for your Amazon Web Services account. Add filters to
+    /// your request to return a more specific list of results. Use filters to match an Outpost
+    /// lifecycle status, Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>).
     /// 
     /// 
     ///  
@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AvailabilityZoneFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the Availibility Zone (<code>us-east-1a</code>) of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// <para> A filter for the Availability Zone (<code>us-east-1a</code>) of the Outpost. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
         /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values. </para>
+        /// match any of the specified values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AvailabilityZoneIdFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// <para> A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
         /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values. </para>
+        /// match any of the specified values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter LifeCycleStatusFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the lifecycle status of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// <para> A filter for the lifecycle status of the Outpost. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
         /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values. </para>
+        /// match any of the specified values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

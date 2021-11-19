@@ -250,15 +250,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <para>The name of the profile object type.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ObjectTypeName { get; set; }
+        #endregion
+        
+        #region Parameter ObjectTypeNames
+        /// <summary>
+        /// <para>
+        /// <para>A map in which each key is an event type from an external application such as Segment
+        /// or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest
+        /// the event. It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>,
+        /// <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>, <code>ShopifyUpdateDraftOrders</code>,
+        /// <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ObjectTypeNames { get; set; }
         #endregion
         
         #region Parameter Scheduled_ScheduleEndTime
@@ -459,12 +466,14 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.Scheduled_Timezone = this.Scheduled_Timezone;
             context.TriggerConfig_TriggerType = this.TriggerConfig_TriggerType;
             context.ObjectTypeName = this.ObjectTypeName;
-            #if MODULAR
-            if (this.ObjectTypeName == null && ParameterWasBound(nameof(this.ObjectTypeName)))
+            if (this.ObjectTypeNames != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ObjectTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ObjectTypeNames = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ObjectTypeNames.Keys)
+                {
+                    context.ObjectTypeNames.Add((String)hashKey, (String)(this.ObjectTypeNames[hashKey]));
+                }
             }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -902,6 +911,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.ObjectTypeName = cmdletContext.ObjectTypeName;
             }
+            if (cmdletContext.ObjectTypeNames != null)
+            {
+                request.ObjectTypeNames = cmdletContext.ObjectTypeNames;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -996,6 +1009,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String Scheduled_Timezone { get; set; }
             public Amazon.CustomerProfiles.TriggerType TriggerConfig_TriggerType { get; set; }
             public System.String ObjectTypeName { get; set; }
+            public Dictionary<System.String, System.String> ObjectTypeNames { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Uri { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.PutIntegrationResponse, WriteCPFIntegrationCmdlet, object> Select { get; set; } =

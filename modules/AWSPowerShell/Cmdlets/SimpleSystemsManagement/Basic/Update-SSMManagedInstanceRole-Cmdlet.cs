@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Changes the Identity and Access Management (IAM) role that is assigned to the on-premises
-    /// instance or virtual machines (VM). IAM roles are first assigned to these hybrid instances
-    /// during the activation process. For more information, see <a>CreateActivation</a>.
+    /// server, edge device, or virtual machines (VM). IAM roles are first assigned to these
+    /// hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.
     /// </summary>
     [Cmdlet("Update", "SSMManagedInstanceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the managed instance where you want to update the role.</para>
+        /// <para>The ID of the managed node where you want to update the role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

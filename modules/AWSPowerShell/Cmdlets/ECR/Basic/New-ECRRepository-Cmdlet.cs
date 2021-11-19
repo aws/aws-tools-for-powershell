@@ -50,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// Web Services managed KMS key for Amazon ECR, or specify your own KMS key, which you
         /// already created. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
         /// data using server-side encryption with an KMS key stored in Key Management Service
-        /// (SSE-KMS)</a> in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+        /// (SSE-KMS)</a> in the <i>Amazon Simple Storage Service Console Developer Guide</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
         /// with Amazon S3-managed encryption keys which encrypts the images in the repository
         /// using an AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting
         /// data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a>
-        /// in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para>
+        /// in the <i>Amazon Simple Storage Service Console Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry to create the repository. If you do
-        /// not specify a registry, the default registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry to create the repository.
+        /// If you do not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

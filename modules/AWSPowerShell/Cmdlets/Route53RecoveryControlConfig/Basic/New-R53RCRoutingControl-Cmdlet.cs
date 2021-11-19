@@ -97,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique client idempotency token.</para>
+        /// <para>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent
+        /// API request with an action, specify a client token in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

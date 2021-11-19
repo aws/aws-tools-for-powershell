@@ -28,8 +28,14 @@ using Amazon.IoTDeviceAdvisor.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
-    /// Lists the runs of the specified Device Advisor test suite. You can list all runs of
-    /// the test suite, or the runs of a specific version of the test suite.
+    /// Lists runs of the specified Device Advisor test suite. You can list all runs of the
+    /// test suite, or the runs of a specific version of the test suite.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDASuiteRunList")]
     [OutputType("Amazon.IoTDeviceAdvisor.Model.SuiteRunInformation")]
@@ -44,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Lists the test suite runs of the specified test suite based on suite definition Id.</para>
+        /// <para>Lists the test suite runs of the specified test suite based on suite definition ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionVersion
         /// <summary>
         /// <para>
-        /// <para>Must be passed along with suiteDefinitionId. Lists the test suite runs of the specified
-        /// test suite based on suite definition version.</para>
+        /// <para>Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs
+        /// of the specified test suite based on suite definition version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,23 +28,9 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Retrieves the JSON text of the resource-based policy document attached to the specified
-    /// secret. The JSON request string input and response output displays formatted code
-    /// with white space and line breaks for better readability. Submit your input as a single
-    /// line JSON string.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:GetResourcePolicy
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To list all of the currently available secrets, use <a>ListSecrets</a>.
-    /// </para></li></ul>
+    /// Retrieves the JSON text of the resource-based policy document attached to the secret.
+    /// For more information about permissions policies attached to a secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
+    /// policies attached to a secret</a>.
     /// </summary>
     [Cmdlet("Get", "SECResourcePolicy")]
     [OutputType("Amazon.SecretsManager.Model.GetResourcePolicyResponse")]
@@ -58,9 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to retrieve the attached resource-based policy
-        /// for. You can specify either the Amazon Resource Name (ARN) or the friendly name of
-        /// the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret to retrieve the attached resource-based policy for.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,0 +1,3 @@
+﻿# RecycleBin
+
+Export-ModuleMember -Alias *

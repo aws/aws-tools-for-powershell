@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// This operation returns all the domain names registered with Amazon Route 53 for the
-    /// current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// current Amazon Web Services account if no filtering conditions are used.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53DDomainList")]
     [OutputType("Amazon.Route53Domains.Model.DomainSummary")]
@@ -41,14 +41,51 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class GetR53DDomainListCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        #region Parameter FilterCondition
+        /// <summary>
+        /// <para>
+        /// <para>A complex type that contains information about the filters applied during the <code>ListDomains</code>
+        /// request. The filter conditions can include domain name and domain expiration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterConditions")]
+        public Amazon.Route53Domains.Model.FilterCondition[] FilterCondition { get; set; }
+        #endregion
+        
+        #region Parameter SortCondition_Name
+        /// <summary>
+        /// <para>
+        /// <para>Field to be used for sorting the list of domains. It can be either the name or the
+        /// expiration for a domain. Note that if <code>filterCondition</code> is used in the
+        /// same <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>
+        /// call, the field used for sorting has to be the same as the field used for filtering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.ListDomainsAttributeName")]
+        public Amazon.Route53Domains.ListDomainsAttributeName SortCondition_Name { get; set; }
+        #endregion
+        
+        #region Parameter SortCondition_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sort order for a list of domains. Either ascending (ASC) or descending (DES).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.SortOrder")]
+        public Amazon.Route53Domains.SortOrder SortCondition_SortOrder { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>For an initial request for a list of domains, omit this element. If the number of
-        /// domains that are associated with the current AWS account is greater than the value
-        /// that you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return
-        /// additional domains. Get the value of <code>NextPageMarker</code> from the previous
-        /// response, and submit another request that includes the value of <code>NextPageMarker</code>
+        /// domains that are associated with the current Amazon Web Services account is greater
+        /// than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
+        /// to return additional domains. Get the value of <code>NextPageMarker</code> from the
+        /// previous response, and submit another request that includes the value of <code>NextPageMarker</code>
         /// in the <code>Marker</code> element.</para><para>Constraints: The marker must match the value specified in the previous request.</para>
         /// </para>
         /// <para>
@@ -127,8 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 context.Select = (response, cmdlet) => this.MaxItem;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.FilterCondition != null)
+            {
+                context.FilterCondition = new List<Amazon.Route53Domains.Model.FilterCondition>(this.FilterCondition);
+            }
             context.Marker = this.Marker;
             context.MaxItem = this.MaxItem;
+            context.SortCondition_Name = this.SortCondition_Name;
+            context.SortCondition_SortOrder = this.SortCondition_SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,9 +192,42 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // create request and set iteration invariants
             var request = new Amazon.Route53Domains.Model.ListDomainsRequest();
             
+            if (cmdletContext.FilterCondition != null)
+            {
+                request.FilterConditions = cmdletContext.FilterCondition;
+            }
             if (cmdletContext.MaxItem != null)
             {
                 request.MaxItems = cmdletContext.MaxItem.Value;
+            }
+            
+             // populate SortCondition
+            var requestSortConditionIsNull = true;
+            request.SortCondition = new Amazon.Route53Domains.Model.SortCondition();
+            Amazon.Route53Domains.ListDomainsAttributeName requestSortCondition_sortCondition_Name = null;
+            if (cmdletContext.SortCondition_Name != null)
+            {
+                requestSortCondition_sortCondition_Name = cmdletContext.SortCondition_Name;
+            }
+            if (requestSortCondition_sortCondition_Name != null)
+            {
+                request.SortCondition.Name = requestSortCondition_sortCondition_Name;
+                requestSortConditionIsNull = false;
+            }
+            Amazon.Route53Domains.SortOrder requestSortCondition_sortCondition_SortOrder = null;
+            if (cmdletContext.SortCondition_SortOrder != null)
+            {
+                requestSortCondition_sortCondition_SortOrder = cmdletContext.SortCondition_SortOrder;
+            }
+            if (requestSortCondition_sortCondition_SortOrder != null)
+            {
+                request.SortCondition.SortOrder = requestSortCondition_sortCondition_SortOrder;
+                requestSortConditionIsNull = false;
+            }
+             // determine if request.SortCondition should be set to null
+            if (requestSortConditionIsNull)
+            {
+                request.SortCondition = null;
             }
             
             // Initialize loop variant and commence piping
@@ -238,8 +314,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Route53Domains.Model.FilterCondition> FilterCondition { get; set; }
             public System.String Marker { get; set; }
             public System.Int32? MaxItem { get; set; }
+            public Amazon.Route53Domains.ListDomainsAttributeName SortCondition_Name { get; set; }
+            public Amazon.Route53Domains.SortOrder SortCondition_SortOrder { get; set; }
             public System.Func<Amazon.Route53Domains.Model.ListDomainsResponse, GetR53DDomainListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Domains;
         }

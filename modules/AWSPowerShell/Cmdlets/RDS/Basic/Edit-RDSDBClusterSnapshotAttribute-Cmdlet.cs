@@ -51,9 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB cluster snapshot, or whether a manual DB cluster snapshot is public or private,
     /// use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are returned
     /// as values for the <code>restore</code> attribute.
-    /// </para><note><para>
-    /// This action only applies to Aurora DB clusters.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBClusterSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterSnapshotAttributesResult")]

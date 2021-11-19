@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and allows failed requests to be retried
-        /// without the risk of running the operation twice.</para>
+        /// without the risk of running the operation twice. This parameter is optional.</para><para>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

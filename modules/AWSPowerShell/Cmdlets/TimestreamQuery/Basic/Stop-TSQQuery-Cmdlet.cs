@@ -28,10 +28,11 @@ using Amazon.TimestreamQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
-    /// Cancels a query that has been issued. Cancellation is guaranteed only if the query
-    /// has not completed execution before the cancellation request was issued. Because cancellation
+    /// Cancels a query that has been issued. Cancellation is provided only if the query
+    /// has not completed running before the cancellation request was issued. Because cancellation
     /// is an idempotent operation, subsequent cancellation requests will return a <code>CancellationMessage</code>,
-    /// indicating that the query has already been canceled.
+    /// indicating that the query has already been canceled. See <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.cancel-query.html">code
+    /// sample</a> for details.
     /// </summary>
     [Cmdlet("Stop", "TSQQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para> The id of the query that needs to be cancelled. <code>QueryID</code> is returned
-        /// as part of QueryResult. </para>
+        /// <para> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned
+        /// as part of the query result. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

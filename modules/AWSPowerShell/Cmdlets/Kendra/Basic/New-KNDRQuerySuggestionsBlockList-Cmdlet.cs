@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para><para>
     /// For information on the current quota limits for block lists, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
     /// for Amazon Kendra</a>.
+    /// </para><para><code>CreateQuerySuggestionsBlockList</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRQuerySuggestionsBlockList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

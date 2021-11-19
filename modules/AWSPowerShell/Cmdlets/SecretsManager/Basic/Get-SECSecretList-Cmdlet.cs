@@ -28,24 +28,21 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Lists all of the secrets that are stored by Secrets Manager in the Amazon Web Services
-    /// account. To list the versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
-    /// The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not
-    /// included in the output. To get that information, call the <a>GetSecretValue</a> operation.
+    /// Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account.
     /// 
-    ///  <note><para>
-    /// Always check the <code>NextToken</code> response parameter when calling any of the
-    /// <code>List*</code> operations. These operations can occasionally return an empty or
-    /// shorter than expected list of results even when there more results become available.
-    /// When this happens, the <code>NextToken</code> response parameter contains a value
-    /// to pass to the next call to the same API to request the next part of the list.
-    /// </para></note><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:ListSecrets
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// 
+    ///  
+    /// <para>
+    /// To list the versions of a secret, use <a>ListSecretVersionIds</a>.
+    /// </para><para>
+    /// To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
+    /// call <a>GetSecretValue</a>.
+    /// </para><para>
+    /// For information about finding secrets in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Enhanced
+    /// search capabilities for secrets in Secrets Manager</a>.
+    /// </para><para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have <code>secretsmanager:ListSecrets</code> permissions.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECSecretList")]
     [OutputType("Amazon.SecretsManager.Model.SecretListEntry")]
@@ -60,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Lists the secret request filters.</para>
+        /// <para>The filters to apply to the list of secrets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,14 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results you want to include in the response. If you
-        /// don't include this parameter, it defaults to a value that's specific to the operation.
-        /// If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-        /// response element is present and has a value (isn't null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that Secrets Manager might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
+        /// To get the next results, call <code>ListSecrets</code> again with the value from <code>NextToken</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -105,10 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request indicating there's more output available. In a subsequent
-        /// call, set it to the value of the previous call <code>NextToken</code> response to
-        /// indicate where the output should continue from.</para>
+        /// <para>A token that indicates where the output should continue from, if a previous call did
+        /// not show all results. To get the next results, call <code>ListSecrets</code> again
+        /// with this value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

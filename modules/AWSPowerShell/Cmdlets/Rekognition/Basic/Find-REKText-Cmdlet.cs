@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// elements, <code>TextDetections</code>. Each <code>TextDetection</code> element provides
     /// information about a single word or line of text that was detected in the image. 
     /// </para><para>
-    /// A word is one or more ISO basic latin script characters that are not separated by
-    /// spaces. <code>DetectText</code> can detect up to 100 words in an image.
+    /// A word is one or more script characters that are not separated by spaces. <code>DetectText</code>
+    /// can detect up to 100 words in an image.
     /// </para><para>
     /// A line is a string of equally spaced words. A line isn't necessarily a complete sentence.
     /// For example, a driver's license number is detected as a line. A line ends when there

@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HomeEfsFileSystemKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>This member is deprecated and replaced with <code>KmsKeyId</code>.</para>
+        /// <para>Use <code>KmsKeyId</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -80,6 +80,13 @@ $CO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics
+        "Write-CORecommendationPreference/EnhancedInfrastructureMetrics"
+        {
+            $v = "Active","Inactive"
+            break
+        }
+
         # Amazon.ComputeOptimizer.FileFormat
         {
             ($_ -eq "Export-COAutoScalingGroupRecommendation/FileFormat") -Or
@@ -99,6 +106,28 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.ResourceType
+        {
+            ($_ -eq "Get-CORecommendationPreference/ResourceType") -Or
+            ($_ -eq "Remove-CORecommendationPreference/ResourceType") -Or
+            ($_ -eq "Write-CORecommendationPreference/ResourceType")
+        }
+        {
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","LambdaFunction"
+            break
+        }
+
+        # Amazon.ComputeOptimizer.ScopeName
+        {
+            ($_ -eq "Get-CORecommendationPreference/Scope_Name") -Or
+            ($_ -eq "Remove-CORecommendationPreference/Scope_Name") -Or
+            ($_ -eq "Write-CORecommendationPreference/Scope_Name")
+        }
+        {
+            $v = "AccountId","Organization","ResourceArn"
+            break
+        }
+
         # Amazon.ComputeOptimizer.Status
         "Update-COEnrollmentStatus/Status"
         {
@@ -115,7 +144,10 @@ $CO_Completers = {
 }
 
 $CO_map = @{
+    "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
+    "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
+    "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Stat"=@("Get-COEC2RecommendationProjectedMetric")
     "Status"=@("Update-COEnrollmentStatus")
 }
@@ -170,7 +202,8 @@ $CO_SelectCompleters = {
 }
 
 $CO_SelectMap = @{
-    "Select"=@("Get-CORecommendationExportJob",
+    "Select"=@("Remove-CORecommendationPreference",
+               "Get-CORecommendationExportJob",
                "Export-COAutoScalingGroupRecommendation",
                "Export-COEBSVolumeRecommendation",
                "Export-COEC2InstanceRecommendation",
@@ -179,10 +212,13 @@ $CO_SelectMap = @{
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
                "Get-COEC2RecommendationProjectedMetric",
+               "Get-COEffectiveRecommendationPreference",
                "Get-COEnrollmentStatus",
                "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
+               "Get-CORecommendationPreference",
                "Get-CORecommendationSummary",
+               "Write-CORecommendationPreference",
                "Update-COEnrollmentStatus")
 }
 

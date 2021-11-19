@@ -1,0 +1,3 @@
+﻿# WorkSpacesWeb
+
+Export-ModuleMember -Alias *

@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the association for the specified target or instance. If you created the
-    /// association by using the <code>Targets</code> parameter, then you must retrieve the
-    /// association by using the association ID.
+    /// Describes the association for the specified target or managed node. If you created
+    /// the association by using the <code>Targets</code> parameter, then you must retrieve
+    /// the association by using the association ID.
     /// </summary>
     [Cmdlet("Get", "SSMAssociation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Specify the association version to retrieve. To view the latest version, either specify
         /// <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of
-        /// all associations for an instance, use <a>ListAssociations</a>. To get a list of versions
-        /// for a specific association, use <a>ListAssociationVersions</a>. </para>
+        /// all associations for a managed node, use <a>ListAssociations</a>. To get a list of
+        /// versions for a specific association, use <a>ListAssociationVersions</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The managed node ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

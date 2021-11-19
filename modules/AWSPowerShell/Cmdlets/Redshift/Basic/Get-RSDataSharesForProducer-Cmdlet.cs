@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeDataSharesForProducer</a> request exceed
-        /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
-        /// field of the response. You can retrieve the next set of response records by providing
-        /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
-        /// </para>
+        /// the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value
+        /// in the <code>Marker</code> field of the response. You can retrieve the next set of
+        /// response records by providing the returned marker value in the <code>Marker</code>
+        /// parameter and retrying the request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

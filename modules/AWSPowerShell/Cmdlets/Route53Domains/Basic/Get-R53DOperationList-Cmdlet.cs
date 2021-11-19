@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// Returns information about all of the operations that return an operation ID and that
-    /// have ever been performed on domains that were registered by the current account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// have ever been performed on domains that were registered by the current account. 
+    /// 
+    ///  
+    /// <para>
+    /// This command runs only in the us-east-1 Region.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53DOperationList")]
     [OutputType("Amazon.Route53Domains.Model.OperationSummary")]

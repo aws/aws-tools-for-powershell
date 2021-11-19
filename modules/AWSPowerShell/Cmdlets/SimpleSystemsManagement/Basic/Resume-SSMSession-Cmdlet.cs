@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Reconnects a session to an instance after it has been disconnected. Connections can
-    /// be resumed for disconnected sessions, but not terminated sessions.
+    /// Reconnects a session to a managed node after it has been disconnected. Connections
+    /// can be resumed for disconnected sessions, but not terminated sessions.
     /// 
     ///  <note><para>
     /// This command is primarily for use by client machines to automatically reconnect during

@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// <summary>
         /// <para>
         /// <para>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-        /// members are always returned as part of <code>ListChannelMemberships</code>. Hidden
-        /// members are only returned if the type filter in <code>ListChannelMemberships</code>
-        /// equals <code>HIDDEN</code>. Otherwise hidden members are not returned.</para>
+        /// members are returned as part of <code>ListChannelMemberships</code> if no type is
+        /// specified. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code>
+        /// equals <code>HIDDEN</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

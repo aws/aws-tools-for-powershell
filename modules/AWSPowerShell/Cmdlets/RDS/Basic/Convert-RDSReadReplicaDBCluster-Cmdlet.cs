@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Promotes a read replica DB cluster to a standalone DB cluster.
-    /// 
-    ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Convert", "RDSReadReplicaDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]

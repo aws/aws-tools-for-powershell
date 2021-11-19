@@ -28,14 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing
-    /// Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your Behalf</a>
-    /// in the <i>Amazon Aurora User Guide</i>.
-    /// 
-    ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
-    /// </para></note>
+    /// Associates an Identity and Access Management (IAM) role with a DB cluster.
     /// </summary>
     [Cmdlet("Add", "RDSRoleToDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -79,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster,
-        /// for example, <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
+        /// for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

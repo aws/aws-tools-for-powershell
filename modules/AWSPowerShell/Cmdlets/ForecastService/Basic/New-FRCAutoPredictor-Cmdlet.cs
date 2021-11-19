@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// <para>
     /// Amazon Forecast creates predictors with AutoPredictor, which involves applying the
     /// optimal combination of algorithms to each time series in your datasets. You can use
-    /// CreateAutoPredictor to create new predictors or upgrade/retrain existing predictors.
+    /// <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain existing predictors.
     /// </para><para><b>Creating new predictors</b></para><para>
     /// The following parameters are required when creating a new predictor:
     /// </para><ul><li><para><code>PredictorName</code> - A unique name for the predictor.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter ExplainPredictor
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Create an Explainability resource for the predictor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

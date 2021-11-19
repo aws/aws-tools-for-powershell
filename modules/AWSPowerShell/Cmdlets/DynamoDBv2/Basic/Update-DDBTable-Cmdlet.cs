@@ -198,6 +198,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
         #endregion
         
+        #region Parameter TableClass
+        /// <summary>
+        /// <para>
+        /// <para>The table class of the table to be updated. Valid values are <code>STANDARD</code>
+        /// and <code>STANDARD_INFREQUENT_ACCESS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.TableClass")]
+        public Amazon.DynamoDBv2.TableClass TableClass { get; set; }
+        #endregion
+        
         #region Parameter TableName
         /// <summary>
         /// <para>
@@ -309,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.SSESpecification_SSEType = this.SSESpecification_SSEType;
             context.StreamSpecification_StreamEnabled = this.StreamSpecification_StreamEnabled;
             context.StreamSpecification_StreamViewType = this.StreamSpecification_StreamViewType;
+            context.TableClass = this.TableClass;
             context.TableName = this.TableName;
             #if MODULAR
             if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
@@ -445,6 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.StreamSpecification = null;
             }
+            if (cmdletContext.TableClass != null)
+            {
+                request.TableClass = cmdletContext.TableClass;
+            }
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
@@ -521,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.SSEType SSESpecification_SSEType { get; set; }
             public System.Boolean? StreamSpecification_StreamEnabled { get; set; }
             public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
+            public Amazon.DynamoDBv2.TableClass TableClass { get; set; }
             public System.String TableName { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.UpdateTableResponse, UpdateDDBTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableDescription;

@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Connect module of AWS Tools for PowerShell lets developers and administrators manage Amazon Connect Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -103,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNContactAttribute', 
         'Get-CONNContactFlow', 
         'Get-CONNContactFlowList', 
+        'Get-CONNContactFlowModule', 
+        'Get-CONNContactFlowModuleList', 
         'Get-CONNContactReferenceList', 
         'Get-CONNCurrentMetricData', 
         'Get-CONNFederationToken', 
@@ -142,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Join-CONNRoutingProfileQueue', 
         'New-CONNAgentStatus', 
         'New-CONNContactFlow', 
+        'New-CONNContactFlowModule', 
         'New-CONNHoursOfOperation', 
         'New-CONNInstance', 
         'New-CONNIntegrationAssociation', 
@@ -154,6 +157,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CONNUserHierarchyGroup', 
         'Remove-CONNApprovedOrigin', 
         'Remove-CONNBot', 
+        'Remove-CONNContactFlow', 
+        'Remove-CONNContactFlowModule', 
         'Remove-CONNHoursOfOperation', 
         'Remove-CONNInstance', 
         'Remove-CONNInstanceStorageConfig', 
@@ -182,6 +187,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNContact', 
         'Update-CONNContactAttribute', 
         'Update-CONNContactFlowContent', 
+        'Update-CONNContactFlowMetadata', 
+        'Update-CONNContactFlowModuleContent', 
+        'Update-CONNContactFlowModuleMetadata', 
         'Update-CONNContactFlowName', 
         'Update-CONNContactSchedule', 
         'Update-CONNHoursOfOperation', 

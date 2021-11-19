@@ -33,6 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// update the lifecycle policy that controls the retention period of any recovery point
     /// currently stored in a backup vault. If specified, Vault Lock enforces a minimum and
     /// maximum retention period for future backup and copy jobs that target a backup vault.
+    /// 
+    ///  <note><para>
+    /// Backup Vault Lock has yet to receive a third-party assessment for SEC 17a-4(f) and
+    /// CFTC.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "BAKBackupVaultLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

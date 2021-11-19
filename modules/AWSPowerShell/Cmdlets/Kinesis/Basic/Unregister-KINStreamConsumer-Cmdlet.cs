@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>The ARN of the Kinesis data stream that the consumer is registered with. For more
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

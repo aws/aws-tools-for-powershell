@@ -432,6 +432,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedJobTemplate" OutputProperty="*" Verb="Get" Noun="ManagedJobTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMitigationAction" OutputProperty="*" Verb="Get" Noun="MitigationAction" PipelineParameter="ActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -672,6 +676,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedJobTemplates" OutputProperty="ManagedJobTemplates" Verb="Get" Noun="ManagedJobTemplateList" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter RoutingControlArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the routing control that you're getting details
-        /// for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the routing control.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

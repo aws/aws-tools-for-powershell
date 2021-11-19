@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Kendra module of AWS Tools for PowerShell lets developers and administrators manage Amazon Kendra from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -86,11 +86,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-KNDREntitiesToExperience', 
+        'Add-KNDRPersonasToEntity', 
         'Add-KNDRResourceTag', 
         'Clear-KNDRQuerySuggestion', 
         'Get-KNDRDataSource', 
         'Get-KNDRDataSourceList', 
         'Get-KNDRDataSourceSyncJobList', 
+        'Get-KNDREntityPersonaList', 
+        'Get-KNDRExperience', 
+        'Get-KNDRExperienceEntityList', 
+        'Get-KNDRExperienceList', 
         'Get-KNDRFaq', 
         'Get-KNDRFaqList', 
         'Get-KNDRGetDocumentStatus', 
@@ -103,18 +109,23 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KNDRQuerySuggestionsBlockListList', 
         'Get-KNDRQuerySuggestionsConfig', 
         'Get-KNDRResourceTag', 
+        'Get-KNDRSnapshot', 
         'Get-KNDRThesauriList', 
         'Get-KNDRThesaurus', 
         'Invoke-KNDRQuery', 
         'New-KNDRDataSource', 
+        'New-KNDRExperience', 
         'New-KNDRFaq', 
         'New-KNDRIndex', 
         'New-KNDRQuerySuggestionsBlockList', 
         'New-KNDRThesaurus', 
         'Remove-KNDRDataSource', 
         'Remove-KNDRDocumentBatch', 
+        'Remove-KNDREntitiesFromExperience', 
+        'Remove-KNDRExperience', 
         'Remove-KNDRFaq', 
         'Remove-KNDRIndex', 
+        'Remove-KNDRPersonasFromEntity', 
         'Remove-KNDRPrincipalMapping', 
         'Remove-KNDRQuerySuggestionsBlockList', 
         'Remove-KNDRResourceTag', 
@@ -123,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-KNDRDataSourceSyncJob', 
         'Stop-KNDRDataSourceSyncJob', 
         'Update-KNDRDataSource', 
+        'Update-KNDRExperience', 
         'Update-KNDRIndex', 
         'Update-KNDRQuerySuggestionsBlockList', 
         'Update-KNDRQuerySuggestionsConfig', 

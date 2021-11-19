@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// regardless of its value. If you specify a tag key with an empty string as the tag
         /// value, we delete the tag only if its value is an empty string.</para><para>If you omit this parameter, we delete all user-defined tags for the specified resources.
         /// We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
-        /// prefix).</para>
+        /// prefix).</para><para>Constraints: Up to 1000 tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

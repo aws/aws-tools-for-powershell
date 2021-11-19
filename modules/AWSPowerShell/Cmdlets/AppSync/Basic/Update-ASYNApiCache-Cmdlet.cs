@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The GraphQL API Id.</para>
+        /// <para>The GraphQL API ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Ttl
         /// <summary>
         /// <para>
-        /// <para>TTL in seconds for cache entries.</para><para>Valid values are between 1 and 3600 seconds.</para>
+        /// <para>TTL in seconds for cache entries.</para><para>Valid values are 1–3,600 seconds.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

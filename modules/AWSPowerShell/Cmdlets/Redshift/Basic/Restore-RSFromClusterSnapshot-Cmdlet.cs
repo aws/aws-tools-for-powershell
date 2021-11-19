@@ -174,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DefaultIamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster
+        /// when the cluster was last modified while it was restored from a snapshot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultIamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
@@ -344,6 +355,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter ReservedNodeId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the target reserved node offering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReservedNodeId { get; set; }
+        #endregion
+        
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
@@ -382,6 +403,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotScheduleIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter TargetReservedNodeOfferingId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the target reserved node offering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetReservedNodeOfferingId { get; set; }
         #endregion
         
         #region Parameter VpcSecurityGroupId
@@ -475,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.ClusterSecurityGroup = new List<System.String>(this.ClusterSecurityGroup);
             }
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
+            context.DefaultIamRoleArn = this.DefaultIamRoleArn;
             context.ElasticIp = this.ElasticIp;
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
@@ -492,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.Port = this.Port;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.ReservedNodeId = this.ReservedNodeId;
             context.SnapshotClusterIdentifier = this.SnapshotClusterIdentifier;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             #if MODULAR
@@ -501,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #endif
             context.SnapshotScheduleIdentifier = this.SnapshotScheduleIdentifier;
+            context.TargetReservedNodeOfferingId = this.TargetReservedNodeOfferingId;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
@@ -561,6 +595,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.ClusterSubnetGroupName = cmdletContext.ClusterSubnetGroupName;
             }
+            if (cmdletContext.DefaultIamRoleArn != null)
+            {
+                request.DefaultIamRoleArn = cmdletContext.DefaultIamRoleArn;
+            }
             if (cmdletContext.ElasticIp != null)
             {
                 request.ElasticIp = cmdletContext.ElasticIp;
@@ -617,6 +655,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
+            if (cmdletContext.ReservedNodeId != null)
+            {
+                request.ReservedNodeId = cmdletContext.ReservedNodeId;
+            }
             if (cmdletContext.SnapshotClusterIdentifier != null)
             {
                 request.SnapshotClusterIdentifier = cmdletContext.SnapshotClusterIdentifier;
@@ -628,6 +670,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.SnapshotScheduleIdentifier != null)
             {
                 request.SnapshotScheduleIdentifier = cmdletContext.SnapshotScheduleIdentifier;
+            }
+            if (cmdletContext.TargetReservedNodeOfferingId != null)
+            {
+                request.TargetReservedNodeOfferingId = cmdletContext.TargetReservedNodeOfferingId;
             }
             if (cmdletContext.VpcSecurityGroupId != null)
             {
@@ -704,6 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ClusterParameterGroupName { get; set; }
             public List<System.String> ClusterSecurityGroup { get; set; }
             public System.String ClusterSubnetGroupName { get; set; }
+            public System.String DefaultIamRoleArn { get; set; }
             public System.String ElasticIp { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
@@ -718,9 +765,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Int32? Port { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String ReservedNodeId { get; set; }
             public System.String SnapshotClusterIdentifier { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.String SnapshotScheduleIdentifier { get; set; }
+            public System.String TargetReservedNodeOfferingId { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.Redshift.Model.RestoreFromClusterSnapshotResponse, RestoreRSFromClusterSnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;

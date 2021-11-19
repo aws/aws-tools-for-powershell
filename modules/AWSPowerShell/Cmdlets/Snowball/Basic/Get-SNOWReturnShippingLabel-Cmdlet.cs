@@ -28,7 +28,8 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Information on the shipping label of a Snow device that is being returned to AWS.
+    /// Information on the shipping label of a Snow device that is being returned to Amazon
+    /// Web Services.
     /// </summary>
     [Cmdlet("Get", "SNOWReturnShippingLabel")]
     [OutputType("Amazon.Snowball.Model.DescribeReturnShippingLabelResponse")]

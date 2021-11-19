@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The ECR module of AWS Tools for PowerShell lets developers and administrators manage Amazon EC2 Container Registry from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -99,14 +99,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRLifecyclePolicy', 
         'Get-ECRLifecyclePolicyPreview', 
         'Get-ECRLoginCommand', 
+        'Get-ECRPullThroughCacheRule', 
         'Get-ECRRegistry', 
         'Get-ECRRegistryPolicy', 
+        'Get-ECRRegistryScanningConfiguration', 
         'Get-ECRRepository', 
         'Get-ECRRepositoryPolicy', 
+        'Get-ECRRepositoryScanningConfigurationBatch', 
         'Get-ECRResourceTag', 
+        'New-ECRPullThroughCacheRule', 
         'New-ECRRepository', 
         'Remove-ECRImageBatch', 
         'Remove-ECRLifecyclePolicy', 
+        'Remove-ECRPullThroughCacheRule', 
         'Remove-ECRRegistryPolicy', 
         'Remove-ECRRepository', 
         'Remove-ECRRepositoryPolicy', 
@@ -121,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-ECRImageTagMutability', 
         'Write-ECRLifecyclePolicy', 
         'Write-ECRRegistryPolicy', 
+        'Write-ECRRegistryScanningConfiguration', 
         'Write-ECRReplicationConfiguration')
 
     # Variables to export from this module

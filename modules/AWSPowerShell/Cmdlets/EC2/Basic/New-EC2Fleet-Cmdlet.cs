@@ -51,11 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OnDemandOptions_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>The order of the launch template overrides to use in fulfilling On-Demand capacity.
-        /// If you specify <code>lowest-price</code>, EC2 Fleet uses price to determine the order,
-        /// launching the lowest price first. If you specify <code>prioritized</code>, EC2 Fleet
-        /// uses the priority that you assigned to each launch template override, launching the
-        /// highest priority first. If you do not specify a value, EC2 Fleet defaults to <code>lowest-price</code>.</para>
+        /// <para>The strategy that determines the order of the launch template overrides to use in
+        /// fulfilling On-Demand capacity.</para><para><code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching
+        /// the lowest price first.</para><para><code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each
+        /// launch template override, launching the highest priority first.</para><para>Default: <code>lowest-price</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,21 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates how to allocate the target Spot Instance capacity across the Spot Instance
-        /// pools specified by the EC2 Fleet.</para><para>If the allocation strategy is <code>lowest-price</code>, EC2 Fleet launches instances
-        /// from the Spot Instance pools with the lowest price. This is the default allocation
-        /// strategy.</para><para>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances
-        /// from all of the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacity-optimized</code> (recommended), EC2 Fleet
-        /// launches instances from Spot Instance pools with optimal capacity for the number of
-        /// instances that are launching. To give certain instance types a higher chance of launching
-        /// first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance
-        /// type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>.
-        /// You can assign the same priority to different <code>LaunchTemplateOverrides</code>.
-        /// EC2 implements the priorities on a best-effort basis, but optimizes for capacity first.
-        /// <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a
-        /// launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set
-        /// to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-        /// capacity.</para>
+        /// <para>The strategy that determines how to allocate the target Spot Instance capacity across
+        /// the Spot Instance pools specified by the EC2 Fleet.</para><para><code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools
+        /// with the lowest price.</para><para><code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance
+        /// pools that you specify.</para><para><code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from
+        /// Spot Instance pools with optimal capacity for the number of instances that are launching.
+        /// To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.
+        /// Set a priority for each instance type by using the <code>Priority</code> parameter
+        /// for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different
+        /// <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort
+        /// basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code>
+        /// is supported only if your fleet uses a launch template. Note that if the On-Demand
+        /// <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority
+        /// is applied when fulfilling On-Demand capacity.</para><para>Default: <code>lowest-price</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</para>
+        /// <para>The behavior when a Spot Instance is interrupted.</para><para>Default: <code>terminate</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,9 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_InstancePoolsToUseCount
         /// <summary>
         /// <para>
-        /// <para>The number of Spot pools across which to allocate your target Spot capacity. Valid
-        /// only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. EC2
-        /// Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
+        /// <para>The number of Spot pools across which to allocate your target Spot capacity. Supported
+        /// only when Spot <code>AllocationStrategy</code> is set to <code>lowest-price</code>.
+        /// EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
         /// across the number of Spot pools that you specify.</para><para>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that
         /// you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling
         /// your target capacity, EC2 Fleet will continue to fulfill your request by drawing from
@@ -194,7 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target
-        /// capacity is not reached, the fleet launches no instances.</para>
+        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <code>instant</code>.</para><para>At least one of the following must be specified: <code>SingleAvailabilityZone</code>
+        /// | <code>SingleInstanceType</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The minimum target capacity for Spot Instances in the fleet. If the minimum target
-        /// capacity is not reached, the fleet launches no instances.</para>
+        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <code>instant</code>.</para><para>At least one of the following must be specified: <code>SingleAvailabilityZone</code>
+        /// | <code>SingleInstanceType</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet launches all On-Demand Instances into a single Availability
-        /// Zone. Supported only for fleets of type <code>instant</code>.</para>
+        /// Zone.</para><para>Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,8 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_SingleAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.
-        /// Supported only for fleets of type <code>instant</code>.</para>
+        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</para><para>Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all On-Demand Instances
-        /// in the fleet. Supported only for fleets of type <code>instant</code>.</para>
+        /// in the fleet.</para><para>Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all Spot Instances
-        /// in the fleet. Supported only for fleets of type <code>instant</code>.</para>
+        /// in the fleet.</para><para>Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-        /// Instance after launching a new replacement Spot Instance.</para>
+        /// Instance after launching a new replacement Spot Instance.</para><para>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</para><para>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code>
+        /// seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

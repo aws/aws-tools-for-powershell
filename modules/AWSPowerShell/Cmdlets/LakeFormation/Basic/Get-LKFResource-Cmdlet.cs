@@ -28,8 +28,7 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Retrieves the current data access role for the given resource registered in AWS Lake
-    /// Formation.
+    /// Retrieves the current data access role for the given resource registered in Lake Formation.
     /// </summary>
     [Cmdlet("Get", "LKFResource")]
     [OutputType("Amazon.LakeFormation.Model.ResourceInfo")]

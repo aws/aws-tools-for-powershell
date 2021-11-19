@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAnomalyGroupRelatedMetrics" OutputProperty="InterMetricImpactList" Verb="Get" Noun="AnomalyGroupRelatedMetricList" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAnomalyGroupSummaries" OutputProperty="*" Verb="Get" Noun="AnomalyGroupSummaryList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

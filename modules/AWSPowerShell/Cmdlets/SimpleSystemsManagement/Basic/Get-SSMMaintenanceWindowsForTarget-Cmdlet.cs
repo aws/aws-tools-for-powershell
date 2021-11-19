@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves information about the maintenance window targets or tasks that an instance
-    /// is associated with.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves information about the maintenance window targets or tasks that a managed
+    /// node is associated with.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowsForTarget")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentityForTarget")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The instance ID or key-value pair to retrieve information about.</para>
+        /// <para>The managed node ID or key-value pair to retrieve information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

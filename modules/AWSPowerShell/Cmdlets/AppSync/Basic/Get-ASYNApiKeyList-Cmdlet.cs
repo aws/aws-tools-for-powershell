@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results you want the request to return.</para>
+        /// <para>The maximum number of results that you want the request to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>An identifier that was returned from the previous call to this operation, which you
+        /// can use to return the next set of items in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

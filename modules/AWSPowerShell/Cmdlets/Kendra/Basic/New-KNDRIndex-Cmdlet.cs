@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identity store provider (mode) you want to use to fetch access levels of groups
-        /// and users. AWS Single Sign-On is currently the only available mode. Your users and
-        /// groups must exist in an AWS SSO identity source in order to use this mode.</para>
+        /// and users. Amazon Web Services Single Sign On is currently the only available mode.
+        /// Your users and groups must exist in an Amazon Web Services SSO identity source in
+        /// order to use this mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

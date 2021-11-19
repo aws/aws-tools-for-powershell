@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTimeSeriesToAssetProperty" Verb="Add" Noun="TimeSeriesToAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchAssociateProjectAssets" OutputProperty="Errors" Verb="Connect" Noun="AssociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -91,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTimeSeries" Verb="Remove" Noun="TimeSeries" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccessPolicy" OutputProperty="*" Verb="Get" Noun="AccessPolicy" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -139,7 +147,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTimeSeries" OutputProperty="*" Verb="Get" Noun="TimeSeries" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAssets" Verb="Disconnect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTimeSeriesFromAssetProperty" Verb="Remove" Noun="TimeSeriesFromAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +216,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTimeSeries" OutputProperty="TimeSeriesSummaries" Verb="Get" Noun="TimeSeriesList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

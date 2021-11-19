@@ -32,11 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// 
     ///  
     /// <para>
-    /// The owner of a workload can share the workload with other AWS accounts and IAM users
-    /// in the same AWS Region. Only the owner of a workload can delete it.
+    /// The owner of a workload can share the workload with other Amazon Web Services accounts
+    /// and IAM users in the same Amazon Web Services Region. Only the owner of a workload
+    /// can delete it.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining
-    /// a Workload</a> in the <i>AWS Well-Architected Tool User Guide</i>.
+    /// a Workload</a> in the <i>Well-Architected Tool User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "WATWorkload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     /// you can run API calls to update or get the state of one or more routing controls.
     /// Each cluster has a name, status, Amazon Resource Name (ARN), and an array of the five
     /// cluster endpoints (one for each supported Amazon Web Services Region) that you can
-    /// use with API calls to the Amazon Route 53 Application Recovery Controller cluster
-    /// data plane.
+    /// use with API calls to the cluster data plane.
     /// </summary>
     [Cmdlet("New", "R53RCCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.Cluster")]
@@ -62,10 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags associated with the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique client idempotency token.</para>
+        /// <para>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent
+        /// API request with an action, specify a client token in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,6 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -228,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse, NewR53RCClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

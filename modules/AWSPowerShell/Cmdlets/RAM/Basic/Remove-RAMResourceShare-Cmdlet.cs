@@ -28,7 +28,9 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Deletes the specified resource share.
+    /// Deletes the specified resource share. This doesn't delete any of the resources that
+    /// were associated with the resource share; it only stops the sharing of those resources
+    /// outside of the Amazon Web Services account that created them.
     /// </summary>
     [Cmdlet("Remove", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource share to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

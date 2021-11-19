@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter SiteId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,6 +107,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SiteId { get; set; }
+        #endregion
+        
+        #region Parameter SupportedHardwareType
+        /// <summary>
+        /// <para>
+        /// <para> The type of hardware for this Outpost. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Outposts.SupportedHardwareType")]
+        public Amazon.Outposts.SupportedHardwareType SupportedHardwareType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -198,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter SiteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SupportedHardwareType = this.SupportedHardwareType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -241,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.SiteId != null)
             {
                 request.SiteId = cmdletContext.SiteId;
+            }
+            if (cmdletContext.SupportedHardwareType != null)
+            {
+                request.SupportedHardwareType = cmdletContext.SupportedHardwareType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -312,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String SiteId { get; set; }
+            public Amazon.Outposts.SupportedHardwareType SupportedHardwareType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Outposts.Model.CreateOutpostResponse, NewOUTPOutpostCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Outpost;

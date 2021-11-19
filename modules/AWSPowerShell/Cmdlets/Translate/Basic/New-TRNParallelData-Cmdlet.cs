@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter EncryptionKey_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
-        /// terminology.</para>
+        /// <para>The Amazon Resource Name (ARN) of the encryption key being used to encrypt this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter EncryptionKey_Type
         /// <summary>
         /// <para>
-        /// <para>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</para>
+        /// <para>The type of encryption key used by Amazon Translate to encrypt this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

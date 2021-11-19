@@ -199,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CustomizedMetricSpecification_MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric.</para>
+        /// <para>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
+        /// the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a>
+        /// object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CustomizedMetricSpecification_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of the metric.</para>
+        /// <para>The unit of the metric. For a complete list of the units that CloudWatch supports,
+        /// see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+        /// data type in the <i>Amazon CloudWatch API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,29 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// of Amazon Web Services IAM Policies</a> in the <i>Identity and Access Management User
         /// Guide</i>. </para></li><li><para><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for
         /// which a <code><a>ReceiveMessage</a></code> action waits for a message to arrive.
-        /// Valid values: An integer from 0 to 20 (seconds). Default: 0. </para></li><li><para><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds.
-        /// Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information
-        /// about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
-        /// queues:</a></para><ul><li><para><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
-        /// queue functionality of the source queue as a JSON object. The parameters are as follows:</para><ul><li><para><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter
+        /// Valid values: An integer from 0 to 20 (seconds). Default: 0. </para></li><li><para><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
+        /// queue functionality of the source queue as a JSON object. For more information about
+        /// the redrive policy and dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
+        /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.</para><ul><li><para><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter
         /// queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code>
         /// is exceeded.</para></li><li><para><code>maxReceiveCount</code> – The number of times a message is delivered to the
         /// source queue before being moved to the dead-letter queue. When the <code>ReceiveCount</code>
         /// for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
-        /// the message to the dead-letter-queue.</para></li></ul></li><li><para><code>RedriveAllowPolicy</code> – The string that includes the parameters for the
-        /// permissions for the dead-letter queue redrive permission and which source queues can
-        /// specify dead-letter queues as a JSON object. The parameters are as follows:</para><ul><li><para><code>redrivePermission</code> – The permission type that defines which source queues
-        /// can specify the current queue as the dead-letter queue. Valid values are:</para><ul><li><para><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account
-        /// in the same Region can specify this queue as the dead-letter queue.</para></li><li><para><code>denyAll</code> – No source queues can specify this queue as the dead-letter
-        /// queue.</para></li><li><para><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code>
-        /// parameter can specify this queue as the dead-letter queue.</para></li></ul></li><li><para><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues
-        /// that can specify this queue as the dead-letter queue and redrive messages. You can
-        /// specify this parameter only when the <code>redrivePermission</code> parameter is set
-        /// to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more
-        /// than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code>
-        /// parameter to <code>allowAll</code>.</para></li></ul></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-        /// queue of a standard queue must also be a standard queue.</para></note><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
+        /// the message to the dead-letter-queue.</para></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
+        /// queue of a standard queue must also be a standard queue.</para></note></li><li><para><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds.
+        /// Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information
+        /// about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
+        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
         /// key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
         /// Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>,
         /// the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i></code>.
@@ -104,7 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300
         /// (5 minutes). A shorter time period provides better security but results in more calls
         /// to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
-        /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
+        /// Does the Data Key Reuse Period Work?</a>. </para></li><li><para><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS
+        /// owned encryption keys. Only one server-side encryption option is supported per queue
+        /// (e.g. <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
         /// (first-in-first-out) queues</a>:</para><ul><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once
         /// processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following: </para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>.</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable

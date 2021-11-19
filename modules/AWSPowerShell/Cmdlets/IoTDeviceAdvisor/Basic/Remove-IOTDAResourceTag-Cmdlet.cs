@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Removes tags from an IoT Device Advisor resource.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTDAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

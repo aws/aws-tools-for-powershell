@@ -28,10 +28,7 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Deletes an Amazon FSx for NetApp ONTAP volume. When deleting a volume, you have the
-    /// option of creating a final backup. If you create a final backup, you have the option
-    /// to apply Tags to the backup. You need to have <code>fsx:TagResource</code> permission
-    /// in order to apply tags to the backup.
+    /// Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
     /// </summary>
     [Cmdlet("Remove", "FSXVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.FSx.Model.DeleteVolumeResponse")]
@@ -63,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.Tag[] OntapConfiguration_FinalBackupTag { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_Option
+        /// <summary>
+        /// <para>
+        /// <para>To delete the volume's children and snapshots, use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_Options")]
+        public System.String[] OpenZFSConfiguration_Option { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_SkipFinalBackup
         /// <summary>
         /// <para>
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The ID of the volume you are deleting.</para>
+        /// <para>The ID of the volume that you are deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.OntapConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.OntapConfiguration_FinalBackupTag);
             }
             context.OntapConfiguration_SkipFinalBackup = this.OntapConfiguration_SkipFinalBackup;
+            if (this.OpenZFSConfiguration_Option != null)
+            {
+                context.OpenZFSConfiguration_Option = new List<System.String>(this.OpenZFSConfiguration_Option);
+            }
             context.VolumeId = this.VolumeId;
             #if MODULAR
             if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
@@ -212,6 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfigurationIsNull)
             {
                 request.OntapConfiguration = null;
+            }
+            
+             // populate OpenZFSConfiguration
+            var requestOpenZFSConfigurationIsNull = true;
+            request.OpenZFSConfiguration = new Amazon.FSx.Model.DeleteVolumeOpenZFSConfiguration();
+            List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_Option = null;
+            if (cmdletContext.OpenZFSConfiguration_Option != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_Option = cmdletContext.OpenZFSConfiguration_Option;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_Option != null)
+            {
+                request.OpenZFSConfiguration.Options = requestOpenZFSConfiguration_openZFSConfiguration_Option;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+             // determine if request.OpenZFSConfiguration should be set to null
+            if (requestOpenZFSConfigurationIsNull)
+            {
+                request.OpenZFSConfiguration = null;
             }
             if (cmdletContext.VolumeId != null)
             {
@@ -281,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.FSx.Model.Tag> OntapConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? OntapConfiguration_SkipFinalBackup { get; set; }
+            public List<System.String> OpenZFSConfiguration_Option { get; set; }
             public System.String VolumeId { get; set; }
             public System.Func<Amazon.FSx.Model.DeleteVolumeResponse, RemoveFSXVolumeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

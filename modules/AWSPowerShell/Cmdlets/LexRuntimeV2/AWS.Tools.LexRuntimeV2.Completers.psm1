@@ -110,6 +110,16 @@ $LRSV2_Completers = {
             break
         }
 
+        # Amazon.LexRuntimeV2.StyleType
+        {
+            ($_ -eq "Send-LRSV2Text/SessionStateValue_DialogAction_SlotElicitationStyle") -Or
+            ($_ -eq "Write-LRSV2Session/SessionStateValue_DialogAction_SlotElicitationStyle")
+        }
+        {
+            $v = "Default","SpellByLetter","SpellByWord"
+            break
+        }
+
 
     }
 
@@ -119,6 +129,7 @@ $LRSV2_Completers = {
 }
 
 $LRSV2_map = @{
+    "SessionStateValue_DialogAction_SlotElicitationStyle"=@("Send-LRSV2Text","Write-LRSV2Session")
     "SessionStateValue_DialogAction_Type"=@("Send-LRSV2Text","Write-LRSV2Session")
     "SessionStateValue_Intent_ConfirmationState"=@("Send-LRSV2Text","Write-LRSV2Session")
     "SessionStateValue_Intent_State"=@("Send-LRSV2Text","Write-LRSV2Session")

@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MaxLatency
         /// <summary>
         /// <para>
-        /// The maximum latency in milliseconds for Zixi-based
-        /// streams.
+        /// The maximum latency in milliseconds. This parameter
+        /// applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,6 +188,28 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RemoteId { get; set; }
+        #endregion
+        
+        #region Parameter SenderControlPort
+        /// <summary>
+        /// <para>
+        /// The port that the flow uses to send
+        /// outbound requests to initiate connection with the sender.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SenderControlPort { get; set; }
+        #endregion
+        
+        #region Parameter SenderIpAddress
+        /// <summary>
+        /// <para>
+        /// The IP address that the flow communicates
+        /// with to initiate connection with the sender.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SenderIpAddress { get; set; }
         #endregion
         
         #region Parameter SmoothingLatency
@@ -314,6 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.RemoteId = this.RemoteId;
+            context.SenderControlPort = this.SenderControlPort;
+            context.SenderIpAddress = this.SenderIpAddress;
             context.SmoothingLatency = this.SmoothingLatency;
             context.StreamId = this.StreamId;
             context.VpcInterfaceAttachment_VpcInterfaceName = this.VpcInterfaceAttachment_VpcInterfaceName;
@@ -380,6 +404,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.RemoteId != null)
             {
                 request.RemoteId = cmdletContext.RemoteId;
+            }
+            if (cmdletContext.SenderControlPort != null)
+            {
+                request.SenderControlPort = cmdletContext.SenderControlPort.Value;
+            }
+            if (cmdletContext.SenderIpAddress != null)
+            {
+                request.SenderIpAddress = cmdletContext.SenderIpAddress;
             }
             if (cmdletContext.SmoothingLatency != null)
             {
@@ -481,6 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? Port { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String RemoteId { get; set; }
+            public System.Int32? SenderControlPort { get; set; }
+            public System.String SenderIpAddress { get; set; }
             public System.Int32? SmoothingLatency { get; set; }
             public System.String StreamId { get; set; }
             public System.String VpcInterfaceAttachment_VpcInterfaceName { get; set; }

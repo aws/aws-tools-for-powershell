@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The ComprehendMedical module of AWS Tools for PowerShell lets developers and administrators manage AWS Comprehend Medical from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-CMPMMedicalEntityV2', 
         'Find-CMPMPersonalHealthInformation', 
         'Find-CMPMRxNorm', 
+        'Find-CMPMSNOMEDCT', 
         'Get-CMPMEntitiesDetectionV2Job', 
         'Get-CMPMEntitiesDetectionV2JobList', 
         'Get-CMPMICD10CMInferenceJob', 
@@ -99,14 +100,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CMPMPersonalHealthInformationDetectionJobList', 
         'Get-CMPMRxNormInferenceJob', 
         'Get-CMPMRxNormInferenceJobList', 
+        'Get-CMPMSNOMEDCTInferenceJob', 
+        'Get-CMPMSNOMEDCTInferenceJobList', 
         'Start-CMPMEntitiesDetectionV2Job', 
         'Start-CMPMICD10CMInferenceJob', 
         'Start-CMPMPersonalHealthInformationDetectionJob', 
         'Start-CMPMRxNormInferenceJob', 
+        'Start-CMPMSNOMEDCTInferenceJob', 
         'Stop-CMPMEntitiesDetectionV2Job', 
         'Stop-CMPMICD10CMInferenceJob', 
         'Stop-CMPMPersonalHealthInformationDetectionJob', 
-        'Stop-CMPMRxNormInferenceJob')
+        'Stop-CMPMRxNormInferenceJob', 
+        'Stop-CMPMSNOMEDCTInferenceJob')
 
     # Variables to export from this module
     VariablesToExport = '*'

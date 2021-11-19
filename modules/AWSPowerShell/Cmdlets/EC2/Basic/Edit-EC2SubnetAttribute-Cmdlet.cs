@@ -29,6 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies a subnet attribute. You can only modify one attribute at a time.
+    /// 
+    ///  
+    /// <para>
+    /// Use this action to modify subnets on Amazon Web Services Outposts.
+    /// </para><ul><li><para>
+    /// To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code>
+    /// and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.
+    /// </para></li><li><para>
+    /// To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code>
+    /// or <code>DisableLniAtDeviceIndex</code>.
+    /// </para></li></ul><para>
+    /// For more information about Amazon Web Services Outposts, see the following:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost
+    /// servers</a></para></li><li><para><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost
+    /// racks</a></para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "EC2SubnetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -65,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CustomerOwnedIpv4Pool { get; set; }
         #endregion
         
+        #region Parameter DisableLniAtDeviceIndex
+        /// <summary>
+        /// <para>
+        /// <para> Specify <code>true</code> to indicate that local network interfaces at the current
+        /// position should be disabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableLniAtDeviceIndex { get; set; }
+        #endregion
+        
         #region Parameter EnableDns64
         /// <summary>
         /// <para>
@@ -74,6 +100,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableDns64 { get; set; }
+        #endregion
+        
+        #region Parameter EnableLniAtDeviceIndex
+        /// <summary>
+        /// <para>
+        /// <para> Indicates the device position for local network interfaces in this subnet. For example,
+        /// <code>1</code> indicates local network interfaces in this subnet are the secondary
+        /// network interface (eth1). A local network interface cannot be the primary network
+        /// interface (eth0). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EnableLniAtDeviceIndex { get; set; }
+        #endregion
+        
+        #region Parameter EnableResourceNameDnsAAAARecordOnLaunch
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableResourceNameDnsAAAARecordOnLaunch { get; set; }
+        #endregion
+        
+        #region Parameter EnableResourceNameDnsARecordOnLaunch
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableResourceNameDnsARecordOnLaunch { get; set; }
         #endregion
         
         #region Parameter MapCustomerOwnedIpOnLaunch
@@ -97,6 +156,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.Boolean? MapPublicIpOnLaunch { get; set; }
+        #endregion
+        
+        #region Parameter PrivateDnsHostnameTypeOnLaunch
+        /// <summary>
+        /// <para>
+        /// <para>The type of hostnames to assign to instances in the subnet at launch. For IPv4 only
+        /// subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6
+        /// only subnets, an instance DNS name must be based on the instance ID. For dual-stack
+        /// subnets, you can specify whether DNS names use the instance IPv4 address or the instance
+        /// ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.HostnameType")]
+        public Amazon.EC2.HostnameType PrivateDnsHostnameTypeOnLaunch { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -178,9 +252,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssignIpv6AddressOnCreation = this.AssignIpv6AddressOnCreation;
             context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
+            context.DisableLniAtDeviceIndex = this.DisableLniAtDeviceIndex;
             context.EnableDns64 = this.EnableDns64;
+            context.EnableLniAtDeviceIndex = this.EnableLniAtDeviceIndex;
+            context.EnableResourceNameDnsAAAARecordOnLaunch = this.EnableResourceNameDnsAAAARecordOnLaunch;
+            context.EnableResourceNameDnsARecordOnLaunch = this.EnableResourceNameDnsARecordOnLaunch;
             context.MapCustomerOwnedIpOnLaunch = this.MapCustomerOwnedIpOnLaunch;
             context.MapPublicIpOnLaunch = this.MapPublicIpOnLaunch;
+            context.PrivateDnsHostnameTypeOnLaunch = this.PrivateDnsHostnameTypeOnLaunch;
             context.SubnetId = this.SubnetId;
             #if MODULAR
             if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
@@ -212,9 +291,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
             }
+            if (cmdletContext.DisableLniAtDeviceIndex != null)
+            {
+                request.DisableLniAtDeviceIndex = cmdletContext.DisableLniAtDeviceIndex.Value;
+            }
             if (cmdletContext.EnableDns64 != null)
             {
                 request.EnableDns64 = cmdletContext.EnableDns64.Value;
+            }
+            if (cmdletContext.EnableLniAtDeviceIndex != null)
+            {
+                request.EnableLniAtDeviceIndex = cmdletContext.EnableLniAtDeviceIndex.Value;
+            }
+            if (cmdletContext.EnableResourceNameDnsAAAARecordOnLaunch != null)
+            {
+                request.EnableResourceNameDnsAAAARecordOnLaunch = cmdletContext.EnableResourceNameDnsAAAARecordOnLaunch.Value;
+            }
+            if (cmdletContext.EnableResourceNameDnsARecordOnLaunch != null)
+            {
+                request.EnableResourceNameDnsARecordOnLaunch = cmdletContext.EnableResourceNameDnsARecordOnLaunch.Value;
             }
             if (cmdletContext.MapCustomerOwnedIpOnLaunch != null)
             {
@@ -223,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MapPublicIpOnLaunch != null)
             {
                 request.MapPublicIpOnLaunch = cmdletContext.MapPublicIpOnLaunch.Value;
+            }
+            if (cmdletContext.PrivateDnsHostnameTypeOnLaunch != null)
+            {
+                request.PrivateDnsHostnameTypeOnLaunch = cmdletContext.PrivateDnsHostnameTypeOnLaunch;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -291,9 +390,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AssignIpv6AddressOnCreation { get; set; }
             public System.String CustomerOwnedIpv4Pool { get; set; }
+            public System.Boolean? DisableLniAtDeviceIndex { get; set; }
             public System.Boolean? EnableDns64 { get; set; }
+            public System.Int32? EnableLniAtDeviceIndex { get; set; }
+            public System.Boolean? EnableResourceNameDnsAAAARecordOnLaunch { get; set; }
+            public System.Boolean? EnableResourceNameDnsARecordOnLaunch { get; set; }
             public System.Boolean? MapCustomerOwnedIpOnLaunch { get; set; }
             public System.Boolean? MapPublicIpOnLaunch { get; set; }
+            public Amazon.EC2.HostnameType PrivateDnsHostnameTypeOnLaunch { get; set; }
             public System.String SubnetId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifySubnetAttributeResponse, EditEC2SubnetAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

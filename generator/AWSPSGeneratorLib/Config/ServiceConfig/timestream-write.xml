@@ -9,8 +9,8 @@
     <ServiceClientInterface>IAmazonTimestreamWrite</ServiceClientInterface>
     <ServiceClient>AmazonTimestreamWriteClient</ServiceClient>
     <ServiceModuleGuid>d5cf3f60-7864-4f05-bf98-13046df7e59c</ServiceModuleGuid>
-    <AutoIterate Start="NextToken" Next="NextToken" />
     <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -75,8 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="WriteRecords" Verb="Write" Noun="Record" ShouldProcessTarget="TableName"  PipelineParameter="Records" NoPipelineParameter="false">
-            <Params />
+        <ServiceOperation MethodName="WriteRecords" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="TableName" PipelineParameter="Records" NoPipelineParameter="false">
+            <Params>
+                <Param Name="CommonAttributes_MeasureValues" NewName="CommonAttributes_MeasureValueList" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

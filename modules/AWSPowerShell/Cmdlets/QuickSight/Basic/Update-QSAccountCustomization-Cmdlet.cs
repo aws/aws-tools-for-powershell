@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter AccountCustomization_DefaultEmailCustomizationTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The default email customization template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountCustomization_DefaultEmailCustomizationTemplate { get; set; }
+        #endregion
+        
         #region Parameter AccountCustomization_DefaultTheme
         /// <summary>
         /// <para>
@@ -148,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountCustomization_DefaultEmailCustomizationTemplate = this.AccountCustomization_DefaultEmailCustomizationTemplate;
             context.AccountCustomization_DefaultTheme = this.AccountCustomization_DefaultTheme;
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
@@ -177,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate AccountCustomization
             var requestAccountCustomizationIsNull = true;
             request.AccountCustomization = new Amazon.QuickSight.Model.AccountCustomization();
+            System.String requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate = null;
+            if (cmdletContext.AccountCustomization_DefaultEmailCustomizationTemplate != null)
+            {
+                requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate = cmdletContext.AccountCustomization_DefaultEmailCustomizationTemplate;
+            }
+            if (requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate != null)
+            {
+                request.AccountCustomization.DefaultEmailCustomizationTemplate = requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate;
+                requestAccountCustomizationIsNull = false;
+            }
             System.String requestAccountCustomization_accountCustomization_DefaultTheme = null;
             if (cmdletContext.AccountCustomization_DefaultTheme != null)
             {
@@ -261,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountCustomization_DefaultEmailCustomizationTemplate { get; set; }
             public System.String AccountCustomization_DefaultTheme { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Namespace { get; set; }

@@ -50,16 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// the specified stream does not exist, <code>MergeShards</code> returns a <code>ResourceNotFoundException</code>.
     /// 
     /// </para><para>
-    /// You can use <a>DescribeStream</a> to check the state of the stream, which is returned
-    /// in <code>StreamStatus</code>.
+    /// You can use <a>DescribeStreamSummary</a> to check the state of the stream, which is
+    /// returned in <code>StreamStatus</code>.
     /// </para><para><code>MergeShards</code> is an asynchronous operation. Upon receiving a <code>MergeShards</code>
     /// request, Amazon Kinesis Data Streams immediately returns a response and sets the <code>StreamStatus</code>
     /// to <code>UPDATING</code>. After the operation is completed, Kinesis Data Streams sets
     /// the <code>StreamStatus</code> to <code>ACTIVE</code>. Read and write operations continue
     /// to work while the stream is in the <code>UPDATING</code> state. 
     /// </para><para>
-    /// You use <a>DescribeStream</a> to determine the shard IDs that are specified in the
-    /// <code>MergeShards</code> request. 
+    /// You use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine the
+    /// shard IDs that are specified in the <code>MergeShards</code> request. 
     /// </para><para>
     /// If you try to operate on too many streams in parallel using <a>CreateStream</a>, <a>DeleteStream</a>,
     /// <code>MergeShards</code>, or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>.

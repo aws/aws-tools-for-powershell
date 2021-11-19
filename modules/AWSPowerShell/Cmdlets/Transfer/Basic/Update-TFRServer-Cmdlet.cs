@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Web ServicesDirectory Service directory that you want
+        /// <para>The identifier of the Amazon Web Services Directory Service directory that you want
         /// to stop sharing.</para>
         /// </para>
         /// </summary>
@@ -256,6 +256,32 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String[] EndpointDetails_SubnetId { get; set; }
         #endregion
         
+        #region Parameter ProtocolDetails_TlsSessionResumptionMode
+        /// <summary>
+        /// <para>
+        /// <para>A property used with Transfer servers that use the FTPS protocol. TLS Session Resumption
+        /// provides a mechanism to resume or share a negotiated secret key between the control
+        /// and data connection for an FTPS session. <code>TlsSessionResumptionMode</code> determines
+        /// whether or not the server resumes recent, negotiated sessions through a unique session
+        /// ID. This property is available during <code>CreateServer</code> and <code>UpdateServer</code>
+        /// calls. If a <code>TlsSessionResumptionMode</code> value is not specified during CreateServer,
+        /// it is set to <code>ENFORCED</code> by default.</para><ul><li><para><code>DISABLED</code>: the server does not process TLS session resumption client
+        /// requests and creates a new TLS session for each request. </para></li><li><para><code>ENABLED</code>: the server processes and accepts clients that are performing
+        /// TLS session resumption. The server doesn't reject client data connections that do
+        /// not perform the TLS session resumption client processing.</para></li><li><para><code>ENFORCED</code>: the server processes and accepts clients that are performing
+        /// TLS session resumption. The server rejects client data connections that do not perform
+        /// the TLS session resumption client processing. Before you set the value to <code>ENFORCED</code>,
+        /// test your clients.</para><note><para>Not all FTPS clients perform TLS session resumption. So, if you choose to enforce
+        /// TLS session resumption, you prevent any connections from FTPS clients that don't perform
+        /// the protocol negotiation. To determine whether or not you can use the <code>ENFORCED</code>
+        /// value, you need to test your clients.</para></note></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.TlsSessionResumptionMode")]
+        public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
+        #endregion
+        
         #region Parameter IdentityProviderDetails_Url
         /// <summary>
         /// <para>
@@ -370,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.LoggingRole = this.LoggingRole;
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
+            context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
             if (this.Protocol != null)
             {
                 context.Protocol = new List<System.String>(this.Protocol);
@@ -540,6 +567,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.ProtocolDetails.PassiveIp = requestProtocolDetails_protocolDetails_PassiveIp;
                 requestProtocolDetailsIsNull = false;
             }
+            Amazon.Transfer.TlsSessionResumptionMode requestProtocolDetails_protocolDetails_TlsSessionResumptionMode = null;
+            if (cmdletContext.ProtocolDetails_TlsSessionResumptionMode != null)
+            {
+                requestProtocolDetails_protocolDetails_TlsSessionResumptionMode = cmdletContext.ProtocolDetails_TlsSessionResumptionMode;
+            }
+            if (requestProtocolDetails_protocolDetails_TlsSessionResumptionMode != null)
+            {
+                request.ProtocolDetails.TlsSessionResumptionMode = requestProtocolDetails_protocolDetails_TlsSessionResumptionMode;
+                requestProtocolDetailsIsNull = false;
+            }
              // determine if request.ProtocolDetails should be set to null
             if (requestProtocolDetailsIsNull)
             {
@@ -651,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String ProtocolDetails_PassiveIp { get; set; }
+            public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }

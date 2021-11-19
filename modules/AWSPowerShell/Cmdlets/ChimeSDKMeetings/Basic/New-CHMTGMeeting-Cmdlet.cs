@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Audio_EchoReduction
+        /// <summary>
+        /// <para>
+        /// <para>Makes echo reduction available to clients who connect to the meeting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MeetingFeatures_Audio_EchoReduction")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMeetings.MeetingFeatureStatus")]
+        public Amazon.ChimeSDKMeetings.MeetingFeatureStatus Audio_EchoReduction { get; set; }
+        #endregion
+        
         #region Parameter ExternalMeetingId
         /// <summary>
         /// <para>
@@ -210,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
                 WriteWarning("You are passing $null as a value for parameter MediaRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Audio_EchoReduction = this.Audio_EchoReduction;
             context.MeetingHostId = this.MeetingHostId;
             context.NotificationsConfiguration_LambdaFunctionArn = this.NotificationsConfiguration_LambdaFunctionArn;
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
@@ -241,6 +254,40 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             if (cmdletContext.MediaRegion != null)
             {
                 request.MediaRegion = cmdletContext.MediaRegion;
+            }
+            
+             // populate MeetingFeatures
+            var requestMeetingFeaturesIsNull = true;
+            request.MeetingFeatures = new Amazon.ChimeSDKMeetings.Model.MeetingFeaturesConfiguration();
+            Amazon.ChimeSDKMeetings.Model.AudioFeatures requestMeetingFeatures_meetingFeatures_Audio = null;
+            
+             // populate Audio
+            var requestMeetingFeatures_meetingFeatures_AudioIsNull = true;
+            requestMeetingFeatures_meetingFeatures_Audio = new Amazon.ChimeSDKMeetings.Model.AudioFeatures();
+            Amazon.ChimeSDKMeetings.MeetingFeatureStatus requestMeetingFeatures_meetingFeatures_Audio_audio_EchoReduction = null;
+            if (cmdletContext.Audio_EchoReduction != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Audio_audio_EchoReduction = cmdletContext.Audio_EchoReduction;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Audio_audio_EchoReduction != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Audio.EchoReduction = requestMeetingFeatures_meetingFeatures_Audio_audio_EchoReduction;
+                requestMeetingFeatures_meetingFeatures_AudioIsNull = false;
+            }
+             // determine if requestMeetingFeatures_meetingFeatures_Audio should be set to null
+            if (requestMeetingFeatures_meetingFeatures_AudioIsNull)
+            {
+                requestMeetingFeatures_meetingFeatures_Audio = null;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Audio != null)
+            {
+                request.MeetingFeatures.Audio = requestMeetingFeatures_meetingFeatures_Audio;
+                requestMeetingFeaturesIsNull = false;
+            }
+             // determine if request.MeetingFeatures should be set to null
+            if (requestMeetingFeaturesIsNull)
+            {
+                request.MeetingFeatures = null;
             }
             if (cmdletContext.MeetingHostId != null)
             {
@@ -349,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public System.String ClientRequestToken { get; set; }
             public System.String ExternalMeetingId { get; set; }
             public System.String MediaRegion { get; set; }
+            public Amazon.ChimeSDKMeetings.MeetingFeatureStatus Audio_EchoReduction { get; set; }
             public System.String MeetingHostId { get; set; }
             public System.String NotificationsConfiguration_LambdaFunctionArn { get; set; }
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }

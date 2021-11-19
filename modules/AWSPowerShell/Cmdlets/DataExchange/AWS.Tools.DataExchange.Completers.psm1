@@ -83,7 +83,14 @@ $DTEX_Completers = {
         # Amazon.DataExchange.AssetType
         "New-DTEXDataSet/AssetType"
         {
-            $v = "REDSHIFT_DATA_SHARE","S3_SNAPSHOT"
+            $v = "API_GATEWAY_API","REDSHIFT_DATA_SHARE","S3_SNAPSHOT"
+            break
+        }
+
+        # Amazon.DataExchange.ProtocolType
+        "New-DTEXJob/Details_ImportAssetFromApiGatewayApi_ProtocolType"
+        {
+            $v = "REST"
             break
         }
 
@@ -102,7 +109,7 @@ $DTEX_Completers = {
         # Amazon.DataExchange.Type
         "New-DTEXJob/Type"
         {
-            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","EXPORT_REVISIONS_TO_S3","IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_SIGNED_URL"
+            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","EXPORT_REVISIONS_TO_S3","IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_API_GATEWAY_API","IMPORT_ASSET_FROM_SIGNED_URL"
             break
         }
 
@@ -119,6 +126,7 @@ $DTEX_map = @{
     "AssetType"=@("New-DTEXDataSet")
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
+    "Details_ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
     "Type"=@("New-DTEXJob")
 }
 
@@ -192,6 +200,7 @@ $DTEX_SelectMap = @{
                "Get-DTEXJobList",
                "Get-DTEXRevisionAssetList",
                "Get-DTEXResourceTag",
+               "Send-DTEXApiAsset",
                "Start-DTEXJob",
                "Add-DTEXResourceTag",
                "Remove-DTEXResourceTag",

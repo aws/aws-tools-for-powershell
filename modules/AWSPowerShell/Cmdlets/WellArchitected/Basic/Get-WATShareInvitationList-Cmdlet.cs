@@ -40,6 +40,27 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATShareInvitationListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        #region Parameter LensNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>An optional string added to the beginning of each lens name returned in the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LensNamePrefix { get; set; }
+        #endregion
+        
+        #region Parameter ShareResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of share invitations to be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.ShareResourceType")]
+        public Amazon.WellArchitected.ShareResourceType ShareResourceType { get; set; }
+        #endregion
+        
         #region Parameter WorkloadNamePrefix
         /// <summary>
         /// <para>
@@ -116,8 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.Select = (response, cmdlet) => this.WorkloadNamePrefix;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LensNamePrefix = this.LensNamePrefix;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ShareResourceType = this.ShareResourceType;
             context.WorkloadNamePrefix = this.WorkloadNamePrefix;
             
             // allow further manipulation of loaded context prior to processing
@@ -135,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             // create request
             var request = new Amazon.WellArchitected.Model.ListShareInvitationsRequest();
             
+            if (cmdletContext.LensNamePrefix != null)
+            {
+                request.LensNamePrefix = cmdletContext.LensNamePrefix;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -142,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ShareResourceType != null)
+            {
+                request.ShareResourceType = cmdletContext.ShareResourceType;
             }
             if (cmdletContext.WorkloadNamePrefix != null)
             {
@@ -208,8 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String LensNamePrefix { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.WellArchitected.ShareResourceType ShareResourceType { get; set; }
             public System.String WorkloadNamePrefix { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListShareInvitationsResponse, GetWATShareInvitationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ShareInvitationSummaries;

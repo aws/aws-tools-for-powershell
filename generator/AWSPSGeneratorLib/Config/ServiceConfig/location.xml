@@ -186,6 +186,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchPlaceIndexForSuggestions" OutputProperty="*" Verb="Search" Noun="PlaceIndexForSuggestion" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchPlaceIndexForText" OutputProperty="*" Verb="Search" Noun="PlaceIndexForText" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

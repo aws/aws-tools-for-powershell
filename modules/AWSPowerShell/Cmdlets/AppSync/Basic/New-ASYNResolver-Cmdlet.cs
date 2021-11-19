@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     /// 
     ///  
     /// <para>
-    /// A resolver converts incoming requests into a format that a data source can understand
+    /// A resolver converts incoming requests into a format that a data source can understand,
     /// and converts the data source's responses into GraphQL.
     /// </para>
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter CachingConfig_CachingKey
         /// <summary>
         /// <para>
-        /// <para>The caching keys for a resolver that has caching enabled.</para><para>Valid values are entries from the <code>$context.arguments</code>, <code>$context.source</code>,
+        /// <para>The caching keys for a resolver that has caching activated.</para><para>Valid values are entries from the <code>$context.arguments</code>, <code>$context.source</code>,
         /// and <code>$context.identity</code> maps.</para>
         /// </para>
         /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter SyncConfig_ConflictDetection
         /// <summary>
         /// <para>
-        /// <para>The Conflict Detection strategy to use.</para><ul><li><para><b>VERSION</b>: Detect conflicts based on object versions for this resolver.</para></li><li><para><b>NONE</b>: Do not detect conflicts when executing this resolver.</para></li></ul>
+        /// <para>The Conflict Detection strategy to use.</para><ul><li><para><b>VERSION</b>: Detect conflicts based on object versions for this resolver.</para></li><li><para><b>NONE</b>: Do not detect conflicts when invoking this resolver.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The Conflict Resolution strategy to perform in the event of a conflict.</para><ul><li><para><b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions
-        /// do not match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.</para></li></ul>
+        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <code>LambdaConflictHandlerConfig</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The resolver type.</para><ul><li><para><b>UNIT</b>: A UNIT resolver type. A UNIT resolver is the default resolver type.
-        /// A UNIT resolver enables you to execute a GraphQL query against a single data source.</para></li><li><para><b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE resolver enables you to execute
-        /// a series of <code>Function</code> in a serial manner. You can use a pipeline resolver
-        /// to execute a GraphQL query against multiple data sources.</para></li></ul>
+        /// You can use a UNIT resolver to run a GraphQL query against a single data source.</para></li><li><para><b>PIPELINE</b>: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke
+        /// a series of <code>Function</code> objects in a serial manner. You can use a pipeline
+        /// resolver to run a GraphQL query against multiple data sources.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LambdaConflictHandlerConfig_LambdaConflictHandlerArn
         /// <summary>
         /// <para>
-        /// <para>The Arn for the Lambda function to use as the Conflict Handler.</para>
+        /// <para>The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
-        /// <para>The mapping template to be used for requests.</para><para>A resolver uses a request mapping template to convert a GraphQL expression into a
+        /// <para>The mapping template to use for requests.</para><para>A resolver uses a request mapping template to convert a GraphQL expression into a
         /// format that a data source can understand. Mapping templates are written in Apache
-        /// Velocity Template Language (VTL).</para><para>VTL request mapping templates are optional when using a Lambda data source. For all
+        /// Velocity Template Language (VTL).</para><para>VTL request mapping templates are optional when using an Lambda data source. For all
         /// other data sources, VTL request and response mapping templates are required.</para>
         /// </para>
         /// </summary>
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ResponseMappingTemplate
         /// <summary>
         /// <para>
-        /// <para>The mapping template to be used for responses from the data source.</para>
+        /// <para>The mapping template to use for responses from the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter CachingConfig_Ttl
         /// <summary>
         /// <para>
-        /// <para>The TTL in seconds for a resolver that has caching enabled.</para><para>Valid values are between 1 and 3600 seconds.</para>
+        /// <para>The TTL in seconds for a resolver that has caching activated.</para><para>Valid values are 1–3,600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

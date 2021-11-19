@@ -73,6 +73,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrBlock { get; set; }
         #endregion
         
+        #region Parameter Ipv4IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about
+        /// Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv4IpamPoolId { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC
+        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv4NetmaskLength { get; set; }
+        #endregion
+        
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
@@ -94,6 +118,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information
+        /// about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6IpamPoolId { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC
+        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv6NetmaskLength { get; set; }
         #endregion
         
         #region Parameter Ipv6Pool
@@ -186,8 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
             context.CidrBlock = this.CidrBlock;
+            context.Ipv4IpamPoolId = this.Ipv4IpamPoolId;
+            context.Ipv4NetmaskLength = this.Ipv4NetmaskLength;
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.Ipv6CidrBlockNetworkBorderGroup = this.Ipv6CidrBlockNetworkBorderGroup;
+            context.Ipv6IpamPoolId = this.Ipv6IpamPoolId;
+            context.Ipv6NetmaskLength = this.Ipv6NetmaskLength;
             context.Ipv6Pool = this.Ipv6Pool;
             context.VpcId = this.VpcId;
             #if MODULAR
@@ -220,6 +272,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
             }
+            if (cmdletContext.Ipv4IpamPoolId != null)
+            {
+                request.Ipv4IpamPoolId = cmdletContext.Ipv4IpamPoolId;
+            }
+            if (cmdletContext.Ipv4NetmaskLength != null)
+            {
+                request.Ipv4NetmaskLength = cmdletContext.Ipv4NetmaskLength.Value;
+            }
             if (cmdletContext.Ipv6CidrBlock != null)
             {
                 request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
@@ -227,6 +287,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6CidrBlockNetworkBorderGroup != null)
             {
                 request.Ipv6CidrBlockNetworkBorderGroup = cmdletContext.Ipv6CidrBlockNetworkBorderGroup;
+            }
+            if (cmdletContext.Ipv6IpamPoolId != null)
+            {
+                request.Ipv6IpamPoolId = cmdletContext.Ipv6IpamPoolId;
+            }
+            if (cmdletContext.Ipv6NetmaskLength != null)
+            {
+                request.Ipv6NetmaskLength = cmdletContext.Ipv6NetmaskLength.Value;
             }
             if (cmdletContext.Ipv6Pool != null)
             {
@@ -299,8 +367,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.String Ipv4IpamPoolId { get; set; }
+            public System.Int32? Ipv4NetmaskLength { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
             public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+            public System.String Ipv6IpamPoolId { get; set; }
+            public System.Int32? Ipv6NetmaskLength { get; set; }
             public System.String Ipv6Pool { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateVpcCidrBlockResponse, RegisterEC2VpcCidrBlockCmdlet, object> Select { get; set; } =

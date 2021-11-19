@@ -13,7 +13,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -32,6 +31,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRxNormInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="RxNormInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSNOMEDCTInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="SNOMEDCTInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InferSNOMEDCT" OutputProperty="*" Verb="Find" Noun="SNOMEDCT" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEntitiesDetectionV2Jobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="EntitiesDetectionV2JobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRxNormInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="RxNormInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSNOMEDCTInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="SNOMEDCTInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,6 +98,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Start" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Stop" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,8 +118,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

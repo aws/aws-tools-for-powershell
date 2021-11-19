@@ -90,6 +90,23 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactFlowModuleState
+        {
+            ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
+            ($_ -eq "Update-CONNContactFlowModuleMetadata/State")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
+        # Amazon.Connect.ContactFlowState
+        "Update-CONNContactFlowMetadata/ContactFlowState"
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
         # Amazon.Connect.ContactFlowType
         "New-CONNContactFlow/Type"
         {
@@ -221,13 +238,15 @@ $CONN_Completers = {
 
 $CONN_map = @{
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
+    "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
+    "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LexVersion"=@("Get-CONNBotList")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
-    "State"=@("New-CONNAgentStatus","Update-CONNAgentStatus")
+    "State"=@("New-CONNAgentStatus","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -298,6 +317,7 @@ $CONN_SelectMap = @{
                "Add-CONNSecurityKey",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
+               "New-CONNContactFlowModule",
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
@@ -308,6 +328,8 @@ $CONN_SelectMap = @{
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
+               "Remove-CONNContactFlow",
+               "Remove-CONNContactFlowModule",
                "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
@@ -319,6 +341,7 @@ $CONN_SelectMap = @{
                "Get-CONNAgentStatus",
                "Get-CONNContact",
                "Get-CONNContactFlow",
+               "Get-CONNContactFlowModule",
                "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
@@ -345,6 +368,7 @@ $CONN_SelectMap = @{
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
+               "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
                "Get-CONNContactReferenceList",
                "Get-CONNHoursOfOperationList",
@@ -384,6 +408,9 @@ $CONN_SelectMap = @{
                "Update-CONNContact",
                "Update-CONNContactAttribute",
                "Update-CONNContactFlowContent",
+               "Update-CONNContactFlowMetadata",
+               "Update-CONNContactFlowModuleContent",
+               "Update-CONNContactFlowModuleMetadata",
                "Update-CONNContactFlowName",
                "Update-CONNContactSchedule",
                "Update-CONNHoursOfOperation",

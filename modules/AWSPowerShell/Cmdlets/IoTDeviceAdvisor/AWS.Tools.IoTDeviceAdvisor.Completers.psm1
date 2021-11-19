@@ -125,6 +125,7 @@ $IOTDA_SelectCompleters = {
 $IOTDA_SelectMap = @{
     "Select"=@("New-IOTDASuiteDefinition",
                "Remove-IOTDASuiteDefinition",
+               "Get-IOTDAEndpoint",
                "Get-IOTDASuiteDefinition",
                "Get-IOTDASuiteRun",
                "Get-IOTDASuiteRunReport",

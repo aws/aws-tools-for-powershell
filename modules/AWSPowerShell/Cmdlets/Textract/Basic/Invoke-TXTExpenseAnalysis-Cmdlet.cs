@@ -28,7 +28,8 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// Analyzes an input document for financially related relationships between text.
+    /// <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
+    /// related relationships between text.
     /// 
     ///  
     /// <para>

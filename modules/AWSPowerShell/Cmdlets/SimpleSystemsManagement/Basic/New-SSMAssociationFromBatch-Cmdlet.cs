@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Associates the specified Amazon Web Services Systems Manager document (SSM document)
-    /// with the specified instances or targets.
+    /// with the specified managed nodes or targets.
     /// 
     ///  
     /// <para>
-    /// When you associate a document with one or more instances using instance IDs or tags,
-    /// Amazon Web Services Systems Manager Agent (SSM Agent) running on the instance processes
-    /// the document and configures the instance as specified.
+    /// When you associate a document with one or more managed nodes using IDs or tags, Amazon
+    /// Web Services Systems Manager Agent (SSM Agent) running on the managed node processes
+    /// the document and configures the node as specified.
     /// </para><para>
-    /// If you associate a document with an instance that already has an associated document,
+    /// If you associate a document with a managed node that already has an associated document,
     /// the system returns the AssociationAlreadyExists exception.
     /// </para>
     /// </summary>

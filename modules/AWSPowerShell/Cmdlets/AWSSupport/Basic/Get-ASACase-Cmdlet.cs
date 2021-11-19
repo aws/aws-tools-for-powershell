@@ -46,12 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Case data is available for 12 months after creation. If a case was created more than
     /// 12 months ago, a request might return an error.
     /// </para><note><ul><li><para>
-    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
+    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
+    /// Amazon Web Services Support API. 
     /// </para></li><li><para>
-    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
-    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
-    /// Support</a>.
+    /// If you call the Amazon Web Services Support API from an account that does not have
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
+    /// Web Services Support</a>.
     /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASACase")]
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter DisplayId
         /// <summary>
         /// <para>
-        /// <para>The ID displayed for a case in the AWS Support Center user interface.</para>
+        /// <para>The ID displayed for a case in the Amazon Web Services Support Center user interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
-        /// supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly
-        /// for operations that take them.</para>
+        /// <para>The ISO 639-1 code for the language in which Amazon Web Services provides support.
+        /// Amazon Web Services Support currently supports English ("en") and Japanese ("ja").
+        /// Language parameters must be passed explicitly for operations that take them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

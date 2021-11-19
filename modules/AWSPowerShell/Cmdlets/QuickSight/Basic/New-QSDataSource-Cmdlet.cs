@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AmazonOpenSearchParameters_Domain
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The OpenSearch domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,6 +323,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_AuroraPostgreSqlParameters_Host")]
         public System.String AuroraPostgreSqlParameters_Host { get; set; }
+        #endregion
+        
+        #region Parameter ExasolParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>The hostname or IP address of the Exasol data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ExasolParameters_Host")]
+        public System.String ExasolParameters_Host { get; set; }
         #endregion
         
         #region Parameter MariaDbParameters_Host
@@ -527,6 +538,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_AuroraPostgreSqlParameters_Port")]
         public System.Int32? AuroraPostgreSqlParameters_Port { get; set; }
+        #endregion
+        
+        #region Parameter ExasolParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port for the Exasol data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ExasolParameters_Port")]
+        public System.Int32? ExasolParameters_Port { get; set; }
         #endregion
         
         #region Parameter MariaDbParameters_Port
@@ -825,6 +847,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AuroraPostgreSqlParameters_Host = this.AuroraPostgreSqlParameters_Host;
             context.AuroraPostgreSqlParameters_Port = this.AuroraPostgreSqlParameters_Port;
             context.AwsIotAnalyticsParameters_DataSetName = this.AwsIotAnalyticsParameters_DataSetName;
+            context.ExasolParameters_Host = this.ExasolParameters_Host;
+            context.ExasolParameters_Port = this.ExasolParameters_Port;
             context.JiraParameters_SiteBaseUrl = this.JiraParameters_SiteBaseUrl;
             context.MariaDbParameters_Database = this.MariaDbParameters_Database;
             context.MariaDbParameters_Host = this.MariaDbParameters_Host;
@@ -1177,6 +1201,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_ServiceNowParameters != null)
             {
                 request.DataSourceParameters.ServiceNowParameters = requestDataSourceParameters_dataSourceParameters_ServiceNowParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.ExasolParameters requestDataSourceParameters_dataSourceParameters_ExasolParameters = null;
+            
+             // populate ExasolParameters
+            var requestDataSourceParameters_dataSourceParameters_ExasolParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_ExasolParameters = new Amazon.QuickSight.Model.ExasolParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Host = null;
+            if (cmdletContext.ExasolParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Host = cmdletContext.ExasolParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ExasolParameters.Host = requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_ExasolParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Port = null;
+            if (cmdletContext.ExasolParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Port = cmdletContext.ExasolParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ExasolParameters.Port = requestDataSourceParameters_dataSourceParameters_ExasolParameters_exasolParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_ExasolParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_ExasolParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_ExasolParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_ExasolParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ExasolParameters != null)
+            {
+                request.DataSourceParameters.ExasolParameters = requestDataSourceParameters_dataSourceParameters_ExasolParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.RdsParameters requestDataSourceParameters_dataSourceParameters_RdsParameters = null;
@@ -1925,6 +1984,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AuroraPostgreSqlParameters_Host { get; set; }
             public System.Int32? AuroraPostgreSqlParameters_Port { get; set; }
             public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
+            public System.String ExasolParameters_Host { get; set; }
+            public System.Int32? ExasolParameters_Port { get; set; }
             public System.String JiraParameters_SiteBaseUrl { get; set; }
             public System.String MariaDbParameters_Database { get; set; }
             public System.String MariaDbParameters_Host { get; set; }

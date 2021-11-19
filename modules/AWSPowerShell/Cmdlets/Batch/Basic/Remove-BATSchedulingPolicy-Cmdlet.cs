@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// 
     ///  
     /// <para>
-    /// You can't delete a scheduling policy that is used in any job queues.
+    /// You can't delete a scheduling policy that's used in any job queues.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BATSchedulingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

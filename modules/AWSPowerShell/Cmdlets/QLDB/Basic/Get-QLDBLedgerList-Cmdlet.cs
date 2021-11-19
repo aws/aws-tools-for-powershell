@@ -28,8 +28,8 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Returns an array of ledger summaries that are associated with the current account
-    /// and Region.
+    /// Returns an array of ledger summaries that are associated with the current Amazon Web
+    /// Services account and Region.
     /// 
     ///  
     /// <para>

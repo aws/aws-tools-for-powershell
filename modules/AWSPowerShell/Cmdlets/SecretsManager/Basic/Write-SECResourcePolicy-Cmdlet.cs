@@ -28,28 +28,12 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Attaches the contents of the specified resource-based permission policy to a secret.
-    /// A resource-based policy is optional. Alternatively, you can use IAM identity-based
-    /// policies that specify the secret's Amazon Resource Name (ARN) in the policy statement's
-    /// <code>Resources</code> element. You can also use a combination of both identity-based
-    /// and resource-based policies. The affected users and roles receive the permissions
-    /// that are permitted by all of the relevant policies. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Using
-    /// Resource-Based Policies for Amazon Web Services Secrets Manager</a>. For the complete
-    /// description of the Amazon Web Services policy syntax and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
-    /// JSON Policy Reference</a> in the <i>IAM User Guide</i>.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:PutResourcePolicy
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To list all of the currently available secrets, use <a>ListSecrets</a>.
-    /// </para></li></ul>
+    /// Attaches a resource-based permission policy to a secret. A resource-based policy is
+    /// optional. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control for Secrets Manager</a><para>
+    /// For information about attaching a policy in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Attach
+    /// a permissions policy to a secret</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "SECResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.PutResourcePolicyResponse")]
@@ -63,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter BlockPublicPolicy
         /// <summary>
         /// <para>
-        /// <para>(Optional) If you set the parameter, <code>BlockPublicPolicy</code> to true, then
-        /// you block resource-based policies that allow broad access to the secret.</para>
+        /// <para>Specifies whether to block resource-based policies that allow broad access to the
+        /// secret. By default, Secrets Manager blocks policies that allow broad access, for example
+        /// those that use a wildcard for the principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,11 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
-        /// <para>A JSON-formatted string constructed according to the grammar and syntax for an Amazon
-        /// Web Services resource-based policy. The policy in the string identifies who can access
-        /// or manage this secret and its versions. For information on how to format a JSON parameter
-        /// for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>CLI User Guide</i>.</para>
+        /// <para>A JSON-formatted string for an Amazon Web Services resource-based policy. For example
+        /// policies, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html">Permissions
+        /// policy examples</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to attach the resource-based policy. You can specify
-        /// either the ARN or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret to attach the resource-based policy.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

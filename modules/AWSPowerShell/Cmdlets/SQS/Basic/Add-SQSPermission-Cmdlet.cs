@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter AWSAccountId
         /// <summary>
         /// <para>
-        /// <para>The account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a>
-        /// who are to receive permission. For information about locating the account identification,
-        /// see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your
+        /// <para>The Amazon Web Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a>
+        /// who are to receive permission. For information about locating the Amazon Web Services
+        /// account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your
         /// Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>

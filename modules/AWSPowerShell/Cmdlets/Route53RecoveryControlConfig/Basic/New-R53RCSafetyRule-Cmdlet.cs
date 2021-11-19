@@ -29,20 +29,25 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
     /// Creates a safety rule in a control panel. Safety rules let you add safeguards around
-    /// enabling and disabling routing controls, to help prevent unexpected outcomes.
+    /// changing routing control states, and for enabling and disabling routing controls,
+    /// to help prevent unexpected outcomes.
     /// 
     ///  
     /// <para>
     /// There are two types of safety rules: assertion rules and gating rules.
     /// </para><para>
-    /// Assertion rule: An assertion rule enforces that, when a routing control state is changed,
-    /// the criteria set by the rule configuration is met. Otherwise, the change to the routing
-    /// control is not accepted.
+    /// Assertion rule: An assertion rule enforces that, when you change a routing control
+    /// state, that a certain criteria is met. For example, the criteria might be that at
+    /// least one routing control state is On after the transation so that traffic continues
+    /// to flow to at least one cell for the application. This ensures that you avoid a fail-open
+    /// scenario.
     /// </para><para>
-    /// Gating rule: A gating rule verifies that a set of gating controls evaluates as true,
-    /// based on a rule configuration that you specify. If the gating rule evaluates to true,
-    /// Amazon Route 53 Application Recovery Controller allows a set of routing control state
-    /// changes to run and complete against the set of target controls.
+    /// Gating rule: A gating rule lets you configure a gating routing control as an overall
+    /// "on/off" switch for a group of routing controls. Or, you can configure more complex
+    /// gating scenarios, for example by configuring multiple gating routing controls.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html">Safety
+    /// rules</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53RCSafetyRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -141,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         public System.String GatingRule_Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags associated with the safety rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter GatingRule_TargetControl
         /// <summary>
         /// <para>
@@ -228,7 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique client idempotency token.</para>
+        /// <para>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent
+        /// API request with an action, specify a client token in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,6 +318,14 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
                 context.GatingRule_TargetControl = new List<System.String>(this.GatingRule_TargetControl);
             }
             context.GatingRule_WaitPeriodMs = this.GatingRule_WaitPeriodMs;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -519,6 +544,10 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             {
                 request.GatingRule = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -596,6 +625,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             public Amazon.Route53RecoveryControlConfig.RuleType GatingRule_RuleConfig_Type { get; set; }
             public List<System.String> GatingRule_TargetControl { get; set; }
             public System.Int32? GatingRule_WaitPeriodMs { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Route53RecoveryControlConfig.Model.CreateSafetyRuleResponse, NewR53RCSafetyRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

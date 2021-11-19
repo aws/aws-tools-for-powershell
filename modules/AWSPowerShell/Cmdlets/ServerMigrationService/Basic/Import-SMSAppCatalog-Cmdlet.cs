@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Allows application import from AWS Migration Hub.
+    /// Allows application import from Migration Hub.
     /// </summary>
     [Cmdlet("Import", "SMSAppCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// <summary>
         /// <para>
         /// <para>The name of the service role. If you omit this parameter, we create a service-linked
-        /// role for AWS Migration Hub in your account. Otherwise, the role that you provide must
+        /// role for Migration Hub in your account. Otherwise, the role that you provide must
         /// have the <a href="https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed">policy
-        /// and trust policy</a> described in the <i>AWS Migration Hub User Guide</i>.</para>
+        /// and trust policy</a> described in the <i>Migration Hub User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

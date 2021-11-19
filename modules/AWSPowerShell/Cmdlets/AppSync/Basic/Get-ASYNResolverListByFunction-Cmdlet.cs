@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter FunctionId
         /// <summary>
         /// <para>
-        /// <para>The Function ID.</para>
+        /// <para>The function ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results you want the request to return.</para>
+        /// <para>The maximum number of results that you want the request to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

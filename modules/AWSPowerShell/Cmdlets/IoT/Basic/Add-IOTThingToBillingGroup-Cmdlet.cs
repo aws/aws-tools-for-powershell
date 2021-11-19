@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter BillingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the billing group.</para>
+        /// <para>The name of the billing group.</para><note><para>This call is asynchronous. It might take several seconds for the detachment to propagate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

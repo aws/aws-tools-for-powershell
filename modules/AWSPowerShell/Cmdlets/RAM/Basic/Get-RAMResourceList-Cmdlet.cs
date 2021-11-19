@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal.</para>
+        /// <para>Specifies that you want to list only the resource shares that are associated with
+        /// the specified principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the resources.</para>
+        /// <para>Specifies that you want to list only the resource shares that include resources with
+        /// the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
-        /// <para>The type of owner.</para>
+        /// <para>Specifies that you want to list only the resource shares that match the following:</para><ul><li><para><b><code>SELF</code></b> – resources that you are sharing</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – resources that other accounts share with you</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,10 +82,25 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
         #endregion
         
+        #region Parameter ResourceRegionScope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want the results to include only resources that have the specified
+        /// scope.</para><ul><li><para><code>ALL</code> – the results include both global and regional resources or resource
+        /// types.</para></li><li><para><code>GLOBAL</code> – the results include only global resources or resource types.</para></li><li><para><code>REGIONAL</code> – the results include only regional resources or resource types.</para></li></ul><para>The default value is <code>ALL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.ResourceRegionScopeFilter")]
+        public Amazon.RAM.ResourceRegionScopeFilter ResourceRegionScope { get; set; }
+        #endregion
+        
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resource shares.</para>
+        /// <para>Specifies that you want to list only resources in the resource shares identified by
+        /// the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,18 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code>
-        /// | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code>
-        /// | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code>
-        /// | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code>
-        /// | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code>
-        /// | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code>
-        /// | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code>
-        /// | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code>
-        /// | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code>
-        /// | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code>
-        /// | <code>route53resolver:ResolverRule</code> | <code>s3-outposts:Outpost</code> | <code>ssm-contacts:Contact</code>
-        /// | <code>ssm-incidents:ResponsePlan</code></para>
+        /// <para>Specifies that you want to list only the resource shares that include resources of
+        /// the specified resource type.</para><para>For valid values, query the <a>ListResourceTypes</a> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +122,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// <para>Specifies the total number of results that you want included on each page of the response.
+        /// If you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// response element is returned with a value (not null). Include the specified value
+        /// as the <code>NextToken</code> request parameter in the next call to the operation
+        /// to get the next part of the results. Note that the service might return fewer results
+        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -132,7 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
+        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
+        /// that more output is available. Set this parameter to the value provided by the previous
+        /// call's <code>NextToken</code> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -228,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter ResourceOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceRegionScope = this.ResourceRegionScope;
             if (this.ResourceShareArn != null)
             {
                 context.ResourceShareArn = new List<System.String>(this.ResourceShareArn);
@@ -269,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.ResourceOwner != null)
             {
                 request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
+            if (cmdletContext.ResourceRegionScope != null)
+            {
+                request.ResourceRegionScope = cmdletContext.ResourceRegionScope;
             }
             if (cmdletContext.ResourceShareArn != null)
             {
@@ -344,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.ResourceOwner != null)
             {
                 request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
+            if (cmdletContext.ResourceRegionScope != null)
+            {
+                request.ResourceRegionScope = cmdletContext.ResourceRegionScope;
             }
             if (cmdletContext.ResourceShareArn != null)
             {
@@ -481,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public System.String Principal { get; set; }
             public List<System.String> ResourceArn { get; set; }
             public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
+            public Amazon.RAM.ResourceRegionScopeFilter ResourceRegionScope { get; set; }
             public List<System.String> ResourceShareArn { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.RAM.Model.ListResourcesResponse, GetRAMResourceListCmdlet, object> Select { get; set; } =

@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Mgn module of AWS Tools for PowerShell lets developers and administrators manage Application Migration Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MGNReplicationConfigurationTemplate', 
         'Get-MGNResourceTag', 
         'Get-MGNSourceServer', 
+        'Get-MGNVcenterClient', 
         'Initialize-MGNService', 
         'New-MGNReplicationConfigurationTemplate', 
         'Remove-MGNJob', 
@@ -103,14 +104,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MGNResourceTag', 
         'Remove-MGNSourceServer', 
         'Remove-MGNTargetInstance', 
+        'Remove-MGNVcenterClient', 
         'Resume-MGNDataReplication', 
         'Set-MGNAsArchived', 
         'Set-MGNServerLifeCycleState', 
         'Start-MGNCutover', 
+        'Start-MGNReplication', 
         'Start-MGNTest', 
         'Update-MGNLaunchConfiguration', 
         'Update-MGNReplicationConfiguration', 
-        'Update-MGNReplicationConfigurationTemplate')
+        'Update-MGNReplicationConfigurationTemplate', 
+        'Update-MGNSourceServerReplicationType')
 
     # Variables to export from this module
     VariablesToExport = '*'

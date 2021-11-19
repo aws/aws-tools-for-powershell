@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The LakeFormation module of AWS Tools for PowerShell lets developers and administrators manage AWS Lake Formation from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -87,28 +87,47 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-LKFLFTagsToResource', 
+        'Get-LKFDataCellsFilterList', 
         'Get-LKFDataLakeSetting', 
         'Get-LKFEffectivePermissionsForPath', 
         'Get-LKFLFTag', 
         'Get-LKFLFTagList', 
         'Get-LKFPermissionList', 
+        'Get-LKFQueryState', 
+        'Get-LKFQueryStatistic', 
         'Get-LKFResource', 
         'Get-LKFResourceLFTag', 
         'Get-LKFResourceList', 
+        'Get-LKFTableObject', 
+        'Get-LKFTableStorageOptimizerList', 
+        'Get-LKFTransaction', 
+        'Get-LKFTransactionList', 
+        'Get-LKFWorkUnit', 
+        'Get-LKFWorkUnitResult', 
         'Grant-LKFPermission', 
         'Grant-LKFPermissionBatch', 
+        'Invoke-LKFTransaction', 
+        'New-LKFDataCellsFilter', 
         'New-LKFLFTag', 
         'Register-LKFResource', 
+        'Remove-LKFDataCellsFilter', 
         'Remove-LKFLFTag', 
         'Remove-LKFLFTagsFromResource', 
+        'Remove-LKFObjectsOnCancel', 
         'Revoke-LKFPermission', 
         'Revoke-LKFPermissionBatch', 
         'Search-LKFDatabasesByLFTag', 
         'Search-LKFTablesByLFTag', 
+        'Start-LKFQueryPlanning', 
+        'Start-LKFTransaction', 
+        'Stop-LKFTransaction', 
         'Unregister-LKFResource', 
         'Update-LKFLFTag', 
         'Update-LKFResource', 
-        'Write-LKFDataLakeSetting')
+        'Update-LKFTableObject', 
+        'Update-LKFTableStorageOptimizer', 
+        'Write-LKFDataLakeSetting', 
+        'Write-LKFTransaction')
 
     # Variables to export from this module
     VariablesToExport = '*'

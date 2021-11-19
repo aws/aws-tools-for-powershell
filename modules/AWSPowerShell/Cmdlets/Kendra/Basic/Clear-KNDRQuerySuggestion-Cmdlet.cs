@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// to the query log from the time you cleared suggestions. If you do not see any new
     /// suggestions, then please allow Amazon Kendra to collect enough queries to learn new
     /// suggestions.
+    /// </para><para><code>ClearQuerySuggestions</code> is currently not supported in the Amazon Web Services
+    /// GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Clear", "KNDRQuerySuggestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

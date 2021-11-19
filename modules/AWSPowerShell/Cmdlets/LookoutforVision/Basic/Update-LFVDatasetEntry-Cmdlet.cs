@@ -28,12 +28,22 @@ using Amazon.LookoutforVision.Model;
 namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
-    /// Adds one or more JSON Line entries to a dataset. A JSON Line includes information
-    /// about an image used for training or testing an Amazon Lookout for Vision model. The
-    /// following is an example JSON Line.
+    /// Adds or updates one or more JSON Line entries in a dataset. A JSON Line includes information
+    /// about an image used for training or testing an Amazon Lookout for Vision model.
     /// 
     ///  
     /// <para>
+    /// To update an existing JSON Line, use the <code>source-ref</code> field to identify
+    /// the JSON Line. The JSON line that you supply replaces the existing JSON line. Any
+    /// existing annotations that are not in the new JSON line are removed from the dataset.
+    /// 
+    /// </para><para>
+    /// For more information, see <i>Defining JSON lines for anomaly classification</i> in
+    /// the Amazon Lookout for Vision Developer Guide. 
+    /// </para><note><para>
+    /// The images you reference in the <code>source-ref</code> field of a JSON line, must
+    /// be in the same S3 bucket as the existing images in the dataset. 
+    /// </para></note><para>
     /// Updating a dataset might take a while to complete. To check the current status, call
     /// <a>DescribeDataset</a> and check the <code>Status</code> field in the response.
     /// </para><para>
@@ -110,13 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code>
-        /// completes only once. You choose the value to pass. For example, An issue, such as
-        /// an network outage, might prevent you from getting a response from <code>UpdateDatasetEntries</code>.
-        /// In this case, safely retry your call to <code>UpdateDatasetEntries</code> by using
-        /// the same <code>ClientToken</code> parameter value. An error occurs if the other input
-        /// parameters are not the same as in the first request. Using a different value for <code>ClientToken</code>
-        /// is considered a new call to <code>UpdateDatasetEntries</code>. An idempotency token
-        /// is active for 8 hours. </para>
+        /// completes only once. You choose the value to pass. For example, An issue might prevent
+        /// you from getting a response from <code>UpdateDatasetEntries</code>. In this case,
+        /// safely retry your call to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code>
+        /// parameter value.</para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
+        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// updates with the same dataset entries. You'll need to provide your own value for other
+        /// use cases. </para><para>An error occurs if the other input parameters are not the same as in the first request.
+        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>UpdateDatasetEntries</code>.
+        /// An idempotency token is active for 8 hours. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

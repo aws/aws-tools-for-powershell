@@ -28,12 +28,12 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Deletes the specified tag key name. If the attribute key does not exist or the tag
-    /// does not exist, then the operation will not do anything. If the attribute key exists,
-    /// then the operation checks if any resources are tagged with this attribute key, if
-    /// yes, the API throws a 400 Exception with the message "Delete not allowed" as the tag
-    /// key is still attached with resources. You can consider untagging resources with this
-    /// tag key.
+    /// Deletes the specified LF-tag key name. If the attribute key does not exist or the
+    /// LF-tag does not exist, then the operation will not do anything. If the attribute key
+    /// exists, then the operation checks if any resources are tagged with this attribute
+    /// key, if yes, the API throws a 400 Exception with the message "Delete not allowed"
+    /// as the LF-tag key is still attached with resources. You can consider untagging resources
+    /// with this LF-tag key.
     /// </summary>
     [Cmdlet("Remove", "LKFLFTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The key-name for the tag to delete.</para>
+        /// <para>The key-name for the LF-tag to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

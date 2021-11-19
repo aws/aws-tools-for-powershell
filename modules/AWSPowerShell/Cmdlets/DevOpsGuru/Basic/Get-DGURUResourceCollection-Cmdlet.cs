@@ -29,10 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Returns lists Amazon Web Services resources that are of the specified resource collection
-    /// type. The one type of Amazon Web Services resource collection supported is Amazon
-    /// Web Services CloudFormation stacks. DevOps Guru can be configured to analyze only
-    /// the Amazon Web Services resources that are defined in the stacks. You can specify
-    /// up to 500 Amazon Web Services CloudFormation stacks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// type. The two types of Amazon Web Services resource collections supported are Amazon
+    /// Web Services CloudFormation stacks and Amazon Web Services resources that contain
+    /// the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon
+    /// Web Services resources that are defined in the stacks or that are tagged using the
+    /// same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation
+    /// stacks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DGURUResourceCollection")]
     [OutputType("Amazon.DevOpsGuru.Model.ResourceCollectionFilter")]

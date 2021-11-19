@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Adds or updates user defined contact information associated with the specified contact.
+    /// Adds or updates user-defined contact information associated with the specified contact.
     /// At least one field to be updated must be present in the request.
     /// </para><important><para>
     /// You can add or update user-defined contact information for both ongoing and completed

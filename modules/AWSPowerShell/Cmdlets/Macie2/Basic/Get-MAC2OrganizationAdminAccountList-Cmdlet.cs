@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// Retrieves information about the delegated Amazon Macie administrator account for an
-    /// Amazon Web Services organization.
+    /// organization in Organizations.
     /// </summary>
     [Cmdlet("Get", "MAC2OrganizationAdminAccountList")]
     [OutputType("Amazon.Macie2.Model.AdminAccount")]

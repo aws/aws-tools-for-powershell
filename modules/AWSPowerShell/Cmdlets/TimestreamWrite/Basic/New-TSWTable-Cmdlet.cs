@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
     /// The CreateTable operation adds a new table to an existing database in your account.
-    /// In an AWS account, table names must be at least unique within each Region if they
-    /// are in the same database. You may have identical table names in the same Region if
-    /// the tables are in seperate databases. While creating the table, you must specify the
-    /// table name, database name, and the retention properties. Service quotas apply. For
-    /// more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access
-    /// Management</a> in the Timestream Developer Guide.
+    /// In an Amazon Web Services account, table names must be at least unique within each
+    /// Region if they are in the same database. You may have identical table names in the
+    /// same Region if the tables are in separate databases. While creating the table, you
+    /// must specify the table name, database name, and the retention properties. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
+    /// quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code
+    /// sample</a> for details.
     /// </summary>
     [Cmdlet("New", "TSWTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TimestreamWrite.Model.Table")]
@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     )]
     public partial class NewTSWTableCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
+        
+        #region Parameter S3Configuration_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>&gt;Bucket name of the customer S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_BucketName")]
+        public System.String S3Configuration_BucketName { get; set; }
+        #endregion
         
         #region Parameter DatabaseName
         /// <summary>
@@ -61,6 +72,41 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter MagneticStoreWriteProperties_EnableMagneticStoreWrite
+        /// <summary>
+        /// <para>
+        /// <para>A flag to enable magnetic store writes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MagneticStoreWriteProperties_EnableMagneticStoreWrites")]
+        public System.Boolean? MagneticStoreWriteProperties_EnableMagneticStoreWrite { get; set; }
+        #endregion
+        
+        #region Parameter S3Configuration_EncryptionOption
+        /// <summary>
+        /// <para>
+        /// <para>Encryption option for the customer s3 location. Options are S3 server side encryption
+        /// with an S3-managed key or KMS managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption")]
+        [AWSConstantClassSource("Amazon.TimestreamWrite.S3EncryptionOption")]
+        public Amazon.TimestreamWrite.S3EncryptionOption S3Configuration_EncryptionOption { get; set; }
+        #endregion
+        
+        #region Parameter S3Configuration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>KMS key id for the customer s3 location when encrypting with a KMS managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_KmsKeyId")]
+        public System.String S3Configuration_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter RetentionProperties_MagneticStoreRetentionPeriodInDay
@@ -83,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetentionProperties_MemoryStoreRetentionPeriodInHours")]
         public System.Int64? RetentionProperties_MemoryStoreRetentionPeriodInHour { get; set; }
+        #endregion
+        
+        #region Parameter S3Configuration_ObjectKeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Object key preview for the customer S3 location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_ObjectKeyPrefix")]
+        public System.String S3Configuration_ObjectKeyPrefix { get; set; }
         #endregion
         
         #region Parameter TableName
@@ -181,6 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MagneticStoreWriteProperties_EnableMagneticStoreWrite = this.MagneticStoreWriteProperties_EnableMagneticStoreWrite;
+            context.S3Configuration_BucketName = this.S3Configuration_BucketName;
+            context.S3Configuration_EncryptionOption = this.S3Configuration_EncryptionOption;
+            context.S3Configuration_KmsKeyId = this.S3Configuration_KmsKeyId;
+            context.S3Configuration_ObjectKeyPrefix = this.S3Configuration_ObjectKeyPrefix;
             context.RetentionProperties_MagneticStoreRetentionPeriodInDay = this.RetentionProperties_MagneticStoreRetentionPeriodInDay;
             context.RetentionProperties_MemoryStoreRetentionPeriodInHour = this.RetentionProperties_MemoryStoreRetentionPeriodInHour;
             context.TableName = this.TableName;
@@ -213,6 +275,95 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            
+             // populate MagneticStoreWriteProperties
+            var requestMagneticStoreWritePropertiesIsNull = true;
+            request.MagneticStoreWriteProperties = new Amazon.TimestreamWrite.Model.MagneticStoreWriteProperties();
+            System.Boolean? requestMagneticStoreWriteProperties_magneticStoreWriteProperties_EnableMagneticStoreWrite = null;
+            if (cmdletContext.MagneticStoreWriteProperties_EnableMagneticStoreWrite != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_EnableMagneticStoreWrite = cmdletContext.MagneticStoreWriteProperties_EnableMagneticStoreWrite.Value;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_EnableMagneticStoreWrite != null)
+            {
+                request.MagneticStoreWriteProperties.EnableMagneticStoreWrites = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_EnableMagneticStoreWrite.Value;
+                requestMagneticStoreWritePropertiesIsNull = false;
+            }
+            Amazon.TimestreamWrite.Model.MagneticStoreRejectedDataLocation requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation = null;
+            
+             // populate MagneticStoreRejectedDataLocation
+            var requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocationIsNull = true;
+            requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation = new Amazon.TimestreamWrite.Model.MagneticStoreRejectedDataLocation();
+            Amazon.TimestreamWrite.Model.S3Configuration requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration = null;
+            
+             // populate S3Configuration
+            var requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull = true;
+            requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration = new Amazon.TimestreamWrite.Model.S3Configuration();
+            System.String requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_BucketName = null;
+            if (cmdletContext.S3Configuration_BucketName != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_BucketName = cmdletContext.S3Configuration_BucketName;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_BucketName != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration.BucketName = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_BucketName;
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull = false;
+            }
+            Amazon.TimestreamWrite.S3EncryptionOption requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_EncryptionOption = null;
+            if (cmdletContext.S3Configuration_EncryptionOption != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_EncryptionOption = cmdletContext.S3Configuration_EncryptionOption;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_EncryptionOption != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration.EncryptionOption = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_EncryptionOption;
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull = false;
+            }
+            System.String requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_KmsKeyId = null;
+            if (cmdletContext.S3Configuration_KmsKeyId != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_KmsKeyId = cmdletContext.S3Configuration_KmsKeyId;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_KmsKeyId != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration.KmsKeyId = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_KmsKeyId;
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull = false;
+            }
+            System.String requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_ObjectKeyPrefix = null;
+            if (cmdletContext.S3Configuration_ObjectKeyPrefix != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_ObjectKeyPrefix = cmdletContext.S3Configuration_ObjectKeyPrefix;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_ObjectKeyPrefix != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration.ObjectKeyPrefix = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_s3Configuration_ObjectKeyPrefix;
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull = false;
+            }
+             // determine if requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration should be set to null
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3ConfigurationIsNull)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration = null;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration != null)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation.S3Configuration = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration;
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocationIsNull = false;
+            }
+             // determine if requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation should be set to null
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocationIsNull)
+            {
+                requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation = null;
+            }
+            if (requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation != null)
+            {
+                request.MagneticStoreWriteProperties.MagneticStoreRejectedDataLocation = requestMagneticStoreWriteProperties_magneticStoreWriteProperties_MagneticStoreRejectedDataLocation;
+                requestMagneticStoreWritePropertiesIsNull = false;
+            }
+             // determine if request.MagneticStoreWriteProperties should be set to null
+            if (requestMagneticStoreWritePropertiesIsNull)
+            {
+                request.MagneticStoreWriteProperties = null;
             }
             
              // populate RetentionProperties
@@ -313,6 +464,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DatabaseName { get; set; }
+            public System.Boolean? MagneticStoreWriteProperties_EnableMagneticStoreWrite { get; set; }
+            public System.String S3Configuration_BucketName { get; set; }
+            public Amazon.TimestreamWrite.S3EncryptionOption S3Configuration_EncryptionOption { get; set; }
+            public System.String S3Configuration_KmsKeyId { get; set; }
+            public System.String S3Configuration_ObjectKeyPrefix { get; set; }
             public System.Int64? RetentionProperties_MagneticStoreRetentionPeriodInDay { get; set; }
             public System.Int64? RetentionProperties_MemoryStoreRetentionPeriodInHour { get; set; }
             public System.String TableName { get; set; }

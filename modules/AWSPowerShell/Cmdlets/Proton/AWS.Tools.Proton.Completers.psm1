@@ -108,6 +108,54 @@ $PRO_Completers = {
             break
         }
 
+        # Amazon.Proton.RepositoryProvider
+        {
+            ($_ -eq "Update-PROAccountSetting/PipelineProvisioningRepository_Provider") -Or
+            ($_ -eq "Get-PRORepository/Provider") -Or
+            ($_ -eq "New-PRORepository/Provider") -Or
+            ($_ -eq "Remove-PRORepository/Provider") -Or
+            ($_ -eq "New-PROEnvironment/ProvisioningRepository_Provider") -Or
+            ($_ -eq "Update-PROEnvironment/ProvisioningRepository_Provider") -Or
+            ($_ -eq "Get-PRORepositorySyncDefinitionList/RepositoryProvider") -Or
+            ($_ -eq "Get-PRORepositorySyncStatus/RepositoryProvider") -Or
+            ($_ -eq "New-PROTemplateSyncConfig/RepositoryProvider") -Or
+            ($_ -eq "Update-PROTemplateSyncConfig/RepositoryProvider")
+        }
+        {
+            $v = "BITBUCKET","GITHUB","GITHUB_ENTERPRISE"
+            break
+        }
+
+        # Amazon.Proton.ResourceDeploymentStatus
+        "Edit-PROResourceDeploymentStatusChange/Status"
+        {
+            $v = "FAILED","IN_PROGRESS","SUCCEEDED"
+            break
+        }
+
+        # Amazon.Proton.SyncType
+        {
+            ($_ -eq "Get-PRORepositorySyncDefinitionList/SyncType") -Or
+            ($_ -eq "Get-PRORepositorySyncStatus/SyncType")
+        }
+        {
+            $v = "TEMPLATE_SYNC"
+            break
+        }
+
+        # Amazon.Proton.TemplateType
+        {
+            ($_ -eq "Get-PROTemplateSyncConfig/TemplateType") -Or
+            ($_ -eq "Get-PROTemplateSyncStatus/TemplateType") -Or
+            ($_ -eq "New-PROTemplateSyncConfig/TemplateType") -Or
+            ($_ -eq "Remove-PROTemplateSyncConfig/TemplateType") -Or
+            ($_ -eq "Update-PROTemplateSyncConfig/TemplateType")
+        }
+        {
+            $v = "ENVIRONMENT","SERVICE"
+            break
+        }
+
         # Amazon.Proton.TemplateVersionStatus
         {
             ($_ -eq "Update-PROEnvironmentTemplateVersion/Status") -Or
@@ -129,9 +177,15 @@ $PRO_Completers = {
 $PRO_map = @{
     "DeploymentType"=@("Update-PROEnvironment","Update-PROServiceInstance","Update-PROServicePipeline")
     "PipelineProvisioning"=@("New-PROServiceTemplate")
+    "PipelineProvisioningRepository_Provider"=@("Update-PROAccountSetting")
+    "Provider"=@("Get-PRORepository","New-PRORepository","Remove-PRORepository")
     "Provisioning"=@("New-PROEnvironmentTemplate")
+    "ProvisioningRepository_Provider"=@("New-PROEnvironment","Update-PROEnvironment")
+    "RepositoryProvider"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus","New-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
     "RequestedBy"=@("Get-PROEnvironmentAccountConnectionList")
-    "Status"=@("Update-PROEnvironmentTemplateVersion","Update-PROServiceTemplateVersion")
+    "Status"=@("Edit-PROResourceDeploymentStatusChange","Update-PROEnvironmentTemplateVersion","Update-PROServiceTemplateVersion")
+    "SyncType"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus")
+    "TemplateType"=@("Get-PROTemplateSyncConfig","Get-PROTemplateSyncStatus","New-PROTemplateSyncConfig","Remove-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
 }
 
 _awsArgumentCompleterRegistration $PRO_Completers $PRO_map
@@ -192,34 +246,51 @@ $PRO_SelectMap = @{
                "New-PROEnvironmentAccountConnection",
                "New-PROEnvironmentTemplate",
                "New-PROEnvironmentTemplateVersion",
+               "New-PRORepository",
                "New-PROService",
                "New-PROServiceTemplate",
                "New-PROServiceTemplateVersion",
+               "New-PROTemplateSyncConfig",
                "Remove-PROEnvironment",
                "Remove-PROEnvironmentAccountConnection",
                "Remove-PROEnvironmentTemplate",
                "Remove-PROEnvironmentTemplateVersion",
+               "Remove-PRORepository",
                "Remove-PROService",
                "Remove-PROServiceTemplate",
                "Remove-PROServiceTemplateVersion",
+               "Remove-PROTemplateSyncConfig",
                "Get-PROAccountSetting",
                "Get-PROEnvironment",
                "Get-PROEnvironmentAccountConnection",
                "Get-PROEnvironmentTemplate",
                "Get-PROEnvironmentTemplateVersion",
+               "Get-PRORepository",
+               "Get-PRORepositorySyncStatus",
                "Get-PROService",
                "Get-PROServiceInstance",
                "Get-PROServiceTemplate",
                "Get-PROServiceTemplateVersion",
+               "Get-PROTemplateSyncConfig",
+               "Get-PROTemplateSyncStatus",
                "Get-PROEnvironmentAccountConnectionList",
+               "Get-PROEnvironmentOutputList",
+               "Get-PROEnvironmentProvisionedResourceList",
                "Get-PROEnvironmentList",
                "Get-PROEnvironmentTemplateList",
                "Get-PROEnvironmentTemplateVersionList",
+               "Get-PRORepositoryList",
+               "Get-PRORepositorySyncDefinitionList",
+               "Get-PROServiceInstanceOutputList",
+               "Get-PROServiceInstanceProvisionedResourceList",
                "Get-PROServiceInstanceList",
+               "Get-PROServicePipelineOutputList",
+               "Get-PROServicePipelineProvisionedResourceList",
                "Get-PROServiceList",
                "Get-PROServiceTemplateList",
                "Get-PROServiceTemplateVersionList",
                "Get-PROResourceTag",
+               "Edit-PROResourceDeploymentStatusChange",
                "Deny-PROEnvironmentAccountConnection",
                "Add-PROResourceTag",
                "Remove-PROResourceTag",
@@ -232,7 +303,8 @@ $PRO_SelectMap = @{
                "Update-PROServiceInstance",
                "Update-PROServicePipeline",
                "Update-PROServiceTemplate",
-               "Update-PROServiceTemplateVersion")
+               "Update-PROServiceTemplateVersion",
+               "Update-PROTemplateSyncConfig")
 }
 
 _awsArgumentCompleterRegistration $PRO_SelectCompleters $PRO_SelectMap

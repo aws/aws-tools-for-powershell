@@ -130,6 +130,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.TlsSessionResumptionMode
+        {
+            ($_ -eq "New-TFRServer/ProtocolDetails_TlsSessionResumptionMode") -Or
+            ($_ -eq "Update-TFRServer/ProtocolDetails_TlsSessionResumptionMode")
+        }
+        {
+            $v = "DISABLED","ENABLED","ENFORCED"
+            break
+        }
+
 
     }
 
@@ -143,6 +153,7 @@ $TFR_map = @{
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
+    "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("Send-TFRWorkflowStepState")
 }

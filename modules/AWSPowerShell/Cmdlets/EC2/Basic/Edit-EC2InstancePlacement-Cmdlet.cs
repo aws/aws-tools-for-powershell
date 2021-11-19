@@ -125,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PartitionNumber
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The number of the partition in which to place the instance. Valid only if the placement
+        /// group strategy is set to <code>partition</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

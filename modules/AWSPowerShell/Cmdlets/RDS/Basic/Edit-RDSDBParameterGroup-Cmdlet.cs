@@ -76,14 +76,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>An array of parameter names, values, and the application methods for the parameter
-        /// update. At least one parameter name, value, and application method method must be
-        /// supplied; later arguments are optional. A maximum of 20 parameters can be modified
-        /// in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the <code>immediate</code> value with dynamic parameters only. You can
+        /// update. At least one parameter name, value, and application method must be supplied;
+        /// later arguments are optional. A maximum of 20 parameters can be modified in a single
+        /// request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><para>You can use the <code>immediate</code> value with dynamic parameters only. You can
         /// use the <code>pending-reboot</code> value for both dynamic and static parameters.</para><para>When the application method is <code>immediate</code>, changes to dynamic parameters
-        /// are applied immediately to the DB instances associated with the parameter group. When
-        /// the application method is <code>pending-reboot</code>, changes to dynamic and static
-        /// parameters are applied after a reboot without failover to the DB instances associated
-        /// with the parameter group.</para></note>
+        /// are applied immediately to the DB instances associated with the parameter group.</para><para>When the application method is <code>pending-reboot</code>, changes to dynamic and
+        /// static parameters are applied after a reboot without failover to the DB instances
+        /// associated with the parameter group.</para><note><para>You can't use <code>pending-reboot</code> with dynamic parameters on RDS for SQL Server
+        /// DB instances. Use <code>immediate</code>.</para></note><para>For more information on modifying DB parameters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html">Working
+        /// with DB parameter groups</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

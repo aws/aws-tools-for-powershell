@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Redshift module of AWS Tools for PowerShell lets developers and administrators manage Amazon Redshift from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -143,7 +143,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSOrderableClusterOption', 
         'Get-RSPartner', 
         'Get-RSReservedNode', 
+        'Get-RSReservedNodeExchangeConfigurationOption', 
         'Get-RSReservedNodeExchangeOffering', 
+        'Get-RSReservedNodeExchangeStatus', 
         'Get-RSReservedNodeOffering', 
         'Get-RSResize', 
         'Get-RSResourceTag', 

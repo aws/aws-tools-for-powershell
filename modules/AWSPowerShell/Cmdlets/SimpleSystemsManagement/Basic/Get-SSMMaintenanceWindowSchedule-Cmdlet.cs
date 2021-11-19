@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The instance ID or key-value pair to retrieve information about.</para>
+        /// <para>The managed node ID or key-value pair to retrieve information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

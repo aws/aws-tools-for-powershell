@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     ///  
     /// <para>
     /// To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request,
-    /// you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business
-    /// Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
+    /// you must be subscribed to the <a href="https://docs.aws.amazon.com/premiumsupport/business-support/">Business
+    /// Support plan</a> or the <a href="https://docs.aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>.
     /// </para>
     /// </summary>

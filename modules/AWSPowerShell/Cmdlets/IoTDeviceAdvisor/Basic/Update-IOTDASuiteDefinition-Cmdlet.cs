@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Updates a Device Advisor test suite.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTDASuiteDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTDeviceAdvisor.Model.UpdateSuiteDefinitionResponse")]
@@ -42,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_DevicePermissionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Gets device permission arn.</para>
+        /// <para>Gets the device permission ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite to be updated.</para>
+        /// <para>Suite definition ID of the test suite to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

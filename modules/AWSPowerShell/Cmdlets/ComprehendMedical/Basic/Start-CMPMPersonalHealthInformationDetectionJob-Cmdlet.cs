@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the request. If you don't set the client request token, Amazon
-        /// Comprehend Medical generates one.</para>
+        /// <para>A unique identifier for the request. If you don't set the client request token, Comprehend
+        /// Medical; generates one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend Medical read access to your input data. For more information,
+        /// that grants Comprehend Medical; read access to your input data. For more information,
         /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med">
         /// Role-Based Permissions Required for Asynchronous Operations</a>.</para>
         /// </para>
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter OutputDataConfig_S3Key
         /// <summary>
         /// <para>
-        /// <para>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates
-        /// an output directory using the job ID so that the output from one job does not overwrite
+        /// <para>The path to the output data files in the S3 bucket. Comprehend Medical; creates an
+        /// output directory using the job ID so that the output from one job does not overwrite
         /// the output of another.</para>
         /// </para>
         /// </summary>

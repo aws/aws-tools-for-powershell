@@ -28,14 +28,14 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Stops a transform job.
+    /// Stops a batch transform job.
     /// 
     ///  
     /// <para>
     /// When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status
     /// of the job changes to <code>Stopping</code>. After Amazon SageMaker stops the job,
-    /// the status is set to <code>Stopped</code>. When you stop a transform job before it
-    /// is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.
+    /// the status is set to <code>Stopped</code>. When you stop a batch transform job before
+    /// it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "SMTransformJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the transform job to stop.</para>
+        /// <para>The name of the batch transform job to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

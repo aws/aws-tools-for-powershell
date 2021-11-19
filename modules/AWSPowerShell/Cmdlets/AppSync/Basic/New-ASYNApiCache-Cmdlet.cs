@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The GraphQL API Id.</para>
+        /// <para>The GraphQL API ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter AtRestEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>At rest encryption flag for cache. This setting cannot be updated after creation.</para>
+        /// <para>At-rest encryption flag for cache. You cannot update this setting after creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter TransitEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>Transit encryption flag when connecting to cache. This setting cannot be updated after
+        /// <para>Transit encryption flag when connecting to cache. You cannot update this setting after
         /// creation.</para>
         /// </para>
         /// </summary>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Ttl
         /// <summary>
         /// <para>
-        /// <para>TTL in seconds for cache entries.</para><para>Valid values are between 1 and 3600 seconds.</para>
+        /// <para>TTL in seconds for cache entries.</para><para>Valid values are 1–3,600 seconds.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

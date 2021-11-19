@@ -47,29 +47,27 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// in the range being mapped into the shard. For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html">Split
     /// a Shard</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
-    /// You can use <a>DescribeStream</a> to determine the shard ID and hash key values for
-    /// the <code>ShardToSplit</code> and <code>NewStartingHashKey</code> parameters that
-    /// are specified in the <code>SplitShard</code> request.
+    /// You can use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine
+    /// the shard ID and hash key values for the <code>ShardToSplit</code> and <code>NewStartingHashKey</code>
+    /// parameters that are specified in the <code>SplitShard</code> request.
     /// </para><para><code>SplitShard</code> is an asynchronous operation. Upon receiving a <code>SplitShard</code>
     /// request, Kinesis Data Streams immediately returns a response and sets the stream status
     /// to <code>UPDATING</code>. After the operation is completed, Kinesis Data Streams sets
     /// the stream status to <code>ACTIVE</code>. Read and write operations continue to work
     /// while the stream is in the <code>UPDATING</code> state. 
     /// </para><para>
-    /// You can use <code>DescribeStream</code> to check the status of the stream, which is
-    /// returned in <code>StreamStatus</code>. If the stream is in the <code>ACTIVE</code>
-    /// state, you can call <code>SplitShard</code>. If a stream is in <code>CREATING</code>
-    /// or <code>UPDATING</code> or <code>DELETING</code> states, <code>DescribeStream</code>
-    /// returns a <code>ResourceInUseException</code>.
+    /// You can use <a>DescribeStreamSummary</a> to check the status of the stream, which
+    /// is returned in <code>StreamStatus</code>. If the stream is in the <code>ACTIVE</code>
+    /// state, you can call <code>SplitShard</code>. 
     /// </para><para>
-    /// If the specified stream does not exist, <code>DescribeStream</code> returns a <code>ResourceNotFoundException</code>.
+    /// If the specified stream does not exist, <a>DescribeStreamSummary</a> returns a <code>ResourceNotFoundException</code>.
     /// If you try to create more shards than are authorized for your account, you receive
     /// a <code>LimitExceededException</code>. 
     /// </para><para>
-    /// For the default shard limit for an AWS account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Kinesis
+    /// For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Kinesis
     /// Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-    /// AWS Support</a>.
+    /// Amazon Web Services Support</a>.
     /// </para><para>
     /// If you try to operate on too many streams simultaneously using <a>CreateStream</a>,
     /// <a>DeleteStream</a>, <a>MergeShards</a>, and/or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>.

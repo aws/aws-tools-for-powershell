@@ -128,16 +128,21 @@ $DTCT_SelectMap = @{
                "New-DTCTMember",
                "Remove-DTCTGraph",
                "Remove-DTCTMember",
+               "Get-DTCTOrganizationConfiguration",
+               "Disable-DTCTOrganizationAdminAccount",
                "Remove-DTCTMembership",
+               "Enable-DTCTOrganizationAdminAccount",
                "Get-DTCTMember",
                "Get-DTCTGraphList",
                "Get-DTCTInvitationList",
                "Get-DTCTMemberList",
+               "Get-DTCTOrganizationAdminAccountList",
                "Get-DTCTResourceTag",
                "Deny-DTCTInvitation",
                "Start-DTCTMonitoringMember",
                "Add-DTCTResourceTag",
-               "Remove-DTCTResourceTag")
+               "Remove-DTCTResourceTag",
+               "Update-DTCTOrganizationConfiguration")
 }
 
 _awsArgumentCompleterRegistration $DTCT_SelectCompleters $DTCT_SelectMap

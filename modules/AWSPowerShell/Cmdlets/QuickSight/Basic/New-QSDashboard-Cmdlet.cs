@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a dashboard from a template. To first create a template, see the <code><a>CreateTemplate</a></code> API operation.
+    /// Creates a dashboard from a template. To first create a template, see the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a></code> API operation.
     /// 
     ///  
     /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to the IAMpolicy.</para>
+        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A structure that contains the permissions of the dashboard. You can use this structure
-        /// for granting permissions by providing a list of IAMaction information for each principal
+        /// for granting permissions by providing a list of IAM action information for each principal
         /// ARN. </para><para>To specify no permissions, omit the permissions list.</para>
         /// </para>
         /// </summary>

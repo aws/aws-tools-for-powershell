@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Initiates a connection to a target (for example, an instance) for a Session Manager
+    /// Initiates a connection to a target (for example, a managed node) for a Session Manager
     /// session. Returns a URL and token that can be used to open a WebSocket connection for
     /// sending input and receiving outputs.
     /// 
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The name of the SSM document to define the parameters and plugin settings for the
         /// session. For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a>
         /// API to verify the document exists before attempting to start a session. If no document
-        /// name is provided, a shell to the instance is launched by default.</para>
+        /// name is provided, a shell to the managed node is launched by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The instance to connect to for the session.</para>
+        /// <para>The managed node to connect to for the session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

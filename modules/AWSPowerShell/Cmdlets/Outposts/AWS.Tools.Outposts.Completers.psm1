@@ -80,6 +80,46 @@ $OUTP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Outposts.AddressType
+        {
+            ($_ -eq "Get-OUTPSiteAddress/AddressType") -Or
+            ($_ -eq "Update-OUTPSiteAddress/AddressType")
+        }
+        {
+            $v = "OPERATING_ADDRESS","SHIPPING_ADDRESS"
+            break
+        }
+
+        # Amazon.Outposts.FiberOpticCableType
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/FiberOpticCableType") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_FiberOpticCableType")
+        }
+        {
+            $v = "MULTI_MODE","SINGLE_MODE"
+            break
+        }
+
+        # Amazon.Outposts.MaximumSupportedWeightLbs
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/MaximumSupportedWeightLbs") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_MaximumSupportedWeightLbs")
+        }
+        {
+            $v = "MAX_1400_LBS","MAX_1600_LBS","MAX_1800_LBS","MAX_2000_LBS","NO_LIMIT"
+            break
+        }
+
+        # Amazon.Outposts.OpticalStandard
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/OpticalStandard") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_OpticalStandard")
+        }
+        {
+            $v = "OPTIC_1000BASE_LX","OPTIC_1000BASE_SX","OPTIC_100GBASE_CWDM4","OPTIC_100GBASE_LR4","OPTIC_100GBASE_SR4","OPTIC_100G_PSM4_MSA","OPTIC_10GBASE_IR","OPTIC_10GBASE_LR","OPTIC_10GBASE_SR","OPTIC_40GBASE_ESR","OPTIC_40GBASE_IR4_LR4L","OPTIC_40GBASE_LR4","OPTIC_40GBASE_SR"
+            break
+        }
+
         # Amazon.Outposts.PaymentOption
         "New-OUTPOrder/PaymentOption"
         {
@@ -94,6 +134,76 @@ $OUTP_Completers = {
             break
         }
 
+        # Amazon.Outposts.PowerConnector
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/PowerConnector") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerConnector")
+        }
+        {
+            $v = "AH530P7W","AH532P6W","IEC309","L6_30P"
+            break
+        }
+
+        # Amazon.Outposts.PowerDrawKva
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/PowerDrawKva") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerDrawKva")
+        }
+        {
+            $v = "POWER_10_KVA","POWER_15_KVA","POWER_5_KVA"
+            break
+        }
+
+        # Amazon.Outposts.PowerFeedDrop
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/PowerFeedDrop") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerFeedDrop")
+        }
+        {
+            $v = "ABOVE_RACK","BELOW_RACK"
+            break
+        }
+
+        # Amazon.Outposts.PowerPhase
+        {
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/PowerPhase") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerPhase")
+        }
+        {
+            $v = "SINGLE_PHASE","THREE_PHASE"
+            break
+        }
+
+        # Amazon.Outposts.SupportedHardwareType
+        {
+            ($_ -eq "New-OUTPOutpost/SupportedHardwareType") -Or
+            ($_ -eq "Update-OUTPOutpost/SupportedHardwareType")
+        }
+        {
+            $v = "RACK","SERVER"
+            break
+        }
+
+        # Amazon.Outposts.UplinkCount
+        {
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkCount") -Or
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/UplinkCount")
+        }
+        {
+            $v = "UPLINK_COUNT_1","UPLINK_COUNT_12","UPLINK_COUNT_16","UPLINK_COUNT_2","UPLINK_COUNT_3","UPLINK_COUNT_4","UPLINK_COUNT_5","UPLINK_COUNT_6","UPLINK_COUNT_7","UPLINK_COUNT_8"
+            break
+        }
+
+        # Amazon.Outposts.UplinkGbps
+        {
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkGbps") -Or
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/UplinkGbps")
+        }
+        {
+            $v = "UPLINK_100G","UPLINK_10G","UPLINK_1G","UPLINK_40G"
+            break
+        }
+
 
     }
 
@@ -103,8 +213,28 @@ $OUTP_Completers = {
 }
 
 $OUTP_map = @{
+    "AddressType"=@("Get-OUTPSiteAddress","Update-OUTPSiteAddress")
+    "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
+    "MaximumSupportedWeightLbs"=@("Update-OUTPSiteRackPhysicalProperty")
+    "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
     "PaymentOption"=@("New-OUTPOrder")
     "PaymentTerm"=@("New-OUTPOrder")
+    "PowerConnector"=@("Update-OUTPSiteRackPhysicalProperty")
+    "PowerDrawKva"=@("Update-OUTPSiteRackPhysicalProperty")
+    "PowerFeedDrop"=@("Update-OUTPSiteRackPhysicalProperty")
+    "PowerPhase"=@("Update-OUTPSiteRackPhysicalProperty")
+    "RackPhysicalProperties_FiberOpticCableType"=@("New-OUTPSite")
+    "RackPhysicalProperties_MaximumSupportedWeightLbs"=@("New-OUTPSite")
+    "RackPhysicalProperties_OpticalStandard"=@("New-OUTPSite")
+    "RackPhysicalProperties_PowerConnector"=@("New-OUTPSite")
+    "RackPhysicalProperties_PowerDrawKva"=@("New-OUTPSite")
+    "RackPhysicalProperties_PowerFeedDrop"=@("New-OUTPSite")
+    "RackPhysicalProperties_PowerPhase"=@("New-OUTPSite")
+    "RackPhysicalProperties_UplinkCount"=@("New-OUTPSite")
+    "RackPhysicalProperties_UplinkGbps"=@("New-OUTPSite")
+    "SupportedHardwareType"=@("New-OUTPOutpost","Update-OUTPOutpost")
+    "UplinkCount"=@("Update-OUTPSiteRackPhysicalProperty")
+    "UplinkGbps"=@("Update-OUTPSiteRackPhysicalProperty")
 }
 
 _awsArgumentCompleterRegistration $OUTP_Completers $OUTP_map
@@ -157,17 +287,29 @@ $OUTP_SelectCompleters = {
 }
 
 $OUTP_SelectMap = @{
-    "Select"=@("New-OUTPOrder",
+    "Select"=@("Stop-OUTPOrder",
+               "New-OUTPOrder",
                "New-OUTPOutpost",
+               "New-OUTPSite",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
+               "Get-OUTPCatalogItem",
+               "Get-OUTPOrder",
                "Get-OUTPOutpost",
                "Get-OUTPOutpostInstanceType",
+               "Get-OUTPSite",
+               "Get-OUTPSiteAddress",
+               "Get-OUTPCatalogItemList",
+               "Get-OUTPOrderList",
                "Get-OUTPOutpostList",
                "Get-OUTPSiteList",
                "Get-OUTPResourceTag",
                "Add-OUTPResourceTag",
-               "Remove-OUTPResourceTag")
+               "Remove-OUTPResourceTag",
+               "Update-OUTPOutpost",
+               "Update-OUTPSite",
+               "Update-OUTPSiteAddress",
+               "Update-OUTPSiteRackPhysicalProperty")
 }
 
 _awsArgumentCompleterRegistration $OUTP_SelectCompleters $OUTP_SelectMap

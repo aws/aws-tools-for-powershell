@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.TableInput TableInput { get; set; }
         #endregion
         
+        #region Parameter TransactionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the transaction.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransactionId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -177,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter TableInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.TableInput != null)
             {
                 request.TableInput = cmdletContext.TableInput;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             CmdletOutput output;
@@ -274,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String DatabaseName { get; set; }
             public List<Amazon.Glue.Model.PartitionIndex> PartitionIndex { get; set; }
             public Amazon.Glue.Model.TableInput TableInput { get; set; }
+            public System.String TransactionId { get; set; }
             public System.Func<Amazon.Glue.Model.CreateTableResponse, NewGLUETableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

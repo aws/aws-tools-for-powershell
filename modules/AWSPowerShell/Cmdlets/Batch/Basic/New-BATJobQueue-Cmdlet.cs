@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobQueueName
         /// <summary>
         /// <para>
-        /// <para>The name of the job queue. Up to 128 letters (uppercase and lowercase), numbers, and
-        /// underscores are allowed.</para>
+        /// <para>The name of the job queue. It can be up to 128 letters long. It can contain uppercase
+        /// and lowercase letters, numbers, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,11 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter SchedulingPolicyArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter
-        /// is specified, the job queue will use a fair share scheduling policy. If this parameter
-        /// is not specified, the job queue will use a first in, first out (FIFO) scheduling policy.
-        /// Once a job queue is created, the fair share scheduling policy can be replaced but
-        /// not removed. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></code>. For example, <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter
+        /// is specified, the job queue uses a fair share scheduling policy. If this parameter
+        /// isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy.
+        /// After a job queue is created, you can replace but can't remove the fair share scheduling
+        /// policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></code>. An example is <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

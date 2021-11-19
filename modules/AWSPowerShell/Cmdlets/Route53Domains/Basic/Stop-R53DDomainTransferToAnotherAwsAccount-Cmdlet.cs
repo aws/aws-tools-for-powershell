@@ -28,13 +28,14 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Cancels the transfer of a domain from the current AWS account to another AWS account.
-    /// You initiate a transfer between AWS accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+    /// Cancels the transfer of a domain from the current Amazon Web Services account to another
+    /// Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts
+    /// using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
     /// 
     /// 
     ///  <important><para>
-    /// You must cancel the transfer before the other AWS account accepts the transfer using
-    /// <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.
+    /// You must cancel the transfer before the other Amazon Web Services account accepts
+    /// the transfer using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.
     /// </para></important><para>
     /// Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a>
     /// or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
@@ -56,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain for which you want to cancel the transfer to another AWS account.</para>
+        /// <para>The name of the domain for which you want to cancel the transfer to another Amazon
+        /// Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Provides a list of groups that are mapped to users before a given ordering or timestamp
-    /// identifier.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// identifier.
+    /// 
+    ///  
+    /// <para><code>ListGroupsOlderThanOrderingId</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRGroupsOlderThanOrderingIdList")]
     [OutputType("Amazon.Kendra.Model.GroupSummary")]

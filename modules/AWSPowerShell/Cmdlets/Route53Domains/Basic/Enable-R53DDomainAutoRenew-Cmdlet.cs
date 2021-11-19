@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// <summary>
     /// This operation configures Amazon Route 53 to automatically renew the specified domain
     /// before the domain registration expires. The cost of renewing your domain registration
-    /// is billed to your AWS account.
+    /// is billed to your Amazon Web Services account.
     /// 
     ///  
     /// <para>

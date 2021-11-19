@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Request programmatic credentials to use with Habanero SDK.
+    /// Request programmatic credentials to use with FinSpace SDK.
     /// </summary>
     [Cmdlet("Get", "FNSPProgrammaticAccessCredential")]
     [OutputType("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The habanero environment identifier.</para>
+        /// <para>The FinSpace environment identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

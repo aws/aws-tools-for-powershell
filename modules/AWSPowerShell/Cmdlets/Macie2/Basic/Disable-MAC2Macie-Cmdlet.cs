@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Disables an Amazon Macie account and deletes Macie resources for the account.
+    /// Disables Amazon Macie and deletes all settings and resources for a Macie account.
     /// </summary>
     [Cmdlet("Disable", "MAC2Macie", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

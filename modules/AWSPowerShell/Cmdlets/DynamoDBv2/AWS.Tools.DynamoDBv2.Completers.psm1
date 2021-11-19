@@ -130,6 +130,9 @@ $DDB_Completers = {
         # Amazon.DynamoDBv2.ReturnConsumedCapacity
         {
             ($_ -eq "Get-DDBItemTransactionally/ReturnConsumedCapacity") -Or
+            ($_ -eq "Invoke-DDBDDBBatchExecuteStatement/ReturnConsumedCapacity") -Or
+            ($_ -eq "Invoke-DDBDDBExecuteStatement/ReturnConsumedCapacity") -Or
+            ($_ -eq "Invoke-DDBDDBExecuteTransaction/ReturnConsumedCapacity") -Or
             ($_ -eq "Write-DDBItemTransactionally/ReturnConsumedCapacity")
         }
         {
@@ -180,6 +183,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.TableClass
+        "Update-DDBTable/TableClass"
+        {
+            $v = "STANDARD","STANDARD_INFREQUENT_ACCESS"
+            break
+        }
+
 
     }
 
@@ -200,12 +210,13 @@ $DDB_map = @{
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
-    "ReturnConsumedCapacity"=@("Get-DDBItemTransactionally","Write-DDBItemTransactionally")
+    "ReturnConsumedCapacity"=@("Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetrics"=@("Write-DDBItemTransactionally")
     "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
     "SSESpecification_SSEType"=@("Update-DDBTable")
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
+    "TableClass"=@("Update-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map

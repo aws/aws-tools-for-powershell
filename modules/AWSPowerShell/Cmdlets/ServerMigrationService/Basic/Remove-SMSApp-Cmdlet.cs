@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
     /// Deletes the specified application. Optionally deletes the launched stack associated
-    /// with the application and all AWS SMS replication jobs for servers in the application.
+    /// with the application and all Server Migration Service replication jobs for servers
+    /// in the application.
     /// </summary>
     [Cmdlet("Remove", "SMSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Throttle_BurstLimit
         /// <summary>
         /// <para>
-        /// <para>The API request burst limit, the maximum rate limit over a time ranging from one to
-        /// a few seconds, depending upon whether the underlying token bucket is at its full capacity.</para>
+        /// <para>The API target request burst rate limit. This allows more requests through for a period
+        /// of time than the target rate limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Quota_Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of requests that can be made in a given time period.</para>
+        /// <para>The target maximum number of requests that can be made in a given time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Throttle_RateLimit
         /// <summary>
         /// <para>
-        /// <para>The API request steady-state rate limit.</para>
+        /// <para>The API target request rate limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

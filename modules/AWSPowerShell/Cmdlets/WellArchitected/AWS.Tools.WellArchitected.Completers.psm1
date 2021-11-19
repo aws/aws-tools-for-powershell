@@ -87,6 +87,23 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.LensStatusType
+        {
+            ($_ -eq "Get-WATLensList/LensStatus") -Or
+            ($_ -eq "Remove-WATLens/LensStatus")
+        }
+        {
+            $v = "ALL","DRAFT","PUBLISHED"
+            break
+        }
+
+        # Amazon.WellArchitected.LensType
+        "Get-WATLensList/LensType"
+        {
+            $v = "AWS_OFFICIAL","CUSTOM_SELF","CUSTOM_SHARED"
+            break
+        }
+
         # Amazon.WellArchitected.PermissionType
         {
             ($_ -eq "New-WATWorkloadShare/PermissionType") -Or
@@ -101,6 +118,13 @@ $WAT_Completers = {
         "Update-WATShareInvitation/ShareInvitationAction"
         {
             $v = "ACCEPT","REJECT"
+            break
+        }
+
+        # Amazon.WellArchitected.ShareResourceType
+        "Get-WATShareInvitationList/ShareResourceType"
+        {
+            $v = "LENS","WORKLOAD"
             break
         }
 
@@ -132,9 +156,12 @@ $WAT_Completers = {
 $WAT_map = @{
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "ImprovementStatus"=@("Update-WATWorkload")
+    "LensStatus"=@("Get-WATLensList","Remove-WATLens")
+    "LensType"=@("Get-WATLensList")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
     "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
+    "ShareResourceType"=@("Get-WATShareInvitationList")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -187,23 +214,31 @@ $WAT_SelectCompleters = {
 }
 
 $WAT_SelectMap = @{
-    "Select"=@("Add-WATLense",
+    "Select"=@("Register-WATLens",
+               "New-WATLensShare",
+               "New-WATLensVersion",
                "New-WATMilestone",
                "New-WATWorkload",
                "New-WATWorkloadShare",
+               "Remove-WATLens",
+               "Remove-WATLensShare",
                "Remove-WATWorkload",
                "Remove-WATWorkloadShare",
-               "Remove-WATLense",
+               "Unregister-WATLens",
+               "Export-WATLens",
                "Get-WATAnswer",
+               "Get-WATLens",
                "Get-WATLensReview",
                "Get-WATLensReviewReport",
                "Get-WATLensVersionDifference",
                "Get-WATMilestone",
                "Get-WATWorkload",
+               "Import-WATLens",
                "Get-WATAnswerList",
-               "Get-WATLenseList",
+               "Get-WATLensList",
                "Get-WATLensReviewImprovementList",
                "Get-WATLensReviewList",
+               "Get-WATLensShareList",
                "Get-WATMilestoneList",
                "Get-WATNotificationList",
                "Get-WATShareInvitationList",

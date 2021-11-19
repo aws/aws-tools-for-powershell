@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The FSx module of AWS Tools for PowerShell lets developers and administrators manage Amazon FSx from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -87,30 +87,40 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-FSXResourceTag', 
+        'Clear-FSXFileSystemNfsV3Lock', 
         'Copy-FSXBackup', 
         'Get-FSXBackup', 
+        'Get-FSXDataRepositoryAssociation', 
         'Get-FSXDataRepositoryTask', 
         'Get-FSXFileSystem', 
         'Get-FSXFileSystemAlias', 
         'Get-FSXResourceTagList', 
+        'Get-FSXSnapshot', 
         'Get-FSXStorageVirtualMachine', 
         'Get-FSXVolume', 
         'New-FSXBackup', 
+        'New-FSXDataRepositoryAssociation', 
         'New-FSXDataRepositoryTask', 
         'New-FSXFileSystem', 
         'New-FSXFileSystemFromBackup', 
+        'New-FSXSnapshot', 
         'New-FSXStorageVirtualMachine', 
         'New-FSXVolume', 
         'New-FSXVolumeFromBackup', 
         'Register-FSXFileSystemAlias', 
         'Remove-FSXBackup', 
+        'Remove-FSXDataRepositoryAssociation', 
         'Remove-FSXFileSystem', 
         'Remove-FSXResourceTag', 
+        'Remove-FSXSnapshot', 
         'Remove-FSXStorageVirtualMachine', 
         'Remove-FSXVolume', 
+        'Restore-FSXVolumeFromSnapshot', 
         'Stop-FSXDataRepositoryTask', 
         'Unregister-FSXFileSystemAlias', 
+        'Update-FSXDataRepositoryAssociation', 
         'Update-FSXFileSystem', 
+        'Update-FSXSnapshot', 
         'Update-FSXStorageVirtualMachine', 
         'Update-FSXVolume')
 

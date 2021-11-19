@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
     /// Updates the data access role used for vending access to the given (registered) resource
-    /// in AWS Lake Formation.
+    /// in Lake Formation.
     /// </summary>
     [Cmdlet("Update", "LKFResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The new role to use for the given resource registered in AWS Lake Formation.</para>
+        /// <para>The new role to use for the given resource registered in Lake Formation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

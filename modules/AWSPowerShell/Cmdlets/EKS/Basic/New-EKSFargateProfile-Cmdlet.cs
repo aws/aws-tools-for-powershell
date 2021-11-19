@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The metadata to apply to the Fargate profile to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value, both of which you define. Fargate
-        /// profile tags do not propagate to any other resources associated with the Fargate profile,
+        /// Each tag consists of a key and an optional value. You define both. Fargate profile
+        /// tags do not propagate to any other resources associated with the Fargate profile,
         /// such as the pods that are scheduled with it.</para>
         /// </para>
         /// </summary>

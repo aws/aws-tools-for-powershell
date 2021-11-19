@@ -42,6 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// </para></li></ul><note><para>
     /// The last geofence that a device was observed within is tracked for 30 days after the
     /// most recent device position update.
+    /// </para></note><note><para>
+    /// Geofence evaluation uses the given device position. It does not account for the optional
+    /// <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Submit", "LOCGeofenceEvaluationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

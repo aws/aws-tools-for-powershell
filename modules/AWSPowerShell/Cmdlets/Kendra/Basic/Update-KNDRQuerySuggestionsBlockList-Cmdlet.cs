@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para><para>
     /// Amazon Kendra supports partial updates, so you only need to provide the fields you
     /// want to update.
+    /// </para><para><code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KNDRQuerySuggestionsBlockList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

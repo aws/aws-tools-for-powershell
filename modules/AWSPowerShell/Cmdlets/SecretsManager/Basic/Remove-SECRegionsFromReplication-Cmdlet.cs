@@ -28,7 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Remove regions from replication.
+    /// For a secret that is replicated to other Regions, deletes the secret replicas from
+    /// the Regions you specify.
     /// </summary>
     [Cmdlet("Remove", "SECRegionsFromReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RemoveReplicaRegion
         /// <summary>
         /// <para>
-        /// <para>Remove replication from specific Regions.</para>
+        /// <para>The Regions of the replicas to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Remove a secret by <code>SecretId</code> from replica Regions.</para>
+        /// <para>The ARN or name of the secret.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

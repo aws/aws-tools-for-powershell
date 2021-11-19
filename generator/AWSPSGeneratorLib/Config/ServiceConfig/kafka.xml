@@ -31,6 +31,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterV2" OutputProperty="*" Verb="New" Noun="ClusterV2" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" NewName="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" />
+                <Param Name="Serverless_ClientAuthentication_Sasl_Iam_Enabled" NewName="Serverless_ClientAuthentication_Sasl_Iam_Enabled" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguration" OutputProperty="*" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterOperation" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperation" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterV2" OutputProperty="ClusterInfo" Verb="Get" Noun="ClusterV2" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClustersV2" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClustersV2List" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

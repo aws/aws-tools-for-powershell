@@ -28,14 +28,13 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Creates a new changeset in a FinSpace dataset.
+    /// Creates a new Changeset in a FinSpace Dataset.
     /// </summary>
     [Cmdlet("New", "FNSPChangeset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.FinSpaceData.Model.ChangesetInfo")]
+    [OutputType("Amazon.FinSpaceData.Model.CreateChangesetResponse")]
     [AWSCmdlet("Calls the FinSpace Public API CreateChangeset API operation.", Operation = new[] {"CreateChangeset"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.CreateChangesetResponse))]
-    [AWSCmdletOutput("Amazon.FinSpaceData.Model.ChangesetInfo or Amazon.FinSpaceData.Model.CreateChangesetResponse",
-        "This cmdlet returns an Amazon.FinSpaceData.Model.ChangesetInfo object.",
-        "The service call response (type Amazon.FinSpaceData.Model.CreateChangesetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.FinSpaceData.Model.CreateChangesetResponse",
+        "This cmdlet returns an Amazon.FinSpaceData.Model.CreateChangesetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewFNSPChangesetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
@@ -43,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ChangeType
         /// <summary>
         /// <para>
-        /// <para>Option to indicate how a changeset will be applied to a dataset.</para><ul><li><para><code>REPLACE</code> - Changeset will be considered as a replacement to all prior
-        /// loaded changesets.</para></li><li><para><code>APPEND</code> - Changeset will be considered as an addition to the end of all
-        /// prior loaded changesets.</para></li></ul>
+        /// <para>Option to indicate how a Changeset will be applied to a Dataset.</para><ul><li><para><code>REPLACE</code> - Changeset will be considered as a replacement to all prior
+        /// loaded Changesets.</para></li><li><para><code>APPEND</code> - Changeset will be considered as an addition to the end of all
+        /// prior loaded Changesets.</para></li><li><para><code>MODIFY</code> - Changeset is considered as a replacement to a specific prior
+        /// ingested Changeset.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DatasetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the FinSpace dataset in which the changeset will be created.</para>
+        /// <para>The unique identifier for the FinSpace Dataset where the Changeset will be created.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,29 +80,30 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter FormatParam
         /// <summary>
         /// <para>
-        /// <para>Options that define the structure of the source file(s).</para>
+        /// <para>Options that define the structure of the source file(s) including the format type
+        /// (<code>formatType</code>), header row (<code>withHeader</code>), data separation character
+        /// (<code>separator</code>) and the type of compression (<code>compression</code>). </para><para><code>formatType</code> is a required attribute and can have the following values:
+        /// </para><ul><li><para><code>PARQUET</code> - Parquet source file format.</para></li><li><para><code>CSV</code> - CSV source file format.</para></li><li><para><code>JSON</code> - JSON source file format.</para></li><li><para><code>XML</code> - XML source file format.</para></li></ul><para> For example, you could specify the following for <code>formatParams</code>: <code>
+        /// "formatParams": { "formatType": "CSV", "withHeader": "true", "separator": ",", "compression":"None"
+        /// } </code></para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("FormatParams")]
         public System.Collections.Hashtable FormatParam { get; set; }
-        #endregion
-        
-        #region Parameter FormatType
-        /// <summary>
-        /// <para>
-        /// <para>Format type of the input files being loaded into the changeset.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.FinSpaceData.FormatType")]
-        public Amazon.FinSpaceData.FormatType FormatType { get; set; }
         #endregion
         
         #region Parameter SourceParam
         /// <summary>
         /// <para>
-        /// <para>Source path from which the files to create the changeset will be sourced.</para>
+        /// <para>Options that define the location of the data being ingested.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,43 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         public System.Collections.Hashtable SourceParam { get; set; }
         #endregion
         
-        #region Parameter SourceType
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Type of the data source from which the files to create the changeset will be sourced.</para><ul><li><para><code>S3</code> - Amazon S3.</para></li></ul>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.FinSpaceData.SourceType")]
-        public Amazon.FinSpaceData.SourceType SourceType { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Metadata tags to apply to this changeset.</para>
+        /// <para>A token used to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Changeset'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.CreateChangesetResponse).
         /// Specifying the name of a property of type Amazon.FinSpaceData.Model.CreateChangesetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Changeset";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -192,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                 WriteWarning("You are passing $null as a value for parameter ChangeType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.DatasetId = this.DatasetId;
             #if MODULAR
             if (this.DatasetId == null && ParameterWasBound(nameof(this.DatasetId)))
@@ -207,7 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                     context.FormatParam.Add((String)hashKey, (String)(this.FormatParam[hashKey]));
                 }
             }
-            context.FormatType = this.FormatType;
+            #if MODULAR
+            if (this.FormatParam == null && ParameterWasBound(nameof(this.FormatParam)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FormatParam which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.SourceParam != null)
             {
                 context.SourceParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -222,21 +212,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                 WriteWarning("You are passing $null as a value for parameter SourceParam which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SourceType = this.SourceType;
-            #if MODULAR
-            if (this.SourceType == null && ParameterWasBound(nameof(this.SourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -257,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             {
                 request.ChangeType = cmdletContext.ChangeType;
             }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.DatasetId != null)
             {
                 request.DatasetId = cmdletContext.DatasetId;
@@ -265,21 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             {
                 request.FormatParams = cmdletContext.FormatParam;
             }
-            if (cmdletContext.FormatType != null)
-            {
-                request.FormatType = cmdletContext.FormatType;
-            }
             if (cmdletContext.SourceParam != null)
             {
                 request.SourceParams = cmdletContext.SourceParam;
-            }
-            if (cmdletContext.SourceType != null)
-            {
-                request.SourceType = cmdletContext.SourceType;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -343,14 +310,12 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.FinSpaceData.ChangeType ChangeType { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String DatasetId { get; set; }
             public Dictionary<System.String, System.String> FormatParam { get; set; }
-            public Amazon.FinSpaceData.FormatType FormatType { get; set; }
             public Dictionary<System.String, System.String> SourceParam { get; set; }
-            public Amazon.FinSpaceData.SourceType SourceType { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.FinSpaceData.Model.CreateChangesetResponse, NewFNSPChangesetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Changeset;
+                (response, cmdlet) => response;
         }
         
     }

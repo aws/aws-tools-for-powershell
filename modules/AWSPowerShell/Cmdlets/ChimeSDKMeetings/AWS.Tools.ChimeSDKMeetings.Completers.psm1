@@ -80,6 +80,16 @@ $CHMTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMeetings.MeetingFeatureStatus
+        {
+            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Audio_EchoReduction") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Audio_EchoReduction")
+        }
+        {
+            $v = "AVAILABLE","UNAVAILABLE"
+            break
+        }
+
         # Amazon.ChimeSDKMeetings.TranscribeContentIdentificationType
         "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType"
         {
@@ -166,6 +176,7 @@ $CHMTG_Completers = {
 }
 
 $CHMTG_map = @{
+    "MeetingFeatures_Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMTGMeetingTranscription")

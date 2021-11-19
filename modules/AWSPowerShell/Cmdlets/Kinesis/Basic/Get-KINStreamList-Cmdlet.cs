@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// The number of streams may be too large to return from a single call to <code>ListStreams</code>.
     /// You can limit the number of returned streams using the <code>Limit</code> parameter.
     /// If you do not specify a value for the <code>Limit</code> parameter, Kinesis Data Streams
-    /// uses the default limit, which is currently 10.
+    /// uses the default limit, which is currently 100.
     /// </para><para>
     /// You can detect if there are more streams available to list by using the <code>HasMoreStreams</code>
     /// flag from the returned output. If there are more streams available, you can request
@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of streams to list.</para>
+        /// <para>The maximum number of streams to list. The default value is 100. If you specify a
+        /// value greater than 100, at most 100 results are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

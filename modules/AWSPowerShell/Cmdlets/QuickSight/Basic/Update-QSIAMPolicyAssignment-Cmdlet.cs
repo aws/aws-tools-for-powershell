@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates an existing IAMpolicy assignment. This operation updates only the optional
+    /// Updates an existing IAM policy assignment. This operation updates only the optional
     /// parameter or parameters that are specified in the request. This overwrites all of
     /// the users included in <code>Identities</code>.
     /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the IAMpolicy assignment.
+        /// <para>The ID of the Amazon Web Services account that contains the IAM policy assignment.
         /// </para>
         /// </para>
         /// </summary>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups specified
+        /// <para>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups specified
         /// in this assignment.</para>
         /// </para>
         /// </summary>

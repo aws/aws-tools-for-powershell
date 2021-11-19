@@ -453,6 +453,7 @@ $PIN_SelectMap = @{
                "Write-PINEventStream",
                "Remove-PINAttribute",
                "Send-PINMessage",
+               "Send-PINOTPMessage",
                "Send-PINUserMessageBatch",
                "Add-PINResourceTag",
                "Remove-PINResourceTag",
@@ -479,7 +480,8 @@ $PIN_SelectMap = @{
                "Update-PINSmsTemplate",
                "Update-PINTemplateActiveVersion",
                "Update-PINVoiceChannel",
-               "Update-PINVoiceTemplate")
+               "Update-PINVoiceTemplate",
+               "Confirm-PINOTPMessage")
 }
 
 _awsArgumentCompleterRegistration $PIN_SelectCompleters $PIN_SelectMap

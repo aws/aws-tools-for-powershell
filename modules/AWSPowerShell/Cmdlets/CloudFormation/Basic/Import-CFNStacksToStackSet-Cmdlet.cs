@@ -28,13 +28,12 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Import existing stacks into a new stack sets. Use the stack import operation to import
-    /// up to 10 stacks into a new stack set in the same account as the source stack or in
-    /// a different administrator account and Region, by specifying the stack ID of the stack
-    /// you intend to import.
-    /// 
-    ///  <note><para><code>ImportStacksToStackSet</code> is only supported by self-managed permissions.
-    /// </para></note>
+    /// Use the stack import operations for self-managed or service-managed StackSets. For
+    /// self-managed StackSets, the import operation can import stacks in the administrator
+    /// account or in different target accounts and Amazon Web Services Regions. For service-managed
+    /// StackSets, the import operation can import any stack in the same AWS Organizations
+    /// as the management account. The import operation can import up to 10 stacks using inline
+    /// stack IDs or up to 10,000 stacks using an Amazon S3 object.
     /// </summary>
     [Cmdlet("Import", "CFNStacksToStackSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -79,23 +78,38 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
         #endregion
         
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The list of OU ID’s to which the stacks being imported has to be mapped as deployment
+        /// target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationalUnitIds")]
+        public System.String[] OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The IDs of the stacks you are importing into a stack set. You import up to 10 stacks
-        /// per stack set at a time.</para>
+        /// per stack set at a time.</para><para>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("StackIds")]
         public System.String[] StackId { get; set; }
+        #endregion
+        
+        #region Parameter StackIdsUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 URL which contains list of stack ids to be inputted.</para><para>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StackIdsUrl { get; set; }
         #endregion
         
         #region Parameter StackSetName
@@ -180,16 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.CallAs = this.CallAs;
             context.OperationId = this.OperationId;
             context.OperationPreference = this.OperationPreference;
+            if (this.OrganizationalUnitId != null)
+            {
+                context.OrganizationalUnitId = new List<System.String>(this.OrganizationalUnitId);
+            }
             if (this.StackId != null)
             {
                 context.StackId = new List<System.String>(this.StackId);
             }
-            #if MODULAR
-            if (this.StackId == null && ParameterWasBound(nameof(this.StackId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StackId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.StackIdsUrl = this.StackIdsUrl;
             context.StackSetName = this.StackSetName;
             #if MODULAR
             if (this.StackSetName == null && ParameterWasBound(nameof(this.StackSetName)))
@@ -225,9 +238,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.OperationPreferences = cmdletContext.OperationPreference;
             }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitIds = cmdletContext.OrganizationalUnitId;
+            }
             if (cmdletContext.StackId != null)
             {
                 request.StackIds = cmdletContext.StackId;
+            }
+            if (cmdletContext.StackIdsUrl != null)
+            {
+                request.StackIdsUrl = cmdletContext.StackIdsUrl;
             }
             if (cmdletContext.StackSetName != null)
             {
@@ -297,7 +318,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
+            public List<System.String> OrganizationalUnitId { get; set; }
             public List<System.String> StackId { get; set; }
+            public System.String StackIdsUrl { get; set; }
             public System.String StackSetName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ImportStacksToStackSetResponse, ImportCFNStacksToStackSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OperationId;

@@ -40,12 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>.
     /// 
     /// </para><para>
-    /// Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>
-    /// managed policy to the role you will specify in the request. For more information see
-    /// <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching
-    /// and Detaching IAM Policies</a>. The role must also trust the service principal <code>
-    /// drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
-    /// JSON Policy Elements: Principal</a>.
+    /// Prior to making the <code>AssociateDRTRole</code> request, you must attach the <code>AWSShieldDRTAccessPolicy</code>
+    /// managed policy to the role that you'll specify in the request. You can access this
+    /// policy in the IAM console at <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>.
+    /// For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Adding
+    /// and removing IAM identity permissions</a>. The role must also trust the service principal
+    /// <code>drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
+    /// JSON policy elements: Principal</a>.
     /// </para><para>
     /// The SRT will have access only to your WAF and Shield resources. By submitting this
     /// request, you authorize the SRT to inspect your WAF and Shield configuration and create
@@ -54,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </para><para>
     /// You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code>
     /// request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting
-    /// a User Permissions to Pass a Role to an Amazon Web Services Service</a>. 
+    /// a user permissions to pass a role to an Amazon Web Services service</a>. 
     /// </para><para>
     /// To use the services of the SRT and make an <code>AssociateDRTRole</code> request,
-    /// you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business
-    /// Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
+    /// you must be subscribed to the <a href="https://docs.aws.amazon.com/premiumsupport/business-support/">Business
+    /// Support plan</a> or the <a href="https://docs.aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>.
     /// </para>
     /// </summary>

@@ -87,6 +87,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.DisassociatedDataStorageState
+        "Write-IOTSWStorageConfiguration/DisassociatedDataStorage"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.IoTSiteWise.EncryptionType
         "Write-IOTSWDefaultEncryptionConfiguration/EncryptionType"
         {
@@ -115,6 +122,13 @@ $IOTSW_Completers = {
         "Get-IOTSWAssetList/Filter"
         {
             $v = "ALL","TOP_LEVEL"
+            break
+        }
+
+        # Amazon.IoTSiteWise.ListTimeSeriesType
+        "Get-IOTSWTimeSeriesList/TimeSeriesType"
+        {
+            $v = "ASSOCIATED","DISASSOCIATED"
             break
         }
 
@@ -197,6 +211,7 @@ $IOTSW_Completers = {
 
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
+    "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "Filter"=@("Get-IOTSWAssetList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
@@ -209,6 +224,7 @@ $IOTSW_map = @{
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
+    "TimeSeriesType"=@("Get-IOTSWTimeSeriesList")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
     "TraversalType"=@("Get-IOTSWAssetRelationshipList")
 }
@@ -264,6 +280,7 @@ $IOTSW_SelectCompleters = {
 
 $IOTSW_SelectMap = @{
     "Select"=@("Connect-IOTSWAsset",
+               "Add-IOTSWTimeSeriesToAssetProperty",
                "Connect-IOTSWAssociateProjectAsset",
                "Disconnect-IOTSWDisassociateProjectAsset",
                "Import-IOTSWPutAssetPropertyValue",
@@ -281,6 +298,7 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWGateway",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
+               "Remove-IOTSWTimeSeries",
                "Get-IOTSWAccessPolicy",
                "Get-IOTSWAsset",
                "Get-IOTSWAssetModel",
@@ -293,7 +311,9 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWPortal",
                "Get-IOTSWProject",
                "Get-IOTSWStorageConfiguration",
+               "Get-IOTSWTimeSeries",
                "Disconnect-IOTSWAsset",
+               "Remove-IOTSWTimeSeriesFromAssetProperty",
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
@@ -309,6 +329,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWProjectAssetList",
                "Get-IOTSWProjectList",
                "Get-IOTSWResourceTag",
+               "Get-IOTSWTimeSeriesList",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
                "Write-IOTSWStorageConfiguration",

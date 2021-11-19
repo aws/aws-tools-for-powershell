@@ -153,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Int32? ResizeCluster_NumberOfNode { get; set; }
         #endregion
         
+        #region Parameter ResizeCluster_ReservedNodeId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the reserved node.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetAction_ResizeCluster_ReservedNodeId")]
+        public System.String ResizeCluster_ReservedNodeId { get; set; }
+        #endregion
+        
         #region Parameter Schedule
         /// <summary>
         /// <para>
@@ -200,6 +211,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartTime { get; set; }
+        #endregion
+        
+        #region Parameter ResizeCluster_TargetReservedNodeOfferingId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the target reserved node offering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetAction_ResizeCluster_TargetReservedNodeOfferingId")]
+        public System.String ResizeCluster_TargetReservedNodeOfferingId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -282,6 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ResizeCluster_ClusterType = this.ResizeCluster_ClusterType;
             context.ResizeCluster_NodeType = this.ResizeCluster_NodeType;
             context.ResizeCluster_NumberOfNode = this.ResizeCluster_NumberOfNode;
+            context.ResizeCluster_ReservedNodeId = this.ResizeCluster_ReservedNodeId;
+            context.ResizeCluster_TargetReservedNodeOfferingId = this.ResizeCluster_TargetReservedNodeOfferingId;
             context.ResumeCluster_ClusterIdentifier = this.ResumeCluster_ClusterIdentifier;
             
             // allow further manipulation of loaded context prior to processing
@@ -436,6 +460,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 requestTargetAction_targetAction_ResizeCluster.NumberOfNodes = requestTargetAction_targetAction_ResizeCluster_resizeCluster_NumberOfNode.Value;
                 requestTargetAction_targetAction_ResizeClusterIsNull = false;
             }
+            System.String requestTargetAction_targetAction_ResizeCluster_resizeCluster_ReservedNodeId = null;
+            if (cmdletContext.ResizeCluster_ReservedNodeId != null)
+            {
+                requestTargetAction_targetAction_ResizeCluster_resizeCluster_ReservedNodeId = cmdletContext.ResizeCluster_ReservedNodeId;
+            }
+            if (requestTargetAction_targetAction_ResizeCluster_resizeCluster_ReservedNodeId != null)
+            {
+                requestTargetAction_targetAction_ResizeCluster.ReservedNodeId = requestTargetAction_targetAction_ResizeCluster_resizeCluster_ReservedNodeId;
+                requestTargetAction_targetAction_ResizeClusterIsNull = false;
+            }
+            System.String requestTargetAction_targetAction_ResizeCluster_resizeCluster_TargetReservedNodeOfferingId = null;
+            if (cmdletContext.ResizeCluster_TargetReservedNodeOfferingId != null)
+            {
+                requestTargetAction_targetAction_ResizeCluster_resizeCluster_TargetReservedNodeOfferingId = cmdletContext.ResizeCluster_TargetReservedNodeOfferingId;
+            }
+            if (requestTargetAction_targetAction_ResizeCluster_resizeCluster_TargetReservedNodeOfferingId != null)
+            {
+                requestTargetAction_targetAction_ResizeCluster.TargetReservedNodeOfferingId = requestTargetAction_targetAction_ResizeCluster_resizeCluster_TargetReservedNodeOfferingId;
+                requestTargetAction_targetAction_ResizeClusterIsNull = false;
+            }
              // determine if requestTargetAction_targetAction_ResizeCluster should be set to null
             if (requestTargetAction_targetAction_ResizeClusterIsNull)
             {
@@ -525,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ResizeCluster_ClusterType { get; set; }
             public System.String ResizeCluster_NodeType { get; set; }
             public System.Int32? ResizeCluster_NumberOfNode { get; set; }
+            public System.String ResizeCluster_ReservedNodeId { get; set; }
+            public System.String ResizeCluster_TargetReservedNodeOfferingId { get; set; }
             public System.String ResumeCluster_ClusterIdentifier { get; set; }
             public System.Func<Amazon.Redshift.Model.ModifyScheduledActionResponse, EditRSScheduledActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

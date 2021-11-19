@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocationFsxLustre" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxLustre" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationFsxWindows" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxWindow" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationEfs" OutputProperty="*" Verb="Get" Noun="LocationEfs" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocationFsxLustre" OutputProperty="*" Verb="Get" Noun="LocationFsxLustre" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

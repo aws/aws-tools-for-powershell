@@ -85,7 +85,8 @@ $CMPM_Completers = {
             ($_ -eq "Get-CMPMEntitiesDetectionV2JobList/Filter_JobStatus") -Or
             ($_ -eq "Get-CMPMICD10CMInferenceJobList/Filter_JobStatus") -Or
             ($_ -eq "Get-CMPMPersonalHealthInformationDetectionJobList/Filter_JobStatus") -Or
-            ($_ -eq "Get-CMPMRxNormInferenceJobList/Filter_JobStatus")
+            ($_ -eq "Get-CMPMRxNormInferenceJobList/Filter_JobStatus") -Or
+            ($_ -eq "Get-CMPMSNOMEDCTInferenceJobList/Filter_JobStatus")
         }
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS","PARTIAL_SUCCESS","STOPPED","STOP_REQUESTED","SUBMITTED"
@@ -97,7 +98,8 @@ $CMPM_Completers = {
             ($_ -eq "Start-CMPMEntitiesDetectionV2Job/LanguageCode") -Or
             ($_ -eq "Start-CMPMICD10CMInferenceJob/LanguageCode") -Or
             ($_ -eq "Start-CMPMPersonalHealthInformationDetectionJob/LanguageCode") -Or
-            ($_ -eq "Start-CMPMRxNormInferenceJob/LanguageCode")
+            ($_ -eq "Start-CMPMRxNormInferenceJob/LanguageCode") -Or
+            ($_ -eq "Start-CMPMSNOMEDCTInferenceJob/LanguageCode")
         }
         {
             $v = "en"
@@ -113,8 +115,8 @@ $CMPM_Completers = {
 }
 
 $CMPM_map = @{
-    "Filter_JobStatus"=@("Get-CMPMEntitiesDetectionV2JobList","Get-CMPMICD10CMInferenceJobList","Get-CMPMPersonalHealthInformationDetectionJobList","Get-CMPMRxNormInferenceJobList")
-    "LanguageCode"=@("Start-CMPMEntitiesDetectionV2Job","Start-CMPMICD10CMInferenceJob","Start-CMPMPersonalHealthInformationDetectionJob","Start-CMPMRxNormInferenceJob")
+    "Filter_JobStatus"=@("Get-CMPMEntitiesDetectionV2JobList","Get-CMPMICD10CMInferenceJobList","Get-CMPMPersonalHealthInformationDetectionJobList","Get-CMPMRxNormInferenceJobList","Get-CMPMSNOMEDCTInferenceJobList")
+    "LanguageCode"=@("Start-CMPMEntitiesDetectionV2Job","Start-CMPMICD10CMInferenceJob","Start-CMPMPersonalHealthInformationDetectionJob","Start-CMPMRxNormInferenceJob","Start-CMPMSNOMEDCTInferenceJob")
 }
 
 _awsArgumentCompleterRegistration $CMPM_Completers $CMPM_map
@@ -171,23 +173,28 @@ $CMPM_SelectMap = @{
                "Get-CMPMICD10CMInferenceJob",
                "Get-CMPMPersonalHealthInformationDetectionJob",
                "Get-CMPMRxNormInferenceJob",
+               "Get-CMPMSNOMEDCTInferenceJob",
                "Find-CMPMMedicalEntity",
                "Find-CMPMMedicalEntityV2",
                "Find-CMPMPersonalHealthInformation",
                "Find-CMPMICD10CM",
                "Find-CMPMRxNorm",
+               "Find-CMPMSNOMEDCT",
                "Get-CMPMEntitiesDetectionV2JobList",
                "Get-CMPMICD10CMInferenceJobList",
                "Get-CMPMPersonalHealthInformationDetectionJobList",
                "Get-CMPMRxNormInferenceJobList",
+               "Get-CMPMSNOMEDCTInferenceJobList",
                "Start-CMPMEntitiesDetectionV2Job",
                "Start-CMPMICD10CMInferenceJob",
                "Start-CMPMPersonalHealthInformationDetectionJob",
                "Start-CMPMRxNormInferenceJob",
+               "Start-CMPMSNOMEDCTInferenceJob",
                "Stop-CMPMEntitiesDetectionV2Job",
                "Stop-CMPMICD10CMInferenceJob",
                "Stop-CMPMPersonalHealthInformationDetectionJob",
-               "Stop-CMPMRxNormInferenceJob")
+               "Stop-CMPMRxNormInferenceJob",
+               "Stop-CMPMSNOMEDCTInferenceJob")
 }
 
 _awsArgumentCompleterRegistration $CMPM_SelectCompleters $CMPM_SelectMap

@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <summary>
     /// Enables you to provide feedback to Amazon Kendra to improve the performance of your
     /// index.
+    /// 
+    ///  
+    /// <para><code>SubmitFeedback</code> is currently not supported in the Amazon Web Services
+    /// GovCloud (US-West) region.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "KNDRFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

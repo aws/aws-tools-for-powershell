@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSRecipeListCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para> Filters returned recipes by domain for a Domain dataset group. Only recipes (Domain
+        /// dataset group use cases) for this domain are included in the response. If you don't
+        /// specify a domain, only non-domain recipes are returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Personalize.Domain")]
+        public Amazon.Personalize.Domain Domain { get; set; }
+        #endregion
+        
         #region Parameter RecipeProvider
         /// <summary>
         /// <para>
@@ -138,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.RecipeProvider;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Domain = this.Domain;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -171,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request and set iteration invariants
             var request = new Amazon.Personalize.Model.ListRecipesRequest();
             
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -234,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             
             // create request and set iteration invariants
             var request = new Amazon.Personalize.Model.ListRecipesRequest();
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
             if (cmdletContext.RecipeProvider != null)
             {
                 request.RecipeProvider = cmdletContext.RecipeProvider;
@@ -357,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Personalize.Domain Domain { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Personalize.RecipeProvider RecipeProvider { get; set; }

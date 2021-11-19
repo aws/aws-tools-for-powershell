@@ -122,6 +122,16 @@ $TRN_Completers = {
             break
         }
 
+        # Amazon.Translate.Profanity
+        {
+            ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Profanity") -Or
+            ($_ -eq "Start-TRNTextTranslationJob/Settings_Profanity")
+        }
+        {
+            $v = "MASK"
+            break
+        }
+
         # Amazon.Translate.TerminologyDataFormat
         {
             ($_ -eq "Import-TRNTerminology/TerminologyData_Format") -Or
@@ -146,6 +156,7 @@ $TRN_map = @{
     "MergeStrategy"=@("Import-TRNTerminology")
     "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
+    "Settings_Profanity"=@("ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "TerminologyData_Directionality"=@("Import-TRNTerminology")
     "TerminologyData_Format"=@("Import-TRNTerminology")
     "TerminologyDataFormat"=@("Get-TRNTerminology")

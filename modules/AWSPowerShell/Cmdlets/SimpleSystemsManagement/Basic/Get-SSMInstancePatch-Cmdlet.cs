@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves information about the patches on the specified instance and their state
-    /// relative to the patch baseline being used for the instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves information about the patches on the specified managed node and their state
+    /// relative to the patch baseline being used for the node.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstancePatch")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PatchComplianceData")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance whose patch state information should be retrieved.</para>
+        /// <para>The ID of the managed node whose patch state information should be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

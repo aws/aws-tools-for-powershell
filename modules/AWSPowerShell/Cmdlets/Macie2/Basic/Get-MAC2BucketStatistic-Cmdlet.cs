@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves (queries) aggregated statistical data for all the S3 buckets that Amazon
-    /// Macie monitors and analyzes.
+    /// Retrieves (queries) aggregated statistical data about S3 buckets that Amazon Macie
+    /// monitors and analyzes.
     /// </summary>
     [Cmdlet("Get", "MAC2BucketStatistic")]
     [OutputType("Amazon.Macie2.Model.GetBucketStatisticsResponse")]

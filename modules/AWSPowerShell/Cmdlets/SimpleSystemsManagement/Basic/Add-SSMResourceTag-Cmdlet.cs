@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-    /// that you can assign to your documents, managed instances, maintenance windows, Parameter
+    /// that you can assign to your documents, managed nodes, maintenance windows, Parameter
     /// Store parameters, and patch baselines. Tags enable you to categorize your resources
     /// in different ways, for example, by purpose, owner, or environment. Each tag consists
     /// of a key and an optional value, both of which you define. For example, you could define
-    /// a set of tags for your account's managed instances that helps you track each instance's
-    /// owner and stack level. For example:
+    /// a set of tags for your account's managed nodes that helps you track each node's owner
+    /// and stack level. For example:
     /// 
     ///  <ul><li><para><code>Key=Owner,Value=DbAdmin</code></para></li><li><para><code>Key=Owner,Value=SysAdmin</code></para></li><li><para><code>Key=Owner,Value=Dev</code></para></li><li><para><code>Key=Stack,Value=Production</code></para></li><li><para><code>Key=Stack,Value=Pre-Production</code></para></li><li><para><code>Key=Stack,Value=Test</code></para></li></ul><para>
     /// Each resource can have a maximum of 50 tags.
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
         /// <code>/aws/ssm/MyGroup/appmanager</code>.</para><para>For the <code>Document</code> and <code>Parameter</code> values, use the name of the
         /// resource.</para><para><code>ManagedInstance</code>: <code>mi-012345abcde</code></para><note><para>The <code>ManagedInstance</code> type for this API operation is only for on-premises
-        /// managed instances. You must specify the name of the managed instance in the following
-        /// format: <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
+        /// managed nodes. You must specify the name of the managed node in the following format:
+        /// <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specifies the type of resource you are tagging.</para><note><para>The <code>ManagedInstance</code> type for this API operation is for on-premises managed
-        /// instances. You must specify the name of the managed instance in the following format:
-        /// <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
+        /// nodes. You must specify the name of the managed node in the following format: <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

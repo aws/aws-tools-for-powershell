@@ -80,6 +80,17 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.ConflictResolvingModel
+        {
+            ($_ -eq "Get-CPFAutoMergingPreview/ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "New-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel")
+        }
+        {
+            $v = "RECENCY","SOURCE"
+            break
+        }
+
         # Amazon.CustomerProfiles.DataPullMode
         "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"
         {
@@ -94,6 +105,16 @@ $CPF_Completers = {
         }
         {
             $v = "FEMALE","MALE","UNSPECIFIED"
+            break
+        }
+
+        # Amazon.CustomerProfiles.JobScheduleDayOfTheWeek
+        {
+            ($_ -eq "New-CPFDomain/Matching_JobSchedule_DayOfTheWeek") -Or
+            ($_ -eq "Update-CPFDomain/Matching_JobSchedule_DayOfTheWeek")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
             break
         }
 
@@ -130,10 +151,13 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
+    "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview")
     "FlowDefinition_SourceFlowConfig_ConnectorType"=@("Write-CPFIntegration")
     "FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("Write-CPFIntegration")
     "FlowDefinition_TriggerConfig_TriggerType"=@("Write-CPFIntegration")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
+    "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
 }
 
@@ -196,13 +220,16 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Get-CPFAutoMergingPreview",
                "Get-CPFDomain",
+               "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
                "Get-CPFAccountIntegrationList",
                "Get-CPFDomainList",
+               "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",

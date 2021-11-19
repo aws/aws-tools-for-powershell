@@ -42,8 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The list of AWS account identifiers for the member account for which to return member
-        /// details. You can request details for up to 50 member accounts at a time.</para><para>You cannot use <code>GetMembers</code> to retrieve information about member accounts
+        /// <para>The list of Amazon Web Services account identifiers for the member account for which
+        /// to return member details. You can request details for up to 50 member accounts at
+        /// a time.</para><para>You cannot use <code>GetMembers</code> to retrieve information about member accounts
         /// that were removed from the behavior graph.</para>
         /// </para>
         /// </summary>

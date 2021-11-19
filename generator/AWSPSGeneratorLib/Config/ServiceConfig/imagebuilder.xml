@@ -127,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportVmImage" OutputProperty="ImageArn" Verb="Import" Noun="VmImage" ShouldProcessTarget="VmImportTaskId" PipelineParameter="VmImportTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListComponentBuildVersions" OutputProperty="ComponentSummaryList" Verb="Get" Noun="ComponentBuildVersionList" PipelineParameter="ComponentVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

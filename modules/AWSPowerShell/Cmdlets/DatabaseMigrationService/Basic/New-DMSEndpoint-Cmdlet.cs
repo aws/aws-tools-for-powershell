@@ -902,6 +902,22 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.DatePartitionSequenceValue S3Settings_DatePartitionSequence { get; set; }
         #endregion
         
+        #region Parameter S3Settings_DatePartitionTimezone
+        /// <summary>
+        /// <para>
+        /// <para>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
+        /// the current UTC time into a specified time zone. The conversion occurs when a date
+        /// partition folder is created and a CDC filename is generated. The time zone format
+        /// is Area/Location. Use this parameter when <code>DatePartitionedEnabled</code> is set
+        /// to <code>true</code>, as shown in the following example.</para><para><code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
+        /// "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
+        /// "dms-nattarat-test"}'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Settings_DatePartitionTimezone { get; set; }
+        #endregion
+        
         #region Parameter PostgreSQLSettings_DdlArtifactsSchema
         /// <summary>
         /// <para>
@@ -3850,6 +3866,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_DatePartitionDelimiter = this.S3Settings_DatePartitionDelimiter;
             context.S3Settings_DatePartitionEnabled = this.S3Settings_DatePartitionEnabled;
             context.S3Settings_DatePartitionSequence = this.S3Settings_DatePartitionSequence;
+            context.S3Settings_DatePartitionTimezone = this.S3Settings_DatePartitionTimezone;
             context.S3Settings_DictPageSizeLimit = this.S3Settings_DictPageSizeLimit;
             context.S3Settings_EnableStatistic = this.S3Settings_EnableStatistic;
             context.S3Settings_EncodingType = this.S3Settings_EncodingType;
@@ -6421,6 +6438,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.DatePartitionSequence = requestS3Settings_s3Settings_DatePartitionSequence;
                 requestS3SettingsIsNull = false;
             }
+            System.String requestS3Settings_s3Settings_DatePartitionTimezone = null;
+            if (cmdletContext.S3Settings_DatePartitionTimezone != null)
+            {
+                requestS3Settings_s3Settings_DatePartitionTimezone = cmdletContext.S3Settings_DatePartitionTimezone;
+            }
+            if (requestS3Settings_s3Settings_DatePartitionTimezone != null)
+            {
+                request.S3Settings.DatePartitionTimezone = requestS3Settings_s3Settings_DatePartitionTimezone;
+                requestS3SettingsIsNull = false;
+            }
             System.Int32? requestS3Settings_s3Settings_DictPageSizeLimit = null;
             if (cmdletContext.S3Settings_DictPageSizeLimit != null)
             {
@@ -7010,6 +7037,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.DatePartitionDelimiterValue S3Settings_DatePartitionDelimiter { get; set; }
             public System.Boolean? S3Settings_DatePartitionEnabled { get; set; }
             public Amazon.DatabaseMigrationService.DatePartitionSequenceValue S3Settings_DatePartitionSequence { get; set; }
+            public System.String S3Settings_DatePartitionTimezone { get; set; }
             public System.Int32? S3Settings_DictPageSizeLimit { get; set; }
             public System.Boolean? S3Settings_EnableStatistic { get; set; }
             public Amazon.DatabaseMigrationService.EncodingTypeValue S3Settings_EncodingType { get; set; }

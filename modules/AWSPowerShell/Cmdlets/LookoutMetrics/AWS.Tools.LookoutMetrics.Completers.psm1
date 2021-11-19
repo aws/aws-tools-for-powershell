@@ -114,6 +114,13 @@ $LOM_Completers = {
             break
         }
 
+        # Amazon.LookoutMetrics.RelationshipType
+        "Get-LOMAnomalyGroupRelatedMetricList/RelationshipTypeFilter"
+        {
+            $v = "CAUSE_OF_INPUT_ANOMALY_GROUP","EFFECT_OF_INPUT_ANOMALY_GROUP"
+            break
+        }
+
 
     }
 
@@ -127,6 +134,7 @@ $LOM_map = @{
     "MetricSetFrequency"=@("New-LOMMetricSet","Update-LOMMetricSet")
     "MetricSource_S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression"=@("New-LOMMetricSet","Update-LOMMetricSet")
     "MetricSource_S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression"=@("New-LOMMetricSet","Update-LOMMetricSet")
+    "RelationshipTypeFilter"=@("Get-LOMAnomalyGroupRelatedMetricList")
     "S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression"=@("Get-LOMSampleData")
     "S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression"=@("Get-LOMSampleData")
 }
@@ -197,6 +205,7 @@ $LOM_SelectMap = @{
                "Get-LOMSampleData",
                "Get-LOMAlertList",
                "Get-LOMAnomalyDetectorList",
+               "Get-LOMAnomalyGroupRelatedMetricList",
                "Get-LOMAnomalyGroupSummaryList",
                "Get-LOMAnomalyGroupTimeSeriesList",
                "Get-LOMMetricSetList",

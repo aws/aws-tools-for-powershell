@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// In a management account, an environment account connection request is accepted. When
-    /// the environment account connection request is accepted, AWS Proton can use the associated
+    /// the environment account connection request is accepted, Proton can use the associated
     /// IAM role to provision environment infrastructure resources in the associated environment
     /// account.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
+    /// account connections</a> in the <i>Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Approve", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

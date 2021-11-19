@@ -28,8 +28,14 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Removes the secret from replication and promotes the secret to a regional secret in
-    /// the replica Region.
+    /// Removes the link between the replica secret and the primary secret and promotes the
+    /// replica to a primary secret in the replica Region.
+    /// 
+    ///  
+    /// <para>
+    /// You must call this operation from the Region in which you want to promote the replica
+    /// to a primary secret.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "SECReplicationToReplica", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Response to <code>StopReplicationToReplica</code> of a secret, based on the <code>SecretId</code>.</para>
+        /// <para>The ARN of the primary secret. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

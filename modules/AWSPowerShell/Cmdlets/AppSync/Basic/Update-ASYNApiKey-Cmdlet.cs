@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Updates an API key. The key can be updated while it is not deleted.
+    /// Updates an API key. You can update the key as long as it's not deleted.
     /// </summary>
     [Cmdlet("Update", "ASYNApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.ApiKey")]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Expire
         /// <summary>
         /// <para>
-        /// <para>The time from update time after which the API key expires. The date is represented
+        /// <para>From the update time, the time after which the API key expires. The date is represented
         /// as seconds since the epoch. For more information, see .</para>
         /// </para>
         /// </summary>

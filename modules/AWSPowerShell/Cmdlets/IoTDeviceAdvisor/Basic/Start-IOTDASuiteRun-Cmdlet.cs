@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Starts a Device Advisor test suite run.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "IOTDASuiteRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse")]
@@ -42,12 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter PrimaryDevice_CertificateArn
         /// <summary>
         /// <para>
-        /// <para>Lists devices certificate arn</para>
+        /// <para>Lists devices certificate ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SuiteRunConfiguration_PrimaryDevice_CertificateArn")]
         public System.String PrimaryDevice_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter SuiteRunConfiguration_ParallelRun
+        /// <summary>
+        /// <para>
+        /// <para>TRUE if multiple test suites run in parallel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SuiteRunConfiguration_ParallelRun { get; set; }
         #endregion
         
         #region Parameter SuiteRunConfiguration_SelectedTestList
@@ -63,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite.</para>
+        /// <para>Suite definition ID of the test suite.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter PrimaryDevice_ThingArn
         /// <summary>
         /// <para>
-        /// <para>Lists devices thing arn</para>
+        /// <para>Lists devices thing ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             }
             #endif
             context.SuiteDefinitionVersion = this.SuiteDefinitionVersion;
+            context.SuiteRunConfiguration_ParallelRun = this.SuiteRunConfiguration_ParallelRun;
             context.PrimaryDevice_CertificateArn = this.PrimaryDevice_CertificateArn;
             context.PrimaryDevice_ThingArn = this.PrimaryDevice_ThingArn;
             if (this.SuiteRunConfiguration_SelectedTestList != null)
@@ -220,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
              // populate SuiteRunConfiguration
             var requestSuiteRunConfigurationIsNull = true;
             request.SuiteRunConfiguration = new Amazon.IoTDeviceAdvisor.Model.SuiteRunConfiguration();
+            System.Boolean? requestSuiteRunConfiguration_suiteRunConfiguration_ParallelRun = null;
+            if (cmdletContext.SuiteRunConfiguration_ParallelRun != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_ParallelRun = cmdletContext.SuiteRunConfiguration_ParallelRun.Value;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_ParallelRun != null)
+            {
+                request.SuiteRunConfiguration.ParallelRun = requestSuiteRunConfiguration_suiteRunConfiguration_ParallelRun.Value;
+                requestSuiteRunConfigurationIsNull = false;
+            }
             List<System.String> requestSuiteRunConfiguration_suiteRunConfiguration_SelectedTestList = null;
             if (cmdletContext.SuiteRunConfiguration_SelectedTestList != null)
             {
@@ -337,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         {
             public System.String SuiteDefinitionId { get; set; }
             public System.String SuiteDefinitionVersion { get; set; }
+            public System.Boolean? SuiteRunConfiguration_ParallelRun { get; set; }
             public System.String PrimaryDevice_CertificateArn { get; set; }
             public System.String PrimaryDevice_ThingArn { get; set; }
             public List<System.String> SuiteRunConfiguration_SelectedTestList { get; set; }

@@ -315,6 +315,7 @@ $RDS_SelectMap = @{
                "Convert-RDSReadReplicaToStandalone",
                "Convert-RDSReadReplicaDBCluster",
                "New-RDSReservedDBInstancesOfferingPurchase",
+               "Restart-RDSDBCluster",
                "Restart-RDSDBInstance",
                "Register-RDSDBProxyTarget",
                "Remove-RDSFromGlobalCluster",

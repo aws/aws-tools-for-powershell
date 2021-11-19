@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <a>ModifyNetworkInterfaceAttribute</a> action.
     /// </para><para>
     /// To modify some attributes, the instance must be stopped. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying
-    /// attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify
+    /// a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
         /// attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>,
         /// the default is <code>true</code> and the volume is deleted when the instance is terminated.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
-        /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating
+        /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update
         /// the block device mapping when launching an instance</a> in the <i>Amazon EC2 User
         /// Guide</i>.</para>
         /// </para>

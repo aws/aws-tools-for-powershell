@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// After you delete an environment account connection that’s in use by an AWS Proton
-    /// environment, AWS Proton <i>can’t</i> manage the environment infrastructure resources
-    /// until a new environment account connection is accepted for the environment account
-    /// and associated environment. You're responsible for cleaning up provisioned resources
-    /// that remain without an environment connection.
+    /// After you delete an environment account connection that’s in use by an Proton environment,
+    /// Proton <i>can’t</i> manage the environment infrastructure resources until a new environment
+    /// account connection is accepted for the environment account and associated environment.
+    /// You're responsible for cleaning up provisioned resources that remain without an environment
+    /// connection.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
+    /// account connections</a> in the <i>Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

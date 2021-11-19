@@ -28,20 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Deletes the resource-based permission policy attached to the secret.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:DeleteResourcePolicy
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.
-    /// </para></li><li><para>
-    /// To list all of the currently available secrets, use <a>ListSecrets</a>.
-    /// </para></li></ul>
+    /// Deletes the resource-based permission policy attached to the secret. To attach a policy
+    /// to a secret, use <a>PutResourcePolicy</a>.
     /// </summary>
     [Cmdlet("Remove", "SECResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecretsManager.Model.DeleteResourcePolicyResponse")]
@@ -55,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to delete the attached resource-based policy for.
-        /// You can specify either the Amazon Resource Name (ARN) or the friendly name of the
-        /// secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret to delete the attached resource-based policy for.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

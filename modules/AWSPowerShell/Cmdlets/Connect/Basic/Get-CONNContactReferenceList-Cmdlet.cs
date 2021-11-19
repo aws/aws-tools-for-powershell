@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para><important><para>This is not expected to be set since the value returned in the previous response is
-        /// always null.</para></important>
+        /// in the next request to retrieve the next set of results.</para><important><para>This is not expected to be set, because the value returned in the previous response
+        /// is always null.</para></important>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

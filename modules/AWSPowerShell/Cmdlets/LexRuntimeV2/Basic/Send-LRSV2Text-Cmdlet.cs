@@ -200,6 +200,20 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter DialogAction_SlotElicitationStyle
+        /// <summary>
+        /// <para>
+        /// <para>Configures the slot to use spell-by-letter or spell-by-word style. When you use a
+        /// style on a slot, users can spell out their input to make it clear to your bot.</para><ul><li><para>Spell by letter - "b" "o" "b"</para></li><li><para>Spell by word - "b as in boy" "o as in oscar" "b as in boy"</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
+        /// Using spelling to enter slot values </a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionStateValue_DialogAction_SlotElicitationStyle")]
+        [AWSConstantClassSource("Amazon.LexRuntimeV2.StyleType")]
+        public Amazon.LexRuntimeV2.StyleType DialogAction_SlotElicitationStyle { get; set; }
+        #endregion
+        
         #region Parameter Intent_Slot
         /// <summary>
         /// <para>
@@ -368,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             {
                 context.SessionStateValue_ActiveContext = new List<Amazon.LexRuntimeV2.Model.ActiveContext>(this.SessionStateValue_ActiveContext);
             }
+            context.DialogAction_SlotElicitationStyle = this.DialogAction_SlotElicitationStyle;
             context.DialogAction_SlotToElicit = this.DialogAction_SlotToElicit;
             context.DialogAction_Type = this.DialogAction_Type;
             context.Intent_ConfirmationState = this.Intent_ConfirmationState;
@@ -472,6 +487,16 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
              // populate DialogAction
             var requestSessionStateValue_sessionStateValue_DialogActionIsNull = true;
             requestSessionStateValue_sessionStateValue_DialogAction = new Amazon.LexRuntimeV2.Model.DialogAction();
+            Amazon.LexRuntimeV2.StyleType requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotElicitationStyle = null;
+            if (cmdletContext.DialogAction_SlotElicitationStyle != null)
+            {
+                requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotElicitationStyle = cmdletContext.DialogAction_SlotElicitationStyle;
+            }
+            if (requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotElicitationStyle != null)
+            {
+                requestSessionStateValue_sessionStateValue_DialogAction.SlotElicitationStyle = requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotElicitationStyle;
+                requestSessionStateValue_sessionStateValue_DialogActionIsNull = false;
+            }
             System.String requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotToElicit = null;
             if (cmdletContext.DialogAction_SlotToElicit != null)
             {
@@ -633,6 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             public Dictionary<System.String, System.String> RequestAttribute { get; set; }
             public System.String SessionId { get; set; }
             public List<Amazon.LexRuntimeV2.Model.ActiveContext> SessionStateValue_ActiveContext { get; set; }
+            public Amazon.LexRuntimeV2.StyleType DialogAction_SlotElicitationStyle { get; set; }
             public System.String DialogAction_SlotToElicit { get; set; }
             public Amazon.LexRuntimeV2.DialogActionType DialogAction_Type { get; set; }
             public Amazon.LexRuntimeV2.ConfirmationState Intent_ConfirmationState { get; set; }

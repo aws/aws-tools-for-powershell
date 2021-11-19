@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class InvokeDDBDDBBatchExecuteStatementCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        #region Parameter ReturnConsumedCapacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ReturnConsumedCapacity")]
+        public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
+        #endregion
+        
         #region Parameter Statement
         /// <summary>
         /// <para>
@@ -75,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public string Select { get; set; } = "Responses";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ReturnConsumedCapacity parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReturnConsumedCapacity' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReturnConsumedCapacity' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,11 +121,22 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse, InvokeDDBDDBBatchExecuteStatementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ReturnConsumedCapacity;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ReturnConsumedCapacity = this.ReturnConsumedCapacity;
             if (this.Statement != null)
             {
                 context.Statement = new List<Amazon.DynamoDBv2.Model.BatchStatementRequest>(this.Statement);
@@ -131,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // create request
             var request = new Amazon.DynamoDBv2.Model.BatchExecuteStatementRequest();
             
+            if (cmdletContext.ReturnConsumedCapacity != null)
+            {
+                request.ReturnConsumedCapacity = cmdletContext.ReturnConsumedCapacity;
+            }
             if (cmdletContext.Statement != null)
             {
                 request.Statements = cmdletContext.Statement;
@@ -196,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
             public List<Amazon.DynamoDBv2.Model.BatchStatementRequest> Statement { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse, InvokeDDBDDBBatchExecuteStatementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Responses;

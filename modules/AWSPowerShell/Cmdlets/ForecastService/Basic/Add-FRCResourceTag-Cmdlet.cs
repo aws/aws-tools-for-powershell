@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset
-        /// import jobs, predictors, forecasts, and forecast export jobs.</para>
+        /// tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

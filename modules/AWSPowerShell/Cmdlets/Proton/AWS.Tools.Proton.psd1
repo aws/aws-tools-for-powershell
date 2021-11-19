@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Proton module of AWS Tools for PowerShell lets developers and administrators manage AWS Proton from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -89,39 +89,56 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-PROResourceTag', 
         'Approve-PROEnvironmentAccountConnection', 
         'Deny-PROEnvironmentAccountConnection', 
+        'Edit-PROResourceDeploymentStatusChange', 
         'Get-PROAccountSetting', 
         'Get-PROEnvironment', 
         'Get-PROEnvironmentAccountConnection', 
         'Get-PROEnvironmentAccountConnectionList', 
         'Get-PROEnvironmentList', 
+        'Get-PROEnvironmentOutputList', 
+        'Get-PROEnvironmentProvisionedResourceList', 
         'Get-PROEnvironmentTemplate', 
         'Get-PROEnvironmentTemplateList', 
         'Get-PROEnvironmentTemplateVersion', 
         'Get-PROEnvironmentTemplateVersionList', 
+        'Get-PRORepository', 
+        'Get-PRORepositoryList', 
+        'Get-PRORepositorySyncDefinitionList', 
+        'Get-PRORepositorySyncStatus', 
         'Get-PROResourceTag', 
         'Get-PROService', 
         'Get-PROServiceInstance', 
         'Get-PROServiceInstanceList', 
+        'Get-PROServiceInstanceOutputList', 
+        'Get-PROServiceInstanceProvisionedResourceList', 
         'Get-PROServiceList', 
+        'Get-PROServicePipelineOutputList', 
+        'Get-PROServicePipelineProvisionedResourceList', 
         'Get-PROServiceTemplate', 
         'Get-PROServiceTemplateList', 
         'Get-PROServiceTemplateVersion', 
         'Get-PROServiceTemplateVersionList', 
+        'Get-PROTemplateSyncConfig', 
+        'Get-PROTemplateSyncStatus', 
         'New-PROEnvironment', 
         'New-PROEnvironmentAccountConnection', 
         'New-PROEnvironmentTemplate', 
         'New-PROEnvironmentTemplateVersion', 
+        'New-PRORepository', 
         'New-PROService', 
         'New-PROServiceTemplate', 
         'New-PROServiceTemplateVersion', 
+        'New-PROTemplateSyncConfig', 
         'Remove-PROEnvironment', 
         'Remove-PROEnvironmentAccountConnection', 
         'Remove-PROEnvironmentTemplate', 
         'Remove-PROEnvironmentTemplateVersion', 
+        'Remove-PRORepository', 
         'Remove-PROResourceTag', 
         'Remove-PROService', 
         'Remove-PROServiceTemplate', 
         'Remove-PROServiceTemplateVersion', 
+        'Remove-PROTemplateSyncConfig', 
         'Stop-PROEnvironmentDeployment', 
         'Stop-PROServiceInstanceDeployment', 
         'Stop-PROServicePipelineDeployment', 
@@ -134,7 +151,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-PROServiceInstance', 
         'Update-PROServicePipeline', 
         'Update-PROServiceTemplate', 
-        'Update-PROServiceTemplateVersion')
+        'Update-PROServiceTemplateVersion', 
+        'Update-PROTemplateSyncConfig')
 
     # Variables to export from this module
     VariablesToExport = '*'

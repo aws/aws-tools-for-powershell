@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// of the environment template if it's not the <code>Recommended</code> version. Delete
     /// the <code>Recommended</code> version of the environment template if no other major
     /// versions or minor versions of the environment template exist. A major version of an
-    /// environment template is a version that's not backwards compatible.
+    /// environment template is a version that's not backward compatible.
     /// 
     ///  
     /// <para>
     /// Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code>
     /// version. Delete a <code>Recommended</code> minor version of the environment template
     /// if no other minor versions of the environment template exist. A minor version of an
-    /// environment template is a version that's backwards compatible.
+    /// environment template is a version that's backward compatible.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "PROEnvironmentTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

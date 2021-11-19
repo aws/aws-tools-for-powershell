@@ -28,7 +28,7 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Deletes an Explainability export job.
+    /// Deletes an Explainability export.
     /// </summary>
     [Cmdlet("Remove", "FRCExplainabilityExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

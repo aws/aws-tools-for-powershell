@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
         /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
+        /// for all three contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

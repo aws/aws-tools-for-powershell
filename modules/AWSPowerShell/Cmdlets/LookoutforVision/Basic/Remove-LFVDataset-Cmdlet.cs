@@ -98,13 +98,14 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code>
-        /// completes only once. You choose the value to pass. For example, An issue, such as
-        /// an network outage, might prevent you from getting a response from <code>DeleteDataset</code>.
-        /// In this case, safely retry your call to <code>DeleteDataset</code> by using the same
-        /// <code>ClientToken</code> parameter value. An error occurs if the other input parameters
-        /// are not the same as in the first request. Using a different value for <code>ClientToken</code>
-        /// is considered a new call to <code>DeleteDataset</code>. An idempotency token is active
-        /// for 8 hours.</para>
+        /// completes only once. You choose the value to pass. For example, An issue might prevent
+        /// you from getting a response from <code>DeleteDataset</code>. In this case, safely
+        /// retry your call to <code>DeleteDataset</code> by using the same <code>ClientToken</code>
+        /// parameter value. </para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
+        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// deletetion requests. You'll need to provide your own value for other use cases. </para><para>An error occurs if the other input parameters are not the same as in the first request.
+        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteDataset</code>.
+        /// An idempotency token is active for 8 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

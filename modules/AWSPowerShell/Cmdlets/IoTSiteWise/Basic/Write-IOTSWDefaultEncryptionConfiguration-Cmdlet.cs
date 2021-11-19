@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key ID of the customer managed customer master key (CMK) used for KMS encryption.
-        /// This is required if you use <code>KMS_BASED_ENCRYPTION</code>.</para>
+        /// <para>The Key ID of the customer managed key used for KMS encryption. This is required if
+        /// you use <code>KMS_BASED_ENCRYPTION</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

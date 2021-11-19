@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The identifier of the data consumer that is to have authorization removed from the
-        /// datashare. This identifier is an AWS account ID.</para>
+        /// datashare. This identifier is an Amazon Web Services account ID or a keyword, such
+        /// as ADX.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

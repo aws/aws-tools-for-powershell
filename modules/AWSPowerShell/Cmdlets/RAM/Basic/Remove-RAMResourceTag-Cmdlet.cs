@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Removes the specified tags from the specified resource share that you own.
+    /// Removes the specified tag key and value pairs from the specified resource share.
     /// </summary>
     [Cmdlet("Remove", "RAMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource share that you want to remove tags from. The
+        /// tags are removed from the resource share, not the resources in the resource share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys of the tags to remove.</para>
+        /// <para>Specifies a list of one or more tag keys that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

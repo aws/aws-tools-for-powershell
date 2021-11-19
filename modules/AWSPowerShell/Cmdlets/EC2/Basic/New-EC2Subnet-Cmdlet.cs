@@ -94,17 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
         /// We modify the specified CIDR block to its canonical form; for example, if you specify
-        /// <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para>
+        /// <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para><para>This parameter is not supported for an IPv6 only subnet.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CidrBlock { get; set; }
         #endregion
         
@@ -112,11 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use
-        /// a /64 prefix length.</para>
+        /// a /64 prefix length.</para><para>This parameter is required for an IPv6 only subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Native
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to create an IPv6 only subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ipv6Native { get; set; }
         #endregion
         
         #region Parameter OutpostArn
@@ -222,13 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.CidrBlock = this.CidrBlock;
-            #if MODULAR
-            if (this.CidrBlock == null && ParameterWasBound(nameof(this.CidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
+            context.Ipv6Native = this.Ipv6Native;
             context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
@@ -272,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6CidrBlock != null)
             {
                 request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
+            }
+            if (cmdletContext.Ipv6Native != null)
+            {
+                request.Ipv6Native = cmdletContext.Ipv6Native.Value;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -350,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AvailabilityZoneId { get; set; }
             public System.String CidrBlock { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
+            public System.Boolean? Ipv6Native { get; set; }
             public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }

@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use
     /// this operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission.
-    /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-    /// Permissions in a Policy</a>. 
+    /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying
+    /// permissions in a policy</a>. 
     /// 
     ///  
     /// <para>
-    /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
-    /// Object Ownership</a>. 
+    /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using
+    /// object ownership</a>. 
     /// </para><para>
     /// The following operations are related to <code>PutBucketOwnershipControls</code>:
     /// </para><ul><li><para><a>GetBucketOwnershipControls</a></para></li><li><para><a>DeleteBucketOwnershipControls</a></para></li></ul>

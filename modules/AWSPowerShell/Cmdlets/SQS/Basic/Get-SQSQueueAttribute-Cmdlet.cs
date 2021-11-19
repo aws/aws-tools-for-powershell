@@ -64,33 +64,25 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><code>MaximumMessageSize</code> – Returns the limit of how many bytes a message can
         /// contain before Amazon SQS rejects it.</para></li><li><para><code>MessageRetentionPeriod</code> – Returns the length of time, in seconds, for
         /// which Amazon SQS retains a message.</para></li><li><para><code>Policy</code> – Returns the policy of the queue.</para></li><li><para><code>QueueArn</code> – Returns the Amazon resource name (ARN) of the queue.</para></li><li><para><code>ReceiveMessageWaitTimeSeconds</code> – Returns the length of time, in seconds,
-        /// for which the <code>ReceiveMessage</code> action waits for a message to arrive. </para></li><li><para><code>VisibilityTimeout</code> – Returns the visibility timeout for the queue. For
-        /// more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
-        /// queues:</a></para><ul><li><para><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
-        /// queue functionality of the source queue as a JSON object. The parameters are as follows:</para><ul><li><para><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter
+        /// for which the <code>ReceiveMessage</code> action waits for a message to arrive. </para></li><li><para><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
+        /// queue functionality of the source queue as a JSON object. For more information about
+        /// the redrive policy and dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
+        /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.</para><ul><li><para><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter
         /// queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code>
         /// is exceeded.</para></li><li><para><code>maxReceiveCount</code> – The number of times a message is delivered to the
         /// source queue before being moved to the dead-letter queue. When the <code>ReceiveCount</code>
         /// for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
-        /// the message to the dead-letter-queue.</para></li></ul></li><li><para><code>RedriveAllowPolicy</code> – The string that includes the parameters for the
-        /// permissions for the dead-letter queue redrive permission and which source queues can
-        /// specify dead-letter queues as a JSON object. The parameters are as follows:</para><ul><li><para><code>redrivePermission</code> – The permission type that defines which source queues
-        /// can specify the current queue as the dead-letter queue. Valid values are:</para><ul><li><para><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account
-        /// in the same Region can specify this queue as the dead-letter queue.</para></li><li><para><code>denyAll</code> – No source queues can specify this queue as the dead-letter
-        /// queue.</para></li><li><para><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code>
-        /// parameter can specify this queue as the dead-letter queue.</para></li></ul></li><li><para><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues
-        /// that can specify this queue as the dead-letter queue and redrive messages. You can
-        /// specify this parameter only when the <code>redrivePermission</code> parameter is set
-        /// to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more
-        /// than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code>
-        /// parameter to <code>allowAll</code>.</para></li></ul></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-        /// queue of a standard queue must also be a standard queue.</para></note><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services managed customer
+        /// the message to the dead-letter-queue.</para></li></ul></li><li><para><code>VisibilityTimeout</code> – Returns the visibility timeout for the queue. For
+        /// more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
+        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services managed customer
         /// master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
         /// Terms</a>. </para></li><li><para><code>KmsDataKeyReusePeriodSeconds</code> – Returns the length of time, in seconds,
         /// for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling
         /// KMS again. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
-        /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
+        /// Does the Data Key Reuse Period Work?</a>. </para></li><li><para><code>SqsManagedSseEnabled</code> – Returns information about whether the queue is
+        /// using SSE-SQS encryption using SQS owned encryption keys. Only one server-side encryption
+        /// option is supported per queue (e.g. <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
         /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Returns information about whether the queue is FIFO. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO
         /// queue logic</a> in the <i>Amazon SQS Developer Guide</i>.</para><note><para>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>,

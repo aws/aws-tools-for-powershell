@@ -28,7 +28,7 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Lists tags that the requester has permission to view.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists LF-tags that the requester has permission to view.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LKFLFTagList")]
     [OutputType("Amazon.LakeFormation.Model.LFTagPair")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
         /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your AWS Lake Formation environment. </para>
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,10 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ResourceShareType
         /// <summary>
         /// <para>
-        /// <para>If resource share type is <code>ALL</code>, returns both in-account tags and shared
-        /// tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>,
-        /// returns all share tags that the requester can view. If no resource share type is passed,
-        /// lists tags in the given catalog ID that the requester has permission to view.</para>
+        /// <para>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared
+        /// LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>,
+        /// returns all share LF-tags that the requester can view. If no resource share type is
+        /// passed, lists LF-tags in the given catalog ID that the requester has permission to
+        /// view.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

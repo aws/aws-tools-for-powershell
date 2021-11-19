@@ -29,9 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Lists the shards in a stream and provides information about each shard. This operation
-    /// has a limit of 100 transactions per second per data stream.
+    /// has a limit of 1000 transactions per second per data stream.
     /// 
-    ///  <important><para>
+    ///  
+    /// <para>
+    /// This action does not list expired shards. For information about expired shards, see
+    /// <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing">Data
+    /// Routing, Data Persistence, and Shard State after a Reshard</a>. 
+    /// </para><important><para>
     /// This API is a new operation that is used by the Amazon Kinesis Client Library (KCL).
     /// If you have a fine-grained IAM policy that only allows specific operations, you must
     /// update your policy to allow calls to this API. For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling
@@ -63,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_ShardId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code>
+        /// parameter. This property can only be used if the <code>AFTER_SHARD_ID</code> shard
+        /// type is specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_Timestamp
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is
+        /// a Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00
+        /// or 1459799926.480. This property can only be used if <code>FROM_TIMESTAMP</code> or
+        /// <code>AT_TIMESTAMP</code> shard types are specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +116,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The shard type specified in the <code>ShardFilter</code> parameter. This is a required
+        /// property of the <code>ShardFilter</code> parameter.</para><para>You can specify the following valid values: </para><ul><li><para><code>AFTER_SHARD_ID</code> - the response includes all the shards, starting with
+        /// the shard whose ID immediately follows the <code>ShardId</code> that you provided.
+        /// </para></li><li><para><code>AT_TRIM_HORIZON</code> - the response includes all the shards that were open
+        /// at <code>TRIM_HORIZON</code>.</para></li><li><para><code>FROM_TRIM_HORIZON</code> - (default), the response includes all the shards
+        /// within the retention period of the data stream (trim to tip).</para></li><li><para><code>AT_LATEST</code> - the response includes only the currently open shards of
+        /// the data stream.</para></li><li><para><code>AT_TIMESTAMP</code> - the response includes all shards whose start timestamp
+        /// is less than or equal to the given timestamp and end timestamp is greater than or
+        /// equal to the given timestamp or still open. </para></li><li><para><code>FROM_TIMESTAMP</code> - the response incldues all closed shards whose end timestamp
+        /// is greater than or equal to the given timestamp and also all open shards. Corrected
+        /// to <code>TRIM_HORIZON</code> of the data stream if <code>FROM_TIMESTAMP</code> is
+        /// less than the <code>TRIM_HORIZON</code> value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of shards to return in a single call to <code>ListShards</code>.
-        /// The minimum value you can specify for this parameter is 1, and the maximum is 10,000,
-        /// which is also the default.</para><para>When the number of shards to be listed is greater than the value of <code>MaxResults</code>,
+        /// The maximum number of shards to return in a single call. The default value is 1000.
+        /// If you specify a value greater than 1000, at most 1000 results are returned. </para><para>When the number of shards to be listed is greater than the value of <code>MaxResults</code>,
         /// the response contains a <code>NextToken</code> value that you can use in a subsequent
         /// call to <code>ListShards</code> to list the next set of shards.</para>
         /// </para>

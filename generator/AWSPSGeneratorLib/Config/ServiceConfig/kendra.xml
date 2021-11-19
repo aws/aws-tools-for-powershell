@@ -19,6 +19,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateEntitiesToExperience" OutputProperty="FailedEntityList" Verb="Add" Noun="EntitiesToExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePersonasToEntities" OutputProperty="FailedEntityList" Verb="Add" Noun="PersonasToEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -28,7 +36,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Write" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ClearQuerySuggestions" Verb="Clear" Noun="QuerySuggestion" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
@@ -36,6 +57,23 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="Id" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExperience" OutputProperty="Id" Verb="New" Noun="Experience" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -56,6 +94,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExperience" Verb="Remove" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +125,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExperience" OutputProperty="*" Verb="Get" Noun="Experience" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFaq" OutputProperty="*" Verb="Get" Noun="Faq" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,7 +153,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateEntitiesFromExperience" OutputProperty="FailedEntityList" Verb="Remove" Noun="EntitiesFromExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePersonasFromEntities" OutputProperty="FailedEntityList" Verb="Remove" Noun="PersonasFromEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetQuerySuggestions" OutputProperty="*" Verb="Get" Noun="QuerySuggestion" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSnapshots" OutputProperty="*" Verb="Get" Noun="Snapshot" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,6 +174,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSourceSyncJobs" OutputProperty="History" Verb="Get" Noun="DataSourceSyncJobList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntityPersonas" OutputProperty="SummaryItems" Verb="Get" Noun="EntityPersonaList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperienceEntities" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceEntityList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperiences" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceList" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -172,6 +242,23 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params>
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_DateValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_LongValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" Alias="PostExtractionHookConfiguration_InvocationCondition_Operator" />
+                <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" Alias="PreExtractionHookConfiguration_InvocationCondition_Operator" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExperience" Verb="Update" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

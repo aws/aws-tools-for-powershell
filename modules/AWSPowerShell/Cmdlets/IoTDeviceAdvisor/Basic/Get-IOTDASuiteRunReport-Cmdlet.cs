@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     /// <summary>
     /// Gets a report download link for a successful Device Advisor qualifying test suite
     /// run.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDASuiteRunReport")]
     [OutputType("System.String")]
@@ -44,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite.</para>
+        /// <para>Suite definition ID of the test suite.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteRunId
         /// <summary>
         /// <para>
-        /// <para>Suite run Id of the test suite run.</para>
+        /// <para>Suite run ID of the test suite run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

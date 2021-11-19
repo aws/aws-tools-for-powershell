@@ -40,6 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class NewCFNStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter ManagedExecution_Active
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, StackSets performs non-conflicting operations concurrently
+        /// and queues conflicting operations. After conflicting operations finish, StackSets
+        /// starts queued operations in request order.</para><note><para>If there are already running or queued operations, StackSets queues all incoming operations
+        /// even if they are non-conflicting.</para><para>You can't modify your stack set's execution configuration while there are running
+        /// or queued operations for that stack set.</para></note><para>When <code>false</code> (default), StackSets performs one operation at a time in request
+        /// order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedExecution_Active { get; set; }
+        #endregion
+        
         #region Parameter AdministrationRoleARN
         /// <summary>
         /// <para>
@@ -344,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
             context.ExecutionRoleName = this.ExecutionRoleName;
+            context.ManagedExecution_Active = this.ManagedExecution_Active;
             if (this.Parameter != null)
             {
                 context.Parameter = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
@@ -431,6 +447,25 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ExecutionRoleName != null)
             {
                 request.ExecutionRoleName = cmdletContext.ExecutionRoleName;
+            }
+            
+             // populate ManagedExecution
+            var requestManagedExecutionIsNull = true;
+            request.ManagedExecution = new Amazon.CloudFormation.Model.ManagedExecution();
+            System.Boolean? requestManagedExecution_managedExecution_Active = null;
+            if (cmdletContext.ManagedExecution_Active != null)
+            {
+                requestManagedExecution_managedExecution_Active = cmdletContext.ManagedExecution_Active.Value;
+            }
+            if (requestManagedExecution_managedExecution_Active != null)
+            {
+                request.ManagedExecution.Active = requestManagedExecution_managedExecution_Active.Value;
+                requestManagedExecutionIsNull = false;
+            }
+             // determine if request.ManagedExecution should be set to null
+            if (requestManagedExecutionIsNull)
+            {
+                request.ManagedExecution = null;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -529,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleName { get; set; }
+            public System.Boolean? ManagedExecution_Active { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
             public Amazon.CloudFormation.PermissionModels PermissionModel { get; set; }
             public System.String StackId { get; set; }

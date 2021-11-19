@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Web ServicesDirectory Service directory that you want
+        /// <para>The identifier of the Amazon Web Services Directory Service directory that you want
         /// to stop sharing.</para>
         /// </para>
         /// </summary>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// parameter.</para><para>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your
         /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway
         /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
-        /// parameter.</para><para>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity
+        /// parameter.</para><para>Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity
         /// provider. If you choose this value, you must specify the ARN for the lambda function
         /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
         /// data type.</para>
@@ -199,6 +199,23 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Transfer.Model.WorkflowDetail[] WorkflowDetails_OnUpload { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolDetails_PassiveIp
+        /// <summary>
+        /// <para>
+        /// <para> Indicates passive mode, for FTP and FTPS protocols. Enter a single dotted-quad IPv4
+        /// address, such as the external IP address of a firewall, router, or load balancer.
+        /// For example: </para><para><code> aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i></code></para><para>Replace <code><i>0.0.0.0</i></code> in the example above with the actual IP address
+        /// you want to use.</para><note><para> If you change the <code>PassiveIp</code> value, you must stop and then restart your
+        /// Transfer server for the change to take effect. For details on using Passive IP (PASV)
+        /// in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
+        /// your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
+        /// </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtocolDetails_PassiveIp { get; set; }
         #endregion
         
         #region Parameter Protocol
@@ -266,6 +283,32 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Transfer.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolDetails_TlsSessionResumptionMode
+        /// <summary>
+        /// <para>
+        /// <para>A property used with Transfer servers that use the FTPS protocol. TLS Session Resumption
+        /// provides a mechanism to resume or share a negotiated secret key between the control
+        /// and data connection for an FTPS session. <code>TlsSessionResumptionMode</code> determines
+        /// whether or not the server resumes recent, negotiated sessions through a unique session
+        /// ID. This property is available during <code>CreateServer</code> and <code>UpdateServer</code>
+        /// calls. If a <code>TlsSessionResumptionMode</code> value is not specified during CreateServer,
+        /// it is set to <code>ENFORCED</code> by default.</para><ul><li><para><code>DISABLED</code>: the server does not process TLS session resumption client
+        /// requests and creates a new TLS session for each request. </para></li><li><para><code>ENABLED</code>: the server processes and accepts clients that are performing
+        /// TLS session resumption. The server doesn't reject client data connections that do
+        /// not perform the TLS session resumption client processing.</para></li><li><para><code>ENFORCED</code>: the server processes and accepts clients that are performing
+        /// TLS session resumption. The server rejects client data connections that do not perform
+        /// the TLS session resumption client processing. Before you set the value to <code>ENFORCED</code>,
+        /// test your clients.</para><note><para>Not all FTPS clients perform TLS session resumption. So, if you choose to enforce
+        /// TLS session resumption, you prevent any connections from FTPS clients that don't perform
+        /// the protocol negotiation. To determine whether or not you can use the <code>ENFORCED</code>
+        /// value, you need to test your clients.</para></note></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.TlsSessionResumptionMode")]
+        public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
         #endregion
         
         #region Parameter IdentityProviderDetails_Url
@@ -363,6 +406,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.IdentityProviderType = this.IdentityProviderType;
             context.LoggingRole = this.LoggingRole;
+            context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
+            context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
             if (this.Protocol != null)
             {
                 context.Protocol = new List<System.String>(this.Protocol);
@@ -524,6 +569,35 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            
+             // populate ProtocolDetails
+            var requestProtocolDetailsIsNull = true;
+            request.ProtocolDetails = new Amazon.Transfer.Model.ProtocolDetails();
+            System.String requestProtocolDetails_protocolDetails_PassiveIp = null;
+            if (cmdletContext.ProtocolDetails_PassiveIp != null)
+            {
+                requestProtocolDetails_protocolDetails_PassiveIp = cmdletContext.ProtocolDetails_PassiveIp;
+            }
+            if (requestProtocolDetails_protocolDetails_PassiveIp != null)
+            {
+                request.ProtocolDetails.PassiveIp = requestProtocolDetails_protocolDetails_PassiveIp;
+                requestProtocolDetailsIsNull = false;
+            }
+            Amazon.Transfer.TlsSessionResumptionMode requestProtocolDetails_protocolDetails_TlsSessionResumptionMode = null;
+            if (cmdletContext.ProtocolDetails_TlsSessionResumptionMode != null)
+            {
+                requestProtocolDetails_protocolDetails_TlsSessionResumptionMode = cmdletContext.ProtocolDetails_TlsSessionResumptionMode;
+            }
+            if (requestProtocolDetails_protocolDetails_TlsSessionResumptionMode != null)
+            {
+                request.ProtocolDetails.TlsSessionResumptionMode = requestProtocolDetails_protocolDetails_TlsSessionResumptionMode;
+                requestProtocolDetailsIsNull = false;
+            }
+             // determine if request.ProtocolDetails should be set to null
+            if (requestProtocolDetailsIsNull)
+            {
+                request.ProtocolDetails = null;
+            }
             if (cmdletContext.Protocol != null)
             {
                 request.Protocols = cmdletContext.Protocol;
@@ -631,6 +705,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_Url { get; set; }
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public System.String LoggingRole { get; set; }
+            public System.String ProtocolDetails_PassiveIp { get; set; }
+            public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }

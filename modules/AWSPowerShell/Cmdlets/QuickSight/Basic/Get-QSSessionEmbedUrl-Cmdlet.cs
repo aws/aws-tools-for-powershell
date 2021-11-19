@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight
     /// console need belong to the author or admin security cohort. If you want to restrict
     /// permissions to some of these features, add a custom permissions profile to the user
-    /// with the <code><a>UpdateUser</a></code> API operation. Use <code><a>RegisterUser</a></code> API operation to add a new user with a custom permission profile attached.
+    /// with the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a></code> API operation. Use <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a></code> API operation to add a new user with a custom permission profile attached.
     /// For more information, see the following sections in the <i>Amazon QuickSight User
     /// Guide</i>:
     /// 

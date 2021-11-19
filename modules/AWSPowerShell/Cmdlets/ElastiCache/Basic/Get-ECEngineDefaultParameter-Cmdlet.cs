@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the cache parameter group family.</para><para>Valid values are: <code>memcached1.4</code> | <code>memcached1.5</code> | <code>memcached1.6</code>
         /// | <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> | <code>redis4.0</code>
-        /// | <code>redis5.0</code> | <code>redis6.x</code> | </para>
+        /// | <code>redis5.0</code> | <code>redis6.x</code> | <code>redis6.2</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

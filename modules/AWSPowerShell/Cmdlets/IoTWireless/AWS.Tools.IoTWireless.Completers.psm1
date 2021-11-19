@@ -133,7 +133,8 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.LogLevel
         {
             ($_ -eq "Update-IOTWLogLevelsByResourceType/DefaultLogLevel") -Or
-            ($_ -eq "Write-IOTWResourceLogLevel/LogLevel")
+            ($_ -eq "Write-IOTWResourceLogLevel/LogLevel") -Or
+            ($_ -eq "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_LogLevel")
         }
         {
             $v = "DISABLED","ERROR","INFO"
@@ -167,6 +168,13 @@ $IOTW_Completers = {
         }
         {
             $v = "AS923-1","AU915","EU868","US915"
+            break
+        }
+
+        # Amazon.IoTWireless.WirelessDeviceFrameInfo
+        "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_WirelessDeviceFrameInfo"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -228,6 +236,8 @@ $IOTW_map = @{
     "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
+    "TraceContent_LogLevel"=@("Update-IOTWNetworkAnalyzerConfiguration")
+    "TraceContent_WirelessDeviceFrameInfo"=@("Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWWirelessDeviceList")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
@@ -322,6 +332,7 @@ $IOTW_SelectMap = @{
                "Get-IOTWLogLevelsByResourceType",
                "Get-IOTWMulticastGroup",
                "Get-IOTWMulticastGroupSession",
+               "Get-IOTWNetworkAnalyzerConfiguration",
                "Get-IOTWPartnerAccount",
                "Get-IOTWResourceEventConfiguration",
                "Get-IOTWResourceLogLevel",
@@ -362,6 +373,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWFuotaTask",
                "Update-IOTWLogLevelsByResourceType",
                "Update-IOTWMulticastGroup",
+               "Update-IOTWNetworkAnalyzerConfiguration",
                "Update-IOTWPartnerAccount",
                "Update-IOTWResourceEventConfiguration",
                "Update-IOTWWirelessDevice",

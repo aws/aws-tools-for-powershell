@@ -256,6 +256,7 @@ $LOC_SelectMap = @{
                "Get-LOCTrackerList",
                "Set-LOCGeofence",
                "Search-LOCPlaceIndexForPosition",
+               "Search-LOCPlaceIndexForSuggestion",
                "Search-LOCPlaceIndexForText",
                "Add-LOCResourceTagSet",
                "Remove-LOCResourceTagSet",

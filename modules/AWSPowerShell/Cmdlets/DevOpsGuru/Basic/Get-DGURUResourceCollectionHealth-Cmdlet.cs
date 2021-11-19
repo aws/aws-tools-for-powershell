@@ -30,11 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     /// <summary>
     /// Returns the number of open proactive insights, open reactive insights, and the Mean
     /// Time to Recover (MTTR) for all closed insights in resource collections in your account.
-    /// You specify the type of Amazon Web Services resources collection. The one type of
-    /// Amazon Web Services resource collection supported is Amazon Web Services CloudFormation
-    /// stacks. DevOps Guru can be configured to analyze only the Amazon Web Services resources
-    /// that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation
-    /// stacks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// You specify the type of Amazon Web Services resources collection. The two types of
+    /// Amazon Web Services resource collections supported are Amazon Web Services CloudFormation
+    /// stacks and Amazon Web Services resources that contain the same Amazon Web Services
+    /// tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that
+    /// are defined in the stacks or that are tagged using the same tag <i>key</i>. You can
+    /// specify up to 500 Amazon Web Services CloudFormation stacks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DGURUResourceCollectionHealth")]
     [OutputType("Amazon.DevOpsGuru.Model.CloudFormationHealth")]
@@ -50,10 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para> An Amazon Web Services resource collection type. This type specifies how analyzed
-        /// Amazon Web Services resources are defined. The one type of Amazon Web Services resource
-        /// collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can
-        /// be configured to analyze only the Amazon Web Services resources that are defined in
-        /// the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </para>
+        /// Amazon Web Services resources are defined. The two types of Amazon Web Services resource
+        /// collections supported are Amazon Web Services CloudFormation stacks and Amazon Web
+        /// Services resources that contain the same Amazon Web Services tag. DevOps Guru can
+        /// be configured to analyze the Amazon Web Services resources that are defined in the
+        /// stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500
+        /// Amazon Web Services CloudFormation stacks. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

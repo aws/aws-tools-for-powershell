@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         /// <summary>
         /// <para>
         /// <para>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot
-        /// specify more than three digits after the decimal point.</para>
+        /// specify more than five digits after the decimal point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -41,12 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// case, send a later request with the <code>NextToken</code> request parameter set to
     /// the value of <code>NextToken</code> from the last response.
     /// </para><para>
-    /// This action is used in an iterative process to retrieve a list of your file system
+    /// This operation is used in an iterative process to retrieve a list of your file system
     /// descriptions. <code>DescribeFileSystems</code> is called first without a <code>NextToken</code>value.
-    /// Then the action continues to be called with the <code>NextToken</code> parameter set
-    /// to the value of the last <code>NextToken</code> value until a response has no <code>NextToken</code>.
+    /// Then the operation continues to be called with the <code>NextToken</code> parameter
+    /// set to the value of the last <code>NextToken</code> value until a response has no
+    /// <code>NextToken</code>.
     /// </para><para>
-    /// When using this action, keep the following in mind:
+    /// When using this operation, keep the following in mind:
     /// </para><ul><li><para>
     /// The implementation might return fewer than <code>MaxResults</code> file system descriptions
     /// while still including a <code>NextToken</code> value.
@@ -100,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
-        /// operation (String). If a token present, the action continues the list from where the
-        /// returning call left off.</para>
+        /// operation (String). If a token present, the operation continues the list from where
+        /// the returning call left off.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

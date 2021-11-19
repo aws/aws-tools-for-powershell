@@ -28,8 +28,7 @@ using Amazon.Route53RecoveryControlConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
-    /// Describes the safety rules (that is, the assertion rules and gating rules) for the
-    /// routing controls in a control panel.
+    /// Returns information about a safety rule.
     /// </summary>
     [Cmdlet("Get", "R53RCSafetyRule")]
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.DescribeSafetyRuleResponse")]
@@ -43,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter SafetyRuleArn
         /// <summary>
         /// <para>
-        /// <para>The request body that you include when you update a safety rule.</para>
+        /// <para>The ARN of the safety rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

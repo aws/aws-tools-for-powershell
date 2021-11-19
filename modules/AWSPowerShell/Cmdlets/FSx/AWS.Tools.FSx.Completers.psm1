@@ -83,12 +83,17 @@ $FSX_Completers = {
         # Amazon.FSx.DataRepositoryTaskType
         "New-FSXDataRepositoryTask/Type"
         {
-            $v = "EXPORT_TO_REPOSITORY"
+            $v = "EXPORT_TO_REPOSITORY","IMPORT_METADATA_FROM_REPOSITORY"
             break
         }
 
         # Amazon.FSx.DiskIopsConfigurationMode
-        "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode"
+        {
+            ($_ -eq "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode") -Or
+            ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
+            ($_ -eq "Update-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode")
+        }
         {
             $v = "AUTOMATIC","USER_PROVISIONED"
             break
@@ -97,7 +102,7 @@ $FSX_Completers = {
         # Amazon.FSx.FileSystemType
         "New-FSXFileSystem/FileSystemType"
         {
-            $v = "LUSTRE","ONTAP","WINDOWS"
+            $v = "LUSTRE","ONTAP","OPENZFS","WINDOWS"
             break
         }
 
@@ -105,6 +110,35 @@ $FSX_Completers = {
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
             $v = "MULTI_AZ_1"
+            break
+        }
+
+        # Amazon.FSx.OpenZFSCopyStrategy
+        "New-FSXVolume/OpenZFSConfiguration_OriginSnapshot_CopyStrategy"
+        {
+            $v = "CLONE","FULL_COPY"
+            break
+        }
+
+        # Amazon.FSx.OpenZFSDataCompressionType
+        {
+            ($_ -eq "New-FSXVolume/OpenZFSConfiguration_DataCompressionType") -Or
+            ($_ -eq "Update-FSXVolume/OpenZFSConfiguration_DataCompressionType") -Or
+            ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType")
+        }
+        {
+            $v = "NONE","ZSTD"
+            break
+        }
+
+        # Amazon.FSx.OpenZFSDeploymentType
+        {
+            ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_DeploymentType") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DeploymentType")
+        }
+        {
+            $v = "SINGLE_AZ_1"
             break
         }
 
@@ -164,7 +198,7 @@ $FSX_Completers = {
         # Amazon.FSx.VolumeType
         "New-FSXVolume/VolumeType"
         {
-            $v = "ONTAP"
+            $v = "ONTAP","OPENZFS"
             break
         }
 
@@ -182,6 +216,11 @@ $FSX_map = @{
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
+    "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
+    "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
+    "OpenZFSConfiguration_OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
+    "OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
     "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
@@ -244,27 +283,37 @@ $FSX_SelectMap = @{
                "Stop-FSXDataRepositoryTask",
                "Copy-FSXBackup",
                "New-FSXBackup",
+               "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
+               "New-FSXSnapshot",
                "New-FSXStorageVirtualMachine",
                "New-FSXVolume",
                "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
+               "Remove-FSXDataRepositoryAssociation",
                "Remove-FSXFileSystem",
+               "Remove-FSXSnapshot",
                "Remove-FSXStorageVirtualMachine",
                "Remove-FSXVolume",
                "Get-FSXBackup",
+               "Get-FSXDataRepositoryAssociation",
                "Get-FSXDataRepositoryTask",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Get-FSXSnapshot",
                "Get-FSXStorageVirtualMachine",
                "Get-FSXVolume",
                "Unregister-FSXFileSystemAlias",
                "Get-FSXResourceTagList",
+               "Clear-FSXFileSystemNfsV3Lock",
+               "Restore-FSXVolumeFromSnapshot",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
+               "Update-FSXDataRepositoryAssociation",
                "Update-FSXFileSystem",
+               "Update-FSXSnapshot",
                "Update-FSXStorageVirtualMachine",
                "Update-FSXVolume")
 }

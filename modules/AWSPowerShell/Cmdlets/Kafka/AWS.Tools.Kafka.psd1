@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Kafka module of AWS Tools for PowerShell lets developers and administrators manage Amazon Managed Streaming for Apache Kafka (MSK) from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKClusterList', 
         'Get-MSKClusterOperation', 
         'Get-MSKClusterOperationList', 
+        'Get-MSKClustersV2List', 
+        'Get-MSKClusterV2', 
         'Get-MSKCompatibleKafkaVersion', 
         'Get-MSKConfiguration', 
         'Get-MSKConfigurationList', 
@@ -102,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKResourceTag', 
         'Get-MSKScramSecretList', 
         'New-MSKCluster', 
+        'New-MSKClusterV2', 
         'New-MSKConfiguration', 
         'Register-MSKAssociateScramSecret', 
         'Remove-MSKCluster', 

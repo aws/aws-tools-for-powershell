@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>A custom description of the custom data identifier. The description can contain as
         /// many as 512 characters.</para><para>We strongly recommend that you avoid including any sensitive data in the description
-        /// of a custom data identifier. Other users of your account might be able to see the
-        /// identifier's description, depending on the actions that they're allowed to perform
-        /// in Amazon Macie.</para>
+        /// of a custom data identifier. Other users of your account might be able to see this
+        /// description, depending on the actions that they're allowed to perform in Amazon Macie.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>A custom name for the custom data identifier. The name can contain as many as 128
         /// characters.</para><para>We strongly recommend that you avoid including any sensitive data in the name of a
-        /// custom data identifier. Other users of your account might be able to see the identifier's
-        /// name, depending on the actions that they're allowed to perform in Amazon Macie.</para>
+        /// custom data identifier. Other users of your account might be able to see this name,
+        /// depending on the actions that they're allowed to perform in Amazon Macie.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

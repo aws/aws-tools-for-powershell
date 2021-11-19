@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Disassociates the specified connector from AWS SMS.
+    /// Disassociates the specified connector from Server Migration Service.
     /// 
     ///  
     /// <para>

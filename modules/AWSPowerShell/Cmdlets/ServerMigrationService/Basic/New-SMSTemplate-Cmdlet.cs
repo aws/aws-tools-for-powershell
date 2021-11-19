@@ -28,8 +28,8 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Generates an AWS CloudFormation template based on the current launch configuration
-    /// and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
+    /// Generates an CloudFormation template based on the current launch configuration and
+    /// writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
     /// </summary>
     [Cmdlet("New", "SMSTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServerMigrationService.Model.S3Location")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>The ID of the application associated with the AWS CloudFormation template.</para>
+        /// <para>The ID of the application associated with the CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter TemplateFormat
         /// <summary>
         /// <para>
-        /// <para>The format for generating the AWS CloudFormation template.</para>
+        /// <para>The format for generating the CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

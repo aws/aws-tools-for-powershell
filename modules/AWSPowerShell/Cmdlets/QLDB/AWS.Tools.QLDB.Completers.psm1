@@ -80,6 +80,13 @@ $QLDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QLDB.OutputFormat
+        "Export-QLDBJournalToS3/OutputFormat"
+        {
+            $v = "ION_BINARY","ION_TEXT","JSON"
+            break
+        }
+
         # Amazon.QLDB.PermissionsMode
         {
             ($_ -eq "New-QLDBLedger/PermissionsMode") -Or
@@ -106,6 +113,7 @@ $QLDB_Completers = {
 }
 
 $QLDB_map = @{
+    "OutputFormat"=@("Export-QLDBJournalToS3")
     "PermissionsMode"=@("New-QLDBLedger","Update-QLDBLedgerPermissionsMode")
     "S3ExportConfiguration_EncryptionConfiguration_ObjectEncryptionType"=@("Export-QLDBJournalToS3")
 }

@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the list of approved patches includes non-security updates that
-        /// should be applied to the instances. The default value is <code>false</code>. Applies
-        /// to Linux instances only.</para>
+        /// should be applied to the managed nodes. The default value is <code>false</code>. Applies
+        /// to Linux managed nodes only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Information about the patches to use to update the instances, including target operating
-        /// systems and source repositories. Applies to Linux instances only.</para>
+        /// <para>Information about the patches to use to update the managed nodes, including target
+        /// operating systems and source repositories. Applies to Linux managed nodes only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Stops a Device Advisor test suite run that is currently running.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "IOTDASuiteRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Suite definition Id of the test suite run to be stopped.</para>
+        /// <para>Suite definition ID of the test suite run to be stopped.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteRunId
         /// <summary>
         /// <para>
-        /// <para>Suite run Id of the test suite run to be stopped.</para>
+        /// <para>Suite run ID of the test suite run to be stopped.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

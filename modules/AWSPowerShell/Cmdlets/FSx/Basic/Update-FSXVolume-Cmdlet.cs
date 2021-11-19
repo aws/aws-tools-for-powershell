@@ -28,7 +28,8 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Updates an Amazon FSx for NetApp ONTAP volume's configuration.
+    /// Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
+    /// volume.
     /// </summary>
     [Cmdlet("Update", "FSXVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.Volume")]
@@ -64,6 +65,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int32? TieringPolicy_CoolingPeriod { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_DataCompressionType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the method used to compress the data on the volume. Unless the compression
+        /// type is specified, volumes inherit the <code>DataCompressionType</code> value of their
+        /// parent volume.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
+        /// compression algorithm. This algorithm reduces the amount of space used on your volume
+        /// and has very little impact on compute resources.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.OpenZFSDataCompressionType")]
+        public Amazon.FSx.OpenZFSDataCompressionType OpenZFSConfiguration_DataCompressionType { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_JunctionPath
         /// <summary>
         /// <para>
@@ -73,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OntapConfiguration_JunctionPath { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the OpenZFS volume. OpenZFS root volumes are automatically named <code>FSX</code>.
+        /// Child volume names must be unique among their parent volume's children. The name of
+        /// the volume is part of the mount string for the OpenZFS volume. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter TieringPolicy_Name
@@ -88,6 +116,27 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [Alias("OntapConfiguration_TieringPolicy_Name")]
         [AWSConstantClassSource("Amazon.FSx.TieringPolicyName")]
         public Amazon.FSx.TieringPolicyName TieringPolicy_Name { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_NfsExport
+        /// <summary>
+        /// <para>
+        /// <para>The configuration object for mounting a Network File System (NFS) file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_NfsExports")]
+        public Amazon.FSx.Model.OpenZFSNfsExport[] OpenZFSConfiguration_NfsExport { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_ReadOnly
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value indicating whether the volume is read-only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OpenZFSConfiguration_ReadOnly { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_SecurityStyle
@@ -113,6 +162,28 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_StorageCapacityQuotaGiB
+        /// <summary>
+        /// <para>
+        /// <para>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
+        /// parent. You can specify a quota larger than the storage on the parent volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OpenZFSConfiguration_StorageCapacityQuotaGiB { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_StorageCapacityReservationGiB
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't
+        /// reserve more storage than the parent volume has reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OpenZFSConfiguration_StorageCapacityReservationGiB { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_StorageEfficiencyEnabled
         /// <summary>
         /// <para>
@@ -124,10 +195,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Boolean? OntapConfiguration_StorageEfficiencyEnabled { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_UserAndGroupQuota
+        /// <summary>
+        /// <para>
+        /// <para>An object specifying how much storage users or groups can use on the volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_UserAndGroupQuotas")]
+        public Amazon.FSx.Model.OpenZFSUserOrGroupQuota[] OpenZFSConfiguration_UserAndGroupQuota { get; set; }
+        #endregion
+        
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>Specifies the volume that you want to update, formatted <code>fsvol-0123456789abcdef0</code>.</para>
+        /// <para>The ID of the volume that you want to update, in the format <code>fsvol-0123456789abcdef0</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -203,12 +285,25 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.Name = this.Name;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
             context.OntapConfiguration_StorageEfficiencyEnabled = this.OntapConfiguration_StorageEfficiencyEnabled;
             context.TieringPolicy_CoolingPeriod = this.TieringPolicy_CoolingPeriod;
             context.TieringPolicy_Name = this.TieringPolicy_Name;
+            context.OpenZFSConfiguration_DataCompressionType = this.OpenZFSConfiguration_DataCompressionType;
+            if (this.OpenZFSConfiguration_NfsExport != null)
+            {
+                context.OpenZFSConfiguration_NfsExport = new List<Amazon.FSx.Model.OpenZFSNfsExport>(this.OpenZFSConfiguration_NfsExport);
+            }
+            context.OpenZFSConfiguration_ReadOnly = this.OpenZFSConfiguration_ReadOnly;
+            context.OpenZFSConfiguration_StorageCapacityQuotaGiB = this.OpenZFSConfiguration_StorageCapacityQuotaGiB;
+            context.OpenZFSConfiguration_StorageCapacityReservationGiB = this.OpenZFSConfiguration_StorageCapacityReservationGiB;
+            if (this.OpenZFSConfiguration_UserAndGroupQuota != null)
+            {
+                context.OpenZFSConfiguration_UserAndGroupQuota = new List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota>(this.OpenZFSConfiguration_UserAndGroupQuota);
+            }
             context.VolumeId = this.VolumeId;
             #if MODULAR
             if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
@@ -235,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
              // populate OntapConfiguration
@@ -320,6 +419,75 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 request.OntapConfiguration = null;
             }
+            
+             // populate OpenZFSConfiguration
+            var requestOpenZFSConfigurationIsNull = true;
+            request.OpenZFSConfiguration = new Amazon.FSx.Model.UpdateOpenZFSVolumeConfiguration();
+            Amazon.FSx.OpenZFSDataCompressionType requestOpenZFSConfiguration_openZFSConfiguration_DataCompressionType = null;
+            if (cmdletContext.OpenZFSConfiguration_DataCompressionType != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_DataCompressionType = cmdletContext.OpenZFSConfiguration_DataCompressionType;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_DataCompressionType != null)
+            {
+                request.OpenZFSConfiguration.DataCompressionType = requestOpenZFSConfiguration_openZFSConfiguration_DataCompressionType;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            List<Amazon.FSx.Model.OpenZFSNfsExport> requestOpenZFSConfiguration_openZFSConfiguration_NfsExport = null;
+            if (cmdletContext.OpenZFSConfiguration_NfsExport != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_NfsExport = cmdletContext.OpenZFSConfiguration_NfsExport;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_NfsExport != null)
+            {
+                request.OpenZFSConfiguration.NfsExports = requestOpenZFSConfiguration_openZFSConfiguration_NfsExport;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.Boolean? requestOpenZFSConfiguration_openZFSConfiguration_ReadOnly = null;
+            if (cmdletContext.OpenZFSConfiguration_ReadOnly != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadOnly = cmdletContext.OpenZFSConfiguration_ReadOnly.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadOnly != null)
+            {
+                request.OpenZFSConfiguration.ReadOnly = requestOpenZFSConfiguration_openZFSConfiguration_ReadOnly.Value;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityQuotaGiB = null;
+            if (cmdletContext.OpenZFSConfiguration_StorageCapacityQuotaGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityQuotaGiB = cmdletContext.OpenZFSConfiguration_StorageCapacityQuotaGiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityQuotaGiB != null)
+            {
+                request.OpenZFSConfiguration.StorageCapacityQuotaGiB = requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityQuotaGiB.Value;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityReservationGiB = null;
+            if (cmdletContext.OpenZFSConfiguration_StorageCapacityReservationGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityReservationGiB = cmdletContext.OpenZFSConfiguration_StorageCapacityReservationGiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityReservationGiB != null)
+            {
+                request.OpenZFSConfiguration.StorageCapacityReservationGiB = requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityReservationGiB.Value;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> requestOpenZFSConfiguration_openZFSConfiguration_UserAndGroupQuota = null;
+            if (cmdletContext.OpenZFSConfiguration_UserAndGroupQuota != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_UserAndGroupQuota = cmdletContext.OpenZFSConfiguration_UserAndGroupQuota;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_UserAndGroupQuota != null)
+            {
+                request.OpenZFSConfiguration.UserAndGroupQuotas = requestOpenZFSConfiguration_openZFSConfiguration_UserAndGroupQuota;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+             // determine if request.OpenZFSConfiguration should be set to null
+            if (requestOpenZFSConfigurationIsNull)
+            {
+                request.OpenZFSConfiguration = null;
+            }
             if (cmdletContext.VolumeId != null)
             {
                 request.VolumeId = cmdletContext.VolumeId;
@@ -386,12 +554,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String Name { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
             public System.Boolean? OntapConfiguration_StorageEfficiencyEnabled { get; set; }
             public System.Int32? TieringPolicy_CoolingPeriod { get; set; }
             public Amazon.FSx.TieringPolicyName TieringPolicy_Name { get; set; }
+            public Amazon.FSx.OpenZFSDataCompressionType OpenZFSConfiguration_DataCompressionType { get; set; }
+            public List<Amazon.FSx.Model.OpenZFSNfsExport> OpenZFSConfiguration_NfsExport { get; set; }
+            public System.Boolean? OpenZFSConfiguration_ReadOnly { get; set; }
+            public System.Int32? OpenZFSConfiguration_StorageCapacityQuotaGiB { get; set; }
+            public System.Int32? OpenZFSConfiguration_StorageCapacityReservationGiB { get; set; }
+            public List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> OpenZFSConfiguration_UserAndGroupQuota { get; set; }
             public System.String VolumeId { get; set; }
             public System.Func<Amazon.FSx.Model.UpdateVolumeResponse, UpdateFSXVolumeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Volume;

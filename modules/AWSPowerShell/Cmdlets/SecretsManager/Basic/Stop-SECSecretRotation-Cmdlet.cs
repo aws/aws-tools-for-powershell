@@ -28,44 +28,20 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Disables automatic scheduled rotation and cancels the rotation of a secret if currently
-    /// in progress.
+    /// Turns off automatic rotation, and if a rotation is currently in progress, cancels
+    /// the rotation.
     /// 
     ///  
     /// <para>
-    /// To re-enable scheduled rotation, call <a>RotateSecret</a> with <code>AutomaticallyRotateAfterDays</code>
-    /// set to a value greater than 0. This immediately rotates your secret and then enables
-    /// the automatic schedule.
+    /// To turn on automatic rotation again, call <a>RotateSecret</a>.
     /// </para><note><para>
-    /// If you cancel a rotation while in progress, it can leave the <code>VersionStage</code>
-    /// labels in an unexpected state. Depending on the step of the rotation in progress,
-    /// you might need to remove the staging label <code>AWSPENDING</code> from the partially
-    /// created version, specified by the <code>VersionId</code> response value. You should
-    /// also evaluate the partially rotated new version to see if it should be deleted, which
-    /// you can do by removing all staging labels from the new version <code>VersionStage</code>
-    /// field.
-    /// </para></note><para>
-    /// To successfully start a rotation, the staging label <code>AWSPENDING</code> must be
-    /// in one of the following states:
-    /// </para><ul><li><para>
-    /// Not attached to any version at all
-    /// </para></li><li><para>
-    /// Attached to the same version as the staging label <code>AWSCURRENT</code></para></li></ul><para>
-    /// If the staging label <code>AWSPENDING</code> attached to a different version than
-    /// the version with <code>AWSCURRENT</code> then the attempt to rotate fails.
-    /// </para><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:CancelRotateSecret
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To configure rotation for a secret or to manually trigger a rotation, use <a>RotateSecret</a>.
-    /// </para></li><li><para>
-    /// To get the rotation configuration details for a secret, use <a>DescribeSecret</a>.
-    /// </para></li><li><para>
-    /// To list all of the currently available secrets, use <a>ListSecrets</a>.
-    /// </para></li><li><para>
-    /// To list all of the versions currently associated with a secret, use <a>ListSecretVersionIds</a>.
-    /// </para></li></ul>
+    /// If you cancel a rotation in progress, it can leave the <code>VersionStage</code> labels
+    /// in an unexpected state. Depending on the step of the rotation in progress, you might
+    /// need to remove the staging label <code>AWSPENDING</code> from the partially created
+    /// version, specified by the <code>VersionId</code> response value. We recommend you
+    /// also evaluate the partially rotated new version to see if it should be deleted. You
+    /// can delete a version by removing all staging labels from it.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "SECSecretRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.CancelRotateSecretResponse")]
@@ -79,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret to cancel a rotation request. You can specify either the Amazon
-        /// Resource Name (ARN) or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

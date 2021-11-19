@@ -87,10 +87,20 @@ $FNSP_Completers = {
             break
         }
 
-        # Amazon.FinSpaceData.FormatType
-        "New-FNSPChangeset/FormatType"
+        # Amazon.FinSpaceData.DatasetKind
         {
-            $v = "CSV","JSON","PARQUET","XML"
+            ($_ -eq "New-FNSPDataset/Kind") -Or
+            ($_ -eq "Update-FNSPDataset/Kind")
+        }
+        {
+            $v = "NON_TABULAR","TABULAR"
+            break
+        }
+
+        # Amazon.FinSpaceData.ExportFileFormat
+        "New-FNSPDataView/DestinationTypeParams_S3DestinationExportFileFormat"
+        {
+            $v = "DELIMITED_TEXT","PARQUET"
             break
         }
 
@@ -98,13 +108,6 @@ $FNSP_Completers = {
         "Get-FNSPWorkingLocation/LocationType"
         {
             $v = "INGESTION","SAGEMAKER"
-            break
-        }
-
-        # Amazon.FinSpaceData.SourceType
-        "New-FNSPChangeset/SourceType"
-        {
-            $v = "S3"
             break
         }
 
@@ -118,9 +121,9 @@ $FNSP_Completers = {
 
 $FNSP_map = @{
     "ChangeType"=@("New-FNSPChangeset")
-    "FormatType"=@("New-FNSPChangeset")
+    "DestinationTypeParams_S3DestinationExportFileFormat"=@("New-FNSPDataView")
+    "Kind"=@("New-FNSPDataset","Update-FNSPDataset")
     "LocationType"=@("Get-FNSPWorkingLocation")
-    "SourceType"=@("New-FNSPChangeset")
 }
 
 _awsArgumentCompleterRegistration $FNSP_Completers $FNSP_map
@@ -174,8 +177,19 @@ $FNSP_SelectCompleters = {
 
 $FNSP_SelectMap = @{
     "Select"=@("New-FNSPChangeset",
+               "New-FNSPDataset",
+               "New-FNSPDataView",
+               "Remove-FNSPDataset",
+               "Get-FNSPChangeset",
+               "Get-FNSPDataset",
+               "Get-FNSPDataView",
                "Get-FNSPProgrammaticAccessCredential",
-               "Get-FNSPWorkingLocation")
+               "Get-FNSPWorkingLocation",
+               "Get-FNSPChangesetList",
+               "Get-FNSPDatasetList",
+               "Get-FNSPDataViewList",
+               "Update-FNSPChangeset",
+               "Update-FNSPDataset")
 }
 
 _awsArgumentCompleterRegistration $FNSP_SelectCompleters $FNSP_SelectMap

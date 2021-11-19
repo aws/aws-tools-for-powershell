@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The LexModelsV2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Lex Model Building V2 from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBV2BotList', 
         'Get-LMBV2BotLocale', 
         'Get-LMBV2BotLocaleList', 
+        'Get-LMBV2BotRecommendation', 
+        'Get-LMBV2BotRecommendationList', 
         'Get-LMBV2BotVersion', 
         'Get-LMBV2BotVersionList', 
         'Get-LMBV2BuiltInIntentList', 
@@ -104,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBV2ImportList', 
         'Get-LMBV2Intent', 
         'Get-LMBV2IntentList', 
+        'Get-LMBV2RecommendedIntentList', 
         'Get-LMBV2ResourcePolicy', 
         'Get-LMBV2ResourceTag', 
         'Get-LMBV2Slot', 
@@ -135,10 +138,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMBV2Slot', 
         'Remove-LMBV2SlotType', 
         'Remove-LMBV2Utterance', 
+        'Search-LMBV2AssociatedTranscript', 
+        'Start-LMBV2BotRecommendation', 
         'Start-LMBV2Import', 
         'Update-LMBV2Bot', 
         'Update-LMBV2BotAlias', 
         'Update-LMBV2BotLocale', 
+        'Update-LMBV2BotRecommendation', 
         'Update-LMBV2Export', 
         'Update-LMBV2Intent', 
         'Update-LMBV2ResourcePolicy', 

@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSSchemaCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>The domain for the schema. If you are creating a schema for a dataset in a Domain
+        /// dataset group, specify the domain you chose when you created the Domain dataset group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Personalize.Domain")]
+        public Amazon.Personalize.Domain Domain { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -135,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.Schema;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Domain = this.Domain;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -165,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateSchemaRequest();
             
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -234,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Personalize.Domain Domain { get; set; }
             public System.String Name { get; set; }
             public System.String Schema { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSchemaResponse, NewPERSSchemaCmdlet, object> Select { get; set; } =

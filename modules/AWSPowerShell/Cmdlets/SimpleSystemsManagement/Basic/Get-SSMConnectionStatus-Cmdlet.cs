@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the Session Manager connection status for an instance to determine whether
+    /// Retrieves the Session Manager connection status for a managed node to determine whether
     /// it is running and ready to receive Session Manager connections.
     /// </summary>
     [Cmdlet("Get", "SSMConnectionStatus")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The managed node ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

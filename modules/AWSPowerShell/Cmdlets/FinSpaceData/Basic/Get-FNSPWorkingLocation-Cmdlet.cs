@@ -28,8 +28,8 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// A temporary Amazon S3 location to copy your files from a source location to stage
-    /// or use as a scratch space in Habanero notebook.
+    /// A temporary Amazon S3 location, where you can copy your files from a source location
+    /// to stage or use as a scratch space in FinSpace notebook.
     /// </summary>
     [Cmdlet("Get", "FNSPWorkingLocation")]
     [OutputType("Amazon.FinSpaceData.Model.GetWorkingLocationResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         /// <para>
         /// <para>Specify the type of the working location.</para><ul><li><para><code>SAGEMAKER</code> - Use the Amazon S3 location as a temporary location to store
         /// data content when working with FinSpace Notebooks that run on SageMaker studio.</para></li><li><para><code>INGESTION</code> - Use the Amazon S3 location as a staging location to copy
-        /// your data content and then use the location with the changeset creation operation.</para></li></ul>
+        /// your data content and then use the location with the Changeset creation operation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

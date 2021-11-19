@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  <note><para>
     /// Updating a Dashboard creates a new dashboard version but does not immediately publish
     /// the new version. You can update the published version of a dashboard by using the
-    /// <a>UpdateDashboardPublishedVersion</a> API operation.
+    /// <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html">UpdateDashboardPublishedVersion</a></code> API operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

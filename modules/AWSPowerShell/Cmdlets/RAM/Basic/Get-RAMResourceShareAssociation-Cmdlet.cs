@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Gets the resources or principals for the resource shares that you own.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the resource and principal associations for resource shares that you own.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMResourceShareAssociation")]
     [OutputType("Amazon.RAM.Model.ResourceShareAssociation")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter AssociationStatus
         /// <summary>
         /// <para>
-        /// <para>The association status.</para>
+        /// <para>Specifies that you want to retrieve only associations with this status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter AssociationType
         /// <summary>
         /// <para>
-        /// <para>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
-        /// associated with the specified resource share. Specify <code>RESOURCE</code> to list
-        /// the resources that are associated with the specified resource share.</para>
+        /// <para>Specifies whether you want to retrieve the associations that involve a specified resource
+        /// or principal.</para><ul><li><para><code>PRINCIPAL</code> – list the principals that are associated with the specified
+        /// resource share.</para></li><li><para><code>RESOURCE</code> – list the resources that are associated with the specified
+        /// resource share.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal. You cannot specify this parameter if the association type is <code>RESOURCE</code>.</para>
+        /// <para>Specifies the ID of the principal whose resource shares you want to retrieve. This
+        /// can be an Amazon Web Services account ID, an organization ID, an organizational unit
+        /// ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of an individual IAM user or role.</para><para>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter
-        /// if the association type is <code>PRINCIPAL</code>.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of the resource whose resource shares you want to retrieve.</para><para>You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resource shares.</para>
+        /// <para>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a> of the resource share whose associations you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// <para>Specifies the total number of results that you want included on each page of the response.
+        /// If you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// response element is returned with a value (not null). Include the specified value
+        /// as the <code>NextToken</code> request parameter in the next call to the operation
+        /// to get the next part of the results. Note that the service might return fewer results
+        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -123,7 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
+        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
+        /// that more output is available. Set this parameter to the value provided by the previous
+        /// call's <code>NextToken</code> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

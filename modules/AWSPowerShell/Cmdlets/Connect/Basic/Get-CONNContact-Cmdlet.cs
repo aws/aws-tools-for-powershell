@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// Describes the specified contact. 
     /// </para><important><para>
-    /// Contact information is available in Amazon Connect for 24 months, and then it is deleted.
+    /// Contact information remains available in Amazon Connect for 24 months, and then it
+    /// is deleted.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the initial contact.</para>
+        /// <para>The identifier of the contact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

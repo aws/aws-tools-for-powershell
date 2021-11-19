@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Indicates whether connected clusters are included in the returned list. Default value
-        /// is 'ALL'.</para>
+        /// <para>Indicates whether external clusters are included in the returned list. Use '<code>all</code>'
+        /// to return connected clusters, or blank to return only Amazon EKS clusters. '<code>all</code>'
+        /// must be in lowercase otherwise an error occurs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

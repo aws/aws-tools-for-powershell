@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
     /// </para><ol><li><para>
-    /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
+    /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
     /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
     /// </para></li><li><para>
     /// (Optional) Create a notification target and an IAM role. The target can be either
@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// or terminate.
     /// </para></li><li><para><b>If you need more time, record the lifecycle action heartbeat to keep the instance
     /// in a pending state.</b></para></li><li><para>
-    /// If you finish before the timeout period ends, complete the lifecycle action.
+    /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+    /// API call.
     /// </para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
     /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.

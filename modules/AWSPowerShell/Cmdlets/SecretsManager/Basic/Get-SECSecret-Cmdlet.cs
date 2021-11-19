@@ -28,23 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Retrieves the details of a secret. It does not include the encrypted fields. Secrets
-    /// Manager only returns fields populated with a value in the response. 
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:DescribeSecret
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To create a secret, use <a>CreateSecret</a>.
-    /// </para></li><li><para>
-    /// To modify a secret, use <a>UpdateSecret</a>.
-    /// </para></li><li><para>
-    /// To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.
-    /// </para></li><li><para>
-    /// To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.
-    /// </para></li></ul>
+    /// Retrieves the details of a secret. It does not include the encrypted secret value.
+    /// Secrets Manager only returns fields that have a value in the response.
     /// </summary>
     [Cmdlet("Get", "SECSecret")]
     [OutputType("Amazon.SecretsManager.Model.DescribeSecretResponse")]
@@ -58,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the secret whose details you want to retrieve. You can specify either
-        /// the Amazon Resource Name (ARN) or the friendly name of the secret.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret. </para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

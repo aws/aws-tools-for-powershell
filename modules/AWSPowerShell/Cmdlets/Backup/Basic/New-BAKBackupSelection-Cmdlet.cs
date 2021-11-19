@@ -29,22 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Creates a JSON document that specifies a set of resources to assign to a backup plan.
-    /// Resources can be included by specifying patterns for a <code>ListOfTags</code> and
-    /// selected <code>Resources</code>. 
-    /// 
-    ///  
-    /// <para>
-    /// For example, consider the following patterns:
-    /// </para><ul><li><para><code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code></para></li><li><para><code>ConditionKey:"department"</code></para><para><code>ConditionValue:"finance"</code></para><para><code>ConditionType:"StringEquals"</code></para></li><li><para><code>ConditionKey:"importance"</code></para><para><code>ConditionValue:"critical"</code></para><para><code>ConditionType:"StringEquals"</code></para></li></ul><para>
-    /// Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
-    /// that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
-    /// in addition to an EBS volume with the specified volume ID.
-    /// </para><para>
-    /// Resources and conditions are additive in that all resources that match the pattern
-    /// are selected. This shouldn't be confused with a logical AND, where all conditions
-    /// must match. The matching patterns are logically put together using the OR operator.
-    /// In other words, all patterns that match are selected for backup.
-    /// </para>
+    /// For examples, see <a href="https://docs.aws.amazon.com/assigning-resources.html#assigning-resources-json">Assigning
+    /// resources programmatically</a>.
     /// </summary>
     [Cmdlet("New", "BAKBackupSelection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.CreateBackupSelectionResponse")]
@@ -76,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and allows failed requests to be retried
-        /// without the risk of running the operation twice.</para>
+        /// without the risk of running the operation twice. This parameter is optional.</para><para>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_ListOfTag
         /// <summary>
         /// <para>
-        /// <para>An array of conditions used to specify a set of resources to assign to a backup plan;
-        /// for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.
-        /// Assigns the backup plan to every resource with at least one matching tag.</para>
+        /// <para>A list of conditions that you define to assign resources to your backup plans using
+        /// tags. For example, <code>"StringEquals": {"Department": "accounting"</code>. Condition
+        /// operators are case sensitive.</para><para><code>ListOfTags</code> differs from <code>Conditions</code> as follows:</para><ul><li><para>When you specify more than one condition, you assign all resources that match AT LEAST
+        /// ONE condition (using OR logic).</para></li><li><para><code>ListOfTags</code> only supports <code>StringEquals</code>. <code>Conditions</code>
+        /// supports <code>StringEquals</code>, <code>StringLike</code>, <code>StringNotEquals</code>,
+        /// and <code>StringNotLike</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_NotResource
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum
+        /// number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to exclude many resources from a backup plan, consider a different resource
+        /// selection strategy, such as assigning only one or a few resource types or refining
+        /// your resource selection using tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_Resource
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contain Amazon Resource Names (ARNs) of resources to assign
-        /// to a backup plan.</para>
+        /// <para>A list of Amazon Resource Names (ARNs) to assign to a backup plan. The maximum number
+        /// of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to assign many resources to a backup plan, consider a different resource
+        /// selection strategy, such as assigning all resources of a resource type or refining
+        /// your resource selection using tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_SelectionName
         /// <summary>
         /// <para>
-        /// <para>The display name of a resource selection document.</para>
+        /// <para>The display name of a resource selection document. Must contain 1 to 50 alphanumeric
+        /// or '-_.' characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Conditions_StringEqual
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters the values of your tagged resources for only those resources that you tagged
+        /// with the same value. Also called "exact matching."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Conditions_StringLike
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters the values of your tagged resources for matching tag values with the use of
+        /// a wildcard character (*) anywhere in the string. For example, "prod*" or "*rod*" matches
+        /// the tag value "production".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Conditions_StringNotEqual
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters the values of your tagged resources for only those resources that you tagged
+        /// that do not have the same value. Also called "negated matching."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Conditions_StringNotLike
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters the values of your tagged resources for non-matching tag values with the use
+        /// of a wildcard character (*) anywhere in the string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

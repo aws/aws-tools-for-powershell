@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_BackupPlanName
         /// <summary>
         /// <para>
-        /// <para>The optional display name of a backup plan.</para>
+        /// <para>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

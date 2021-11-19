@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>A list of one or more dashboard IDs that you want to add to a session that includes
         /// anonymous users. The <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code>
         /// for this to work, because other identity types authenticate as Amazon QuickSight or
-        /// IAMusers. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
+        /// IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
         /// dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.
         /// </para>
         /// </para>
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
         /// identity type. You can use this for any Amazon QuickSight users in your account (readers,
-        /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAMusers and IAMrole-based sessions authenticated through Federated Single Sign-On
-        /// using SAML, OpenID Connect, or IAMfederation.</para></li></ul><para>Omit this parameter for users in the third group – IAMusers and IAM role-based sessions.</para>
+        /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
+        /// using SAML, OpenID Connect, or IAM federation.</para></li></ul><para>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalInferenceSpecificationsToAdd
+        /// <summary>
+        /// <para>
+        /// <para>An array of additional Inference Specification objects to be added to the existing
+        /// array additional Inference Specification. Total number of additional Inference Specifications
+        /// can not exceed 15. Each additional Inference Specification specifies artifacts based
+        /// on this model package that can be used on inference endpoints. Generally used with
+        /// SageMaker Neo to store the compiled artifacts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition[] AdditionalInferenceSpecificationsToAdd { get; set; }
+        #endregion
+        
         #region Parameter ApprovalDescription
         /// <summary>
         /// <para>
@@ -160,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.ModelPackageArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalInferenceSpecificationsToAdd != null)
+            {
+                context.AdditionalInferenceSpecificationsToAdd = new List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition>(this.AdditionalInferenceSpecificationsToAdd);
+            }
             context.ApprovalDescription = this.ApprovalDescription;
             if (this.CustomerMetadataProperty != null)
             {
@@ -197,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateModelPackageRequest();
             
+            if (cmdletContext.AdditionalInferenceSpecificationsToAdd != null)
+            {
+                request.AdditionalInferenceSpecificationsToAdd = cmdletContext.AdditionalInferenceSpecificationsToAdd;
+            }
             if (cmdletContext.ApprovalDescription != null)
             {
                 request.ApprovalDescription = cmdletContext.ApprovalDescription;
@@ -278,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecificationsToAdd { get; set; }
             public System.String ApprovalDescription { get; set; }
             public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
             public List<System.String> CustomerMetadataPropertiesToRemove { get; set; }

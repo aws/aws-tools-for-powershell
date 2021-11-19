@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
     /// Creates a Device Advisor test suite.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTDASuiteDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse")]
@@ -42,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_DevicePermissionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Gets device permission arn.</para>
+        /// <para>Gets the device permission ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

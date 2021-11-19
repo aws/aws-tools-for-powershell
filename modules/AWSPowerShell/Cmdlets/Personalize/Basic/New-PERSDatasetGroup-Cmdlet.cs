@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSDatasetGroupCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>The domain of the dataset group. Specify a domain to create a Domain dataset group.
+        /// The domain you specify determines the default schemas for datasets and the use cases
+        /// available for recommenders. If you don't specify a domain, you create a Custom dataset
+        /// group with solution versions that you deploy with a campaign. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Personalize.Domain")]
+        public Amazon.Personalize.Domain Domain { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
@@ -141,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Domain = this.Domain;
             context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
@@ -166,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateDatasetGroupRequest();
             
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
             if (cmdletContext.KmsKeyArn != null)
             {
                 request.KmsKeyArn = cmdletContext.KmsKeyArn;
@@ -239,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Personalize.Domain Domain { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }

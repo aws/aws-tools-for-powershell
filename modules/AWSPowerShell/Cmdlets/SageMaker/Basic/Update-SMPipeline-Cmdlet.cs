@@ -40,6 +40,37 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMPipelineCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter PipelineDefinitionS3Location_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>Name of the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineDefinitionS3Location_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter ParallelismConfiguration_MaxParallelExecutionStep
+        /// <summary>
+        /// <para>
+        /// <para>The max number of steps that can be executed in parallel. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParallelismConfiguration_MaxParallelExecutionSteps")]
+        public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
+        #endregion
+        
+        #region Parameter PipelineDefinitionS3Location_ObjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The object key (or key name) uniquely identifies the object in an S3 bucket. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineDefinitionS3Location_ObjectKey { get; set; }
+        #endregion
+        
         #region Parameter PipelineDefinition
         /// <summary>
         /// <para>
@@ -95,6 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter PipelineDefinitionS3Location_VersionId
+        /// <summary>
+        /// <para>
+        /// <para>Version Id of the pipeline definition file. If not specified, Amazon SageMaker will
+        /// retrieve the latest version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineDefinitionS3Location_VersionId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -158,7 +200,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.PipelineName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ParallelismConfiguration_MaxParallelExecutionStep = this.ParallelismConfiguration_MaxParallelExecutionStep;
             context.PipelineDefinition = this.PipelineDefinition;
+            context.PipelineDefinitionS3Location_Bucket = this.PipelineDefinitionS3Location_Bucket;
+            context.PipelineDefinitionS3Location_ObjectKey = this.PipelineDefinitionS3Location_ObjectKey;
+            context.PipelineDefinitionS3Location_VersionId = this.PipelineDefinitionS3Location_VersionId;
             context.PipelineDescription = this.PipelineDescription;
             context.PipelineDisplayName = this.PipelineDisplayName;
             context.PipelineName = this.PipelineName;
@@ -185,9 +231,67 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdatePipelineRequest();
             
+            
+             // populate ParallelismConfiguration
+            var requestParallelismConfigurationIsNull = true;
+            request.ParallelismConfiguration = new Amazon.SageMaker.Model.ParallelismConfiguration();
+            System.Int32? requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep = null;
+            if (cmdletContext.ParallelismConfiguration_MaxParallelExecutionStep != null)
+            {
+                requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep = cmdletContext.ParallelismConfiguration_MaxParallelExecutionStep.Value;
+            }
+            if (requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep != null)
+            {
+                request.ParallelismConfiguration.MaxParallelExecutionSteps = requestParallelismConfiguration_parallelismConfiguration_MaxParallelExecutionStep.Value;
+                requestParallelismConfigurationIsNull = false;
+            }
+             // determine if request.ParallelismConfiguration should be set to null
+            if (requestParallelismConfigurationIsNull)
+            {
+                request.ParallelismConfiguration = null;
+            }
             if (cmdletContext.PipelineDefinition != null)
             {
                 request.PipelineDefinition = cmdletContext.PipelineDefinition;
+            }
+            
+             // populate PipelineDefinitionS3Location
+            var requestPipelineDefinitionS3LocationIsNull = true;
+            request.PipelineDefinitionS3Location = new Amazon.SageMaker.Model.PipelineDefinitionS3Location();
+            System.String requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_Bucket = null;
+            if (cmdletContext.PipelineDefinitionS3Location_Bucket != null)
+            {
+                requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_Bucket = cmdletContext.PipelineDefinitionS3Location_Bucket;
+            }
+            if (requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_Bucket != null)
+            {
+                request.PipelineDefinitionS3Location.Bucket = requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_Bucket;
+                requestPipelineDefinitionS3LocationIsNull = false;
+            }
+            System.String requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_ObjectKey = null;
+            if (cmdletContext.PipelineDefinitionS3Location_ObjectKey != null)
+            {
+                requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_ObjectKey = cmdletContext.PipelineDefinitionS3Location_ObjectKey;
+            }
+            if (requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_ObjectKey != null)
+            {
+                request.PipelineDefinitionS3Location.ObjectKey = requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_ObjectKey;
+                requestPipelineDefinitionS3LocationIsNull = false;
+            }
+            System.String requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_VersionId = null;
+            if (cmdletContext.PipelineDefinitionS3Location_VersionId != null)
+            {
+                requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_VersionId = cmdletContext.PipelineDefinitionS3Location_VersionId;
+            }
+            if (requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_VersionId != null)
+            {
+                request.PipelineDefinitionS3Location.VersionId = requestPipelineDefinitionS3Location_pipelineDefinitionS3Location_VersionId;
+                requestPipelineDefinitionS3LocationIsNull = false;
+            }
+             // determine if request.PipelineDefinitionS3Location should be set to null
+            if (requestPipelineDefinitionS3LocationIsNull)
+            {
+                request.PipelineDefinitionS3Location = null;
             }
             if (cmdletContext.PipelineDescription != null)
             {
@@ -266,7 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
             public System.String PipelineDefinition { get; set; }
+            public System.String PipelineDefinitionS3Location_Bucket { get; set; }
+            public System.String PipelineDefinitionS3Location_ObjectKey { get; set; }
+            public System.String PipelineDefinitionS3Location_VersionId { get; set; }
             public System.String PipelineDescription { get; set; }
             public System.String PipelineDisplayName { get; set; }
             public System.String PipelineName { get; set; }

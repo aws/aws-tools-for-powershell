@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueOwnerAWSAccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the account that created the queue.</para>
+        /// <para>The Amazon Web Services account ID of the account that created the queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

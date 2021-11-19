@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter SafetyRuleArn
         /// <summary>
         /// <para>
-        /// <para>The request body that you include when you update a safety rule.</para>
+        /// <para>The ARN of the safety rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

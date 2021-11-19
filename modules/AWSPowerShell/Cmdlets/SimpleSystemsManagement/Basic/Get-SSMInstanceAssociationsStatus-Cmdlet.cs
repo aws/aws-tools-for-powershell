@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// The status of the associations for the instance(s).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The status of the associations for the managed node(s).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceAssociationsStatus")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceAssociationStatusInfo")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs for which you want association status information.</para>
+        /// <para>The managed node IDs for which you want association status information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

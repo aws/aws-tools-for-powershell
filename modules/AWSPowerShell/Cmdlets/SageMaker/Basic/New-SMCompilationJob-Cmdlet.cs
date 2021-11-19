@@ -186,14 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><code>OutputConfig:CompilerOptions</code></a>. For example:</para><ul><li><para><code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code></para></li><li><para><code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputConfig_DataInputConfig { get; set; }
         #endregion
         
@@ -203,13 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Identifies the framework in which the model was trained. For example: TENSORFLOW.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.Framework")]
         public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
         #endregion
@@ -217,10 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_FrameworkVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the framework version to use.</para><para>This API field is only supported for PyTorch framework versions <code>1.4</code>,
-        /// <code>1.5</code>, and <code>1.6</code> for cloud instance target devices: <code>ml_c4</code>,
-        /// <code>ml_c5</code>, <code>ml_m4</code>, <code>ml_m5</code>, <code>ml_p2</code>, <code>ml_p3</code>,
-        /// and <code>ml_g4dn</code>.</para>
+        /// <para>Specifies the framework version to use. This API field is only supported for the PyTorch
+        /// and TensorFlow frameworks.</para><para>For information about framework versions supported for cloud targets and edge devices,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud
+        /// Supported Instance Types and Frameworks</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge
+        /// Supported Frameworks</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,6 +258,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StoppingCondition_MaxWaitTimeInSeconds")]
         public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageVersionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a versioned model package. Provide either a <code>ModelPackageVersionArn</code>
+        /// or an <code>InputConfig</code> object in the request syntax. The presence of both
+        /// objects in the <code>CreateCompilationJob</code> request will return an exception.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPackageVersionArn { get; set; }
         #endregion
         
         #region Parameter TargetPlatform_Os
@@ -332,14 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// This path must point to a single gzip compressed tar archive (.tar.gz suffix).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputConfig_S3Uri { get; set; }
         #endregion
         
@@ -464,27 +457,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.InputConfig_DataInputConfig = this.InputConfig_DataInputConfig;
-            #if MODULAR
-            if (this.InputConfig_DataInputConfig == null && ParameterWasBound(nameof(this.InputConfig_DataInputConfig)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputConfig_DataInputConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InputConfig_Framework = this.InputConfig_Framework;
-            #if MODULAR
-            if (this.InputConfig_Framework == null && ParameterWasBound(nameof(this.InputConfig_Framework)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputConfig_Framework which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InputConfig_FrameworkVersion = this.InputConfig_FrameworkVersion;
             context.InputConfig_S3Uri = this.InputConfig_S3Uri;
-            #if MODULAR
-            if (this.InputConfig_S3Uri == null && ParameterWasBound(nameof(this.InputConfig_S3Uri)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ModelPackageVersionArn = this.ModelPackageVersionArn;
             context.OutputConfig_CompilerOption = this.OutputConfig_CompilerOption;
             context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.OutputConfig_S3OutputLocation = this.OutputConfig_S3OutputLocation;
@@ -587,6 +563,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfigIsNull)
             {
                 request.InputConfig = null;
+            }
+            if (cmdletContext.ModelPackageVersionArn != null)
+            {
+                request.ModelPackageVersionArn = cmdletContext.ModelPackageVersionArn;
             }
             
              // populate OutputConfig
@@ -814,6 +794,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
             public System.String InputConfig_FrameworkVersion { get; set; }
             public System.String InputConfig_S3Uri { get; set; }
+            public System.String ModelPackageVersionArn { get; set; }
             public System.String OutputConfig_CompilerOption { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }

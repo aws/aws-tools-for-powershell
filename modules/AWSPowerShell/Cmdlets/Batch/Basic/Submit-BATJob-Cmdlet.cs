@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. The first character must be alphanumeric, and up to 128 letters
-        /// (uppercase and lowercase), numbers, hyphens, and underscores are allowed.</para>
+        /// <para>The name of the job. It can be up to 128 letters long. The first character must be
+        /// alphanumeric, can contain uppercase and lowercase letters, numbers, hyphens (-), and
+        /// underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

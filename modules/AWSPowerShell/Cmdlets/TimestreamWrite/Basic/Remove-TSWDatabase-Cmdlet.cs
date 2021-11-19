@@ -29,12 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
     /// Deletes a given Timestream database. <i>This is an irreversible operation. After a
-    /// database is deleted, the time series data from its tables cannot be recovered.</i><para>
+    /// database is deleted, the time series data from its tables cannot be recovered.</i><note><para>
     /// All tables in the database must be deleted first, or a ValidationException error will
     /// be thrown. 
     /// </para><para>
     /// Due to the nature of distributed retries, the operation can return either success
     /// or a ResourceNotFoundException. Clients should consider them equivalent.
+    /// </para></note><para>
+    /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html">code
+    /// sample</a> for details.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "TSWDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

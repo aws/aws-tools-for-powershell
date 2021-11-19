@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// ARN of your CloudWatch Logs resource, such as a log group or log stream.</para><para>CloudWatch Logs also supports <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a>
         /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount">aws:SourceAccount</a>
         /// condition context keys.</para><para>In the example resource policy, you would replace the value of <code>SourceArn</code>
-        /// with the resource making the call from Route 53 to CloudWatch Logs and replace the
+        /// with the resource making the call from Route 53 to CloudWatch Logs and replace the
         /// value of <code>SourceAccount</code> with the Amazon Web Services account ID making
         /// that call.</para><para><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs",
         /// "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":

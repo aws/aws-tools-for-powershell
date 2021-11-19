@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Braket module of AWS Tools for PowerShell lets developers and administrators manage Amazon Braket from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -88,12 +88,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-BRKTResourceTag', 
         'Get-BRKTDevice', 
+        'Get-BRKTJob', 
         'Get-BRKTQuantumTask', 
         'Get-BRKTResourceTag', 
+        'New-BRKTJob', 
         'New-BRKTQuantumTask', 
         'Remove-BRKTResourceTag', 
         'Search-BRKTDevice', 
+        'Search-BRKTJob', 
         'Search-BRKTQuantumTask', 
+        'Stop-BRKTJob', 
         'Stop-BRKTQuantumTask')
 
     # Variables to export from this module

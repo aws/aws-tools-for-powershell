@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// <note><para>
     ///  This operation creates a legacy predictor that does not include all the predictor
     /// functionalities provided by Amazon Forecast. To create a predictor that is compatible
-    /// with all aspects of Forecast, use CreateAutoPredictor.
+    /// with all aspects of Forecast, use <a>CreateAutoPredictor</a>.
     /// </para></note><para>
     /// Creates an Amazon Forecast predictor.
     /// </para><para>

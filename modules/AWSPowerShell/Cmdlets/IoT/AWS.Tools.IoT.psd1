@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The IoT module of AWS Tools for PowerShell lets developers and administrators manage AWS IoT from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -151,6 +151,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTJobTemplate', 
         'Get-IOTJobTemplateList', 
         'Get-IOTLoggingOption', 
+        'Get-IOTManagedJobTemplate', 
+        'Get-IOTManagedJobTemplateList', 
         'Get-IOTMitigationAction', 
         'Get-IOTMitigationActionList', 
         'Get-IOTOTAUpdate', 

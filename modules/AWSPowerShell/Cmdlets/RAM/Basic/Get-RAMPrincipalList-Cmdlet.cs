@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the principals that you have shared resources with or that have shared resources
+    /// Lists the principals that you are sharing resources with or that are sharing resources
     /// with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMPrincipalList")]
@@ -44,7 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principals.</para>
+        /// <para>Specifies that you want to list information for only the listed principals.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <code>123456789012</code></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code></para></li><li><para>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code></para></li><li><para>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
+        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>Specifies that you want to list principal information for the resource share with
+        /// the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resoure Name (ARN)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
-        /// <para>The type of owner.</para>
+        /// <para>Specifies that you want to list information for only resource shares that match the
+        /// following:</para><ul><li><para><b><code>SELF</code></b> – resources that you are sharing</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – resources that other accounts share with you</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resource shares.</para>
+        /// <para>Specifies that you want to list information for only principals associated with the
+        /// resource shares specified by a list the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,18 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code>
-        /// | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code>
-        /// | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code>
-        /// | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code>
-        /// | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code>
-        /// | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code>
-        /// | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code>
-        /// | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code>
-        /// | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code>
-        /// | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code>
-        /// | <code>route53resolver:ResolverRule</code> | <code>s3-outposts:Outpost</code> | <code>ssm-contacts:Contact</code>
-        /// | <code>ssm-incidents:ResponsePlan</code></para>
+        /// <para>Specifies that you want to list information for only principals associated with resource
+        /// shares that include the specified resource type.</para><para>For a list of valid values, query the <a>ListResourceTypes</a> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// <para>Specifies the total number of results that you want included on each page of the response.
+        /// If you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// response element is returned with a value (not null). Include the specified value
+        /// as the <code>NextToken</code> request parameter in the next call to the operation
+        /// to get the next part of the results. Note that the service might return fewer results
+        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -132,7 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
+        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
+        /// that more output is available. Set this parameter to the value provided by the previous
+        /// call's <code>NextToken</code> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

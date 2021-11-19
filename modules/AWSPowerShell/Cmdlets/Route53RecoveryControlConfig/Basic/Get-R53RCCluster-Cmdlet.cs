@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the cluster that you're getting details for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

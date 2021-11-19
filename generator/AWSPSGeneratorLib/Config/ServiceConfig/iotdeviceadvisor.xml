@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSuiteDefinition" OutputProperty="*" Verb="Get" Noun="SuiteDefinition" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

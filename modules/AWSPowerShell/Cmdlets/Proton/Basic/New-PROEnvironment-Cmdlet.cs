@@ -28,10 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Deploy a new environment. An AWS Proton environment is created from an environment
-    /// template that defines infrastructure and resources that can be shared across services.
-    /// For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-    /// in the <i>AWS Proton Administrator Guide.</i>
+    /// Amazon.Proton.IAmazonProton.CreateEnvironment
     /// </summary>
     [Cmdlet("New", "PROEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Environment")]
@@ -42,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     )]
     public partial class NewPROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
+        
+        #region Parameter ProvisioningRepository_Branch
+        /// <summary>
+        /// <para>
+        /// <para>The repository branch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningRepository_Branch { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -59,8 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>The ID of the environment account connection that you provide if you're provisioning
         /// your environment infrastructure resources to an environment account. You must include
         /// either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and value. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.</para>
+        /// parameter and value and omit the <code>provisioningRepository</code> parameter and
+        /// values. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton Administrator guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,16 +92,38 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProvisioningRepository_Name
+        /// <summary>
+        /// <para>
+        /// <para>The repository name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningRepository_Name { get; set; }
+        #endregion
+        
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton
-        /// to make calls to other services on your behalf. You must include either the <code>environmentAccountConnectionId</code>
-        /// or <code>protonServiceRoleArn</code> parameter and value.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
+        /// calls to other services on your behalf. You must include either the <code>environmentAccountConnectionId</code>
+        /// or <code>protonServiceRoleArn</code> parameter and value and omit the <code>provisioningRepository</code>
+        /// parameter when you use standard provisioning.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProtonServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningRepository_Provider
+        /// <summary>
+        /// <para>
+        /// <para>The repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Proton.RepositoryProvider")]
+        public Amazon.Proton.RepositoryProvider ProvisioningRepository_Provider { get; set; }
         #endregion
         
         #region Parameter Spec
@@ -101,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>A link to a YAML formatted spec file that provides inputs as defined in the environment
         /// template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-        /// in the <i>AWS Proton Administrator Guide</i>.</para>
+        /// in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,10 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your environment. For more information, see <i>AWS Proton resources
-        /// and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
-        /// Proton User Guide</a>.</para>
+        /// <para>Create tags for your environment. For more information, see <i>Proton resources and
+        /// tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// User Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMajorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the major version of the environment template.</para>
+        /// <para>The major version of the environment template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMinorVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the minor version of the environment template.</para>
+        /// <para>The minor version of the environment template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
-        /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.</para>
+        /// Templates</a> in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -245,6 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #endif
             context.ProtonServiceRoleArn = this.ProtonServiceRoleArn;
+            context.ProvisioningRepository_Branch = this.ProvisioningRepository_Branch;
+            context.ProvisioningRepository_Name = this.ProvisioningRepository_Name;
+            context.ProvisioningRepository_Provider = this.ProvisioningRepository_Provider;
             context.Spec = this.Spec;
             #if MODULAR
             if (this.Spec == null && ParameterWasBound(nameof(this.Spec)))
@@ -302,6 +335,45 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.ProtonServiceRoleArn != null)
             {
                 request.ProtonServiceRoleArn = cmdletContext.ProtonServiceRoleArn;
+            }
+            
+             // populate ProvisioningRepository
+            var requestProvisioningRepositoryIsNull = true;
+            request.ProvisioningRepository = new Amazon.Proton.Model.RepositoryBranchInput();
+            System.String requestProvisioningRepository_provisioningRepository_Branch = null;
+            if (cmdletContext.ProvisioningRepository_Branch != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Branch = cmdletContext.ProvisioningRepository_Branch;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Branch != null)
+            {
+                request.ProvisioningRepository.Branch = requestProvisioningRepository_provisioningRepository_Branch;
+                requestProvisioningRepositoryIsNull = false;
+            }
+            System.String requestProvisioningRepository_provisioningRepository_Name = null;
+            if (cmdletContext.ProvisioningRepository_Name != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Name = cmdletContext.ProvisioningRepository_Name;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Name != null)
+            {
+                request.ProvisioningRepository.Name = requestProvisioningRepository_provisioningRepository_Name;
+                requestProvisioningRepositoryIsNull = false;
+            }
+            Amazon.Proton.RepositoryProvider requestProvisioningRepository_provisioningRepository_Provider = null;
+            if (cmdletContext.ProvisioningRepository_Provider != null)
+            {
+                requestProvisioningRepository_provisioningRepository_Provider = cmdletContext.ProvisioningRepository_Provider;
+            }
+            if (requestProvisioningRepository_provisioningRepository_Provider != null)
+            {
+                request.ProvisioningRepository.Provider = requestProvisioningRepository_provisioningRepository_Provider;
+                requestProvisioningRepositoryIsNull = false;
+            }
+             // determine if request.ProvisioningRepository should be set to null
+            if (requestProvisioningRepositoryIsNull)
+            {
+                request.ProvisioningRepository = null;
             }
             if (cmdletContext.Spec != null)
             {
@@ -388,6 +460,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String EnvironmentAccountConnectionId { get; set; }
             public System.String Name { get; set; }
             public System.String ProtonServiceRoleArn { get; set; }
+            public System.String ProvisioningRepository_Branch { get; set; }
+            public System.String ProvisioningRepository_Name { get; set; }
+            public Amazon.Proton.RepositoryProvider ProvisioningRepository_Provider { get; set; }
             public System.String Spec { get; set; }
             public List<Amazon.Proton.Model.Tag> Tag { get; set; }
             public System.String TemplateMajorVersion { get; set; }

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// </para></li><li><para><code>StartDateTime</code> - Only valid when TimePointGranularity is “SPECIFIC”.
     /// </para></li><li><para><code>EndDateTime</code> - Only valid when TimePointGranularity is “SPECIFIC”.
     /// </para></li></ul><para><b>CreateExplainability with a Forecast ARN</b></para><note><para>
-    /// You can specify a maximum of 50 time series and 1500 time points.
+    /// You can specify a maximum of 50 time series and 500 time points.
     /// </para></note><para>
     /// The following parameters are required when providing a Predictor ARN:
     /// </para><ul><li><para><code>ExplainabilityName</code> - A unique name for the Explainability.
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
-        /// time point for the Explainability.</para>
+        /// time point for the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
-        /// point for the Explainability.</para>
+        /// point for the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

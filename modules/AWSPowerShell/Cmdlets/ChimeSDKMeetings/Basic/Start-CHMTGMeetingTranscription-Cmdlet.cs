@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter EngineTranscribeSettings_ContentIdentificationType
         /// <summary>
         /// <para>
-        /// <para>Set this field to <code>PII</code> to identify personal health information in the
-        /// transcription output.</para>
+        /// <para>Set this field to <code>PII</code> to identify personally identifiable information
+        /// in the transcription output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <para>
         /// <para>Set this field to <code>PII</code> to redact personally identifiable information in
         /// the transcription output. Content redaction is performed only upon complete transcription
-        /// of the audio segments.</para><para>You can’t set both <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>
+        /// of the audio segments.</para><para>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>
         /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
         /// </para>
         /// </summary>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <summary>
         /// <para>
         /// <para>Lists the PII entity types you want to identify or redact. To specify entity types,
-        /// you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</para><para><code>PIIEntityTypes</code> must be comma-separated. The available values are: <code>BANK_ACCOUNT_NUMBER</code>,
+        /// you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</para><para>PIIEntityTypes must be comma-separated. The available values are: <code>BANK_ACCOUNT_NUMBER</code>,
         /// <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
         /// <code>PIN</code>, <code>EMAIL</code>, <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
         /// <code>SSN</code>, and <code>ALL</code>.</para><para><code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</para>

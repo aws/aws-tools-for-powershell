@@ -69,6 +69,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.Field[] ThingIndexingConfiguration_CustomField { get; set; }
         #endregion
         
+        #region Parameter ThingIndexingConfiguration_DeviceDefenderIndexingMode
+        /// <summary>
+        /// <para>
+        /// <para>Device Defender indexing mode. Valid values are:</para><ul><li><para>VIOLATIONS – Your thing index contains Device Defender violations. To enable Device
+        /// Defender indexing, <i>deviceDefenderIndexingMode</i> must not be set to OFF.</para></li><li><para>OFF - Device Defender indexing is disabled.</para></li></ul><para>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device
+        /// Defender Detect.</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.DeviceDefenderIndexingMode")]
+        public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
+        #endregion
+        
         #region Parameter ThingGroupIndexingConfiguration_ManagedField
         /// <summary>
         /// <para>
@@ -91,6 +104,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ThingIndexingConfiguration_ManagedFields")]
         public Amazon.IoT.Model.Field[] ThingIndexingConfiguration_ManagedField { get; set; }
+        #endregion
+        
+        #region Parameter ThingIndexingConfiguration_NamedShadowIndexingMode
+        /// <summary>
+        /// <para>
+        /// <para>Named shadow indexing mode. Valid values are:</para><ul><li><para>ON – Your thing index contains named shadow. To enable thing named shadow indexing,
+        /// <i>namedShadowIndexingMode</i> must not be set to OFF.</para></li><li><para>OFF - Named shadow indexing is disabled.</para></li></ul><para>For more information about Shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT
+        /// Device Shadow service.</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.NamedShadowIndexingMode")]
+        public Amazon.IoT.NamedShadowIndexingMode ThingIndexingConfiguration_NamedShadowIndexingMode { get; set; }
         #endregion
         
         #region Parameter ThingIndexingConfiguration_ThingConnectivityIndexingMode
@@ -200,10 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.ThingIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_CustomField);
             }
+            context.ThingIndexingConfiguration_DeviceDefenderIndexingMode = this.ThingIndexingConfiguration_DeviceDefenderIndexingMode;
             if (this.ThingIndexingConfiguration_ManagedField != null)
             {
                 context.ThingIndexingConfiguration_ManagedField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_ManagedField);
             }
+            context.ThingIndexingConfiguration_NamedShadowIndexingMode = this.ThingIndexingConfiguration_NamedShadowIndexingMode;
             context.ThingIndexingConfiguration_ThingConnectivityIndexingMode = this.ThingIndexingConfiguration_ThingConnectivityIndexingMode;
             context.ThingIndexingConfiguration_ThingIndexingMode = this.ThingIndexingConfiguration_ThingIndexingMode;
             
@@ -275,6 +303,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.ThingIndexingConfiguration.CustomFields = requestThingIndexingConfiguration_thingIndexingConfiguration_CustomField;
                 requestThingIndexingConfigurationIsNull = false;
             }
+            Amazon.IoT.DeviceDefenderIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_DeviceDefenderIndexingMode = null;
+            if (cmdletContext.ThingIndexingConfiguration_DeviceDefenderIndexingMode != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_DeviceDefenderIndexingMode = cmdletContext.ThingIndexingConfiguration_DeviceDefenderIndexingMode;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_DeviceDefenderIndexingMode != null)
+            {
+                request.ThingIndexingConfiguration.DeviceDefenderIndexingMode = requestThingIndexingConfiguration_thingIndexingConfiguration_DeviceDefenderIndexingMode;
+                requestThingIndexingConfigurationIsNull = false;
+            }
             List<Amazon.IoT.Model.Field> requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField = null;
             if (cmdletContext.ThingIndexingConfiguration_ManagedField != null)
             {
@@ -283,6 +321,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField != null)
             {
                 request.ThingIndexingConfiguration.ManagedFields = requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField;
+                requestThingIndexingConfigurationIsNull = false;
+            }
+            Amazon.IoT.NamedShadowIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_NamedShadowIndexingMode = null;
+            if (cmdletContext.ThingIndexingConfiguration_NamedShadowIndexingMode != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_NamedShadowIndexingMode = cmdletContext.ThingIndexingConfiguration_NamedShadowIndexingMode;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_NamedShadowIndexingMode != null)
+            {
+                request.ThingIndexingConfiguration.NamedShadowIndexingMode = requestThingIndexingConfiguration_thingIndexingConfiguration_NamedShadowIndexingMode;
                 requestThingIndexingConfigurationIsNull = false;
             }
             Amazon.IoT.ThingConnectivityIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode = null;
@@ -375,7 +423,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.Field> ThingGroupIndexingConfiguration_ManagedField { get; set; }
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_CustomField { get; set; }
+            public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_ManagedField { get; set; }
+            public Amazon.IoT.NamedShadowIndexingMode ThingIndexingConfiguration_NamedShadowIndexingMode { get; set; }
             public Amazon.IoT.ThingConnectivityIndexingMode ThingIndexingConfiguration_ThingConnectivityIndexingMode { get; set; }
             public Amazon.IoT.ThingIndexingMode ThingIndexingConfiguration_ThingIndexingMode { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateIndexingConfigurationResponse, UpdateIOTIndexingConfigurationCmdlet, object> Select { get; set; } =

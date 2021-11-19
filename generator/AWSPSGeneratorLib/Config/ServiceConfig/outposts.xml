@@ -19,11 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelOrder" Verb="Stop" Noun="Order" ShouldProcessTarget="OrderId" PipelineParameter="OrderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOrder" OutputProperty="Order" Verb="New" Noun="Order" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,11 +43,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCatalogItem" OutputProperty="CatalogItem" Verb="Get" Noun="CatalogItem" PipelineParameter="CatalogItemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrder" OutputProperty="Order" Verb="Get" Noun="Order" PipelineParameter="OrderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOutpost" OutputProperty="Outpost" Verb="Get" Noun="Outpost" PipelineParameter="OutpostId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOutpostInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostInstanceType" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSite" OutputProperty="Site" Verb="Get" Noun="Site" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSiteAddress" OutputProperty="*" Verb="Get" Noun="SiteAddress" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCatalogItems" OutputProperty="CatalogItems" Verb="Get" Noun="CatalogItemList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrders" OutputProperty="Orders" Verb="Get" Noun="OrderList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -60,6 +92,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOutpost" OutputProperty="Outpost" Verb="Update" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSite" OutputProperty="Site" Verb="Update" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSiteAddress" OutputProperty="*" Verb="Update" Noun="SiteAddress" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSiteRackPhysicalProperties" OutputProperty="Site" Verb="Update" Noun="SiteRackPhysicalProperty" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

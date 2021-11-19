@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes an existing IAMpolicy assignment.
+    /// Deletes an existing IAM policy assignment.
     /// </summary>
     [Cmdlet("Remove", "QSIAMPolicyAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID where you want to delete the IAMpolicy assignment.</para>
+        /// <para>The Amazon Web Services account ID where you want to delete the IAM policy assignment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

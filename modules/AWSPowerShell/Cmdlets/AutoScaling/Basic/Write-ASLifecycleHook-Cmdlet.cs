@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance
-    /// when the instance launches (before it is put into service) or as the instance terminates
-    /// (before it is fully terminated).
+    /// A lifecycle hook enables an Auto Scaling group to be aware of events in the Auto Scaling
+    /// instance lifecycle, and then perform a custom action when the corresponding lifecycle
+    /// event occurs.
     /// </para><para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
     /// </para><ol><li><para>
-    /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
+    /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
     /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
     /// </para></li><li><para>
     /// (Optional) Create a notification target and an IAM role. The target can be either
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
     /// in a pending state using the <a>RecordLifecycleActionHeartbeat</a> API call.
     /// </para></li><li><para>
-    /// If you finish before the timeout period ends, complete the lifecycle action using
-    /// the <a>CompleteLifecycleAction</a> API call.
+    /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+    /// API call.
     /// </para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
     /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.

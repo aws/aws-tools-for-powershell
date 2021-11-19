@@ -119,6 +119,13 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.ReservedNodeExchangeActionType
+        "Get-RSReservedNodeExchangeConfigurationOption/ActionType"
+        {
+            $v = "resize-cluster","restore-cluster"
+            break
+        }
+
         # Amazon.Redshift.ScheduledActionTypeValues
         "Get-RSScheduledAction/TargetActionType"
         {
@@ -176,7 +183,7 @@ $RS_Completers = {
 }
 
 $RS_map = @{
-    "ActionType"=@("Get-RSNodeConfigurationOption")
+    "ActionType"=@("Get-RSNodeConfigurationOption","Get-RSReservedNodeExchangeConfigurationOption")
     "AquaConfigurationStatus"=@("Edit-RSAquaConfiguration","New-RSCluster","Restore-RSFromClusterSnapshot")
     "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
     "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
@@ -306,6 +313,7 @@ $RS_SelectMap = @{
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
                "Get-RSPartner",
+               "Get-RSReservedNodeExchangeStatus",
                "Get-RSReservedNodeOffering",
                "Get-RSReservedNode",
                "Get-RSResize",
@@ -322,6 +330,7 @@ $RS_SelectMap = @{
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
+               "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Edit-RSAquaConfiguration",
                "Edit-RSAuthenticationProfile",

@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
         /// <summary>
         /// <para>
-        /// <para>Defines if tests should be executed when building this image.</para>
+        /// <para>Determines if tests should run after building the image. Image Builder defaults to
+        /// enable tests to run following the image build, before image distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

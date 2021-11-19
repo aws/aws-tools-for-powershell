@@ -57,6 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalInferenceSpecification
+        /// <summary>
+        /// <para>
+        /// <para>An array of additional Inference Specification objects. Each additional Inference
+        /// Specification specifies artifacts based on this model package that can be used on
+        /// inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalInferenceSpecifications")]
+        public Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition[] AdditionalInferenceSpecification { get; set; }
+        #endregion
+        
         #region Parameter CertifyForMarketplace
         /// <summary>
         /// <para>
@@ -87,6 +101,123 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InferenceSpecification_Containers")]
         public Amazon.SageMaker.Model.ModelPackageContainerDefinition[] InferenceSpecification_Container { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Bias_ConfigFile_ContentDigest
+        /// <summary>
+        /// <para>
+        /// <para>The digest of the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigFile_ContentDigest")]
+        public System.String DriftCheckBaselines_Bias_ConfigFile_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingConstraints_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PostTrainingConstraints_ContentDigest")]
+        public System.String PostTrainingConstraints_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingConstraints_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PreTrainingConstraints_ContentDigest")]
+        public System.String PreTrainingConstraints_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_ConfigFile_ContentDigest
+        /// <summary>
+        /// <para>
+        /// <para>The digest of the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_Explainability_ConfigFile_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_Constraints_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Constraints_ContentDigest")]
+        public System.String DriftCheckBaselines_Explainability_Constraints_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Statistics_ContentDigest")]
+        public System.String DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Constraints_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Constraints_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Statistics_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Statistics_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingReport_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PostTrainingReport_ContentDigest")]
+        public System.String PostTrainingReport_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingReport_ContentDigest
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PreTrainingReport_ContentDigest")]
+        public System.String PreTrainingReport_ContentDigest { get; set; }
         #endregion
         
         #region Parameter ModelMetrics_Bias_Report_ContentDigest
@@ -150,6 +281,123 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelMetrics_ModelQuality_Statistics_ContentDigest { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Bias_ConfigFile_ContentType
+        /// <summary>
+        /// <para>
+        /// <para>The type of content stored in the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigFile_ContentType")]
+        public System.String DriftCheckBaselines_Bias_ConfigFile_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingConstraints_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PostTrainingConstraints_ContentType")]
+        public System.String PostTrainingConstraints_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingConstraints_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PreTrainingConstraints_ContentType")]
+        public System.String PreTrainingConstraints_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_ConfigFile_ContentType
+        /// <summary>
+        /// <para>
+        /// <para>The type of content stored in the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_Explainability_ConfigFile_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_Constraints_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Constraints_ContentType")]
+        public System.String DriftCheckBaselines_Explainability_Constraints_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelDataQuality_Constraints_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Statistics_ContentType")]
+        public System.String DriftCheckBaselines_ModelDataQuality_Statistics_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Constraints_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Constraints_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Statistics_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Statistics_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingReport_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PostTrainingReport_ContentType")]
+        public System.String PostTrainingReport_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingReport_ContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PreTrainingReport_ContentType")]
+        public System.String PreTrainingReport_ContentType { get; set; }
         #endregion
         
         #region Parameter ModelMetrics_Bias_Report_ContentType
@@ -224,6 +472,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CustomerMetadataProperties")]
         public System.Collections.Hashtable CustomerMetadataProperty { get; set; }
+        #endregion
+        
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>The machine learning domain of your model package and its components. Common machine
+        /// learning domains include computer vision and natural language processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Domain { get; set; }
         #endregion
         
         #region Parameter MetadataProperties_GeneratedBy
@@ -303,6 +562,123 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String MetadataProperties_Repository { get; set; }
         #endregion
         
+        #region Parameter DriftCheckBaselines_Bias_ConfigFile_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 URI for the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigFile_S3Uri")]
+        public System.String DriftCheckBaselines_Bias_ConfigFile_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingConstraints_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PostTrainingConstraints_S3Uri")]
+        public System.String PostTrainingConstraints_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingConstraints_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DriftCheckBaselines_Bias_PreTrainingConstraints_S3Uri")]
+        public System.String PreTrainingConstraints_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_ConfigFile_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 URI for the file source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_Explainability_ConfigFile_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_Explainability_Constraints_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Constraints_S3Uri")]
+        public System.String DriftCheckBaselines_Explainability_Constraints_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Statistics_S3Uri")]
+        public System.String DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Constraints_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Constraints_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DriftCheckBaselines_ModelQuality_Statistics_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DriftCheckBaselines_ModelQuality_Statistics_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter PostTrainingReport_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PostTrainingReport_S3Uri")]
+        public System.String PostTrainingReport_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter PreTrainingReport_S3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelMetrics_Bias_PreTrainingReport_S3Uri")]
+        public System.String PreTrainingReport_S3Uri { get; set; }
+        #endregion
+        
         #region Parameter ModelMetrics_Bias_Report_S3Uri
         /// <summary>
         /// <para>
@@ -364,6 +740,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelMetrics_ModelQuality_Statistics_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter SamplePayloadUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored.
+        /// This path must point to a single gzip compressed tar archive (.tar.gz suffix).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SamplePayloadUrl { get; set; }
         #endregion
         
         #region Parameter SourceAlgorithmSpecification_SourceAlgorithm
@@ -432,6 +819,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Task
+        /// <summary>
+        /// <para>
+        /// <para>The machine learning task your model package accomplishes. Common machine learning
+        /// tasks include object detection and image classification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Task { get; set; }
         #endregion
         
         #region Parameter ValidationSpecification_ValidationProfile
@@ -527,6 +925,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.ModelPackageName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalInferenceSpecification != null)
+            {
+                context.AdditionalInferenceSpecification = new List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition>(this.AdditionalInferenceSpecification);
+            }
             context.CertifyForMarketplace = this.CertifyForMarketplace;
             context.ClientToken = this.ClientToken;
             if (this.CustomerMetadataProperty != null)
@@ -537,6 +939,34 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.CustomerMetadataProperty.Add((String)hashKey, (String)(this.CustomerMetadataProperty[hashKey]));
                 }
             }
+            context.Domain = this.Domain;
+            context.DriftCheckBaselines_Bias_ConfigFile_ContentDigest = this.DriftCheckBaselines_Bias_ConfigFile_ContentDigest;
+            context.DriftCheckBaselines_Bias_ConfigFile_ContentType = this.DriftCheckBaselines_Bias_ConfigFile_ContentType;
+            context.DriftCheckBaselines_Bias_ConfigFile_S3Uri = this.DriftCheckBaselines_Bias_ConfigFile_S3Uri;
+            context.PostTrainingConstraints_ContentDigest = this.PostTrainingConstraints_ContentDigest;
+            context.PostTrainingConstraints_ContentType = this.PostTrainingConstraints_ContentType;
+            context.PostTrainingConstraints_S3Uri = this.PostTrainingConstraints_S3Uri;
+            context.PreTrainingConstraints_ContentDigest = this.PreTrainingConstraints_ContentDigest;
+            context.PreTrainingConstraints_ContentType = this.PreTrainingConstraints_ContentType;
+            context.PreTrainingConstraints_S3Uri = this.PreTrainingConstraints_S3Uri;
+            context.DriftCheckBaselines_Explainability_ConfigFile_ContentDigest = this.DriftCheckBaselines_Explainability_ConfigFile_ContentDigest;
+            context.DriftCheckBaselines_Explainability_ConfigFile_ContentType = this.DriftCheckBaselines_Explainability_ConfigFile_ContentType;
+            context.DriftCheckBaselines_Explainability_ConfigFile_S3Uri = this.DriftCheckBaselines_Explainability_ConfigFile_S3Uri;
+            context.DriftCheckBaselines_Explainability_Constraints_ContentDigest = this.DriftCheckBaselines_Explainability_Constraints_ContentDigest;
+            context.DriftCheckBaselines_Explainability_Constraints_ContentType = this.DriftCheckBaselines_Explainability_Constraints_ContentType;
+            context.DriftCheckBaselines_Explainability_Constraints_S3Uri = this.DriftCheckBaselines_Explainability_Constraints_S3Uri;
+            context.DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest = this.DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest;
+            context.DriftCheckBaselines_ModelDataQuality_Constraints_ContentType = this.DriftCheckBaselines_ModelDataQuality_Constraints_ContentType;
+            context.DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri = this.DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri;
+            context.DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest = this.DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest;
+            context.DriftCheckBaselines_ModelDataQuality_Statistics_ContentType = this.DriftCheckBaselines_ModelDataQuality_Statistics_ContentType;
+            context.DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri = this.DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri;
+            context.DriftCheckBaselines_ModelQuality_Constraints_ContentDigest = this.DriftCheckBaselines_ModelQuality_Constraints_ContentDigest;
+            context.DriftCheckBaselines_ModelQuality_Constraints_ContentType = this.DriftCheckBaselines_ModelQuality_Constraints_ContentType;
+            context.DriftCheckBaselines_ModelQuality_Constraints_S3Uri = this.DriftCheckBaselines_ModelQuality_Constraints_S3Uri;
+            context.DriftCheckBaselines_ModelQuality_Statistics_ContentDigest = this.DriftCheckBaselines_ModelQuality_Statistics_ContentDigest;
+            context.DriftCheckBaselines_ModelQuality_Statistics_ContentType = this.DriftCheckBaselines_ModelQuality_Statistics_ContentType;
+            context.DriftCheckBaselines_ModelQuality_Statistics_S3Uri = this.DriftCheckBaselines_ModelQuality_Statistics_S3Uri;
             if (this.InferenceSpecification_Container != null)
             {
                 context.InferenceSpecification_Container = new List<Amazon.SageMaker.Model.ModelPackageContainerDefinition>(this.InferenceSpecification_Container);
@@ -562,6 +992,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.MetadataProperties_ProjectId = this.MetadataProperties_ProjectId;
             context.MetadataProperties_Repository = this.MetadataProperties_Repository;
             context.ModelApprovalStatus = this.ModelApprovalStatus;
+            context.PostTrainingReport_ContentDigest = this.PostTrainingReport_ContentDigest;
+            context.PostTrainingReport_ContentType = this.PostTrainingReport_ContentType;
+            context.PostTrainingReport_S3Uri = this.PostTrainingReport_S3Uri;
+            context.PreTrainingReport_ContentDigest = this.PreTrainingReport_ContentDigest;
+            context.PreTrainingReport_ContentType = this.PreTrainingReport_ContentType;
+            context.PreTrainingReport_S3Uri = this.PreTrainingReport_S3Uri;
             context.ModelMetrics_Bias_Report_ContentDigest = this.ModelMetrics_Bias_Report_ContentDigest;
             context.ModelMetrics_Bias_Report_ContentType = this.ModelMetrics_Bias_Report_ContentType;
             context.ModelMetrics_Bias_Report_S3Uri = this.ModelMetrics_Bias_Report_S3Uri;
@@ -583,6 +1019,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelPackageDescription = this.ModelPackageDescription;
             context.ModelPackageGroupName = this.ModelPackageGroupName;
             context.ModelPackageName = this.ModelPackageName;
+            context.SamplePayloadUrl = this.SamplePayloadUrl;
             if (this.SourceAlgorithmSpecification_SourceAlgorithm != null)
             {
                 context.SourceAlgorithmSpecification_SourceAlgorithm = new List<Amazon.SageMaker.Model.SourceAlgorithm>(this.SourceAlgorithmSpecification_SourceAlgorithm);
@@ -591,6 +1028,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.Task = this.Task;
             if (this.ValidationSpecification_ValidationProfile != null)
             {
                 context.ValidationSpecification_ValidationProfile = new List<Amazon.SageMaker.Model.ModelPackageValidationProfile>(this.ValidationSpecification_ValidationProfile);
@@ -612,6 +1050,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateModelPackageRequest();
             
+            if (cmdletContext.AdditionalInferenceSpecification != null)
+            {
+                request.AdditionalInferenceSpecifications = cmdletContext.AdditionalInferenceSpecification;
+            }
             if (cmdletContext.CertifyForMarketplace != null)
             {
                 request.CertifyForMarketplace = cmdletContext.CertifyForMarketplace.Value;
@@ -623,6 +1065,484 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.CustomerMetadataProperty != null)
             {
                 request.CustomerMetadataProperties = cmdletContext.CustomerMetadataProperty;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
+            
+             // populate DriftCheckBaselines
+            var requestDriftCheckBaselinesIsNull = true;
+            request.DriftCheckBaselines = new Amazon.SageMaker.Model.DriftCheckBaselines();
+            Amazon.SageMaker.Model.DriftCheckExplainability requestDriftCheckBaselines_driftCheckBaselines_Explainability = null;
+            
+             // populate Explainability
+            var requestDriftCheckBaselines_driftCheckBaselines_ExplainabilityIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Explainability = new Amazon.SageMaker.Model.DriftCheckExplainability();
+            Amazon.SageMaker.Model.FileSource requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile = null;
+            
+             // populate ConfigFile
+            var requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFileIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile = new Amazon.SageMaker.Model.FileSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentDigest = cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFileIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentType = cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile.ContentType = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFileIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_S3Uri = cmdletContext.DriftCheckBaselines_Explainability_ConfigFile_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile_driftCheckBaselines_Explainability_ConfigFile_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFileIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFileIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability.ConfigFile = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConfigFile;
+                requestDriftCheckBaselines_driftCheckBaselines_ExplainabilityIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints = null;
+            
+             // populate Constraints
+            var requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConstraintsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentDigest = cmdletContext.DriftCheckBaselines_Explainability_Constraints_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentType = cmdletContext.DriftCheckBaselines_Explainability_Constraints_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints.ContentType = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_Explainability_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_S3Uri = cmdletContext.DriftCheckBaselines_Explainability_Constraints_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints_driftCheckBaselines_Explainability_Constraints_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConstraintsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_ConstraintsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability.Constraints = requestDriftCheckBaselines_driftCheckBaselines_Explainability_driftCheckBaselines_Explainability_Constraints;
+                requestDriftCheckBaselines_driftCheckBaselines_ExplainabilityIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Explainability should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ExplainabilityIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Explainability = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Explainability != null)
+            {
+                request.DriftCheckBaselines.Explainability = requestDriftCheckBaselines_driftCheckBaselines_Explainability;
+                requestDriftCheckBaselinesIsNull = false;
+            }
+            Amazon.SageMaker.Model.DriftCheckModelDataQuality requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality = null;
+            
+             // populate ModelDataQuality
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelDataQualityIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality = new Amazon.SageMaker.Model.DriftCheckModelDataQuality();
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints = null;
+            
+             // populate Constraints
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_ConstraintsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentDigest = cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentType = cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints.ContentType = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_S3Uri = cmdletContext.DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints_driftCheckBaselines_ModelDataQuality_Constraints_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_ConstraintsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_ConstraintsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality.Constraints = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Constraints;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQualityIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics = null;
+            
+             // populate Statistics
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_StatisticsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentDigest = cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_StatisticsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentType = cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics.ContentType = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_StatisticsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_S3Uri = cmdletContext.DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics_driftCheckBaselines_ModelDataQuality_Statistics_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_StatisticsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_StatisticsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality.Statistics = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality_driftCheckBaselines_ModelDataQuality_Statistics;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQualityIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQualityIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality != null)
+            {
+                request.DriftCheckBaselines.ModelDataQuality = requestDriftCheckBaselines_driftCheckBaselines_ModelDataQuality;
+                requestDriftCheckBaselinesIsNull = false;
+            }
+            Amazon.SageMaker.Model.DriftCheckModelQuality requestDriftCheckBaselines_driftCheckBaselines_ModelQuality = null;
+            
+             // populate ModelQuality
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelQualityIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelQuality = new Amazon.SageMaker.Model.DriftCheckModelQuality();
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints = null;
+            
+             // populate Constraints
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_ConstraintsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentDigest = cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentType = cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints.ContentType = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_ConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_S3Uri = cmdletContext.DriftCheckBaselines_ModelQuality_Constraints_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints_driftCheckBaselines_ModelQuality_Constraints_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_ConstraintsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_ConstraintsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality.Constraints = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Constraints;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQualityIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics = null;
+            
+             // populate Statistics
+            var requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_StatisticsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentDigest = cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_StatisticsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentType = cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics.ContentType = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_StatisticsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_S3Uri = cmdletContext.DriftCheckBaselines_ModelQuality_Statistics_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics_driftCheckBaselines_ModelQuality_Statistics_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_StatisticsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_StatisticsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality.Statistics = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality_driftCheckBaselines_ModelQuality_Statistics;
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQualityIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_ModelQuality should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQualityIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_ModelQuality = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_ModelQuality != null)
+            {
+                request.DriftCheckBaselines.ModelQuality = requestDriftCheckBaselines_driftCheckBaselines_ModelQuality;
+                requestDriftCheckBaselinesIsNull = false;
+            }
+            Amazon.SageMaker.Model.DriftCheckBias requestDriftCheckBaselines_driftCheckBaselines_Bias = null;
+            
+             // populate Bias
+            var requestDriftCheckBaselines_driftCheckBaselines_BiasIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Bias = new Amazon.SageMaker.Model.DriftCheckBias();
+            Amazon.SageMaker.Model.FileSource requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile = null;
+            
+             // populate ConfigFile
+            var requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFileIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile = new Amazon.SageMaker.Model.FileSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentDigest = null;
+            if (cmdletContext.DriftCheckBaselines_Bias_ConfigFile_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentDigest = cmdletContext.DriftCheckBaselines_Bias_ConfigFile_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFileIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentType = null;
+            if (cmdletContext.DriftCheckBaselines_Bias_ConfigFile_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentType = cmdletContext.DriftCheckBaselines_Bias_ConfigFile_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile.ContentType = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFileIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_S3Uri = null;
+            if (cmdletContext.DriftCheckBaselines_Bias_ConfigFile_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_S3Uri = cmdletContext.DriftCheckBaselines_Bias_ConfigFile_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile_driftCheckBaselines_Bias_ConfigFile_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFileIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFileIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias.ConfigFile = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_ConfigFile;
+                requestDriftCheckBaselines_driftCheckBaselines_BiasIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints = null;
+            
+             // populate PostTrainingConstraints
+            var requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraintsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentDigest = null;
+            if (cmdletContext.PostTrainingConstraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentDigest = cmdletContext.PostTrainingConstraints_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentType = null;
+            if (cmdletContext.PostTrainingConstraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentType = cmdletContext.PostTrainingConstraints_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints.ContentType = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_S3Uri = null;
+            if (cmdletContext.PostTrainingConstraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_S3Uri = cmdletContext.PostTrainingConstraints_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints_postTrainingConstraints_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraintsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraintsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias.PostTrainingConstraints = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PostTrainingConstraints;
+                requestDriftCheckBaselines_driftCheckBaselines_BiasIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints = null;
+            
+             // populate PreTrainingConstraints
+            var requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraintsIsNull = true;
+            requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentDigest = null;
+            if (cmdletContext.PreTrainingConstraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentDigest = cmdletContext.PreTrainingConstraints_ContentDigest;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentDigest != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints.ContentDigest = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentDigest;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentType = null;
+            if (cmdletContext.PreTrainingConstraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentType = cmdletContext.PreTrainingConstraints_ContentType;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentType != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints.ContentType = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_ContentType;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraintsIsNull = false;
+            }
+            System.String requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_S3Uri = null;
+            if (cmdletContext.PreTrainingConstraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_S3Uri = cmdletContext.PreTrainingConstraints_S3Uri;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_S3Uri != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints.S3Uri = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints_preTrainingConstraints_S3Uri;
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraintsIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraintsIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints != null)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias.PreTrainingConstraints = requestDriftCheckBaselines_driftCheckBaselines_Bias_driftCheckBaselines_Bias_PreTrainingConstraints;
+                requestDriftCheckBaselines_driftCheckBaselines_BiasIsNull = false;
+            }
+             // determine if requestDriftCheckBaselines_driftCheckBaselines_Bias should be set to null
+            if (requestDriftCheckBaselines_driftCheckBaselines_BiasIsNull)
+            {
+                requestDriftCheckBaselines_driftCheckBaselines_Bias = null;
+            }
+            if (requestDriftCheckBaselines_driftCheckBaselines_Bias != null)
+            {
+                request.DriftCheckBaselines.Bias = requestDriftCheckBaselines_driftCheckBaselines_Bias;
+                requestDriftCheckBaselinesIsNull = false;
+            }
+             // determine if request.DriftCheckBaselines should be set to null
+            if (requestDriftCheckBaselinesIsNull)
+            {
+                request.DriftCheckBaselines = null;
             }
             
              // populate InferenceSpecification
@@ -740,66 +1660,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate ModelMetrics
             var requestModelMetricsIsNull = true;
             request.ModelMetrics = new Amazon.SageMaker.Model.ModelMetrics();
-            Amazon.SageMaker.Model.Bias requestModelMetrics_modelMetrics_Bias = null;
-            
-             // populate Bias
-            var requestModelMetrics_modelMetrics_BiasIsNull = true;
-            requestModelMetrics_modelMetrics_Bias = new Amazon.SageMaker.Model.Bias();
-            Amazon.SageMaker.Model.MetricsSource requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = null;
-            
-             // populate Report
-            var requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = true;
-            requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = new Amazon.SageMaker.Model.MetricsSource();
-            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest = null;
-            if (cmdletContext.ModelMetrics_Bias_Report_ContentDigest != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest = cmdletContext.ModelMetrics_Bias_Report_ContentDigest;
-            }
-            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.ContentDigest = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest;
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
-            }
-            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType = null;
-            if (cmdletContext.ModelMetrics_Bias_Report_ContentType != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType = cmdletContext.ModelMetrics_Bias_Report_ContentType;
-            }
-            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.ContentType = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType;
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
-            }
-            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri = null;
-            if (cmdletContext.ModelMetrics_Bias_Report_S3Uri != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri = cmdletContext.ModelMetrics_Bias_Report_S3Uri;
-            }
-            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri != null)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.S3Uri = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri;
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
-            }
-             // determine if requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report should be set to null
-            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull)
-            {
-                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = null;
-            }
-            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report != null)
-            {
-                requestModelMetrics_modelMetrics_Bias.Report = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report;
-                requestModelMetrics_modelMetrics_BiasIsNull = false;
-            }
-             // determine if requestModelMetrics_modelMetrics_Bias should be set to null
-            if (requestModelMetrics_modelMetrics_BiasIsNull)
-            {
-                requestModelMetrics_modelMetrics_Bias = null;
-            }
-            if (requestModelMetrics_modelMetrics_Bias != null)
-            {
-                request.ModelMetrics.Bias = requestModelMetrics_modelMetrics_Bias;
-                requestModelMetricsIsNull = false;
-            }
             Amazon.SageMaker.Model.Explainability requestModelMetrics_modelMetrics_Explainability = null;
             
              // populate Explainability
@@ -1070,6 +1930,156 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ModelMetrics.ModelQuality = requestModelMetrics_modelMetrics_ModelQuality;
                 requestModelMetricsIsNull = false;
             }
+            Amazon.SageMaker.Model.Bias requestModelMetrics_modelMetrics_Bias = null;
+            
+             // populate Bias
+            var requestModelMetrics_modelMetrics_BiasIsNull = true;
+            requestModelMetrics_modelMetrics_Bias = new Amazon.SageMaker.Model.Bias();
+            Amazon.SageMaker.Model.MetricsSource requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport = null;
+            
+             // populate PostTrainingReport
+            var requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReportIsNull = true;
+            requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentDigest = null;
+            if (cmdletContext.PostTrainingReport_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentDigest = cmdletContext.PostTrainingReport_ContentDigest;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport.ContentDigest = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentDigest;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentType = null;
+            if (cmdletContext.PostTrainingReport_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentType = cmdletContext.PostTrainingReport_ContentType;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport.ContentType = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_ContentType;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_S3Uri = null;
+            if (cmdletContext.PostTrainingReport_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_S3Uri = cmdletContext.PostTrainingReport_S3Uri;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport.S3Uri = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport_postTrainingReport_S3Uri;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReportIsNull = false;
+            }
+             // determine if requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport should be set to null
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReportIsNull)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport = null;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport != null)
+            {
+                requestModelMetrics_modelMetrics_Bias.PostTrainingReport = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PostTrainingReport;
+                requestModelMetrics_modelMetrics_BiasIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport = null;
+            
+             // populate PreTrainingReport
+            var requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReportIsNull = true;
+            requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentDigest = null;
+            if (cmdletContext.PreTrainingReport_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentDigest = cmdletContext.PreTrainingReport_ContentDigest;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport.ContentDigest = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentDigest;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentType = null;
+            if (cmdletContext.PreTrainingReport_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentType = cmdletContext.PreTrainingReport_ContentType;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport.ContentType = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_ContentType;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_S3Uri = null;
+            if (cmdletContext.PreTrainingReport_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_S3Uri = cmdletContext.PreTrainingReport_S3Uri;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport.S3Uri = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport_preTrainingReport_S3Uri;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReportIsNull = false;
+            }
+             // determine if requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport should be set to null
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReportIsNull)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport = null;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport != null)
+            {
+                requestModelMetrics_modelMetrics_Bias.PreTrainingReport = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_PreTrainingReport;
+                requestModelMetrics_modelMetrics_BiasIsNull = false;
+            }
+            Amazon.SageMaker.Model.MetricsSource requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = null;
+            
+             // populate Report
+            var requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = true;
+            requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = new Amazon.SageMaker.Model.MetricsSource();
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest = null;
+            if (cmdletContext.ModelMetrics_Bias_Report_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest = cmdletContext.ModelMetrics_Bias_Report_ContentDigest;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.ContentDigest = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentDigest;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType = null;
+            if (cmdletContext.ModelMetrics_Bias_Report_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType = cmdletContext.ModelMetrics_Bias_Report_ContentType;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.ContentType = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_ContentType;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
+            }
+            System.String requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri = null;
+            if (cmdletContext.ModelMetrics_Bias_Report_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri = cmdletContext.ModelMetrics_Bias_Report_S3Uri;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri != null)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report.S3Uri = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report_modelMetrics_Bias_Report_S3Uri;
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull = false;
+            }
+             // determine if requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report should be set to null
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_ReportIsNull)
+            {
+                requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report = null;
+            }
+            if (requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report != null)
+            {
+                requestModelMetrics_modelMetrics_Bias.Report = requestModelMetrics_modelMetrics_Bias_modelMetrics_Bias_Report;
+                requestModelMetrics_modelMetrics_BiasIsNull = false;
+            }
+             // determine if requestModelMetrics_modelMetrics_Bias should be set to null
+            if (requestModelMetrics_modelMetrics_BiasIsNull)
+            {
+                requestModelMetrics_modelMetrics_Bias = null;
+            }
+            if (requestModelMetrics_modelMetrics_Bias != null)
+            {
+                request.ModelMetrics.Bias = requestModelMetrics_modelMetrics_Bias;
+                requestModelMetricsIsNull = false;
+            }
              // determine if request.ModelMetrics should be set to null
             if (requestModelMetricsIsNull)
             {
@@ -1086,6 +2096,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ModelPackageName != null)
             {
                 request.ModelPackageName = cmdletContext.ModelPackageName;
+            }
+            if (cmdletContext.SamplePayloadUrl != null)
+            {
+                request.SamplePayloadUrl = cmdletContext.SamplePayloadUrl;
             }
             
              // populate SourceAlgorithmSpecification
@@ -1109,6 +2123,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Task != null)
+            {
+                request.Task = cmdletContext.Task;
             }
             
              // populate ValidationSpecification
@@ -1200,9 +2218,38 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecification { get; set; }
             public System.Boolean? CertifyForMarketplace { get; set; }
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
+            public System.String Domain { get; set; }
+            public System.String DriftCheckBaselines_Bias_ConfigFile_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_Bias_ConfigFile_ContentType { get; set; }
+            public System.String DriftCheckBaselines_Bias_ConfigFile_S3Uri { get; set; }
+            public System.String PostTrainingConstraints_ContentDigest { get; set; }
+            public System.String PostTrainingConstraints_ContentType { get; set; }
+            public System.String PostTrainingConstraints_S3Uri { get; set; }
+            public System.String PreTrainingConstraints_ContentDigest { get; set; }
+            public System.String PreTrainingConstraints_ContentType { get; set; }
+            public System.String PreTrainingConstraints_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_Explainability_ConfigFile_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_Explainability_ConfigFile_ContentType { get; set; }
+            public System.String DriftCheckBaselines_Explainability_ConfigFile_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_Explainability_Constraints_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_Explainability_Constraints_ContentType { get; set; }
+            public System.String DriftCheckBaselines_Explainability_Constraints_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Constraints_ContentType { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Statistics_ContentType { get; set; }
+            public System.String DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Constraints_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Constraints_ContentType { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Constraints_S3Uri { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Statistics_ContentDigest { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Statistics_ContentType { get; set; }
+            public System.String DriftCheckBaselines_ModelQuality_Statistics_S3Uri { get; set; }
             public List<Amazon.SageMaker.Model.ModelPackageContainerDefinition> InferenceSpecification_Container { get; set; }
             public List<System.String> InferenceSpecification_SupportedContentType { get; set; }
             public List<System.String> InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }
@@ -1213,6 +2260,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String MetadataProperties_ProjectId { get; set; }
             public System.String MetadataProperties_Repository { get; set; }
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+            public System.String PostTrainingReport_ContentDigest { get; set; }
+            public System.String PostTrainingReport_ContentType { get; set; }
+            public System.String PostTrainingReport_S3Uri { get; set; }
+            public System.String PreTrainingReport_ContentDigest { get; set; }
+            public System.String PreTrainingReport_ContentType { get; set; }
+            public System.String PreTrainingReport_S3Uri { get; set; }
             public System.String ModelMetrics_Bias_Report_ContentDigest { get; set; }
             public System.String ModelMetrics_Bias_Report_ContentType { get; set; }
             public System.String ModelMetrics_Bias_Report_S3Uri { get; set; }
@@ -1234,8 +2287,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelPackageDescription { get; set; }
             public System.String ModelPackageGroupName { get; set; }
             public System.String ModelPackageName { get; set; }
+            public System.String SamplePayloadUrl { get; set; }
             public List<Amazon.SageMaker.Model.SourceAlgorithm> SourceAlgorithmSpecification_SourceAlgorithm { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.String Task { get; set; }
             public List<Amazon.SageMaker.Model.ModelPackageValidationProfile> ValidationSpecification_ValidationProfile { get; set; }
             public System.String ValidationSpecification_ValidationRole { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateModelPackageResponse, NewSMModelPackageCmdlet, object> Select { get; set; } =

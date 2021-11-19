@@ -360,9 +360,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The metadata to apply to the node group to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value, both of which you define. Node group
-        /// tags do not propagate to any other resources associated with the node group, such
-        /// as the Amazon EC2 instances or subnets.</para>
+        /// Each tag consists of a key and an optional value. You define both. Node group tags
+        /// do not propagate to any other resources associated with the node group, such as the
+        /// Amazon EC2 instances or subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

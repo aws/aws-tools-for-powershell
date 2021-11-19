@@ -28,10 +28,10 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Associate a list of client devices with a core device. Use this API operation to specify
-    /// which client devices can discover a core device through cloud discovery. With cloud
-    /// discovery, client devices connect to IoT Greengrass to retrieve associated core devices'
-    /// connectivity information and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure
+    /// Associates a list of client devices with a core device. Use this API operation to
+    /// specify which client devices can discover a core device through cloud discovery. With
+    /// cloud discovery, client devices connect to IoT Greengrass to retrieve associated core
+    /// devices' connectivity information and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure
     /// cloud discovery</a> in the <i>IoT Greengrass V2 Developer Guide</i>.
     /// 
     ///  <note><para>

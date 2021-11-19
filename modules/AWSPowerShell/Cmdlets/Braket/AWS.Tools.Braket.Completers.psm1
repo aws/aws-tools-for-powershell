@@ -75,6 +75,40 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Braket
 
 
+$BRKT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Braket.CompressionType
+        "New-BRKTJob/AlgorithmSpecification_ScriptModeConfig_CompressionType"
+        {
+            $v = "GZIP","NONE"
+            break
+        }
+
+        # Amazon.Braket.InstanceType
+        "New-BRKTJob/InstanceConfig_InstanceType"
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BRKT_map = @{
+    "AlgorithmSpecification_ScriptModeConfig_CompressionType"=@("New-BRKTJob")
+    "InstanceConfig_InstanceType"=@("New-BRKTJob")
+}
+
+_awsArgumentCompleterRegistration $BRKT_Completers $BRKT_map
+
 $BRKT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,12 +157,16 @@ $BRKT_SelectCompleters = {
 }
 
 $BRKT_SelectMap = @{
-    "Select"=@("Stop-BRKTQuantumTask",
+    "Select"=@("Stop-BRKTJob",
+               "Stop-BRKTQuantumTask",
+               "New-BRKTJob",
                "New-BRKTQuantumTask",
                "Get-BRKTDevice",
+               "Get-BRKTJob",
                "Get-BRKTQuantumTask",
                "Get-BRKTResourceTag",
                "Search-BRKTDevice",
+               "Search-BRKTJob",
                "Search-BRKTQuantumTask",
                "Add-BRKTResourceTag",
                "Remove-BRKTResourceTag")
