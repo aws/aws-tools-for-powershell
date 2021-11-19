@@ -2,6 +2,7 @@ class TestHelper
 {
     [string] $AccessKey
     [string] $SecretKey
+    [string] $Token
 
     TestHelper()
     {
@@ -13,7 +14,8 @@ class TestHelper
         $profile = $this.GetDefaultCredentialProfile()
         $this.AccessKey = $profile.Options.AccessKey
         $this.SecretKey = $profile.Options.SecretKey
-		
+        $this.Token = $profile.Options.Token
+
         # similar to the Set-DefaultAWSRegion cmdlet, except this sets the region globally
         Set-Variable "StoredAWSRegion" -Value "us-east-1" -Scope Global
     }
@@ -28,7 +30,7 @@ class TestHelper
     {
         [System.Diagnostics.Debugger]::Launch()
     }
-	
+
      [Amazon.Runtime.CredentialManagement.CredentialProfile] GetDefaultCredentialProfile()
      {
          $chain = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain)

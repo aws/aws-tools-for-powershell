@@ -22,14 +22,10 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
            $helper.ClearAllCreds()
         }
 
-        It "should fail with no credentials set" {
-            # unfortunately, this takes 15 seconds...
-            { Get-S3Bucket } | Should Throw "No credentials specified or obtained from persisted/shell defaults."
-        }
-
         It "should work with environment variables set" {
             $env:AWS_ACCESS_KEY_ID = $helper.AccessKey
             $env:AWS_SECRET_ACCESS_KEY = $helper.SecretKey
+            $env:AWS_SESSION_TOKEN = $helper.Token
             $env:AWS_REGION = $helper.Region
 
             $buckets = Get-S3Bucket
@@ -37,14 +33,14 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
         }
 
         It "should work with a default profile in the .net credentials file" {
-            $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $null)
+            $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $null, $helper.Token)
 
             $buckets = Get-S3Bucket
             $buckets.BucketName | Should BeGreaterThan 0
         }
 
         It "should work with a default profile in the shared credentials file" {
-            $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $helper.DefaultSharedPath)
+            $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $helper.DefaultSharedPath,  $helper.Token)
 
             $buckets = Get-S3Bucket
             $buckets.BucketName | Should BeGreaterThan 0
@@ -57,7 +53,7 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
         }
 
         It "should work with valid credentials from the shared credentials file in the default location" {
-            $helper.RegisterProfile("valid", $helper.AccessKey, $helper.SecretKey, $helper.DefaultSharedPath)
+            $helper.RegisterProfile("valid", $helper.AccessKey, $helper.SecretKey, $helper.DefaultSharedPath, $helper.Token)
 
             $buckets = Get-S3Bucket -ProfileName valid
             $buckets.BucketName | Should BeGreaterThan 0
@@ -70,14 +66,14 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
         }
 
         It "should work with valid credentials from the shared credentials file in a custom location" {
-            $helper.RegisterProfile("valid", $helper.AccessKey, $helper.SecretKey, $helper.CustomSharedPath)
+            $helper.RegisterProfile("valid", $helper.AccessKey, $helper.SecretKey, $helper.CustomSharedPath, $helper.Token)
 
             $buckets = Get-S3Bucket -ProfileName valid -ProfilesLocation $helper.CustomSharedPath
             $buckets.BucketName | Should BeGreaterThan 0
         }
 
         It "should work with basic credentials on the command line" {
-            $buckets = Get-S3Bucket -AccessKey $helper.AccessKey -SecretKey $helper.SecretKey
+            $buckets = Get-S3Bucket -AccessKey $helper.AccessKey -SecretKey $helper.SecretKey -SessionToken $helper.Token
             $buckets.BucketName | Should BeGreaterThan 0
         }
 

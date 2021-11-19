@@ -14,6 +14,10 @@ Describe -Tag "Smoke" "ImportExport" {
     Context "Jobs" {
 
         It "Can list jobs and get job status" {
+            # Get-IEJob can't be used here because it requires permanent credentials
+            if ($helper.Token -ne $null) {
+                return
+            }
             $jobs = Get-IEJob
             if ($jobs) {
                 $jobs.Count | Should BeGreaterThan 0

@@ -1,0 +1,25 @@
+name: AWS CodeBuild CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+
+permissions:
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
+          aws-region: us-west-2
+      - name: Run CodeBuild
+        uses: aws-actions/aws-codebuild-run-build@v1.0.3
+        with:
+          project-name: aws-tools-for-powershell-ci

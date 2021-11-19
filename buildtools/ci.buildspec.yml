@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+
+  pre_build:
+    commands:
+      - $role = aws sts assume-role --role-arn $env:TEST_RUNNER_ROLE_ARN --role-session-name test-runner --output json | ConvertFrom-Json
+      - aws configure set aws_access_key_id $role.Credentials.AccessKeyId --profile test-runner
+      - aws configure set aws_secret_access_key $role.Credentials.SecretAccessKey --profile test-runner
+      - aws configure set aws_session_token $role.Credentials.SessionToken --profile test-runner
+  build:
+    commands:
+      - msbuild buildtools\build.proj /t:run-tests /p:RunTests=true
