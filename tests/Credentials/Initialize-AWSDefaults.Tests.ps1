@@ -378,7 +378,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
 
         # Make sure the region-only version works and doesn't change the default profile
         It "should store a new region without affecting the default profile" {
-            $helper.RegisterProfile("default", $basicOptions.AccessKey, $basicOptions.SecretKey, "us-east-1", $null)
+            $helper.RegisterProfile("default", $basicOptions.AccessKey, $basicOptions.SecretKey, "us-east-1", $null, $null)
 
             Initialize-AWSDefaults -Region $testRegion
 
@@ -389,14 +389,14 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
         # make sure postional parameters work
         #
         It "should work with -ProfileName as a positional parameter" {
-            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $testRegion, $null)
+            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $testRegion, $null, $null)
             Initialize-AWSDefaults profile_name -Region $testRegion
 
             AssertDefaultsSet $null $basicOptions BasicAWSCredentials
         }
 
         It "should work with -ProfileName and -ProfileLocation as positional parameters" {
-            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $testRegion, $helper.CustomSharedPath)
+            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $testRegion, $helper.CustomSharedPath, $null)
 
             Initialize-AWSDefaults profile_name $helper.CustomSharedPath -Region $testRegion
 
@@ -404,7 +404,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
         }
 
         It "should work with -ProfileName, -ProfileLocation, and -Region as positional parameters" {
-            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $null, $helper.CustomSharedPath)
+            $helper.RegisterProfile("profile_name", $basicOptions.AccessKey, $basicOptions.SecretKey, $null, $helper.CustomSharedPath, $null)
 
             Initialize-AWSDefaults profile_name $helper.CustomSharedPath $testRegion
 

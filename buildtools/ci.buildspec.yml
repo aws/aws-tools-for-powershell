@@ -1,0 +1,28 @@
+version: 0.2
+env:
+  shell: powershell.exe
+phases:
+
+  install:
+    runtime-versions:
+      dotnet: 3.1
+    commands:
+      # Default Windows docker image doesn't come with NuGet provider, it must be added explicitly otherwise Install-Module will fail with below error
+      #  Install-Module : NuGet provider is required to interact with NuGet-based repositories. Please ensure that '2.8.5.201' or newer version of NuGet provider is installed.
+      - Find-PackageProvider -Name 'Nuget' -ForceBootstrap -IncludeDependencies
+      - Install-Module -Name Pester -RequiredVersion 4.8.1 -Scope AllUsers -Force -SkipPublisherCheck
+
+  pre_build:
+    commands:
+      - $role = aws sts assume-role --role-arn $env:TEST_RUNNER_ROLE_ARN --role-session-name test-runner --output json | ConvertFrom-Json
+      - aws configure set aws_access_key_id $role.Credentials.AccessKeyId --profile test-runner
+      - aws configure set aws_secret_access_key $role.Credentials.SecretAccessKey --profile test-runner
+      - aws configure set aws_session_token $role.Credentials.SessionToken --profile test-runner
+  build:
+    commands:
+      - msbuild buildtools\build.proj /t:full-build /p:RunTests=true
+
+artifacts:
+  files:
+    - BreakingChangesLookup.xml
+  name: artifact-$(Get-Date -UFormat %Y-%m-%d-T%H-%M-Z%Z).zip

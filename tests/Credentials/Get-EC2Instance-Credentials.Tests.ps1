@@ -24,11 +24,6 @@ Describe -Tag "Smoke","Disabled" "Get-EC2Instance-Credentials" {
           $helper.ClearAllCreds()
         }
 
-        It "should fail with no credentials set" {
-            # unfortunately, this takes 15 seconds...
-            { Get-EC2Instance } | Should Throw "No credentials specified or obtained from persisted/shell defaults."
-        }
-
         It "should work with environment variables set" {
             $env:AWS_ACCESS_KEY_ID = $helper.AccessKey
             $env:AWS_SECRET_ACCESS_KEY = $helper.SecretKey

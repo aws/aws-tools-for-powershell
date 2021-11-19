@@ -1,4 +1,4 @@
-<Project ToolsVersion="4.0" DefaultTargets="full-build" 
+<Project ToolsVersion="4.0" DefaultTargets="full-build"
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
@@ -41,7 +41,7 @@
 
         <!-- set to true to fail the build if new operations are present in the SDK, this can be used during release builds when all configurations are expected to be already committed -->
         <BreakOnNewOperations Condition="'$(BreakOnNewOperations)'==''">false</BreakOnNewOperations>
-        
+
         <!-- set to false to skip generating the release notes draft -->
         <DraftReleaseNotes Condition="'$(DraftReleaseNotes)'==''">true</DraftReleaseNotes>
 
@@ -68,7 +68,7 @@
     <Target Name="full-build" DependsOnTargets="clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests;save-build">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
-    
+
     <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp">
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
     </Target>
@@ -83,10 +83,12 @@
         <RemoveDir Directories="$(SDKAssembliesFolder)" />
         <MakeDir Directories="$(SDKAssembliesFolder)"/>
     </Target>
-    
+
     <Target Name="build-generator">
         <Message Text="Building AWS PowerShell generator"/>
-        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental ../solutions/AWSPowerShellGenerator.sln"/>    
+        <!-- Parallel restore randomly fails package certificate trust https://github.com/NuGet/Home/issues/10322 -->
+        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShellGenerator.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental --no-restore ../solutions/AWSPowerShellGenerator.sln"/>
     </Target>
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
@@ -100,12 +102,14 @@
 
     <Target Name="build-desktop-module" DependsOnTargets="create-cmdlets;build-netcore-module">
         <Message Text="Building AWSPowerShell desktop module edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f net45 --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
+        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f net45 --force --no-incremental --no-restore ../solutions/AWSPowerShell.sln"/>
     </Target>
 
     <Target Name="build-netcore-module" DependsOnTargets="create-cmdlets">
         <Message Text="Building AWSPowerShell netcore module edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
+        <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore ../solutions/AWSPowerShell.sln"/>
 
         <Message Text="Generating custom view formats ps1xml file"/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats -e coreclr" />
@@ -113,7 +117,8 @@
 
     <Target Name="build-modular-modules" DependsOnTargets="create-cmdlets">
         <Message Text="Building AWSPowerShell modular edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet restore --disable-parallel ../solutions/ModularAWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore ../solutions/ModularAWSPowerShell.sln"/>
     </Target>
 
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
@@ -157,7 +162,7 @@
 
     <Target Name="copy-desktop-artifacts" DependsOnTargets="build-netcore-module;build-desktop-module">
         <Message Text="Consolidating Desktop edition artifacts from $(DesktopBuildFolder) to $(DesktopDeploymentArtifacts)"/>
-       
+
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)/net45/AWSSDK.*.dll" />
         </ItemGroup>
@@ -207,12 +212,12 @@
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.XML" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
-        
+
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
     </Target>
 
     <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
-        <Exec Command="pwsh $(RootPath)/buildtools/CopyModularAWSPowerShell.ps1 $(RootPath) $(Configuration)"/>   
+        <Exec Command="pwsh $(RootPath)/buildtools/CopyModularAWSPowerShell.ps1 $(RootPath) $(Configuration)"/>
     </Target>
 
     <Target Name="copy-tests">
@@ -240,7 +245,7 @@
              reads this to know if it needs to update EC2 images during image prep. -->
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/awspowershell_versioninfo.json" DestinationFolder="$(RootPath)/Deployment" />
     </Target>
-  
+
     <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
         <PropertyGroup>
             <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/BuildScripts/Set-SignServiceSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
@@ -290,9 +295,10 @@
     <Target Name="save-build" DependsOnTargets="build-tools" Condition="Exists('$(InternalBuildTools)/references.targets')">
         <SaveBuildArtifactTask RepositoryRoot="$(MSBuildProjectDirectory)/.." BuildArtifactType="powershell" GitBranch="$(SaveReferenceGitBranch)" LocalArchiveRootFolder="$(LocalArchiveRootFolder)" />
     </Target>
-   
+
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
-        <Exec Command="dotnet build -c Release --no-incremental ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet build -c Release --no-incremental --no-restore ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/netcoreapp3.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml" />
         <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/netcoreapp3.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
     </Target>

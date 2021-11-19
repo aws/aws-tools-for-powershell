@@ -98,19 +98,11 @@ class CredentialsTestHelper : TestHelper
 
     [Void] MockInstanceMetadataServer()
     {
-        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_SVC", $null)
-        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_ROOT", $null)
-        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_USERDATA_ROOT", $null)
-        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_DYNAMICDATA_ROOT", $null)
         $this.MockMetadataField([Amazon.Runtime.InstanceProfileAWSCredentials], "Server", [Reflection.BindingFlags] "Static,NonPublic")
     }
 
     [Void] UnMockInstanceMetadataServer()
     {
-        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_SVC", $null)
-        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_ROOT", $null)
-        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_USERDATA_ROOT", $null)
-        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_DYNAMICDATA_ROOT", $null)
         $this.UnMockMetadataField([Amazon.Runtime.InstanceProfileAWSCredentials], "Server", [Reflection.BindingFlags] "Static,NonPublic")
     }
 
@@ -186,14 +178,25 @@ class CredentialsTestHelper : TestHelper
 
     [Void] RegisterProfile($profileName, $accessKey, $secretKey, $profilesLocation)
     {
-        $this.RegisterProfile($profileName, $accessKey, $secretKey, $null, $profilesLocation)
+        $this.RegisterProfile($profileName, $accessKey, $secretKey, $null, $profilesLocation, $null)
     }
 
-    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $region, $profilesLocation)
+    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $profilesLocation, $token)
+    {
+        $this.RegisterProfile($profileName, $accessKey, $secretKey, $null, $profilesLocation, $token)
+    }
+
+    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $region, $profilesLocation, $token)
     {
         [Amazon.Runtime.CredentialManagement.CredentialProfileOptions]$options = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileOptions)
         $options.AccessKey = $accessKey
         $options.SecretKey = $secretKey
+
+        if ($token -ne $null)
+        {
+            $options.Token = $token
+        }
+
         [Amazon.Runtime.CredentialManagement.CredentialProfile]$credentialProfile = New-Object -TypeName "Amazon.Runtime.CredentialManagement.CredentialProfile" ($profileName, $options)
 
         if ($region -ne $null)

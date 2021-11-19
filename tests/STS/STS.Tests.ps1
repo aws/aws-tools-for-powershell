@@ -12,8 +12,12 @@ Describe -Tag "Smoke" "STS" {
     }
 
     Context "Temporary Credentials" {
-
         It "Can get temporary credentials" {
+            # Get-STSSecurityToken can't be used here because it requires permanent credentials
+            if ($helper.Token -ne $null) {
+                return
+            }
+
             $creds = Get-STSSessionToken
             $creds | Should Not Be $null
             $creds.AccessKeyId | Should Not BeNullOrEmpty

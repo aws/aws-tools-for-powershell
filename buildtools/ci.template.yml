@@ -1,0 +1,158 @@
+Parameters:
+  GitHubOrg:
+    Type: String
+    Default: "aws"
+    Description: The GitHub organization to use for the repository.
+  GitHubRepositoryName:
+    Description: The name of the GitHub repository to create the role template in and to use for the CodeBuild.
+    Type: String
+    Default: "aws-tools-for-powershell"
+  OIDCProviderArn:
+    Description: Arn for the GitHub OIDC Provider.
+    Default: ""
+    Type: String
+  CodeBuildProjectName:
+    Description: Name of the CodeBuild project.
+    Default: "aws-tools-for-powershell-ci"
+    Type: String
+  CodeBuildArtifactsBucketName:
+    Description: Name of the buckets where the CodeBuild artifacts will be stored.
+    Default: "aws-tools-for-powershell-codebuild-artifacts"
+    Type: String
+  TestRunnerRoleArn:
+    Description: Role to run tests with.
+    Default: ""
+    Type: String
+  OidcRoleRoleName:
+    Description: Name of the role to use for the OIDC provider.
+    Default: "aws-tools-for-powershell-ci-role"
+    Type: String
+
+
+Conditions:
+  CreateOIDCProvider: !Equals
+    - !Ref OIDCProviderArn
+    - ""
+
+Resources:
+  OidcRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref OidcRoleRoleName
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: !If
+                - CreateOIDCProvider
+                - !Ref GithubOidc
+                - !Ref OIDCProviderArn
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrg}/${GitHubRepositoryName}:*
+      Policies:
+        - PolicyName: !Sub "${AWS::StackName}-OIDC-Policy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codebuild:StartBuild
+                  - codebuild:BatchGetBuilds
+                Resource:
+                  - !Sub arn:aws:codebuild:${AWS::Region}:${AWS::AccountId}:project/${CodeBuildProjectName}
+              - Effect: Allow
+                Action:
+                  - logs:GetLogEvents
+                Resource:
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${CodeBuildProjectName}:*
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectVersion
+                Resource:
+                  - !Sub "${CodeBuildArtifactsBucket.Arn}/*"
+
+  GithubOidc:
+    Type: AWS::IAM::OIDCProvider
+    Condition: CreateOIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      ThumbprintList:
+        - a031c46782e6e6c662c2c87c76da9aa62ccabd8e
+
+  CodeBuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: !Sub ${CodeBuildProjectName}
+      ServiceRole: !GetAtt CodeBuildProjectRole.Arn
+      Environment:
+        ComputeType: BUILD_GENERAL1_LARGE
+        Type: WINDOWS_SERVER_2019_CONTAINER
+        ImagePullCredentialsType: CODEBUILD
+        Image: aws/codebuild/windows-base:2019-1.0
+        EnvironmentVariables:
+        - Name: TEST_RUNNER_ROLE_ARN
+          Type: PLAINTEXT
+          Value: !Ref TestRunnerRoleArn
+      Source:
+        Type: GITHUB
+        Location: !Sub https://github.com/${GitHubOrg}/${GitHubRepositoryName}
+        BuildSpec: buildtools/ci.buildspec.yml
+      Artifacts:
+        Type: S3
+        Packaging: ZIP
+        Location: !GetAtt CodeBuildArtifactsBucket.Arn
+        OverrideArtifactName: true
+
+
+  CodeBuildProjectRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${CodeBuildProjectName}-codebuild-service-role
+      AssumeRolePolicyDocument:
+        Statement:
+        - Action: ['sts:AssumeRole']
+          Effect: Allow
+          Principal:
+            Service: [codebuild.amazonaws.com]
+        Version: '2012-10-17'
+      Path: /
+      Policies:
+        - PolicyName: !Sub "${AWS::StackName}-codebuild-service-role-policy"
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Action:
+                - 'logs:CreateLogGroup'
+                - 'logs:PutLogEvents'
+                - 'logs:CreateLogStream'
+                Effect: Allow
+                Resource:
+                  - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${CodeBuildProjectName}"
+                  - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${CodeBuildProjectName}:*"
+              - Action:
+                - 'sts:AssumeRole'
+                Effect: Allow
+                Resource:
+                  - !Ref TestRunnerRoleArn
+              - Action:
+                - 's3:PutObject'
+                Effect: Allow
+                Resource:
+                  - !Sub "${CodeBuildArtifactsBucket.Arn}/*"
+
+  CodeBuildArtifactsBucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Ref CodeBuildArtifactsBucketName
+
+Outputs:
+  OidcRole:
+    Value: !GetAtt OidcRole.Arn
+  CodeBuildProjectName:
+    Value: !Sub ${CodeBuildProjectName}

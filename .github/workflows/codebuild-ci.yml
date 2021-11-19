@@ -1,0 +1,47 @@
+name: AWS CodeBuild CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+      - main
+      - main-beta
+      - main-alpha
+      - main-dev
+
+permissions:
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
+          aws-region: us-west-2
+      - name: Run CodeBuild
+        id: codebuild
+        uses: aws-actions/aws-codebuild-run-build@v1.0.3
+        with:
+          project-name: ${{ secrets.CI_AWS_CODE_BUILD_PROJECT_NAME }}
+      - name: Check Breaking Changes
+        shell: pwsh
+        run: |
+          $buildId = "${{ steps.codebuild.outputs.aws-build-id }}"
+          $locationArn = aws codebuild batch-get-builds --ids $buildId --query "builds[0].artifacts.location" --output text
+          $location = ($locationArn -split ":::")[-1]
+          aws s3 cp s3://$location artifact.zip
+          Expand-Archive artifact.zip -DestinationPath .
+          Write-Host "BreakingChangesLookup.xml"
+          Get-Content BreakingChangesLookup.xml
+          [xml]$breakingChanges = Get-Content BreakingChangesLookup.xml
+          $services = $breakingChanges.SelectNodes("/Services")
+          if ($services.Item(0).HasChildNodes -eq $true) {
+              throw "This change contains breaking changes. Merge only if breaking changes are expected."
+          } else {
+              Write-Host "No breaking changes detected."
+          }
