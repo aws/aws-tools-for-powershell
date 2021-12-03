@@ -307,8 +307,8 @@ namespace AWSPowerShellGenerator.Analysis
             { "Media", null },
             { "Nfs", null },
             { "Status", null },
-
             { "Cookies", "Cookie" },    // pluralization service yields 'Cooky' 
+            { "Lens", null }            // service incorrectly treats as plural
         };
 
         /// <summary>
