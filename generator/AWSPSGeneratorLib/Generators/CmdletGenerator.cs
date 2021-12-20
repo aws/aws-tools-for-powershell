@@ -253,7 +253,8 @@ namespace AWSPowerShellGenerator.Generators
                 }
             }
 
-            VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder), ModelCollection);
+            var allFoundSdkAssemblies = GenerationSources.SDKFindAssemblyFilenames(SdkAssembliesFolder, Directory.EnumerateFiles);
+            VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder), ModelCollection, allFoundSdkAssemblies);
 
             if (!Options.SkipCmdletGeneration)
             {
@@ -299,11 +300,15 @@ namespace AWSPowerShellGenerator.Generators
 
         /// <summary>
         /// Verifies that all services included in the SDK's _sdk-version.json either have a
-        /// PowerShell configuration or were intentionally omitted.
+        /// PowerShell configuration or were intentionally omitted. Also ensures there is a 
+        /// configuration for not yet released services.
         /// </summary>
         /// <param name="sdkAssembliesFolder">location of the SDK assemblies to generate against</param>
         /// <param name="modelCollection">PowerShell configuration, assumes ConfigModels and IncludeLibrariesList have been fully instantiated</param>
-        public static void VerifyAllAssembliesHaveConfiguration(JObject sdkVersionsJson, ConfigModelCollection modelCollection)
+        /// <param name="allSdkAssemblyFilenames">A list of all the SDK assembly filenames in the net45 and netstandard2.0 folders</param>
+        public static void VerifyAllAssembliesHaveConfiguration(JObject sdkVersionsJson, 
+            ConfigModelCollection modelCollection, 
+            IEnumerable<string> allSdkAssemblyFilenames)
         {
             var intentionallySkippedModules = new HashSet<string>();
             var configuredAssemblies = new HashSet<string>();
@@ -317,14 +322,32 @@ namespace AWSPowerShellGenerator.Generators
                 configuredAssemblies.Add(configuredService.AssemblyName);
             }
 
+            var sdkAssembliesNoConfig = new List<string>();
+
+            //Check to ensure we have an configuration for each SDK service in _sdk-version.json.
             foreach (var service in sdkVersionsJson["ServiceVersions"])
             {
                 var assemblyName = ((JProperty)service).Name;
 
                 if (!configuredAssemblies.Contains(assemblyName) && !intentionallySkippedModules.Contains("AWSSDK." + assemblyName))
                 {
-                    throw new Exception("Missing XML configuration for " + assemblyName);
+                    sdkAssembliesNoConfig.Add(assemblyName);
                 }
+            }
+
+            //Check to ensure we have a configuration for any SDK service sitting in the assemblies
+            //folder. New services are not in the _sdk-version.json until release.
+            if(allSdkAssemblyFilenames != null)
+            {
+                sdkAssembliesNoConfig.AddRange(
+                    allSdkAssemblyFilenames.Where(name => !configuredAssemblies.Contains(name) && !intentionallySkippedModules.Contains("AWSSDK." + name))
+                );
+            }            
+
+            //Return all assemblies missing a XML configuration.
+            if (sdkAssembliesNoConfig.Any())
+            {
+                throw new Exception($"Missing XML configuration for: {string.Join(", ", sdkAssembliesNoConfig)}");
             }
         }
 

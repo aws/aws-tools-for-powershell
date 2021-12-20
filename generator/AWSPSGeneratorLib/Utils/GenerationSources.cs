@@ -129,12 +129,41 @@ namespace AWSPowerShellGenerator.Utils
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("An exception occured while processing files {0} and {1}.", assemblyFile, ndocFile);
+                    Console.WriteLine("An exception occurred while processing files {0} and {1}.", assemblyFile, ndocFile);
                     throw;
                 }
             }
 
             return (null, null, null);
+        }
+
+        /// <summary>
+        /// Finds all the distinct net45 and netstandard2.0 SDK filenames from the assemblies folder.
+        /// </summary>
+        /// <param name="SdkAssembliesFolder">Location of the SDK assemblies to generate against.</param>
+        /// <param name="EnumerateFiles">Function used to enumerate the files in the assemblies folder. This
+        /// function matches the signature of Directory.EnumerateFiles in order to have a search filter
+        /// and search options while we process the files on demand.</param>
+        /// <returns>A distinct list of sdk assembly full filenames.</returns>
+        public static IEnumerable<string> SDKFindAssemblyFilenames(string SdkAssembliesFolder,
+            Func<string, string, SearchOption, IEnumerable<string>> EnumerateFiles)
+        {
+            //PowerShell works with netstandard2.0 and net45 so we will find those AWSSDK assembly filenames.
+            var foundNet45SdkFilenames = EnumerateFiles(
+                Path.Combine(SdkAssembliesFolder, DotNetPlatformNet45),
+                "AWSSDK.*.dll",
+                SearchOption.TopDirectoryOnly)
+                .Select(fullFilename => Path.GetFileNameWithoutExtension(fullFilename).Substring("AWSSDK.".Length));
+            var foundNetstandard20SdkFilenames = EnumerateFiles(
+                Path.Combine(SdkAssembliesFolder, DotNetPlatformNetStandard20),
+                "AWSSDK.*.dll",
+                SearchOption.TopDirectoryOnly)
+                .Select(fullFilename => Path.GetFileNameWithoutExtension(fullFilename).Substring("AWSSDK.".Length));
+            var distinctAssemblyFilenames = foundNet45SdkFilenames.Union(foundNetstandard20SdkFilenames)
+                .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
+                    && !name.Equals("Core", StringComparison.OrdinalIgnoreCase));
+
+            return distinctAssemblyFilenames;
         }
 
         /// <summary>
