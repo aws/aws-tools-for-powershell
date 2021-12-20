@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateLenses" Verb="Add" Noun="Lense" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateLenses" Verb="Register" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Add-WATLense">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLensShare" OutputProperty="ShareId" Verb="New" Noun="LensResourceShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLensShare" OutputProperty="ShareId" Verb="New" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLensVersion" OutputProperty="*" Verb="New" Noun="LensResourceVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLensVersion" OutputProperty="*" Verb="New" Noun="LensVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,11 +42,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLens" Verb="Remove" Noun="LensResource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteLens" Verb="Remove" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLensShare" Verb="Remove" Noun="LensResourceShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteLensShare" Verb="Remove" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,11 +58,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLenses" Verb="Remove" Noun="Lense" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Remove-WATLense">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportLens" OutputProperty="LensJSON" Verb="Export" Noun="LensResource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportLens" OutputProperty="LensJSON" Verb="Export" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -70,7 +70,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLens" OutputProperty="Lens" Verb="Get" Noun="LensResource" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetLens" OutputProperty="Lens" Verb="Get" Noun="Lens" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,7 +94,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportLens" OutputProperty="*" Verb="Import" Noun="LensResource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ImportLens" OutputProperty="*" Verb="Import" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -102,7 +102,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LenseList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WATLenseList">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,7 +114,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLensShares" OutputProperty="LensShareSummaries" Verb="Get" Noun="LensResourceShareList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLensShares" OutputProperty="LensShareSummaries" Verb="Get" Noun="LensShareList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
