@@ -150,9 +150,7 @@ class CredentialsTestHelper : TestHelper
 
     [string] MockCredentialsPath($newCredentialsPath)
     {
-
-        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
-        $property = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetProperty("DefaultFilePath", $bindingFlags);
+        $property = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetProperty("DefaultFilePath");
         $result = $property.GetValue($null);
         $property.SetValue($null, $newCredentialsPath);
         return $result
@@ -160,8 +158,7 @@ class CredentialsTestHelper : TestHelper
 
     [Void] UnMockCredentialsPath($originalCredentialsPath)
     {
-        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
-        $property = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetProperty("DefaultFilePath", $bindingFlags);
+        $property = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetProperty("DefaultFilePath");
         $property.SetValue($null, $originalCredentialsPath);
     }
 
