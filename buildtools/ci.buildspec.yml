@@ -10,4 +10,4 @@ phases:
       - aws configure set aws_session_token $role.Credentials.SessionToken --profile test-runner
   build:
     commands:
-      - msbuild buildtools\build.proj /t:run-tests /p:RunTests=true
+      - msbuild buildtools\build.proj /t:full-build /p:RunTests=true
