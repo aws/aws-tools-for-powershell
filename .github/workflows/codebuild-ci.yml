@@ -22,4 +22,4 @@ jobs:
       - name: Run CodeBuild
         uses: aws-actions/aws-codebuild-run-build@v1.0.3
         with:
-          project-name: aws-tools-for-powershell-ci
+          project-name: ${{ secrets.CI_AWS_CODE_BUILD_PROJECT_NAME }}
