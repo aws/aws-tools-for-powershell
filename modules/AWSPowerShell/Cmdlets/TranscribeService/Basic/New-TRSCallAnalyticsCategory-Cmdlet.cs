@@ -66,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>To create a category, you must specify between 1 and 20 rules. For each rule, you
         /// specify a filter to be applied to the attributes of the call. For example, you can
-        /// specify a sentiment filter to detect if the customer's sentiment was negative or neutral.
-        /// </para>
+        /// specify a sentiment filter to detect if the customer's sentiment was negative or neutral.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

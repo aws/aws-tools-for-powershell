@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The type of instance for which the Capacity Reservation
         /// reserves capacity.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity
-        /// Reservation.</para></li><li><para><code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>instance-platform</code> - The type of operating system for which the Capacity
-        /// Reservation reserves capacity.</para></li><li><para><code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity
+        /// Reservation.</para></li><li><para><code>instance-platform</code> - The type of operating system for which the Capacity
+        /// Reservation reserves capacity.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</para></li><li><para><code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity
         /// Reservation can have one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
         /// with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
         /// that is dedicated to a single Amazon Web Services account.</para></li></ul></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which

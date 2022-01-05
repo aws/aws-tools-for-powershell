@@ -28,7 +28,8 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Lists the imports for a bot or bot locale. Imports are kept in the list for 7 days.
+    /// Lists the imports for a bot, bot locale, or custom vocabulary. Imports are kept in
+    /// the list for 7 days.
     /// </summary>
     [Cmdlet("Get", "LMBV2ImportList")]
     [OutputType("Amazon.LexModelsV2.Model.ListImportsResponse")]
@@ -83,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.ImportFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter LocaleId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the locale that should be present in the list. If you don't specify a resource
+        /// type in the <code>filters</code> parameter, the list contains both bot locales and
+        /// custom vocabularies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LocaleId { get; set; }
+        #endregion
+        
         #region Parameter SortBy_Order
         /// <summary>
         /// <para>
@@ -111,8 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>If the response from the <code>ListImports</code> operation contains more results
         /// than specified in the <code>maxResults</code> parameter, a token is returned in the
-        /// response. Use that token in the <code>nextToken</code> parameter to return the next
-        /// page of results.</para>
+        /// response.</para><para>Use the returned token in the <code>nextToken</code> parameter of a <code>ListImports</code>
+        /// request to return the next page of results. For a complete set of results, call the
+        /// <code>ListImports</code> operation until the <code>nextToken</code> returned in the
+        /// response is null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 context.Filter = new List<Amazon.LexModelsV2.Model.ImportFilter>(this.Filter);
             }
+            context.LocaleId = this.LocaleId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SortBy_Attribute = this.SortBy_Attribute;
@@ -181,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.LocaleId != null)
+            {
+                request.LocaleId = cmdletContext.LocaleId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -283,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
             public List<Amazon.LexModelsV2.Model.ImportFilter> Filter { get; set; }
+            public System.String LocaleId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.LexModelsV2.ImportSortAttribute SortBy_Attribute { get; set; }

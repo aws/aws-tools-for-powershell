@@ -28,7 +28,8 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about a Recovery Group.
+    /// Gets details about a recovery group, including a list of the cells that are included
+    /// in it.
     /// </summary>
     [Cmdlet("Get", "PDRecoveryGroup")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetRecoveryGroupResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// The RecoveryGroup to get
+        /// <para>The name of a recovery group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

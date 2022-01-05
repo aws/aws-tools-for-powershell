@@ -36,6 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// to determine the possible dimension values.
     /// 
     ///  <note><para><code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.
+    /// </para><para><code>GetSavingsPlansUtilizationDetails</code> doesn't support filtering by tags.
+    /// <code>GetSavingsPlansUtilizationDetails</code> also doesn't support the <code>OR</code>
+    /// operator between filter dimensions. For the full request syntax with supported parameters,
+    /// see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansUtilizationDetails.html#API_GetSavingsPlansUtilizationDetails_Examples">Examples</a>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilizationDetail")]
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.
         /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilizationDetails</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension.</para>
+        /// dimension.</para><para>Filtering by tags isn't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

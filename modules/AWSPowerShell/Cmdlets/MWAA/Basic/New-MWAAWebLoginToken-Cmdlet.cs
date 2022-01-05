@@ -28,7 +28,8 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Create a JWT token to be used to login to Airflow Web UI with claims based Authentication.
+    /// Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating
+    /// an Apache Airflow web login token</a>.
     /// </summary>
     [Cmdlet("New", "MWAAWebLoginToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MWAA.Model.CreateWebLoginTokenResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Create an Airflow Web UI login token request for a MWAA environment.</para>
+        /// <para>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

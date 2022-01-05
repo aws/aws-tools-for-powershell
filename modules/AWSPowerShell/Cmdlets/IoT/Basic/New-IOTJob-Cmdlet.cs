@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.AbortCriteria[] AbortConfig_CriteriaList { get; set; }
         #endregion
         
+        #region Parameter JobExecutionsRetryConfig_CriteriaList
+        /// <summary>
+        /// <para>
+        /// <para>The list of criteria that determines how many retries are allowed for each failure
+        /// type for a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoT.Model.RetryCriteria[] JobExecutionsRetryConfig_CriteriaList { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -319,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 }
             }
             context.DocumentSource = this.DocumentSource;
+            if (this.JobExecutionsRetryConfig_CriteriaList != null)
+            {
+                context.JobExecutionsRetryConfig_CriteriaList = new List<Amazon.IoT.Model.RetryCriteria>(this.JobExecutionsRetryConfig_CriteriaList);
+            }
             context.JobExecutionsRolloutConfig_ExponentialRate = this.JobExecutionsRolloutConfig_ExponentialRate;
             context.JobExecutionsRolloutConfig_MaximumPerMinute = this.JobExecutionsRolloutConfig_MaximumPerMinute;
             context.JobId = this.JobId;
@@ -398,6 +413,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.DocumentSource != null)
             {
                 request.DocumentSource = cmdletContext.DocumentSource;
+            }
+            
+             // populate JobExecutionsRetryConfig
+            var requestJobExecutionsRetryConfigIsNull = true;
+            request.JobExecutionsRetryConfig = new Amazon.IoT.Model.JobExecutionsRetryConfig();
+            List<Amazon.IoT.Model.RetryCriteria> requestJobExecutionsRetryConfig_jobExecutionsRetryConfig_CriteriaList = null;
+            if (cmdletContext.JobExecutionsRetryConfig_CriteriaList != null)
+            {
+                requestJobExecutionsRetryConfig_jobExecutionsRetryConfig_CriteriaList = cmdletContext.JobExecutionsRetryConfig_CriteriaList;
+            }
+            if (requestJobExecutionsRetryConfig_jobExecutionsRetryConfig_CriteriaList != null)
+            {
+                request.JobExecutionsRetryConfig.CriteriaList = requestJobExecutionsRetryConfig_jobExecutionsRetryConfig_CriteriaList;
+                requestJobExecutionsRetryConfigIsNull = false;
+            }
+             // determine if request.JobExecutionsRetryConfig should be set to null
+            if (requestJobExecutionsRetryConfigIsNull)
+            {
+                request.JobExecutionsRetryConfig = null;
             }
             
              // populate JobExecutionsRolloutConfig
@@ -566,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Document { get; set; }
             public Dictionary<System.String, System.String> DocumentParameter { get; set; }
             public System.String DocumentSource { get; set; }
+            public List<Amazon.IoT.Model.RetryCriteria> JobExecutionsRetryConfig_CriteriaList { get; set; }
             public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobId { get; set; }

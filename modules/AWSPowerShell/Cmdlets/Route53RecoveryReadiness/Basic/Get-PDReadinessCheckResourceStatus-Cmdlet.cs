@@ -28,8 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns detailed information about the status of an individual resource within a Readiness
-    /// Check's Resource Set.
+    /// Gets individual readiness status for a readiness check. To see the overall readiness
+    /// status for a recovery group, that considers the readiness status for all the readiness
+    /// checks in the recovery group, use GetRecoveryGroupReadinessSummary.
     /// </summary>
     [Cmdlet("Get", "PDReadinessCheckResourceStatus")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetReadinessCheckResourceStatusResponse")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The ReadinessCheck to get
+        /// <para>Name of a readiness check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// The resource ARN or component Id to
-        /// get
+        /// <para>The resource identifier, which is the Amazon Resource Name (ARN) or the identifier
+        /// generated for the resource by Application Recovery Controller (for example, for a
+        /// DNS target resource).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token used to resume pagination from the end
-        /// of a previous request.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

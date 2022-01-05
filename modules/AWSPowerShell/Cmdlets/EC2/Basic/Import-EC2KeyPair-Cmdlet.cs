@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "AutoEncodedToBase64")]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "AutoEncodedToBase64", Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "AutoEncodedToBase64")]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif

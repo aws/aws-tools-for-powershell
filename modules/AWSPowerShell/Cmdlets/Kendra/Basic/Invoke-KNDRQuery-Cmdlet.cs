@@ -185,14 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>The text to search for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryText { get; set; }
         #endregion
         
@@ -348,12 +341,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             context.PageSize = this.PageSize;
             context.QueryResultTypeFilter = this.QueryResultTypeFilter;
             context.QueryText = this.QueryText;
-            #if MODULAR
-            if (this.QueryText == null && ParameterWasBound(nameof(this.QueryText)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.RequestedDocumentAttribute != null)
             {
                 context.RequestedDocumentAttribute = new List<System.String>(this.RequestedDocumentAttribute);

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
+        /// <para>The filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
         /// | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>strategy</code> - The strategy of the placement group (<code>cluster</code>
         /// | <code>spread</code> | <code>partition</code>).</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.

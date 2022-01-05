@@ -28,7 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Create a new cross account readiness authorization.
+    /// Creates a cross-account readiness authorization. This lets you authorize another account
+    /// to work with Route 53 Application Recovery Controller, for example, to check the readiness
+    /// status of resources in a separate account.
     /// </summary>
     [Cmdlet("New", "PDCrossAccountAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CrossAccountAuthorization
         /// <summary>
         /// <para>
-        /// The cross account authorization
+        /// <para>The cross-account authorization.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

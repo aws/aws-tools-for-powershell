@@ -69,11 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Updates the pricing plan for the geofence collection.</para><para>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
@@ -81,15 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlanDataSource
         /// <summary>
         /// <para>
-        /// <para>Updates the data provider for the geofence collection. </para><para>A required value for the following pricing plans: <code>MobileAssetTracking</code>|
-        /// <code>MobileAssetManagement</code></para><para>For more information about <a href="https://aws.amazon.com/location/data-providers/">data
-        /// providers</a> and <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>,
-        /// see the Amazon Location Service product page.</para><note><para>This can only be updated when updating the <code>PricingPlan</code> in the same request.</para><para>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate billing
-        /// for your geofence collection. Your data won't be shared with the data provider, and
-        /// will remain in your AWS account and Region unless you move it.</para></note>
+        /// <para>This parameter is no longer used.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. No longer allowed.")]
         public System.String PricingPlanDataSource { get; set; }
         #endregion
         
@@ -162,8 +160,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.Description = this.Description;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlanDataSource = this.PricingPlanDataSource;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,14 +190,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.Description = cmdletContext.Description;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlanDataSource != null)
             {
                 request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -259,7 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String CollectionName { get; set; }
             public System.String Description { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+            [System.ObsoleteAttribute]
             public System.String PricingPlanDataSource { get; set; }
             public System.Func<Amazon.LocationService.Model.UpdateGeofenceCollectionResponse, EditLOCGeofenceCollectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

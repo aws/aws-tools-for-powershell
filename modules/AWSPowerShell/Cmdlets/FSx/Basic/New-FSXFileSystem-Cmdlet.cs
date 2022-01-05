@@ -36,6 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para></li><li><para>
     /// Amazon FSx for NetApp ONTAP
     /// </para></li><li><para>
+    /// Amazon FSx for OpenZFS
+    /// </para></li><li><para>
     /// Amazon FSx for Windows File Server
     /// </para></li></ul><para>
     /// This operation requires a client request token in the request that Amazon FSx uses
@@ -292,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DiskIopsConfiguration_Iops")]
         public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
         #endregion
         
@@ -334,7 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DiskIopsConfiguration_Mode")]
         [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
         public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
         #endregion
@@ -445,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Sets the storage type for the file system that you're creating. Valid values are <code>SSD</code>
         /// and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all
         /// Windows, Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
-        /// and <code>MULTI_AZ_1</code> Windows file system deployment types, and on <code>PERSISTENT</code>
+        /// and <code>MULTI_AZ_1</code> Windows file system deployment types, and on <code>PERSISTENT_1</code>
         /// Lustre file system deployment types. </para></li></ul><para>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
         /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
@@ -501,7 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the throughput capacity for the file system that you're creating. Valid values
-        /// are 512, 1024, and 2048 MBps.</para>
+        /// are 128, 256, 512, 1024, and 2048 MBps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

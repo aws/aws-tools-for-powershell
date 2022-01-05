@@ -142,6 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }
         #endregion
         
+        #region Parameter MaxBatchSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum batching size for a resolver.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxBatchSize { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -263,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter FunctionVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxBatchSize = this.MaxBatchSize;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -306,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.FunctionVersion != null)
             {
                 request.FunctionVersion = cmdletContext.FunctionVersion;
+            }
+            if (cmdletContext.MaxBatchSize != null)
+            {
+                request.MaxBatchSize = cmdletContext.MaxBatchSize.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -438,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String DataSourceName { get; set; }
             public System.String Description { get; set; }
             public System.String FunctionVersion { get; set; }
+            public System.Int32? MaxBatchSize { get; set; }
             public System.String Name { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }

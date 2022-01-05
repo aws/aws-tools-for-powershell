@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HttpEndpoint
         /// <summary>
         /// <para>
-        /// <para>Enables or disables the HTTP metadata endpoint on your instances. If the parameter
+        /// <para>Enables or disables the HTTP metadata endpoint on your instances. If this parameter
         /// is not specified, the existing state is maintained.</para><para>If you specify a value of <code>disabled</code>, you cannot access your instance metadata.</para>
         /// </para>
         /// </summary>
@@ -115,6 +115,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceMetadataTag
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>enabled</code> to allow access to instance tags from the instance metadata.
+        /// Set to <code>disabled</code> to turn off access to instance tags from the instance
+        /// metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
+        /// with instance tags using the instance metadata</a>.</para><para>Default: <code>disabled</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceMetadataTags")]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMetadataTagsState")]
+        public Amazon.EC2.InstanceMetadataTagsState InstanceMetadataTag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -189,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceMetadataTag = this.InstanceMetadataTag;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -224,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.InstanceMetadataTag != null)
+            {
+                request.InstanceMetadataTags = cmdletContext.InstanceMetadataTag;
             }
             
             CmdletOutput output;
@@ -291,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.HttpTokensState HttpToken { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.EC2.InstanceMetadataTagsState InstanceMetadataTag { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse, EditEC2InstanceMetadataOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// a file system that uses One Zone storage classes, automatic backups are enabled by
         /// default. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic
         /// backups</a> in the <i>Amazon EFS User Guide</i>.</para><para>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
-        /// the default is <code>true</code>.</para><note><para>Backup is not available in all Amazon Web Services Regionswhere Amazon EFS is available.</para></note>
+        /// the default is <code>true</code>.</para><note><para>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,10 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>A Boolean value that, if true, creates an encrypted file system. When creating an
-        /// encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a>
-        /// for an existing Key Management Service (KMS customer master key (CMK). If you don't
-        /// specify a CMK, then the default CMK for Amazon EFS, <code>/aws/elasticfilesystem</code>,
-        /// is used to protect the encrypted file system. </para>
+        /// encrypted file system, you have the option of specifying an existing Key Management
+        /// Service key (KMS key). If you don't specify a KMS key, then the default KMS key for
+        /// Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted
+        /// file system. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,12 +150,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the KMS CMK that you want to use to protect the encrypted file system. This
+        /// <para>The ID of the KMS key that you want to use to protect the encrypted file system. This
         /// parameter is only required if you want to use a non-default KMS key. If this parameter
-        /// is not specified, the default CMK for Amazon EFS is used. This ID can be in one of
-        /// the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If <code>KmsKeyId</code> is specified, the <a>CreateFileSystemRequest$Encrypted</a>
-        /// parameter must be set to true.</para><important><para>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with EFS file
-        /// systems.</para></important>
+        /// is not specified, the default KMS key for Amazon EFS is used. You can specify a KMS
+        /// key ID using the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If you use <code>KmsKeyId</code>, you must set the <a>CreateFileSystemRequest$Encrypted</a>
+        /// parameter to true.</para><important><para>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with Amazon
+        /// EFS file systems.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

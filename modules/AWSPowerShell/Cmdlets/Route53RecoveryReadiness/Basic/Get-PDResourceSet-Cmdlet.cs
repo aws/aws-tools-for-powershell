@@ -28,7 +28,8 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about a Resource Set.
+    /// Displays the details about a resource set, including a list of the resources in the
+    /// set.
     /// </summary>
     [Cmdlet("Get", "PDResourceSet")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetResourceSetResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The ResourceSet to get
+        /// <para>Name of a resource set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

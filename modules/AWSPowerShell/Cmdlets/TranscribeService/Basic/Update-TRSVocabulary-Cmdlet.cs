@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code of the vocabulary entries. For a list of languages and their corresponding
-        /// language codes, see <a>transcribe-whatis</a>.</para>
+        /// language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The S3 location of the text file that contains the definition of the custom vocabulary.
         /// The URI must be in the same region as the API endpoint that you are calling. The general
-        /// form is </para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom
+        /// form is:</para><para><code>https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>For example:</para><para><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
         /// Vocabularies</a>.</para>
         /// </para>
         /// </summary>

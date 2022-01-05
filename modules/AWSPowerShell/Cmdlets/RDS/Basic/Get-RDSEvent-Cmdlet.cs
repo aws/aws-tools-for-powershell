@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns events related to DB instances, DB clusters, DB parameter groups, DB security
-    /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
-    /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
-    /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-    /// as a parameter.
+    /// groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
+    /// Events specific to a particular DB instance, DB cluster, DB parameter group, DB security
+    /// group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be obtained by providing
+    /// the name as a parameter.
     /// 
     ///  <note><para>
-    /// By default, the past hour of events are returned.
+    /// By default, RDS returns events that were generated in the past hour.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSEvent")]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// must be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value
         /// must be supplied.</para></li><li><para>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must
         /// be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code>
-        /// value must be supplied.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

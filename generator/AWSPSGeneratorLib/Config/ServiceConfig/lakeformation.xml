@@ -103,6 +103,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTemporaryGluePartitionCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGluePartitionCredential" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemporaryGlueTableCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGlueTableCredential" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWorkUnitResults" OutputProperty="ResultStream" Verb="Get" Noun="WorkUnitResult" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

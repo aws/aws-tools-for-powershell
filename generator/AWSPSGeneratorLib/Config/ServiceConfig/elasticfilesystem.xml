@@ -36,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationConfiguration" OutputProperty="*" Verb="New" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -53,6 +57,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMountTarget" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationConfiguration" Verb="Remove" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -89,6 +97,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="MountTargetSecurityGroup" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationConfigurations" OutputProperty="Replications" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

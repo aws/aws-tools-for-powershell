@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUECrawlerCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter LakeFormationConfiguration_AccountId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LakeFormationConfiguration_AccountId { get; set; }
+        #endregion
+        
         #region Parameter Classifier
         /// <summary>
         /// <para>
@@ -220,6 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.CrawlerTargets Target { get; set; }
         #endregion
         
+        #region Parameter LakeFormationConfiguration_UseLakeFormationCredential
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LakeFormationConfiguration_UseLakeFormationCredentials")]
+        public System.Boolean? LakeFormationConfiguration_UseLakeFormationCredential { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -288,6 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.CrawlerSecurityConfiguration = this.CrawlerSecurityConfiguration;
             context.DatabaseName = this.DatabaseName;
             context.Description = this.Description;
+            context.LakeFormationConfiguration_AccountId = this.LakeFormationConfiguration_AccountId;
+            context.LakeFormationConfiguration_UseLakeFormationCredential = this.LakeFormationConfiguration_UseLakeFormationCredential;
             context.LineageConfiguration_CrawlerLineageSetting = this.LineageConfiguration_CrawlerLineageSetting;
             context.Name = this.Name;
             #if MODULAR
@@ -357,6 +380,35 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate LakeFormationConfiguration
+            var requestLakeFormationConfigurationIsNull = true;
+            request.LakeFormationConfiguration = new Amazon.Glue.Model.LakeFormationConfiguration();
+            System.String requestLakeFormationConfiguration_lakeFormationConfiguration_AccountId = null;
+            if (cmdletContext.LakeFormationConfiguration_AccountId != null)
+            {
+                requestLakeFormationConfiguration_lakeFormationConfiguration_AccountId = cmdletContext.LakeFormationConfiguration_AccountId;
+            }
+            if (requestLakeFormationConfiguration_lakeFormationConfiguration_AccountId != null)
+            {
+                request.LakeFormationConfiguration.AccountId = requestLakeFormationConfiguration_lakeFormationConfiguration_AccountId;
+                requestLakeFormationConfigurationIsNull = false;
+            }
+            System.Boolean? requestLakeFormationConfiguration_lakeFormationConfiguration_UseLakeFormationCredential = null;
+            if (cmdletContext.LakeFormationConfiguration_UseLakeFormationCredential != null)
+            {
+                requestLakeFormationConfiguration_lakeFormationConfiguration_UseLakeFormationCredential = cmdletContext.LakeFormationConfiguration_UseLakeFormationCredential.Value;
+            }
+            if (requestLakeFormationConfiguration_lakeFormationConfiguration_UseLakeFormationCredential != null)
+            {
+                request.LakeFormationConfiguration.UseLakeFormationCredentials = requestLakeFormationConfiguration_lakeFormationConfiguration_UseLakeFormationCredential.Value;
+                requestLakeFormationConfigurationIsNull = false;
+            }
+             // determine if request.LakeFormationConfiguration should be set to null
+            if (requestLakeFormationConfigurationIsNull)
+            {
+                request.LakeFormationConfiguration = null;
             }
             
              // populate LineageConfiguration
@@ -490,6 +542,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CrawlerSecurityConfiguration { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Description { get; set; }
+            public System.String LakeFormationConfiguration_AccountId { get; set; }
+            public System.Boolean? LakeFormationConfiguration_UseLakeFormationCredential { get; set; }
             public Amazon.Glue.CrawlerLineageSettings LineageConfiguration_CrawlerLineageSetting { get; set; }
             public System.String Name { get; set; }
             public Amazon.Glue.RecrawlBehavior RecrawlPolicy_RecrawlBehavior { get; set; }

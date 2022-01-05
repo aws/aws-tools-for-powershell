@@ -96,6 +96,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FDEntityType', 
         'Get-FDEvent', 
         'Get-FDEventPrediction', 
+        'Get-FDEventPredictionList', 
+        'Get-FDEventPredictionMetadata', 
         'Get-FDEventType', 
         'Get-FDExternalModel', 
         'Get-FDKMSEncryptionKey', 

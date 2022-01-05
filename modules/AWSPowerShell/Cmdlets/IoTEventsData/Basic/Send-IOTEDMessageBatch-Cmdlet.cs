@@ -28,7 +28,7 @@ using Amazon.IoTEventsData.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
-    /// Sends a set of messages to the AWS IoT Events system. Each message payload is transformed
+    /// Sends a set of messages to the IoT Events system. Each message payload is transformed
     /// into the input you specify (<code>"inputName"</code>) and ingested into any detectors
     /// that monitor that input. If multiple messages are sent, the order in which the messages
     /// are processed isn't guaranteed. To guarantee ordering, you must send messages one

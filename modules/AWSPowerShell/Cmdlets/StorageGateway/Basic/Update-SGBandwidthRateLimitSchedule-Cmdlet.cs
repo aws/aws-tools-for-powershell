@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways
     /// do not have bandwidth rate limit schedules, which means no bandwidth rate limiting
     /// is in effect. Use this to initiate or update a gateway's bandwidth rate limit schedule.
-    /// This operation is supported in the volume and tape gateway types.
+    /// This operation is supported only for volume, tape and S3 file gateways. FSx file gateways
+    /// do not support bandwidth rate limits.
     /// </summary>
     [Cmdlet("Update", "SGBandwidthRateLimitSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

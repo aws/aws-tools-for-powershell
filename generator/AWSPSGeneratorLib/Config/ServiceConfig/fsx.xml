@@ -45,9 +45,9 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFileSystem" OutputProperty="FileSystem" Verb="New" Noun="FileSystem" ShouldProcessTarget="FileSystemType" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" Alias="DiskIopsConfiguration_Iops" />
+                <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
-                <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" Alias="DiskIopsConfiguration_Mode" />
+                <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Mode" />
             </Params>
             <TypesNotToFlatten />
@@ -157,7 +157,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="FileSystem" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" />
+                <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
+                <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" />
+                <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Mode" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">

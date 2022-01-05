@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// audio channel, including the start time and end time of the item and alternative transcriptions
         /// of item. The alternative transcriptions also come with confidence scores provided
         /// by Amazon Transcribe Medical.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. If you set both, your request returns a <code>BadRequestException</code></para>
+        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>For example:</para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/example.mp4</code></para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para> The S3 object location for your redacted output media file. This is only supported
+        /// <para>The S3 object location for your redacted output media file. This is only supported
         /// for call analytics jobs.</para>
         /// </para>
         /// </summary>

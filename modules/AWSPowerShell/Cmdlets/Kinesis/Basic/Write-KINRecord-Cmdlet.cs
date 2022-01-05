@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromBlob", Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromBlob")]
         [Alias("Blob","Record_Data")]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] Data { get; set; }

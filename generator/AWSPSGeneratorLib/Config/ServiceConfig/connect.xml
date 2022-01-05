@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDefaultVocabulary" Verb="Add" Noun="DefaultVocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
@@ -108,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactFlow" Verb="Remove" Noun="ContactFlow" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -145,6 +153,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUserHierarchyGroup" Verb="Remove" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVocabulary" OutputProperty="*" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -205,6 +217,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeUserHierarchyStructure" OutputProperty="HierarchyStructure" Verb="Get" Noun="UserHierarchyStructure" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVocabulary" OutputProperty="Vocabulary" Verb="Get" Noun="Vocabulary" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -277,6 +293,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListContactReferences" OutputProperty="ReferenceSummaryList" Verb="Get" Noun="ContactReferenceList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDefaultVocabularies" OutputProperty="DefaultVocabularyList" Verb="Get" Noun="DefaultVocabularyList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -365,6 +385,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResumeContactRecording" Verb="Resume" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

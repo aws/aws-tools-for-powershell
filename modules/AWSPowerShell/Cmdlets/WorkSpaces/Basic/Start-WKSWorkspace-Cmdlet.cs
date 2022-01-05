@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "IdFromRequestObject", Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = "IdFromRequestObject")]
         [Alias("StartWorkspaceRequest","StartWorkspaceRequests")]
         public Amazon.WorkSpaces.Model.StartRequest[] Request { get; set; }
         #endregion

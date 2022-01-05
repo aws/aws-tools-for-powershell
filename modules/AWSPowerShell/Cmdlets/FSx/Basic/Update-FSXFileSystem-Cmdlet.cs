@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For Amazon FSx for Windows File Server file systems, you can update the following
     /// properties:
     /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
-    /// For FSx for Lustre file systems, you can update the following properties:
+    /// For Amazon FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
-    /// For FSx for ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// For Amazon FSx for NetApp ONTAP file systems, you can update the following properties:
+    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For the Amazon FSx for OpenZFS file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
+    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.FileSystem")]
@@ -167,15 +167,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OntapConfiguration_FsxAdminPassword { get; set; }
         #endregion
         
-        #region Parameter DiskIopsConfiguration_Iops
+        #region Parameter OntapConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
         /// <para>The total number of SSD IOPS provisioned for the file system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OpenZFSConfiguration_DiskIopsConfiguration_Iops")]
-        public System.Int64? DiskIopsConfiguration_Iops { get; set; }
+        public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Iops
+        /// <summary>
+        /// <para>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
         #endregion
         
         #region Parameter LustreConfiguration
@@ -188,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
         #endregion
         
-        #region Parameter DiskIopsConfiguration_Mode
+        #region Parameter OntapConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
         /// <para>Specifies whether the number of IOPS for the file system is using the system default
@@ -196,34 +205,43 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OpenZFSConfiguration_DiskIopsConfiguration_Mode")]
         [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
-        public Amazon.FSx.DiskIopsConfigurationMode DiskIopsConfiguration_Mode { get; set; }
+        public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the number of IOPS for the file system is using the system default
+        /// (<code>AUTOMATIC</code>) or was provisioned by the customer (<code>USER_PROVISIONED</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
+        public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
         #endregion
         
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
         /// <para>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File
-        /// Server or Amazon FSx for Lustre file system. Specifies the storage capacity target
-        /// value, in GiB, to increase the storage capacity for the file system that you're updating.
-        /// </para><note><para>You can't make a storage capacity increase request if there is an existing storage
+        /// Server, Amazon FSx for Lustre, or Amazon FSx for NetApp ONTAP file system. Specifies
+        /// the storage capacity target value, in GiB, to increase the storage capacity for the
+        /// file system that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
         /// capacity increase request in progress.</para></note><para>For Windows file systems, the storage capacity target value must be at least 10 percent
         /// greater than the current storage capacity value. To increase storage capacity, the
-        /// file system must have at least 16 MBps of throughput capacity.</para><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid
-        /// values are in multiples of 2400 GiB. The value must be greater than the current storage
-        /// capacity.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
+        /// file system must have at least 16 MBps of throughput capacity. For more information,
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>.</para><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code>
+        /// deployment types, valid values are in multiples of 2400 GiB. The value must be greater
+        /// than the current storage capacity.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
         /// for 12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps
         /// throughput per TiB file systems. The values must be greater than the current storage
-        /// capacity.</para></li><li><para>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</para></li></ul><para>For OpenZFS file systems, the input/output operations per second (IOPS) automatically
-        /// scale with increases to the storage capacity if IOPS is configured for automatic scaling.
-        /// If the storage capacity increase would result in less than 3 IOPS per GiB of storage,
-        /// this operation returns an error. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>,
-        /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
-        /// storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>,
-        /// and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
+        /// capacity.</para></li><li><para>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
+        /// storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
+        /// greater than the current storage capacity value. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing
+        /// storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps),
-        /// in 2 to the nth increments, between 2^3 (8) and 2^11 (2048). </para>
+        /// in 2 to the nth increments, between 2^3 (8) and 2^12 (4096). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,14 +361,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.LustreConfiguration = this.LustreConfiguration;
             context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
             context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
+            context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
+            context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
             context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             context.OpenZFSConfiguration_AutomaticBackupRetentionDay = this.OpenZFSConfiguration_AutomaticBackupRetentionDay;
             context.OpenZFSConfiguration_CopyTagsToBackup = this.OpenZFSConfiguration_CopyTagsToBackup;
             context.OpenZFSConfiguration_CopyTagsToVolume = this.OpenZFSConfiguration_CopyTagsToVolume;
             context.OpenZFSConfiguration_DailyAutomaticBackupStartTime = this.OpenZFSConfiguration_DailyAutomaticBackupStartTime;
-            context.DiskIopsConfiguration_Iops = this.DiskIopsConfiguration_Iops;
-            context.DiskIopsConfiguration_Mode = this.DiskIopsConfiguration_Mode;
+            context.OpenZFSConfiguration_DiskIopsConfiguration_Iops = this.OpenZFSConfiguration_DiskIopsConfiguration_Iops;
+            context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
             context.OpenZFSConfiguration_ThroughputCapacity = this.OpenZFSConfiguration_ThroughputCapacity;
             context.OpenZFSConfiguration_WeeklyMaintenanceStartTime = this.OpenZFSConfiguration_WeeklyMaintenanceStartTime;
             context.StorageCapacity = this.StorageCapacity;
@@ -427,6 +447,41 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OntapConfiguration.WeeklyMaintenanceStartTime = requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime;
                 requestOntapConfigurationIsNull = false;
             }
+            Amazon.FSx.Model.DiskIopsConfiguration requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = null;
+            
+             // populate DiskIopsConfiguration
+            var requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = new Amazon.FSx.Model.DiskIopsConfiguration();
+            System.Int64? requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Iops = null;
+            if (cmdletContext.OntapConfiguration_DiskIopsConfiguration_Iops != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Iops = cmdletContext.OntapConfiguration_DiskIopsConfiguration_Iops.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Iops != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration.Iops = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Iops.Value;
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = false;
+            }
+            Amazon.FSx.DiskIopsConfigurationMode requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Mode = null;
+            if (cmdletContext.OntapConfiguration_DiskIopsConfiguration_Mode != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Mode = cmdletContext.OntapConfiguration_DiskIopsConfiguration_Mode;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Mode != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration.Mode = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_ontapConfiguration_DiskIopsConfiguration_Mode;
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration != null)
+            {
+                request.OntapConfiguration.DiskIopsConfiguration = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration;
+                requestOntapConfigurationIsNull = false;
+            }
              // determine if request.OntapConfiguration should be set to null
             if (requestOntapConfigurationIsNull)
             {
@@ -501,24 +556,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate DiskIopsConfiguration
             var requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfigurationIsNull = true;
             requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration = new Amazon.FSx.Model.DiskIopsConfiguration();
-            System.Int64? requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops = null;
-            if (cmdletContext.DiskIopsConfiguration_Iops != null)
+            System.Int64? requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Iops = null;
+            if (cmdletContext.OpenZFSConfiguration_DiskIopsConfiguration_Iops != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops = cmdletContext.DiskIopsConfiguration_Iops.Value;
+                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Iops = cmdletContext.OpenZFSConfiguration_DiskIopsConfiguration_Iops.Value;
             }
-            if (requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops != null)
+            if (requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Iops != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration.Iops = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops.Value;
+                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration.Iops = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Iops.Value;
                 requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfigurationIsNull = false;
             }
-            Amazon.FSx.DiskIopsConfigurationMode requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode = null;
-            if (cmdletContext.DiskIopsConfiguration_Mode != null)
+            Amazon.FSx.DiskIopsConfigurationMode requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Mode = null;
+            if (cmdletContext.OpenZFSConfiguration_DiskIopsConfiguration_Mode != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode = cmdletContext.DiskIopsConfiguration_Mode;
+                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Mode = cmdletContext.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
             }
-            if (requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode != null)
+            if (requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Mode != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration.Mode = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode;
+                requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration.Mode = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration_openZFSConfiguration_DiskIopsConfiguration_Mode;
                 requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfigurationIsNull = false;
             }
              // determine if requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration should be set to null
@@ -610,14 +665,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
+            public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
+            public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
             public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? OpenZFSConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.Boolean? OpenZFSConfiguration_CopyTagsToBackup { get; set; }
             public System.Boolean? OpenZFSConfiguration_CopyTagsToVolume { get; set; }
             public System.String OpenZFSConfiguration_DailyAutomaticBackupStartTime { get; set; }
-            public System.Int64? DiskIopsConfiguration_Iops { get; set; }
-            public Amazon.FSx.DiskIopsConfigurationMode DiskIopsConfiguration_Mode { get; set; }
+            public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
+            public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
             public System.String OpenZFSConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? StorageCapacity { get; set; }

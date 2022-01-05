@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Deletes an existing Recovery Group.
+    /// Deletes a recovery group.
     /// </summary>
     [Cmdlet("Remove", "PDRecoveryGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// The RecoveryGroup to delete
+        /// <para>The name of a recovery group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

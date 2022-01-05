@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String ParentGroupId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -161,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.ParentGroupId = this.ParentGroupId;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ParentGroupId != null)
             {
                 request.ParentGroupId = cmdletContext.ParentGroupId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -253,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public System.String ParentGroupId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Connect.Model.CreateUserHierarchyGroupResponse, NewCONNUserHierarchyGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

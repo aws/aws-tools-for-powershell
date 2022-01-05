@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The rules used for the updated analytics category. The rules that you provide in this
-        /// field replace the ones that are currently being used. </para>
+        /// field replace the ones that are currently being used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "IdFromRequestObject", Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = "IdFromRequestObject")]
         [Alias("StopWorkspaceRequest","StopWorkspaceRequests")]
         public Amazon.WorkSpaces.Model.StopRequest[] Request { get; set; }
         #endregion

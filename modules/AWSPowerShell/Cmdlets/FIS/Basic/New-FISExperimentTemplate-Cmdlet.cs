@@ -32,18 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     /// 
     ///  
     /// <para>
-    /// To create a template, specify the following information: 
-    /// </para><ul><li><para><b>Targets</b>: A target can be a specific resource in your AWS environment, or one
-    /// or more resources that match criteria that you specify, for example, resources that
-    /// have specific tags.
+    /// An experiment template includes the following components:
+    /// </para><ul><li><para><b>Targets</b>: A target can be a specific resource in your Amazon Web Services environment,
+    /// or one or more resources that match criteria that you specify, for example, resources
+    /// that have specific tags.
     /// </para></li><li><para><b>Actions</b>: The actions to carry out on the target. You can specify multiple
     /// actions, the duration of each action, and when to start each action during an experiment.
     /// </para></li><li><para><b>Stop conditions</b>: If a stop condition is triggered while an experiment is running,
     /// the experiment is automatically stopped. You can define a stop condition as a CloudWatch
     /// alarm.
     /// </para></li></ul><para>
-    /// For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">AWS
-    /// Fault Injection Simulator User Guide</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">Experiment
+    /// templates</a> in the <i>Fault Injection Simulator User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FISExperimentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the experiment template. Can contain up to 64 letters (A-Z and a-z).</para>
+        /// <para>A description for the experiment template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission
         /// to perform service actions on your behalf.</para>
         /// </para>
         /// </summary>

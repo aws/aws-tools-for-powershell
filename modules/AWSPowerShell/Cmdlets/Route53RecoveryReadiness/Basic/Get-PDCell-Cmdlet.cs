@@ -28,7 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about a Cell.
+    /// Gets information about a cell including cell name, cell Amazon Resource Name (ARN),
+    /// ARNs of nested cells for this cell, and a list of those cell ARNs with their associated
+    /// recovery group ARNs.
     /// </summary>
     [Cmdlet("Get", "PDCell")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetCellResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CellName
         /// <summary>
         /// <para>
-        /// The Cell to get
+        /// <para>The name of the cell.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

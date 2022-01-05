@@ -28,8 +28,8 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns a collection of recommendations to improve resilliance and readiness check
-    /// quality for a Recovery Group.
+    /// Gets recommendations about architecture designs for improving resiliency for an application,
+    /// based on a recovery group.
     /// </summary>
     [Cmdlet("Get", "PDArchitectureRecommendation")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetArchitectureRecommendationsResponse")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// Name of RecoveryGroup (top level resource)
-        /// to be analyzed.
+        /// <para>The name of a recovery group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token that can be used to resume pagination
-        /// from the end of the collection.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

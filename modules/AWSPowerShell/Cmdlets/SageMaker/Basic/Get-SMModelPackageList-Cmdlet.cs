@@ -84,8 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageType
         /// <summary>
         /// <para>
-        /// <para>A filter that returns onlyl the model packages of the specified type. This can be
-        /// one of the following values.</para><ul><li><para><code>VERSIONED</code> - List only versioned models.</para></li><li><para><code>UNVERSIONED</code> - List only unversioined models.</para></li><li><para><code>BOTH</code> - List both versioned and unversioned models.</para></li></ul>
+        /// <para>A filter that returns only the model packages of the specified type. This can be one
+        /// of the following values.</para><ul><li><para><code>UNVERSIONED</code> - List only unversioined models. This is the default value
+        /// if no <code>ModelPackageType</code> is specified.</para></li><li><para><code>VERSIONED</code> - List only versioned models.</para></li><li><para><code>BOTH</code> - List both versioned and unversioned models.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

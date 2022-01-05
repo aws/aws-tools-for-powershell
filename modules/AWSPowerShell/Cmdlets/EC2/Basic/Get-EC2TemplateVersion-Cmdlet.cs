@@ -46,8 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>create-time</code> - The time the launch template version was created.</para></li><li><para><code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized
-        /// for Amazon EBS I/O.</para></li><li><para><code>iam-instance-profile</code> - The ARN of the IAM instance profile.</para></li><li><para><code>image-id</code> - The ID of the AMI.</para></li><li><para><code>instance-type</code> - The instance type.</para></li><li><para><code>is-default-version</code> - A boolean that indicates whether the launch template
-        /// version is the default version.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>ram-disk-id</code> - The RAM disk ID.</para></li></ul>
+        /// for Amazon EBS I/O.</para></li><li><para><code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your
+        /// instances is enabled (<code>enabled</code> | <code>disabled</code>).</para></li><li><para><code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance
+        /// metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</para></li><li><para><code>host-resource-group-arn</code> - The ARN of the host resource group in which
+        /// to launch the instances.</para></li><li><para><code>http-tokens</code> - The state of token usage for your instance metadata requests
+        /// (<code>optional</code> | <code>required</code>).</para></li><li><para><code>iam-instance-profile</code> - The ARN of the IAM instance profile.</para></li><li><para><code>image-id</code> - The ID of the AMI.</para></li><li><para><code>instance-type</code> - The instance type.</para></li><li><para><code>is-default-version</code> - A boolean that indicates whether the launch template
+        /// version is the default version.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>license-configuration-arn</code> - The ARN of the license configuration.</para></li><li><para><code>network-card-index</code> - The index of the network card.</para></li><li><para><code>ram-disk-id</code> - The RAM disk ID.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

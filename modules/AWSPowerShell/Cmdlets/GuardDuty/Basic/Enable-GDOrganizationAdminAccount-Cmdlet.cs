@@ -28,7 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Enables an AWS account within the organization as the GuardDuty delegated administrator.
+    /// Enables an Amazon Web Services account within the organization as the GuardDuty delegated
+    /// administrator.
     /// </summary>
     [Cmdlet("Enable", "GDOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID for the organization account to be enabled as a GuardDuty delegated
-        /// administrator.</para>
+        /// <para>The Amazon Web Services Account ID for the organization account to be enabled as a
+        /// GuardDuty delegated administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

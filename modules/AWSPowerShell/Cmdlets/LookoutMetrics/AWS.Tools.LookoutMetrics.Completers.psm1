@@ -194,6 +194,7 @@ $LOM_SelectMap = @{
                "New-LOMAlert",
                "New-LOMAnomalyDetector",
                "New-LOMMetricSet",
+               "Disable-LOMAnomalyDetector",
                "Remove-LOMAlert",
                "Remove-LOMAnomalyDetector",
                "Get-LOMAlert",

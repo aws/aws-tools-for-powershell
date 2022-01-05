@@ -69,11 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Updates the pricing plan for the route calculator resource.</para><para>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
@@ -147,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.Description = this.Description;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,10 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.Description = cmdletContext.Description;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -239,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String CalculatorName { get; set; }
             public System.String Description { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public System.Func<Amazon.LocationService.Model.UpdateRouteCalculatorResponse, EditLOCRouteCalculatorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

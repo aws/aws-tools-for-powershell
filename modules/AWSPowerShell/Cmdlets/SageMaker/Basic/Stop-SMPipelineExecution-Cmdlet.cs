@@ -33,16 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para><b>Callback Step</b></para><para>
     /// A pipeline execution won't stop while a callback step is running. When you call <code>StopPipelineExecution</code>
-    /// on a pipeline execution with a running callback step, Amazon SageMaker Pipelines sends
-    /// an additional Amazon SQS message to the specified SQS queue. The body of the SQS message
+    /// on a pipeline execution with a running callback step, SageMaker Pipelines sends an
+    /// additional Amazon SQS message to the specified SQS queue. The body of the SQS message
     /// contains a "Status" field which is set to "Stopping".
     /// </para><para>
     /// You should add logic to your Amazon SQS message consumer to take any needed action
     /// (for example, resource cleanup) upon receipt of the message followed by a call to
     /// <code>SendPipelineExecutionStepSuccess</code> or <code>SendPipelineExecutionStepFailure</code>.
     /// </para><para>
-    /// Only when Amazon SageMaker Pipelines receives one of these calls will it stop the
-    /// pipeline execution.
+    /// Only when SageMaker Pipelines receives one of these calls will it stop the pipeline
+    /// execution.
     /// </para><para><b>Lambda Step</b></para><para>
     /// A pipeline execution can't be stopped while a lambda step is running because the Lambda
     /// function invoked by the lambda step can't be stopped. If you attempt to stop the execution

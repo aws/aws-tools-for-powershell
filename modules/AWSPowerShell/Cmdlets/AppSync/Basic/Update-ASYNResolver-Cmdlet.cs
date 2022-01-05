@@ -155,6 +155,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }
         #endregion
         
+        #region Parameter MaxBatchSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum batching size for a resolver.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxBatchSize { get; set; }
+        #endregion
+        
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
@@ -287,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.Kind = this.Kind;
+            context.MaxBatchSize = this.MaxBatchSize;
             if (this.PipelineConfig_Function != null)
             {
                 context.PipelineConfig_Function = new List<System.String>(this.PipelineConfig_Function);
@@ -363,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.Kind != null)
             {
                 request.Kind = cmdletContext.Kind;
+            }
+            if (cmdletContext.MaxBatchSize != null)
+            {
+                request.MaxBatchSize = cmdletContext.MaxBatchSize.Value;
             }
             
              // populate PipelineConfig
@@ -516,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String DataSourceName { get; set; }
             public System.String FieldName { get; set; }
             public Amazon.AppSync.ResolverKind Kind { get; set; }
+            public System.Int32? MaxBatchSize { get; set; }
             public List<System.String> PipelineConfig_Function { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }

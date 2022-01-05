@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ThumbnailConfiguration_RecordingMode
+        /// <summary>
+        /// <para>
+        /// <para>Thumbnail recording mode. Default: <code>INTERVAL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IVS.RecordingMode")]
+        public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -82,6 +93,24 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ThumbnailConfiguration_TargetIntervalSecond
+        /// <summary>
+        /// <para>
+        /// <para>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
+        /// only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</para><para><b>Important:</b> Setting a value for <code>targetIntervalSeconds</code> does not
+        /// guarantee that thumbnails are generated at the specified interval. For thumbnails
+        /// to be generated at the <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code>
+        /// value for the input video must be less than the <code>targetIntervalSeconds</code>
+        /// value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html">
+        /// Amazon IVS Streaming Configuration</a> for information on setting <code>IDR/Keyframe</code>
+        /// to the recommended value in video-encoder settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThumbnailConfiguration_TargetIntervalSeconds")]
+        public System.Int64? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
         #endregion
         
         #region Parameter Select
@@ -155,6 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
+            context.ThumbnailConfiguration_TargetIntervalSecond = this.ThumbnailConfiguration_TargetIntervalSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -212,6 +243,35 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate ThumbnailConfiguration
+            var requestThumbnailConfigurationIsNull = true;
+            request.ThumbnailConfiguration = new Amazon.IVS.Model.ThumbnailConfiguration();
+            Amazon.IVS.RecordingMode requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode = null;
+            if (cmdletContext.ThumbnailConfiguration_RecordingMode != null)
+            {
+                requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode = cmdletContext.ThumbnailConfiguration_RecordingMode;
+            }
+            if (requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode != null)
+            {
+                request.ThumbnailConfiguration.RecordingMode = requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode;
+                requestThumbnailConfigurationIsNull = false;
+            }
+            System.Int64? requestThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond = null;
+            if (cmdletContext.ThumbnailConfiguration_TargetIntervalSecond != null)
+            {
+                requestThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond = cmdletContext.ThumbnailConfiguration_TargetIntervalSecond.Value;
+            }
+            if (requestThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond != null)
+            {
+                request.ThumbnailConfiguration.TargetIntervalSeconds = requestThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond.Value;
+                requestThumbnailConfigurationIsNull = false;
+            }
+             // determine if request.ThumbnailConfiguration should be set to null
+            if (requestThumbnailConfigurationIsNull)
+            {
+                request.ThumbnailConfiguration = null;
             }
             
             CmdletOutput output;
@@ -277,6 +337,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.String S3_BucketName { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
+            public System.Int64? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
             public System.Func<Amazon.IVS.Model.CreateRecordingConfigurationResponse, NewIVSRecordingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecordingConfiguration;
         }

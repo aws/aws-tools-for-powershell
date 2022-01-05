@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon S3 location of a text file used as input to create the vocabulary filter.
         /// Only use characters from the character set defined for custom vocabularies. For a
-        /// list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets">Character
+        /// list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
         /// Sets for Custom Vocabularies</a>.</para><para>The specified file must be less than 50 KB of UTF-8 characters.</para><para>If you provide the location of a list of words in the <code>VocabularyFilterFileUri</code>
         /// parameter, you can't use the <code>Words</code> parameter.</para>
         /// </para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The words to use in the vocabulary filter. Only use characters from the character
-        /// set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets">Character
+        /// set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
         /// Sets for Custom Vocabularies</a>.</para><para>If you provide a list of words in the <code>Words</code> parameter, you can't use
         /// the <code>VocabularyFilterFileUri</code> parameter.</para>
         /// </para>

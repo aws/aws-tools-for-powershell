@@ -100,6 +100,13 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.RecordingMode
+        "New-IVSRecordingConfiguration/ThumbnailConfiguration_RecordingMode"
+        {
+            $v = "DISABLED","INTERVAL"
+            break
+        }
+
         # Amazon.IVS.StreamHealth
         "Get-IVSStreamList/FilterBy_Health"
         {
@@ -118,6 +125,7 @@ $IVS_Completers = {
 $IVS_map = @{
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
+    "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")
     "Type"=@("New-IVSChannel","Update-IVSChannel")
 }
 

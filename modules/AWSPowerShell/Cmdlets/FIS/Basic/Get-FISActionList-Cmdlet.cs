@@ -28,7 +28,7 @@ using Amazon.FIS.Model;
 namespace Amazon.PowerShell.Cmdlets.FIS
 {
     /// <summary>
-    /// Lists the available AWS FIS actions.
+    /// Lists the available FIS actions.
     /// </summary>
     [Cmdlet("Get", "FISActionList")]
     [OutputType("Amazon.FIS.Model.ActionSummary")]

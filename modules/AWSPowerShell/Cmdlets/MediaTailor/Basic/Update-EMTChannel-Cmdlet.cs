@@ -74,6 +74,27 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.Model.RequestOutputItem[] Output { get; set; }
         #endregion
         
+        #region Parameter FillerSlate_SourceLocationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the source location where the slate VOD source is stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FillerSlate_SourceLocationName { get; set; }
+        #endregion
+        
+        #region Parameter FillerSlate_VodSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The slate VOD source name. The VOD source must already exist in a source location
+        /// before it can be used for slate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FillerSlate_VodSourceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -142,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FillerSlate_SourceLocationName = this.FillerSlate_SourceLocationName;
+            context.FillerSlate_VodSourceName = this.FillerSlate_VodSourceName;
             if (this.Output != null)
             {
                 context.Output = new List<Amazon.MediaTailor.Model.RequestOutputItem>(this.Output);
@@ -171,6 +194,35 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.ChannelName != null)
             {
                 request.ChannelName = cmdletContext.ChannelName;
+            }
+            
+             // populate FillerSlate
+            var requestFillerSlateIsNull = true;
+            request.FillerSlate = new Amazon.MediaTailor.Model.SlateSource();
+            System.String requestFillerSlate_fillerSlate_SourceLocationName = null;
+            if (cmdletContext.FillerSlate_SourceLocationName != null)
+            {
+                requestFillerSlate_fillerSlate_SourceLocationName = cmdletContext.FillerSlate_SourceLocationName;
+            }
+            if (requestFillerSlate_fillerSlate_SourceLocationName != null)
+            {
+                request.FillerSlate.SourceLocationName = requestFillerSlate_fillerSlate_SourceLocationName;
+                requestFillerSlateIsNull = false;
+            }
+            System.String requestFillerSlate_fillerSlate_VodSourceName = null;
+            if (cmdletContext.FillerSlate_VodSourceName != null)
+            {
+                requestFillerSlate_fillerSlate_VodSourceName = cmdletContext.FillerSlate_VodSourceName;
+            }
+            if (requestFillerSlate_fillerSlate_VodSourceName != null)
+            {
+                request.FillerSlate.VodSourceName = requestFillerSlate_fillerSlate_VodSourceName;
+                requestFillerSlateIsNull = false;
+            }
+             // determine if request.FillerSlate should be set to null
+            if (requestFillerSlateIsNull)
+            {
+                request.FillerSlate = null;
             }
             if (cmdletContext.Output != null)
             {
@@ -238,6 +290,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelName { get; set; }
+            public System.String FillerSlate_SourceLocationName { get; set; }
+            public System.String FillerSlate_VodSourceName { get; set; }
             public List<Amazon.MediaTailor.Model.RequestOutputItem> Output { get; set; }
             public System.Func<Amazon.MediaTailor.Model.UpdateChannelResponse, UpdateEMTChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

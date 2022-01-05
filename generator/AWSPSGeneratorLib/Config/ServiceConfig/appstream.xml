@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateApplicationToEntitlement" Verb="Add" Noun="ApplicationToEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateFleet" Verb="Register" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="New" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEntitlement" OutputProperty="Entitlement" Verb="New" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDirectoryConfig" Verb="Remove" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEntitlement" Verb="Remove" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +152,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="Entitlement" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -185,6 +201,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateApplicationFromEntitlement" Verb="Remove" Noun="ApplicationFromEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateFleet" Verb="Unregister" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -202,6 +222,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssociatedStacks" OutputProperty="Names" Verb="Get" Noun="AssociatedStackList" PipelineParameter="FleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntitledApplications" OutputProperty="EntitledApplications" Verb="Get" Noun="EntitledApplicationList" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -238,6 +262,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="Update" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

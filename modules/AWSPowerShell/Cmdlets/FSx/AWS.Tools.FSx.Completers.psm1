@@ -90,6 +90,7 @@ $FSX_Completers = {
         # Amazon.FSx.DiskIopsConfigurationMode
         {
             ($_ -eq "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode") -Or
+            ($_ -eq "Update-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "Update-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode")
@@ -213,7 +214,7 @@ $FSX_Completers = {
 $FSX_map = @{
     "FileSystemType"=@("New-FSXFileSystem")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
-    "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem")
+    "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")

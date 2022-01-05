@@ -58,7 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
         /// with that account's usage of that service. You can nest <code>Expression</code> objects
         /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
-        /// </para>
+        /// </para><para>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid
+        /// values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code>
+        /// and <code>CASE_SENSITIVE</code>.</para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
+        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

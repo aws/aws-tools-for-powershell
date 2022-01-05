@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
     /// </para><para>
     /// If you make changes to parameters that require a Redis (cluster mode enabled) cluster
-    /// reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting
+    /// reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html">Rebooting
     /// a Cluster</a> for an alternate process.
     /// </para>
     /// </summary>

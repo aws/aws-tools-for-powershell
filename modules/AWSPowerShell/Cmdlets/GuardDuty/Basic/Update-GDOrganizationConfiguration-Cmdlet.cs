@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? AutoEnable { get; set; }
         #endregion
         
+        #region Parameter AuditLogs_AutoEnable
+        /// <summary>
+        /// <para>
+        /// <para>A value that contains information on whether Kubernetes audit logs should be enabled
+        /// automatically as a data source for the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_Kubernetes_AuditLogs_AutoEnable")]
+        public System.Boolean? AuditLogs_AutoEnable { get; set; }
+        #endregion
+        
         #region Parameter S3Logs_AutoEnable
         /// <summary>
         /// <para>
@@ -152,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter AutoEnable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuditLogs_AutoEnable = this.AuditLogs_AutoEnable;
             context.S3Logs_AutoEnable = this.S3Logs_AutoEnable;
             context.DetectorId = this.DetectorId;
             #if MODULAR
@@ -184,6 +197,46 @@ namespace Amazon.PowerShell.Cmdlets.GD
              // populate DataSources
             var requestDataSourcesIsNull = true;
             request.DataSources = new Amazon.GuardDuty.Model.OrganizationDataSourceConfigurations();
+            Amazon.GuardDuty.Model.OrganizationKubernetesConfiguration requestDataSources_dataSources_Kubernetes = null;
+            
+             // populate Kubernetes
+            var requestDataSources_dataSources_KubernetesIsNull = true;
+            requestDataSources_dataSources_Kubernetes = new Amazon.GuardDuty.Model.OrganizationKubernetesConfiguration();
+            Amazon.GuardDuty.Model.OrganizationKubernetesAuditLogsConfiguration requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs = null;
+            
+             // populate AuditLogs
+            var requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogsIsNull = true;
+            requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs = new Amazon.GuardDuty.Model.OrganizationKubernetesAuditLogsConfiguration();
+            System.Boolean? requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs_auditLogs_AutoEnable = null;
+            if (cmdletContext.AuditLogs_AutoEnable != null)
+            {
+                requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs_auditLogs_AutoEnable = cmdletContext.AuditLogs_AutoEnable.Value;
+            }
+            if (requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs_auditLogs_AutoEnable != null)
+            {
+                requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs.AutoEnable = requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs_auditLogs_AutoEnable.Value;
+                requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs should be set to null
+            if (requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogsIsNull)
+            {
+                requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs = null;
+            }
+            if (requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs != null)
+            {
+                requestDataSources_dataSources_Kubernetes.AuditLogs = requestDataSources_dataSources_Kubernetes_dataSources_Kubernetes_AuditLogs;
+                requestDataSources_dataSources_KubernetesIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_Kubernetes should be set to null
+            if (requestDataSources_dataSources_KubernetesIsNull)
+            {
+                requestDataSources_dataSources_Kubernetes = null;
+            }
+            if (requestDataSources_dataSources_Kubernetes != null)
+            {
+                request.DataSources.Kubernetes = requestDataSources_dataSources_Kubernetes;
+                requestDataSourcesIsNull = false;
+            }
             Amazon.GuardDuty.Model.OrganizationS3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
             
              // populate S3Logs
@@ -280,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AutoEnable { get; set; }
+            public System.Boolean? AuditLogs_AutoEnable { get; set; }
             public System.Boolean? S3Logs_AutoEnable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateOrganizationConfigurationResponse, UpdateGDOrganizationConfigurationCmdlet, object> Select { get; set; } =

@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the version of the RAM permission to associate with the resource share.
         /// If you don't specify this parameter, the operation uses the version designated as
-        /// the default.</para>
+        /// the default. You can use the <a>ListPermissionVersions</a> operation to discover the
+        /// available versions of a permission.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

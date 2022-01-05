@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Creates an new set of frequently asked question (FAQ) questions and answers.
+    /// 
+    ///  
+    /// <para>
+    /// Adding FAQs to an index is an asynchronous operation.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRFaq", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

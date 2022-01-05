@@ -80,6 +80,16 @@ $APS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppStream.AppVisibility
+        {
+            ($_ -eq "New-APSEntitlement/AppVisibility") -Or
+            ($_ -eq "Update-APSEntitlement/AppVisibility")
+        }
+        {
+            $v = "ALL","ASSOCIATED"
+            break
+        }
+
         # Amazon.AppStream.AuthenticationType
         {
             ($_ -eq "Disable-APSUser/AuthenticationType") -Or
@@ -145,6 +155,7 @@ $APS_Completers = {
 }
 
 $APS_map = @{
+    "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
@@ -204,6 +215,7 @@ $APS_SelectCompleters = {
 
 $APS_SelectMap = @{
     "Select"=@("Register-APSApplicationFleet",
+               "Add-APSApplicationToEntitlement",
                "Register-APSFleet",
                "Register-APSUserStackBatch",
                "Unregister-APSUserStackBatch",
@@ -211,6 +223,7 @@ $APS_SelectMap = @{
                "New-APSAppBlock",
                "New-APSApplication",
                "New-APSDirectoryConfig",
+               "New-APSEntitlement",
                "New-APSFleet",
                "New-APSImageBuilder",
                "New-APSImageBuilderStreamingURL",
@@ -222,6 +235,7 @@ $APS_SelectMap = @{
                "Remove-APSAppBlock",
                "Remove-APSApplication",
                "Remove-APSDirectoryConfig",
+               "Remove-APSEntitlement",
                "Remove-APSFleet",
                "Remove-APSImage",
                "Remove-APSImageBuilder",
@@ -233,6 +247,7 @@ $APS_SelectMap = @{
                "Get-APSApplicationFleetAssociation",
                "Get-APSApplication",
                "Get-APSDirectoryConfigList",
+               "Get-APSEntitlement",
                "Get-APSFleetList",
                "Get-APSImageBuilderList",
                "Get-APSImagePermission",
@@ -244,11 +259,13 @@ $APS_SelectMap = @{
                "Get-APSUserStackAssociation",
                "Disable-APSUser",
                "Unregister-APSApplicationFleet",
+               "Remove-APSApplicationFromEntitlement",
                "Unregister-APSFleet",
                "Enable-APSUser",
                "Revoke-APSSession",
                "Get-APSAssociatedFleetList",
                "Get-APSAssociatedStackList",
+               "Get-APSEntitledApplicationList",
                "Get-APSTagsForResourceList",
                "Start-APSFleet",
                "Start-APSImageBuilder",
@@ -258,6 +275,7 @@ $APS_SelectMap = @{
                "Remove-APSResourceTag",
                "Update-APSApplication",
                "Update-APSDirectoryConfig",
+               "Update-APSEntitlement",
                "Update-APSFleet",
                "Update-APSImagePermission",
                "Update-APSStack")

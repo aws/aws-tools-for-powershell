@@ -86,8 +86,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-PIAvailableResourceDimensionList', 
+        'Get-PIAvailableResourceMetricList', 
         'Get-PIDimensionKey', 
         'Get-PIDimensionKeyDetail', 
+        'Get-PIResourceMetadata', 
         'Get-PIResourceMetric')
 
     # Variables to export from this module

@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>TThe name of the contact flow.</para>
+        /// <para>The name of the contact flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Delete cross account readiness authorization
+    /// Deletes cross account readiness authorization.
     /// </summary>
     [Cmdlet("Remove", "PDCrossAccountAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CrossAccountAuthorization
         /// <summary>
         /// <para>
-        /// The cross account authorization
+        /// <para>The cross-account authorization.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

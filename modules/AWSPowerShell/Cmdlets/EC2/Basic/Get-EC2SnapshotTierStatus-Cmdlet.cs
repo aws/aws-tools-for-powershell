@@ -44,8 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>volume-id</code> - The ID of the volume the snapshot is for.</para></li><li><para><code>last-tiering-operation</code> - The state of the last archive or restore action.
-        /// (<code>archiving</code> | <code>archival_error</code> | <code>archival_complete</code>
-        /// | <code>restoring</code> | <code>restore_error</code> | <code>restore_complete</code>)</para></li></ul>
+        /// (<code>archival-in-progress</code> | <code>archival-completed</code> | <code>archival-failed</code>
+        /// | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code>
+        /// | <code>permanent-restore-failed</code> | <code>temporary-restore-in-progress</code>
+        /// | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

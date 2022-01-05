@@ -28,7 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a dataset.
+    /// Creates a dataset. This operation doesn't support datasets that include uploaded files
+    /// as a source.
     /// </summary>
     [Cmdlet("New", "QSDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateDataSetResponse")]

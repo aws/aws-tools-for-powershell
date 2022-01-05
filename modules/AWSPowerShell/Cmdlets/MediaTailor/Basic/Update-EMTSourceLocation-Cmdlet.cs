@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String SecretsManagerAccessTokenConfiguration_SecretStringKey { get; set; }
         #endregion
         
+        #region Parameter SegmentDeliveryConfiguration
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentDeliveryConfigurations")]
+        public Amazon.MediaTailor.Model.SegmentDeliveryConfiguration[] SegmentDeliveryConfiguration { get; set; }
+        #endregion
+        
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
@@ -215,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter HttpConfiguration_BaseUrl which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SegmentDeliveryConfiguration != null)
+            {
+                context.SegmentDeliveryConfiguration = new List<Amazon.MediaTailor.Model.SegmentDeliveryConfiguration>(this.SegmentDeliveryConfiguration);
+            }
             context.SourceLocationName = this.SourceLocationName;
             #if MODULAR
             if (this.SourceLocationName == null && ParameterWasBound(nameof(this.SourceLocationName)))
@@ -340,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.HttpConfiguration = null;
             }
+            if (cmdletContext.SegmentDeliveryConfiguration != null)
+            {
+                request.SegmentDeliveryConfigurations = cmdletContext.SegmentDeliveryConfiguration;
+            }
             if (cmdletContext.SourceLocationName != null)
             {
                 request.SourceLocationName = cmdletContext.SourceLocationName;
@@ -411,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String SecretsManagerAccessTokenConfiguration_SecretStringKey { get; set; }
             public System.String DefaultSegmentDeliveryConfiguration_BaseUrl { get; set; }
             public System.String HttpConfiguration_BaseUrl { get; set; }
+            public List<Amazon.MediaTailor.Model.SegmentDeliveryConfiguration> SegmentDeliveryConfiguration { get; set; }
             public System.String SourceLocationName { get; set; }
             public System.Func<Amazon.MediaTailor.Model.UpdateSourceLocationResponse, UpdateEMTSourceLocationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

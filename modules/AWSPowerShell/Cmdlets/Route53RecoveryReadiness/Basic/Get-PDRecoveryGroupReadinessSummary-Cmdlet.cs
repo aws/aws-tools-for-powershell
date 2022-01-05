@@ -28,7 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about a Recovery Group.
+    /// Displays a summary of information about a recovery group's readiness status. Includes
+    /// the readiness checks for resources in the recovery group and the readiness status
+    /// of each one.
     /// </summary>
     [Cmdlet("Get", "PDRecoveryGroupReadinessSummary")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetRecoveryGroupReadinessSummaryResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// The name of the RecoveryGroup
+        /// <para>The name of a recovery group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token used to resume pagination from the end
-        /// of a previous request.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

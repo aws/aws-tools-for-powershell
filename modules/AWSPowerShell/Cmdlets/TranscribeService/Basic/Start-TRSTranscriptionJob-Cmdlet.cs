@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Instructs Amazon Transcribe to process each audio channel separately and then merge
-        /// the transcription output of each channel into a single transcription. </para><para>Amazon Transcribe also produces a transcription of each item detected on an audio
+        /// the transcription output of each channel into a single transcription.</para><para>Amazon Transcribe also produces a transcription of each item detected on an audio
         /// channel, including the start time and end time of the item and alternative transcriptions
         /// of the item including the confidence that Amazon Transcribe has in the transcription.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
         /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>For example:</para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/example.mp4</code></para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -287,10 +287,22 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String OutputKey { get; set; }
         #endregion
         
+        #region Parameter ContentRedaction_PiiEntityType
+        /// <summary>
+        /// <para>
+        /// <para>The types of personally identifiable information (PII) you want to redact in your
+        /// transcript.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentRedaction_PiiEntityTypes")]
+        public System.String[] ContentRedaction_PiiEntityType { get; set; }
+        #endregion
+        
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para> The S3 object location for your redacted output media file. This is only supported
+        /// <para>The S3 object location for your redacted output media file. This is only supported
         /// for call analytics jobs.</para>
         /// </para>
         /// </summary>
@@ -481,6 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Select = (response, cmdlet) => this.TranscriptionJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ContentRedaction_PiiEntityType != null)
+            {
+                context.ContentRedaction_PiiEntityType = new List<System.String>(this.ContentRedaction_PiiEntityType);
+            }
             context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
             context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
             context.IdentifyLanguage = this.IdentifyLanguage;
@@ -558,6 +574,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
              // populate ContentRedaction
             var requestContentRedactionIsNull = true;
             request.ContentRedaction = new Amazon.TranscribeService.Model.ContentRedaction();
+            List<System.String> requestContentRedaction_contentRedaction_PiiEntityType = null;
+            if (cmdletContext.ContentRedaction_PiiEntityType != null)
+            {
+                requestContentRedaction_contentRedaction_PiiEntityType = cmdletContext.ContentRedaction_PiiEntityType;
+            }
+            if (requestContentRedaction_contentRedaction_PiiEntityType != null)
+            {
+                request.ContentRedaction.PiiEntityTypes = requestContentRedaction_contentRedaction_PiiEntityType;
+                requestContentRedactionIsNull = false;
+            }
             Amazon.TranscribeService.RedactionOutput requestContentRedaction_contentRedaction_RedactionOutput = null;
             if (cmdletContext.ContentRedaction_RedactionOutput != null)
             {
@@ -877,6 +903,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> ContentRedaction_PiiEntityType { get; set; }
             public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
             public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
             public System.Boolean? IdentifyLanguage { get; set; }

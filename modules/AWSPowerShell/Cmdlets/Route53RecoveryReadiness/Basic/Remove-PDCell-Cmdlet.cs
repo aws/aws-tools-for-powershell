@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Deletes an existing Cell.
+    /// Delete a cell. When successful, the response code is 204, with no response body.
     /// </summary>
     [Cmdlet("Remove", "PDCell", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CellName
         /// <summary>
         /// <para>
-        /// The Cell to delete
+        /// <para>The name of the cell.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -96,6 +96,27 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.EncryptionConfig[] EncryptionConfig { get; set; }
         #endregion
         
+        #region Parameter KubernetesNetworkConfig_IpFamily
+        /// <summary>
+        /// <para>
+        /// <para>Specify which IP version is used to assign Kubernetes Pod and Service IP addresses.
+        /// If you don't specify a value, <code>ipv4</code> is used by default. You can only specify
+        /// an IP family when you create a cluster and can't change this value once the cluster
+        /// is created. If you specify <code>ipv6</code>, the VPC and subnets that you specify
+        /// for cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them. </para><para>You can only specify <code>ipv6</code> for 1.21 and later clusters that use version
+        /// 1.10.0 or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then
+        /// ensure that your VPC meets the requirements and that you're familiar with the considerations
+        /// listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
+        /// IPv6 addresses to Pods and Services</a> in the Amazon EKS User Guide. If you specify
+        /// <code>ipv6</code>, Kubernetes assigns Service and Pod addresses from the unique local
+        /// address range (fc00::/7). You can't specify a custom IPv6 CIDR block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.IpFamily")]
+        public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -158,11 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter KubernetesNetworkConfig_ServiceIpv4Cidr
         /// <summary>
         /// <para>
-        /// <para>The CIDR block to assign Kubernetes service IP addresses from. If you don't specify
-        /// a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16
-        /// CIDR blocks. We recommend that you specify a block that does not overlap with resources
-        /// in other networks that are peered or connected to your VPC. The block must meet the
-        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12,
+        /// <para>Don't specify a value if you select <code>ipv6</code> for <b>ipFamily</b>. The CIDR
+        /// block to assign Kubernetes service IP addresses from. If you don't specify a block,
+        /// Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks.
+        /// We recommend that you specify a block that does not overlap with resources in other
+        /// networks that are peered or connected to your VPC. The block must meet the following
+        /// requirements:</para><ul><li><para>Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12,
         /// or 192.168.0.0/16.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between /24 and /12.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster and can't change
         /// this value once the cluster is created.</para></important>
         /// </para>
@@ -260,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
             }
+            context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
             if (this.Logging_ClusterLogging != null)
             {
@@ -323,6 +346,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
              // populate KubernetesNetworkConfig
             var requestKubernetesNetworkConfigIsNull = true;
             request.KubernetesNetworkConfig = new Amazon.EKS.Model.KubernetesNetworkConfigRequest();
+            Amazon.EKS.IpFamily requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily = null;
+            if (cmdletContext.KubernetesNetworkConfig_IpFamily != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily = cmdletContext.KubernetesNetworkConfig_IpFamily;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily != null)
+            {
+                request.KubernetesNetworkConfig.IpFamily = requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily;
+                requestKubernetesNetworkConfigIsNull = false;
+            }
             System.String requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr = null;
             if (cmdletContext.KubernetesNetworkConfig_ServiceIpv4Cidr != null)
             {
@@ -440,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
+            public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }

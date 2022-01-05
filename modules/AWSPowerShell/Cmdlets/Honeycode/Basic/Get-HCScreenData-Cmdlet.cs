@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HC
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>The ID of the app that contains the screem.</para>
+        /// <para>The ID of the app that contains the screen.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

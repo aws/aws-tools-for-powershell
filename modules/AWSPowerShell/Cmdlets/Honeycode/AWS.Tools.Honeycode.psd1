@@ -86,6 +86,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-HCResourceTag', 
+        'Get-HCResourceTag', 
         'Get-HCScreenData', 
         'Get-HCTableColumnList', 
         'Get-HCTableDataImportJob', 
@@ -95,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-HCScreenAutomation', 
         'Invoke-HCUpsertTableRowsBatch', 
         'New-HCTableRowsBatch', 
+        'Remove-HCResourceTag', 
         'Remove-HCTableRowsBatch', 
         'Start-HCTableDataImportJob', 
         'Update-HCTableRowsBatch')

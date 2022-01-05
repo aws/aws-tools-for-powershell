@@ -81,14 +81,20 @@ $LOC_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.LocationService.DimensionUnit
-        "Get-LOCRoute/TruckModeOptions_Dimensions_Unit"
+        {
+            ($_ -eq "Get-LOCRoute/TruckModeOptions_Dimensions_Unit") -Or
+            ($_ -eq "Get-LOCRouteMatrix/TruckModeOptions_Dimensions_Unit")
+        }
         {
             $v = "Feet","Meters"
             break
         }
 
         # Amazon.LocationService.DistanceUnit
-        "Get-LOCRoute/DistanceUnit"
+        {
+            ($_ -eq "Get-LOCRoute/DistanceUnit") -Or
+            ($_ -eq "Get-LOCRouteMatrix/DistanceUnit")
+        }
         {
             $v = "Kilometers","Miles"
             break
@@ -133,14 +139,20 @@ $LOC_Completers = {
         }
 
         # Amazon.LocationService.TravelMode
-        "Get-LOCRoute/TravelMode"
+        {
+            ($_ -eq "Get-LOCRoute/TravelMode") -Or
+            ($_ -eq "Get-LOCRouteMatrix/TravelMode")
+        }
         {
             $v = "Car","Truck","Walking"
             break
         }
 
         # Amazon.LocationService.VehicleWeightUnit
-        "Get-LOCRoute/TruckModeOptions_Weight_Unit"
+        {
+            ($_ -eq "Get-LOCRoute/TruckModeOptions_Weight_Unit") -Or
+            ($_ -eq "Get-LOCRouteMatrix/TruckModeOptions_Weight_Unit")
+        }
         {
             $v = "Kilograms","Pounds"
             break
@@ -156,12 +168,12 @@ $LOC_Completers = {
 
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
-    "DistanceUnit"=@("Get-LOCRoute")
+    "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
-    "TravelMode"=@("Get-LOCRoute")
-    "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute")
-    "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute")
+    "TravelMode"=@("Get-LOCRoute","Get-LOCRouteMatrix")
+    "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
+    "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
 }
 
 _awsArgumentCompleterRegistration $LOC_Completers $LOC_map
@@ -222,6 +234,7 @@ $LOC_SelectMap = @{
                "Set-LOCGeofenceBatch",
                "Set-LOCDevicePositionBatch",
                "Get-LOCRoute",
+               "Get-LOCRouteMatrix",
                "New-LOCGeofenceCollection",
                "New-LOCMap",
                "New-LOCPlaceIndex",

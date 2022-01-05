@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionVersions" OutputProperty="Permissions" Verb="Get" Noun="PermissionVersionList" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

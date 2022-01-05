@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2ClientVpnEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientLoginBannerOptions_BannerText
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientLoginBannerOptions_BannerText { get; set; }
+        #endregion
+        
         #region Parameter ClientVpnEndpointId
         /// <summary>
         /// <para>
@@ -112,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? ClientConnectOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter ClientLoginBannerOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ClientLoginBannerOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ConnectionLogOptions_Enabled
         /// <summary>
         /// <para>
@@ -174,6 +194,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServerCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter SessionTimeoutHour
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionTimeoutHours")]
+        public System.Int32? SessionTimeoutHour { get; set; }
         #endregion
         
         #region Parameter SplitTunnel
@@ -270,6 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientConnectOptions_Enabled = this.ClientConnectOptions_Enabled;
             context.ClientConnectOptions_LambdaFunctionArn = this.ClientConnectOptions_LambdaFunctionArn;
+            context.ClientLoginBannerOptions_BannerText = this.ClientLoginBannerOptions_BannerText;
+            context.ClientLoginBannerOptions_Enabled = this.ClientLoginBannerOptions_Enabled;
             context.ClientVpnEndpointId = this.ClientVpnEndpointId;
             #if MODULAR
             if (this.ClientVpnEndpointId == null && ParameterWasBound(nameof(this.ClientVpnEndpointId)))
@@ -292,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.SelfServicePortal = this.SelfServicePortal;
             context.ServerCertificateArn = this.ServerCertificateArn;
+            context.SessionTimeoutHour = this.SessionTimeoutHour;
             context.SplitTunnel = this.SplitTunnel;
             context.VpcId = this.VpcId;
             context.VpnPort = this.VpnPort;
@@ -339,6 +373,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestClientConnectOptionsIsNull)
             {
                 request.ClientConnectOptions = null;
+            }
+            
+             // populate ClientLoginBannerOptions
+            var requestClientLoginBannerOptionsIsNull = true;
+            request.ClientLoginBannerOptions = new Amazon.EC2.Model.ClientLoginBannerOptions();
+            System.String requestClientLoginBannerOptions_clientLoginBannerOptions_BannerText = null;
+            if (cmdletContext.ClientLoginBannerOptions_BannerText != null)
+            {
+                requestClientLoginBannerOptions_clientLoginBannerOptions_BannerText = cmdletContext.ClientLoginBannerOptions_BannerText;
+            }
+            if (requestClientLoginBannerOptions_clientLoginBannerOptions_BannerText != null)
+            {
+                request.ClientLoginBannerOptions.BannerText = requestClientLoginBannerOptions_clientLoginBannerOptions_BannerText;
+                requestClientLoginBannerOptionsIsNull = false;
+            }
+            System.Boolean? requestClientLoginBannerOptions_clientLoginBannerOptions_Enabled = null;
+            if (cmdletContext.ClientLoginBannerOptions_Enabled != null)
+            {
+                requestClientLoginBannerOptions_clientLoginBannerOptions_Enabled = cmdletContext.ClientLoginBannerOptions_Enabled.Value;
+            }
+            if (requestClientLoginBannerOptions_clientLoginBannerOptions_Enabled != null)
+            {
+                request.ClientLoginBannerOptions.Enabled = requestClientLoginBannerOptions_clientLoginBannerOptions_Enabled.Value;
+                requestClientLoginBannerOptionsIsNull = false;
+            }
+             // determine if request.ClientLoginBannerOptions should be set to null
+            if (requestClientLoginBannerOptionsIsNull)
+            {
+                request.ClientLoginBannerOptions = null;
             }
             if (cmdletContext.ClientVpnEndpointId != null)
             {
@@ -428,6 +491,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ServerCertificateArn = cmdletContext.ServerCertificateArn;
             }
+            if (cmdletContext.SessionTimeoutHour != null)
+            {
+                request.SessionTimeoutHours = cmdletContext.SessionTimeoutHour.Value;
+            }
             if (cmdletContext.SplitTunnel != null)
             {
                 request.SplitTunnel = cmdletContext.SplitTunnel.Value;
@@ -503,6 +570,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? ClientConnectOptions_Enabled { get; set; }
             public System.String ClientConnectOptions_LambdaFunctionArn { get; set; }
+            public System.String ClientLoginBannerOptions_BannerText { get; set; }
+            public System.Boolean? ClientLoginBannerOptions_Enabled { get; set; }
             public System.String ClientVpnEndpointId { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogGroup { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogStream { get; set; }
@@ -513,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }
             public System.String ServerCertificateArn { get; set; }
+            public System.Int32? SessionTimeoutHour { get; set; }
             public System.Boolean? SplitTunnel { get; set; }
             public System.String VpcId { get; set; }
             public System.Int32? VpnPort { get; set; }

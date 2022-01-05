@@ -69,11 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Updates the pricing plan for the map resource.</para><para>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
@@ -147,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,10 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.MapName = cmdletContext.MapName;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -239,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String Description { get; set; }
             public System.String MapName { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public System.Func<Amazon.LocationService.Model.UpdateMapResponse, EditLOCMapCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

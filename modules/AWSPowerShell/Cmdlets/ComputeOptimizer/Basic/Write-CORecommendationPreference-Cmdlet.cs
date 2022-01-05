@@ -51,15 +51,30 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The status of the enhanced infrastructure metrics recommendation preference to create
-        /// or update.</para><para>A status of <code>Active</code> confirms that the preference is applied in the latest
-        /// recommendation refresh, and a status of <code>Inactive</code> confirms that it's not
-        /// yet applied.</para>
+        /// or update.</para><para>Specify the <code>Active</code> status to activate the preference, or specify <code>Inactive</code>
+        /// to deactivate the preference.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+        /// infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnhancedInfrastructureMetrics")]
         [AWSConstantClassSource("Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics")]
         public Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics EnhancedInfrastructureMetric { get; set; }
+        #endregion
+        
+        #region Parameter InferredWorkloadType
+        /// <summary>
+        /// <para>
+        /// <para>The status of the inferred workload types recommendation preference to create or update.</para><note><para>The inferred workload type feature is active by default. To deactivate it, create
+        /// a recommendation preference.</para></note><para>Specify the <code>Inactive</code> status to deactivate the feature, or specify <code>Active</code>
+        /// to activate it.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html">Inferred
+        /// workload types</a> in the <i>Compute Optimizer User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferredWorkloadTypes")]
+        [AWSConstantClassSource("Amazon.ComputeOptimizer.InferredWorkloadTypesPreference")]
+        public Amazon.ComputeOptimizer.InferredWorkloadTypesPreference InferredWorkloadType { get; set; }
         #endregion
         
         #region Parameter Scope_Name
@@ -168,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnhancedInfrastructureMetric = this.EnhancedInfrastructureMetric;
+            context.InferredWorkloadType = this.InferredWorkloadType;
             context.ResourceType = this.ResourceType;
             #if MODULAR
             if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
@@ -196,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.EnhancedInfrastructureMetric != null)
             {
                 request.EnhancedInfrastructureMetrics = cmdletContext.EnhancedInfrastructureMetric;
+            }
+            if (cmdletContext.InferredWorkloadType != null)
+            {
+                request.InferredWorkloadTypes = cmdletContext.InferredWorkloadType;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -292,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics EnhancedInfrastructureMetric { get; set; }
+            public Amazon.ComputeOptimizer.InferredWorkloadTypesPreference InferredWorkloadType { get; set; }
             public Amazon.ComputeOptimizer.ResourceType ResourceType { get; set; }
             public Amazon.ComputeOptimizer.ScopeName Scope_Name { get; set; }
             public System.String Scope_Value { get; set; }

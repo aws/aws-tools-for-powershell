@@ -99,6 +99,13 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.InferredWorkloadTypesPreference
+        "Write-CORecommendationPreference/InferredWorkloadTypes"
+        {
+            $v = "Active","Inactive"
+            break
+        }
+
         # Amazon.ComputeOptimizer.MetricStatistic
         "Get-COEC2RecommendationProjectedMetric/Stat"
         {
@@ -113,7 +120,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","LambdaFunction"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","LambdaFunction","NotApplicable"
             break
         }
 
@@ -146,6 +153,7 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
+    "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Stat"=@("Get-COEC2RecommendationProjectedMetric")

@@ -28,7 +28,10 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Creates a new Readiness Check.
+    /// Creates a readiness check in an account. A readiness check monitors a resource set
+    /// in your application, such as a set of Amazon Aurora instances, that Application Recovery
+    /// Controller is auditing recovery readiness for. The audits run once every minute on
+    /// every resource that's associated with a readiness check.
     /// </summary>
     [Cmdlet("New", "PDReadinessCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse")]
@@ -42,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The name of the ReadinessCheck to create
+        /// <para>The name of the readiness check to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The name of the ResourceSet to check
+        /// <para>The name of the resource set to check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

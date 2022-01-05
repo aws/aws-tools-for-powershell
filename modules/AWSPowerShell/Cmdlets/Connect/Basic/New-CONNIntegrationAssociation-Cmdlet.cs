@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates an AWS resource association with an Amazon Connect instance.
+    /// Creates an Amazon Web Services resource association with an Amazon Connect instance.
     /// </summary>
     [Cmdlet("New", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateIntegrationAssociationResponse")]

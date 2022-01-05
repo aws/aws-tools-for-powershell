@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// must be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value
         /// must be supplied.</para></li><li><para>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must
         /// be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code>
-        /// value must be supplied.</para></li></ul>
+        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

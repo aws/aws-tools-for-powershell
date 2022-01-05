@@ -28,7 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about the status of a Readiness Check.
+    /// Gets the readiness status for an individual readiness check. To see the overall readiness
+    /// status for a recovery group, that considers the readiness status for all the readiness
+    /// checks in a recovery group, use GetRecoveryGroupReadinessSummary.
     /// </summary>
     [Cmdlet("Get", "PDReadinessCheckStatus")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetReadinessCheckStatusResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The ReadinessCheck to get
+        /// <para>Name of a readiness check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token used to resume pagination from the end
-        /// of a previous request.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

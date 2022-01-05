@@ -84,6 +84,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable Dimensions_Attribute { get; set; }
         #endregion
         
+        #region Parameter JourneyChannelSettings_ConnectCampaignArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the Connect Campaign.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignArn")]
+        public System.String JourneyChannelSettings_ConnectCampaignArn { get; set; }
+        #endregion
+        
+        #region Parameter JourneyChannelSettings_ConnectCampaignExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>IAM role ARN to be assumed when invoking Connect campaign execution APIs for dialing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_JourneyChannelSettings_ConnectCampaignExecutionRoleArn")]
+        public System.String JourneyChannelSettings_ConnectCampaignExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter WriteJourneyRequest_CreationDate
         /// <summary>
         /// <para>
@@ -498,6 +520,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 }
             }
             context.WriteJourneyRequest_CreationDate = this.WriteJourneyRequest_CreationDate;
+            context.JourneyChannelSettings_ConnectCampaignArn = this.JourneyChannelSettings_ConnectCampaignArn;
+            context.JourneyChannelSettings_ConnectCampaignExecutionRoleArn = this.JourneyChannelSettings_ConnectCampaignExecutionRoleArn;
             context.WriteJourneyRequest_LastModifiedDate = this.WriteJourneyRequest_LastModifiedDate;
             context.Limits_DailyCap = this.Limits_DailyCap;
             context.Limits_EndpointReentryCap = this.Limits_EndpointReentryCap;
@@ -672,6 +696,41 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteJourneyRequest_writeJourneyRequest_WaitForQuietTime != null)
             {
                 request.WriteJourneyRequest.WaitForQuietTime = requestWriteJourneyRequest_writeJourneyRequest_WaitForQuietTime.Value;
+                requestWriteJourneyRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.JourneyChannelSettings requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings = null;
+            
+             // populate JourneyChannelSettings
+            var requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettingsIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings = new Amazon.Pinpoint.Model.JourneyChannelSettings();
+            System.String requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignArn = null;
+            if (cmdletContext.JourneyChannelSettings_ConnectCampaignArn != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignArn = cmdletContext.JourneyChannelSettings_ConnectCampaignArn;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignArn != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings.ConnectCampaignArn = requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignArn;
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettingsIsNull = false;
+            }
+            System.String requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignExecutionRoleArn = null;
+            if (cmdletContext.JourneyChannelSettings_ConnectCampaignExecutionRoleArn != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignExecutionRoleArn = cmdletContext.JourneyChannelSettings_ConnectCampaignExecutionRoleArn;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignExecutionRoleArn != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings.ConnectCampaignExecutionRoleArn = requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings_journeyChannelSettings_ConnectCampaignExecutionRoleArn;
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettingsIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettingsIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings != null)
+            {
+                request.WriteJourneyRequest.JourneyChannelSettings = requestWriteJourneyRequest_writeJourneyRequest_JourneyChannelSettings;
                 requestWriteJourneyRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.QuietTime requestWriteJourneyRequest_writeJourneyRequest_QuietTime = null;
@@ -1049,6 +1108,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String JourneyId { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.Activity> WriteJourneyRequest_Activity { get; set; }
             public System.String WriteJourneyRequest_CreationDate { get; set; }
+            public System.String JourneyChannelSettings_ConnectCampaignArn { get; set; }
+            public System.String JourneyChannelSettings_ConnectCampaignExecutionRoleArn { get; set; }
             public System.String WriteJourneyRequest_LastModifiedDate { get; set; }
             public System.Int32? Limits_DailyCap { get; set; }
             public System.Int32? Limits_EndpointReentryCap { get; set; }

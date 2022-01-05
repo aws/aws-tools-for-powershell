@@ -85,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomVocabulary" OutputProperty="*" Verb="Remove" Noun="CustomVocabulary" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteExport" OutputProperty="*" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -134,6 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomVocabularyMetadata" OutputProperty="*" Verb="Get" Noun="CustomVocabularyMetadata" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

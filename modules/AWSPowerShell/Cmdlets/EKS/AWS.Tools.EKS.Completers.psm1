@@ -101,6 +101,13 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.IpFamily
+        "New-EKSCluster/KubernetesNetworkConfig_IpFamily"
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflicts") -Or
@@ -123,6 +130,7 @@ $EKS_map = @{
     "AmiType"=@("New-EKSNodegroup")
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
+    "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster")
     "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
 }
 

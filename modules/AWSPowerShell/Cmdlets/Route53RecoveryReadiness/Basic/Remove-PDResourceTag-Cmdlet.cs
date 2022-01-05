@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Removes tags from the specified resource. You can specify one or more tags to remove.
+    /// Removes a tag from a resource.
     /// </summary>
     [Cmdlet("Remove", "PDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) for the resource.
-        /// You can get this from the response to any request to the resource.
+        /// <para>The Amazon Resource Name (ARN) for a resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// A comma-separated list of the tag keys to remove
-        /// from the resource.
+        /// <para>The keys for tags you add to resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

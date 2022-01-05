@@ -87,6 +87,16 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AudioRecognitionStrategy
+        {
+            ($_ -eq "New-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
+            ($_ -eq "Update-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy")
+        }
+        {
+            $v = "UseSlotValuesAsCustomVocabulary"
+            break
+        }
+
         # Amazon.LexModelsV2.BotLocaleSortAttribute
         "Get-LMBV2BotLocaleList/SortBy_Attribute"
         {
@@ -139,7 +149,7 @@ $LMBV2_Completers = {
         # Amazon.LexModelsV2.ImportExportFileFormat
         "New-LMBV2Export/FileFormat"
         {
-            $v = "LexJson"
+            $v = "LexJson","TSV"
             break
         }
 
@@ -279,6 +289,7 @@ $LMBV2_map = @{
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "VoiceSettings_Engine"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
 }
@@ -349,6 +360,7 @@ $LMBV2_SelectMap = @{
                "Remove-LMBV2BotAlias",
                "Remove-LMBV2BotLocale",
                "Remove-LMBV2BotVersion",
+               "Remove-LMBV2CustomVocabulary",
                "Remove-LMBV2Export",
                "Remove-LMBV2Import",
                "Remove-LMBV2Intent",
@@ -362,6 +374,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotLocale",
                "Get-LMBV2BotRecommendation",
                "Get-LMBV2BotVersion",
+               "Get-LMBV2CustomVocabularyMetadata",
                "Get-LMBV2Export",
                "Get-LMBV2Import",
                "Get-LMBV2Intent",

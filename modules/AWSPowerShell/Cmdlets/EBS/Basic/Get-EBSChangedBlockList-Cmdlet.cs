@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The block index from which the comparison should start.</para><para>The list in the response will start from this block index or the next valid block
-        /// index in the snapshots.</para>
+        /// index in the snapshots.</para><para>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to return.</para>
+        /// <para>The maximum number of blocks to be returned by the request.</para><para>Even if additional blocks can be retrieved from the snapshot, the request can return
+        /// less blocks than <b>MaxResults</b> or an empty array of blocks.</para><para>To retrieve the next set of blocks from the snapshot, make another request with the
+        /// returned <b>NextToken</b> value. The value of <b>NextToken</b> is <code>null</code>
+        /// when there are no more blocks to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next page of results.</para>
+        /// <para>The token to request the next page of results.</para><para>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,7 +28,9 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Creates a new Resource Set.
+    /// Creates a resource set. A resource set is a set of resources of one type that span
+    /// multiple cells. You can associate a resource set with a readiness check to monitor
+    /// the resources for failover readiness.
     /// </summary>
     [Cmdlet("New", "PDResourceSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.CreateResourceSetResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// A list of Resource objects
+        /// <para>A list of resource objects in the resource set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The name of the ResourceSet to create
+        /// <para>The name of the resource set to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetType
         /// <summary>
         /// <para>
-        /// AWS Resource type of the resources in
-        /// the ResourceSet
+        /// <para>The resource type of the resources in the resource set. Enter one of the following
+        /// values for resource type:</para><para>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup,
+        /// AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+        /// AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer,
+        /// AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+        /// AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection,
+        /// AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A tag to associate with the parameters for a resource set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

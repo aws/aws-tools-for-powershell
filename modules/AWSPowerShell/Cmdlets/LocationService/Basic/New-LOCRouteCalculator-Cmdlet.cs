@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// You can send requests to a route calculator resource to estimate travel time, distance,
     /// and get directions. A route calculator sources traffic and road network data from
     /// your chosen data provider.
-    /// </para>
+    /// </para><note><para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+    /// for more details.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCRouteCalculator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateRouteCalculatorResponse")]
@@ -99,19 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter PricingPlan
-        /// <summary>
-        /// <para>
-        /// <para>Optionally specifies the pricing plan for the route calculator resource. Defaults
-        /// to <code>RequestBasedUsage</code>.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
-        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -123,6 +115,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlan
+        /// <summary>
+        /// <para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
+        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
+        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
         
         #region Parameter Select
@@ -201,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.Description = this.Description;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -238,10 +245,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.Description = cmdletContext.Description;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -310,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String CalculatorName { get; set; }
             public System.String DataSource { get; set; }
             public System.String Description { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.LocationService.Model.CreateRouteCalculatorResponse, NewLOCRouteCalculatorCmdlet, object> Select { get; set; } =

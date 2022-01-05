@@ -28,8 +28,8 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Starts importing a bot or bot locale from a zip archive that you uploaded to an S3
-    /// bucket.
+    /// Starts importing a bot, bot locale, or custom vocabulary from a zip archive that you
+    /// uploaded to an S3 bucket.
     /// </summary>
     [Cmdlet("Start", "LMBV2Import", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelsV2.Model.StartImportResponse")]
@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleImportSpecification_BotId")]
         public System.String BotLocaleImportSpecification_BotId { get; set; }
+        #endregion
+        
+        #region Parameter CustomVocabularyImportSpecification_BotId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the bot to import the custom vocabulary to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyImportSpecification_BotId")]
+        public System.String CustomVocabularyImportSpecification_BotId { get; set; }
         #endregion
         
         #region Parameter BotImportSpecification_BotName
@@ -85,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleImportSpecification_BotVersion")]
         public System.String BotLocaleImportSpecification_BotVersion { get; set; }
+        #endregion
+        
+        #region Parameter CustomVocabularyImportSpecification_BotVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the bot to import the custom vocabulary to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyImportSpecification_BotVersion")]
+        public System.String CustomVocabularyImportSpecification_BotVersion { get; set; }
         #endregion
         
         #region Parameter DataPrivacy_ChildDirected
@@ -135,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FilePassword
         /// <summary>
         /// <para>
-        /// <para>The password used to encrypt the zip archive that contains the bot or bot locale definition.
+        /// <para>The password used to encrypt the zip archive that contains the resource definition.
         /// You should always encrypt the zip archive to protect it during transit between your
         /// site and Amazon Lex.</para>
         /// </para>
@@ -188,6 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleImportSpecification_LocaleId")]
         public System.String BotLocaleImportSpecification_LocaleId { get; set; }
+        #endregion
+        
+        #region Parameter CustomVocabularyImportSpecification_LocaleId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the local to import the custom vocabulary to. The value must be
+        /// <code>en_GB</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyImportSpecification_LocaleId")]
+        public System.String CustomVocabularyImportSpecification_LocaleId { get; set; }
         #endregion
         
         #region Parameter MergeStrategy
@@ -363,6 +397,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleImportSpecification_NluIntentConfidenceThreshold = this.BotLocaleImportSpecification_NluIntentConfidenceThreshold;
             context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
+            context.CustomVocabularyImportSpecification_BotId = this.CustomVocabularyImportSpecification_BotId;
+            context.CustomVocabularyImportSpecification_BotVersion = this.CustomVocabularyImportSpecification_BotVersion;
+            context.CustomVocabularyImportSpecification_LocaleId = this.CustomVocabularyImportSpecification_LocaleId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -395,6 +432,51 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate ResourceSpecification
             var requestResourceSpecificationIsNull = true;
             request.ResourceSpecification = new Amazon.LexModelsV2.Model.ImportResourceSpecification();
+            Amazon.LexModelsV2.Model.CustomVocabularyImportSpecification requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification = null;
+            
+             // populate CustomVocabularyImportSpecification
+            var requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecificationIsNull = true;
+            requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification = new Amazon.LexModelsV2.Model.CustomVocabularyImportSpecification();
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotId = null;
+            if (cmdletContext.CustomVocabularyImportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotId = cmdletContext.CustomVocabularyImportSpecification_BotId;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification.BotId = requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotId;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotVersion = null;
+            if (cmdletContext.CustomVocabularyImportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotVersion = cmdletContext.CustomVocabularyImportSpecification_BotVersion;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification.BotVersion = requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_BotVersion;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_LocaleId = null;
+            if (cmdletContext.CustomVocabularyImportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_LocaleId = cmdletContext.CustomVocabularyImportSpecification_LocaleId;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification.LocaleId = requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification_customVocabularyImportSpecification_LocaleId;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecificationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification should be set to null
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecificationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification != null)
+            {
+                request.ResourceSpecification.CustomVocabularyImportSpecification = requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification;
+                requestResourceSpecificationIsNull = false;
+            }
             Amazon.LexModelsV2.Model.BotLocaleImportSpecification requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = null;
             
              // populate BotLocaleImportSpecification
@@ -656,6 +738,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
             public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
+            public System.String CustomVocabularyImportSpecification_BotId { get; set; }
+            public System.String CustomVocabularyImportSpecification_BotVersion { get; set; }
+            public System.String CustomVocabularyImportSpecification_LocaleId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.StartImportResponse, StartLMBV2ImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

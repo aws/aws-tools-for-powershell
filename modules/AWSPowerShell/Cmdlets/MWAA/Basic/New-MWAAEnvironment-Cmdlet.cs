@@ -56,8 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter AirflowVersion
         /// <summary>
         /// <para>
-        /// <para>The Apache Airflow version for your environment. For example, <code>v1.10.12</code>.
-        /// If no value is specified, defaults to the latest version. Valid values: <code>v1.10.12</code>.</para>
+        /// <para>The Apache Airflow version for your environment. If no value is specified, defaults
+        /// to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>. To
+        /// learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
+        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter DagProcessingLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
-        /// in CloudWatch Logs.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter SchedulerLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
-        /// in CloudWatch Logs.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter TaskLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
-        /// in CloudWatch Logs.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
-        /// in CloudWatch Logs.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WorkerLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
-        /// in CloudWatch Logs.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the execution role for your environment. An execution
-        /// role is an AWS Identity and Access Management (IAM) role that grants MWAA permission
-        /// to access AWS services and resources used by your environment. For example, <code>arn:aws:iam::123456789:role/my-execution-role</code>.
+        /// role is an Amazon Web Services Identity and Access Management (IAM) role that grants
+        /// MWAA permission to access Amazon Web Services services and resources used by your
+        /// environment. For example, <code>arn:aws:iam::123456789:role/my-execution-role</code>.
         /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
         /// MWAA Execution role</a>.</para>
         /// </para>
@@ -179,10 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter KmsKey
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (KMS) key to encrypt the data in your environment.
-        /// You can use an AWS owned CMK, or a Customer managed CMK (advanced). To learn more,
-        /// see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get
-        /// started with Amazon Managed Workflows for Apache Airflow</a>.</para>
+        /// <para>The Amazon Web Services Key Management Service (KMS) key to encrypt the data in your
+        /// environment. You can use an Amazon Web Services owned CMK, or a Customer managed CMK
+        /// (advanced). To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
+        /// an Amazon MWAA environment</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,9 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter DagProcessingLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
-        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
-        /// <code>INFO</code>.</para>
+        /// <para>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch
+        /// Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,9 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter SchedulerLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
-        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
-        /// <code>INFO</code>.</para>
+        /// <para>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch
+        /// Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,9 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter TaskLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
-        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
-        /// <code>INFO</code>.</para>
+        /// <para>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch
+        /// Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,9 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
-        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
-        /// <code>INFO</code>.</para>
+        /// <para>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch
+        /// Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,9 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WorkerLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
-        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
-        /// <code>INFO</code>.</para>
+        /// <para>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch
+        /// Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Scheduler
         /// <summary>
         /// <para>
-        /// <para>The number of Apache Airflow schedulers to run in your environment.</para>
+        /// <para>The number of Apache Airflow schedulers to run in your environment. Valid values:</para><ul><li><para>v2.0.2 - Accepts between 2 to 5. Defaults to 2.</para></li><li><para>v1.10.12 - Accepts 1.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,8 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NetworkConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of 1 or more security group IDs. Accepts up to 5 security group IDs. A security
-        /// group must be attached to the same VPC as the subnets. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
+        /// <para>A list of security group IDs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
         /// in your VPC on Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
@@ -403,9 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NetworkConfiguration_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of 2 subnet IDs. <b>Required</b> to create an environment. Must be private
-        /// subnets in two different availability zones. A subnet must be attached to the same
-        /// VPC as the security group.</para>
+        /// <para>A list of subnet IDs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
+        /// networking on Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The key-value tag pairs you want to associate to your environment. For example, <code>"Environment":
         /// "Staging"</code>. To learn more, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS resources</a>.</para>
+        /// Amazon Web Services resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -441,10 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WeeklyMaintenanceWindowStart
         /// <summary>
         /// <para>
-        /// <para>The day and time of the week to start weekly maintenance updates of your environment
-        /// in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>.
-        /// You can specify a start time in 30 minute increments only. Supported input includes
-        /// the following:</para><ul><li><para>MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)</para></li></ul>
+        /// <para>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard
+        /// time to start weekly maintenance updates of your environment in the following format:
+        /// <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>. You can specify a start
+        /// time in 30 minute increments only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Collections.Hashtable AdvancedOption { get; set; }
         #endregion
         
+        #region Parameter AdvancedSecurityOptions_AnonymousAuthEnabled
+        /// <summary>
+        /// <para>
+        /// <para>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity
+        /// is enabled on existing domains.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }
+        #endregion
+        
         #region Parameter SnapshotOptions_AutomatedSnapshotStartHour
         /// <summary>
         /// <para>
@@ -644,6 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                     context.AdvancedOption.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
                 }
             }
+            context.AdvancedSecurityOptions_AnonymousAuthEnabled = this.AdvancedSecurityOptions_AnonymousAuthEnabled;
             context.AdvancedSecurityOptions_Enabled = this.AdvancedSecurityOptions_Enabled;
             context.AdvancedSecurityOptions_InternalUserDatabaseEnabled = this.AdvancedSecurityOptions_InternalUserDatabaseEnabled;
             context.MasterUserOptions_MasterUserARN = this.MasterUserOptions_MasterUserARN;
@@ -745,6 +757,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
              // populate AdvancedSecurityOptions
             var requestAdvancedSecurityOptionsIsNull = true;
             request.AdvancedSecurityOptions = new Amazon.Elasticsearch.Model.AdvancedSecurityOptionsInput();
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_AnonymousAuthEnabled = null;
+            if (cmdletContext.AdvancedSecurityOptions_AnonymousAuthEnabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_AnonymousAuthEnabled = cmdletContext.AdvancedSecurityOptions_AnonymousAuthEnabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_AnonymousAuthEnabled != null)
+            {
+                request.AdvancedSecurityOptions.AnonymousAuthEnabled = requestAdvancedSecurityOptions_advancedSecurityOptions_AnonymousAuthEnabled.Value;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
             System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_Enabled = null;
             if (cmdletContext.AdvancedSecurityOptions_Enabled != null)
             {
@@ -1410,6 +1432,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             public System.String AccessPolicy { get; set; }
             public Dictionary<System.String, System.String> AdvancedOption { get; set; }
+            public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }
             public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
             public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
             public System.String MasterUserOptions_MasterUserARN { get; set; }

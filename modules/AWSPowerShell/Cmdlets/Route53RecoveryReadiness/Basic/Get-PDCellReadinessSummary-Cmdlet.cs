@@ -28,7 +28,8 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about readiness of a Cell.
+    /// Gets readiness for a cell. Aggregates the readiness of all the resources that are
+    /// associated with the cell into a single value.
     /// </summary>
     [Cmdlet("Get", "PDCellReadinessSummary")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetCellReadinessSummaryResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CellName
         /// <summary>
         /// <para>
-        /// The name of the Cell
+        /// <para>The name of the cell.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token used to resume pagination from the end
-        /// of a previous request.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

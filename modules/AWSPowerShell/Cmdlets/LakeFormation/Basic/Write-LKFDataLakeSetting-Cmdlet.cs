@@ -49,6 +49,33 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class WriteLKFDataLakeSettingCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter DataLakeSettings_AllowExternalDataFiltering
+        /// <summary>
+        /// <para>
+        /// <para>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </para><para>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that
+        /// are registered with Lake Formation.</para><para>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3
+        /// locations that are registered with Lake Formation.</para><para>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional)
+        /// Allow Data Filtering on Amazon EMR</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataLakeSettings_AllowExternalDataFiltering { get; set; }
+        #endregion
+        
+        #region Parameter DataLakeSettings_AuthorizedSessionTagValueList
+        /// <summary>
+        /// <para>
+        /// <para>Lake Formation relies on a privileged process secured by Amazon EMR or the third party
+        /// integrator to tag the user's role while assuming it. Lake Formation will publish the
+        /// acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value
+        /// = "TRUE" and the third party integrator must properly tag the temporary security credentials
+        /// that will be used to call Lake Formation's administrative APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] DataLakeSettings_AuthorizedSessionTagValueList { get; set; }
+        #endregion
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -105,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataLakeSettings_DataLakeAdmins")]
         public Amazon.LakeFormation.Model.DataLakePrincipal[] DataLakeSettings_DataLakeAdmin { get; set; }
+        #endregion
+        
+        #region Parameter DataLakeSettings_ExternalDataFilteringAllowList
+        /// <summary>
+        /// <para>
+        /// <para>A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters
+        /// that are to perform data filtering.&gt;</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LakeFormation.Model.DataLakePrincipal[] DataLakeSettings_ExternalDataFilteringAllowList { get; set; }
         #endregion
         
         #region Parameter DataLakeSettings_TrustedResourceOwner
@@ -182,6 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CatalogId = this.CatalogId;
+            context.DataLakeSettings_AllowExternalDataFiltering = this.DataLakeSettings_AllowExternalDataFiltering;
+            if (this.DataLakeSettings_AuthorizedSessionTagValueList != null)
+            {
+                context.DataLakeSettings_AuthorizedSessionTagValueList = new List<System.String>(this.DataLakeSettings_AuthorizedSessionTagValueList);
+            }
             if (this.DataLakeSettings_CreateDatabaseDefaultPermission != null)
             {
                 context.DataLakeSettings_CreateDatabaseDefaultPermission = new List<Amazon.LakeFormation.Model.PrincipalPermissions>(this.DataLakeSettings_CreateDatabaseDefaultPermission);
@@ -193,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (this.DataLakeSettings_DataLakeAdmin != null)
             {
                 context.DataLakeSettings_DataLakeAdmin = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.DataLakeSettings_DataLakeAdmin);
+            }
+            if (this.DataLakeSettings_ExternalDataFilteringAllowList != null)
+            {
+                context.DataLakeSettings_ExternalDataFilteringAllowList = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.DataLakeSettings_ExternalDataFilteringAllowList);
             }
             if (this.DataLakeSettings_TrustedResourceOwner != null)
             {
@@ -222,6 +269,26 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate DataLakeSettings
             var requestDataLakeSettingsIsNull = true;
             request.DataLakeSettings = new Amazon.LakeFormation.Model.DataLakeSettings();
+            System.Boolean? requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering = null;
+            if (cmdletContext.DataLakeSettings_AllowExternalDataFiltering != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering = cmdletContext.DataLakeSettings_AllowExternalDataFiltering.Value;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering != null)
+            {
+                request.DataLakeSettings.AllowExternalDataFiltering = requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering.Value;
+                requestDataLakeSettingsIsNull = false;
+            }
+            List<System.String> requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList = null;
+            if (cmdletContext.DataLakeSettings_AuthorizedSessionTagValueList != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList = cmdletContext.DataLakeSettings_AuthorizedSessionTagValueList;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList != null)
+            {
+                request.DataLakeSettings.AuthorizedSessionTagValueList = requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList;
+                requestDataLakeSettingsIsNull = false;
+            }
             List<Amazon.LakeFormation.Model.PrincipalPermissions> requestDataLakeSettings_dataLakeSettings_CreateDatabaseDefaultPermission = null;
             if (cmdletContext.DataLakeSettings_CreateDatabaseDefaultPermission != null)
             {
@@ -250,6 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_DataLakeAdmin != null)
             {
                 request.DataLakeSettings.DataLakeAdmins = requestDataLakeSettings_dataLakeSettings_DataLakeAdmin;
+                requestDataLakeSettingsIsNull = false;
+            }
+            List<Amazon.LakeFormation.Model.DataLakePrincipal> requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList = null;
+            if (cmdletContext.DataLakeSettings_ExternalDataFilteringAllowList != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList = cmdletContext.DataLakeSettings_ExternalDataFilteringAllowList;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList != null)
+            {
+                request.DataLakeSettings.ExternalDataFilteringAllowList = requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList;
                 requestDataLakeSettingsIsNull = false;
             }
             List<System.String> requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = null;
@@ -329,9 +406,12 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CatalogId { get; set; }
+            public System.Boolean? DataLakeSettings_AllowExternalDataFiltering { get; set; }
+            public List<System.String> DataLakeSettings_AuthorizedSessionTagValueList { get; set; }
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateDatabaseDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateTableDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_DataLakeAdmin { get; set; }
+            public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_ExternalDataFilteringAllowList { get; set; }
             public List<System.String> DataLakeSettings_TrustedResourceOwner { get; set; }
             public System.Func<Amazon.LakeFormation.Model.PutDataLakeSettingsResponse, WriteLKFDataLakeSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

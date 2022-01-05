@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Creates a new Cell.
+    /// Creates a cell in an account.
     /// </summary>
     [Cmdlet("New", "PDCell", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.CreateCellResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CellName
         /// <summary>
         /// <para>
-        /// The name of the Cell to create
+        /// <para>The name of the cell to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Cell
         /// <summary>
         /// <para>
-        /// A list of Cell arns contained within this Cell (for
-        /// use in nested Cells, e.g. regions within which AZs)
+        /// <para>A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in
+        /// nested cells. For example, Availability Zones within specific Amazon Web Services
+        /// Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

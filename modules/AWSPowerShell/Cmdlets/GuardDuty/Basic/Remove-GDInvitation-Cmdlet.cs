@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes invitations sent to the current member account by AWS accounts specified by
-    /// their account IDs.
+    /// Deletes invitations sent to the current member account by Amazon Web Services accounts
+    /// specified by their account IDs.
     /// </summary>
     [Cmdlet("Remove", "GDInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of account IDs of the AWS accounts that sent invitations to the current member
-        /// account that you want to delete invitations from.</para>
+        /// <para>A list of account IDs of the Amazon Web Services accounts that sent invitations to
+        /// the current member account that you want to delete invitations from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

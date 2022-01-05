@@ -50,6 +50,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

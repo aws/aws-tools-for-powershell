@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Displays a list of categories for all event source types, or, if specified, for a
-    /// specified source type. You can see a list of the event categories and source types
-    /// in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
-    /// Events</a> in the <i>Amazon RDS User Guide.</i>
+    /// specified source type. You can also see this list in the "Amazon RDS event categories
+    /// and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html"><i>Amazon RDS User Guide</i></a> or the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html"><i>Amazon Aurora User Guide</i></a>.
     /// </summary>
     [Cmdlet("Get", "RDSEventCategory")]
     [OutputType("Amazon.RDS.Model.EventCategoriesMap")]
@@ -57,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of source that is generating the events.</para><para>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code>
-        /// | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code></para>
+        /// <para>The type of source that is generating the events. For RDS Proxy events, specify <code>db-proxy</code>.</para><para>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code>
+        /// | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
+        /// | <code>db-proxy</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>An immutable, AWS Region-unique identifier for a data source. Performance Insights
-        /// gathers metrics from this data source.</para><para>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value.
+        /// <para>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance
+        /// Insights gathers metrics from this data source.</para><para>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value.
         /// For example, specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.</para>
         /// </para>
         /// </summary>
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The AWS service for which Performance Insights returns metrics. The only valid value
-        /// for <i>ServiceType</i> is <code>RDS</code>.</para>
+        /// <para>The Amazon Web Services service for which Performance Insights returns metrics. The
+        /// only valid value for <i>ServiceType</i> is <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

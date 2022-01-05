@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// An operation for publishing metrics from the customers to the Ops plane.
+    /// <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.
     /// </summary>
     [Cmdlet("Publish", "MWAAMetric", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>Publishes environment metric data to Amazon CloudWatch.</para>
+        /// <para><b>Internal only</b>. The name of the environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MetricData
         /// <summary>
         /// <para>
-        /// <para>Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data
-        /// points with the specified metrica.</para>
+        /// <para><b>Internal only</b>. Publishes metrics to Amazon CloudWatch. To learn more about
+        /// the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon
+        /// MWAA performance metrics in Amazon CloudWatch</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

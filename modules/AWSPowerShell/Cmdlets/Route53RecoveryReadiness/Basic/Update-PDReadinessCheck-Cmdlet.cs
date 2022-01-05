@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Updates an exisiting Readiness Check.
+    /// Updates a readiness check.
     /// </summary>
     [Cmdlet("Update", "PDReadinessCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.UpdateReadinessCheckResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The ReadinessCheck to update
+        /// <para>Name of a readiness check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The name of the ResourceSet to check
+        /// <para>The name of the resource set to be checked.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

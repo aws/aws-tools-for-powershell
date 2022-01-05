@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchPermission_Add
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID to add to the list of launch permissions for the
-        /// AMI.</para>
+        /// <para>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list
+        /// of launch permissions for the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchPermission_Remove
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID to remove from the list of launch permissions for
-        /// the AMI.</para>
+        /// <para>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the
+        /// list of launch permissions for the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

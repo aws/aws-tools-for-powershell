@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns a collection of rules that are applied as part of Readiness Checks.
+    /// Lists all readiness rules, or lists the readiness rules for a specific resource type.
     /// </summary>
     [Cmdlet("Get", "PDRuleList")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.ListRulesOutput")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// Filter parameter which specifies the rules
-        /// to return given a resource type.
+        /// <para>The resource type that a readiness rule applies to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Upper bound on number of records to return.
+        /// <para>The number of objects that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token used to resume pagination from the end
-        /// of a previous request.
+        /// <para>The token that identifies which batch of results you want to see.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2SlotTypeCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AdvancedRecognitionSetting_AudioRecognitionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Enables using the slot values as a custom vocabulary for recognizing user utterances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.AudioRecognitionStrategy")]
+        public Amazon.LexModelsV2.AudioRecognitionStrategy AdvancedRecognitionSetting_AudioRecognitionStrategy { get; set; }
+        #endregion
+        
         #region Parameter BotId
         /// <summary>
         /// <para>
@@ -310,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 context.SlotTypeValue = new List<Amazon.LexModelsV2.Model.SlotTypeValue>(this.SlotTypeValue);
             }
+            context.AdvancedRecognitionSetting_AudioRecognitionStrategy = this.AdvancedRecognitionSetting_AudioRecognitionStrategy;
             context.RegexFilter_Pattern = this.RegexFilter_Pattern;
             context.ValueSelectionSetting_ResolutionStrategy = this.ValueSelectionSetting_ResolutionStrategy;
             
@@ -439,6 +452,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ValueSelectionSetting.ResolutionStrategy = requestValueSelectionSetting_valueSelectionSetting_ResolutionStrategy;
                 requestValueSelectionSettingIsNull = false;
             }
+            Amazon.LexModelsV2.Model.AdvancedRecognitionSetting requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting = null;
+            
+             // populate AdvancedRecognitionSetting
+            var requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSettingIsNull = true;
+            requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting = new Amazon.LexModelsV2.Model.AdvancedRecognitionSetting();
+            Amazon.LexModelsV2.AudioRecognitionStrategy requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting_advancedRecognitionSetting_AudioRecognitionStrategy = null;
+            if (cmdletContext.AdvancedRecognitionSetting_AudioRecognitionStrategy != null)
+            {
+                requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting_advancedRecognitionSetting_AudioRecognitionStrategy = cmdletContext.AdvancedRecognitionSetting_AudioRecognitionStrategy;
+            }
+            if (requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting_advancedRecognitionSetting_AudioRecognitionStrategy != null)
+            {
+                requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting.AudioRecognitionStrategy = requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting_advancedRecognitionSetting_AudioRecognitionStrategy;
+                requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSettingIsNull = false;
+            }
+             // determine if requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting should be set to null
+            if (requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSettingIsNull)
+            {
+                requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting = null;
+            }
+            if (requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting != null)
+            {
+                request.ValueSelectionSetting.AdvancedRecognitionSetting = requestValueSelectionSetting_valueSelectionSetting_AdvancedRecognitionSetting;
+                requestValueSelectionSettingIsNull = false;
+            }
             Amazon.LexModelsV2.Model.SlotValueRegexFilter requestValueSelectionSetting_valueSelectionSetting_RegexFilter = null;
             
              // populate RegexFilter
@@ -540,6 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String ParentSlotTypeSignature { get; set; }
             public System.String SlotTypeName { get; set; }
             public List<Amazon.LexModelsV2.Model.SlotTypeValue> SlotTypeValue { get; set; }
+            public Amazon.LexModelsV2.AudioRecognitionStrategy AdvancedRecognitionSetting_AudioRecognitionStrategy { get; set; }
             public System.String RegexFilter_Pattern { get; set; }
             public Amazon.LexModelsV2.SlotValueResolutionStrategy ValueSelectionSetting_ResolutionStrategy { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.CreateSlotTypeResponse, NewLMBV2SlotTypeCmdlet, object> Select { get; set; } =

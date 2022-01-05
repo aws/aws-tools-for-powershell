@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// 
     ///  <note><para>
     /// You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.
+    /// </para><para><code>GetSavingsPlansUtilization</code> doesn't support filtering by tags. <code>GetSavingsPlansUtilization</code>
+    /// also doesn't support the <code>OR</code> operator between filter dimensions. For the
+    /// full request syntax with supported parameters, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansUtilization.html#API_GetSavingsPlansUtilization_Examples">Examples</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilization")]
@@ -52,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.
         /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>SAVINGS_PLANS_TYPE</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilization</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension.</para>
+        /// dimension.</para><para>Filtering by tags isn't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

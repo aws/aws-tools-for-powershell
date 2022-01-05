@@ -73,33 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
         #endregion
         
-        #region Parameter PricingPlan
-        /// <summary>
-        /// <para>
-        /// <para>Updates the pricing plan for the tracker resource.</para><para>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
-        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
-        #endregion
-        
-        #region Parameter PricingPlanDataSource
-        /// <summary>
-        /// <para>
-        /// <para>Updates the data provider for the tracker resource. </para><para>A required value for the following pricing plans: <code>MobileAssetTracking</code>|
-        /// <code>MobileAssetManagement</code></para><para>For more information about <a href="https://aws.amazon.com/location/data-providers/">data
-        /// providers</a> and <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>,
-        /// see the Amazon Location Service product page</para><note><para>This can only be updated when updating the <code>PricingPlan</code> in the same request.</para><para>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate billing
-        /// for your tracker resource. Your data won't be shared with the data provider, and will
-        /// remain in your AWS account and Region unless you move it.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PricingPlanDataSource { get; set; }
-        #endregion
-        
         #region Parameter TrackerName
         /// <summary>
         /// <para>
@@ -115,6 +88,31 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrackerName { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlan
+        /// <summary>
+        /// <para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
+        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
+        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlanDataSource
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is no longer used.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. No longer allowed.")]
+        public System.String PricingPlanDataSource { get; set; }
         #endregion
         
         #region Parameter Select
@@ -180,8 +178,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.PositionFiltering = this.PositionFiltering;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlanDataSource = this.PricingPlanDataSource;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.TrackerName = this.TrackerName;
             #if MODULAR
             if (this.TrackerName == null && ParameterWasBound(nameof(this.TrackerName)))
@@ -213,14 +215,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.PositionFiltering = cmdletContext.PositionFiltering;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlanDataSource != null)
             {
                 request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.TrackerName != null)
             {
                 request.TrackerName = cmdletContext.TrackerName;
@@ -288,7 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String Description { get; set; }
             public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+            [System.ObsoleteAttribute]
             public System.String PricingPlanDataSource { get; set; }
             public System.String TrackerName { get; set; }
             public System.Func<Amazon.LocationService.Model.UpdateTrackerResponse, EditLOCTrackerCmdlet, object> Select { get; set; } =

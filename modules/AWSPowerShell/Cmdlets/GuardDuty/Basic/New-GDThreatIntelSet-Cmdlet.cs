@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</para>
+        /// <para>The URI of the file that contains the ThreatIntelSet. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

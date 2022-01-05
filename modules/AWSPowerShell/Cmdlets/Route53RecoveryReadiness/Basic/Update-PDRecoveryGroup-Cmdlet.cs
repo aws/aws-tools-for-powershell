@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Updates an existing Recovery Group.
+    /// Updates a recovery group.
     /// </summary>
     [Cmdlet("Update", "PDRecoveryGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.UpdateRecoveryGroupResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Cell
         /// <summary>
         /// <para>
-        /// A list of Cell arns, completely replaces previous
-        /// list
+        /// <para>A list of cell Amazon Resource Names (ARNs). This list completely replaces the previous
+        /// list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// The RecoveryGroup to update
+        /// <para>The name of a recovery group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

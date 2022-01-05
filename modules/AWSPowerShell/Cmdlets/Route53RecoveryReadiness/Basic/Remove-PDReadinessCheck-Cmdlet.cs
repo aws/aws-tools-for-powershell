@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Deletes an existing Readiness Check.
+    /// Deletes a readiness check.
     /// </summary>
     [Cmdlet("Remove", "PDReadinessCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The ReadinessCheck to delete
+        /// <para>Name of a readiness check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

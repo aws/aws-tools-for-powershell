@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// download bandwidth rate limit, or you can delete both. If you delete only one of the
     /// limits, the other limit remains unchanged. To specify which gateway to work with,
     /// use the Amazon Resource Name (ARN) of the gateway in your request. This operation
-    /// is supported for the stored volume, cached volume and tape gateway types.
+    /// is supported only for the stored volume, cached volume, and tape gateway types.
     /// </summary>
     [Cmdlet("Remove", "SGBandwidthRateLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

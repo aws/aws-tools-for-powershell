@@ -46,7 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The BYOIP CIDR.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Cidr { get; set; }
         #endregion
         
@@ -56,7 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IPAM pool ID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IpamPoolId { get; set; }
         #endregion
         
@@ -66,7 +80,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Amazon Web Services account ID of the owner of the IPAM pool.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IpamPoolOwner { get; set; }
         #endregion
         
@@ -132,8 +153,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Cidr = this.Cidr;
+            #if MODULAR
+            if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IpamPoolId = this.IpamPoolId;
+            #if MODULAR
+            if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IpamPoolOwner = this.IpamPoolOwner;
+            #if MODULAR
+            if (this.IpamPoolOwner == null && ParameterWasBound(nameof(this.IpamPoolOwner)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamPoolOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

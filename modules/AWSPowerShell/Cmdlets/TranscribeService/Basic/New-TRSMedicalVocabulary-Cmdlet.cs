@@ -78,9 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The location in Amazon S3 of the text file you use to define your custom vocabulary.
         /// The URI must be in the same Amazon Web Services Region as the resource that you're
         /// calling. Enter information about your <code>VocabularyFileUri</code> in the following
-        /// format:</para><para><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code></para><para>The following is an example URI for a vocabulary file that is stored in Amazon S3:</para><para><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical
+        /// format:</para><para><code>https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>The following is an example URI for a vocabulary file that is stored in Amazon S3:</para><para><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-med.html">Medical
         /// Custom Vocabularies</a>.</para>
         /// </para>
         /// </summary>

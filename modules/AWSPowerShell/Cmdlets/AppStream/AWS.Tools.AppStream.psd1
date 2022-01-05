@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-APSApplicationToEntitlement', 
         'Add-APSResourceTag', 
         'Copy-APSImage', 
         'Disable-APSUser', 
@@ -96,6 +97,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-APSAssociatedFleetList', 
         'Get-APSAssociatedStackList', 
         'Get-APSDirectoryConfigList', 
+        'Get-APSEntitledApplicationList', 
+        'Get-APSEntitlement', 
         'Get-APSFleetList', 
         'Get-APSImageBuilderList', 
         'Get-APSImageList', 
@@ -109,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-APSAppBlock', 
         'New-APSApplication', 
         'New-APSDirectoryConfig', 
+        'New-APSEntitlement', 
         'New-APSFleet', 
         'New-APSImageBuilder', 
         'New-APSImageBuilderStreamingURL', 
@@ -122,7 +126,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-APSUserStackBatch', 
         'Remove-APSAppBlock', 
         'Remove-APSApplication', 
+        'Remove-APSApplicationFromEntitlement', 
         'Remove-APSDirectoryConfig', 
+        'Remove-APSEntitlement', 
         'Remove-APSFleet', 
         'Remove-APSImage', 
         'Remove-APSImageBuilder', 
@@ -141,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-APSUserStackBatch', 
         'Update-APSApplication', 
         'Update-APSDirectoryConfig', 
+        'Update-APSEntitlement', 
         'Update-APSFleet', 
         'Update-APSImagePermission', 
         'Update-APSStack')

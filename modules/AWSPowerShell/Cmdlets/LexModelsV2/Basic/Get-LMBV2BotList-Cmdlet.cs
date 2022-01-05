@@ -92,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>If the response from the <code>ListBots</code> operation contains more results than
         /// specified in the <code>maxResults</code> parameter, a token is returned in the response.
-        /// Use that token in the <code>nextToken</code> parameter to return the next page of
-        /// results.</para>
+        /// </para><para>Use the returned token in the <code>nextToken</code> parameter of a <code>ListBots</code>
+        /// request to return the next page of results. For a complete set of results, call the
+        /// <code>ListBots</code> operation until the <code>nextToken</code> returned in the response
+        /// is null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

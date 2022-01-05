@@ -26,8 +26,10 @@
             <Params>
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Bucket" NewName="DatabaseInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Key" NewName="DatabaseInputDefinition_TempDirectory_Key" />
+                <Param Name="Input_DatabaseInputDefinition_TempDirectory_BucketOwner" NewName="DatabaseInputDefinition_TempDirectory_BucketOwner" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Bucket" NewName="DataCatalogInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Key" NewName="DataCatalogInputDefinition_TempDirectory_Key" />
+                <Param Name="Input_DataCatalogInputDefinition_TempDirectory_BucketOwner" NewName="DataCatalogInputDefinition_TempDirectory_BucketOwner" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,8 +177,10 @@
             <Params>
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Bucket" NewName="DatabaseInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Key" NewName="DatabaseInputDefinition_TempDirectory_Key" />
+                <Param Name="Input_DatabaseInputDefinition_TempDirectory_BucketOwner" NewName="DatabaseInputDefinition_TempDirectory_BucketOwner" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Bucket" NewName="DataCatalogInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DataCatalogInputDefinition_TempDirectory_Key" NewName="DataCatalogInputDefinition_TempDirectory_Key" />
+                <Param Name="Input_DataCatalogInputDefinition_TempDirectory_BucketOwner" NewName="DataCatalogInputDefinition_TempDirectory_BucketOwner" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes attributes of your AWS account. The following are the supported account
-    /// attributes:
+    /// Describes attributes of your Amazon Web Services account. The following are the supported
+    /// account attributes:
     /// 
     ///  <ul><li><para><code>supported-platforms</code>: Indicates whether your account can launch instances
     /// into EC2-Classic and EC2-VPC, or only into EC2-VPC.

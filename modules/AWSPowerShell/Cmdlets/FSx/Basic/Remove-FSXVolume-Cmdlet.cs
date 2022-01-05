@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_Option
         /// <summary>
         /// <para>
-        /// <para>To delete the volume's children and snapshots, use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</para>
+        /// <para>To delete the volume's child volumes, snapshots, and clones, use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

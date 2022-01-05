@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Returns information about a ReadinessCheck.
+    /// Gets details about a readiness check.
     /// </summary>
     [Cmdlet("Get", "PDReadinessCheck")]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetReadinessCheckResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>
-        /// The ReadinessCheck to get
+        /// <para>Name of a readiness check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

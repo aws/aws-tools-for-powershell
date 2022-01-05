@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// the language, you can leave this field blank and Amazon Transcribe will use machine
         /// learning to identify the language for you. To improve the ability of Amazon Transcribe
         /// to correctly identify the language, you can provide an array of the languages that
-        /// can be present in the audio. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html">Supported
-        /// languages and language-specific features</a> for additional information.</para>
+        /// can be present in the audio. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> for additional information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>For example:</para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/example.mp4</code></para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// must have permission to use the specified KMS key.</para><para>You use either of the following to identify an Amazon Web Services KMS key in the
         /// current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para> You can use either of the following to identify a KMS key in the current account
         /// or another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS key in the current account or another account:
-        /// "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the call analytics job is encrypted
+        /// "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:accountID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the call analytics job is encrypted
         /// with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// in the <code>OutputLocation</code> parameter. </para>
         /// </para>
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon S3 location where the output of the call analytics job is stored. You can
         /// provide the following location types to store the output of call analytics job:</para><ul><li><para>s3://DOC-EXAMPLE-BUCKET1</para><para> If you specify a bucket, Amazon Transcribe saves the output of the analytics job
-        /// as a JSON file at the root level of the bucket.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/</para><para>f you specify a path, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLE-BUCKET1/folder/your-transcription-job-name.json</para><para>If you specify a folder, you must provide a trailing slash.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/filename.json</para><para> If you provide a path that has the filename specified, Amazon Transcribe saves the
-        /// output of the analytics job as s3://DOC-EXAMPLEBUCKET1/folder/filename.json</para></li></ul><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
+        /// as a JSON file at the root level of the bucket.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/</para><para>f you specify a path, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLE-BUCKET1/folder/your-transcription-job-name.json.</para><para>If you specify a folder, you must provide a trailing slash.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/filename.json.</para><para> If you provide a path that has the filename specified, Amazon Transcribe saves the
+        /// output of the analytics job as s3://DOC-EXAMPLEBUCKET1/folder/filename.json.</para></li></ul><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
         /// the output of our analytics job using the <code>OutputEncryptionKMSKeyId</code> parameter.
         /// If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
         /// server-side encryption of the analytics job output that is placed in your S3 bucket.</para>
@@ -184,10 +184,22 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String OutputLocation { get; set; }
         #endregion
         
+        #region Parameter ContentRedaction_PiiEntityType
+        /// <summary>
+        /// <para>
+        /// <para>The types of personally identifiable information (PII) you want to redact in your
+        /// transcript.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_ContentRedaction_PiiEntityTypes")]
+        public System.String[] ContentRedaction_PiiEntityType { get; set; }
+        #endregion
+        
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para> The S3 object location for your redacted output media file. This is only supported
+        /// <para>The S3 object location for your redacted output media file. This is only supported
         /// for call analytics jobs.</para>
         /// </para>
         /// </summary>
@@ -343,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.Media_RedactedMediaFileUri = this.Media_RedactedMediaFileUri;
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
             context.OutputLocation = this.OutputLocation;
+            if (this.ContentRedaction_PiiEntityType != null)
+            {
+                context.ContentRedaction_PiiEntityType = new List<System.String>(this.ContentRedaction_PiiEntityType);
+            }
             context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
             context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
             if (this.Settings_LanguageIdSetting != null)
@@ -495,6 +511,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
              // populate ContentRedaction
             var requestSettings_settings_ContentRedactionIsNull = true;
             requestSettings_settings_ContentRedaction = new Amazon.TranscribeService.Model.ContentRedaction();
+            List<System.String> requestSettings_settings_ContentRedaction_contentRedaction_PiiEntityType = null;
+            if (cmdletContext.ContentRedaction_PiiEntityType != null)
+            {
+                requestSettings_settings_ContentRedaction_contentRedaction_PiiEntityType = cmdletContext.ContentRedaction_PiiEntityType;
+            }
+            if (requestSettings_settings_ContentRedaction_contentRedaction_PiiEntityType != null)
+            {
+                requestSettings_settings_ContentRedaction.PiiEntityTypes = requestSettings_settings_ContentRedaction_contentRedaction_PiiEntityType;
+                requestSettings_settings_ContentRedactionIsNull = false;
+            }
             Amazon.TranscribeService.RedactionOutput requestSettings_settings_ContentRedaction_contentRedaction_RedactionOutput = null;
             if (cmdletContext.ContentRedaction_RedactionOutput != null)
             {
@@ -598,6 +624,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String Media_RedactedMediaFileUri { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
             public System.String OutputLocation { get; set; }
+            public List<System.String> ContentRedaction_PiiEntityType { get; set; }
             public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
             public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
             public Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings> Settings_LanguageIdSetting { get; set; }

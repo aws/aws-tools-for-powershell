@@ -167,8 +167,11 @@ $HC_SelectMap = @{
                "Get-HCTableColumnList",
                "Get-HCTableRowList",
                "Get-HCTableList",
+               "Get-HCResourceTag",
                "Invoke-HCQueryTableRow",
-               "Start-HCTableDataImportJob")
+               "Start-HCTableDataImportJob",
+               "Add-HCResourceTag",
+               "Remove-HCResourceTag")
 }
 
 _awsArgumentCompleterRegistration $HC_SelectCompleters $HC_SelectMap

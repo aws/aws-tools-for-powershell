@@ -89,6 +89,7 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.BillingMode
         {
+            ($_ -eq "New-DDBTable/BillingMode") -Or
             ($_ -eq "Update-DDBTable/BillingMode") -Or
             ($_ -eq "Restore-DDBTableFromBackup/BillingModeOverride") -Or
             ($_ -eq "Restore-DDBTableToPointInTime/BillingModeOverride") -Or
@@ -200,7 +201,7 @@ $DDB_Completers = {
 
 $DDB_map = @{
     "BackupType"=@("Get-DDBBackupList")
-    "BillingMode"=@("Update-DDBTable")
+    "BillingMode"=@("New-DDBTable","Update-DDBTable")
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
@@ -325,6 +326,13 @@ $DDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DynamoDBv2.BillingMode
+        "New-DDBTable/BillingMode"
+        {
+            $v = "PAY_PER_REQUEST","PROVISIONED"
+            break
+        }
+
         # Amazon.DynamoDBv2.KeyType
         "Add-DDBKeySchema/KeyType"
         {
@@ -359,6 +367,7 @@ $DDB_Completers = {
 }
 
 $DDB_map = @{
+    "BillingMode"=@("New-DDBTable")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")

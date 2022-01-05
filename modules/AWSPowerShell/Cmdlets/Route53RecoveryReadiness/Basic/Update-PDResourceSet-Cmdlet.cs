@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Updates an existing Resource Set.
+    /// Updates a resource set.
     /// </summary>
     [Cmdlet("Update", "PDResourceSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.UpdateResourceSetResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// A list of Resource objects
+        /// <para>A list of resource objects.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The ResourceSet to update
+        /// <para>Name of a resource set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetType
         /// <summary>
         /// <para>
-        /// AWS Resource Type of the resources in
-        /// the ResourceSet
+        /// <para>The resource type of the resources in the resource set. Enter one of the following
+        /// values for resource type:</para><para>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup,
+        /// AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+        /// AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer,
+        /// AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+        /// AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection,
+        /// AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</para>
         /// </para>
         /// </summary>
         #if !MODULAR

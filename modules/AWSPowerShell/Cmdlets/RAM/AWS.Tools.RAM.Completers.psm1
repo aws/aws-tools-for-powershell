@@ -204,6 +204,7 @@ $RAM_SelectMap = @{
                "Get-RAMResourceShare",
                "Get-RAMPendingInvitationResourceList",
                "Get-RAMPermissionList",
+               "Get-RAMPermissionVersionList",
                "Get-RAMPrincipalList",
                "Get-RAMResourceList",
                "Get-RAMResourceSharePermissionList",

@@ -106,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Root_Linux
         /// <summary>
         /// <para>
-        /// <para>The folder path in Linux workstations where files are uploaded. The default path is
-        /// <code>$HOME/Downloads</code>.</para>
+        /// <para>The folder path in Linux workstations where files are uploaded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,12 +133,12 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <para>
         /// <para>Integer that determines if you can start and stop your sessions and how long a session
         /// can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</para><para>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-        /// StopStreamingSession, the session fails. If the time that a session stays in the READY
-        /// state exceeds the maxSessionLengthInMinutes value, the session will automatically
-        /// be terminated by AWS (instead of stopped).</para><para>If the value is set to a positive number, the session can be stopped. You can call
-        /// StopStreamingSession to stop sessions in the READY state. If the time that a session
-        /// stays in the READY state exceeds the maxSessionLengthInMinutes value, the session
-        /// will automatically be stopped by AWS (instead of terminated).</para>
+        /// <code>StopStreamingSession</code>, the session fails. If the time that a session stays
+        /// in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the session
+        /// will automatically be terminated by AWS (instead of stopped).</para><para>If the value is set to a positive number, the session can be stopped. You can call
+        /// <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+        /// that a session stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code>
+        /// value, the session will automatically be stopped by AWS (instead of terminated).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Root_Window
         /// <summary>
         /// <para>
-        /// <para>The folder path in Windows workstations where files are uploaded. The default path
-        /// is <code>%HOMEPATH%\Downloads</code>.</para>
+        /// <para>The folder path in Windows workstations where files are uploaded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

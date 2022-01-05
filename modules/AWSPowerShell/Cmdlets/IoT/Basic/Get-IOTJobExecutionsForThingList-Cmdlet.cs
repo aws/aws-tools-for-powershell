@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTJobExecutionsForThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter JobId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier you assigned to this job when it was created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobId { get; set; }
+        #endregion
+        
         #region Parameter NamespaceId
         /// <summary>
         /// <para>
@@ -170,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.ThingName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.JobId = this.JobId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -211,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListJobExecutionsForThingRequest();
             
+            if (cmdletContext.JobId != null)
+            {
+                request.JobId = cmdletContext.JobId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -282,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListJobExecutionsForThingRequest();
+            if (cmdletContext.JobId != null)
+            {
+                request.JobId = cmdletContext.JobId;
+            }
             if (cmdletContext.NamespaceId != null)
             {
                 request.NamespaceId = cmdletContext.NamespaceId;
@@ -413,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String JobId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NamespaceId { get; set; }
             public System.String NextToken { get; set; }

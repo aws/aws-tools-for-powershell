@@ -358,9 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpEndpoint
         /// <summary>
         /// <para>
-        /// <para>Enables or disables the HTTP metadata endpoint on your instances. If the parameter
-        /// is not specified, the default state is <code>enabled</code>.</para><para>If you specify a value of <code>disabled</code>, you will not be able to access your
-        /// instance metadata.</para>
+        /// <para>Enables or disables the HTTP metadata endpoint on your instances.</para><para>If you specify a value of <code>disabled</code>, you cannot access your instance metadata.</para><para>Default: <code>enabled</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -393,14 +391,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpToken
         /// <summary>
         /// <para>
-        /// <para>The state of token usage for your instance metadata requests. If the parameter is
-        /// not specified in the request, the default state is <code>optional</code>.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+        /// <para>The state of token usage for your instance metadata requests.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
         /// with or without a signed token header on your request. If you retrieve the IAM role
         /// credentials without a token, the version 1.0 role credentials are returned. If you
         /// retrieve the IAM role credentials using a valid signed token, the version 2.0 role
         /// credentials are returned.</para><para>If the state is <code>required</code>, you must send a signed token header with any
         /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-        /// always returns the version 2.0 credentials; the version 1.0 credentials are not available.</para>
+        /// always returns the version 2.0 credentials; the version 1.0 credentials are not available.</para><para>Default: <code>optional</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,6 +439,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceMarketOptions")]
         public Amazon.EC2.Model.InstanceMarketOptionsRequest InstanceMarketOption { get; set; }
+        #endregion
+        
+        #region Parameter MetadataOptions_InstanceMetadataTag
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>enabled</code> to allow access to instance tags from the instance metadata.
+        /// Set to <code>disabled</code> to turn off access to instance tags from the instance
+        /// metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
+        /// with instance tags using the instance metadata</a>.</para><para>Default: <code>disabled</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataOptions_InstanceMetadataTags")]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMetadataTagsState")]
+        public Amazon.EC2.InstanceMetadataTagsState MetadataOptions_InstanceMetadataTag { get; set; }
         #endregion
         
         #region Parameter InstanceType
@@ -850,6 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.MetadataOptions_HttpProtocolIpv6 = this.MetadataOptions_HttpProtocolIpv6;
             context.MetadataOptions_HttpPutResponseHopLimit = this.MetadataOptions_HttpPutResponseHopLimit;
             context.MetadataOptions_HttpToken = this.MetadataOptions_HttpToken;
+            context.MetadataOptions_InstanceMetadataTag = this.MetadataOptions_InstanceMetadataTag;
             context.MinCount = this.MinCount;
             if (!ParameterWasBound(nameof(this.MinCount)))
             {
@@ -1170,6 +1183,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.MetadataOptions.HttpTokens = requestMetadataOptions_metadataOptions_HttpToken;
                 requestMetadataOptionsIsNull = false;
             }
+            Amazon.EC2.InstanceMetadataTagsState requestMetadataOptions_metadataOptions_InstanceMetadataTag = null;
+            if (cmdletContext.MetadataOptions_InstanceMetadataTag != null)
+            {
+                requestMetadataOptions_metadataOptions_InstanceMetadataTag = cmdletContext.MetadataOptions_InstanceMetadataTag;
+            }
+            if (requestMetadataOptions_metadataOptions_InstanceMetadataTag != null)
+            {
+                request.MetadataOptions.InstanceMetadataTags = requestMetadataOptions_metadataOptions_InstanceMetadataTag;
+                requestMetadataOptionsIsNull = false;
+            }
              // determine if request.MetadataOptions should be set to null
             if (requestMetadataOptionsIsNull)
             {
@@ -1435,6 +1458,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.InstanceMetadataProtocolState MetadataOptions_HttpProtocolIpv6 { get; set; }
             public System.Int32? MetadataOptions_HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.HttpTokensState MetadataOptions_HttpToken { get; set; }
+            public Amazon.EC2.InstanceMetadataTagsState MetadataOptions_InstanceMetadataTag { get; set; }
             public System.Int32? MinCount { get; set; }
             public System.Boolean? Monitoring { get; set; }
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> NetworkInterface { get; set; }

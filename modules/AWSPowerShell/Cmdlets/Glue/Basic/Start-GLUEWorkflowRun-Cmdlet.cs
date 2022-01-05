@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RunProperty
+        /// <summary>
+        /// <para>
+        /// <para>The workflow run properties for the new workflow run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RunProperties")]
+        public System.Collections.Hashtable RunProperty { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RunId'.
@@ -125,6 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RunProperty != null)
+            {
+                context.RunProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RunProperty.Keys)
+                {
+                    context.RunProperty.Add((String)hashKey, (String)(this.RunProperty[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RunProperty != null)
+            {
+                request.RunProperties = cmdletContext.RunProperty;
             }
             
             CmdletOutput output;
@@ -207,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> RunProperty { get; set; }
             public System.Func<Amazon.Glue.Model.StartWorkflowRunResponse, StartGLUEWorkflowRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RunId;
         }

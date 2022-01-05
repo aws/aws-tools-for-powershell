@@ -43,6 +43,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateAnomalyDetector" Verb="Disable" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlert" Verb="Remove" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

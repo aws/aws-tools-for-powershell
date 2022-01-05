@@ -443,6 +443,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUnfilteredPartitionMetadata" OutputProperty="*" Verb="Get" Noun="UnfilteredPartitionMetadata" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUnfilteredPartitionsMetadata" OutputProperty="UnfilteredPartitions" Verb="Get" Noun="UnfilteredPartitionsMetadata" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUnfilteredTableMetadata" OutputProperty="*" Verb="Get" Noun="UnfilteredTableMetadata" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserDefinedFunction" OutputProperty="UserDefinedFunction" Verb="Get" Noun="UserDefinedFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

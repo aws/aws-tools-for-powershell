@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>URI of a container image in the Amazon ECR registry.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromImage")]
         public System.String ImageUri { get; set; }
         #endregion
         
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// can be in a different Amazon Web Services account.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromS3Object", Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromS3Object")]
         [Alias("BucketName","FunctionCode_S3Bucket")]
         public System.String S3Bucket { get; set; }
         #endregion
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>The Amazon S3 key of the deployment package.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromS3Object", Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromS3Object")]
         [Alias("FunctionCode_S3Key","Key")]
         public System.String S3Key { get; set; }
         #endregion
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromMemoryStream", Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromMemoryStream")]
         [Alias("ZipContent","ZipFileContent")]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] ZipFile { get; set; }

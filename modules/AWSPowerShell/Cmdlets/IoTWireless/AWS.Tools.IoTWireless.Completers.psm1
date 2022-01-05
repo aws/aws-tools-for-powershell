@@ -188,7 +188,9 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.WirelessDeviceType
         {
             ($_ -eq "New-IOTWWirelessDevice/Type") -Or
-            ($_ -eq "Get-IOTWWirelessDeviceList/WirelessDeviceType")
+            ($_ -eq "Get-IOTWQueuedMessageList/WirelessDeviceType") -Or
+            ($_ -eq "Get-IOTWWirelessDeviceList/WirelessDeviceType") -Or
+            ($_ -eq "Remove-IOTWQueuedMessage/WirelessDeviceType")
         }
         {
             $v = "LoRaWAN","Sidewalk"
@@ -239,7 +241,7 @@ $IOTW_map = @{
     "TraceContent_LogLevel"=@("Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_WirelessDeviceFrameInfo"=@("Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
-    "WirelessDeviceType"=@("Get-IOTWWirelessDeviceList")
+    "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
 
@@ -314,6 +316,7 @@ $IOTW_SelectMap = @{
                "Remove-IOTWDeviceProfile",
                "Remove-IOTWFuotaTask",
                "Remove-IOTWMulticastGroup",
+               "Remove-IOTWQueuedMessage",
                "Remove-IOTWServiceProfile",
                "Remove-IOTWWirelessDevice",
                "Remove-IOTWWirelessGateway",
@@ -352,6 +355,7 @@ $IOTW_SelectMap = @{
                "Get-IOTWMulticastGroupList",
                "Get-IOTWMulticastGroupsByFuotaTaskList",
                "Get-IOTWPartnerAccountList",
+               "Get-IOTWQueuedMessageList",
                "Get-IOTWServiceProfileList",
                "Get-IOTWResourceTag",
                "Get-IOTWWirelessDeviceList",

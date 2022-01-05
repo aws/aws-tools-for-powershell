@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an AWS resource association from an Amazon Connect instance. The association
-    /// must not have any use cases associated with it.
+    /// Deletes an Amazon Web Services resource association from an Amazon Connect instance.
+    /// The association must not have any use cases associated with it.
     /// </summary>
     [Cmdlet("Remove", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

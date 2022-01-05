@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token used to ensure idempotency.</para>
+        /// <para>A token that ensures idempotency. This token expires in 10 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

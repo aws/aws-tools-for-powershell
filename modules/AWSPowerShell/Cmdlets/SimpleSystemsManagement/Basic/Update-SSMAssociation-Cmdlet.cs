@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Updates an association. You can update the association name and version, the document
     /// version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output.
-    /// 
+    /// When you call <code>UpdateAssociation</code>, the system drops all optional parameters
+    /// from the request and overwrites the association with null values for those parameters.
+    /// This is by design. You must specify all optional parameters in the call, even if you
+    /// are not changing the parameters. This includes the <code>Name</code> parameter. Before
+    /// calling this API action, we recommend that you call the <a>DescribeAssociation</a>
+    /// API operation and make a note of all optional parameters required for your <code>UpdateAssociation</code>
+    /// call.
     /// 
     ///  
     /// <para>
@@ -41,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// when calling the UpdateAssociation operation: User: &lt;user_arn&gt; isn't authorized
     /// to perform: ssm:DescribeAssociation on resource: &lt;resource_arn&gt;</code></para><important><para>
     /// When you update an association, the association immediately runs against the specified
-    /// targets.
+    /// targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the
+    /// association during the next schedule run.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -149,7 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The document version you want update for the association. </para>
+        /// <para>The document version you want update for the association. </para><important><para>State Manager doesn't support running associations that use a new version of a document
+        /// if that document is shared from another account. State Manager always runs the <code>default</code>
+        /// version of a document if shared from another account, even though the Systems Manager
+        /// console shows that a new version was processed. If you want to run an association
+        /// using a new version of a document shared form another account, you must set the document
+        /// version to <code>default</code>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

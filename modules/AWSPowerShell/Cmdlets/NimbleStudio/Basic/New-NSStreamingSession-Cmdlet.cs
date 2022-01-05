@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter OwnedBy
         /// <summary>
         /// <para>
-        /// <para>The user ID of the user that owns the streaming session.</para>
+        /// <para>The user ID of the user that owns the streaming session. The user that owns the session
+        /// will be logging into the session and interacting with the virtual workstation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -104,7 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// depending on the actions that they're allowed to perform in Amazon Macie.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -115,7 +122,14 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// can contain as many as 512 characters.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Regex { get; set; }
         #endregion
         
@@ -215,7 +229,19 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             context.MaximumMatchDistance = this.MaximumMatchDistance;
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Regex = this.Regex;
+            #if MODULAR
+            if (this.Regex == null && ParameterWasBound(nameof(this.Regex)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Regex which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.SeverityLevel != null)
             {
                 context.SeverityLevel = new List<Amazon.Macie2.Model.SeverityLevel>(this.SeverityLevel);

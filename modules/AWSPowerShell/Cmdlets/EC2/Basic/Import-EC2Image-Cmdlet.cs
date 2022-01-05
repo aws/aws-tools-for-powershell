@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Architecture
         /// <summary>
         /// <para>
-        /// <para>The architecture of the virtual machine.</para><para>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code></para>
+        /// <para>The architecture of the virtual machine.</para><para>Valid values: <code>i386</code> | <code>x86_64</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.String OutputLocation_Bucket { get; set; }
         #endregion
         
+        #region Parameter OutputLocation_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputLocation_BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Configuration_ColumnStatisticsConfiguration
         /// <summary>
         /// <para>
@@ -384,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 WriteWarning("You are passing $null as a value for parameter OutputLocation_Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputLocation_BucketOwner = this.OutputLocation_BucketOwner;
             context.OutputLocation_Key = this.OutputLocation_Key;
             context.RoleArn = this.RoleArn;
             #if MODULAR
@@ -579,6 +590,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 request.OutputLocation.Bucket = requestOutputLocation_outputLocation_Bucket;
                 requestOutputLocationIsNull = false;
             }
+            System.String requestOutputLocation_outputLocation_BucketOwner = null;
+            if (cmdletContext.OutputLocation_BucketOwner != null)
+            {
+                requestOutputLocation_outputLocation_BucketOwner = cmdletContext.OutputLocation_BucketOwner;
+            }
+            if (requestOutputLocation_outputLocation_BucketOwner != null)
+            {
+                request.OutputLocation.BucketOwner = requestOutputLocation_outputLocation_BucketOwner;
+                requestOutputLocationIsNull = false;
+            }
             System.String requestOutputLocation_outputLocation_Key = null;
             if (cmdletContext.OutputLocation_Key != null)
             {
@@ -682,6 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public System.Int32? MaxRetry { get; set; }
             public System.String Name { get; set; }
             public System.String OutputLocation_Bucket { get; set; }
+            public System.String OutputLocation_BucketOwner { get; set; }
             public System.String OutputLocation_Key { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? Timeout { get; set; }

@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter SessionStateValue_OriginatingRequestId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique identifier for a specific request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,6 +214,20 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         [Alias("SessionStateValue_DialogAction_SlotElicitationStyle")]
         [AWSConstantClassSource("Amazon.LexRuntimeV2.StyleType")]
         public Amazon.LexRuntimeV2.StyleType DialogAction_SlotElicitationStyle { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeHints_SlotHint
+        /// <summary>
+        /// <para>
+        /// <para>A list of the slots in the intent that should have runtime hints added, and the phrases
+        /// that should be added for each slot.</para><para>The first level of the <code>slotHints</code> map is the name of the intent. The second
+        /// level is the name of the slot within the intent. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using
+        /// hints to improve accuracy</a>.</para><para>The intent name and slot name must exist.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionStateValue_RuntimeHints_SlotHints")]
+        public System.Collections.Hashtable RuntimeHints_SlotHint { get; set; }
         #endregion
         
         #region Parameter Intent_Slot
@@ -387,6 +401,14 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             }
             context.Intent_State = this.Intent_State;
             context.SessionStateValue_OriginatingRequestId = this.SessionStateValue_OriginatingRequestId;
+            if (this.RuntimeHints_SlotHint != null)
+            {
+                context.RuntimeHints_SlotHint = new Dictionary<System.String, Dictionary<System.String, Amazon.LexRuntimeV2.Model.RuntimeHintDetails>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RuntimeHints_SlotHint.Keys)
+                {
+                    context.RuntimeHints_SlotHint.Add((String)hashKey, (Dictionary<String,RuntimeHintDetails>)(this.RuntimeHints_SlotHint[hashKey]));
+                }
+            }
             if (this.SessionStateValue_SessionAttribute != null)
             {
                 context.SessionStateValue_SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -471,6 +493,31 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             if (requestSessionStateValue_sessionStateValue_SessionAttribute != null)
             {
                 request.SessionStateValue.SessionAttributes = requestSessionStateValue_sessionStateValue_SessionAttribute;
+                requestSessionStateValueIsNull = false;
+            }
+            Amazon.LexRuntimeV2.Model.RuntimeHints requestSessionStateValue_sessionStateValue_RuntimeHints = null;
+            
+             // populate RuntimeHints
+            var requestSessionStateValue_sessionStateValue_RuntimeHintsIsNull = true;
+            requestSessionStateValue_sessionStateValue_RuntimeHints = new Amazon.LexRuntimeV2.Model.RuntimeHints();
+            Dictionary<System.String, Dictionary<System.String, Amazon.LexRuntimeV2.Model.RuntimeHintDetails>> requestSessionStateValue_sessionStateValue_RuntimeHints_runtimeHints_SlotHint = null;
+            if (cmdletContext.RuntimeHints_SlotHint != null)
+            {
+                requestSessionStateValue_sessionStateValue_RuntimeHints_runtimeHints_SlotHint = cmdletContext.RuntimeHints_SlotHint;
+            }
+            if (requestSessionStateValue_sessionStateValue_RuntimeHints_runtimeHints_SlotHint != null)
+            {
+                requestSessionStateValue_sessionStateValue_RuntimeHints.SlotHints = requestSessionStateValue_sessionStateValue_RuntimeHints_runtimeHints_SlotHint;
+                requestSessionStateValue_sessionStateValue_RuntimeHintsIsNull = false;
+            }
+             // determine if requestSessionStateValue_sessionStateValue_RuntimeHints should be set to null
+            if (requestSessionStateValue_sessionStateValue_RuntimeHintsIsNull)
+            {
+                requestSessionStateValue_sessionStateValue_RuntimeHints = null;
+            }
+            if (requestSessionStateValue_sessionStateValue_RuntimeHints != null)
+            {
+                request.SessionStateValue.RuntimeHints = requestSessionStateValue_sessionStateValue_RuntimeHints;
                 requestSessionStateValueIsNull = false;
             }
             Amazon.LexRuntimeV2.Model.DialogAction requestSessionStateValue_sessionStateValue_DialogAction = null;
@@ -655,6 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             public Dictionary<System.String, Amazon.LexRuntimeV2.Model.Slot> Intent_Slot { get; set; }
             public Amazon.LexRuntimeV2.IntentState Intent_State { get; set; }
             public System.String SessionStateValue_OriginatingRequestId { get; set; }
+            public Dictionary<System.String, Dictionary<System.String, Amazon.LexRuntimeV2.Model.RuntimeHintDetails>> RuntimeHints_SlotHint { get; set; }
             public Dictionary<System.String, System.String> SessionStateValue_SessionAttribute { get; set; }
             public System.Func<Amazon.LexRuntimeV2.Model.PutSessionResponse, WriteLRSV2SessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -217,6 +217,8 @@ $LKF_SelectMap = @{
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
                "Get-LKFTableObject",
+               "Get-LKFTemporaryGluePartitionCredential",
+               "Get-LKFTemporaryGlueTableCredential",
                "Get-LKFWorkUnitResult",
                "Get-LKFWorkUnit",
                "Grant-LKFPermission",

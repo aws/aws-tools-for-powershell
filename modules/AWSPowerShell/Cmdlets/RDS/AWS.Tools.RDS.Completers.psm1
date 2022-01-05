@@ -128,7 +128,7 @@ $RDS_Completers = {
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
-            $v = "custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-security-group","db-snapshot"
+            $v = "custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-snapshot"
             break
         }
 

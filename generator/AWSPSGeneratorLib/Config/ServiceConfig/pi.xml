@@ -26,7 +26,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceMetadata" OutputProperty="*" Verb="Get" Noun="ResourceMetadata" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceMetrics" OutputProperty="*" Verb="Get" Noun="ResourceMetric" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableResourceDimensions" OutputProperty="MetricDimensions" Verb="Get" Noun="AvailableResourceDimensionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="AvailableResourceMetricList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

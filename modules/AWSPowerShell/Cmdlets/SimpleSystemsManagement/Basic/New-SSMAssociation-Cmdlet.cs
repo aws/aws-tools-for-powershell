@@ -114,7 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The document version you want to associate with the target(s). Can be a specific version
-        /// or the default version.</para>
+        /// or the default version.</para><important><para>State Manager doesn't support running associations that use a new version of a document
+        /// if that document is shared from another account. State Manager always runs the <code>default</code>
+        /// version of a document if shared from another account, even though the Systems Manager
+        /// console shows that a new version was processed. If you want to run an association
+        /// using a new version of a document shared form another account, you must set the document
+        /// version to <code>default</code>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

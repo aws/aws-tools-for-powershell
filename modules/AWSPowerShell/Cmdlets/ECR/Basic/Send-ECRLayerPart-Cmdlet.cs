@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "FromBytes", Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = "FromBytes")]
         [Alias("LayerPartBytes")]
         [Amazon.PowerShell.Common.Base64StreamParameterConverter]
         public byte[] LayerPartBlob { get; set; }

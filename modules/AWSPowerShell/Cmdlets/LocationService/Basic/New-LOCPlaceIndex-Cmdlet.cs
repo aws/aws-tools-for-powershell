@@ -33,6 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
     /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
     /// operation.
+    /// 
+    ///  <note><para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+    /// for more details.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreatePlaceIndexResponse")]
@@ -108,18 +115,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public Amazon.LocationService.IntendedUse DataSourceConfiguration_IntendedUse { get; set; }
         #endregion
         
-        #region Parameter PricingPlan
-        /// <summary>
-        /// <para>
-        /// <para>Optionally specifies the pricing plan for the place index resource. Defaults to <code>RequestBasedUsage</code>.</para><para>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
-        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -131,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlan
+        /// <summary>
+        /// <para>
+        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
+        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
+        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
         #endregion
         
         #region Parameter Select
@@ -210,7 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -266,10 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.IndexName = cmdletContext.IndexName;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -339,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public Amazon.LocationService.IntendedUse DataSourceConfiguration_IntendedUse { get; set; }
             public System.String Description { get; set; }
             public System.String IndexName { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.LocationService.Model.CreatePlaceIndexResponse, NewLOCPlaceIndexCmdlet, object> Select { get; set; } =

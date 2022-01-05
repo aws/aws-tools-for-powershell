@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Adds tags to the specified resource. You can specify one or more tags to add.
+    /// Adds a tag to a resource.
     /// </summary>
     [Cmdlet("Add", "PDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) for the resource.
-        /// You can get this from the response to any request to the resource.
+        /// <para>The Amazon Resource Name (ARN) for a resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

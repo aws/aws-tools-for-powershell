@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Updates an existing Cell.
+    /// Updates a cell to replace the list of nested cells with a new list of nested cells.
     /// </summary>
     [Cmdlet("Update", "PDCell", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.UpdateCellResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter CellName
         /// <summary>
         /// <para>
-        /// The Cell to update
+        /// <para>The name of the cell.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Cell
         /// <summary>
         /// <para>
-        /// A list of Cell arns, completely replaces previous
-        /// list
+        /// <para>A list of cell Amazon Resource Names (ARNs), which completely replaces the previous
+        /// list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

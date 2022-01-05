@@ -221,6 +221,25 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.VocabularyLanguageCode
+        {
+            ($_ -eq "Add-CONNDefaultVocabulary/LanguageCode") -Or
+            ($_ -eq "Get-CONNDefaultVocabularyList/LanguageCode") -Or
+            ($_ -eq "New-CONNVocabulary/LanguageCode") -Or
+            ($_ -eq "Search-CONNVocabulary/LanguageCode")
+        }
+        {
+            $v = "ar-AE","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","pt-PT","zh-CN"
+            break
+        }
+
+        # Amazon.Connect.VocabularyState
+        "Search-CONNVocabulary/State"
+        {
+            $v = "ACTIVE","CREATION_FAILED","CREATION_IN_PROGRESS","DELETE_IN_PROGRESS"
+            break
+        }
+
         # Amazon.Connect.VoiceRecordingTrack
         "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
         {
@@ -242,11 +261,12 @@ $CONN_map = @{
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
+    "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
-    "State"=@("New-CONNAgentStatus","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
+    "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -309,6 +329,7 @@ $CONN_SelectCompleters = {
 $CONN_SelectMap = @{
     "Select"=@("Add-CONNApprovedOrigin",
                "Add-CONNBot",
+               "Add-CONNDefaultVocabulary",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -328,6 +349,7 @@ $CONN_SelectMap = @{
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
+               "New-CONNVocabulary",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
                "Remove-CONNHoursOfOperation",
@@ -338,6 +360,7 @@ $CONN_SelectMap = @{
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
+               "Remove-CONNVocabulary",
                "Get-CONNAgentStatus",
                "Get-CONNContact",
                "Get-CONNContactFlow",
@@ -353,6 +376,7 @@ $CONN_SelectMap = @{
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
+               "Get-CONNVocabulary",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
                "Remove-CONNInstanceStorageConfig",
@@ -371,6 +395,7 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
                "Get-CONNContactReferenceList",
+               "Get-CONNDefaultVocabularyList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -393,6 +418,7 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
                "Resume-CONNContactRecording",
+               "Search-CONNVocabulary",
                "Start-CONNChatContact",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",

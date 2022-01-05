@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotLocaleExportSpecification_BotId { get; set; }
         #endregion
         
+        #region Parameter CustomVocabularyExportSpecification_BotId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the bot that contains the custom vocabulary to export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyExportSpecification_BotId")]
+        public System.String CustomVocabularyExportSpecification_BotId { get; set; }
+        #endregion
+        
         #region Parameter BotExportSpecification_BotVersion
         /// <summary>
         /// <para>
@@ -92,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleExportSpecification_BotVersion")]
         public System.String BotLocaleExportSpecification_BotVersion { get; set; }
+        #endregion
+        
+        #region Parameter CustomVocabularyExportSpecification_BotVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the bot that contains the custom vocabulary to export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyExportSpecification_BotVersion")]
+        public System.String CustomVocabularyExportSpecification_BotVersion { get; set; }
         #endregion
         
         #region Parameter FileFormat
@@ -133,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotLocaleExportSpecification_LocaleId")]
         public System.String BotLocaleExportSpecification_LocaleId { get; set; }
+        #endregion
+        
+        #region Parameter CustomVocabularyExportSpecification_LocaleId
+        /// <summary>
+        /// <para>
+        /// <para>The locale of the bot that contains the custom vocabulary to export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_CustomVocabularyExportSpecification_LocaleId")]
+        public System.String CustomVocabularyExportSpecification_LocaleId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -209,6 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleExportSpecification_BotId = this.BotLocaleExportSpecification_BotId;
             context.BotLocaleExportSpecification_BotVersion = this.BotLocaleExportSpecification_BotVersion;
             context.BotLocaleExportSpecification_LocaleId = this.BotLocaleExportSpecification_LocaleId;
+            context.CustomVocabularyExportSpecification_BotId = this.CustomVocabularyExportSpecification_BotId;
+            context.CustomVocabularyExportSpecification_BotVersion = this.CustomVocabularyExportSpecification_BotVersion;
+            context.CustomVocabularyExportSpecification_LocaleId = this.CustomVocabularyExportSpecification_LocaleId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -317,6 +353,51 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ResourceSpecification.BotLocaleExportSpecification = requestResourceSpecification_resourceSpecification_BotLocaleExportSpecification;
                 requestResourceSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.CustomVocabularyExportSpecification requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification = null;
+            
+             // populate CustomVocabularyExportSpecification
+            var requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecificationIsNull = true;
+            requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification = new Amazon.LexModelsV2.Model.CustomVocabularyExportSpecification();
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotId = null;
+            if (cmdletContext.CustomVocabularyExportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotId = cmdletContext.CustomVocabularyExportSpecification_BotId;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification.BotId = requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotId;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotVersion = null;
+            if (cmdletContext.CustomVocabularyExportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotVersion = cmdletContext.CustomVocabularyExportSpecification_BotVersion;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification.BotVersion = requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_BotVersion;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_LocaleId = null;
+            if (cmdletContext.CustomVocabularyExportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_LocaleId = cmdletContext.CustomVocabularyExportSpecification_LocaleId;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification.LocaleId = requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification_customVocabularyExportSpecification_LocaleId;
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecificationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification should be set to null
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecificationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification != null)
+            {
+                request.ResourceSpecification.CustomVocabularyExportSpecification = requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification;
+                requestResourceSpecificationIsNull = false;
+            }
              // determine if request.ResourceSpecification should be set to null
             if (requestResourceSpecificationIsNull)
             {
@@ -390,6 +471,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotLocaleExportSpecification_BotId { get; set; }
             public System.String BotLocaleExportSpecification_BotVersion { get; set; }
             public System.String BotLocaleExportSpecification_LocaleId { get; set; }
+            public System.String CustomVocabularyExportSpecification_BotId { get; set; }
+            public System.String CustomVocabularyExportSpecification_BotVersion { get; set; }
+            public System.String CustomVocabularyExportSpecification_LocaleId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.CreateExportResponse, NewLMBV2ExportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

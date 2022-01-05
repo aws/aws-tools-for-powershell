@@ -221,6 +221,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String OutpostArn { get; set; }
         #endregion
         
+        #region Parameter PlacementGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster placement group in which to create the
+        /// Capacity Reservation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
+        /// Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PlacementGroupArn { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -349,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.OutpostArn = this.OutpostArn;
+            context.PlacementGroupArn = this.PlacementGroupArn;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -417,6 +430,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.OutpostArn != null)
             {
                 request.OutpostArn = cmdletContext.OutpostArn;
+            }
+            if (cmdletContext.PlacementGroupArn != null)
+            {
+                request.PlacementGroupArn = cmdletContext.PlacementGroupArn;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -499,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.CapacityReservationInstancePlatform InstancePlatform { get; set; }
             public System.String InstanceType { get; set; }
             public System.String OutpostArn { get; set; }
+            public System.String PlacementGroupArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.CapacityReservationTenancy Tenancy { get; set; }
             public System.Func<Amazon.EC2.Model.CreateCapacityReservationResponse, AddEC2CapacityReservationCmdlet, object> Select { get; set; } =

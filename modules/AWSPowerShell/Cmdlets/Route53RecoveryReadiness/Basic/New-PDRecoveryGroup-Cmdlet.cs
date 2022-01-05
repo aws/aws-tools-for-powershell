@@ -28,7 +28,8 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Creates a new Recovery Group.
+    /// Creates a recovery group in an account. A recovery group corresponds to an application
+    /// and includes a list of the cells that make up the application.
     /// </summary>
     [Cmdlet("New", "PDRecoveryGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryReadiness.Model.CreateRecoveryGroupResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter Cell
         /// <summary>
         /// <para>
-        /// A list of Cell arns
+        /// <para>A list of the cell Amazon Resource Names (ARNs) in the recovery group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter RecoveryGroupName
         /// <summary>
         /// <para>
-        /// The name of the RecoveryGroup to create
+        /// <para>The name of the recovery group to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

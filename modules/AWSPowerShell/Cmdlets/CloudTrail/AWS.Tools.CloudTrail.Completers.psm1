@@ -87,6 +87,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.QueryStatus
+        "Get-CTQuerySummary/QueryStatus"
+        {
+            $v = "CANCELLED","FAILED","FINISHED","QUEUED","RUNNING"
+            break
+        }
+
 
     }
 
@@ -97,6 +104,7 @@ $CT_Completers = {
 
 $CT_map = @{
     "EventCategory"=@("Find-CTEvent")
+    "QueryStatus"=@("Get-CTQuerySummary")
 }
 
 _awsArgumentCompleterRegistration $CT_Completers $CT_map
@@ -150,22 +158,33 @@ $CT_SelectCompleters = {
 
 $CT_SelectMap = @{
     "Select"=@("Add-CTResourceTag",
+               "Stop-CTQuery",
+               "New-CTEventDataStore",
                "New-CTTrail",
+               "Remove-CTEventDataStore",
                "Remove-CTTrail",
+               "Get-CTQuery",
                "Get-CTTrail",
+               "Get-CTEventDataStore",
                "Get-CTEventSelector",
                "Get-CTInsightSelector",
+               "Get-CTQueryResult",
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
+               "Get-CTEventDataStoreSummary",
                "Get-CTPublicKey",
+               "Get-CTQuerySummary",
                "Get-CTResourceTag",
                "Get-CTTrailSummary",
                "Find-CTEvent",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
                "Remove-CTResourceTag",
+               "Restore-CTEventDataStore",
                "Start-CTLogging",
+               "Start-CTQuery",
                "Stop-CTLogging",
+               "Update-CTEventDataStore",
                "Update-CTTrail")
 }
 

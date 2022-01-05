@@ -73,6 +73,39 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.String S3InputDefinition_Bucket { get; set; }
         #endregion
         
+        #region Parameter DatabaseInputDefinition_TempDirectory_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_DatabaseInputDefinition_TempDirectory_BucketOwner")]
+        public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter DataCatalogInputDefinition_TempDirectory_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_DataCatalogInputDefinition_TempDirectory_BucketOwner")]
+        public System.String DataCatalogInputDefinition_TempDirectory_BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter S3InputDefinition_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_S3InputDefinition_BucketOwner")]
+        public System.String S3InputDefinition_BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter DataCatalogInputDefinition_CatalogId
         /// <summary>
         /// <para>
@@ -428,14 +461,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             context.DatabaseInputDefinition_GlueConnectionName = this.DatabaseInputDefinition_GlueConnectionName;
             context.DatabaseInputDefinition_QueryString = this.DatabaseInputDefinition_QueryString;
             context.DatabaseInputDefinition_TempDirectory_Bucket = this.DatabaseInputDefinition_TempDirectory_Bucket;
+            context.DatabaseInputDefinition_TempDirectory_BucketOwner = this.DatabaseInputDefinition_TempDirectory_BucketOwner;
             context.DatabaseInputDefinition_TempDirectory_Key = this.DatabaseInputDefinition_TempDirectory_Key;
             context.DataCatalogInputDefinition_CatalogId = this.DataCatalogInputDefinition_CatalogId;
             context.DataCatalogInputDefinition_DatabaseName = this.DataCatalogInputDefinition_DatabaseName;
             context.DataCatalogInputDefinition_TableName = this.DataCatalogInputDefinition_TableName;
             context.DataCatalogInputDefinition_TempDirectory_Bucket = this.DataCatalogInputDefinition_TempDirectory_Bucket;
+            context.DataCatalogInputDefinition_TempDirectory_BucketOwner = this.DataCatalogInputDefinition_TempDirectory_BucketOwner;
             context.DataCatalogInputDefinition_TempDirectory_Key = this.DataCatalogInputDefinition_TempDirectory_Key;
             context.Metadata_SourceArn = this.Metadata_SourceArn;
             context.S3InputDefinition_Bucket = this.S3InputDefinition_Bucket;
+            context.S3InputDefinition_BucketOwner = this.S3InputDefinition_BucketOwner;
             context.S3InputDefinition_Key = this.S3InputDefinition_Key;
             context.Name = this.Name;
             #if MODULAR
@@ -650,6 +686,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 requestInput_input_S3InputDefinition.Bucket = requestInput_input_S3InputDefinition_s3InputDefinition_Bucket;
                 requestInput_input_S3InputDefinitionIsNull = false;
             }
+            System.String requestInput_input_S3InputDefinition_s3InputDefinition_BucketOwner = null;
+            if (cmdletContext.S3InputDefinition_BucketOwner != null)
+            {
+                requestInput_input_S3InputDefinition_s3InputDefinition_BucketOwner = cmdletContext.S3InputDefinition_BucketOwner;
+            }
+            if (requestInput_input_S3InputDefinition_s3InputDefinition_BucketOwner != null)
+            {
+                requestInput_input_S3InputDefinition.BucketOwner = requestInput_input_S3InputDefinition_s3InputDefinition_BucketOwner;
+                requestInput_input_S3InputDefinitionIsNull = false;
+            }
             System.String requestInput_input_S3InputDefinition_s3InputDefinition_Key = null;
             if (cmdletContext.S3InputDefinition_Key != null)
             {
@@ -718,6 +764,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket != null)
             {
                 requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.Bucket = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket;
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
+            }
+            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = null;
+            if (cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner;
+            }
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.BucketOwner = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner;
                 requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
             }
             System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key = null;
@@ -798,6 +854,16 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_Bucket != null)
             {
                 requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory.Bucket = requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_Bucket;
+                requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectoryIsNull = false;
+            }
+            System.String requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_BucketOwner = null;
+            if (cmdletContext.DataCatalogInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_BucketOwner = cmdletContext.DataCatalogInputDefinition_TempDirectory_BucketOwner;
+            }
+            if (requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory.BucketOwner = requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_BucketOwner;
                 requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectoryIsNull = false;
             }
             System.String requestInput_input_DataCatalogInputDefinition_input_DataCatalogInputDefinition_TempDirectory_dataCatalogInputDefinition_TempDirectory_Key = null;
@@ -1014,14 +1080,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public System.String DatabaseInputDefinition_GlueConnectionName { get; set; }
             public System.String DatabaseInputDefinition_QueryString { get; set; }
             public System.String DatabaseInputDefinition_TempDirectory_Bucket { get; set; }
+            public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
             public System.String DatabaseInputDefinition_TempDirectory_Key { get; set; }
             public System.String DataCatalogInputDefinition_CatalogId { get; set; }
             public System.String DataCatalogInputDefinition_DatabaseName { get; set; }
             public System.String DataCatalogInputDefinition_TableName { get; set; }
             public System.String DataCatalogInputDefinition_TempDirectory_Bucket { get; set; }
+            public System.String DataCatalogInputDefinition_TempDirectory_BucketOwner { get; set; }
             public System.String DataCatalogInputDefinition_TempDirectory_Key { get; set; }
             public System.String Metadata_SourceArn { get; set; }
             public System.String S3InputDefinition_Bucket { get; set; }
+            public System.String S3InputDefinition_BucketOwner { get; set; }
             public System.String S3InputDefinition_Key { get; set; }
             public System.String Name { get; set; }
             public System.Int32? FilesLimit_MaxFile { get; set; }

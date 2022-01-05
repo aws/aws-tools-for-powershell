@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The WorkSpace to rebuild. You can specify a single WorkSpace.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "IdFromRequestObject", Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = "IdFromRequestObject")]
         [Alias("RebuildWorkspaceRequest","RebuildWorkspaceRequests")]
         public Amazon.WorkSpaces.Model.RebuildRequest[] Request { get; set; }
         #endregion

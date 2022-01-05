@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_DestinationType
         /// <summary>
         /// <para>
-        /// <para>Destination type for a Dataview.</para><ul><li><para><code>GLUE_TABLE</code> - Glue table destination type.</para></li></ul>
+        /// <para>Destination type for a Dataview.</para><ul><li><para><code>GLUE_TABLE</code> - Glue table destination type.</para></li><li><para><code>S3</code> - S3 destination type.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormat
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Data view export file format.</para><ul><li><para><code>PARQUET</code> - Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> - Delimited text export file format.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormatOption
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Format Options for S3 Destination type.</para><para>Here is an example of how you could specify the <code>s3DestinationExportFileFormatOptions</code></para><para><code> { "header": "true", "delimiter": ",", "compression": "gzip" }</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token used to ensure idempotency.</para>
+        /// <para>A token that ensures idempotency. This token expires in 10 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

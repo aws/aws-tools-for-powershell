@@ -941,6 +941,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFastLaunchImages" OutputProperty="FastLaunchImages" Verb="Get" Noun="FastLaunchImage" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFastSnapshotRestores" OutputProperty="FastSnapshotRestores" Verb="Get" Noun="FastSnapshotRestore" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1440,6 +1444,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableFastLaunch" OutputProperty="*" Verb="Disable" Noun="FastLaunch" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceStop" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableFastSnapshotRestores" OutputProperty="*" Verb="Disable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1517,6 +1527,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableFastLaunch" OutputProperty="*" Verb="Enable" Noun="FastLaunch" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1941,6 +1955,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpcEndpointServiceConfiguration" OutputProperty="Return" Verb="Edit" Noun="VpcEndpointServiceConfiguration" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointServicePayerResponsibility" OutputProperty="ReturnValue" Verb="Edit" Noun="VpcEndpointServicePayerResponsibility" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

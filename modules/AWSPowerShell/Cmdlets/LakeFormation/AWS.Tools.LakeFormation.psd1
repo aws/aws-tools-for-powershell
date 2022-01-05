@@ -100,6 +100,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LKFResourceList', 
         'Get-LKFTableObject', 
         'Get-LKFTableStorageOptimizerList', 
+        'Get-LKFTemporaryGluePartitionCredential', 
+        'Get-LKFTemporaryGlueTableCredential', 
         'Get-LKFTransaction', 
         'Get-LKFTransactionList', 
         'Get-LKFWorkUnit', 

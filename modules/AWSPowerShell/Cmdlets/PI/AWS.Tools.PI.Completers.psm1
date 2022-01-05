@@ -82,12 +82,15 @@ $PI_Completers = {
     {
         # Amazon.PI.ServiceType
         {
+            ($_ -eq "Get-PIAvailableResourceDimensionList/ServiceType") -Or
+            ($_ -eq "Get-PIAvailableResourceMetricList/ServiceType") -Or
             ($_ -eq "Get-PIDimensionKey/ServiceType") -Or
             ($_ -eq "Get-PIDimensionKeyDetail/ServiceType") -Or
+            ($_ -eq "Get-PIResourceMetadata/ServiceType") -Or
             ($_ -eq "Get-PIResourceMetric/ServiceType")
         }
         {
-            $v = "RDS"
+            $v = "DOCDB","RDS"
             break
         }
 
@@ -100,7 +103,7 @@ $PI_Completers = {
 }
 
 $PI_map = @{
-    "ServiceType"=@("Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIResourceMetric")
+    "ServiceType"=@("Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIResourceMetadata","Get-PIResourceMetric")
 }
 
 _awsArgumentCompleterRegistration $PI_Completers $PI_map
@@ -155,7 +158,10 @@ $PI_SelectCompleters = {
 $PI_SelectMap = @{
     "Select"=@("Get-PIDimensionKey",
                "Get-PIDimensionKeyDetail",
-               "Get-PIResourceMetric")
+               "Get-PIResourceMetadata",
+               "Get-PIResourceMetric",
+               "Get-PIAvailableResourceDimensionList",
+               "Get-PIAvailableResourceMetricList")
 }
 
 _awsArgumentCompleterRegistration $PI_SelectCompleters $PI_SelectMap

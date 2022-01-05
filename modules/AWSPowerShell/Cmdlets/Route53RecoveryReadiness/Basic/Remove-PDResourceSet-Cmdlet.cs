@@ -28,7 +28,7 @@ using Amazon.Route53RecoveryReadiness.Model;
 namespace Amazon.PowerShell.Cmdlets.PD
 {
     /// <summary>
-    /// Deletes an existing Resource Set.
+    /// Deletes a resource set.
     /// </summary>
     [Cmdlet("Remove", "PDResourceSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
         #region Parameter ResourceSetName
         /// <summary>
         /// <para>
-        /// The ResourceSet to delete
+        /// <para>Name of a resource set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

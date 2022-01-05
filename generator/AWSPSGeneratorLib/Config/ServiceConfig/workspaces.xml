@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectClientAddIn" OutputProperty="AddInId" Verb="New" Noun="ConnectClientAddIn" ShouldProcessTarget="Name" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectionAlias" OutputProperty="AliasId" Verb="New" Noun="ConnectionAlias" ShouldProcessTarget="ConnectionString" PipelineParameter="ConnectionString" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectClientAddIn" Verb="Remove" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -96,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClientProperties" OutputProperty="ClientPropertiesList" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectClientAddIns" OutputProperty="AddIns" Verb="Get" Noun="ConnectClientAddIn" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -234,6 +246,10 @@
             <Params>
                 <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectClientAddIn" Verb="Update" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectionAliasPermission" Verb="Update" Noun="ConnectionAliasPermission" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">

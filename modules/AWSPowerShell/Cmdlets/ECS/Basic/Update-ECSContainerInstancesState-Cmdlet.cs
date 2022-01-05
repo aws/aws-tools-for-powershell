@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>A list of container instance IDs or full ARN entries.</para>
+        /// <para>A list of up to 10 container instance IDs or full ARN entries.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
