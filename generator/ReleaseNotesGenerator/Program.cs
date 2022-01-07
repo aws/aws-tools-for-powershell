@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace PSReleaseNotesGenerator
 {
@@ -21,6 +23,8 @@ namespace PSReleaseNotesGenerator
         private const string DownloadFolderOptionName = "download-folder";
         private const string AssemblyFileNameOptionName = "assembly-file-name";
         private const string OutputFilePathOptionName = "out-file";
+        private const string BreakingChangesOutputFilePathOptionName = "breaking-changes-out-file";
+        private const string OverridesFilePathOptionName = "overrides-file";
 
         private const string BreakingChangeText = "[Breaking Change]"; //The build system will look for this string in the output to validate the build
 
@@ -50,9 +54,15 @@ namespace PSReleaseNotesGenerator
         [Option("-an|--" + AssemblyFileNameOptionName + " <FILE_NAME>", Description = "Name of the assembly file to analyze from the module downloaded from PS Gallery.")]
         public string AssemblyFileName { get; set; } = "AWSPowerShell.dll";
 
-        [Option("-of|--" + OutputFilePathOptionName + " <FILE_PATH>", Description = "Optional path to a file to write the output to.")]
+        [Option("-of|--" + OutputFilePathOptionName + " <FILE_PATH>", Description = "Optional path to a file to write the release notes output to.")]
         public string OutputFilePath { get; set; }
 
+        [Option("-bc|--" + BreakingChangesOutputFilePathOptionName + " <FILE_PATH>", Description = "Optional path to a file to write the breaking changes lookup output to.")]
+        public string BreakingChangesLookupOutputFilePath { get; set; }
+
+        [Option("-or|--" + OverridesFilePathOptionName + " <FILE_PATH>", Description = "Optional path to the overrides file.")]
+        public string OverridesFilePath { get; set; }
+                
         public static int Main(string[] args)
         {
             try
@@ -117,9 +127,10 @@ namespace PSReleaseNotesGenerator
             }
 
             string report;
-            if(oldModule != null)
+            var breakingChanges = new BreakingChanges();
+            if (oldModule != null)
             {
-                report = CreateReleaseNotes(newModule, oldModule, sdkNewVersion);
+                report = CreateReleaseNotes(newModule, oldModule, sdkNewVersion, breakingChanges);
             }
             else
             {
@@ -134,6 +145,46 @@ namespace PSReleaseNotesGenerator
                 Console.WriteLine($"Writing report to {fullOutputPath}");
                 File.WriteAllText(fullOutputPath, report);
             }
+
+            //Optionally write the breaking changes lookup file
+            if (!string.IsNullOrWhiteSpace(BreakingChangesLookupOutputFilePath))
+            {
+                WriteBreakingChangesLookupFile(BreakingChangesLookupOutputFilePath, OverridesFilePath, breakingChanges);
+            }            
+        }
+        
+        private static void WriteBreakingChangesLookupFile(string breakingChangesLookupOutputFilePath, 
+            string overridesFilePath, 
+            BreakingChanges breakingChanges)
+        {
+            var overridesXML = string.Empty;
+            if (File.Exists(overridesFilePath))
+            {
+                overridesXML = File.ReadAllText(overridesFilePath);
+            }
+
+            var pathToConfigs = Path.Combine(
+                Path.GetDirectoryName(overridesFilePath),
+                "generator/AWSPSGeneratorLib/Config/ServiceConfig"
+            );
+
+            var serviceKeys = Overrides.ParseServiceNounPrefixes(overridesXML, (filetitle) =>
+            {
+                try
+                {
+                    return File.ReadAllText(Path.Combine(pathToConfigs, $"{filetitle}.xml"));
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Failed to load service configuration {filetitle}.xml", e);
+                }
+            });
+
+            var lookupReport = breakingChanges.CreateLookupXML(serviceKeys);
+            var fullOutputPath = Path.GetFullPath(breakingChangesLookupOutputFilePath);
+            Console.WriteLine($"Writing breaking changes lookup file to {fullOutputPath}");
+            Console.WriteLine(lookupReport);
+            File.WriteAllText(fullOutputPath, lookupReport);
         }
 
         private static string CreateErrorReleaseNotes()
@@ -141,7 +192,10 @@ namespace PSReleaseNotesGenerator
             return "Unable to generate release notes. Release notes will need to be created manually.";
         }
 
-        private static string CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, IDictionary<string, Cmdlet> oldModule, string sdkNewVersion)
+        private static string CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, 
+            IDictionary<string, Cmdlet> oldModule, 
+            string sdkNewVersion, 
+            BreakingChanges breakingChanges)
         {
             var outputWriter = new StringWriter();
 
@@ -149,13 +203,17 @@ namespace PSReleaseNotesGenerator
 
             var newServices = newModule.Values.GroupBy(cmdlet => cmdlet.ServicePrefix).ToDictionary(service => service.Key ?? "", service => service);
             var oldServices = oldModule.Values.GroupBy(cmdlet => cmdlet.ServicePrefix).ToDictionary(service => service.Key ?? "", service => service);
+                        
+            var lineText = string.Empty;
 
             Func<KeyValuePair<string, IGrouping<string, Cmdlet>>, string> GetServiceName =
                 (KeyValuePair<string, IGrouping<string, Cmdlet>> serviceConfigurations) => serviceConfigurations.Value.First().ServiceName;
 
             foreach (var oldService in oldServices.Where(service => !newServices.Keys.Contains(service.Key)).OrderBy(service => GetServiceName(service)))
             {
-                outputWriter.WriteLine($"  * {BreakingChangeText} Removed support for {GetServiceName(oldService)}");
+                lineText = $"{BreakingChangeText} Removed support for {GetServiceName(oldService)}";
+                breakingChanges.Add(oldService.Key, lineText);
+                outputWriter.WriteLine($"  * {lineText}");
             }
 
             foreach (var newService in newServices.OrderBy(service => GetServiceName(service)))
@@ -172,7 +230,9 @@ namespace PSReleaseNotesGenerator
                     if (removedCmdlets.Length > 0)
                     {
                         PrintServiceHeader(newService.Key, outputWriter, ref IsServiceHeaderPrinted);
-                        outputWriter.WriteLine($"    * {BreakingChangeText} Removed cmdlet{(removedCmdlets.Length > 1 ? "s" : "")} {FormatCollection(removedCmdlets)}.");
+                        lineText = $"{BreakingChangeText} Removed cmdlet{(removedCmdlets.Length > 1 ? "s" : "")} {FormatCollection(removedCmdlets)}.";
+                        breakingChanges.Add(newService.Key, lineText);
+                        outputWriter.WriteLine($"    * {lineText}");
                     }
 
                     var addedCmdlets = newCmdlets.Values.Where(cmdlet => !oldCmdlets.ContainsKey(cmdlet.Name)).OrderBy(cmdlet => cmdlet.Name).ToArray();
@@ -200,7 +260,16 @@ namespace PSReleaseNotesGenerator
                             if (cmdLetComparison.Length > 0)
                             {
                                 PrintServiceHeader(GetServiceName(newService), outputWriter, ref IsServiceHeaderPrinted);
-                                outputWriter.WriteLine($"    * {(cmdLetComparison.Any(comparison => comparison.IsBreakingChange) ? BreakingChangeText + " " : "")}Modified cmdlet {newCmdlet.Key}: {string.Join("; ", cmdLetComparison.Select(comparison => comparison.Message))}.");
+                                var isBreakingChange = cmdLetComparison.Any(comparison => comparison.IsBreakingChange);
+                                lineText = $"{(isBreakingChange ? BreakingChangeText + " " : "")}" +
+                                    $"Modified cmdlet {newCmdlet.Key}: " +
+                                    $"{string.Join("; ", cmdLetComparison.Select(comparison => comparison.Message))}.";
+                                if(isBreakingChange)
+                                {
+                                    breakingChanges.Add(newService.Key, lineText);
+                                }
+                                
+                                outputWriter.WriteLine($"    * {lineText}");
                             }
                         }
                     }

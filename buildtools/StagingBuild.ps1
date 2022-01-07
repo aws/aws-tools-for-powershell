@@ -78,6 +78,13 @@ catch {
   Write-Host "Error uploading ./ReleaseNotesDraft.txt to S3: $($_.Exception)"
 }
 
+try {
+  Write-S3Object -BucketName $BuildS3Bucket -Key "$S3Prefix/BreakingChangesLookup.xml" -File ./BreakingChangesLookup.xml
+}
+catch {
+  Write-Host "Error uploading ./BreakingChangesLookup.xml to S3: $($_.Exception)"
+}
+
 if ($BuildResult -ne 0) {
   throw "dotnet msbuild returned error $BuildResult"
 }
