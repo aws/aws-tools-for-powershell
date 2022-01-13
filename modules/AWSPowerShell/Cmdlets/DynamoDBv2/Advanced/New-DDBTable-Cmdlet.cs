@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// Guide</i>.
         /// </para>
         /// </summary>
-        [Parameter(Mandatory = true, Position = 2, ValueFromPipelineByPropertyName = true)]
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.Int64? ReadCapacity { get; set; }
         #endregion
 
@@ -105,9 +104,24 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// Guide</i>.
         /// </para>
         /// </summary>
-        [Parameter(Mandatory = true, Position = 3, ValueFromPipelineByPropertyName = true)]
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.Int64? WriteCapacity { get; set; }
+        #endregion
+
+        #region Parameter BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>Controls how you are charged for read and write throughput and how you manage capacity. 
+        /// This setting can be changed later.</para><ul><li><para><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable
+        /// workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
+        /// Mode</a>.</para></li><li><para><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for
+        /// unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
+        /// Mode</a>. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.BillingMode")]
+        public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
         #endregion
 
         #region Parameter Force
@@ -139,8 +153,28 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (!ConfirmShouldProceed(this.Force.IsPresent, this.TableName, "New-DDBTable (CreateTable)"))
                 return;
 
+            if (this.BillingMode != null && this.BillingMode == BillingMode.PAY_PER_REQUEST)
+            {
+                if (this.ReadCapacity != null)
+                    throw new ArgumentException("ReadCapacity cannot be specified when BillingMode is PAY_PER_REQUEST.");
+
+                if (this.WriteCapacity != null)
+                    throw new ArgumentException("WriteCapacity cannot be specified when BillingMode is PAY_PER_REQUEST.");
+            }
+
+            // Default BillingMode is PROVISIONED.
+            if (this.BillingMode == null || this.BillingMode == BillingMode.PROVISIONED)
+            {
+                if (this.ReadCapacity == null)
+                    throw new ArgumentException("ReadCapacity must be specified when BillingMode is PROVISIONED.");
+
+                if (this.WriteCapacity == null)
+                    throw new ArgumentException("WriteCapacity must be specified when BillingMode is PROVISIONED.");
+            }
+
             var context = new CmdletContext
             {
+                BillingMode = this.BillingMode,
                 TableName = this.TableName,
                 SchemaObject = DDBSchemaCmdletHelper.TableSchemaFromParameter(Schema),
                 ReadCapacityUnits = this.ReadCapacity,
@@ -170,11 +204,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 
             PopulateRequestFromSchemaObject(cmdletContext.SchemaObject, request);
 
-            request.ProvisionedThroughput = new ProvisionedThroughput
+            // Both ReadCapacityUnits and WriteCapacityUnits would be specified for BillingMode PROVISIONED.
+            if (cmdletContext.ReadCapacityUnits != null && cmdletContext.WriteCapacityUnits != null)
             {
-                ReadCapacityUnits = cmdletContext.ReadCapacityUnits.Value,
-                WriteCapacityUnits = cmdletContext.WriteCapacityUnits.Value
-            };
+                request.ProvisionedThroughput = new ProvisionedThroughput
+                {
+                    ReadCapacityUnits = cmdletContext.ReadCapacityUnits.Value,
+                    WriteCapacityUnits = cmdletContext.WriteCapacityUnits.Value
+                };
+            }
+
+            if (cmdletContext.BillingMode != null)
+            {
+                request.BillingMode = cmdletContext.BillingMode;
+            }
 
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             CmdletOutput output;
@@ -346,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal class CmdletContext : ExecutorContext
         {
             public List<AttributeDefinition> AttributeDefinitions { get; set; }
+            public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public String TableName { get; set; }
             public List<KeySchemaElement> KeySchema { get; set; }
             public List<LocalSecondaryIndex> LocalSecondaryIndexes { get; set; }
