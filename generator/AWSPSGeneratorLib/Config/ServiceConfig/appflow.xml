@@ -36,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnector" OutputProperty="ConnectorConfiguration" Verb="Get" Noun="Connector" PipelineParameter="ConnectorType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeConnectorEntity" OutputProperty="ConnectorEntityFields" Verb="Get" Noun="ConnectorEntity" PipelineParameter="ConnectorEntityName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,7 +48,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectors" OutputProperty="ConnectorConfigurations" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectors" OutputProperty="ConnectorConfigurations" Verb="Get" Noun="ConnectorConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -60,11 +64,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterConnector" OutputProperty="ConnectorArn" Verb="Register" Noun="Connector" ShouldProcessTarget="ConnectorProvisioningConfig_Lambda_LambdaArn" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,6 +89,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnregisterConnector" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
