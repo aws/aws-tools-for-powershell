@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.200.0",
+    "ProductVersion" : "3.7.201.0",
     "CoreVersion"    : "3.7.6.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -144,7 +144,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.2.14",
+            "Version" : "3.7.2.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -168,7 +168,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.5.4",
+            "Version" : "3.7.5.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -192,7 +192,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "3.7.4.56",
+            "Version" : "3.7.4.57",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -426,7 +426,7 @@
             "InPreview"               : false
         },
         "Elasticsearch"             : {
-            "Version" : "3.7.4.7",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -466,7 +466,7 @@
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.10.8",
+            "Version" : "3.7.11.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.12.4",
+            "Version" : "3.7.13.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -858,7 +858,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.3.67",
+            "Version" : "3.7.3.68",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -962,7 +962,7 @@
             "InPreview"               : false
         },
         "Comprehend"                      : {
-            "Version" : "3.7.4.51",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -1442,7 +1442,7 @@
             "InPreview"               : false
         },
         "Personalize"                     : {
-            "Version" : "3.7.6.16",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -1826,7 +1826,7 @@
             "InPreview"               : false
         },
         "Appflow"                         : {
-            "Version" : "3.7.4.37",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
@@ -2074,7 +2074,7 @@
             "InPreview"               : false
         },
         "FIS"                             : {
-            "Version" : "3.7.1.2",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.2"
