@@ -1760,6 +1760,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListImagesInRecycleBin" OutputProperty="Images" Verb="Get" Noun="ImagesInRecycleBinList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2162,6 +2166,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreAddressToClassic" OutputProperty="*" Verb="Restore" Noun="AddressToClassic" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreImageFromRecycleBin" OutputProperty="Return" Verb="Restore" Noun="ImageFromRecycleBin" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
