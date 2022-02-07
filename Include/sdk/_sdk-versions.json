@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.203.0",
+    "ProductVersion" : "3.7.204.0",
     "CoreVersion"    : "3.7.6.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1482,7 +1482,7 @@
             "InPreview"               : false
         },
         "EventBridge"                     : {
-            "Version" : "3.7.4.66",
+            "Version" : "3.7.4.67",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.4"
@@ -1762,7 +1762,7 @@
             "InPreview"               : false
         },
         "Synthetics"                      : {
-            "Version" : "3.7.2.46",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.4"
@@ -1994,7 +1994,7 @@
             "InPreview"               : false
         },
         "AuditManager"                    : {
-            "Version" : "3.7.7.20",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.4"
@@ -2130,7 +2130,7 @@
             "InPreview"               : false
         },
         "SSMIncidents"                    : {
-            "Version" : "3.7.2.34",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.6.4"
