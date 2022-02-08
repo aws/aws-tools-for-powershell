@@ -46,7 +46,7 @@ function Update-ModulePackageVersion([string]$modulePath, [string]$versionNumber
         $request.AttributeUpdates.Add($field[0], $attribute)
     }    
 
-    $ddbClient.UpdateItem($request)
+    $ddbClient.UpdateItemAsync($request).GetAwaiter().GetResult()
 }
 
 Export-ModuleMember -Function "Update-ModulePackageVersion"
