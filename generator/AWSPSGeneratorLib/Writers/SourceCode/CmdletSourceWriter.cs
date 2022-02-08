@@ -1678,7 +1678,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                     var childVariableName = usableVariableName + "_" + OperationAnalyzer.ToLowerCamelCase(child.CmdletParameterName);
 
-                    writer.WriteLine($"{MethodAnalysis.GetValidTypeName(child.PropertyType)}{(child.UseParameterValueOnlyIfBound ? "?" : "")} {childVariableName} = null;");
+                    var childPropertyType = MethodAnalysis.GetValidTypeName(child.PropertyType);
+                    var nullableFlag = (child.UseParameterValueOnlyIfBound || child.IsDocumentType ? "?" : "");
+                    var field = $"{childVariableName} = null;";
+                    writer.WriteLine($"{childPropertyType}{nullableFlag} {field}");
+
                     WriteContextObjectPopulation(writer, child, childVariableName, true);
 
                     writer.WriteLine($"if ({childVariableName} != null)");
