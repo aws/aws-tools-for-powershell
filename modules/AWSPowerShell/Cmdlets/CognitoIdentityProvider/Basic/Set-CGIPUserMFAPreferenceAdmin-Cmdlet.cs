@@ -28,11 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the user's multi-factor authentication (MFA) preference, including which MFA
-    /// options are enabled and if any are preferred. Only one factor can be set as preferred.
+    /// The user's multi-factor authentication (MFA) preference, including which MFA options
+    /// are activated, and if any are preferred. Only one factor can be set as preferred.
     /// The preferred MFA factor will be used to authenticate a user if multiple factors are
-    /// enabled. If multiple options are enabled and no preference is set, a challenge to
-    /// choose an MFA option will be returned during sign in.
+    /// activated. If multiple options are activated and no preference is set, a challenge
+    /// to choose an MFA option will be returned during sign-in.
     /// </summary>
     [Cmdlet("Set", "CGIPUserMFAPreferenceAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

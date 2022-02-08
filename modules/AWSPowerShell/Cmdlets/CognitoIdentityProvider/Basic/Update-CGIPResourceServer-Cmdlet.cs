@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Updates the name and scopes of resource server. All other fields are read-only.
     /// 
     ///  <important><para>
-    /// If you don't provide a value for an attribute, it will be set to the default value.
+    /// If you don't provide a value for an attribute, it is set to the default value.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

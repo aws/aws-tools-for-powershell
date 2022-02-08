@@ -28,16 +28,17 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the UI customization information for a user pool's built-in app UI.
+    /// Sets the user interface (UI) customization information for a user pool's built-in
+    /// app UI.
     /// 
     ///  
     /// <para>
     /// You can specify app UI customization settings for a single client (with a specific
     /// <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to
-    /// <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will
-    /// be used for every client that has no UI customization set previously. If you specify
-    /// UI customization settings for a particular client, it will no longer fall back to
-    /// the <code>ALL</code> configuration. 
+    /// <code>ALL</code>). If you specify <code>ALL</code>, the default configuration is used
+    /// for every client that has no previously set UI customization. If you specify UI customization
+    /// settings for a particular client, it will no longer return to the <code>ALL</code>
+    /// configuration.
     /// </para><note><para>
     /// To use this API, your user pool must have a domain associated with it. Otherwise,
     /// there is no place to host the app's pages, and the service will throw an error.

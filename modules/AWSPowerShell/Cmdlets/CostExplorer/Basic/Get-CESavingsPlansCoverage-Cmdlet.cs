@@ -34,10 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// Cost Categories, and nested expressions. For any time period, you can filter data
     /// for Savings Plans usage with the following dimensions:
     /// 
-    ///  <ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><note><para><code>GetSavingsPlansCoverage</code> doesn't support filtering by tags. <code>GetSavingsPlansCoverage</code>
-    /// also doesn't support the <code>OR</code> operator between filter dimensions. For the
-    /// full request syntax with supported parameters, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansCoverage.html#API_GetSavingsPlansCoverage_Examples">Examples</a>.
-    /// </para></note><para>
+    ///  <ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para>
     /// To determine valid values for a dimension, use the <code>GetDimensionValues</code>
     /// operation.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -58,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>Filters Savings Plans coverage data by dimensions. You can filter data for Savings
         /// Plans usage with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension.</para><para>Cost category is supported. Tags are not supported.</para>
+        /// dimension. If there are multiple values for a dimension, they are OR'd together.</para><para>Cost category is also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

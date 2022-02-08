@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you wish to enable.</para>
+        /// <para>The user name of the user you want to enable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

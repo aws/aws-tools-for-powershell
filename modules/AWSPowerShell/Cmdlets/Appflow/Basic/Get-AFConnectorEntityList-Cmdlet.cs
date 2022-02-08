@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class GetAFConnectorEntityListCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        #region Parameter ApiVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the API that's used by the connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApiVersion { get; set; }
+        #endregion
+        
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>
@@ -125,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 context.Select = (response, cmdlet) => this.ConnectorProfileName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApiVersion = this.ApiVersion;
             context.ConnectorProfileName = this.ConnectorProfileName;
             context.ConnectorType = this.ConnectorType;
             context.EntitiesPath = this.EntitiesPath;
@@ -144,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             // create request
             var request = new Amazon.Appflow.Model.ListConnectorEntitiesRequest();
             
+            if (cmdletContext.ApiVersion != null)
+            {
+                request.ApiVersion = cmdletContext.ApiVersion;
+            }
             if (cmdletContext.ConnectorProfileName != null)
             {
                 request.ConnectorProfileName = cmdletContext.ConnectorProfileName;
@@ -217,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ApiVersion { get; set; }
             public System.String ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
             public System.String EntitiesPath { get; set; }

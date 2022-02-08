@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
     /// Updates an existing Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
-    /// Update Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.
+    /// Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("Update", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RecycleBin.Model.UpdateRuleResponse")]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the retention rule to update.</para>
+        /// <para>The unique ID of the retention rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,11 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>Information about the resource tags to use to identify resources that are to be retained
-        /// by the retention rule. The retention rule retains only deleted snapshots that have
-        /// one or more of the specified tag key and value pairs. If a snapshot is deleted, but
-        /// it does not have any of the specified tag key and value pairs, it is immediately deleted
-        /// without being retained by the retention rule. </para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para>
+        /// <para>Specifies the resource tags to use to identify resources that are to be retained by
+        /// a tag-level retention rule. For tag-level retention rules, only deleted resources,
+        /// of the specified resource type, that have one or more of the specified tag key and
+        /// value pairs are retained. If a resource is deleted, but it does not have any of the
+        /// specified tag key and value pairs, it is immediately deleted without being retained
+        /// by the retention rule.</para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para><para>To create a Region-level retention rule, omit this parameter. A Region-level retention
+        /// rule does not have any resource tags specified. It retains all deleted resources of
+        /// the specified resource type in the Region in which the rule is created, even if the
+        /// resources are not tagged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <summary>
         /// <para>
         /// <para>The resource type to be retained by the retention rule. Currently, only Amazon EBS
-        /// snapshots are supported.</para>
+        /// snapshots and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>.
+        /// To retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

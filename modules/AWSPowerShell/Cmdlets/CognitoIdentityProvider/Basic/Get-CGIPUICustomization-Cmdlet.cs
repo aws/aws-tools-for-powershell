@@ -28,10 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the UI Customization information for a particular app client's app UI, if there
-    /// is something set. If nothing is set for the particular client, but there is an existing
-    /// pool level customization (app <code>clientId</code> will be <code>ALL</code>), then
-    /// that is returned. If nothing is present, then an empty shape is returned.
+    /// Gets the user interface (UI) Customization information for a particular app client's
+    /// app UI, if any such information exists for the client. If nothing is set for the particular
+    /// client, but there is an existing pool level customization (the app <code>clientId</code>
+    /// is <code>ALL</code>), then that information is returned. If nothing is present, then
+    /// an empty shape is returned.
     /// </summary>
     [Cmdlet("Get", "CGIPUICustomization")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UICustomizationType")]

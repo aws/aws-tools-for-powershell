@@ -936,7 +936,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetPlatformAccelerator
         "New-SMCompilationJob/OutputConfig_TargetPlatform_Accelerator"
         {
-            $v = "INTEL_GRAPHICS","MALI","NVIDIA"
+            $v = "INTEL_GRAPHICS","MALI","NNA","NVIDIA"
             break
         }
 

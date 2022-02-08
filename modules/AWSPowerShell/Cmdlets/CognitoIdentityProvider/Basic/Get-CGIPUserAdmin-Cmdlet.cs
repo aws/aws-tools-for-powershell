@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you wish to retrieve.</para>
+        /// <para>The user name of the user you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

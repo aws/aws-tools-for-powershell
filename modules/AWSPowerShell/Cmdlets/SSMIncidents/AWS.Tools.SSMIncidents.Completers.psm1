@@ -93,7 +93,7 @@ $SSMI_Completers = {
             ($_ -eq "Update-SSMIRelatedItem/RelatedItemsUpdate_ItemToRemove_Type")
         }
         {
-            $v = "ANALYSIS","ATTACHMENT","INCIDENT","METRIC","OTHER","PARENT"
+            $v = "ANALYSIS","ATTACHMENT","AUTOMATION","INCIDENT","METRIC","OTHER","PARENT"
             break
         }
 

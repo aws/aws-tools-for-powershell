@@ -173,6 +173,21 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String ModelKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ModelPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The JSON resource-based policy to attach to your custom entity recognizer model. You
+        /// can use this policy to allow another AWS account to import your custom model.</para><para>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid
+        /// JSON for your policy, enclose the attribute names and values in double quotes. If
+        /// the JSON body is also enclosed in double quotes, then you must escape the double quotes
+        /// that are inside the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+        /// quotes to enclose the JSON names and values:</para><para><code>'{"attribute": "value", "attribute": ["value"]}'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPolicy { get; set; }
+        #endregion
+        
         #region Parameter RecognizerName
         /// <summary>
         /// <para>
@@ -422,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.ModelKmsKeyId = this.ModelKmsKeyId;
+            context.ModelPolicy = this.ModelPolicy;
             context.RecognizerName = this.RecognizerName;
             #if MODULAR
             if (this.RecognizerName == null && ParameterWasBound(nameof(this.RecognizerName)))
@@ -619,6 +635,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 request.ModelKmsKeyId = cmdletContext.ModelKmsKeyId;
             }
+            if (cmdletContext.ModelPolicy != null)
+            {
+                request.ModelPolicy = cmdletContext.ModelPolicy;
+            }
             if (cmdletContext.RecognizerName != null)
             {
                 request.RecognizerName = cmdletContext.RecognizerName;
@@ -738,6 +758,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public List<Amazon.Comprehend.Model.EntityTypesListItem> InputDataConfig_EntityType { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public System.String ModelKmsKeyId { get; set; }
+            public System.String ModelPolicy { get; set; }
             public System.String RecognizerName { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
             public System.String VersionName { get; set; }

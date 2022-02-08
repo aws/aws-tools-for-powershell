@@ -31,21 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Creates a new Amazon Cognito user pool and sets the password policy for the pool.
     /// 
     ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, U.S. telecom
-    /// carriers require that you register an origination phone number before you can send
-    /// SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
-    /// you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Cognito will use the the registered number automatically. Otherwise,
-    /// Cognito users that must receive SMS messages might be unable to sign up, activate
+    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
+    /// carriers require you to register an origination phone number before you can send SMS
+    /// messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you
+    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
+    /// Pinpoint</a>. Amazon Cognito will use the registered number automatically. Otherwise,
+    /// Amazon Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
+    /// Service, Amazon Simple Notification Service might place your account in SMS sandbox.
+    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// mode</a></i>, you will have limitations, such as sending messages only to verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Cognito User Pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>. 
+    /// SMS message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer
+    /// Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CGIPUserPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Specifies whether username case sensitivity will be applied for all users in the user
-        /// pool through Cognito APIs.</para><para>Valid values include:</para><ul><li><para><b><code>True</code></b>: Enables case sensitivity for all username input. When
+        /// pool through Amazon Cognito APIs.</para><para>Valid values include:</para><ul><li><para><b><code>True</code></b>: Enables case sensitivity for all username input. When
         /// this option is set to <code>True</code>, users must sign in using the exact capitalization
-        /// of their given username. For example, “UserName”. This is the default value.</para></li><li><para><b><code>False</code></b>: Enables case insensitivity for all username input. For
-        /// example, when this option is set to <code>False</code>, users will be able to sign
-        /// in using either "username" or "Username". This option also enables both <code>preferred_username</code>
+        /// of their given username, such as “UserName”. This is the default value.</para></li><li><para><b><code>False</code></b>: Enables case insensitivity for all username input. For
+        /// example, when this option is set to <code>False</code>, users can sign in using either
+        /// "username" or "Username". This option also enables both <code>preferred_username</code>
         /// and <code>email</code> alias to be case insensitive, in addition to the <code>username</code>
         /// attribute.</para></li></ul>
         /// </para>
@@ -123,8 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceConfiguration_ChallengeRequiredOnNewDevice
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a challenge is required on a new device. Only applicable to a new
-        /// device.</para>
+        /// <para>When true, device authentication can replace SMS and time-based one-time password
+        /// (TOTP) factors for multi-factor authentication (MFA).</para><note><para>Users that sign in with devices that have not been confirmed or remembered will still
+        /// have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true,
+        /// when your user pool requires MFA.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,15 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailConfiguration_ConfigurationSet
         /// <summary>
         /// <para>
-        /// <para>The set of configuration rules that can be applied to emails sent using Amazon SES.
-        /// A configuration set is applied to an email by including a reference to the configuration
-        /// set in the headers of the email. Once applied, all of the rules in that configuration
-        /// set are applied to the email. Configuration sets can be used to apply the following
-        /// types of rules to emails: </para><ul><li><para>Event publishing – Amazon SES can track the number of send, delivery, open, click,
-        /// bounce, and complaint events for each email sent. Use event publishing to send information
-        /// about these events to other Amazon Web Services services such as SNS and CloudWatch.</para></li><li><para>IP pool management – When leasing dedicated IP addresses with Amazon SES, you can
-        /// create groups of IP addresses, called dedicated IP pools. You can then associate the
-        /// dedicated IP pools with configuration sets.</para></li></ul>
+        /// <para>The set of configuration rules that can be applied to emails sent using Amazon Simple
+        /// Email Service. A configuration set is applied to an email by including a reference
+        /// to the configuration set in the headers of the email. Once applied, all of the rules
+        /// in that configuration set are applied to the email. Configuration sets can be used
+        /// to apply the following types of rules to emails: </para><ul><li><para>Event publishing – Amazon Simple Email Service can track the number of send, delivery,
+        /// open, click, bounce, and complaint events for each email sent. Use event publishing
+        /// to send information about these events to other Amazon Web Services services such
+        /// as and Amazon CloudWatch.</para></li><li><para>IP pool management – When leasing dedicated IP addresses with Amazon Simple Email
+        /// Service, you can create groups of IP addresses, called dedicated IP pools. You can
+        /// then associate the dedicated IP pools with configuration sets.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt
         /// <summary>
         /// <para>
-        /// <para>If true, a device is only remembered on user prompt.</para>
+        /// <para>When true, users can opt in to remembering their device. Your app code must use callback
+        /// functions to return the user's choice.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,21 +244,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon Cognito emails your users by using its built-in email functionality
-        /// or your Amazon SES email configuration. Specify one of the following values:</para><dl><dt>COGNITO_DEFAULT</dt><dd><para>When Amazon Cognito emails your users, it uses its built-in email functionality. When
+        /// or your Amazon Simple Email Service email configuration. Specify one of the following
+        /// values:</para><dl><dt>COGNITO_DEFAULT</dt><dd><para>When Amazon Cognito emails your users, it uses its built-in email functionality. When
         /// you use the default option, Amazon Cognito allows only a limited number of emails
         /// each day for your user pool. For typical production environments, the default email
-        /// limit is below the required delivery volume. To achieve a higher delivery volume,
+        /// limit is less than the required delivery volume. To achieve a higher delivery volume,
         /// specify DEVELOPER to use your Amazon SES email configuration.</para><para>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits
-        /// in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</para><para>The default FROM address is no-reply@verificationemail.com. To customize the FROM
-        /// address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code>
-        /// parameter.</para><para> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:</para><ul><li><para>EmailVerificationMessage</para></li><li><para>EmailVerificationSubject</para></li><li><para>InviteMessageTemplate.EmailMessage</para></li><li><para>InviteMessageTemplate.EmailSubject</para></li><li><para>VerificationMessageTemplate.EmailMessage</para></li><li><para>VerificationMessageTemplate.EmailMessageByLink</para></li><li><para>VerificationMessageTemplate.EmailSubject,</para></li><li><para>VerificationMessageTemplate.EmailSubjectByLink</para></li></ul><note><para>DEVELOPER EmailSendingAccount is required.</para></note></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
+        /// in </a> in the <i> Developer Guide</i>.</para><para>The default FROM address is <code>no-reply@verificationemail.com</code>. To customize
+        /// the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified
+        /// email address for the <code>SourceArn</code> parameter.</para><para> If EmailSendingAccount is COGNITO_DEFAULT, you can't use the following parameters:</para><ul><li><para>EmailVerificationMessage</para></li><li><para>EmailVerificationSubject</para></li><li><para>InviteMessageTemplate.EmailMessage</para></li><li><para>InviteMessageTemplate.EmailSubject</para></li><li><para>VerificationMessageTemplate.EmailMessage</para></li><li><para>VerificationMessageTemplate.EmailMessageByLink</para></li><li><para>VerificationMessageTemplate.EmailSubject,</para></li><li><para>VerificationMessageTemplate.EmailSubjectByLink</para></li></ul><note><para>DEVELOPER EmailSendingAccount is required.</para></note></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
         /// Cognito calls Amazon SES on your behalf to send email from your verified email address.
         /// When you use this option, the email delivery limits are the same limits that apply
-        /// to your Amazon SES verified email address in your account.</para><para>If you use this option, you must provide the ARN of an Amazon SES verified email address
+        /// to your Amazon SES verified email address in your Amazon Web Services account.</para><para>If you use this option, you must provide the ARN of an Amazon SES verified email address
         /// for the <code>SourceArn</code> parameter.</para><para>Before Amazon Cognito can email your users, it requires additional permissions to
         /// call Amazon SES on your behalf. When you update your user pool with this option, Amazon
-        /// Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your
-        /// account. This role contains the permissions that allow Amazon Cognito to access Amazon
+        /// Cognito creates a <i>service-linked role</i>, which is a type of role, in your Amazon
+        /// Web Services account. This role contains the permissions that allow to access Amazon
         /// SES and send email messages with your address. For more information about the service-linked
         /// role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using
         /// Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</para></dd></dl>
@@ -326,13 +332,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsConfiguration_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID is a value that we recommend you use to add security to your IAM role
-        /// which is used to call Amazon SNS to send SMS messages for your user pool. If you provide
-        /// an <code>ExternalId</code>, the Cognito User Pool will include it when attempting
-        /// to assume your IAM role, so that you can set your roles trust policy to require the
-        /// <code>ExternalID</code>. If you use the Cognito Management Console to create a role
-        /// for SMS MFA, Cognito will create a role with the required permissions and a trust
-        /// policy that demonstrates use of the <code>ExternalId</code>.</para><para>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
+        /// <para>The external ID is a value that you should use to add security to your IAM role that
+        /// is used to call Amazon SNS to send SMS messages for your user pool. If you provide
+        /// an <code>ExternalId</code>, the Amazon Cognito User Pool will include it when attempting
+        /// to assume your IAM role so that you can set your roles trust policy to require the
+        /// <code>ExternalID</code>. If you use the Amazon Cognito Management Console to create
+        /// a role for SMS multi-factor authentication (MFA), Amazon Cognito will create a role
+        /// with the required permissions and a trust policy that demonstrates use of the <code>ExternalId</code>.</para><para>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
         /// to use an external ID when granting access to your Amazon Web Services resources to
         /// a third party</a></para>
         /// </para>
@@ -344,9 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailConfiguration_From
         /// <summary>
         /// <para>
-        /// <para>Identifies either the sender’s email address or the sender’s name with their email
-        /// address. For example, <code>testuser@example.com</code> or <code>Test User &lt;testuser@example.com&gt;</code>.
-        /// This address will appear before the body of the email.</para>
+        /// <para>Either the sender’s email address or the sender’s name with their email address. For
+        /// example, <code>testuser@example.com</code> or <code>Test User &lt;testuser@example.com&gt;</code>.
+        /// This address appears before the body of the email.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,9 +362,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_KMSKeyID
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer
-        /// master keys</a> . Amazon Cognito uses the key to encrypt codes and temporary passwords
-        /// sent to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of an <a href="/kms/latest/developerguide/concepts.html#master_keys">KMS
+        /// key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent
+        /// to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomEmailSender_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates
         /// to send email notifications to users.</para>
         /// </para>
         /// </summary>
@@ -380,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomSMSSender_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates
         /// to send SMS notifications to users.</para>
         /// </para>
         /// </summary>
@@ -392,9 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomEmailSender_LambdaVersion
         /// <summary>
         /// <para>
-        /// <para>The Lambda version represents the signature of the "request" attribute in the "event"
-        /// information Amazon Cognito passes to your custom email Lambda function. The only supported
-        /// value is <code>V1_0</code>.</para>
+        /// <para>Signature of the "request" attribute in the "event" information Amazon Cognito passes
+        /// to your custom email Lambda function. The only supported value is <code>V1_0</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,9 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomSMSSender_LambdaVersion
         /// <summary>
         /// <para>
-        /// <para>The Lambda version represents the signature of the "request" attribute in the "event"
-        /// information Amazon Cognito passes to your custom SMS Lambda function. The only supported
-        /// value is <code>V1_0</code>.</para>
+        /// <para>Signature of the "request" attribute in the "event" information that Amazon Cognito
+        /// passes to your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_MinimumLength
         /// <summary>
         /// <para>
-        /// <para>The minimum length of the password policy that you have set. Cannot be less than 6.</para>
+        /// <para>The minimum length of the password in the policy that you have set. This value can't
+        /// be less than 6.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailConfiguration_ReplyToEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The destination to which the receiver of the email should reply to.</para>
+        /// <para>The destination to which the receiver of the email should reply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -630,8 +635,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsConfiguration_SnsCallerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
-        /// This is the ARN of the IAM role in your account which Cognito will use to send SMS
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM
+        /// role in your Amazon Web Services account that Amazon Cognito will use to send SMS
         /// messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending
         /// limit</a>. </para>
         /// </para>
@@ -643,10 +648,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailConfiguration_SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email
-        /// address is used in one of the following ways, depending on the value that you specify
-        /// for the <code>EmailSendingAccount</code> parameter:</para><ul><li><para>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the
-        /// custom FROM address when it emails your users by using its built-in email account.</para></li><li><para>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this
+        /// <para>The ARN of a verified email address in Amazon SES. Amazon Cognito uses this email
+        /// address in one of the following ways, depending on the value that you specify for
+        /// the <code>EmailSendingAccount</code> parameter:</para><ul><li><para>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the
+        /// custom FROM address when it emails your users using its built-in email account.</para></li><li><para>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this
         /// address by calling Amazon SES on your behalf.</para></li></ul>
         /// </para>
         /// </summary>
@@ -657,11 +662,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_TemporaryPasswordValidityDay
         /// <summary>
         /// <para>
-        /// <para>In the password policy you have set, refers to the number of days a temporary password
-        /// is valid. If the user does not sign-in during this time, their password will need
-        /// to be reset by an administrator.</para><note><para>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you will
-        /// no longer be able to set the deprecated <code>UnusedAccountValidityDays</code> value
-        /// for that user pool.</para></note>
+        /// <para>The number of days a temporary password is valid in the password policy. If the user
+        /// doesn't sign in during this time, an administrator must reset their password.</para><note><para>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no
+        /// longer set the deprecated <code>UnusedAccountValidityDays</code> value for that user
+        /// pool.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -676,8 +680,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// To reset the account after that time limit, you must call <code>AdminCreateUser</code>
         /// again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter.
         /// The default value for this parameter is 7. </para><note><para>If you set a value for <code>TemporaryPasswordValidityDays</code> in <code>PasswordPolicy</code>,
-        /// that value will be used and <code>UnusedAccountValidityDays</code> will be deprecated
-        /// for that user pool. </para></note>
+        /// that value will be used, and <code>UnusedAccountValidityDays</code> will be no longer
+        /// be an available parameter for that user pool.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -698,8 +702,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UsernameAttribute
         /// <summary>
         /// <para>
-        /// <para>Specifies whether email addresses or phone numbers can be specified as usernames when
-        /// a user signs up.</para>
+        /// <para>Specifies whether a user can use an email address or phone number as a username when
+        /// they sign up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

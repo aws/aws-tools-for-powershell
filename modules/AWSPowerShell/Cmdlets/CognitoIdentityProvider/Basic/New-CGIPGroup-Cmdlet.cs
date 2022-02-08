@@ -75,17 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Precedence
         /// <summary>
         /// <para>
-        /// <para>A nonnegative integer value that specifies the precedence of this group relative to
-        /// the other groups that a user can belong to in the user pool. Zero is the highest precedence
-        /// value. Groups with lower <code>Precedence</code> values take precedence over groups
-        /// with higher or null <code>Precedence</code> values. If a user belongs to two or more
-        /// groups, it is the group with the lowest precedence value whose role ARN will be used
-        /// in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in
-        /// the user's tokens.</para><para>Two groups can have the same <code>Precedence</code> value. If this happens, neither
+        /// <para>A non-negative integer value that specifies the precedence of this group relative
+        /// to the other groups that a user can belong to in the user pool. Zero is the highest
+        /// precedence value. Groups with lower <code>Precedence</code> values take precedence
+        /// over groups with higher ornull <code>Precedence</code> values. If a user belongs to
+        /// two or more groups, it is the group with the lowest precedence value whose role ARN
+        /// is given in the user's tokens for the <code>cognito:roles</code> and <code>cognito:preferred_role</code>
+        /// claims.</para><para>Two groups can have the same <code>Precedence</code> value. If this happens, neither
         /// group takes precedence over the other. If two groups with the same <code>Precedence</code>
         /// have the same role ARN, that role is used in the <code>cognito:preferred_role</code>
         /// claim in tokens for users in each group. If the two groups have different role ARNs,
-        /// the <code>cognito:preferred_role</code> claim is not set in users' tokens.</para><para>The default <code>Precedence</code> value is null.</para>
+        /// the <code>cognito:preferred_role</code> claim isn't set in users' tokens.</para><para>The default <code>Precedence</code> value is null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the group.</para>
+        /// <para>The role Amazon Resource Name (ARN) for the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

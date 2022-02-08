@@ -29,12 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch
-    /// new instances; however, it doesn't affect any instances that you've already launched
-    /// from the AMI. You'll continue to incur usage costs for those instances until you terminate
-    /// them.
+    /// new instances.
     /// 
     ///  
     /// <para>
+    /// If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
+    /// in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+    /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+    /// </para><para>
+    /// When you deregister an AMI, it doesn't affect any instances that you've already launched
+    /// from the AMI. You'll continue to incur usage costs for those instances until you terminate
+    /// them.
+    /// </para><para>
     /// When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that
     /// was created for the root volume of the instance during the AMI creation process. When
     /// you deregister an instance store-backed AMI, it doesn't affect the files that you

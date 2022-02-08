@@ -88,8 +88,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-AFResourceTag', 
         'Get-AFConnector', 
+        'Get-AFConnectorConfigurationList', 
         'Get-AFConnectorEntity', 
         'Get-AFConnectorEntityList', 
+        'Get-AFConnectorList', 
         'Get-AFConnectorProfile', 
         'Get-AFFlow', 
         'Get-AFFlowExecutionRecord', 
@@ -97,11 +99,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AFResourceTag', 
         'New-AFConnectorProfile', 
         'New-AFFlow', 
+        'Register-AFConnector', 
         'Remove-AFConnectorProfile', 
         'Remove-AFFlow', 
         'Remove-AFResourceTag', 
         'Start-AFFlow', 
         'Stop-AFFlow', 
+        'Unregister-AFConnector', 
         'Update-AFConnectorProfile', 
         'Update-AFFlow')
 

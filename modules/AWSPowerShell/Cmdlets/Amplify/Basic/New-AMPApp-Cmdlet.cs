@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> The basic authorization credentials for the autocreated branch. </para>
+        /// <para> The basic authorization credentials for the autocreated branch. You must base64-encode
+        /// the authorization credentials and provide them in the format <code>user:password</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> The credentials for basic authorization for an Amplify app. </para>
+        /// <para> The credentials for basic authorization for an Amplify app. You must base64-encode
+        /// the authorization credentials and provide them in the format <code>user:password</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

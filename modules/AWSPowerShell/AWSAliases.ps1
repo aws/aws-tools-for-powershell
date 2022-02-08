@@ -819,14 +819,16 @@ Set-Alias -Name Delete-AFConnectorProfile -Value Remove-AFConnectorProfile
 Set-Alias -Name AF-DeleteConnectorProfile -Value Remove-AFConnectorProfile
 Set-Alias -Name Delete-AFFlow -Value Remove-AFFlow
 Set-Alias -Name AF-DeleteFlow -Value Remove-AFFlow
+Set-Alias -Name Describe-AFConnector -Value Get-AFConnector
+Set-Alias -Name AF-DescribeConnector -Value Get-AFConnector
 Set-Alias -Name Describe-AFConnectorEntity -Value Get-AFConnectorEntity
 Set-Alias -Name AF-DescribeConnectorEntity -Value Get-AFConnectorEntity
 Set-Alias -Name Describe-AFConnectorProfiles -Value Get-AFConnectorProfile
 Set-Alias -Name Describe-AFConnectorProfile -Value Get-AFConnectorProfile
 Set-Alias -Name AF-DescribeConnectorProfiles -Value Get-AFConnectorProfile
-Set-Alias -Name Describe-AFConnectors -Value Get-AFConnector
-Set-Alias -Name Describe-AFConnector -Value Get-AFConnector
-Set-Alias -Name AF-DescribeConnectors -Value Get-AFConnector
+Set-Alias -Name Describe-AFConnectors -Value Get-AFConnectorConfigurationList
+Set-Alias -Name Describe-AFConnectorConfigurationList -Value Get-AFConnectorConfigurationList
+Set-Alias -Name AF-DescribeConnectors -Value Get-AFConnectorConfigurationList
 Set-Alias -Name Describe-AFFlow -Value Get-AFFlow
 Set-Alias -Name AF-DescribeFlow -Value Get-AFFlow
 Set-Alias -Name Describe-AFFlowExecutionRecords -Value Get-AFFlowExecutionRecord
@@ -835,13 +837,18 @@ Set-Alias -Name AF-DescribeFlowExecutionRecords -Value Get-AFFlowExecutionRecord
 Set-Alias -Name List-AFConnectorEntities -Value Get-AFConnectorEntityList
 Set-Alias -Name List-AFConnectorEntityList -Value Get-AFConnectorEntityList
 Set-Alias -Name AF-ListConnectorEntities -Value Get-AFConnectorEntityList
+Set-Alias -Name List-AFConnectors -Value Get-AFConnectorList
+Set-Alias -Name List-AFConnectorList -Value Get-AFConnectorList
+Set-Alias -Name AF-ListConnectors -Value Get-AFConnectorList
 Set-Alias -Name List-AFFlows -Value Get-AFFlowList
 Set-Alias -Name List-AFFlowList -Value Get-AFFlowList
 Set-Alias -Name AF-ListFlows -Value Get-AFFlowList
 Set-Alias -Name AF-ListTagsForResource -Value Get-AFResourceTag
+Set-Alias -Name AF-RegisterConnector -Value Register-AFConnector
 Set-Alias -Name AF-StartFlow -Value Start-AFFlow
 Set-Alias -Name AF-StopFlow -Value Stop-AFFlow
 Set-Alias -Name AF-TagResource -Value Add-AFResourceTag
+Set-Alias -Name AF-UnregisterConnector -Value Unregister-AFConnector
 Set-Alias -Name AF-UntagResource -Value Remove-AFResourceTag
 Set-Alias -Name AF-UpdateConnectorProfile -Value Update-AFConnectorProfile
 Set-Alias -Name AF-UpdateFlow -Value Update-AFFlow
@@ -4179,6 +4186,8 @@ Set-Alias -Name Delete-COMPEndpoint -Value Remove-COMPEndpoint
 Set-Alias -Name COMP-DeleteEndpoint -Value Remove-COMPEndpoint
 Set-Alias -Name Delete-COMPEntityRecognizer -Value Remove-COMPEntityRecognizer
 Set-Alias -Name COMP-DeleteEntityRecognizer -Value Remove-COMPEntityRecognizer
+Set-Alias -Name Delete-COMPResourcePolicy -Value Remove-COMPResourcePolicy
+Set-Alias -Name COMP-DeleteResourcePolicy -Value Remove-COMPResourcePolicy
 Set-Alias -Name Describe-COMPDocumentClassificationJob -Value Get-COMPDocumentClassificationJob
 Set-Alias -Name COMP-DescribeDocumentClassificationJob -Value Get-COMPDocumentClassificationJob
 Set-Alias -Name Describe-COMPDocumentClassifier -Value Get-COMPDocumentClassifier
@@ -4197,6 +4206,8 @@ Set-Alias -Name Describe-COMPKeyPhrasesDetectionJob -Value Get-COMPKeyPhrasesDet
 Set-Alias -Name COMP-DescribeKeyPhrasesDetectionJob -Value Get-COMPKeyPhrasesDetectionJob
 Set-Alias -Name Describe-COMPPiiEntitiesDetectionJob -Value Get-COMPPiiEntitiesDetectionJob
 Set-Alias -Name COMP-DescribePiiEntitiesDetectionJob -Value Get-COMPPiiEntitiesDetectionJob
+Set-Alias -Name Describe-COMPResourcePolicy -Value Get-COMPResourcePolicy
+Set-Alias -Name COMP-DescribeResourcePolicy -Value Get-COMPResourcePolicy
 Set-Alias -Name Describe-COMPSentimentDetectionJob -Value Get-COMPSentimentDetectionJob
 Set-Alias -Name COMP-DescribeSentimentDetectionJob -Value Get-COMPSentimentDetectionJob
 Set-Alias -Name Describe-COMPTopicsDetectionJob -Value Get-COMPTopicsDetectionJob
@@ -4216,6 +4227,7 @@ Set-Alias -Name Detect-COMPSentiment -Value Find-COMPSentiment
 Set-Alias -Name COMP-DetectSentiment -Value Find-COMPSentiment
 Set-Alias -Name Detect-COMPSyntax -Value Find-COMPSyntax
 Set-Alias -Name COMP-DetectSyntax -Value Find-COMPSyntax
+Set-Alias -Name COMP-ImportModel -Value Import-COMPModel
 Set-Alias -Name List-COMPDocumentClassificationJobs -Value Get-COMPDocumentClassificationJobList
 Set-Alias -Name List-COMPDocumentClassificationJobList -Value Get-COMPDocumentClassificationJobList
 Set-Alias -Name COMP-ListDocumentClassificationJobs -Value Get-COMPDocumentClassificationJobList
@@ -4256,6 +4268,8 @@ Set-Alias -Name COMP-ListTagsForResource -Value Get-COMPResourceTag
 Set-Alias -Name List-COMPTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
 Set-Alias -Name List-COMPTopicsDetectionJobList -Value Get-COMPTopicsDetectionJobList
 Set-Alias -Name COMP-ListTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
+Set-Alias -Name Put-COMPResourcePolicy -Value Write-COMPResourcePolicy
+Set-Alias -Name COMP-PutResourcePolicy -Value Write-COMPResourcePolicy
 Set-Alias -Name COMP-StartDocumentClassificationJob -Value Start-COMPDocumentClassificationJob
 Set-Alias -Name COMP-StartDominantLanguageDetectionJob -Value Start-COMPDominantLanguageDetectionJob
 Set-Alias -Name COMP-StartEntitiesDetectionJob -Value Start-COMPEntitiesDetectionJob
@@ -7004,6 +7018,9 @@ Set-Alias -Name EC2-ImportClientVpnClientCertificateRevocationList -Value Import
 Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
 Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
 Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
+Set-Alias -Name List-EC2ImagesInRecycleBin -Value Get-EC2ImagesInRecycleBinList
+Set-Alias -Name List-EC2ImagesInRecycleBinList -Value Get-EC2ImagesInRecycleBinList
+Set-Alias -Name EC2-ListImagesInRecycleBin -Value Get-EC2ImagesInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBinList -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name EC2-ListSnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
@@ -7199,6 +7216,7 @@ Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
 Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ResetSnapshotAttribute -Value Reset-EC2SnapshotAttribute
 Set-Alias -Name EC2-RestoreAddressToClassic -Value Restore-EC2AddressToClassic
+Set-Alias -Name EC2-RestoreImageFromRecycleBin -Value Restore-EC2ImageFromRecycleBin
 Set-Alias -Name EC2-RestoreManagedPrefixListVersion -Value Restore-EC2ManagedPrefixListVersion
 Set-Alias -Name EC2-RestoreSnapshotFromRecycleBin -Value Restore-EC2SnapshotFromRecycleBin
 Set-Alias -Name EC2-RestoreSnapshotTier -Value Restore-EC2SnapshotTier
@@ -8348,6 +8366,8 @@ Set-Alias -Name ES-DeletePackage -Value Remove-ESPackage
 Set-Alias -Name Describe-ESDomainAutoTunes -Value Get-ESDomainAutoTune
 Set-Alias -Name Describe-ESDomainAutoTune -Value Get-ESDomainAutoTune
 Set-Alias -Name ES-DescribeDomainAutoTunes -Value Get-ESDomainAutoTune
+Set-Alias -Name Describe-ESDomainChangeProgress -Value Get-ESDomainChangeProgress
+Set-Alias -Name ES-DescribeDomainChangeProgress -Value Get-ESDomainChangeProgress
 Set-Alias -Name Describe-ESElasticsearchDomain -Value Get-ESDomain
 Set-Alias -Name Describe-ESDomain -Value Get-ESDomain
 Set-Alias -Name ES-DescribeElasticsearchDomain -Value Get-ESDomain
@@ -8743,6 +8763,7 @@ Set-Alias -Name FIS-DeleteExperimentTemplate -Value Remove-FISExperimentTemplate
 Set-Alias -Name FIS-GetAction -Value Get-FISAction
 Set-Alias -Name FIS-GetExperiment -Value Get-FISExperiment
 Set-Alias -Name FIS-GetExperimentTemplate -Value Get-FISExperimentTemplate
+Set-Alias -Name FIS-GetTargetResourceType -Value Get-FISTargetResourceType
 Set-Alias -Name List-FISActions -Value Get-FISActionList
 Set-Alias -Name List-FISActionList -Value Get-FISActionList
 Set-Alias -Name FIS-ListActions -Value Get-FISActionList
@@ -8753,6 +8774,9 @@ Set-Alias -Name List-FISExperimentTemplates -Value Get-FISExperimentTemplateList
 Set-Alias -Name List-FISExperimentTemplateList -Value Get-FISExperimentTemplateList
 Set-Alias -Name FIS-ListExperimentTemplates -Value Get-FISExperimentTemplateList
 Set-Alias -Name FIS-ListTagsForResource -Value Get-FISResourceTag
+Set-Alias -Name List-FISTargetResourceTypes -Value Get-FISTargetResourceTypeList
+Set-Alias -Name List-FISTargetResourceTypeList -Value Get-FISTargetResourceTypeList
+Set-Alias -Name FIS-ListTargetResourceTypes -Value Get-FISTargetResourceTypeList
 Set-Alias -Name FIS-StartExperiment -Value Start-FISExperiment
 Set-Alias -Name FIS-StopExperiment -Value Stop-FISExperiment
 Set-Alias -Name FIS-TagResource -Value Add-FISResourceTag
@@ -14954,6 +14978,8 @@ Set-Alias -Name OS-DescribeDomain -Value Get-OSDomain
 Set-Alias -Name Describe-OSDomainAutoTunes -Value Get-OSDomainAutoTune
 Set-Alias -Name Describe-OSDomainAutoTune -Value Get-OSDomainAutoTune
 Set-Alias -Name OS-DescribeDomainAutoTunes -Value Get-OSDomainAutoTune
+Set-Alias -Name Describe-OSDomainChangeProgress -Value Get-OSDomainChangeProgress
+Set-Alias -Name OS-DescribeDomainChangeProgress -Value Get-OSDomainChangeProgress
 Set-Alias -Name Describe-OSDomainConfig -Value Get-OSDomainConfig
 Set-Alias -Name OS-DescribeDomainConfig -Value Get-OSDomainConfig
 Set-Alias -Name Describe-OSDomains -Value Get-OSDomainList

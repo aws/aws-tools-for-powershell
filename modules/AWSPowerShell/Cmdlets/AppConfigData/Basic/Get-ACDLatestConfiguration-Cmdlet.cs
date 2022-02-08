@@ -28,20 +28,21 @@ using Amazon.AppConfigData.Model;
 namespace Amazon.PowerShell.Cmdlets.ACD
 {
     /// <summary>
-    /// Retrieves the latest deployed configuration. This API may return empty Configuration
-    /// data if the client already has the latest version. See StartConfigurationSession to
-    /// obtain an InitialConfigurationToken to call this API.
+    /// Retrieves the latest deployed configuration. This API may return empty configuration
+    /// data if the client already has the latest version. For more information about this
+    /// API action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a>
+    /// API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving
+    /// the configuration</a> in the <i>AppConfig User Guide</i>. 
     /// 
     ///  <important><para>
-    /// Each call to GetLatestConfiguration returns a new ConfigurationToken (NextPollConfigurationToken
-    /// in the response). This new token MUST be provided to the next call to GetLatestConfiguration
-    /// when polling for configuration updates.
-    /// </para><para>
-    /// To avoid excess charges, we recommend that you include the <code>ClientConfigurationVersion</code>
-    /// value with every call to <code>GetConfiguration</code>. This value must be saved on
-    /// your client. Subsequent calls to <code>GetConfiguration</code> must pass this value
-    /// by using the <code>ClientConfigurationVersion</code> parameter. 
-    /// </para></important>
+    /// Note the following important information.
+    /// </para><ul><li><para>
+    /// Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.
+    /// The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code>
+    /// that should always replace the token used for the just-completed call in preparation
+    /// for the next one. 
+    /// </para></li><li><para><code>GetLatestConfiguration</code> is a priced call. For more information, see <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Get", "ACDLatestConfiguration")]
     [OutputType("Amazon.AppConfigData.Model.GetLatestConfigurationResponse")]
@@ -56,9 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         /// <summary>
         /// <para>
         /// <para>Token describing the current state of the configuration session. To obtain a token,
-        /// first call the StartConfigurationSession API. Note that every call to GetLatestConfiguration
-        /// will return a new ConfigurationToken (NextPollConfigurationToken in the response)
-        /// and MUST be provided to subsequent GetLatestConfiguration API calls.</para>
+        /// first call the <a>StartConfigurationSession</a> API. Note that every call to <code>GetLatestConfiguration</code>
+        /// will return a new <code>ConfigurationToken</code> (<code>NextPollConfigurationToken</code>
+        /// in the response) and MUST be provided to subsequent <code>GetLatestConfiguration</code>
+        /// API calls.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

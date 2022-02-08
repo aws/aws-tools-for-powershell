@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you wish to disable.</para>
+        /// <para>The user name of the user you want to disable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

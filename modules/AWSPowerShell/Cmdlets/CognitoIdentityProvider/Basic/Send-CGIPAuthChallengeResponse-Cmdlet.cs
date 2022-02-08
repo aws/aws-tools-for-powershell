@@ -31,21 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Responds to the authentication challenge.
     /// 
     ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, U.S. telecom
-    /// carriers require that you register an origination phone number before you can send
-    /// SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
-    /// you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Cognito will use the the registered number automatically. Otherwise,
-    /// Cognito users that must receive SMS messages might be unable to sign up, activate
+    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
+    /// carriers require you to register an origination phone number before you can send SMS
+    /// messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you
+    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
+    /// Pinpoint</a>. Amazon Cognito will use the registered number automatically. Otherwise,
+    /// Amazon Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
+    /// Service, Amazon Simple Notification Service might place your account in SMS sandbox.
+    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// mode</a></i>, you will have limitations, such as sending messages only to verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Cognito User Pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>. 
+    /// SMS message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer
+    /// Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "CGIPAuthChallengeResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ChallengeName
         /// <summary>
         /// <para>
-        /// <para>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</para><para><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</para>
+        /// <para>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</para><para><code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,12 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>,
         /// for example:</para><note><para><code>SECRET_HASH</code> (if app client is configured with client secret) applies
-        /// to all inputs below (including <code>SOFTWARE_TOKEN_MFA</code>).</para></note><ul><li><para><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>.</para></li><li><para><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>,
-        /// <code>TIMESTAMP</code>, <code>USERNAME</code>.</para></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required
+        /// to all of the inputs that follow (including <code>SOFTWARE_TOKEN_MFA</code>).</para></note><ul><li><para><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>.</para></li><li><para><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>,
+        /// <code>TIMESTAMP</code>, <code>USERNAME</code>.</para><note><para><code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when signing in with
+        /// a remembered device.</para></note></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required
         /// attributes, <code>USERNAME</code>. </para></li><li><para><code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and <code>SOFTWARE_TOKEN_MFA_CODE</code>
         /// are required attributes.</para></li><li><para><code>DEVICE_SRP_AUTH</code> requires <code>USERNAME</code>, <code>DEVICE_KEY</code>,
         /// <code>SRP_A</code> (and <code>SECRET_HASH</code>).</para></li><li><para><code>DEVICE_PASSWORD_VERIFIER</code> requires everything that <code>PASSWORD_VERIFIER</code>
-        /// requires plus <code>DEVICE_KEY</code>.</para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use the session
+        /// requires, plus <code>DEVICE_KEY</code>.</para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the session
         /// value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</para></li></ul>
         /// </para>
         /// </summary>
@@ -124,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
-        /// that this action triggers. </para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
+        /// that this action triggers.</para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
         /// you use the RespondToAuthChallenge API action, Amazon Cognito invokes any functions
         /// that are assigned to the following triggers: <i>post authentication</i>, <i>pre token
         /// generation</i>, <i>define auth challenge</i>, <i>create auth challenge</i>, and <i>verify
@@ -133,12 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your RespondToAuthChallenge request. In your function code in Lambda, you can process
         /// the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>Take the following limitations into consideration when you use the ClientMetadata
-        /// parameter:</para><ul><li><para>Amazon Cognito does not store the ClientMetadata value. This data is available only
-        /// to Lambda triggers that are assigned to a user pool to support custom workflows. If
-        /// your user pool configuration does not include triggers, the ClientMetadata parameter
-        /// serves no purpose.</para></li><li><para>Amazon Cognito does not validate the ClientMetadata value.</para></li><li><para>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide
-        /// sensitive information.</para></li></ul></note>
+        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
+        /// are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserContextData_EncodedData
         /// <summary>
         /// <para>
-        /// <para>Contextual data such as the user's device fingerprint, IP address, or location used
+        /// <para>Contextual data, such as the user's device fingerprint, IP address, or location, used
         /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
         /// </para>
         /// </summary>
@@ -159,10 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session which should be passed both ways in challenge-response calls to the service.
+        /// <para>The session that should be passed both ways in challenge-response calls to the service.
         /// If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines
-        /// that the caller needs to go through another challenge, they return a session with
-        /// other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
+        /// that the caller must pass another challenge, they return a session with other challenge
+        /// parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
         /// API call.</para>
         /// </para>
         /// </summary>

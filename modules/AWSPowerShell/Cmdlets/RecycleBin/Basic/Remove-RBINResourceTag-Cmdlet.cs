@@ -28,7 +28,7 @@ using Amazon.RecycleBin.Model;
 namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
-    /// Unassigns a tag from a resource.
+    /// Unassigns a tag from a retention rule.
     /// </summary>
     [Cmdlet("Remove", "RBINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource from which to unassign the tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the retention rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Information about the tags to unassign from the resource.</para>
+        /// <para>The tag keys of the tags to unassign. All tags that have the specified tag key are
+        /// unassigned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

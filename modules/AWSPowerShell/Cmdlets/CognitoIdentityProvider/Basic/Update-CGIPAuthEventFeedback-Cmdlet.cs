@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Provides the feedback for an authentication event whether it was from a valid user
+    /// Provides the feedback for an authentication event, whether it was from a valid user
     /// or not. This feedback is used for improving the risk evaluation decision for the user
     /// pool as part of Amazon Cognito advanced security.
     /// </summary>

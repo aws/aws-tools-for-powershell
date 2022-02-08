@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Signs out users from all devices. It also invalidates all refresh tokens issued to
-    /// a user. The user's current access and Id tokens remain valid until their expiry. Access
-    /// and Id tokens expire one hour after they are issued.
+    /// a user. The user's current access and ID tokens remain valid until their expiry. Access
+    /// and Id tokens expire one hour after they're issued.
     /// </summary>
     [Cmdlet("Disconnect", "CGIPDeviceGlobal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

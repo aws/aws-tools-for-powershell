@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <para>
         /// <para>An identifier string for the external account that you are granting permissions to.
         /// If you later want to revoke the permission for this external account, specify this
-        /// <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</para>
+        /// <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</para><note><para>Each <code>StatementId</code> must be unique.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -334,7 +334,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>If you input your canary script directly into the canary instead of referring to an
         /// S3 location, the value of this parameter is the base64-encoded contents of the .zip
-        /// file that contains the script. It must be smaller than 256 Kb.</para>
+        /// file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an S3 location instead of inputting
+        /// it directly with this parameter.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

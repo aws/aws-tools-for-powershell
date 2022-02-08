@@ -41,7 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// version, specified by the <code>VersionId</code> response value. We recommend you
     /// also evaluate the partially rotated new version to see if it should be deleted. You
     /// can delete a version by removing all staging labels from it.
-    /// </para></note>
+    /// </para></note><para><b>Required permissions: </b><code>secretsmanager:CancelRotateSecret</code>. For
+    /// more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "SECSecretRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecretsManager.Model.CancelRotateSecretResponse")]

@@ -130,7 +130,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUESchema/DataFormat")
         }
         {
-            $v = "AVRO","JSON"
+            $v = "AVRO","JSON","PROTOBUF"
             break
         }
 

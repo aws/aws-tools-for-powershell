@@ -53,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If the <code>AWSPENDING</code> staging label is present but not attached to the same
     /// version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
     /// assumes that a previous rotation request is still in progress and returns an error.
-    /// </para><para>
-    /// To run this command, you must have <code>secretsmanager:RotateSecret</code> permissions
-    /// and <code>lambda:InvokeFunction</code> permissions on the function specified in the
-    /// secret's metadata.
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:RotateSecret</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. You also need <code>lambda:InvokeFunction</code>
+    /// permissions on the rotation function. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html">
+    /// Permissions for rotation</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "SECSecretRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,11 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationRules_AutomaticallyAfterDay
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of days between automatic scheduled rotations of the secret.</para><para>Secrets Manager schedules the next rotation when the previous one is complete. Secrets
-        /// Manager schedules the date by adding the rotation interval (number of days) to the
-        /// actual date of the last rotation. The service chooses the hour within that 24-hour
-        /// date window randomly. The minute is also chosen somewhat randomly, but weighted towards
-        /// the top of the hour and influenced by a variety of factors that help distribute load.</para>
+        /// <para>The number of days between automatic scheduled rotations of the secret. You can use
+        /// this value to check that your secret meets your compliance guidelines for how often
+        /// secrets must be rotated.</para><para>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated
+        /// from the rotation schedule after every successful rotation. In <code>RotateSecret</code>,
+        /// you can set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
+        /// or <code>ScheduleExpression</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,6 +107,35 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter RotationRules_Duration
+        /// <summary>
+        /// <para>
+        /// <para>The length of the rotation window in hours, for example <code>3h</code> for a three
+        /// hour window. Secrets Manager rotates your secret at any time during this window. The
+        /// window must not go into the next UTC day. If you don't specify this value, the window
+        /// automatically ends at the end of the UTC day. The window begins according to the <code>ScheduleExpression</code>.
+        /// For more information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
+        /// expressions in Secrets Manager rotation</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RotationRules_Duration { get; set; }
+        #endregion
+        
+        #region Parameter RotateImmediately
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to rotate the secret immediately or wait until the next scheduled
+        /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration
+        /// by running the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><code>testSecret</code> step</a> of the Lambda rotation function. The test creates
+        /// an <code>AWSPENDING</code> version of the secret and then removes it.</para><para>If you don't specify this value, then by default, Secrets Manager rotates the secret
+        /// immediately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RotateImmediately { get; set; }
+        #endregion
+        
         #region Parameter RotationLambdaARN
         /// <summary>
         /// <para>
@@ -112,6 +144,29 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RotationLambdaARN { get; set; }
+        #endregion
+        
+        #region Parameter RotationRules_ScheduleExpression
+        /// <summary>
+        /// <para>
+        /// <para>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule
+        /// for rotating your secret. Secrets Manager rotation schedules use UTC time zone. </para><para>Secrets Manager <code>rate()</code> expressions represent the interval in days that
+        /// you want to rotate your secret, for example <code>rate(10 days)</code>. If you use
+        /// a <code>rate()</code> expression, the rotation window opens at midnight, and Secrets
+        /// Manager rotates your secret any time that day after midnight. You can set a <code>Duration</code>
+        /// to shorten the rotation window.</para><para>You can use a <code>cron()</code> expression to create rotation schedules that are
+        /// more detailed than a rotation interval. For more information, including examples,
+        /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
+        /// expressions in Secrets Manager rotation</a>. If you use a <code>cron()</code> expression,
+        /// Secrets Manager rotates your secret any time during that day after the window opens.
+        /// For example, <code>cron(0 8 1 * ? *)</code> represents a rotation window that occurs
+        /// on the first day of every month beginning at 8:00 AM UTC. Secrets Manager rotates
+        /// the secret any time that day after 8:00 AM. You can set a <code>Duration</code> to
+        /// shorten the rotation window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RotationRules_ScheduleExpression { get; set; }
         #endregion
         
         #region Parameter SecretId
@@ -193,8 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.RotateImmediately = this.RotateImmediately;
             context.RotationLambdaARN = this.RotationLambdaARN;
             context.RotationRules_AutomaticallyAfterDay = this.RotationRules_AutomaticallyAfterDay;
+            context.RotationRules_Duration = this.RotationRules_Duration;
+            context.RotationRules_ScheduleExpression = this.RotationRules_ScheduleExpression;
             context.SecretId = this.SecretId;
             #if MODULAR
             if (this.SecretId == null && ParameterWasBound(nameof(this.SecretId)))
@@ -222,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
+            if (cmdletContext.RotateImmediately != null)
+            {
+                request.RotateImmediately = cmdletContext.RotateImmediately.Value;
+            }
             if (cmdletContext.RotationLambdaARN != null)
             {
                 request.RotationLambdaARN = cmdletContext.RotationLambdaARN;
@@ -238,6 +300,26 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (requestRotationRules_rotationRules_AutomaticallyAfterDay != null)
             {
                 request.RotationRules.AutomaticallyAfterDays = requestRotationRules_rotationRules_AutomaticallyAfterDay.Value;
+                requestRotationRulesIsNull = false;
+            }
+            System.String requestRotationRules_rotationRules_Duration = null;
+            if (cmdletContext.RotationRules_Duration != null)
+            {
+                requestRotationRules_rotationRules_Duration = cmdletContext.RotationRules_Duration;
+            }
+            if (requestRotationRules_rotationRules_Duration != null)
+            {
+                request.RotationRules.Duration = requestRotationRules_rotationRules_Duration;
+                requestRotationRulesIsNull = false;
+            }
+            System.String requestRotationRules_rotationRules_ScheduleExpression = null;
+            if (cmdletContext.RotationRules_ScheduleExpression != null)
+            {
+                requestRotationRules_rotationRules_ScheduleExpression = cmdletContext.RotationRules_ScheduleExpression;
+            }
+            if (requestRotationRules_rotationRules_ScheduleExpression != null)
+            {
+                request.RotationRules.ScheduleExpression = requestRotationRules_rotationRules_ScheduleExpression;
                 requestRotationRulesIsNull = false;
             }
              // determine if request.RotationRules should be set to null
@@ -311,8 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? RotateImmediately { get; set; }
             public System.String RotationLambdaARN { get; set; }
             public System.Int64? RotationRules_AutomaticallyAfterDay { get; set; }
+            public System.String RotationRules_Duration { get; set; }
+            public System.String RotationRules_ScheduleExpression { get; set; }
             public System.String SecretId { get; set; }
             public System.Func<Amazon.SecretsManager.Model.RotateSecretResponse, InvokeSECSecretRotationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

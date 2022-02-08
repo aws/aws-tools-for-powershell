@@ -49,12 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// can be used in the <code>GetReservationUtilization</code> operation. If the context
         /// is set to <code>COST_AND_USAGE</code>, the resulting dimension values can be used
         /// in the <code>GetCostAndUsage</code> operation.</para><para>If you set the context to <code>COST_AND_USAGE</code>, you can use the following dimensions
-        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
-        /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</para></li><li><para>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
+        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
+        /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services
+        /// services.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that is an acting
+        /// reseller for Amazon Web Services services in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
+        /// built on Amazon Web Services by third-party software providers.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
+        /// values are <code>SingleAZ</code> and <code>MultiAZ</code>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
+        /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</para></li><li><para>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.
+        /// Examples are <code>Compute Optimized</code> (<code>C4</code>, <code>C5</code>, <code>C6g</code>,
+        /// <code>C7g</code> etc.), <code>Memory Optimization</code> (<code>R4</code>, <code>R5n</code>,
+        /// <code>R5b</code>, <code>R6g</code> etc).</para></li><li><para>INVOICING_ENTITY - The name of the entity issuing the Amazon Web Services invoice.</para></li><li><para>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
         /// services, such as Amazon Web Services.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
         /// member account.</para></li><li><para>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</para></li><li><para>OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>PURCHASE_TYPE - The reservation type of the purchase to which this usage is related.
-        /// Examples include On-Demand Instances and Standard Reserved Instances.</para></li><li><para>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</para></li><li><para>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
+        /// Examples include On-Demand Instances and Standard Reserved Instances.</para></li><li><para>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</para></li><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute).</para></li><li><para>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li><li><para>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
         /// for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
         /// include GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
         /// – Alarms. The response for this operation includes a unit attribute.</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds,
@@ -67,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// or a single Availability Zone.</para></li><li><para>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li></ul><para>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions
         /// for searching:</para><ul><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</para></li><li><para>PAYMENT_OPTION - Payment option for the given Savings Plans (for example, All Upfront)</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
-        /// member account.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</para></li></ul>
+        /// member account.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The name of the dimension. Each <code>Dimension</code> is available for a different
-        /// <code>Context</code>. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html#awscostmanagement-GetDimensionValues-request-Context">Context</a>.
-        /// </para>
+        /// <code>Context</code>. For more information, see <code>Context</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

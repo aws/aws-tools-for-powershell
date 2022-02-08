@@ -301,7 +301,7 @@ $IOT_Completers = {
             ($_ -eq "Remove-IOTV2LoggingLevel/TargetType")
         }
         {
-            $v = "DEFAULT","THING_GROUP"
+            $v = "CLIENT_ID","DEFAULT","PRINCIPAL_ID","SOURCE_IP","THING_GROUP"
             break
         }
 

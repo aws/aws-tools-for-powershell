@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
     /// with WEBSOCKET and CONNECTION_CREDENTIALS. 
     /// </para><para>
-    /// A 429 error occurs in two situations:
+    /// A 429 error occurs in the following situations:
     /// </para><ul><li><para>
     /// API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
     /// exception.
@@ -46,6 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota
     /// for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.
     /// </para></li></ul><para>
+    /// If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error,
+    /// your account may not support the ability to configure custom chat durations. For more
+    /// information, contact Amazon Web Services Support. 
+    /// </para><para>
     /// For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a>
     /// in the <i>Amazon Connect Administrator Guide</i>.
     /// </para>
@@ -71,6 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
+        
+        #region Parameter ChatDurationInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The total duration of the newly started chat session. If not specified, the chat session
+        /// duration defaults to 25 hour. The minumum configurable time is 60 minutes. The maximum
+        /// configurable time is 10,080 minutes (7 days).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChatDurationInMinutes")]
+        public System.Int32? ChatDurationInMinute { get; set; }
         #endregion
         
         #region Parameter ContactFlowId
@@ -229,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
                 }
             }
+            context.ChatDurationInMinute = this.ChatDurationInMinute;
             context.ClientToken = this.ClientToken;
             context.ContactFlowId = this.ContactFlowId;
             #if MODULAR
@@ -272,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Attribute != null)
             {
                 request.Attributes = cmdletContext.Attribute;
+            }
+            if (cmdletContext.ChatDurationInMinute != null)
+            {
+                request.ChatDurationInMinutes = cmdletContext.ChatDurationInMinute.Value;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -395,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> Attribute { get; set; }
+            public System.Int32? ChatDurationInMinute { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
             public System.String InitialMessage_Content { get; set; }

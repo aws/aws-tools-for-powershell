@@ -101,7 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the restored DB instance to snapshots
-        /// of the DB instance. By default, tags are not copied.</para>
+        /// of the DB instance.</para><para>In most cases, tags aren't copied by default. However, when you restore a DB instance
+        /// from a DB snapshot, RDS checks whether you specify new tags. If yes, the new tags
+        /// are added to the restored DB instance. If there are no new tags, RDS looks for the
+        /// tags from the source DB instance for the DB snapshot, and then adds those tags to
+        /// the restored DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.CopyTags">
+        /// Copying tags to DB instance snapshots</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
         /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
         /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
-        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
+        /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mydbsubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

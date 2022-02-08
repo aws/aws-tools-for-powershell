@@ -1,4 +1,50 @@
-﻿### 4.1.18.0 (2022-01-27)
+﻿### 4.1.19.0 (2022-02-08 08:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.204.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Added cmdlet Get-AFConnectorConfigurationList leveraging the DescribeConnectors service API.
+    * Added cmdlet Get-AFConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet Register-AFConnector leveraging the RegisterConnector service API.
+    * Added cmdlet Unregister-AFConnector leveraging the UnregisterConnector service API.
+    * [Breaking Change] Modified cmdlet Get-AFConnector: output changed from System.String to Amazon.Appflow.Model.ConnectorConfiguration; removed parameters ConnectorType and NextToken; added parameters ConnectorLabel, ConnectorType and PassThru.
+    * Modified cmdlet Get-AFConnectorEntity: added parameter ApiVersion.
+    * Modified cmdlet Get-AFConnectorEntityList: added parameter ApiVersion.
+    * Modified cmdlet Get-AFConnectorProfile: added parameter ConnectorLabel.
+    * Modified cmdlet New-AFConnectorProfile: added parameter ConnectorLabel.
+    * Modified cmdlet New-AFFlow: added parameters CustomConnector_CustomProperty, CustomConnector_EntityName and SourceFlowConfig_ApiVersion.
+    * Modified cmdlet Update-AFFlow: added parameters CustomConnector_CustomProperty, CustomConnector_EntityName and SourceFlowConfig_ApiVersion.
+  * Amazon Athena
+    * Modified cmdlet New-ATHWorkGroup: added parameter ResultConfiguration_ExpectedBucketOwner.
+    * Modified cmdlet Start-ATHQueryExecution: added parameter ResultConfiguration_ExpectedBucketOwner.
+    * Modified cmdlet Update-ATHWorkGroup: added parameters ResultConfigurationUpdates_ExpectedBucketOwner and ResultConfigurationUpdates_RemoveExpectedBucketOwner.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet Get-CWSYNCanariesLastRun: added parameter Name.
+    * Modified cmdlet Get-CWSYNCanaryList: added parameter Name.
+  * Amazon Comprehend
+    * Added cmdlet Get-COMPResourcePolicy leveraging the DescribeResourcePolicy service API.
+    * Added cmdlet Import-COMPModel leveraging the ImportModel service API.
+    * Added cmdlet Remove-COMPResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-COMPResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet New-COMPDocumentClassifier: added parameter ModelPolicy.
+    * Modified cmdlet New-COMPEntityRecognizer: added parameter ModelPolicy.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameter ChatDurationInMinute.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2ImagesInRecycleBinList leveraging the ListImagesInRecycleBin service API.
+    * Added cmdlet Restore-EC2ImageFromRecycleBin leveraging the RestoreImageFromRecycleBin service API.
+  * Amazon Elasticsearch
+    * Added cmdlet Get-ESDomainChangeProgress leveraging the DescribeDomainChangeProgress service API.
+  * Amazon Fault Injection Simulator
+    * Added cmdlet Get-FISTargetResourceType leveraging the GetTargetResourceType service API.
+    * Added cmdlet Get-FISTargetResourceTypeList leveraging the ListTargetResourceTypes service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDomainChangeProgress leveraging the DescribeDomainChangeProgress service API.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSRecommender: added parameter RecommenderConfig_MinRecommendationRequestsPerSecond.
+    * Modified cmdlet Update-PERSRecommender: added parameter RecommenderConfig_MinRecommendationRequestsPerSecond.
+  * Amazon Secrets Manager
+    * Modified cmdlet Invoke-SECSecretRotation: added parameters RotateImmediately, RotationRules_Duration and RotationRules_ScheduleExpression.
+
+### 4.1.18.0 (2022-01-27)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.198.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppStream
     * Added cmdlet Add-APSApplicationToEntitlement leveraging the AssociateApplicationToEntitlement service API.

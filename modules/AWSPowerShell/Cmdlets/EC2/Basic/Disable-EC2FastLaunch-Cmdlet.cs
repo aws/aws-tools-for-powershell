@@ -32,6 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// snapshots. When you disable faster launching, the AMI uses the standard launch process
     /// for each instance. All pre-provisioned snapshots must be removed before you can enable
     /// faster launching again.
+    /// 
+    ///  <note><para>
+    /// To change these settings, you must own the AMI.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Disable", "EC2FastLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisableFastLaunchResponse")]

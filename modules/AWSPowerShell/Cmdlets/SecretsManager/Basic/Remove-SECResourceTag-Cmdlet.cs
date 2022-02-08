@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// permissions. If successfully completing this operation would result in you losing
     /// your permissions for this secret, then the operation is blocked and returns an Access
     /// Denied error.
-    /// </para></important>
+    /// </para></important><para><b>Required permissions: </b><code>secretsmanager:UntagResource</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SECResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

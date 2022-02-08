@@ -105,6 +105,26 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? ConfigurationUpdates_EnforceWorkGroupConfiguration { get; set; }
         #endregion
         
+        #region Parameter ResultConfigurationUpdates_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3
+        /// bucket specified by <a>ResultConfiguration$OutputLocation</a>. If set, Athena uses
+        /// the value for <code>ExpectedBucketOwner</code> when it makes Amazon S3 calls to your
+        /// specified output location. If the <code>ExpectedBucketOwner</code> Amazon Web Services
+        /// account ID does not match the actual owner of the Amazon S3 bucket, the call fails
+        /// with a permissions error.</para><para>If workgroup settings override client-side settings, then the query uses the <code>ExpectedBucketOwner</code>
+        /// setting that is specified for the workgroup, and also uses the location for storing
+        /// query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
+        /// and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// Settings Override Client-Side Settings</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_ResultConfigurationUpdates_ExpectedBucketOwner")]
+        public System.String ResultConfigurationUpdates_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
@@ -159,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// (also known as the client-side setting) for queries in this workgroup should be ignored
         /// and set to null. If set to "false" or not set, and a value is present in the <code>EncryptionConfiguration</code>
         /// in <code>ResultConfigurationUpdates</code> (the client-side setting), the <code>EncryptionConfiguration</code>
-        /// in the workgroup's <code>ResultConfiguration</code> will be updated with the new value.
+        /// in the workgroup's <code>ResultConfiguration</code> is updated with the new value.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
@@ -169,6 +189,23 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? ResultConfigurationUpdates_RemoveEncryptionConfiguration { get; set; }
         #endregion
         
+        #region Parameter ResultConfigurationUpdates_RemoveExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>If set to "true", removes the Amazon Web Services account ID previously specified
+        /// for <a>ResultConfiguration$ExpectedBucketOwner</a>. If set to "false" or not set,
+        /// and a value is present in the <code>ExpectedBucketOwner</code> in <code>ResultConfigurationUpdates</code>
+        /// (the client-side setting), the <code>ExpectedBucketOwner</code> in the workgroup's
+        /// <code>ResultConfiguration</code> is updated with the new value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// Settings Override Client-Side Settings</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_ResultConfigurationUpdates_RemoveExpectedBucketOwner")]
+        public System.Boolean? ResultConfigurationUpdates_RemoveExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter ResultConfigurationUpdates_RemoveOutputLocation
         /// <summary>
         /// <para>
@@ -176,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// known as a client-side setting) for queries in this workgroup should be ignored and
         /// set to null. If set to "false" or not set, and a value is present in the <code>OutputLocation</code>
         /// in <code>ResultConfigurationUpdates</code> (the client-side setting), the <code>OutputLocation</code>
-        /// in the workgroup's <code>ResultConfiguration</code> will be updated with the new value.
+        /// in the workgroup's <code>ResultConfiguration</code> is updated with the new value.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
@@ -310,8 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.ConfigurationUpdates_RequesterPaysEnabled = this.ConfigurationUpdates_RequesterPaysEnabled;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
+            context.ResultConfigurationUpdates_ExpectedBucketOwner = this.ResultConfigurationUpdates_ExpectedBucketOwner;
             context.ResultConfigurationUpdates_OutputLocation = this.ResultConfigurationUpdates_OutputLocation;
             context.ResultConfigurationUpdates_RemoveEncryptionConfiguration = this.ResultConfigurationUpdates_RemoveEncryptionConfiguration;
+            context.ResultConfigurationUpdates_RemoveExpectedBucketOwner = this.ResultConfigurationUpdates_RemoveExpectedBucketOwner;
             context.ResultConfigurationUpdates_RemoveOutputLocation = this.ResultConfigurationUpdates_RemoveOutputLocation;
             context.Description = this.Description;
             context.State = this.State;
@@ -432,6 +471,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
              // populate ResultConfigurationUpdates
             var requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdatesIsNull = true;
             requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates = new Amazon.Athena.Model.ResultConfigurationUpdates();
+            System.String requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_ExpectedBucketOwner = null;
+            if (cmdletContext.ResultConfigurationUpdates_ExpectedBucketOwner != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_ExpectedBucketOwner = cmdletContext.ResultConfigurationUpdates_ExpectedBucketOwner;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_ExpectedBucketOwner != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates.ExpectedBucketOwner = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_ExpectedBucketOwner;
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdatesIsNull = false;
+            }
             System.String requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_OutputLocation = null;
             if (cmdletContext.ResultConfigurationUpdates_OutputLocation != null)
             {
@@ -450,6 +499,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveEncryptionConfiguration != null)
             {
                 requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates.RemoveEncryptionConfiguration = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveEncryptionConfiguration.Value;
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdatesIsNull = false;
+            }
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveExpectedBucketOwner = null;
+            if (cmdletContext.ResultConfigurationUpdates_RemoveExpectedBucketOwner != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveExpectedBucketOwner = cmdletContext.ResultConfigurationUpdates_RemoveExpectedBucketOwner.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveExpectedBucketOwner != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates.RemoveExpectedBucketOwner = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveExpectedBucketOwner.Value;
                 requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdatesIsNull = false;
             }
             System.Boolean? requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_resultConfigurationUpdates_RemoveOutputLocation = null;
@@ -594,8 +653,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.Boolean? ConfigurationUpdates_RequesterPaysEnabled { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
+            public System.String ResultConfigurationUpdates_ExpectedBucketOwner { get; set; }
             public System.String ResultConfigurationUpdates_OutputLocation { get; set; }
             public System.Boolean? ResultConfigurationUpdates_RemoveEncryptionConfiguration { get; set; }
+            public System.Boolean? ResultConfigurationUpdates_RemoveExpectedBucketOwner { get; set; }
             public System.Boolean? ResultConfigurationUpdates_RemoveOutputLocation { get; set; }
             public System.String Description { get; set; }
             public Amazon.Athena.WorkGroupState State { get; set; }

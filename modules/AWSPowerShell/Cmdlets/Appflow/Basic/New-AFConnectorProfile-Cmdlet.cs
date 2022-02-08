@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.ConnectionMode ConnectionMode { get; set; }
         #endregion
         
+        #region Parameter ConnectorLabel
+        /// <summary>
+        /// <para>
+        /// <para>The label of the connector. The label is unique for each <code>ConnectorRegistration</code>
+        /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
+        /// type/.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorLabel { get; set; }
+        #endregion
+        
         #region Parameter ConnectorProfileConfig
         /// <summary>
         /// <para>
@@ -194,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 WriteWarning("You are passing $null as a value for parameter ConnectionMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConnectorLabel = this.ConnectorLabel;
             context.ConnectorProfileConfig = this.ConnectorProfileConfig;
             #if MODULAR
             if (this.ConnectorProfileConfig == null && ParameterWasBound(nameof(this.ConnectorProfileConfig)))
@@ -235,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (cmdletContext.ConnectionMode != null)
             {
                 request.ConnectionMode = cmdletContext.ConnectionMode;
+            }
+            if (cmdletContext.ConnectorLabel != null)
+            {
+                request.ConnectorLabel = cmdletContext.ConnectorLabel;
             }
             if (cmdletContext.ConnectorProfileConfig != null)
             {
@@ -314,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Appflow.ConnectionMode ConnectionMode { get; set; }
+            public System.String ConnectorLabel { get; set; }
             public Amazon.Appflow.Model.ConnectorProfileConfig ConnectorProfileConfig { get; set; }
             public System.String ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType ConnectorType { get; set; }

@@ -31,21 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Responds to an authentication challenge, as an administrator.
     /// 
     ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, U.S. telecom
-    /// carriers require that you register an origination phone number before you can send
-    /// SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
-    /// you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Cognito will use the the registered number automatically. Otherwise,
-    /// Cognito users that must receive SMS messages might be unable to sign up, activate
+    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
+    /// carriers require you to register an origination phone number before you can send SMS
+    /// messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you
+    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
+    /// Pinpoint</a>. Amazon Cognito will use the registered number automatically. Otherwise,
+    /// Amazon Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
+    /// Service, Amazon Simple Notification Service might place your account in SMS sandbox.
+    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// mode</a></i>, you will have limitations, such as sending messages only to verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Cognito User Pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>. 
+    /// SMS message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer
+    /// Guide</i>.
     /// </para></note><para>
     /// Calling this action requires developer credentials.
     /// </para>
@@ -93,14 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// for example:</para><ul><li><para><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code>
         /// (if app client is configured with client secret).</para></li><li><para><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>,
         /// <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client
-        /// is configured with client secret).</para></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code>
+        /// is configured with client secret).</para><note><para><code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when signing in with
+        /// a remembered device.</para></note></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code>
         /// (if app client is configured with client secret). </para></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required
         /// attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
-        /// with client secret). </para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use the session
+        /// with client secret). </para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the session
         /// value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</para></li></ul><para>The value of the <code>USERNAME</code> attribute must be the user's actual username,
-        /// not an alias (such as email address or phone number). To make this easier, the <code>AdminInitiateAuth</code>
-        /// response includes the actual username value in the <code>USERNAMEUSER_ID_FOR_SRP</code>
-        /// attribute, even if you specified an alias in your call to <code>AdminInitiateAuth</code>.</para>
+        /// not an alias (such as an email address or phone number). To make this simpler, the
+        /// <code>AdminInitiateAuth</code> response includes the actual username value in the
+        /// <code>USERNAMEUSER_ID_FOR_SRP</code> attribute. This happens even if you specified
+        /// an alias in your call to <code>AdminInitiateAuth</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
-        /// that this action triggers. </para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
+        /// that this action triggers.</para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
         /// you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions
         /// that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>,
         /// <i>post authentication</i>, <i>user migration</i>, <i>pre token generation</i>, <i>define
@@ -140,12 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// in your AdminRespondToAuthChallenge request. In your function code in Lambda, you
         /// can process the <code>clientMetadata</code> value to enhance your workflow for your
         /// specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>Take the following limitations into consideration when you use the ClientMetadata
-        /// parameter:</para><ul><li><para>Amazon Cognito does not store the ClientMetadata value. This data is available only
-        /// to Lambda triggers that are assigned to a user pool to support custom workflows. If
-        /// your user pool configuration does not include triggers, the ClientMetadata parameter
-        /// serves no purpose.</para></li><li><para>Amazon Cognito does not validate the ClientMetadata value.</para></li><li><para>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide
-        /// sensitive information.</para></li></ul></note>
+        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
+        /// are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_EncodedData
         /// <summary>
         /// <para>
-        /// <para>Encoded data containing device fingerprinting details, collected using the Amazon
-        /// Cognito context data collection library.</para>
+        /// <para>Encoded data containing device fingerprinting details collected using the Amazon Cognito
+        /// context data collection library.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_ServerPath
         /// <summary>
         /// <para>
-        /// <para>Your server path where this API is invoked. </para>
+        /// <para>Your server path where this API is invoked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session which should be passed both ways in challenge-response calls to the service.
-        /// If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines
-        /// that the caller needs to go through another challenge, they return a session with
-        /// other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
+        /// <para>The session that should be passed both ways in challenge-response calls to the service.
+        /// If an <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines
+        /// that the caller must pass another challenge, it returns a session with other challenge
+        /// parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
         /// API call.</para>
         /// </para>
         /// </summary>

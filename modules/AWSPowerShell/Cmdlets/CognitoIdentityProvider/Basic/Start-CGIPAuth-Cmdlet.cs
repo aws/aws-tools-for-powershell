@@ -31,21 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Initiates the authentication flow.
     /// 
     ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, U.S. telecom
-    /// carriers require that you register an origination phone number before you can send
-    /// SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
-    /// you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Cognito will use the the registered number automatically. Otherwise,
-    /// Cognito users that must receive SMS messages might be unable to sign up, activate
+    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
+    /// carriers require you to register an origination phone number before you can send SMS
+    /// messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you
+    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
+    /// Pinpoint</a>. Amazon Cognito will use the registered number automatically. Otherwise,
+    /// Amazon Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
+    /// Service, Amazon Simple Notification Service might place your account in SMS sandbox.
+    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// mode</a></i>, you will have limitations, such as sending messages only to verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Cognito User Pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>. 
+    /// SMS message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer
+    /// Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CGIPAuth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,18 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AuthFlow
         /// <summary>
         /// <para>
-        /// <para>The authentication flow for this call to execute. The API action will depend on this
-        /// value. For example: </para><ul><li><para><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new
-        /// tokens.</para></li><li><para><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code>
-        /// and return the SRP variables to be used for next challenge execution.</para></li><li><para><code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code>
-        /// and return the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
+        /// <para>The authentication flow for this call to run. The API action will depend on this value.
+        /// For example:</para><ul><li><para><code>REFRESH_TOKEN_AUTH</code> takes in a valid refresh token and returns new tokens.</para></li><li><para><code>USER_SRP_AUTH</code> takes in <code>USERNAME</code> and <code>SRP_A</code>
+        /// and returns the SRP variables to be used for next challenge execution.</para></li><li><para><code>USER_PASSWORD_AUTH</code> takes in <code>USERNAME</code> and <code>PASSWORD</code>
+        /// and returns the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
         /// protocol.</para></li><li><para><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for
         /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD
         /// are passed directly. If a user migration Lambda trigger is set, this flow will invoke
-        /// the user migration Lambda if the USERNAME is not found in the user pool. </para></li><li><para><code>ADMIN_USER_PASSWORD_AUTH</code>: Admin-based user password authentication.
-        /// This replaces the <code>ADMIN_NO_SRP_AUTH</code> authentication flow. In this flow,
-        /// Cognito receives the password in the request instead of using the SRP process to verify
-        /// passwords.</para></li></ul><para><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</para>
+        /// the user migration Lambda if it doesn't find the USERNAME in the user pool. </para></li></ul><para><code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code>
-        /// that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code>
+        /// that you're invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code>
         /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
         /// a client secret), <code>DEVICE_KEY</code>.</para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required),
         /// <code>SECRET_HASH</code> (required if the app client is configured with a client secret),
@@ -143,13 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your InitiateAuth request. In your function code in Lambda, you can process the
         /// <code>validationData</code> value to enhance your workflow for your specific needs.</para><para>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions
-        /// for the following triggers, but it does not provide the ClientMetadata value as input:</para><ul><li><para>Post authentication</para></li><li><para>Custom message</para></li><li><para>Pre token generation</para></li><li><para>Create auth challenge</para></li><li><para>Define auth challenge</para></li><li><para>Verify auth challenge</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>Take the following limitations into consideration when you use the ClientMetadata
-        /// parameter:</para><ul><li><para>Amazon Cognito does not store the ClientMetadata value. This data is available only
-        /// to Lambda triggers that are assigned to a user pool to support custom workflows. If
-        /// your user pool configuration does not include triggers, the ClientMetadata parameter
-        /// serves no purpose.</para></li><li><para>Amazon Cognito does not validate the ClientMetadata value.</para></li><li><para>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide
-        /// sensitive information.</para></li></ul></note>
+        /// for the following triggers, but it doesn't provide the ClientMetadata value as input:</para><ul><li><para>Post authentication</para></li><li><para>Custom message</para></li><li><para>Pre token generation</para></li><li><para>Create auth challenge</para></li><li><para>Define auth challenge</para></li><li><para>Verify auth challenge</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
+        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
+        /// are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserContextData_EncodedData
         /// <summary>
         /// <para>
-        /// <para>Contextual data such as the user's device fingerprint, IP address, or location used
+        /// <para>Contextual data, such as the user's device fingerprint, IP address, or location, used
         /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
         /// </para>
         /// </summary>

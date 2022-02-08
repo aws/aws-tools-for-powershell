@@ -28,15 +28,19 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
+    /// <important><para>
+    /// The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be visible
+    /// to all users in your account. To restrict cluster access using an IAM policy, see
+    /// <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html">Identity
+    /// and Access Management for EMR</a>. 
+    /// </para></important><para>
     /// Sets the <a>Cluster$VisibleToAllUsers</a> value for an EMR cluster. When <code>true</code>,
     /// IAM principals in the Amazon Web Services account can perform EMR cluster actions
     /// that their IAM policies allow. When <code>false</code>, only the IAM principal that
     /// created the cluster and the Amazon Web Services account root user can perform EMR
     /// actions on the cluster, regardless of IAM permissions policies attached to other IAM
     /// principals.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a>
     /// parameter.
     /// </para><para>

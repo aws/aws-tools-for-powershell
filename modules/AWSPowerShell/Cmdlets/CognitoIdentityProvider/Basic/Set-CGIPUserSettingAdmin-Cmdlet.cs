@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// <i>This action is no longer supported.</i> You can use it to configure only SMS MFA.
-    /// You can't use it to configure TOTP software token MFA. To configure either type of
-    /// MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a>
+    /// You can't use it to configure time-based one-time password (TOTP) software token MFA.
+    /// To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a>
     /// instead.
     /// </summary>
     [Cmdlet("Set", "CGIPUserSettingAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user that you are setting options for.</para>
+        /// <para>The user name of the user whose options you're setting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that contains the user that you are setting options for.</para>
+        /// <para>The ID of the user pool that contains the user whose options you're setting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

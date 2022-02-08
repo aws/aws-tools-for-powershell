@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Describes a fleet.
+    /// 
+    ///  <important><para>
+    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
+    /// that were created for Deployment Service.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ROBOFleet")]
     [OutputType("Amazon.RoboMaker.Model.DescribeFleetResponse")]
@@ -36,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdletOutput("Amazon.RoboMaker.Model.DescribeFleetResponse",
         "This cmdlet returns an Amazon.RoboMaker.Model.DescribeFleetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class GetROBOFleetCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         

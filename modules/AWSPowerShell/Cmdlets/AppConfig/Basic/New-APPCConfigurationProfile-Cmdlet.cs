@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// data.
     /// </para></li><li><para>
     /// A validator for the configuration data. Available validators include either a JSON
-    /// Schema or an Lambda function.
+    /// Schema or an Amazon Web Services Lambda function.
     /// </para></li></ul><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create
     /// a Configuration and a Configuration Profile</a> in the <i>AppConfig User Guide</i>.
@@ -154,9 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of configurations that the configuration profile contains. A configuration
-        /// can be a feature flag used for enabling or disabling new features or a free-form configuration
-        /// used for distributing configurations to your application.</para>
+        /// <para>The type of configurations contained in the profile. AppConfig supports <code>feature
+        /// flags</code> and <code>freeform</code> configurations. We recommend you create feature
+        /// flag configurations to enable or disable new features and freeform configurations
+        /// to distribute configurations to an application. When calling this API, enter one of
+        /// the following values for <code>Type</code>:</para><para><code>AWS.AppConfig.FeatureFlags</code></para><para><code>AWS.Freeform</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

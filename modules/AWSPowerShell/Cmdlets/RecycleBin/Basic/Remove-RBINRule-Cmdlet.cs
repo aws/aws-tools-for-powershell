@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
     /// Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
-    /// Delete Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.
+    /// Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the retention rule to delete.</para>
+        /// <para>The unique ID of the retention rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

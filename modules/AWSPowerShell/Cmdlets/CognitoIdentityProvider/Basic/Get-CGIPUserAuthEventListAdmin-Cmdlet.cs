@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists a history of user activity and any risks detected as part of Amazon Cognito
-    /// advanced security.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// A history of user activity and any risks detected as part of Amazon Cognito advanced
+    /// security.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPUserAuthEventListAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AuthEventType")]

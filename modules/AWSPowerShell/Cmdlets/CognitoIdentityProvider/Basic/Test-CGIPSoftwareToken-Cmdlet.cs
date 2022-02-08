@@ -28,9 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Use this API to register a user's entered TOTP code and mark the user's software token
-    /// MFA status as "verified" if successful. The request takes an access token or a session
-    /// string, but not both.
+    /// Use this API to register a user's entered time-based one-time password (TOTP) code
+    /// and mark the user's software token MFA status as "verified" if successful. The request
+    /// takes an access token or a session string, but not both.
     /// </summary>
     [Cmdlet("Test", "CGIPSoftwareToken")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.VerifySoftwareTokenResponse")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session which should be passed both ways in challenge-response calls to the service.</para>
+        /// <para>The session that should be passed both ways in challenge-response calls to the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserCode
         /// <summary>
         /// <para>
-        /// <para>The one time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken"</a>.</para>
+        /// <para>The one- time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

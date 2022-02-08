@@ -90,8 +90,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.ConnectorProvisioningType
+        "Register-AFConnector/ConnectorProvisioningType"
+        {
+            $v = "LAMBDA"
+            break
+        }
+
         # Amazon.Appflow.ConnectorType
         {
+            ($_ -eq "Get-AFConnector/ConnectorType") -Or
             ($_ -eq "Get-AFConnectorEntity/ConnectorType") -Or
             ($_ -eq "Get-AFConnectorEntityList/ConnectorType") -Or
             ($_ -eq "Get-AFConnectorProfile/ConnectorType") -Or
@@ -100,7 +108,7 @@ $AF_Completers = {
             ($_ -eq "Update-AFFlow/SourceFlowConfig_ConnectorType")
         }
         {
-            $v = "Amplitude","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
+            $v = "Amplitude","CustomConnector","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
             break
         }
 
@@ -144,7 +152,8 @@ $AF_Completers = {
 
 $AF_map = @{
     "ConnectionMode"=@("New-AFConnectorProfile","Update-AFConnectorProfile")
-    "ConnectorType"=@("Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
+    "ConnectorProvisioningType"=@("Register-AFConnector")
+    "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")
@@ -205,17 +214,21 @@ $AF_SelectMap = @{
                "New-AFFlow",
                "Remove-AFConnectorProfile",
                "Remove-AFFlow",
+               "Get-AFConnector",
                "Get-AFConnectorEntity",
                "Get-AFConnectorProfile",
-               "Get-AFConnector",
+               "Get-AFConnectorConfigurationList",
                "Get-AFFlow",
                "Get-AFFlowExecutionRecord",
                "Get-AFConnectorEntityList",
+               "Get-AFConnectorList",
                "Get-AFFlowList",
                "Get-AFResourceTag",
+               "Register-AFConnector",
                "Start-AFFlow",
                "Stop-AFFlow",
                "Add-AFResourceTag",
+               "Unregister-AFConnector",
                "Remove-AFResourceTag",
                "Update-AFConnectorProfile",
                "Update-AFFlow")

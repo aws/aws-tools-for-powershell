@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
     /// Retrieves the details of a secret. It does not include the encrypted secret value.
-    /// Secrets Manager only returns fields that have a value in the response.
+    /// Secrets Manager only returns fields that have a value in the response. 
+    /// 
+    ///  
+    /// <para><b>Required permissions: </b><code>secretsmanager:DescribeSecret</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SECSecret")]
     [OutputType("Amazon.SecretsManager.Model.DescribeSecretResponse")]

@@ -62,10 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If the secret is in a different Amazon Web Services account from the credentials calling
     /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
     /// and you must create and use a customer managed key. 
-    /// </para><para>
-    /// To run this command, you must have <code>secretsmanager:UpdateSecret</code> permissions.
-    /// If you use a customer managed key, you must also have <code>kms:GenerateDataKey</code>
-    /// and <code>kms:Decrypt</code> permissions .
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:UpdateSecret</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. If you use a customer managed key, you
+    /// must also have <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
+    /// on the key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
+    /// Secret encryption and decryption</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SECSecret", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

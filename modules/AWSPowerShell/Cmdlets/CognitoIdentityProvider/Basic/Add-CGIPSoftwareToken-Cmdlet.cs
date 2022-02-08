@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     ///  <note><para>
     /// Calling AssociateSoftwareToken immediately disassociates the existing software token
     /// from the user account. If the user doesn't subsequently verify the software token,
-    /// their account is essentially set up to authenticate without MFA. If MFA config is
-    /// set to Optional at the user pool level, the user can then login without MFA. However,
-    /// if MFA is set to Required for the user pool, the user will be asked to setup a new
-    /// software token MFA during sign in.
+    /// their account is set up to authenticate without MFA. If MFA config is set to Optional
+    /// at the user pool level, the user can then log in without MFA. However, if MFA is set
+    /// to Required for the user pool, the user is asked to set up a new software token MFA
+    /// during sign-in.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "CGIPSoftwareToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session which should be passed both ways in challenge-response calls to the service.
+        /// <para>The session that should be passed both ways in challenge-response calls to the service.
         /// This allows authentication of the user as part of the MFA setup process.</para>
         /// </para>
         /// </summary>

@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// identity from an external identity provider (<code>SourceUser</code>) based on a specified
     /// attribute name and value from the external identity provider. This allows you to create
     /// a link from the existing user account to an external federated user identity that
-    /// has not yet been used to sign in, so that the federated user identity can be used
-    /// to sign in as the existing user account. 
+    /// has not yet been used to sign in. You can then use the federated user identity to
+    /// sign in as the existing user account. 
     /// 
     ///  
     /// <para>
     ///  For example, if there is an existing user with a username and password, this API
-    /// links that user to a federated user identity, so that when the federated user identity
-    /// is used, the user signs in as the existing user account. 
+    /// links that user to a federated user identity. When the user signs in with a federated
+    /// user identity, they sign in as the existing user account.
     /// </para><note><para>
     /// The maximum number of federated identities linked to a user is 5.
     /// </para></note><important><para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// identity providers and provider attributes that have been trusted by the application
     /// owner.
     /// </para></important><para>
-    /// This action is enabled only for admin access and requires developer credentials.
+    /// This action is administrative and requires developer credentials.
     /// </para>
     /// </summary>
     [Cmdlet("Connect", "CGIPProviderForUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DestinationUser_ProviderAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider attribute to link to, for example, <code>NameID</code>.</para>
+        /// <para>The name of the provider attribute to link to, such as <code>NameID</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SourceUser_ProviderAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider attribute to link to, for example, <code>NameID</code>.</para>
+        /// <para>The name of the provider attribute to link to, such as <code>NameID</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DestinationUser_ProviderAttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.</para>
+        /// <para>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SourceUser_ProviderAttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.</para>
+        /// <para>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DestinationUser_ProviderName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider, for example, Facebook, Google, or Login with Amazon.</para>
+        /// <para>The name of the provider, such as Facebook, Google, or Login with Amazon.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SourceUser_ProviderName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider, for example, Facebook, Google, or Login with Amazon.</para>
+        /// <para>The name of the provider, such as Facebook, Google, or Login with Amazon.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>The tags used to identify resources that are to be retained by the retention rule.</para>
+        /// <para>Information about the resource tags used to identify resources that are retained by
+        /// the retention rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <summary>
         /// <para>
         /// <para>The resource type retained by the retention rule. Only retention rules that retain
-        /// the specified resource type are listed.</para>
+        /// the specified resource type are listed. Currently, only Amazon EBS snapshots and EBS-backed
+        /// AMIs are supported. To list retention rules that retain snapshots, specify <code>EBS_SNAPSHOT</code>.
+        /// To list retention rules that retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,10 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
-        /// larger value than 500, you receive an error.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, make another call with the returned <code>NextToken</code> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to use to retrieve the next page of results.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

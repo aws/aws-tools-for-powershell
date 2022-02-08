@@ -51,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </para><para>
     /// You can only add steps to a cluster that is in one of the following states: STARTING,
     /// BOOTSTRAPPING, RUNNING, or WAITING.
-    /// </para>
+    /// </para><note><para>
+    /// The string values passed into <code>HadoopJarStep</code> object cannot exceed a total
+    /// of 10240 characters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "EMRJobFlowStep", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

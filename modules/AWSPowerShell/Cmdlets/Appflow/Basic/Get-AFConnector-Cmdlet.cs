@@ -28,53 +28,69 @@ using Amazon.Appflow.Model;
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
-    /// Describes the connectors vended by Amazon AppFlow for specified connector types.
-    /// If you don't specify a connector type, this operation describes all connectors vended
-    /// by Amazon AppFlow. If there are more connectors than can be returned in one page,
-    /// the response contains a <code>nextToken</code> object, which can be be passed in to
-    /// the next call to the <code>DescribeConnectors</code> API operation to retrieve the
-    /// next page.
+    /// Describes the given custom connector registered in your Amazon Web Services account.
+    /// This API can be used for custom connectors that are registered in your account and
+    /// also for Amazon authored connectors.
     /// </summary>
     [Cmdlet("Get", "AFConnector")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Appflow DescribeConnectors API operation.", Operation = new[] {"DescribeConnectors"}, SelectReturnType = typeof(Amazon.Appflow.Model.DescribeConnectorsResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Appflow.Model.DescribeConnectorsResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Appflow.Model.DescribeConnectorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [OutputType("Amazon.Appflow.Model.ConnectorConfiguration")]
+    [AWSCmdlet("Calls the Amazon Appflow DescribeConnector API operation.", Operation = new[] {"DescribeConnector"}, SelectReturnType = typeof(Amazon.Appflow.Model.DescribeConnectorResponse))]
+    [AWSCmdletOutput("Amazon.Appflow.Model.ConnectorConfiguration or Amazon.Appflow.Model.DescribeConnectorResponse",
+        "This cmdlet returns an Amazon.Appflow.Model.ConnectorConfiguration object.",
+        "The service call response (type Amazon.Appflow.Model.DescribeConnectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetAFConnectorCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        #region Parameter ConnectorLabel
+        /// <summary>
+        /// <para>
+        /// <para>The label of the connector. The label is unique for each <code>ConnectorRegistration</code>
+        /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
+        /// type/.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorLabel { get; set; }
+        #endregion
+        
         #region Parameter ConnectorType
         /// <summary>
         /// <para>
-        /// <para> The type of connector, such as Salesforce, Amplitude, and so on. </para>
+        /// <para>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose CUSTOMCONNECTOR
+        /// for Lambda based custom connectors.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ConnectorTypes")]
-        public System.String[] ConnectorType { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> The pagination token for the next page of data. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Appflow.ConnectorType")]
+        public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectorConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Appflow.Model.DescribeConnectorsResponse).
-        /// Specifying the name of a property of type Amazon.Appflow.Model.DescribeConnectorsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectorConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Appflow.Model.DescribeConnectorResponse).
+        /// Specifying the name of a property of type Amazon.Appflow.Model.DescribeConnectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ConnectorConfigurations";
+        public string Select { get; set; } = "ConnectorConfiguration";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ConnectorType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectorType' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectorType' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -86,16 +102,29 @@ namespace Amazon.PowerShell.Cmdlets.AF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Appflow.Model.DescribeConnectorsResponse, GetAFConnectorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Appflow.Model.DescribeConnectorResponse, GetAFConnectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.ConnectorType != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.ConnectorType = new List<System.String>(this.ConnectorType);
+                context.Select = (response, cmdlet) => this.ConnectorType;
             }
-            context.NextToken = this.NextToken;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConnectorLabel = this.ConnectorLabel;
+            context.ConnectorType = this.ConnectorType;
+            #if MODULAR
+            if (this.ConnectorType == null && ParameterWasBound(nameof(this.ConnectorType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ConnectorType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -110,15 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Appflow.Model.DescribeConnectorsRequest();
+            var request = new Amazon.Appflow.Model.DescribeConnectorRequest();
             
+            if (cmdletContext.ConnectorLabel != null)
+            {
+                request.ConnectorLabel = cmdletContext.ConnectorLabel;
+            }
             if (cmdletContext.ConnectorType != null)
             {
-                request.ConnectorTypes = cmdletContext.ConnectorType;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.ConnectorType = cmdletContext.ConnectorType;
             }
             
             CmdletOutput output;
@@ -153,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         #region AWS Service Operation Call
         
-        private Amazon.Appflow.Model.DescribeConnectorsResponse CallAWSServiceOperation(IAmazonAppflow client, Amazon.Appflow.Model.DescribeConnectorsRequest request)
+        private Amazon.Appflow.Model.DescribeConnectorResponse CallAWSServiceOperation(IAmazonAppflow client, Amazon.Appflow.Model.DescribeConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Appflow", "DescribeConnectors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Appflow", "DescribeConnector");
             try
             {
                 #if DESKTOP
-                return client.DescribeConnectors(request);
+                return client.DescribeConnector(request);
                 #elif CORECLR
-                return client.DescribeConnectorsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeConnectorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -181,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ConnectorType { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.Appflow.Model.DescribeConnectorsResponse, GetAFConnectorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ConnectorConfigurations;
+            public System.String ConnectorLabel { get; set; }
+            public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
+            public System.Func<Amazon.Appflow.Model.DescribeConnectorResponse, GetAFConnectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConnectorConfiguration;
         }
         
     }

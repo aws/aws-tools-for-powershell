@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the Amazon CloudWatch Logging role for the user import job.</para>
+        /// <para>The role ARN for the Amazon CloudWatch Logs Logging role for the user import job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

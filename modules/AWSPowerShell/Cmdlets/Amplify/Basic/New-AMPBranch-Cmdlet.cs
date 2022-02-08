@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> The basic authorization credentials for the branch. </para>
+        /// <para> The basic authorization credentials for the branch. You must base64-encode the authorization
+        /// credentials and provide them in the format <code>user:password</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

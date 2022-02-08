@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Deletes a robot.
+    /// 
+    ///  <important><para>
+    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
+    /// that were created for Deployment Service.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ROBORobot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.RoboMaker.Model.DeleteRobotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class RemoveROBORobotCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         

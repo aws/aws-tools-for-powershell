@@ -285,8 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-        /// are:</para>
+        /// The minimum maintenance window is a 60 minute period. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

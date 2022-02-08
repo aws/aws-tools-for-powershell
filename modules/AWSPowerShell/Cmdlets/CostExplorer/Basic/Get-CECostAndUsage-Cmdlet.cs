@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
         /// with that account's usage of that service. You can nest <code>Expression</code> objects
         /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
-        /// </para><para>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid
+        /// </para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
+        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</para><para>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid
         /// values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code>
-        /// and <code>CASE_SENSITIVE</code>.</para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
-        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</para>
+        /// and <code>CASE_SENSITIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>You can group Amazon Web Services costs using up to two different groups, either dimensions,
         /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>,
-        /// <code>LEGAL_ENTITY_NAME</code>, <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>,
-        /// <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TENANCY</code>,
-        /// <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</para><para>When you group by the <code>TAG</code> type and include a valid tag key, you get all
+        /// <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>, <code>LINKED_ACCOUNT</code>,
+        /// <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
+        /// <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</para><para>When you group by the <code>TAG</code> type and include a valid tag key, you get all
         /// tag values, including empty strings.</para>
         /// </para>
         /// </summary>

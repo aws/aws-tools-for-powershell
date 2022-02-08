@@ -35,6 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// 
     ///  
     /// <para>
+    /// If the original query execution ran using an <a>ResultConfiguration$ExpectedBucketOwner</a>
+    /// setting, the setting also applies to Amazon S3 read operations when <code>GetQueryResults</code>
+    /// is called. If an expected bucket owner has been specified and the query results are
+    /// in an Amazon S3 bucket whose owner account ID is different from the expected bucket
+    /// owner, the <code>GetQueryResults</code> call fails with an Amazon S3 permissions error.
+    /// </para><para>
     /// To stream query results successfully, the IAM principal with permission to call <code>GetQueryResults</code>
     /// also must have permissions to the Amazon S3 <code>GetObject</code> action for the
     /// Athena query results location.

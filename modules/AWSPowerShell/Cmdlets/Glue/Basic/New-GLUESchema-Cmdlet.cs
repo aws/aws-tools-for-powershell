@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code>
-        /// are supported.</para>
+        /// <para>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code>
+        /// and <code>PROTOBUF</code> are supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

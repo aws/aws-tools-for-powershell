@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class NewAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        #region Parameter SourceFlowConfig_ApiVersion
+        /// <summary>
+        /// <para>
+        /// <para>The API version of the connector when it's used as a source in the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceFlowConfig_ApiVersion { get; set; }
+        #endregion
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>
@@ -92,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Appflow.ConnectorType")]
         public Amazon.Appflow.ConnectorType SourceFlowConfig_ConnectorType { get; set; }
+        #endregion
+        
+        #region Parameter CustomConnector_CustomProperty
+        /// <summary>
+        /// <para>
+        /// <para>Custom properties that are required to use the custom connector as a source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_CustomConnector_CustomProperties")]
+        public System.Collections.Hashtable CustomConnector_CustomProperty { get; set; }
         #endregion
         
         #region Parameter Scheduled_DataPullMode
@@ -168,6 +189,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SourceFlowConfig_SourceConnectorProperties_Salesforce_EnableDynamicFieldUpdate")]
         public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
+        #endregion
+        
+        #region Parameter CustomConnector_EntityName
+        /// <summary>
+        /// <para>
+        /// <para>The entity specified in the custom connector as a source in the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_CustomConnector_EntityName")]
+        public System.String CustomConnector_EntityName { get; set; }
         #endregion
         
         #region Parameter Scheduled_FirstExecutionFrom
@@ -609,6 +641,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             }
             #endif
             context.KmsArn = this.KmsArn;
+            context.SourceFlowConfig_ApiVersion = this.SourceFlowConfig_ApiVersion;
             context.SourceFlowConfig_ConnectorProfileName = this.SourceFlowConfig_ConnectorProfileName;
             context.SourceFlowConfig_ConnectorType = this.SourceFlowConfig_ConnectorType;
             #if MODULAR
@@ -619,6 +652,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
             #endif
             context.IncrementalPullConfig_DatetimeTypeFieldName = this.IncrementalPullConfig_DatetimeTypeFieldName;
             context.Amplitude_Object = this.Amplitude_Object;
+            if (this.CustomConnector_CustomProperty != null)
+            {
+                context.CustomConnector_CustomProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomConnector_CustomProperty.Keys)
+                {
+                    context.CustomConnector_CustomProperty.Add((String)hashKey, (String)(this.CustomConnector_CustomProperty[hashKey]));
+                }
+            }
+            context.CustomConnector_EntityName = this.CustomConnector_EntityName;
             context.Datadog_Object = this.Datadog_Object;
             context.Dynatrace_Object = this.Dynatrace_Object;
             context.GoogleAnalytics_Object = this.GoogleAnalytics_Object;
@@ -709,6 +751,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
              // populate SourceFlowConfig
             var requestSourceFlowConfigIsNull = true;
             request.SourceFlowConfig = new Amazon.Appflow.Model.SourceFlowConfig();
+            System.String requestSourceFlowConfig_sourceFlowConfig_ApiVersion = null;
+            if (cmdletContext.SourceFlowConfig_ApiVersion != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_ApiVersion = cmdletContext.SourceFlowConfig_ApiVersion;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_ApiVersion != null)
+            {
+                request.SourceFlowConfig.ApiVersion = requestSourceFlowConfig_sourceFlowConfig_ApiVersion;
+                requestSourceFlowConfigIsNull = false;
+            }
             System.String requestSourceFlowConfig_sourceFlowConfig_ConnectorProfileName = null;
             if (cmdletContext.SourceFlowConfig_ConnectorProfileName != null)
             {
@@ -1057,6 +1109,41 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Zendesk = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
+            Amazon.Appflow.Model.CustomConnectorSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector = null;
+            
+             // populate CustomConnector
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector = new Amazon.Appflow.Model.CustomConnectorSourceProperties();
+            Dictionary<System.String, System.String> requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_CustomProperty = null;
+            if (cmdletContext.CustomConnector_CustomProperty != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_CustomProperty = cmdletContext.CustomConnector_CustomProperty;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_CustomProperty != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector.CustomProperties = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_CustomProperty;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull = false;
+            }
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_EntityName = null;
+            if (cmdletContext.CustomConnector_EntityName != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_EntityName = cmdletContext.CustomConnector_EntityName;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_EntityName != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector.EntityName = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_EntityName;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.CustomConnector = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.S3SourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3 = null;
@@ -1436,10 +1523,13 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public List<Amazon.Appflow.Model.DestinationFlowConfig> DestinationFlowConfigList { get; set; }
             public System.String FlowName { get; set; }
             public System.String KmsArn { get; set; }
+            public System.String SourceFlowConfig_ApiVersion { get; set; }
             public System.String SourceFlowConfig_ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType SourceFlowConfig_ConnectorType { get; set; }
             public System.String IncrementalPullConfig_DatetimeTypeFieldName { get; set; }
             public System.String Amplitude_Object { get; set; }
+            public Dictionary<System.String, System.String> CustomConnector_CustomProperty { get; set; }
+            public System.String CustomConnector_EntityName { get; set; }
             public System.String Datadog_Object { get; set; }
             public System.String Dynatrace_Object { get; set; }
             public System.String GoogleAnalytics_Object { get; set; }

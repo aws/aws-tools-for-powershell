@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>Represents the access token of the request to verify user attributes.</para>
+        /// <para>The access token of the request to verify user attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

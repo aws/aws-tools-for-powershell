@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The new role ARN for the group. This is used for setting the <code>cognito:roles</code>
-        /// and <code>cognito:preferred_role</code> claims in the token.</para>
+        /// <para>The new role Amazon Resource Name (ARN) for the group. This is used for setting the
+        /// <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

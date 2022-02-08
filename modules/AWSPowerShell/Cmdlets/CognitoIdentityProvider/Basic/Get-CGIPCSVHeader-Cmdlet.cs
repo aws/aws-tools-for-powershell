@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the header information for the .csv file to be used as input for the user import
-    /// job.
+    /// Gets the header information for the comma-separated value (CSV) file to be used as
+    /// input for the user import job.
     /// </summary>
     [Cmdlet("Get", "CGIPCSVHeader")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse")]

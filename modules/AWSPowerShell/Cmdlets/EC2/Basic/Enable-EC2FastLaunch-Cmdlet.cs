@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Then it creates a set of reserved snapshots that are used for subsequent launches.
     /// The reserved snapshots are automatically replenished as they are used, depending on
     /// your settings for launch frequency.
+    /// 
+    ///  <note><para>
+    /// To change these settings, you must own the AMI.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "EC2FastLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.EnableFastLaunchResponse")]
@@ -84,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxParallelLaunch
         /// <summary>
         /// <para>
-        /// <para>The maximum number of parallel instances to launch for creating resources.</para>
+        /// <para>The maximum number of parallel instances to launch for creating resources. Value must
+        /// be <code>6</code> or greater. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

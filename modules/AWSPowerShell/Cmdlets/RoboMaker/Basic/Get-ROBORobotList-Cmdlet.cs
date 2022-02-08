@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Returns a list of robots. You can optionally provide filters to retrieve specific
-    /// robots.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// robots.
+    /// 
+    ///  <important><para>
+    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
+    /// that were created for Deployment Service.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ROBORobotList")]
     [OutputType("Amazon.RoboMaker.Model.Robot")]
@@ -38,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         "This cmdlet returns a collection of Amazon.RoboMaker.Model.Robot objects.",
         "The service call response (type Amazon.RoboMaker.Model.ListRobotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class GetROBORobotListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         

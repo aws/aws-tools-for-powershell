@@ -238,6 +238,7 @@ $ES_SelectMap = @{
                "Remove-ESOutboundCrossClusterSearchConnection",
                "Remove-ESPackage",
                "Get-ESDomainAutoTune",
+               "Get-ESDomainChangeProgress",
                "Get-ESDomain",
                "Get-ESDomainConfig",
                "Get-ESDomainList",

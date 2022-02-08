@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new OAuth2.0 resource server and defines custom scopes in it.
+    /// Creates a new OAuth2.0 resource server and defines custom scopes within it.
     /// </summary>
     [Cmdlet("New", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A unique resource server identifier for the resource server. This could be an HTTPS
-        /// endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>.</para>
+        /// endpoint where the resource server is located, such as <code>https://my-weather-api.example.com</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>.</para>
+        /// <para>A list of scopes. Each scope is a key-value map with the keys <code>name</code> and
+        /// <code>description</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

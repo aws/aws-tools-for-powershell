@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
         /// for Amazon EMR to install and configure when launching the cluster. For a list of
         /// applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon
-        /// EMR Release Guide</a>.</para>
+        /// EMRRelease Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -715,7 +715,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services
+        /// <important><para>The VisibleToAllUsers parameter is no longer supported. By default, the value is set
+        /// to <code>true</code>. Setting it to <code>false</code> now has no effect.</para></important><para>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services
         /// account associated with the cluster can perform EMR actions on the cluster that their
         /// IAM policies allow. This value defaults to <code>true</code> for clusters created
         /// using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a>

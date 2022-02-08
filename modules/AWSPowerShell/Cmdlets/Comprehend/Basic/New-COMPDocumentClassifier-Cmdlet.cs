@@ -191,6 +191,21 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String ModelKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ModelPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The resource-based policy to attach to your custom document classifier model. You
+        /// can use this policy to allow another AWS account to import your custom model.</para><para>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without
+        /// line breaks. To provide valid JSON, enclose the attribute names and values in double
+        /// quotes. If the JSON body is also enclosed in double quotes, then you must escape the
+        /// double quotes that are inside the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+        /// quotes to enclose the JSON names and values:</para><para><code>'{"attribute": "value", "attribute": ["value"]}'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPolicy { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
@@ -396,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             #endif
             context.Mode = this.Mode;
             context.ModelKmsKeyId = this.ModelKmsKeyId;
+            context.ModelPolicy = this.ModelPolicy;
             context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
             context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
             if (this.Tag != null)
@@ -510,6 +526,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.ModelKmsKeyId != null)
             {
                 request.ModelKmsKeyId = cmdletContext.ModelKmsKeyId;
+            }
+            if (cmdletContext.ModelPolicy != null)
+            {
+                request.ModelPolicy = cmdletContext.ModelPolicy;
             }
             
              // populate OutputDataConfig
@@ -653,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
             public System.String ModelKmsKeyId { get; set; }
+            public System.String ModelPolicy { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }

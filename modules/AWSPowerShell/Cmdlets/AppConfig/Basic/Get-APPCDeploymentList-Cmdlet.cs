@@ -28,7 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Lists the deployments for an environment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the deployments for an environment in descending deployment number order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "APPCDeploymentList")]
     [OutputType("Amazon.AppConfig.Model.DeploymentSummary")]
@@ -77,8 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// <para>The maximum number of items that may be returned for this call. If there are items
+        /// that have not yet been returned, the response will include a non-null <code>NextToken</code>
+        /// that you can provide in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to start the list. Use this token to get the next set of results.</para>
+        /// <para>The token returned by a prior call to this operation indicating the next set of results
+        /// to be returned. If not specified, the operation will return the first set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

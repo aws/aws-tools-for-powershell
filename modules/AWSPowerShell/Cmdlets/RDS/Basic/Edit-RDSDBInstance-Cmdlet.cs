@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use
         /// this parameter to move your DB instance into a VPC. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working
         /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide</i>. </para><para>Changing the subnet group causes an outage during the change. The change is applied
-        /// during the next maintenance window, unless you enable <code>ApplyImmediately</code>.</para><para> This parameter doesn't apply to RDS Custom.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
+        /// during the next maintenance window, unless you enable <code>ApplyImmediately</code>.</para><para> This parameter doesn't apply to RDS Custom.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mydbsubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

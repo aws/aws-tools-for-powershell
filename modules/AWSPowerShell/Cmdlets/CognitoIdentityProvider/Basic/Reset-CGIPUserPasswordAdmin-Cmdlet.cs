@@ -41,21 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// is selected and a verified email exists for the user, calling this API will also result
     /// in sending a message to the end user with the code to change their password.
     /// </para><note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, U.S. telecom
-    /// carriers require that you register an origination phone number before you can send
-    /// SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
-    /// you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Cognito will use the the registered number automatically. Otherwise,
-    /// Cognito users that must receive SMS messages might be unable to sign up, activate
+    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
+    /// carriers require you to register an origination phone number before you can send SMS
+    /// messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you
+    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
+    /// Pinpoint</a>. Amazon Cognito will use the registered number automatically. Otherwise,
+    /// Amazon Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
+    /// Service, Amazon Simple Notification Service might place your account in SMS sandbox.
+    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// mode</a></i>, you will have limitations, such as sending messages only to verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Cognito User Pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>. 
+    /// SMS message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer
+    /// Guide</i>.
     /// </para></note><para>
     /// Calling this action requires developer credentials.
     /// </para>
@@ -74,20 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
-        /// that this action triggers. </para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
+        /// that this action triggers.</para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
         /// you use the AdminResetUserPassword API action, Amazon Cognito invokes the function
         /// that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes
         /// this function, it passes a JSON payload, which the function receives as input. This
         /// payload contains a <code>clientMetadata</code> attribute, which provides the data
         /// that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request.
         /// In your function code in Lambda, you can process the <code>clientMetadata</code> value
-        /// to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>Take the following limitations into consideration when you use the ClientMetadata
-        /// parameter:</para><ul><li><para>Amazon Cognito does not store the ClientMetadata value. This data is available only
-        /// to Lambda triggers that are assigned to a user pool to support custom workflows. If
-        /// your user pool configuration does not include triggers, the ClientMetadata parameter
-        /// serves no purpose.</para></li><li><para>Amazon Cognito does not validate the ClientMetadata value.</para></li><li><para>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide
-        /// sensitive information.</para></li></ul></note>
+        /// to enhance your workflow for your specific needs. </para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
+        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
+        /// are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user whose password you wish to reset.</para>
+        /// <para>The user name of the user whose password you want to reset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

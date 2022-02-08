@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FISExperimentTemplate', 
         'Get-FISExperimentTemplateList', 
         'Get-FISResourceTag', 
+        'Get-FISTargetResourceType', 
+        'Get-FISTargetResourceTypeList', 
         'New-FISExperimentTemplate', 
         'Remove-FISExperimentTemplate', 
         'Remove-FISResourceTag', 

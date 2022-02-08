@@ -49,6 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// In a secret scheduled for deletion, you cannot access the encrypted secret value.
     /// To access that information, first cancel the deletion with <a>RestoreSecret</a> and
     /// then retrieve the information.
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:DeleteSecret</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SECSecret", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -33,10 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
-    /// This operation does not have resource-level authorization, so if a user is able to
-    /// use <code>DescribeCanaries</code>, the user can see all of the canaries in the account.
-    /// A deny policy can only be used to restrict access to all canaries. It cannot be used
-    /// on specific resources. 
+    /// This operation supports resource-level authorization using an IAM policy and the <code>Names</code>
+    /// parameter. If you specify the <code>Names</code> parameter, the operation is successful
+    /// only if you have authorization to view all the canaries that you specify in your request.
+    /// If you do not have permission to view any of the canaries, the request fails with
+    /// a 403 response.
+    /// </para><para>
+    /// You are required to use the <code>Names</code> parameter if you are logged on to a
+    /// user or role that has an IAM policy that restricts which canaries that you are allowed
+    /// to view. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
+    /// Limiting a user to viewing specific canaries</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWSYNCanaryList")]
@@ -48,6 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     )]
     public partial class GetCWSYNCanaryListCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to return only canaries that match the names that you specify here.
+        /// You can specify as many as five canary names.</para><para>If you specify this parameter, the operation is successful only if you have authorization
+        /// to view all the canaries that you specify in your request. If you do not have permission
+        /// to view any of the canaries, the request fails with a 403 response.</para><para>You are required to use this parameter if you are logged on to a user or role that
+        /// has an IAM policy that restricts which canaries that you are allowed to view. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
+        /// Limiting a user to viewing specific canaries</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -113,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
+            if (this.Name != null)
+            {
+                context.Name = new List<System.String>(this.Name);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -135,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Names = cmdletContext.Name;
             }
             
             // Initialize loop variant and commence piping
@@ -222,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
+            public List<System.String> Name { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Synthetics.Model.DescribeCanariesResponse, GetCWSYNCanaryListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Canaries;

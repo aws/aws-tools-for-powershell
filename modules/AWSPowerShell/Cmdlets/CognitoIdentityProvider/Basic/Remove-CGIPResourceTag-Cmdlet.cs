@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Removes the specified tags from an Amazon Cognito user pool. You can use this action
-    /// up to 5 times per second, per account
+    /// up to 5 times per second, per account.
     /// </summary>
     [Cmdlet("Remove", "CGIPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

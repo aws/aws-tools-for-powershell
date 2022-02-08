@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>A filter based on the type of configurations that the configuration profile contains.
-        /// A configuration can be a feature flag or a free-form configuration.</para>
+        /// A configuration can be a feature flag or a freeform configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.RecycleBin.Model;
 namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
-    /// Lists the tags assigned a specific resource.
+    /// Lists the tags assigned to a retention rule.
     /// </summary>
     [Cmdlet("Get", "RBINResourceTag")]
     [OutputType("Amazon.RecycleBin.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which to list the tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the retention rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

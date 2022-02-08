@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Collections.Hashtable RecommenderConfig_ItemExplorationConfig { get; set; }
         #endregion
         
+        #region Parameter RecommenderConfig_MinRecommendationRequestsPerSecond
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the requested minimum provisioned recommendation requests per second that
+        /// Amazon Personalize will support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RecommenderConfig_MinRecommendationRequestsPerSecond { get; set; }
+        #endregion
+        
         #region Parameter RecommenderArn
         /// <summary>
         /// <para>
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.RecommenderConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.RecommenderConfig_ItemExplorationConfig[hashKey]));
                 }
             }
+            context.RecommenderConfig_MinRecommendationRequestsPerSecond = this.RecommenderConfig_MinRecommendationRequestsPerSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +191,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_ItemExplorationConfig != null)
             {
                 request.RecommenderConfig.ItemExplorationConfig = requestRecommenderConfig_recommenderConfig_ItemExplorationConfig;
+                requestRecommenderConfigIsNull = false;
+            }
+            System.Int32? requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond = null;
+            if (cmdletContext.RecommenderConfig_MinRecommendationRequestsPerSecond != null)
+            {
+                requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond = cmdletContext.RecommenderConfig_MinRecommendationRequestsPerSecond.Value;
+            }
+            if (requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond != null)
+            {
+                request.RecommenderConfig.MinRecommendationRequestsPerSecond = requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond.Value;
                 requestRecommenderConfigIsNull = false;
             }
              // determine if request.RecommenderConfig should be set to null
@@ -249,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             public System.String RecommenderArn { get; set; }
             public Dictionary<System.String, System.String> RecommenderConfig_ItemExplorationConfig { get; set; }
+            public System.Int32? RecommenderConfig_MinRecommendationRequestsPerSecond { get; set; }
             public System.Func<Amazon.Personalize.Model.UpdateRecommenderResponse, UpdatePERSRecommenderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommenderArn;
         }

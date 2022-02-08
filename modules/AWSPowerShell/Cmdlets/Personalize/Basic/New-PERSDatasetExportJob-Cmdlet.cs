@@ -109,8 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon
-        /// Personalize uses to encrypt or decrypt the input and output files of a batch inference
-        /// job.</para>
+        /// Personalize uses to encrypt or decrypt the input and output files.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

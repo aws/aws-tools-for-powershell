@@ -48,6 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class GetAFConnectorProfileCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        #region Parameter ConnectorLabel
+        /// <summary>
+        /// <para>
+        /// <para>The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
+        /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
+        /// type/.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorLabel { get; set; }
+        #endregion
+        
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>
@@ -139,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 context.Select = (response, cmdlet) => this.ConnectorType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConnectorLabel = this.ConnectorLabel;
             if (this.ConnectorProfileName != null)
             {
                 context.ConnectorProfileName = new List<System.String>(this.ConnectorProfileName);
@@ -162,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             // create request
             var request = new Amazon.Appflow.Model.DescribeConnectorProfilesRequest();
             
+            if (cmdletContext.ConnectorLabel != null)
+            {
+                request.ConnectorLabel = cmdletContext.ConnectorLabel;
+            }
             if (cmdletContext.ConnectorProfileName != null)
             {
                 request.ConnectorProfileNames = cmdletContext.ConnectorProfileName;
@@ -239,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConnectorLabel { get; set; }
             public List<System.String> ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
             public System.Int32? MaxResult { get; set; }

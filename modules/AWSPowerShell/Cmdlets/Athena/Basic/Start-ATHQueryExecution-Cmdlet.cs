@@ -97,6 +97,26 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
         #endregion
         
+        #region Parameter ResultConfiguration_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3
+        /// bucket specified by <a>ResultConfiguration$OutputLocation</a>. If set, Athena uses
+        /// the value for <code>ExpectedBucketOwner</code> when it makes Amazon S3 calls to your
+        /// specified output location. If the <code>ExpectedBucketOwner</code> Amazon Web Services
+        /// account ID does not match the actual owner of the Amazon S3 bucket, the call fails
+        /// with a permissions error.</para><para>This is a client-side setting. If workgroup settings override client-side settings,
+        /// then the query uses the <code>ExpectedBucketOwner</code> setting that is specified
+        /// for the workgroup, and also uses the location for storing query results specified
+        /// in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
+        /// and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// Settings Override Client-Side Settings</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
@@ -224,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #endif
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
+            context.ResultConfiguration_ExpectedBucketOwner = this.ResultConfiguration_ExpectedBucketOwner;
             context.ResultConfiguration_OutputLocation = this.ResultConfiguration_OutputLocation;
             context.WorkGroup = this.WorkGroup;
             
@@ -283,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
              // populate ResultConfiguration
             var requestResultConfigurationIsNull = true;
             request.ResultConfiguration = new Amazon.Athena.Model.ResultConfiguration();
+            System.String requestResultConfiguration_resultConfiguration_ExpectedBucketOwner = null;
+            if (cmdletContext.ResultConfiguration_ExpectedBucketOwner != null)
+            {
+                requestResultConfiguration_resultConfiguration_ExpectedBucketOwner = cmdletContext.ResultConfiguration_ExpectedBucketOwner;
+            }
+            if (requestResultConfiguration_resultConfiguration_ExpectedBucketOwner != null)
+            {
+                request.ResultConfiguration.ExpectedBucketOwner = requestResultConfiguration_resultConfiguration_ExpectedBucketOwner;
+                requestResultConfigurationIsNull = false;
+            }
             System.String requestResultConfiguration_resultConfiguration_OutputLocation = null;
             if (cmdletContext.ResultConfiguration_OutputLocation != null)
             {
@@ -404,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String QueryString { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
+            public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }
             public System.String ResultConfiguration_OutputLocation { get; set; }
             public System.String WorkGroup { get; set; }
             public System.Func<Amazon.Athena.Model.StartQueryExecutionResponse, StartATHQueryExecutionCmdlet, object> Select { get; set; } =

@@ -81,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives
         /// its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
         /// termination and provides a Spot Instance termination notice, which gives the instance
-        /// a two-minute warning before it terminates. </para>
+        /// a two-minute warning before it terminates. </para><note><para>Spot Instances with a defined duration (also known as Spot blocks) are no longer available
+        /// to new customers from July 1, 2021. For customers who have previously used the feature,
+        /// we will continue to support Spot Instances with a defined duration until December
+        /// 31, 2022. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

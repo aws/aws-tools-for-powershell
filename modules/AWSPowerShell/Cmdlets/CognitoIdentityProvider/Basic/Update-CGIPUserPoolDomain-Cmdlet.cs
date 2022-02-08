@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     ///  
     /// <para>
     /// You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate
-    /// to Amazon Cognito. You cannot use it to change the domain for a user pool.
+    /// to Amazon Cognito. You can't use it to change the domain for a user pool.
     /// </para><para>
     /// A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up
     /// and sign-in pages for your application. When you set up a custom domain, you provide
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// provide this ARN to Amazon Cognito.
     /// </para><para>
     /// When you add your new certificate in ACM, you must choose US East (N. Virginia) as
-    /// the Region.
+    /// the Amazon Web Services Region.
     /// </para><para>
     /// After you submit your request, Amazon Cognito requires up to 1 hour to distribute
     /// your new certificate to your custom domain.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The domain name for the custom domain that hosts the sign-up and sign-in pages for
-        /// your application. For example: <code>auth.example.com</code>. </para><para>This string can include only lowercase letters, numbers, and hyphens. Do not use a
+        /// your application. One example might be <code>auth.example.com</code>. </para><para>This string can include only lowercase letters, numbers, and hyphens. Don't use a
         /// hyphen for the first or last character. Use periods to separate subdomain names.</para>
         /// </para>
         /// </summary>
@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that is associated with the custom domain that you are updating
-        /// the certificate for.</para>
+        /// <para>The ID of the user pool that is associated with the custom domain whose certificate
+        /// you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

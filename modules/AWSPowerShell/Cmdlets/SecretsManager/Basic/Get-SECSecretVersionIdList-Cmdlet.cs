@@ -36,9 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><para>
     /// To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
     /// call <a>GetSecretValue</a>.
-    /// </para><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have <code>secretsmanager:ListSecretVersionIds</code>
-    /// permissions.
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:ListSecretVersionIds</code>. For
+    /// more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
     /// </para><br/><br/>In the AWS.Tools.SecretsManager module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SECSecretVersionIdList")]

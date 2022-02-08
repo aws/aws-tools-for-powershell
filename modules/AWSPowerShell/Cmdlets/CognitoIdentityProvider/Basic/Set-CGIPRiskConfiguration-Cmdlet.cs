@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// 
     ///  
     /// <para>
-    /// To enable Amazon Cognito advanced security features, update the user pool to include
+    /// To activate Amazon Cognito advanced security features, update the user pool to include
     /// the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.
     /// </para>
     /// </summary>
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Overrides the risk decision to always block the pre-authentication requests. The IP
-        /// range is in CIDR notation: a compact representation of an IP address and its associated
-        /// routing prefix.</para>
+        /// range is in CIDR notation, a compact representation of an IP address and its routing
+        /// prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The app client ID. If <code>ClientId</code> is null, then the risk configuration is
         /// mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration
-        /// is applied to all the clients in the userPool.</para><para>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID is not
+        /// is applied to all the clients in the userPool.</para><para>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID isn't
         /// null, the user pool configuration is overridden and the risk configuration for the
         /// client is used instead.</para>
         /// </para>
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter HighAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><code>NO_ACTION</code> Allow the user sign-in.</para></li></ul>
+        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
+        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LowAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><code>NO_ACTION</code> Allow the user sign-in.</para></li></ul>
+        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
+        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MediumAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><code>NO_ACTION</code> Allow the user sign-in.</para></li></ul>
+        /// <para>The event action.</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
+        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NotifyConfiguration_From
         /// <summary>
         /// <para>
-        /// <para>The email address that is sending the email. It must be either individually verified
-        /// with Amazon SES, or from a domain that has been verified with Amazon SES.</para>
+        /// <para>The email address that is sending the email. The address must be either individually
+        /// verified with Amazon Simple Email Service, or from a domain that has been verified
+        /// with Amazon SES.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The HTML body.</para>
+        /// <para>The email HTML body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The HTML body.</para>
+        /// <para>The email HTML body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The HTML body.</para>
+        /// <para>The email HTML body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RiskExceptionConfiguration_SkippedIPRangeList
         /// <summary>
         /// <para>
-        /// <para>Risk detection is not performed on the IP addresses in the range list. The IP range
+        /// <para>Risk detection isn't performed on the IP addresses in this range list. The IP range
         /// is in CIDR notation.</para>
         /// </para>
         /// </summary>
@@ -242,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the identity that is associated with the sending
-        /// authorization policy. It permits Amazon Cognito to send for the email address specified
-        /// in the <code>From</code> parameter.</para>
+        /// authorization policy. This identity permits Amazon Cognito to send for the email address
+        /// specified in the <code>From</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject.</para>
+        /// <para>The email subject.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject.</para>
+        /// <para>The email subject.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject.</para>
+        /// <para>The email subject.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The text body.</para>
+        /// <para>The email text body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The text body.</para>
+        /// <para>The email text body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The text body.</para>
+        /// <para>The email text body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

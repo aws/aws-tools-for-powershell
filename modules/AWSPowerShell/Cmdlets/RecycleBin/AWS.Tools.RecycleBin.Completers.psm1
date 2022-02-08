@@ -87,7 +87,7 @@ $RBIN_Completers = {
             ($_ -eq "Update-RBINRule/ResourceType")
         }
         {
-            $v = "EBS_SNAPSHOT"
+            $v = "EBS_SNAPSHOT","EC2_IMAGE"
             break
         }
 

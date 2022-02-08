@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientLoginBannerOptions_BannerText
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Customizable text that will be displayed in a banner on Amazon Web Services provided
+        /// clients when a VPN session is established. UTF-8 encoded characters only. Maximum
+        /// of 1400 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientLoginBannerOptions_Enabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Enable or disable a customizable text banner that will be displayed on Amazon Web
+        /// Services provided clients when a VPN session is established.</para><para>Valid values: <code>true | false</code></para><para>Default value: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SessionTimeoutHour
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum VPN session duration time in hours.</para><para>Valid values: <code>8 | 10 | 12 | 24</code></para><para>Default value: <code>24</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

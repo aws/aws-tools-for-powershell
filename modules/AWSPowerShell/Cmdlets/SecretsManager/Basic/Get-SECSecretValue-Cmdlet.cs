@@ -33,13 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve
-    /// secrets</a>. 
-    /// </para><para>
-    /// To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
-    /// If the secret is encrypted using a customer-managed key instead of the Amazon Web
-    /// Services managed key <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>
-    /// permissions for that key.
+    /// We recommend that you cache your secret values by using client-side caching. Caching
+    /// secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache
+    /// secrets for your applications</a>.
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:GetSecretValue</code>. If the
+    /// secret is encrypted using a customer-managed key instead of the Amazon Web Services
+    /// managed key <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>
+    /// permissions for that key. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SECSecretValue")]

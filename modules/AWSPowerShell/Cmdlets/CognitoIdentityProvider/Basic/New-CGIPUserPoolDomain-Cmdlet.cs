@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The domain string.</para>
+        /// <para>The domain string. For custom domains, this is the fully-qualified domain name, such
+        /// as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix
+        /// alone, such as <code>auth</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

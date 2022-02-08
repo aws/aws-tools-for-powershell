@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Registers a robot with a fleet.
+    /// 
+    ///  <important><para>
+    /// This API is no longer supported and will throw an error if used.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Register", "ROBORobot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.RegisterRobotResponse")]
@@ -36,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdletOutput("Amazon.RoboMaker.Model.RegisterRobotResponse",
         "This cmdlet returns an Amazon.RoboMaker.Model.RegisterRobotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class RegisterROBORobotCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
