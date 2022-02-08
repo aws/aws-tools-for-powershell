@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Searches an active index. Use this API to search your documents using query. The <code>Query</code>
-    /// operation enables to do faceted search and to filter results based on document attributes.
+    /// API enables to do faceted search and to filter results based on document attributes.
     /// 
     ///  
     /// <para>
     /// It also enables you to provide user context that Amazon Kendra uses to enforce document
-    /// access control in the search results. 
+    /// access control in the search results.
     /// </para><para>
     /// Amazon Kendra searches your index for text content and question and answer (FAQ) content.
     /// By default the response contains three types of results.
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the index to search. The identifier is returned in the response
-        /// from the <code>CreateIndex</code> operation.</para>
+        /// from the <code>CreateIndex</code> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

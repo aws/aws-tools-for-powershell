@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para><code>TRUE</code> to use documents you indexed directly using the <code>BatchPutDocument</code>
-        /// operation.</para>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,10 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-        /// operations, <code>QuerySuggestions</code> operations, <code>SubmitFeedback</code>
-        /// operations, and Amazon Web Services SSO that stores your user and group information.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// roles for Amazon Kendra</a>.</para>
+        /// API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and Amazon
+        /// Web Services SSO that stores your user and group information. For more information,
+        /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles
+        /// for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -138,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The IAM (Identity and Access Management) role used by Amazon Kendra to access the
-        /// block list text file in your S3 bucket.</para><para>You need permissions to the role ARN (Amazon Resource Name). The role needs S3 read
-        /// permissions to your file in S3 and needs to give STS (Security Token Service) assume
-        /// role permissions to Amazon Kendra.</para>
+        /// block list text file in your S3 bucket.</para><para>You need permissions to the role ARN (Amazon Web Services Resource Name). The role
+        /// needs S3 read permissions to your file in S3 and needs to give STS (Security Token
+        /// Service) assume role permissions to Amazon Kendra.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

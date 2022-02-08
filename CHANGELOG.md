@@ -1,4 +1,16 @@
-﻿### 4.1.19.0 (2022-02-08 08:16Z)
+﻿### 4.1.20.0 (2022-02-08 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.205.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Runner
+    * Added cmdlet Get-AARVpcConnector leveraging the DescribeVpcConnector service API.
+    * Added cmdlet Get-AARVpcConnectorList leveraging the ListVpcConnectors service API.
+    * Added cmdlet New-AARVpcConnector leveraging the CreateVpcConnector service API.
+    * Added cmdlet Remove-AARVpcConnector leveraging the DeleteVpcConnector service API.
+    * Modified cmdlet New-AARService: added parameters EgressConfiguration_EgressType and EgressConfiguration_VpcConnectorArn.
+    * Modified cmdlet Update-AARService: added parameters EgressConfiguration_EgressType and EgressConfiguration_VpcConnectorArn.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters Filter_CreatedAfter, Filter_CreatedBefore, Filter_EligibleForReplication, Filter_ObjectReplicationStatus, ManifestEncryption_SSES3, ManifestOutputLocation_Bucket, ManifestOutputLocation_ExpectedManifestBucketOwner, ManifestOutputLocation_ManifestFormat, ManifestOutputLocation_ManifestPrefix, Operation_S3ReplicateObject, S3JobManifestGenerator_EnableManifestOutput, S3JobManifestGenerator_ExpectedBucketOwner, S3JobManifestGenerator_SourceBucket and SSEKMS_KeyId.
+
+### 4.1.19.0 (2022-02-08 08:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.204.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Added cmdlet Get-AFConnectorConfigurationList leveraging the DescribeConnectors service API.

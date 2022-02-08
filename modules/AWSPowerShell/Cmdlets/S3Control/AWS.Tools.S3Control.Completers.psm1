@@ -101,6 +101,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.GeneratedManifestFormat
+        "New-S3CJob/ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat"
+        {
+            $v = "S3InventoryReport_CSV_20211130"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Manifest_Spec_Format"
         {
@@ -194,7 +201,7 @@ $S3C_Completers = {
         # Amazon.S3Control.S3StorageClass
         "New-S3CJob/Operation_S3PutObjectCopy_StorageClass"
         {
-            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","STANDARD","STANDARD_IA"
             break
         }
 
@@ -210,6 +217,7 @@ $S3C_map = @{
     "ACL"=@("New-S3CBucket")
     "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
     "Manifest_Spec_Format"=@("New-S3CJob")
+    "ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "Operation_S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "Operation_S3PutObjectAcl_AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_CannedAccessControlList"=@("New-S3CJob")

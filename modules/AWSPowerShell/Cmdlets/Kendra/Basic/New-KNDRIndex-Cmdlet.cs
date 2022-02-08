@@ -28,15 +28,15 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
-    /// determine if index creation has completed, check the <code>Status</code> field returned
-    /// from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to
-    /// <code>ACTIVE</code> when the index is ready to use.
+    /// Creates a new Amazon Kendra index. Index creation is an asynchronous API. To determine
+    /// if index creation has completed, check the <code>Status</code> field returned from
+    /// a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code>
+    /// when the index is ready to use.
     /// 
     ///  
     /// <para>
     /// Once the index is active you can index your documents using the <code>BatchPutDocument</code>
-    /// operation or using one of the supported data sources. 
+    /// API or using one of the supported data sources. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>An Identity and Access Management(IAM) role that gives Amazon Kendra permissions to
         /// access your Amazon CloudWatch logs and metrics. This is also the role used when you
-        /// use the <code>BatchPutDocument</code> operation to index documents from an Amazon
-        /// S3 bucket.</para>
+        /// use the <code>BatchPutDocument</code> API to index documents from an Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create an index. Multiple calls
-        /// to the <code>CreateIndex</code> operation with the same client token will create only
-        /// one index.</para>
+        /// to the <code>CreateIndex</code> API with the same client token will create only one
+        /// index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

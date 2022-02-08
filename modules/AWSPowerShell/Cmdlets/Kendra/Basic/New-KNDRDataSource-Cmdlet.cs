@@ -314,10 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>Sets the frequency that Amazon Kendra will check the documents in your repository
-        /// and update the index. If you don't set a schedule Amazon Kendra will not periodically
-        /// update the index. You can call the <code>StartDataSourceSyncJob</code> operation to
-        /// update the index.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
+        /// <para>Sets the frequency for Amazon Kendra to check the documents in your repository and
+        /// update the index. If you don't set a schedule Amazon Kendra will not periodically
+        /// update the index. You can call the <code>StartDataSourceSyncJob</code> API to update
+        /// the index.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para>
         /// </para>
@@ -403,8 +403,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create a data source. Multiple
-        /// calls to the <code>CreateDataSource</code> operation with the same client token will
-        /// create only one data source.</para>
+        /// calls to the <code>CreateDataSource</code> API with the same client token will create
+        /// only one data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

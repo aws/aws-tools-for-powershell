@@ -22,63 +22,76 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kendra;
-using Amazon.Kendra.Model;
+using Amazon.AppRunner;
+using Amazon.AppRunner.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KNDR
+namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Enables you to provide feedback to Amazon Kendra to improve the performance of your
-    /// index.
-    /// 
-    ///  
-    /// <para><code>SubmitFeedback</code> is currently not supported in the Amazon Web Services
-    /// GovCloud (US-West) region.
-    /// </para>
+    /// Create an App Runner VPC connector resource. App Runner requires this resource when
+    /// you want to associate your App Runner service to a custom Amazon Virtual Private Cloud
+    /// (Amazon VPC).
     /// </summary>
-    [Cmdlet("Send", "KNDRFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kendra SubmitFeedback API operation.", Operation = new[] {"SubmitFeedback"}, SelectReturnType = typeof(Amazon.Kendra.Model.SubmitFeedbackResponse))]
-    [AWSCmdletOutput("None or Amazon.Kendra.Model.SubmitFeedbackResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.SubmitFeedbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "AARVpcConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AppRunner.Model.VpcConnector")]
+    [AWSCmdlet("Calls the AWS App Runner CreateVpcConnector API operation.", Operation = new[] {"CreateVpcConnector"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateVpcConnectorResponse))]
+    [AWSCmdletOutput("Amazon.AppRunner.Model.VpcConnector or Amazon.AppRunner.Model.CreateVpcConnectorResponse",
+        "This cmdlet returns an Amazon.AppRunner.Model.VpcConnector object.",
+        "The service call response (type Amazon.AppRunner.Model.CreateVpcConnectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SendKNDRFeedbackCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class NewAARVpcConnectorCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
-        #region Parameter ClickFeedbackItem
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>Tells Amazon Kendra that a particular search result link was chosen by the user. </para>
+        /// <para>A list of IDs of security groups that App Runner should use for access to Amazon Web
+        /// Services resources under the specified subnets. If not specified, App Runner uses
+        /// the default security group of the Amazon VPC. The default security group allows all
+        /// outbound traffic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ClickFeedbackItems")]
-        public Amazon.Kendra.Model.ClickFeedback[] ClickFeedbackItem { get; set; }
+        [Alias("SecurityGroups")]
+        public System.String[] SecurityGroup { get; set; }
         #endregion
         
-        #region Parameter IndexId
+        #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that was queried.</para>
+        /// <para>A list of IDs of subnets that App Runner should use when it associates your service
+        /// with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner
+        /// determines the Amazon VPC from the subnets you specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IndexId { get; set; }
+        [Alias("Subnets")]
+        public System.String[] Subnet { get; set; }
         #endregion
         
-        #region Parameter QueryId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The identifier of the specific query for which you are submitting feedback. The query
-        /// ID is returned in the response to the <code>Query</code> API.</para>
+        /// <para>A list of metadata items that you can associate with your VPC connector resource.
+        /// A tag is a key-value pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AppRunner.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter VpcConnectorName
+        /// <summary>
+        /// <para>
+        /// <para>A name for the VPC connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,37 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
-        #endregion
-        
-        #region Parameter RelevanceFeedbackItem
-        /// <summary>
-        /// <para>
-        /// <para>Provides Amazon Kendra with relevant or not relevant feedback for whether a particular
-        /// item was relevant to the search.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RelevanceFeedbackItems")]
-        public Amazon.Kendra.Model.RelevanceFeedback[] RelevanceFeedbackItem { get; set; }
+        public System.String VpcConnectorName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.SubmitFeedbackResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcConnector'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.CreateVpcConnectorResponse).
+        /// Specifying the name of a property of type Amazon.AppRunner.Model.CreateVpcConnectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VpcConnector";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the VpcConnectorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VpcConnectorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VpcConnectorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -138,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-KNDRFeedback (SubmitFeedback)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VpcConnectorName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AARVpcConnector (CreateVpcConnector)"))
             {
                 return;
             }
@@ -152,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.SubmitFeedbackResponse, SendKNDRFeedbackCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.CreateVpcConnectorResponse, NewAARVpcConnectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,31 +163,34 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryId;
+                context.Select = (response, cmdlet) => this.VpcConnectorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.ClickFeedbackItem != null)
+            if (this.SecurityGroup != null)
             {
-                context.ClickFeedbackItem = new List<Amazon.Kendra.Model.ClickFeedback>(this.ClickFeedbackItem);
+                context.SecurityGroup = new List<System.String>(this.SecurityGroup);
             }
-            context.IndexId = this.IndexId;
-            #if MODULAR
-            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
+            if (this.Subnet != null)
             {
-                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Subnet = new List<System.String>(this.Subnet);
+            }
+            #if MODULAR
+            if (this.Subnet == null && ParameterWasBound(nameof(this.Subnet)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Subnet which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.QueryId = this.QueryId;
-            #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.AppRunner.Model.Tag>(this.Tag);
+            }
+            context.VpcConnectorName = this.VpcConnectorName;
+            #if MODULAR
+            if (this.VpcConnectorName == null && ParameterWasBound(nameof(this.VpcConnectorName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VpcConnectorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.RelevanceFeedbackItem != null)
-            {
-                context.RelevanceFeedbackItem = new List<Amazon.Kendra.Model.RelevanceFeedback>(this.RelevanceFeedbackItem);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -200,23 +205,23 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.SubmitFeedbackRequest();
+            var request = new Amazon.AppRunner.Model.CreateVpcConnectorRequest();
             
-            if (cmdletContext.ClickFeedbackItem != null)
+            if (cmdletContext.SecurityGroup != null)
             {
-                request.ClickFeedbackItems = cmdletContext.ClickFeedbackItem;
+                request.SecurityGroups = cmdletContext.SecurityGroup;
             }
-            if (cmdletContext.IndexId != null)
+            if (cmdletContext.Subnet != null)
             {
-                request.IndexId = cmdletContext.IndexId;
+                request.Subnets = cmdletContext.Subnet;
             }
-            if (cmdletContext.QueryId != null)
+            if (cmdletContext.Tag != null)
             {
-                request.QueryId = cmdletContext.QueryId;
+                request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.RelevanceFeedbackItem != null)
+            if (cmdletContext.VpcConnectorName != null)
             {
-                request.RelevanceFeedbackItems = cmdletContext.RelevanceFeedbackItem;
+                request.VpcConnectorName = cmdletContext.VpcConnectorName;
             }
             
             CmdletOutput output;
@@ -251,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.SubmitFeedbackResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.SubmitFeedbackRequest request)
+        private Amazon.AppRunner.Model.CreateVpcConnectorResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.CreateVpcConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "SubmitFeedback");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "CreateVpcConnector");
             try
             {
                 #if DESKTOP
-                return client.SubmitFeedback(request);
+                return client.CreateVpcConnector(request);
                 #elif CORECLR
-                return client.SubmitFeedbackAsync(request).GetAwaiter().GetResult();
+                return client.CreateVpcConnectorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,12 +284,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Kendra.Model.ClickFeedback> ClickFeedbackItem { get; set; }
-            public System.String IndexId { get; set; }
-            public System.String QueryId { get; set; }
-            public List<Amazon.Kendra.Model.RelevanceFeedback> RelevanceFeedbackItem { get; set; }
-            public System.Func<Amazon.Kendra.Model.SubmitFeedbackResponse, SendKNDRFeedbackCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> SecurityGroup { get; set; }
+            public List<System.String> Subnet { get; set; }
+            public List<Amazon.AppRunner.Model.Tag> Tag { get; set; }
+            public System.String VpcConnectorName { get; set; }
+            public System.Func<Amazon.AppRunner.Model.CreateVpcConnectorResponse, NewAARVpcConnectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcConnector;
         }
         
     }

@@ -1048,12 +1048,16 @@ Set-Alias -Name Create-AARConnection -Value New-AARConnection
 Set-Alias -Name AAR-CreateConnection -Value New-AARConnection
 Set-Alias -Name Create-AARService -Value New-AARService
 Set-Alias -Name AAR-CreateService -Value New-AARService
+Set-Alias -Name Create-AARVpcConnector -Value New-AARVpcConnector
+Set-Alias -Name AAR-CreateVpcConnector -Value New-AARVpcConnector
 Set-Alias -Name Delete-AARAutoScalingConfiguration -Value Remove-AARAutoScalingConfiguration
 Set-Alias -Name AAR-DeleteAutoScalingConfiguration -Value Remove-AARAutoScalingConfiguration
 Set-Alias -Name Delete-AARConnection -Value Remove-AARConnection
 Set-Alias -Name AAR-DeleteConnection -Value Remove-AARConnection
 Set-Alias -Name Delete-AARService -Value Remove-AARService
 Set-Alias -Name AAR-DeleteService -Value Remove-AARService
+Set-Alias -Name Delete-AARVpcConnector -Value Remove-AARVpcConnector
+Set-Alias -Name AAR-DeleteVpcConnector -Value Remove-AARVpcConnector
 Set-Alias -Name Describe-AARAutoScalingConfiguration -Value Get-AARAutoScalingConfiguration
 Set-Alias -Name AAR-DescribeAutoScalingConfiguration -Value Get-AARAutoScalingConfiguration
 Set-Alias -Name Describe-AARCustomDomains -Value Get-AARCustomDomain
@@ -1061,6 +1065,8 @@ Set-Alias -Name Describe-AARCustomDomain -Value Get-AARCustomDomain
 Set-Alias -Name AAR-DescribeCustomDomains -Value Get-AARCustomDomain
 Set-Alias -Name Describe-AARService -Value Get-AARService
 Set-Alias -Name AAR-DescribeService -Value Get-AARService
+Set-Alias -Name Describe-AARVpcConnector -Value Get-AARVpcConnector
+Set-Alias -Name AAR-DescribeVpcConnector -Value Get-AARVpcConnector
 Set-Alias -Name Disassociate-AARCustomDomain -Value Remove-AARCustomDomain
 Set-Alias -Name AAR-DisassociateCustomDomain -Value Remove-AARCustomDomain
 Set-Alias -Name List-AARAutoScalingConfigurations -Value Get-AARAutoScalingConfigurationList
@@ -1076,6 +1082,9 @@ Set-Alias -Name List-AARServices -Value Get-AARServiceList
 Set-Alias -Name List-AARServiceList -Value Get-AARServiceList
 Set-Alias -Name AAR-ListServices -Value Get-AARServiceList
 Set-Alias -Name AAR-ListTagsForResource -Value Get-AARResourceTag
+Set-Alias -Name List-AARVpcConnectors -Value Get-AARVpcConnectorList
+Set-Alias -Name List-AARVpcConnectorList -Value Get-AARVpcConnectorList
+Set-Alias -Name AAR-ListVpcConnectors -Value Get-AARVpcConnectorList
 Set-Alias -Name Pause-AARService -Value Suspend-AARService
 Set-Alias -Name AAR-PauseService -Value Suspend-AARService
 Set-Alias -Name AAR-ResumeService -Value Resume-AARService

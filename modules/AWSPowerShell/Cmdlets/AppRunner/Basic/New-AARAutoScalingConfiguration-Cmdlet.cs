@@ -34,10 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// 
     ///  
     /// <para>
-    /// Create multiple revisions of a configuration by using the same <code>AutoScalingConfigurationName</code>
-    /// and different <code>AutoScalingConfigurationRevision</code> values. When you create
-    /// a service, you can set it to use the latest active revision of an auto scaling configuration
-    /// or a specific revision.
+    /// Create multiple revisions of a configuration by calling this action multiple times
+    /// using the same <code>AutoScalingConfigurationName</code>. The call returns incremental
+    /// <code>AutoScalingConfigurationRevision</code> values. When you create a service, you
+    /// can set it to use the latest active revision of an auto scaling configuration or a
+    /// specific revision.
     /// </para><para>
     /// Configure a higher <code>MinSize</code> to increase the spread of your App Runner
     /// service over more Availability Zones in the Amazon Web Services Region. The tradeoff
@@ -63,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>A name for the auto scaling configuration. When you use it for the first time in an
         /// Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
         /// name. When you use the same name in subsequent calls, App Runner creates incremental
-        /// revisions of the configuration.</para>
+        /// revisions of the configuration.</para><note><para>The name <code>DefaultConfiguration</code> is reserved (it's the configuration that
+        /// App Runner uses if you don't provide a custome one). You can't use it to create a
+        /// new auto scaling configuration, and you can't create a revision of it.</para><para>When you want to use your own auto scaling configuration for your App Runner service,
+        /// <i>create a configuration with a different name</i>, and then provide it when you
+        /// create or update your service.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

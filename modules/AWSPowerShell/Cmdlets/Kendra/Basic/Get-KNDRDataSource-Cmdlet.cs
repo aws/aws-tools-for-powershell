@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets information about a Amazon Kendra data source.
+    /// Gets information about an Amazon Kendra data source.
     /// </summary>
     [Cmdlet("Get", "KNDRDataSource")]
     [OutputType("Amazon.Kendra.Model.DescribeDataSourceResponse")]

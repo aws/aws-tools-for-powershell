@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create a FAQ. Multiple calls to
-        /// the <code>CreateFaqRequest</code> operation with the same client token will create
-        /// only one FAQ. </para>
+        /// the <code>CreateFaqRequest</code> API with the same client token will create only
+        /// one FAQ. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

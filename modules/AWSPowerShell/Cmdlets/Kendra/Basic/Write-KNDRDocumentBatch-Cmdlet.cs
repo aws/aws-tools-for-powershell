@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// 
     ///  
     /// <para>
-    /// The <code>BatchPutDocument</code> operation enables you to ingest inline documents
-    /// or a set of documents stored in an Amazon S3 bucket. Use this operation to ingest
-    /// your text and unstructured text into an index, add custom attributes to the documents,
-    /// and to attach an access control list to the documents added to the index.
+    /// The <code>BatchPutDocument</code> API enables you to ingest inline documents or a
+    /// set of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
+    /// unstructured text into an index, add custom attributes to the documents, and to attach
+    /// an access control list to the documents added to the index.
     /// </para><para>
     /// The documents are indexed asynchronously. You can see the progress of the batch using
     /// Amazon Web Services CloudWatch. Any error messages related to processing the batch
@@ -107,10 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>One or more documents to add to the index.</para><para>Documents can include custom attributes. For example, 'DataSourceId' and 'DataSourceSyncJobId'
-        /// are custom attributes that provide information on the synchronization of documents
-        /// running on a data source. Note, 'DataSourceSyncJobId' could be an optional custom
-        /// attribute as Amazon Kendra will use the ID of a running sync job.</para><para>Documents have the following file size limits.</para><ul><li><para>5 MB total size for inline documents</para></li><li><para>50 MB total size for files from an S3 bucket</para></li><li><para>5 MB extracted text for any file</para></li></ul><para>For more information about file size and transaction per second quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
+        /// <para>One or more documents to add to the index.</para><para>Documents have the following file size limits.</para><ul><li><para>5 MB total size for inline documents</para></li><li><para>50 MB total size for files from an S3 bucket</para></li><li><para>5 MB extracted text for any file</para></li></ul><para>For more information about file size and transaction per second quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the index to add the documents to. You need to create the index
-        /// first using the <code>CreateIndex</code> operation.</para>
+        /// first using the <code>CreateIndex</code> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -244,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role that is allowed to run the <code>BatchPutDocument</code>
-        /// operation. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// API. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// Roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

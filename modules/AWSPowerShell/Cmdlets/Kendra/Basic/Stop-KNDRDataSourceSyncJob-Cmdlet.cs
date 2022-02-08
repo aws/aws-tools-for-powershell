@@ -28,7 +28,8 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Stops a running synchronization job. You can't stop a scheduled synchronization job.
+    /// Stops a synchronization job that is currently running. You can't stop a scheduled
+    /// synchronization job.
     /// </summary>
     [Cmdlet("Stop", "KNDRDataSourceSyncJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

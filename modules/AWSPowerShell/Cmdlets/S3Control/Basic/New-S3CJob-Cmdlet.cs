@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3
     /// objects. Batch Operations can run a single action on lists of Amazon S3 objects that
-    /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  
@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter ManifestOutputLocation_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The bucket ARN the generated manifest should be written to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_Bucket")]
+        public System.String ManifestOutputLocation_Bucket { get; set; }
         #endregion
         
         #region Parameter Report_Bucket
@@ -239,6 +250,30 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String NewObjectMetadata_ContentType { get; set; }
         #endregion
         
+        #region Parameter Filter_CreatedAfter
+        /// <summary>
+        /// <para>
+        /// <para>If provided, the generated manifest should include only source bucket objects that
+        /// were created after this time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_Filter_CreatedAfter")]
+        public System.DateTime? Filter_CreatedAfter { get; set; }
+        #endregion
+        
+        #region Parameter Filter_CreatedBefore
+        /// <summary>
+        /// <para>
+        /// <para>If provided, the generated manifest should include only source bucket objects that
+        /// were created before this time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_Filter_CreatedBefore")]
+        public System.DateTime? Filter_CreatedBefore { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -261,6 +296,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String Owner_DisplayName { get; set; }
         #endregion
         
+        #region Parameter Filter_EligibleForReplication
+        /// <summary>
+        /// <para>
+        /// <para>Include objects in the generated manifest only if they are eligible for replication
+        /// according to the Replication configuration on the source bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_Filter_EligibleForReplication")]
+        public System.Boolean? Filter_EligibleForReplication { get; set; }
+        #endregion
+        
         #region Parameter Report_Enabled
         /// <summary>
         /// <para>
@@ -277,39 +324,66 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? Report_Enabled { get; set; }
         #endregion
         
+        #region Parameter S3JobManifestGenerator_EnableManifestOutput
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether or not to write the job's generated manifest to a bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_EnableManifestOutput")]
+        public System.Boolean? S3JobManifestGenerator_EnableManifestOutput { get; set; }
+        #endregion
+        
         #region Parameter Location_ETag
         /// <summary>
         /// <para>
         /// <para>The ETag for the specified manifest object.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Manifest_Location_ETag")]
         public System.String Location_ETag { get; set; }
+        #endregion
+        
+        #region Parameter S3JobManifestGenerator_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that owns the bucket the generated manifest is
+        /// written to. If provided the generated manifest bucket's owner Amazon Web Services
+        /// account ID must match this value, else the job fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ExpectedBucketOwner")]
+        public System.String S3JobManifestGenerator_ExpectedBucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter ManifestOutputLocation_ExpectedManifestBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Account ID that owns the bucket the generated manifest is written to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ExpectedManifestBucketOwner")]
+        public System.String ManifestOutputLocation_ExpectedManifestBucketOwner { get; set; }
         #endregion
         
         #region Parameter S3InitiateRestoreObject_ExpirationInDay
         /// <summary>
         /// <para>
-        /// <para>This argument specifies how long the S3 Glacier Flexible Retrieval or S3 Glacier Deep
-        /// Archive object remains available in Amazon S3. S3 Initiate Restore Object jobs that
-        /// target S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code>
-        /// set to 1 or greater.</para><para>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when creating S3 Initiate
+        /// <para>This argument specifies how long the S3 Glacier or S3 Glacier Deep Archive object
+        /// remains available in Amazon S3. S3 Initiate Restore Object jobs that target S3 Glacier
+        /// and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
+        /// or greater.</para><para>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when creating S3 Initiate
         /// Restore Object jobs that target S3 Intelligent-Tiering Archive Access and Deep Archive
         /// Access tier objects. Objects in S3 Intelligent-Tiering archive access tiers are not
         /// subject to restore expiry, so specifying <code>ExpirationInDays</code> results in
-        /// restore request failure.</para><para>S3 Batch Operations jobs can operate either on S3 Glacier Flexible Retrieval and S3
-        /// Glacier Deep Archive storage class objects or on S3 Intelligent-Tiering Archive Access
-        /// and Deep Archive Access storage tier objects, but not both types in the same job.
-        /// If you need to restore objects of both types you <i>must</i> create separate Batch
-        /// Operations jobs. </para>
+        /// restore request failure.</para><para>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive
+        /// storage class objects or on S3 Intelligent-Tiering Archive Access and Deep Archive
+        /// Access storage tier objects, but not both types in the same job. If you need to restore
+        /// objects of both types you <i>must</i> create separate Batch Operations jobs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -335,13 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>Indicates which of the available formats the specified manifest uses.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Manifest_Spec_Format")]
         [AWSConstantClassSource("Amazon.S3Control.JobManifestFormat")]
         public Amazon.S3Control.JobManifestFormat Spec_Format { get; set; }
@@ -416,6 +484,41 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String Owner_ID { get; set; }
         #endregion
         
+        #region Parameter SSEKMS_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services
+        /// KMS) symmetric customer managed key to use for encrypting generated manifest objects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_KeyId")]
+        public System.String SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter ManifestOutputLocation_ManifestFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the generated manifest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat")]
+        [AWSConstantClassSource("Amazon.S3Control.GeneratedManifestFormat")]
+        public Amazon.S3Control.GeneratedManifestFormat ManifestOutputLocation_ManifestFormat { get; set; }
+        #endregion
+        
+        #region Parameter ManifestOutputLocation_ManifestPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Prefix identifying one or more objects to which the manifest applies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestPrefix")]
+        public System.String ManifestOutputLocation_ManifestPrefix { get; set; }
+        #endregion
+        
         #region Parameter S3PutObjectCopy_MetadataDirective
         /// <summary>
         /// <para>
@@ -471,14 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// XML related object key constraints</a>.</para></important>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Manifest_Location_ObjectArn")]
         public System.String Location_ObjectArn { get; set; }
         #endregion
@@ -517,6 +613,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Operation_S3PutObjectCopy_ObjectLockRetainUntilDate")]
         public System.DateTime? S3PutObjectCopy_ObjectLockRetainUntilDate { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ObjectReplicationStatus
+        /// <summary>
+        /// <para>
+        /// <para>If provided, the generated manifest should include only source bucket objects that
+        /// have one of the specified Replication statuses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_Filter_ObjectReplicationStatuses")]
+        public System.String[] Filter_ObjectReplicationStatus { get; set; }
         #endregion
         
         #region Parameter Location_ObjectVersionId
@@ -644,6 +752,28 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
         #endregion
         
+        #region Parameter Operation_S3ReplicateObject
+        /// <summary>
+        /// <para>
+        /// <para>Directs the specified job to invoke <code>ReplicateObject</code> on every object in
+        /// the job's manifest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.S3Control.Model.S3ReplicateObjectOperation Operation_S3ReplicateObject { get; set; }
+        #endregion
+        
+        #region Parameter S3JobManifestGenerator_SourceBucket
+        /// <summary>
+        /// <para>
+        /// <para>The source bucket used by the ManifestGenerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_SourceBucket")]
+        public System.String S3JobManifestGenerator_SourceBucket { get; set; }
+        #endregion
+        
         #region Parameter NewObjectMetadata_SSEAlgorithm
         /// <summary>
         /// <para>
@@ -665,6 +795,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Operation_S3PutObjectCopy_SSEAwsKmsKeyId")]
         public System.String S3PutObjectCopy_SSEAwsKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ManifestEncryption_SSES3
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the use of SSE-S3 to encrypt generated manifest objects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSES3")]
+        public Amazon.S3Control.Model.SSES3Encryption ManifestEncryption_SSES3 { get; set; }
         #endregion
         
         #region Parameter LegalHold_Status
@@ -834,31 +975,29 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             context.ConfirmationRequired = this.ConfirmationRequired;
             context.Description = this.Description;
             context.Location_ETag = this.Location_ETag;
-            #if MODULAR
-            if (this.Location_ETag == null && ParameterWasBound(nameof(this.Location_ETag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Location_ETag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Location_ObjectArn = this.Location_ObjectArn;
-            #if MODULAR
-            if (this.Location_ObjectArn == null && ParameterWasBound(nameof(this.Location_ObjectArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Location_ObjectArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Location_ObjectVersionId = this.Location_ObjectVersionId;
             if (this.Spec_Field != null)
             {
                 context.Spec_Field = new List<System.String>(this.Spec_Field);
             }
             context.Spec_Format = this.Spec_Format;
-            #if MODULAR
-            if (this.Spec_Format == null && ParameterWasBound(nameof(this.Spec_Format)))
+            context.S3JobManifestGenerator_EnableManifestOutput = this.S3JobManifestGenerator_EnableManifestOutput;
+            context.S3JobManifestGenerator_ExpectedBucketOwner = this.S3JobManifestGenerator_ExpectedBucketOwner;
+            context.Filter_CreatedAfter = this.Filter_CreatedAfter;
+            context.Filter_CreatedBefore = this.Filter_CreatedBefore;
+            context.Filter_EligibleForReplication = this.Filter_EligibleForReplication;
+            if (this.Filter_ObjectReplicationStatus != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Spec_Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Filter_ObjectReplicationStatus = new List<System.String>(this.Filter_ObjectReplicationStatus);
             }
-            #endif
+            context.ManifestOutputLocation_Bucket = this.ManifestOutputLocation_Bucket;
+            context.ManifestOutputLocation_ExpectedManifestBucketOwner = this.ManifestOutputLocation_ExpectedManifestBucketOwner;
+            context.SSEKMS_KeyId = this.SSEKMS_KeyId;
+            context.ManifestEncryption_SSES3 = this.ManifestEncryption_SSES3;
+            context.ManifestOutputLocation_ManifestFormat = this.ManifestOutputLocation_ManifestFormat;
+            context.ManifestOutputLocation_ManifestPrefix = this.ManifestOutputLocation_ManifestPrefix;
+            context.S3JobManifestGenerator_SourceBucket = this.S3JobManifestGenerator_SourceBucket;
             context.LambdaInvoke_FunctionArn = this.LambdaInvoke_FunctionArn;
             context.Operation_S3DeleteObjectTagging = this.Operation_S3DeleteObjectTagging;
             context.S3InitiateRestoreObject_ExpirationInDay = this.S3InitiateRestoreObject_ExpirationInDay;
@@ -918,6 +1057,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.S3PutObjectTagging_TagSet = new List<Amazon.S3Control.Model.S3Tag>(this.S3PutObjectTagging_TagSet);
             }
+            context.Operation_S3ReplicateObject = this.Operation_S3ReplicateObject;
             context.Priority = this.Priority;
             #if MODULAR
             if (this.Priority == null && ParameterWasBound(nameof(this.Priority)))
@@ -1069,6 +1209,220 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.Manifest = null;
             }
             
+             // populate ManifestGenerator
+            var requestManifestGeneratorIsNull = true;
+            request.ManifestGenerator = new Amazon.S3Control.Model.JobManifestGenerator();
+            Amazon.S3Control.Model.S3JobManifestGenerator requestManifestGenerator_manifestGenerator_S3JobManifestGenerator = null;
+            
+             // populate S3JobManifestGenerator
+            var requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = true;
+            requestManifestGenerator_manifestGenerator_S3JobManifestGenerator = new Amazon.S3Control.Model.S3JobManifestGenerator();
+            System.Boolean? requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_EnableManifestOutput = null;
+            if (cmdletContext.S3JobManifestGenerator_EnableManifestOutput != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_EnableManifestOutput = cmdletContext.S3JobManifestGenerator_EnableManifestOutput.Value;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_EnableManifestOutput != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator.EnableManifestOutput = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_EnableManifestOutput.Value;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = false;
+            }
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_ExpectedBucketOwner = null;
+            if (cmdletContext.S3JobManifestGenerator_ExpectedBucketOwner != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_ExpectedBucketOwner = cmdletContext.S3JobManifestGenerator_ExpectedBucketOwner;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_ExpectedBucketOwner != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator.ExpectedBucketOwner = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_ExpectedBucketOwner;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = false;
+            }
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_SourceBucket = null;
+            if (cmdletContext.S3JobManifestGenerator_SourceBucket != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_SourceBucket = cmdletContext.S3JobManifestGenerator_SourceBucket;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_SourceBucket != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator.SourceBucket = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_s3JobManifestGenerator_SourceBucket;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = false;
+            }
+            Amazon.S3Control.Model.JobManifestGeneratorFilter requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter = null;
+            
+             // populate Filter
+            var requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = true;
+            requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter = new Amazon.S3Control.Model.JobManifestGeneratorFilter();
+            System.DateTime? requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedAfter = null;
+            if (cmdletContext.Filter_CreatedAfter != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedAfter = cmdletContext.Filter_CreatedAfter.Value;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedAfter != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.CreatedAfter = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedAfter.Value;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
+            }
+            System.DateTime? requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedBefore = null;
+            if (cmdletContext.Filter_CreatedBefore != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedBefore = cmdletContext.Filter_CreatedBefore.Value;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedBefore != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.CreatedBefore = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_CreatedBefore.Value;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
+            }
+            System.Boolean? requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication = null;
+            if (cmdletContext.Filter_EligibleForReplication != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication = cmdletContext.Filter_EligibleForReplication.Value;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.EligibleForReplication = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication.Value;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
+            }
+            List<System.String> requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_ObjectReplicationStatus = null;
+            if (cmdletContext.Filter_ObjectReplicationStatus != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_ObjectReplicationStatus = cmdletContext.Filter_ObjectReplicationStatus;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_ObjectReplicationStatus != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.ObjectReplicationStatuses = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_ObjectReplicationStatus;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
+            }
+             // determine if requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter should be set to null
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter = null;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator.Filter = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = false;
+            }
+            Amazon.S3Control.Model.S3ManifestOutputLocation requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation = null;
+            
+             // populate ManifestOutputLocation
+            var requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = true;
+            requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation = new Amazon.S3Control.Model.S3ManifestOutputLocation();
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_Bucket = null;
+            if (cmdletContext.ManifestOutputLocation_Bucket != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_Bucket = cmdletContext.ManifestOutputLocation_Bucket;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_Bucket != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation.Bucket = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_Bucket;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = false;
+            }
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ExpectedManifestBucketOwner = null;
+            if (cmdletContext.ManifestOutputLocation_ExpectedManifestBucketOwner != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ExpectedManifestBucketOwner = cmdletContext.ManifestOutputLocation_ExpectedManifestBucketOwner;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ExpectedManifestBucketOwner != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation.ExpectedManifestBucketOwner = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ExpectedManifestBucketOwner;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = false;
+            }
+            Amazon.S3Control.GeneratedManifestFormat requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestFormat = null;
+            if (cmdletContext.ManifestOutputLocation_ManifestFormat != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestFormat = cmdletContext.ManifestOutputLocation_ManifestFormat;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestFormat != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation.ManifestFormat = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestFormat;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = false;
+            }
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestPrefix = null;
+            if (cmdletContext.ManifestOutputLocation_ManifestPrefix != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestPrefix = cmdletContext.ManifestOutputLocation_ManifestPrefix;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestPrefix != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation.ManifestPrefix = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestOutputLocation_ManifestPrefix;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = false;
+            }
+            Amazon.S3Control.Model.GeneratedManifestEncryption requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption = null;
+            
+             // populate ManifestEncryption
+            var requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryptionIsNull = true;
+            requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption = new Amazon.S3Control.Model.GeneratedManifestEncryption();
+            Amazon.S3Control.Model.SSES3Encryption requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestEncryption_SSES3 = null;
+            if (cmdletContext.ManifestEncryption_SSES3 != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestEncryption_SSES3 = cmdletContext.ManifestEncryption_SSES3;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestEncryption_SSES3 != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption.SSES3 = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestEncryption_SSES3;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryptionIsNull = false;
+            }
+            Amazon.S3Control.Model.SSEKMSEncryption requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            var requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMSIsNull = true;
+            requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS = new Amazon.S3Control.Model.SSEKMSEncryption();
+            System.String requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_sSEKMS_KeyId = null;
+            if (cmdletContext.SSEKMS_KeyId != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_sSEKMS_KeyId = cmdletContext.SSEKMS_KeyId;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_sSEKMS_KeyId != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS.KeyId = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS_sSEKMS_KeyId;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMSIsNull = false;
+            }
+             // determine if requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS should be set to null
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMSIsNull)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS = null;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption.SSEKMS = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption_SSEKMS;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryptionIsNull = false;
+            }
+             // determine if requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption should be set to null
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryptionIsNull)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption = null;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation.ManifestEncryption = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestEncryption;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull = false;
+            }
+             // determine if requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation should be set to null
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocationIsNull)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation = null;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator.ManifestOutputLocation = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_ManifestOutputLocation;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull = false;
+            }
+             // determine if requestManifestGenerator_manifestGenerator_S3JobManifestGenerator should be set to null
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGeneratorIsNull)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator = null;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator != null)
+            {
+                request.ManifestGenerator.S3JobManifestGenerator = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator;
+                requestManifestGeneratorIsNull = false;
+            }
+             // determine if request.ManifestGenerator should be set to null
+            if (requestManifestGeneratorIsNull)
+            {
+                request.ManifestGenerator = null;
+            }
+            
              // populate Operation
             var requestOperationIsNull = true;
             request.Operation = new Amazon.S3Control.Model.JobOperation();
@@ -1080,6 +1434,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3DeleteObjectTagging != null)
             {
                 request.Operation.S3DeleteObjectTagging = requestOperation_operation_S3DeleteObjectTagging;
+                requestOperationIsNull = false;
+            }
+            Amazon.S3Control.Model.S3ReplicateObjectOperation requestOperation_operation_S3ReplicateObject = null;
+            if (cmdletContext.Operation_S3ReplicateObject != null)
+            {
+                requestOperation_operation_S3ReplicateObject = cmdletContext.Operation_S3ReplicateObject;
+            }
+            if (requestOperation_operation_S3ReplicateObject != null)
+            {
+                request.Operation.S3ReplicateObject = requestOperation_operation_S3ReplicateObject;
                 requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.LambdaInvokeOperation requestOperation_operation_LambdaInvoke = null;
@@ -1813,6 +2177,19 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String Location_ObjectVersionId { get; set; }
             public List<System.String> Spec_Field { get; set; }
             public Amazon.S3Control.JobManifestFormat Spec_Format { get; set; }
+            public System.Boolean? S3JobManifestGenerator_EnableManifestOutput { get; set; }
+            public System.String S3JobManifestGenerator_ExpectedBucketOwner { get; set; }
+            public System.DateTime? Filter_CreatedAfter { get; set; }
+            public System.DateTime? Filter_CreatedBefore { get; set; }
+            public System.Boolean? Filter_EligibleForReplication { get; set; }
+            public List<System.String> Filter_ObjectReplicationStatus { get; set; }
+            public System.String ManifestOutputLocation_Bucket { get; set; }
+            public System.String ManifestOutputLocation_ExpectedManifestBucketOwner { get; set; }
+            public System.String SSEKMS_KeyId { get; set; }
+            public Amazon.S3Control.Model.SSES3Encryption ManifestEncryption_SSES3 { get; set; }
+            public Amazon.S3Control.GeneratedManifestFormat ManifestOutputLocation_ManifestFormat { get; set; }
+            public System.String ManifestOutputLocation_ManifestPrefix { get; set; }
+            public System.String S3JobManifestGenerator_SourceBucket { get; set; }
             public System.String LambdaInvoke_FunctionArn { get; set; }
             public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
             public System.Int32? S3InitiateRestoreObject_ExpirationInDay { get; set; }
@@ -1853,6 +2230,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public Amazon.S3Control.S3ObjectLockRetentionMode Retention_Mode { get; set; }
             public System.DateTime? Retention_RetainUntilDate { get; set; }
             public List<Amazon.S3Control.Model.S3Tag> S3PutObjectTagging_TagSet { get; set; }
+            public Amazon.S3Control.Model.S3ReplicateObjectOperation Operation_S3ReplicateObject { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Report_Bucket { get; set; }
             public System.Boolean? Report_Enabled { get; set; }

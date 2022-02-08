@@ -2970,6 +2970,16 @@ $AAR_Completers = {
             break
         }
 
+        # Amazon.AppRunner.EgressType
+        {
+            ($_ -eq "New-AARService/NetworkConfiguration_EgressConfiguration_EgressType") -Or
+            ($_ -eq "Update-AARService/NetworkConfiguration_EgressConfiguration_EgressType")
+        }
+        {
+            $v = "DEFAULT","VPC"
+            break
+        }
+
         # Amazon.AppRunner.HealthCheckProtocol
         {
             ($_ -eq "New-AARService/HealthCheckConfiguration_Protocol") -Or
@@ -3027,6 +3037,7 @@ $AAR_Completers = {
 
 $AAR_map = @{
     "HealthCheckConfiguration_Protocol"=@("New-AARService","Update-AARService")
+    "NetworkConfiguration_EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
     "ProviderType"=@("New-AARConnection")
     "SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
     "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
@@ -3088,18 +3099,22 @@ $AAR_SelectMap = @{
                "New-AARAutoScalingConfiguration",
                "New-AARConnection",
                "New-AARService",
+               "New-AARVpcConnector",
                "Remove-AARAutoScalingConfiguration",
                "Remove-AARConnection",
                "Remove-AARService",
+               "Remove-AARVpcConnector",
                "Get-AARAutoScalingConfiguration",
                "Get-AARCustomDomain",
                "Get-AARService",
+               "Get-AARVpcConnector",
                "Remove-AARCustomDomain",
                "Get-AARAutoScalingConfigurationList",
                "Get-AARConnectionList",
                "Get-AAROperationList",
                "Get-AARServiceList",
                "Get-AARResourceTag",
+               "Get-AARVpcConnectorList",
                "Suspend-AARService",
                "Resume-AARService",
                "Start-AARDeployment",
@@ -26803,7 +26818,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER","WORKDOCS"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","FSX","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -40685,6 +40700,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.GeneratedManifestFormat
+        "New-S3CJob/ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat"
+        {
+            $v = "S3InventoryReport_CSV_20211130"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Manifest_Spec_Format"
         {
@@ -40778,7 +40800,7 @@ $S3C_Completers = {
         # Amazon.S3Control.S3StorageClass
         "New-S3CJob/Operation_S3PutObjectCopy_StorageClass"
         {
-            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","STANDARD","STANDARD_IA"
             break
         }
 
@@ -40794,6 +40816,7 @@ $S3C_map = @{
     "ACL"=@("New-S3CBucket")
     "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
     "Manifest_Spec_Format"=@("New-S3CJob")
+    "ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "Operation_S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "Operation_S3PutObjectAcl_AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_CannedAccessControlList"=@("New-S3CJob")

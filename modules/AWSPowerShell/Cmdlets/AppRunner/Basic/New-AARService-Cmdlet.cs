@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource
-        /// that you want to associate with your service. If not provided, App Runner associates
-        /// the latest revision of a default auto scaling configuration.</para>
+        /// that you want to associate with the App Runner service. If not provided, App Runner
+        /// associates the latest revision of a default auto scaling configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,6 +133,18 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceConfiguration_Cpu { get; set; }
+        #endregion
+        
+        #region Parameter EgressConfiguration_EgressType
+        /// <summary>
+        /// <para>
+        /// <para>The type of egress configuration.</para><para>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</para><para>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_EgressConfiguration_EgressType")]
+        [AWSConstantClassSource("Amazon.AppRunner.EgressType")]
+        public Amazon.AppRunner.EgressType EgressConfiguration_EgressType { get; set; }
         #endregion
         
         #region Parameter HealthCheckConfiguration_HealthyThreshold
@@ -311,8 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>A name for the new service. It must be unique across all the running App Runner services
-        /// in your Amazon Web Services account in the Amazon Web Services Region.</para>
+        /// <para>A name for the App Runner service. It must be unique across all the running App Runner
+        /// services in your Amazon Web Services account in the Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -352,8 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An optional list of metadata items that you can associate with your service resource.
-        /// A tag is a key-value pair.</para>
+        /// <para>An optional list of metadata items that you can associate with the App Runner service
+        /// resource. A tag is a key-value pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -404,6 +416,18 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SourceConfiguration_CodeRepository_SourceCodeVersion_Value")]
         public System.String SourceCodeVersion_Value { get; set; }
+        #endregion
+        
+        #region Parameter EgressConfiguration_VpcConnectorArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate
+        /// with your App Runner service. Only valid when <code>EgressType = VPC</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_EgressConfiguration_VpcConnectorArn")]
+        public System.String EgressConfiguration_VpcConnectorArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -478,6 +502,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.InstanceConfiguration_Cpu = this.InstanceConfiguration_Cpu;
             context.InstanceConfiguration_InstanceRoleArn = this.InstanceConfiguration_InstanceRoleArn;
             context.InstanceConfiguration_Memory = this.InstanceConfiguration_Memory;
+            context.EgressConfiguration_EgressType = this.EgressConfiguration_EgressType;
+            context.EgressConfiguration_VpcConnectorArn = this.EgressConfiguration_VpcConnectorArn;
             context.ServiceName = this.ServiceName;
             #if MODULAR
             if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
@@ -666,6 +692,50 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestInstanceConfigurationIsNull)
             {
                 request.InstanceConfiguration = null;
+            }
+            
+             // populate NetworkConfiguration
+            var requestNetworkConfigurationIsNull = true;
+            request.NetworkConfiguration = new Amazon.AppRunner.Model.NetworkConfiguration();
+            Amazon.AppRunner.Model.EgressConfiguration requestNetworkConfiguration_networkConfiguration_EgressConfiguration = null;
+            
+             // populate EgressConfiguration
+            var requestNetworkConfiguration_networkConfiguration_EgressConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_EgressConfiguration = new Amazon.AppRunner.Model.EgressConfiguration();
+            Amazon.AppRunner.EgressType requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_EgressType = null;
+            if (cmdletContext.EgressConfiguration_EgressType != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_EgressType = cmdletContext.EgressConfiguration_EgressType;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_EgressType != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_EgressConfiguration.EgressType = requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_EgressType;
+                requestNetworkConfiguration_networkConfiguration_EgressConfigurationIsNull = false;
+            }
+            System.String requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_VpcConnectorArn = null;
+            if (cmdletContext.EgressConfiguration_VpcConnectorArn != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_VpcConnectorArn = cmdletContext.EgressConfiguration_VpcConnectorArn;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_VpcConnectorArn != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_EgressConfiguration.VpcConnectorArn = requestNetworkConfiguration_networkConfiguration_EgressConfiguration_egressConfiguration_VpcConnectorArn;
+                requestNetworkConfiguration_networkConfiguration_EgressConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_EgressConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_EgressConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_EgressConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_EgressConfiguration != null)
+            {
+                request.NetworkConfiguration.EgressConfiguration = requestNetworkConfiguration_networkConfiguration_EgressConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
+             // determine if request.NetworkConfiguration should be set to null
+            if (requestNetworkConfigurationIsNull)
+            {
+                request.NetworkConfiguration = null;
             }
             if (cmdletContext.ServiceName != null)
             {
@@ -1031,6 +1101,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public System.String InstanceConfiguration_Cpu { get; set; }
             public System.String InstanceConfiguration_InstanceRoleArn { get; set; }
             public System.String InstanceConfiguration_Memory { get; set; }
+            public Amazon.AppRunner.EgressType EgressConfiguration_EgressType { get; set; }
+            public System.String EgressConfiguration_VpcConnectorArn { get; set; }
             public System.String ServiceName { get; set; }
             public System.String AuthenticationConfiguration_AccessRoleArn { get; set; }
             public System.String AuthenticationConfiguration_ConnectionArn { get; set; }

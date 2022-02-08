@@ -22,49 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kendra;
-using Amazon.Kendra.Model;
+using Amazon.AppRunner;
+using Amazon.AppRunner.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KNDR
+namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Deletes an Amazon Kendra data source. An exception is not thrown if the data source
-    /// is already being deleted. While the data source is being deleted, the <code>Status</code>
-    /// field returned by a call to the <code>DescribeDataSource</code> API is set to <code>DELETING</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting
-    /// Data Sources</a>.
+    /// Delete an App Runner VPC connector resource. You can't delete a connector that's used
+    /// by one or more App Runner services.
     /// </summary>
-    [Cmdlet("Remove", "KNDRDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kendra DeleteDataSource API operation.", Operation = new[] {"DeleteDataSource"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteDataSourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteDataSourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "AARVpcConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.AppRunner.Model.VpcConnector")]
+    [AWSCmdlet("Calls the AWS App Runner DeleteVpcConnector API operation.", Operation = new[] {"DeleteVpcConnector"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DeleteVpcConnectorResponse))]
+    [AWSCmdletOutput("Amazon.AppRunner.Model.VpcConnector or Amazon.AppRunner.Model.DeleteVpcConnectorResponse",
+        "This cmdlet returns an Amazon.AppRunner.Model.VpcConnector object.",
+        "The service call response (type Amazon.AppRunner.Model.DeleteVpcConnectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveKNDRDataSourceCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class RemoveAARVpcConnectorCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter VpcConnectorArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter IndexId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the index associated with the data source.</para>
+        /// <para>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</para><para>The ARN must be a full VPC connector ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,25 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IndexId { get; set; }
+        public System.String VpcConnectorArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.DeleteDataSourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcConnector'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.DeleteVpcConnectorResponse).
+        /// Specifying the name of a property of type Amazon.AppRunner.Model.DeleteVpcConnectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VpcConnector";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IndexId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the VpcConnectorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VpcConnectorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VpcConnectorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KNDRDataSource (DeleteDataSource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VpcConnectorArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AARVpcConnector (DeleteVpcConnector)"))
             {
                 return;
             }
@@ -126,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.DeleteDataSourceResponse, RemoveKNDRDataSourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.DeleteVpcConnectorResponse, RemoveAARVpcConnectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IndexId;
+                context.Select = (response, cmdlet) => this.VpcConnectorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.VpcConnectorArn = this.VpcConnectorArn;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.VpcConnectorArn == null && ParameterWasBound(nameof(this.VpcConnectorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.IndexId = this.IndexId;
-            #if MODULAR
-            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VpcConnectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.DeleteDataSourceRequest();
+            var request = new Amazon.AppRunner.Model.DeleteVpcConnectorRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.VpcConnectorArn != null)
             {
-                request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.IndexId != null)
-            {
-                request.IndexId = cmdletContext.IndexId;
+                request.VpcConnectorArn = cmdletContext.VpcConnectorArn;
             }
             
             CmdletOutput output;
@@ -209,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.DeleteDataSourceResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.DeleteDataSourceRequest request)
+        private Amazon.AppRunner.Model.DeleteVpcConnectorResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.DeleteVpcConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "DeleteDataSource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "DeleteVpcConnector");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataSource(request);
+                return client.DeleteVpcConnector(request);
                 #elif CORECLR
-                return client.DeleteDataSourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteVpcConnectorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.String IndexId { get; set; }
-            public System.Func<Amazon.Kendra.Model.DeleteDataSourceResponse, RemoveKNDRDataSourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String VpcConnectorArn { get; set; }
+            public System.Func<Amazon.AppRunner.Model.DeleteVpcConnectorResponse, RemoveAARVpcConnectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcConnector;
         }
         
     }

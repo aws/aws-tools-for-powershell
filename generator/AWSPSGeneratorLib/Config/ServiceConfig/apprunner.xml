@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcConnector" OutputProperty="VpcConnector" Verb="New" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorName" PipelineParameter="VpcConnectorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Remove" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcConnector" OutputProperty="VpcConnector" Verb="Remove" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorArn" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Get" Noun="AutoScalingConfiguration" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcConnector" OutputProperty="VpcConnector" Verb="Get" Noun="VpcConnector" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcConnectors" OutputProperty="VpcConnectors" Verb="Get" Noun="VpcConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

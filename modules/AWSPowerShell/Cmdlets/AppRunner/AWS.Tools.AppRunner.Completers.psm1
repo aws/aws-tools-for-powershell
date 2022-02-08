@@ -90,6 +90,16 @@ $AAR_Completers = {
             break
         }
 
+        # Amazon.AppRunner.EgressType
+        {
+            ($_ -eq "New-AARService/NetworkConfiguration_EgressConfiguration_EgressType") -Or
+            ($_ -eq "Update-AARService/NetworkConfiguration_EgressConfiguration_EgressType")
+        }
+        {
+            $v = "DEFAULT","VPC"
+            break
+        }
+
         # Amazon.AppRunner.HealthCheckProtocol
         {
             ($_ -eq "New-AARService/HealthCheckConfiguration_Protocol") -Or
@@ -147,6 +157,7 @@ $AAR_Completers = {
 
 $AAR_map = @{
     "HealthCheckConfiguration_Protocol"=@("New-AARService","Update-AARService")
+    "NetworkConfiguration_EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
     "ProviderType"=@("New-AARConnection")
     "SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
     "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
@@ -208,18 +219,22 @@ $AAR_SelectMap = @{
                "New-AARAutoScalingConfiguration",
                "New-AARConnection",
                "New-AARService",
+               "New-AARVpcConnector",
                "Remove-AARAutoScalingConfiguration",
                "Remove-AARConnection",
                "Remove-AARService",
+               "Remove-AARVpcConnector",
                "Get-AARAutoScalingConfiguration",
                "Get-AARCustomDomain",
                "Get-AARService",
+               "Get-AARVpcConnector",
                "Remove-AARCustomDomain",
                "Get-AARAutoScalingConfigurationList",
                "Get-AARConnectionList",
                "Get-AAROperationList",
                "Get-AARServiceList",
                "Get-AARResourceTag",
+               "Get-AARVpcConnectorList",
                "Suspend-AARService",
                "Resume-AARService",
                "Start-AARDeployment",
