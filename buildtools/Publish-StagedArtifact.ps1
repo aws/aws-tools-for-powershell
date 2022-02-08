@@ -78,6 +78,12 @@ $awsPowerShellCoreModuleLocation = Join-Path $currentLocation "AWSPowerShell.Net
 $awsPowerShellModularModulesLocation = Join-Path $currentLocation "AWS.Tools"
 
 if (-not $DryRun) {
+    if (-not (Get-Module -ListAvailable -Name AWS.Tools.SecretsManager | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
+        Write-Host "Installing AWS.Tools.SecretsManager $RequiredAWSPowerShellVersionToUse"
+        Install-Module -Name AWS.Tools.SecretsManager -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
+    }
+    Import-Module -Name AWS.Tools.SecretsManager -RequiredVersion $RequiredAWSPowerShellVersionToUse
+
     $ApiKey = ((Get-SECSecretValue -SecretId $SecretId -Region $SecretRegion -ProfileName $SecretReaderProfile).SecretString | ConvertFrom-Json).$SecretKey
 }
 
