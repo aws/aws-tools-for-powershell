@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LoggingConfig_LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The Amazon CloudWatch log group to which CloudFormation sends error logging information
+        /// <para>The Amazon CloudWatch Logs group to which CloudFormation sends error logging information
         /// when invoking the extension's handlers.</para>
         /// </para>
         /// </summary>
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LoggingConfig_LogRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that CloudFormation should assume when sending log entries to
-        /// CloudWatch logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the role that CloudFormation should assume when
+        /// sending log entries to CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

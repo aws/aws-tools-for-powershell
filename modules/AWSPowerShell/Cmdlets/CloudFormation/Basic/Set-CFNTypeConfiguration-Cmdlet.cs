@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para><important><para>
-    /// It is strongly recommended that you use dynamic references to restrict sensitive configuration
+    /// It's strongly recommended that you use dynamic references to restrict sensitive configuration
     /// definitions, such as third-party credentials. For more details on dynamic references,
     /// see <a href="https://docs.aws.amazon.com/">Using dynamic references to specify template
     /// values</a> in the <i>CloudFormation User Guide</i>.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The configuration data for the extension, in this account and region. </para><para>The configuration data must be formatted as JSON, and validate against the schema
+        /// <para>The configuration data for the extension, in this account and region.</para><para>The configuration data must be formatted as JSON, and validate against the schema
         /// returned in the <code>ConfigurationSchema</code> response element of <a href="AWSCloudFormation/latest/APIReference/API_DescribeType.html">API_DescribeType</a>.
         /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
         /// account-level configuration data for an extension</a> in the <i>CloudFormation CLI
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) for the extension, in this account and region.</para><para>For public extensions, this will be the ARN assigned when you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">activate
         /// the type</a> in this account and region. For private extensions, this will be the
         /// ARN assigned when you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">register
-        /// the type</a> in this account and region. </para><para>Do not include the extension versions suffix at the end of the ARN. You can set the
+        /// the type</a> in this account and region.</para><para>Do not include the extension versions suffix at the end of the ARN. You can set the
         /// configuration for an extension, but not for a specific extension version.</para>
         /// </para>
         /// </summary>

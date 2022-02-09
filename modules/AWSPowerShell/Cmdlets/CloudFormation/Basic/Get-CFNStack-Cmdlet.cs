@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// it returns the description for all the stacks created.
     /// 
     ///  <note><para>
-    /// If the stack does not exist, an <code>ValidationError</code> is returned.
+    /// If the stack doesn't exist, an <code>ValidationError</code> is returned.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStack")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID that is associated with the stack, which are not always
+        /// <para>The name or the unique stack ID that's associated with the stack, which aren't always
         /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>

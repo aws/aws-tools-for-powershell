@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The deprecation status of the extension that you want to get summary information about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The extension is registered for use in CloudFormation operations.</para></li><li><para><code>DEPRECATED</code>: The extension has been deregistered and can no longer be
-        /// used in CloudFormation operations. </para></li></ul>
+        /// used in CloudFormation operations.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>For resource types, the provisioning behavior of the resource type. CloudFormation
         /// determines the provisioning type during registration, based on the types of handlers
         /// in the schema handler package submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The resource type includes an update handler to process
-        /// updates to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The resource type does not include an update handler, so
-        /// the type cannot be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The resource type does not include create, read,
-        /// and delete handlers, and therefore cannot actually be provisioned.</para></li></ul><para>The default is <code>FULLY_MUTABLE</code>.</para>
+        /// updates to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the
+        /// type can't be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and
+        /// delete handlers, and therefore can't actually be provisioned.</para></li></ul><para>The default is <code>FULLY_MUTABLE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Filters_PublisherId
         /// <summary>
         /// <para>
-        /// <para>The id of the publisher of the extension. </para><para>Extensions published by Amazon are not assigned a publisher ID. Use the <code>AWS_TYPE</code>
+        /// <para>The id of the publisher of the extension.</para><para>Extensions published by Amazon aren't assigned a publisher ID. Use the <code>AWS_TYPES</code>
         /// category to specify a list of types published by Amazon.</para>
         /// </para>
         /// </summary>

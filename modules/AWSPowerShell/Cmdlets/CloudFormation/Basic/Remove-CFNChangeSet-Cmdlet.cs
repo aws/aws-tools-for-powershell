@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>If you specified the name of a change set to delete, specify the stack name or ID
-        /// (ARN) that is associated with it.</para>
+        /// <para>If you specified the name of a change set to delete, specify the stack name or Amazon
+        /// Resource Name (ARN) that's associated with it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

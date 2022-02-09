@@ -28,7 +28,8 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Deletes stack instances for the specified accounts, in the specified Regions.
+    /// Deletes stack instances for the specified accounts, in the specified Amazon Web Services
+    /// Regions.
     /// </summary>
     [Cmdlet("Remove", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -129,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The Regions where you want to delete stack set instances.</para>
+        /// <para>The Amazon Web Services Regions where you want to delete stack set instances.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

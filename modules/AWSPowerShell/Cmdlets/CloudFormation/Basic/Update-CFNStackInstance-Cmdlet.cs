@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Updates the parameter values for stack instances for the specified accounts, within
-    /// the specified Regions. A stack instance refers to a stack in a specific account and
-    /// Region. 
+    /// the specified Amazon Web Services Regions. A stack instance refers to a stack in a
+    /// specific account and Region.
     /// 
     ///  
     /// <para>
-    /// You can only update stack instances in Regions and accounts where they already exist;
-    /// to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.
-    /// 
+    /// You can only update stack instances in Amazon Web Services Regions and accounts where
+    /// they already exist; to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.
     /// </para><para>
-    /// During stack set updates, any parameters overridden for a stack instance are not updated,
+    /// During stack set updates, any parameters overridden for a stack instance aren't updated,
     /// but retain their overridden value.
     /// </para><para>
     /// You can only update the parameter <i>values</i> that are specified in the stack set;
@@ -65,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Self-managed permissions] The names of one or more Amazon Web Services accounts for
         /// which you want to update parameter values for stack instances. The overridden parameter
-        /// values will be applied to all stack instances in the specified accounts and Regions.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// values will be applied to all stack instances in the specified accounts and Amazon
+        /// Web Services Regions.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for this stack set operation. </para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
+        /// <para>The unique identifier for this stack set operation.</para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
         /// performs the stack set operation only once, even if you retry the request multiple
         /// times. You might retry stack set operation requests to ensure that CloudFormation
-        /// successfully received them.</para><para>If you don't specify an operation ID, the SDK generates one automatically. </para>
+        /// successfully received them.</para><para>If you don't specify an operation ID, the SDK generates one automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,16 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ParameterOverride
         /// <summary>
         /// <para>
-        /// <para> A list of input parameters whose values you want to update for the specified stack
-        /// instances. </para><para>Any overridden parameter values will be applied to all stack instances in the specified
-        /// accounts and Regions. When specifying parameters and their values, be aware of how
-        /// CloudFormation sets parameter values during stack instance update operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
+        /// <para>A list of input parameters whose values you want to update for the specified stack
+        /// instances.</para><para>Any overridden parameter values will be applied to all stack instances in the specified
+        /// accounts and Amazon Web Services Regions. When specifying parameters and their values,
+        /// be aware of how CloudFormation sets parameter values during stack instance update
+        /// operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
         /// value.</para></li><li><para>To leave an overridden parameter set to its present value, include the parameter and
-        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You cannot specify both
+        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both
         /// a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li><li><para>To set an overridden parameter back to the value specified in the stack set, specify
-        /// a parameter list but do not include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
-        /// at all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance are
-        /// not updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
+        /// a parameter list but don't include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, don't specify this property at
+        /// all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance aren't
+        /// updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
         /// set; to add or delete a parameter itself, use <code>UpdateStackSet</code> to update
         /// the stack set template. If you add a parameter to a template, before you can override
         /// the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
@@ -175,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The names of one or more Regions in which you want to update parameter values for
-        /// stack instances. The overridden parameter values will be applied to all stack instances
-        /// in the specified accounts and Regions.</para>
+        /// <para>The names of one or more Amazon Web Services Regions in which you want to update parameter
+        /// values for stack instances. The overridden parameter values will be applied to all
+        /// stack instances in the specified accounts and Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

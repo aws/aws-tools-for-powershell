@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// stack rolls back the update and reverts to the previous stack configuration.
     /// 
     ///  <note><para>
-    /// You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
+    /// You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code> state.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "CFNUpdateStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID that is associated with the stack.</para>
+        /// <para>The name or the unique stack ID that's associated with the stack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

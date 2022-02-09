@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of extension. </para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The kind of extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned
     /// resources when an operation fails. You can check the status of the stack through the
-    /// <a>DescribeStacks</a> API.
+    /// <a>DescribeStacks</a> operation.
     /// 
     ///  
     /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name that is associated with the stack.</para>
+        /// <para>The name that's associated with the stack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

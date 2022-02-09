@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information
     /// about the stack and its resources.
     /// </para><para>
-    /// When detecting drift on a stack, CloudFormation does not detect drift on any nested
+    /// When detecting drift on a stack, CloudFormation doesn't detect drift on any nested
     /// stacks belonging to that stack. Perform <code>DetectStackDrift</code> directly on
     /// the nested stack itself.
     /// </para>

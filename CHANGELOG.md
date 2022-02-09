@@ -1,4 +1,9 @@
-﻿### 4.1.20.0 (2022-02-08 21:14Z)
+﻿### 4.1.21.0 (2022-02-09 22:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.206.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNChangeSetHook leveraging the DescribeChangeSetHooks service API.
+
+### 4.1.20.0 (2022-02-08 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.205.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon App Runner
     * Added cmdlet Get-AARVpcConnector leveraging the DescribeVpcConnector service API.

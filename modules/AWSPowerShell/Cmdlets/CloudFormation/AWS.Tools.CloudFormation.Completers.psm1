@@ -188,7 +188,7 @@ $CFN_Completers = {
             ($_ -eq "Unregister-CFNType/Type")
         }
         {
-            $v = "MODULE","RESOURCE"
+            $v = "HOOK","MODULE","RESOURCE"
             break
         }
 
@@ -232,7 +232,7 @@ $CFN_Completers = {
             ($_ -eq "Test-CFNType/Type")
         }
         {
-            $v = "MODULE","RESOURCE"
+            $v = "HOOK","MODULE","RESOURCE"
             break
         }
 
@@ -343,6 +343,7 @@ $CFN_SelectMap = @{
                "Unregister-CFNType",
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
+               "Get-CFNChangeSetHook",
                "Get-CFNPublisher",
                "Get-CFNStackDriftDetectionStatus",
                "Get-CFNStackEvent",

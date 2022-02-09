@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// supported by CloudFormation.</para><para>For example, for an Amazon Elastic Compute Cloud (EC2) instance, <code>PhysicalResourceId</code>
         /// corresponds to the <code>InstanceId</code>. You can pass the EC2 <code>InstanceId</code>
         /// to <code>DescribeStackResources</code> to find which stack the instance belongs to
-        /// and what other resources are part of the stack.</para><para>Required: Conditional. If you do not specify <code>PhysicalResourceId</code>, you
-        /// must specify <code>StackName</code>.</para><para>Default: There is no default value.</para>
+        /// and what other resources are part of the stack.</para><para>Required: Conditional. If you don't specify <code>PhysicalResourceId</code>, you must
+        /// specify <code>StackName</code>.</para><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID that is associated with the stack, which are not always
-        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para><para>Required: Conditional. If you do not specify <code>StackName</code>, you must specify
+        /// <para>The name or the unique stack ID that is associated with the stack, which aren't always
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para><para>Required: Conditional. If you don't specify <code>StackName</code>, you must specify
         /// <code>PhysicalResourceId</code>.</para>
         /// </para>
         /// </summary>

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the stack set operation. </para>
+        /// <para>The unique ID of the stack set operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

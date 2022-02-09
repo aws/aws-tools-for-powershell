@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Creates a stack as specified in the template. After the call completes successfully,
-    /// the stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a>
-    /// API.
+    /// the stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>operation.
     /// </summary>
     [Cmdlet("New", "CFNStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,12 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// error.</para></li></ul><para>If your stack template contains these resources, we recommend that you review all
         /// permissions associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
         /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-        /// AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
+        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
         /// AWS::IAM::Policy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
         /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-        /// AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
         /// IAM Resources in CloudFormation Templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some template contain macros. Macros perform custom processing on templates; this
         /// can include simple actions like find-and-replace operations, all the way to extensive
         /// transformations of entire templates. Because of this, users typically create a change
@@ -74,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// if you know what processing the macro performs.</para><para>Each macro relies on an underlying Lambda service function for processing stack templates.
         /// Be aware that the Lambda function owner can update the function operation without
         /// CloudFormation being notified.</para></important><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// CloudFormation Macros to Perform Custom Processing on Templates</a>.</para></li></ul>
+        /// CloudFormation macros to perform custom processing on templates</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,15 +85,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>A unique identifier for this <code>CreateStack</code> request. Specify this token
         /// if you plan to retry requests so that CloudFormation knows that you're not attempting
         /// to create a stack with the same name. You might retry <code>CreateStack</code> requests
-        /// to ensure that CloudFormation successfully received them.</para><para>All events triggered by a given stack operation are assigned the same client request
+        /// to ensure that CloudFormation successfully received them.</para><para>All events initiated by a given stack operation are assigned the same client request
         /// token, which you can use to track operations. For example, if you execute a <code>CreateStack</code>
         /// operation with the token <code>token1</code>, then all the <code>StackEvents</code>
         /// generated by that operation will have <code>ClientRequestToken</code> set as <code>token1</code>.</para><para>In the console, stack operations display the client request token on the Events tab.
         /// Stack operations that are initiated from the console use the token format <i>Console-StackOperation-ID</i>,
         /// which helps you easily identify the stack operation . For example, if you create a
         /// stack using the console, each stack event would be assigned the same token in the
-        /// following format: <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.
-        /// </para>
+        /// following format: <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// to delete a stack with termination protection enabled, the operation fails and the
         /// stack remains unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting
         /// a Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>. Termination
-        /// protection is disabled on stacks by default.</para><para>For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
-        /// stacks</a>, termination protection is set on the root stack and cannot be changed
-        /// directly on the nested stack.</para>
+        /// protection is deactivated on stacks by default.</para><para>For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+        /// stacks</a>, termination protection is set on the root stack and can't be changed directly
+        /// on the nested stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The amount of time, in minutes, during which CloudFormation should monitor all the
         /// rollback triggers after the stack creation or update operation deploys all necessary
-        /// resources.</para><para>The default is 0 minutes.</para><para>If you specify a monitoring period but do not specify any rollback triggers, CloudFormation
+        /// resources.</para><para>The default is 0 minutes.</para><para>If you specify a monitoring period but don't specify any rollback triggers, CloudFormation
         /// still waits the specified period of time before cleaning up old resources after update
         /// operations. You can use this monitoring period to perform any manual stack validation
         /// desired, and manually cancel the stack creation or update (using <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html">CancelUpdateStack</a>,
@@ -153,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NotificationARNs
         /// <summary>
         /// <para>
-        /// <para>The Simple Notification Service (SNS) topic ARNs to publish stack related events.
-        /// You can find your SNS topic ARNs using the SNS console or your Command Line Interface
-        /// (CLI).</para>
+        /// <para>The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related
+        /// events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your
+        /// Command Line Interface (CLI).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Determines what action will be taken if stack creation fails. This must be one of:
-        /// DO_NOTHING, ROLLBACK, or DELETE. You can specify either <code>OnFailure</code> or
-        /// <code>DisableRollback</code>, but not both.</para><para>Default: <code>ROLLBACK</code></para>
+        /// <code>DO_NOTHING</code>, <code>ROLLBACK</code>, or <code>DELETE</code>. You can specify
+        /// either <code>OnFailure</code> or <code>DisableRollback</code>, but not both.</para><para>Default: <code>ROLLBACK</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,11 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
         /// CloudFormation assumes to create the stack. CloudFormation uses the role's credentials
         /// to make calls on your behalf. CloudFormation always uses this role for all future
-        /// operations on the stack. As long as users have permission to operate on the stack,
+        /// operations on the stack. Provided that users have permission to operate on the stack,
         /// CloudFormation uses this role even if the users don't have permission to pass it.
         /// Ensure that the role grants least privilege.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
-        /// with the stack. If no role is available, CloudFormation uses a temporary session that
-        /// is generated from your user credentials.</para>
+        /// with the stack. If no role is available, CloudFormation uses a temporary session that's
+        /// generated from your user credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,15 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RollbackConfiguration_RollbackTrigger
         /// <summary>
         /// <para>
-        /// <para>The triggers to monitor during stack creation or update actions. </para><para>By default, CloudFormation saves the rollback triggers specified for a stack and applies
+        /// <para>The triggers to monitor during stack creation or update actions.</para><para>By default, CloudFormation saves the rollback triggers specified for a stack and applies
         /// them to any subsequent update operations for the stack, unless you specify otherwise.
         /// If you do specify rollback triggers for this parameter, those triggers replace any
         /// list of triggers previously specified for the stack. This means:</para><ul><li><para>To use the rollback triggers previously specified for this stack, if any, don't specify
         /// this parameter.</para></li><li><para>To specify new or updated rollback triggers, you must specify <i>all</i> the triggers
-        /// that you want used for this stack, even triggers you've specifed before (for example,
+        /// that you want used for this stack, even triggers you've specified before (for example,
         /// when creating the stack or during a previous stack update). Any triggers that you
         /// don't include in the updated list of triggers are no longer applied to the stack.</para></li><li><para>To remove all currently specified triggers, specify an empty list for this parameter.</para></li></ul><para>If a specified trigger is missing, the entire stack operation fails and is rolled
-        /// back. </para>
+        /// back.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,9 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name that is associated with the stack. The name must be unique in the Region
-        /// in which you are creating the stack.</para><note><para>A stack name can contain only alphanumeric characters (case sensitive) and hyphens.
-        /// It must start with an alphabetical character and cannot be longer than 128 characters.</para></note>
+        /// <para>The name that's associated with the stack. The name must be unique in the Region in
+        /// which you are creating the stack.</para><note><para>A stack name can contain only alphanumeric characters (case sensitive) and hyphens.
+        /// It must start with an alphabetical character and can't be longer than 128 characters.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -307,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
+        /// anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
         /// parameter, but not both.</para>
         /// </para>
         /// </summary>
@@ -319,9 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
-        /// size: 460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document.
+        /// size: 460,800 bytes) that's located in an Amazon S3 bucket or a Systems Manager document.
         /// For more information, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
+        /// anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
         /// parameter, but not both.</para>
         /// </para>
         /// </summary>

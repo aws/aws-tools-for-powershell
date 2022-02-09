@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The name of the Region where you want to list stack instances. </para>
+        /// <para>The name of the Region where you want to list stack instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

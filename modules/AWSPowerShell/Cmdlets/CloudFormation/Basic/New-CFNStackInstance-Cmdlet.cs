@@ -28,9 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Creates stack instances for the specified accounts, within the specified Regions.
-    /// A stack instance refers to a stack in a specific account and Region. You must specify
-    /// at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>,
+    /// Creates stack instances for the specified accounts, within the specified Amazon Web
+    /// Services Regions. A stack instance refers to a stack in a specific account and Region.
+    /// You must specify at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>,
     /// and you must specify at least one value for <code>Regions</code>.
     /// </summary>
     [Cmdlet("New", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -134,14 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A list of stack set parameters whose values you want to override in the selected stack
         /// instances.</para><para>Any overridden parameter values will be applied to all stack instances in the specified
-        /// accounts and Regions. When specifying parameters and their values, be aware of how
-        /// CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
+        /// accounts and Amazon Web Services Regions. When specifying parameters and their values,
+        /// be aware of how CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
         /// value.</para></li><li><para>To leave an overridden parameter set to its present value, include the parameter and
-        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You cannot specify both
+        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both
         /// a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li><li><para>To set an overridden parameter back to the value specified in the stack set, specify
-        /// a parameter list but do not include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
-        /// at all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance are
-        /// not updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
+        /// a parameter list but don't include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, don't specify this property at
+        /// all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance aren't
+        /// updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
         /// set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
         /// to update the stack set template.</para>
         /// </para>
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The names of one or more Regions where you want to create stack instances using the
-        /// specified Amazon Web Services accounts.</para>
+        /// <para>The names of one or more Amazon Web Services Regions where you want to create stack
+        /// instances using the specified Amazon Web Services accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

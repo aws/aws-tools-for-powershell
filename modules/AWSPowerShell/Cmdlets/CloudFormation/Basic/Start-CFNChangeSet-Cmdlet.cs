@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// during the update. You can't specify a temporary stack policy that overrides the current
     /// policy.
     /// </para><para>
-    /// To create a change set for the entire stack hierachy, <code>IncludeNestedStacks</code>
+    /// To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code>
     /// must have been set to <code>True</code>.
     /// </para>
     /// </summary>
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ChangeSetName
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the change set that you want use to update the specified stack.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the change set that you want use to update
+        /// the specified stack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>If you specified the name of a change set, specify the stack name or ID (ARN) that
-        /// is associated with the change set you want to execute.</para>
+        /// <para>If you specified the name of a change set, specify the stack name or Amazon Resource
+        /// Name (ARN) that's associated with the change set you want to execute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

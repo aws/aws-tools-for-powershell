@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Updates the stack set, and associated stack instances in the specified accounts and
-    /// Regions.
+    /// Amazon Web Services Regions.
     /// 
     ///  
     /// <para>
@@ -53,15 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>[Self-managed permissions] The accounts in which to update associated stack instances.
-        /// If you specify accounts, you must also specify the Regions in which to update stack
-        /// set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// If you specify accounts, you must also specify the Amazon Web Services Regions in
+        /// which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, don't specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
-        /// prior to updating the stack instances in the specified accounts and Regions. If the
-        /// stack set update does not include changes to the template or parameters, CloudFormation
-        /// updates the stack instances in the specified accounts and Regions, while leaving all
-        /// other stack instances with their existing stack instance status. </para>
+        /// prior to updating the stack instances in the specified accounts and Amazon Web Services
+        /// Regions. If the stack set update does not include changes to the template or parameters,
+        /// CloudFormation updates the stack instances in the specified accounts and Amazon Web
+        /// Services Regions, while leaving all other stack instances with their existing stack
+        /// instance status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// Web Services account; for example, by creating new Identity and Access Management
         /// (IAM) users. For those stacks sets, you must explicitly acknowledge this by specifying
         /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code>
-        /// or <code>CAPABILITY_NAMED_IAM</code> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability. </para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <code>CAPABILITY_NAMED_IAM</code>.
-        /// </para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <code>InsufficientCapabilities</code>
+        /// or <code>CAPABILITY_NAMED_IAM</code> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <code>CAPABILITY_NAMED_IAM</code>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <code>InsufficientCapabilities</code>
         /// error.</para></li></ul><para>If your stack template contains these resources, we recommend that you review all
         /// permissions associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
         /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The name of the IAM execution role to use to update the stack set. If you do not specify
         /// an execution role, CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code>
         /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
-        /// stack resources users and groups can include in their stack sets. </para><para> If you specify a customized execution role, CloudFormation uses that role to update
+        /// stack resources users and groups can include in their stack sets.</para><para>If you specify a customized execution role, CloudFormation uses that role to update
         /// the stack. If you do not specify a customized execution role, CloudFormation performs
         /// the update using the role previously associated with the stack set, so long as you
         /// have permissions to perform operations on the stack set.</para>
@@ -216,11 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique ID for this stack set operation. </para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
+        /// <para>The unique ID for this stack set operation.</para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
         /// performs the stack set operation only once, even if you retry the request multiple
         /// times. You might retry stack set operation requests to ensure that CloudFormation
         /// successfully received them.</para><para>If you don't specify an operation ID, CloudFormation generates one automatically.</para><para>Repeating this stack set operation with a new operation ID retries all stack instances
-        /// whose status is <code>OUTDATED</code>. </para>
+        /// whose status is <code>OUTDATED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A list of input parameters for the stack set template. </para>
+        /// <para>A list of input parameters for the stack set template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,15 +281,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackRegion
         /// <summary>
         /// <para>
-        /// <para>The Regions in which to update associated stack instances. If you specify Regions,
-        /// you must also specify accounts in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// <para>The Amazon Web Services Regions in which to update associated stack instances. If
+        /// you specify Regions, you must also specify accounts in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
         /// prior to updating the stack instances in the specified accounts and Regions. If the
         /// stack set update does not include changes to the template or parameters, CloudFormation
         /// updates the stack instances in the specified accounts and Regions, while leaving all
-        /// other stack instances with their existing stack instance status. </para>
+        /// other stack instances with their existing stack instance status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,12 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The key-value pairs to associate with this stack set and the stacks created from it.
         /// CloudFormation also propagates these tags to supported resources that are created
         /// in the stacks. You can specify a maximum number of 50 tags.</para><para>If you specify tags for this parameter, those tags replace any list of tags that are
-        /// currently associated with this stack set. This means:</para><ul><li><para>If you don't specify this parameter, CloudFormation doesn't modify the stack's tags.
-        /// </para></li><li><para>If you specify <i>any</i> tags using this parameter, you must specify <i>all</i> the
-        /// tags that you want associated with this stack set, even tags you've specifed before
+        /// currently associated with this stack set. This means:</para><ul><li><para>If you don't specify this parameter, CloudFormation doesn't modify the stack's tags.</para></li><li><para>If you specify <i>any</i> tags using this parameter, you must specify <i>all</i> the
+        /// tags that you want associated with this stack set, even tags you've specified before
         /// (for example, when creating the stack set or during a previous update of the stack
         /// set.). Any tags that you don't include in the updated list of tags are removed from
-        /// the stack set, and therefore from the stacks and resources as well. </para></li><li><para>If you specify an empty value, CloudFormation removes all currently associated tags.</para></li></ul><para>If you specify new tags as part of an <code>UpdateStackSet</code> action, CloudFormation
+        /// the stack set, and therefore from the stacks and resources as well.</para></li><li><para>If you specify an empty value, CloudFormation removes all currently associated tags.</para></li></ul><para>If you specify new tags as part of an <code>UpdateStackSet</code> action, CloudFormation
         /// checks to see if you have the required IAM permission to tag resources. If you omit
         /// tags that are currently associated with the stack set from the list of tags you specify,
         /// CloudFormation assumes that you want to remove those tags from the stack set, and
@@ -370,7 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket or a
         /// Systems Manager document. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
-        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true. </para>
+        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Use the existing template that's associated with the stack set that you're updating.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
-        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true. </para>
+        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// Once deactivated, an extension cannot be used in any CloudFormation operation. This
+    /// Once deactivated, an extension can't be used in any CloudFormation operation. This
     /// includes stack update operations where the stack template includes the extension,
     /// even if no updates are being made to the extension. In addition, deactivated extensions
-    /// are not automatically updated if a new version of the extension is released.
+    /// aren't automatically updated if a new version of the extension is released.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "CFNType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

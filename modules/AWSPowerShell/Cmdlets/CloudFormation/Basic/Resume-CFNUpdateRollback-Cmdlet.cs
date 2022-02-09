@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// For a specified stack that is in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
+    /// For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
     /// rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the
     /// cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
     /// fix the error</a> and continue the rollback. By continuing the rollback, you can return
@@ -38,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  
     /// <para>
     /// A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation
-    /// cannot roll back all changes after a failed stack update. For example, you might have
-    /// a stack that is rolling back to an old database instance that was deleted outside
-    /// of CloudFormation. Because CloudFormation doesn't know the database was deleted, it
-    /// assumes that the database instance still exists and attempts to roll back to it, causing
-    /// the update rollback to fail.
+    /// can't roll back all changes after a failed stack update. For example, you might have
+    /// a stack that's rolling back to an old database instance that was deleted outside of
+    /// CloudFormation. Because CloudFormation doesn't know the database was deleted, it assumes
+    /// that the database instance still exists and attempts to roll back to it, causing the
+    /// update rollback to fail.
     /// </para>
     /// </summary>
     [Cmdlet("Resume", "CFNUpdateRollback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>A list of the logical IDs of the resources that CloudFormation skips during the continue
         /// update rollback operation. You can specify only resources that are in the <code>UPDATE_FAILED</code>
         /// state because a rollback failed. You can't specify resources that are in the <code>UPDATE_FAILED</code>
-        /// state for other reasons, for example, because an update was cancelled. To check why
+        /// state for other reasons, for example, because an update was canceled. To check why
         /// a resource update failed, use the <a>DescribeStackResources</a> action, and view the
-        /// resource status reason. </para><important><para>Specify this property to skip rolling back resources that CloudFormation can't successfully
+        /// resource status reason.</para><important><para>Specify this property to skip rolling back resources that CloudFormation can't successfully
         /// roll back. We recommend that you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
         /// troubleshoot</a> resources before skipping them. CloudFormation sets the status of
         /// the specified resources to <code>UPDATE_COMPLETE</code> and continues to roll back
@@ -107,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
         /// CloudFormation assumes to roll back the stack. CloudFormation uses the role's credentials
         /// to make calls on your behalf. CloudFormation always uses this role for all future
-        /// operations on the stack. As long as users have permission to operate on the stack,
+        /// operations on the stack. Provided that users have permission to operate on the stack,
         /// CloudFormation uses this role even if the users don't have permission to pass it.
-        /// Ensure that the role grants least privilege.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
-        /// with the stack. If no role is available, CloudFormation uses a temporary session that
-        /// is generated from your user credentials.</para>
+        /// Ensure that the role grants least permission.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
+        /// with the stack. If no role is available, CloudFormation uses a temporary session that's
+        /// generated from your user credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

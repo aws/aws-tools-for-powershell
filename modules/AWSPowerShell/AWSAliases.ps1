@@ -2796,6 +2796,9 @@ Set-Alias -Name Describe-CFNAccountLimit -Value Get-CFNAccountLimit
 Set-Alias -Name CFN-DescribeAccountLimits -Value Get-CFNAccountLimit
 Set-Alias -Name Describe-CFNChangeSet -Value Get-CFNChangeSet
 Set-Alias -Name CFN-DescribeChangeSet -Value Get-CFNChangeSet
+Set-Alias -Name Describe-CFNChangeSetHooks -Value Get-CFNChangeSetHook
+Set-Alias -Name Describe-CFNChangeSetHook -Value Get-CFNChangeSetHook
+Set-Alias -Name CFN-DescribeChangeSetHooks -Value Get-CFNChangeSetHook
 Set-Alias -Name Describe-CFNPublisher -Value Get-CFNPublisher
 Set-Alias -Name CFN-DescribePublisher -Value Get-CFNPublisher
 Set-Alias -Name Describe-CFNStackDriftDetectionStatus -Value Get-CFNStackDriftDetectionStatus

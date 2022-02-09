@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or unique stack ID that is associated with the stack whose policy you want
+        /// <para>The name or unique stack ID that's associated with the stack whose policy you want
         /// to get.</para>
         /// </para>
         /// </summary>

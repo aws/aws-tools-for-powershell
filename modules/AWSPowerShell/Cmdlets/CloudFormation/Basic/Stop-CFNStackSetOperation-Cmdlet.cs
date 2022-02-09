@@ -29,6 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Stops an in-progress operation on a stack set and its associated stack instances.
+    /// StackSets will cancel all the unstarted stack instance deployments and wait for those
+    /// are in-progress to complete.
     /// </summary>
     [Cmdlet("Stop", "CFNStackSetOperation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the stack operation. </para>
+        /// <para>The ID of the stack operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

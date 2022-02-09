@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  
     /// <para>
     /// Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
-    /// CLI</a>. Do not use this API in your code.
+    /// CLI</a>. Don't use this API in your code.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CFNHandlerProgress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

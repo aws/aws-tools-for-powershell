@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// set by using the <a>ExecuteChangeSet</a> action. CloudFormation doesn't make changes
     /// until you execute the change set.
     /// </para><para>
-    /// To create a change set for the entire stack hierachy, set <code>IncludeNestedStacks</code>
+    /// To create a change set for the entire stack hierarchy, set <code>IncludeNestedStacks</code>
     /// to <code>True</code>.
     /// </para>
     /// </summary>
@@ -78,13 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// error.</para></li></ul><para>If your stack template contains these resources, we recommend that you review all
         /// permissions associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
         /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-        /// AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
+        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
         /// AWS::IAM::Policy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
         /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-        /// AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-        /// IAM Resources in CloudFormation Templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some template contain macros. Macros perform custom processing on templates; this
+        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+        /// IAM resources in CloudFormation templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some template contain macros. Macros perform custom processing on templates; this
         /// can include simple actions like find-and-replace operations, all the way to extensive
         /// transformations of entire templates. Because of this, users typically create a change
         /// set from the processed template, so that they can review the changes resulting from
@@ -93,11 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// without first reviewing the resulting changes in a change set, you must acknowledge
         /// this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
         /// and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-        /// transforms, which are macros hosted by CloudFormation.</para><note><para>This capacity does not apply to creating change sets, and specifying it when creating
+        /// transforms, which are macros hosted by CloudFormation.</para><note><para>This capacity doesn't apply to creating change sets, and specifying it when creating
         /// change sets has no effect.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
         /// nested stacks, you must create or update the stack directly from the template using
         /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information on macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// CloudFormation Macros to Perform Custom Processing on Templates</a>.</para></li></ul>
+        /// CloudFormation macros to perform custom processing on templates</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name of the change set. The name must be unique among all change sets that are
-        /// associated with the specified stack.</para><para>A change set name can contain only alphanumeric, case sensitive characters and hyphens.
-        /// It must start with an alphabetic character and cannot exceed 128 characters.</para>
+        /// associated with the specified stack.</para><para>A change set name can contain only alphanumeric, case sensitive characters, and hyphens.
+        /// It must start with an alphabetical character and can't exceed 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -206,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// the stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. Identity and Access Management (IAM) uses this parameter for condition keys
         /// in IAM policies for CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
-        /// Access with Identity and Access Management</a> in the CloudFormation User Guide.</para>
+        /// access with Identity and Access Management</a> in the CloudFormation User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
         /// CloudFormation assumes when executing the change set. CloudFormation uses the role's
         /// credentials to make calls on your behalf. CloudFormation uses this role for all future
-        /// operations on the stack. As long as users have permission to operate on the stack,
+        /// operations on the stack. Provided that users have permission to operate on the stack,
         /// CloudFormation uses this role even if the users don't have permission to pass it.
-        /// Ensure that the role grants least privilege.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
+        /// Ensure that the role grants least permission.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
         /// with the stack. If no role is available, CloudFormation uses a temporary session that
         /// is generated from your user credentials.</para>
         /// </para>
@@ -289,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The location of the file that contains the revised template. The URL must point to
-        /// a template (max size: 460,800 bytes) that is located in an S3 bucket or a Systems
+        /// a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket or a Systems
         /// Manager document. CloudFormation generates the change set by comparing this template
         /// with the stack that you specified.</para><para>Conditional: You must specify only <code>TemplateBody</code> or <code>TemplateURL</code>.</para>
         /// </para>
@@ -301,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
-        /// <para>Whether to reuse the template that is associated with the stack to create the change
+        /// <para>Whether to reuse the template that's associated with the stack to create the change
         /// set.</para>
         /// </para>
         /// </summary>
