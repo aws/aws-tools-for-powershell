@@ -295,6 +295,7 @@
 
         <ItemGroup>
             <FolderException Include="Include/sdk/models"/>
+            <FolderException Include="PSGalleryDownloads"/>
         </ItemGroup>
 
         <KeyScannerTask Folder="$(MSBuildProjectDirectory)/.." FilePattern="**" PrivateKeyExceptions="@(PrivateKeyException)" FileExceptions="@(FileException)" FolderExceptions="@(FolderException)" ParallelScan="true" />
