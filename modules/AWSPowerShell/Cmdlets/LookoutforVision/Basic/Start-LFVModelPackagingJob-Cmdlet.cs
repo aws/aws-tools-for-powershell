@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// API.
     /// </para><para>
     /// This operation requires the following permissions:
-    /// </para><ul><li><para><code>lookoutvision:StartModelPackagingJobs</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>greengrass:CreateComponentVersion</code></para></li><li><para><code>greengrass:DescribeComponent</code></para></li><li><para>
+    /// </para><ul><li><para><code>lookoutvision:StartModelPackagingJob</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>greengrass:CreateComponentVersion</code></para></li><li><para><code>greengrass:DescribeComponent</code></para></li><li><para>
     /// (Optional) <code>greengrass:TagResource</code>. Only required if you want to tag the
     /// component.
     /// </para></li></ul><para>
@@ -112,18 +112,13 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>Additional compiler options for the Greengrass component. Currently, only NVIDIA Graphics
-        /// Processing Units (GPU) are supported.</para><para>For more information, see <i>Compiler options</i> in the Amazon Lookout for Vision
+        /// Processing Units (GPU) are supported. If you specify <code>TargetPlatform</code>,
+        /// you must specify <code>CompilerOptions</code>. If you specify <code>TargetDevice</code>,
+        /// don't specify <code>CompilerOptions</code>.</para><para>For more information, see <i>Compiler options</i> in the Amazon Lookout for Vision
         /// Developer Guide. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configuration_Greengrass_CompilerOptions")]
         public System.String Greengrass_CompilerOption { get; set; }
         #endregion
@@ -337,12 +332,6 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             }
             context.ClientToken = this.ClientToken;
             context.Greengrass_CompilerOption = this.Greengrass_CompilerOption;
-            #if MODULAR
-            if (this.Greengrass_CompilerOption == null && ParameterWasBound(nameof(this.Greengrass_CompilerOption)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Greengrass_CompilerOption which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Greengrass_ComponentDescription = this.Greengrass_ComponentDescription;
             context.Greengrass_ComponentName = this.Greengrass_ComponentName;
             #if MODULAR

@@ -1,4 +1,11 @@
-﻿### 4.1.21.0 (2022-02-09 22:17Z)
+﻿### 4.1.22.0 (2022-02-11 00:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.207.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon WAF V2
+    * Added cmdlet Get-WAF2MobileSdkRelease leveraging the GetMobileSdkRelease service API.
+    * Added cmdlet Get-WAF2MobileSdkReleaseList leveraging the ListMobileSdkReleases service API.
+    * Added cmdlet New-WAF2MobileSdkReleaseUrl leveraging the GenerateMobileSdkReleaseUrl service API.
+
+### 4.1.21.0 (2022-02-09 22:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.206.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudFormation
     * Added cmdlet Get-CFNChangeSetHook leveraging the DescribeChangeSetHooks service API.

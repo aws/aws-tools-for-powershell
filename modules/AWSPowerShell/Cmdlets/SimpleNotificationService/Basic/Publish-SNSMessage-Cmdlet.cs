@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// protocol for each subscribed endpoint.
     /// </para><para>
     /// When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
-    /// deliverers it to subscribers.
+    /// delivers it to subscribers.
     /// </para><para>
     /// To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
     /// such as an app on a Kindle device or mobile phone, you must specify the EndpointArn

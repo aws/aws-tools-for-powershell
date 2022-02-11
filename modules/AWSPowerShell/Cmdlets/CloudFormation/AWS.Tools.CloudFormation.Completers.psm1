@@ -132,7 +132,7 @@ $CFN_Completers = {
         # Amazon.CloudFormation.HandlerErrorCode
         "Write-CFNHandlerProgress/ErrorCode"
         {
-            $v = "AccessDenied","AlreadyExists","GeneralServiceException","InternalFailure","InvalidCredentials","InvalidRequest","InvalidTypeConfiguration","NetworkFailure","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling"
+            $v = "AccessDenied","AlreadyExists","GeneralServiceException","HandlerInternalFailure","InternalFailure","InvalidCredentials","InvalidRequest","InvalidTypeConfiguration","NetworkFailure","NonCompliant","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling","Unknown"
             break
         }
 

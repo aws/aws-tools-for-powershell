@@ -20943,9 +20943,12 @@ Set-Alias -Name WAF2-DescribeManagedRuleGroup -Value Get-WAF2ManagedRuleGroup
 Set-Alias -Name Disassociate-WAF2WebACL -Value Remove-WAF2WebACLFromResource
 Set-Alias -Name Disassociate-WAF2WebACLFromResource -Value Remove-WAF2WebACLFromResource
 Set-Alias -Name WAF2-DisassociateWebACL -Value Remove-WAF2WebACLFromResource
+Set-Alias -Name Generate-WAF2MobileSdkReleaseUrl -Value New-WAF2MobileSdkReleaseUrl
+Set-Alias -Name WAF2-GenerateMobileSdkReleaseUrl -Value New-WAF2MobileSdkReleaseUrl
 Set-Alias -Name WAF2-GetIPSet -Value Get-WAF2IPSet
 Set-Alias -Name WAF2-GetLoggingConfiguration -Value Get-WAF2LoggingConfiguration
 Set-Alias -Name WAF2-GetManagedRuleSet -Value Get-WAF2ManagedRuleSet
+Set-Alias -Name WAF2-GetMobileSdkRelease -Value Get-WAF2MobileSdkRelease
 Set-Alias -Name WAF2-GetPermissionPolicy -Value Get-WAF2PermissionPolicy
 Set-Alias -Name Get-WAF2RateBasedStatementManagedKeys -Value Get-WAF2RateBasedStatementManagedKey
 Set-Alias -Name WAF2-GetRateBasedStatementManagedKeys -Value Get-WAF2RateBasedStatementManagedKey
@@ -20970,6 +20973,9 @@ Set-Alias -Name WAF2-ListLoggingConfigurations -Value Get-WAF2LoggingConfigurati
 Set-Alias -Name List-WAF2ManagedRuleSets -Value Get-WAF2ManagedRuleSetList
 Set-Alias -Name List-WAF2ManagedRuleSetList -Value Get-WAF2ManagedRuleSetList
 Set-Alias -Name WAF2-ListManagedRuleSets -Value Get-WAF2ManagedRuleSetList
+Set-Alias -Name List-WAF2MobileSdkReleases -Value Get-WAF2MobileSdkReleaseList
+Set-Alias -Name List-WAF2MobileSdkReleaseList -Value Get-WAF2MobileSdkReleaseList
+Set-Alias -Name WAF2-ListMobileSdkReleases -Value Get-WAF2MobileSdkReleaseList
 Set-Alias -Name List-WAF2RegexPatternSets -Value Get-WAF2RegexPatternSetList
 Set-Alias -Name List-WAF2RegexPatternSetList -Value Get-WAF2RegexPatternSetList
 Set-Alias -Name WAF2-ListRegexPatternSets -Value Get-WAF2RegexPatternSetList
