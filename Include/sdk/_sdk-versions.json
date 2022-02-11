@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.208.0",
+    "ProductVersion" : "3.7.208.1",
     "CoreVersion"    : "3.7.7.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -370,7 +370,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.12.8",
+            "Version" : "3.7.12.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"
