@@ -1,31 +1,31 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+    $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "S3" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Buckets" {
 
         It "Can list buckets" {
             $buckets = Get-S3Bucket
             if ($buckets) {
-                $buckets.Count | Should BeGreaterThan 0
+                $buckets.Count | Should -BeGreaterThan 0
             }
         }
-
-        $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
 
         It "Can create a bucket" {
             New-S3Bucket -BucketName $script:bucketName
         
-            Test-S3Bucket $script:bucketName | Should Be $true
+            Test-S3Bucket $script:bucketName | Should -Be $true
         }
 
         It "Can delete buckets" {
@@ -64,7 +64,7 @@ Describe -Tag "Smoke" "S3" {
         It "Throws writing with invalid SSE option" {
             {
                 Write-S3Object -BucketName $script:bucketName -Key foo.txt -Content "this is a test" -ServerSideEncryption Naan
-            } | Should Throw
+            } | Should -Throw
         }
     }
 
@@ -94,20 +94,20 @@ Describe -Tag "Smoke" "S3" {
         It "Can download to a folder hierarchy" {
             Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder temp\new-bar
 
-            (Get-Content ".\temp\new-bar\foo.txt").Length | Should BeGreaterThan 0
-            (Get-Content ".\temp\new-bar\test.txt").Length | Should BeGreaterThan 0
-            (Get-Content ".\temp\new-bar\test2.txt").Length | Should BeGreaterThan 0
-            (Get-Content ".\temp\new-bar\baz\blah.txt").Length | Should BeGreaterThan 0
+            (Get-Content ".\temp\new-bar\foo.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar\test.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar\test2.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar\baz\blah.txt").Length | Should -BeGreaterThan 0
         }
 
         It "Can copy an object to a local file" {
             Copy-S3Object -BucketName $script:bucketName -Key "basic.txt" -LocalFile "$pwd\temp\blah.blah"
-            (Get-Content "$pwd\temp\blah.blah").Length | Should BeGreaterThan 0
+            (Get-Content "$pwd\temp\blah.blah").Length | Should -BeGreaterThan 0
         }
 
         It "Can read an object into a local file" {
             Read-S3Object -BucketName $script:bucketName -Key "basic.txt" -File "temp\basic2.txt"
-            (Get-Content "temp\basic2.txt").Length | Should BeGreaterThan 0
+            (Get-Content "temp\basic2.txt").Length | Should -BeGreaterThan 0
         }
     }
 
@@ -134,7 +134,7 @@ Describe -Tag "Smoke" "S3" {
             Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey key -Region us-east-1
 
             Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
-            (Get-Content "temp\cross-region-copy.txt") | Should Be $content
+            (Get-Content "temp\cross-region-copy.txt") | Should -Be $content
         }
 
         It "Can copy with /-prefixed keys" {

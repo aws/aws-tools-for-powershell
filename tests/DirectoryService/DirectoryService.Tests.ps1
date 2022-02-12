@@ -1,21 +1,23 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
+
 
 Describe -Tag "Smoke" "DirectoryService" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Limits" {
 
         It "Can query limits" {
             $limits = Get-DSDirectoryLimit
-            $limits | Should Not Be $null
+            $limits | Should -Not -Be $null
 
         }
     }
@@ -25,12 +27,12 @@ Describe -Tag "Smoke" "DirectoryService" {
         It "Can list and read directories" {
             $dirs = Get-DSDirectory
             if ($dirs) {
-                $dirs.Count | Should BeGreaterThan 0
+                $dirs.Count | Should -BeGreaterThan 0
 
                 $dir = Get-DSDirectory -DirectoryId $dirs[0].DirectoryId
-                $dir | Should Not Be $null
+                $dir | Should -Not -Be $null
 
-                $dir.Name | Should Be $dirs[0].Name
+                $dir.Name | Should -Be $dirs[0].Name
             }
         }
     }

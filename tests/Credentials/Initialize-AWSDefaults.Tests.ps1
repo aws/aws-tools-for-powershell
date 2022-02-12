@@ -1,54 +1,12 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Credentials") "CredentialsTestHelper.ps1")
-$helper = New-Object CredentialsTestHelper
-$testRegion = "us-west-1"
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Credentials") "CredentialsTestHelper.ps1")
+    $helper = New-Object CredentialsTestHelper
+    $testRegion = "us-west-1"
+    $helper.BeforeAll()
 
-function AssertDefaultsEmpty()
-{
-    # check stores
-    (Test-Path -Path $helper.NetSDKPath)| Should Be $false
-    (Test-Path -Path $helper.DefaultSharedPath)| Should Be $false
-    (Test-Path -Path $helper.CustomSharedPath)| Should Be $false
-
-    # check PS variables
-    Get-AWSCredentials | Should BeNullOrEmpty
-    Get-DefaultAWSRegion | Should Be $region
-}
-
-function AssertDefaultsSet($profileLocation, $options, $awsCredentialsTypeName)
-{
-    if ($options -eq $null)
-    {
-        $options = $helper.NewOptions()
-    }
-
-    # check one of the credentials files
-    $profile = $helper.GetCredentialProfile($profileLocation, "default")
-    $profile | Should Not BeNullOrEmpty
-    $profile.Options | Should Be $options
-    if ($profile.Region -ne $null)
-    {
-        $profile.Region.SystemName | Should Be $testRegion
-    }
-
-     # check session credentials
-     (Get-AWSCredentials).GetType().Name | Should Be $awsCredentialsTypeName
-
-     (Get-DefaultAWSRegion).Region | Should Be $testRegion
-}
-
-Describe -Tag "Smoke" "Initialize-AWSDefaults" {
-
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-
-    AfterAll {
-        $helper.AfterAll()
-    }
-
-    $parameterSetError = "Parameter set cannot be resolved using the specified named parameters."
+    $parameterSetError = "Parameter set cannot be resolved using the specified named parameters.*"
 
     $secpasswd = ConvertTo-SecureString "password" -AsPlainText -Force
     $psCreds = New-Object System.Management.Automation.PSCredential ("username", $secpasswd)
@@ -90,6 +48,49 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
     $federatedWithUserIdentityOptions.RoleArn = "role_arn"
     $federatedWithUserIdentityOptions.EndpointName = "endpoint_name"
     $federatedWithUserIdentityOptions.UserIdentity = "user_identity"
+
+    function AssertDefaultsEmpty()
+    {
+        # check stores
+        (Test-Path -Path $helper.NetSDKPath)| Should -Be $false
+        (Test-Path -Path $helper.DefaultSharedPath)| Should -Be $false
+        (Test-Path -Path $helper.CustomSharedPath)| Should -Be $false
+
+        # check PS variables
+        Get-AWSCredentials | Should -BeNullOrEmpty
+        Get-DefaultAWSRegion | Should -Be $region
+    }
+
+    function AssertDefaultsSet($profileLocation, $options, $awsCredentialsTypeName)
+    {
+        if ($options -eq $null)
+        {
+            $options = $helper.NewOptions()
+        }
+
+        # check one of the credentials files
+        $profile = $helper.GetCredentialProfile($profileLocation, "default")
+        $profile | Should -Not -BeNullOrEmpty
+        $profile.Options | Should -Be $options
+        if ($profile.Region -ne $null)
+        {
+            $profile.Region.SystemName | Should -Be $testRegion
+        }
+
+        # check session credentials
+        (Get-AWSCredentials).GetType().Name | Should -Be $awsCredentialsTypeName
+
+        (Get-DefaultAWSRegion).Region | Should -Be $testRegion
+    }
+
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
+
+
+Describe -Tag "Smoke" "Initialize-AWSDefaults" {
 
     Context "Initialize-AWSDefaults" {
 
@@ -207,7 +208,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
         
         It "should not store federated credentials from command line values to the PowerShell session and the shared credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
-            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should Throw "SharedCredentialsFile does not support the SAMLRoleUserIdentity profile type"
+            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should -Throw "SharedCredentialsFile does not support the SAMLRoleUserIdentity profile type"
         }
                 
         # federated with user identity
@@ -220,7 +221,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
 
         It "should not store federated with user identity credentials from command line values to the PowerShell session and the shared credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
-            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should Throw "SharedCredentialsFile does not support the SAMLRoleUserIdentity profile type"
+            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should -Throw "SharedCredentialsFile does not support the SAMLRoleUserIdentity profile type"
         }
              
         
@@ -230,12 +231,12 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
             Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -NetworkCredential $psCreds -Region $testRegion
 
             AssertDefaultsSet $null $federatedOptions FederatedAWSCredentials
-            (Get-AWSCredentials).Options.CustomCallbackState.CmdletNetworkCredentialParameter | Should Be $psCreds
+            (Get-AWSCredentials).Options.CustomCallbackState.CmdletNetworkCredentialParameter | Should -Be $psCreds
         }
 
         It "should not store federated credentials with network credentials from command line values to the shared credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
-            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -Region $testRegion -ProfileLocation $helper.CustomSharedPath -NetworkCredential $psCreds } | Should Throw "SharedCredentialsFile does not support the SAMLRole profile type"
+            { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -Region $testRegion -ProfileLocation $helper.CustomSharedPath -NetworkCredential $psCreds } | Should -Throw "SharedCredentialsFile does not support the SAMLRole profile type"
         }
         #>
 
@@ -283,14 +284,14 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
             Set-AWSCredentials -AccessKey access_key -SecretKey secret_key -StoreAs source_profile
             $creds = $helper.GetAWSCredentials($assumeRoleOptions, $null)
 
-            { Initialize-AWSDefaults -Credential $creds -Region $testRegion } | Should Throw "Cannot save credentials of type AssumeRoleAWSCredentials"
+            { Initialize-AWSDefaults -Credential $creds -Region $testRegion } | Should -Throw "Cannot save credentials of type AssumeRoleAWSCredentials"
         }
 
         It "should not store AssumeRoleAWSCredentials from the -Credential parameter to the PowerShell session and the shared credentials file" {
             Set-AWSCredentials -AccessKey access_key -SecretKey secret_key -StoreAs source_profile -ProfileLocation $helper.DefaultSharedPath
             $creds = $helper.GetAWSCredentials($assumeRoleOptions, $helper.DefaultSharedPath)
 
-            { Initialize-AWSDefaults -Credential $creds -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should Throw "Cannot save credentials of type AssumeRoleAWSCredentials"
+            { Initialize-AWSDefaults -Credential $creds -Region $testRegion -ProfileLocation $helper.CustomSharedPath } | Should -Throw "Cannot save credentials of type AssumeRoleAWSCredentials"
         }
         
         #
@@ -417,19 +418,19 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
         It "should fail if parameter sets are mixed up" {
             $creds = (New-Object Amazon.Runtime.BasicAWSCredentials("access_key", "secret_key"))
 
-            { Initialize-AWSDefaults -AccessKey access_key -SourceProfile source_profile } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -AccessKey access_key -Credential $creds } | Should Throw $parameterSetError
-            #{ Initialize-AWSDefaults -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -AccessKey access_key -ProfileName profile_name } | Should Throw $parameterSetError
+            { Initialize-AWSDefaults -AccessKey access_key -SourceProfile source_profile } | Should -Throw $parameterSetError
+            { Initialize-AWSDefaults -AccessKey access_key -Credential $creds } | Should -Throw $parameterSetError
+            #{ Initialize-AWSDefaults -AccessKey access_key -UserIdentity user_identity } | Should -Throw $parameterSetError
+            { Initialize-AWSDefaults -AccessKey access_key -ProfileName profile_name } | Should -Throw $parameterSetError
 
-            { Initialize-AWSDefaults -SourceProfile source_profile -Credential $creds } | Should Throw $parameterSetError
-            #{ Initialize-AWSDefaults -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -SourceProfile source_profile -ProfileName profile_name } | Should Throw $parameterSetError
+            { Initialize-AWSDefaults -SourceProfile source_profile -Credential $creds } | Should -Throw $parameterSetError
+            #{ Initialize-AWSDefaults -SourceProfile source_profile -UserIdentity user_identity } | Should -Throw $parameterSetError
+            { Initialize-AWSDefaults -SourceProfile source_profile -ProfileName profile_name } | Should -Throw $parameterSetError
 
-            #{ Initialize-AWSDefaults -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -Credential $creds -ProfileName profile_name } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -Credential $creds -UserIdentity user_identity } | Should -Throw $parameterSetError
+            { Initialize-AWSDefaults -Credential $creds -ProfileName profile_name } | Should -Throw $parameterSetError
 
-            #{ Initialize-AWSDefaults -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -UserIdentity user_identity -ProfileName profile_name } | Should -Throw $parameterSetError
         }#>
     }
 }

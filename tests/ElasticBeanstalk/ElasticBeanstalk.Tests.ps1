@@ -1,36 +1,36 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "ElasticBeanstalk" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
-
     Context "Applications and Environments" {
 
         It "Can list and read applications and environments" {
 
             $apps = Get-EBApplication
             if ($apps) {
-                $apps.Count | Should BeGreaterThan 0
+                $apps.Count | Should -BeGreaterThan 0
 
                 foreach ($app in $apps) {
                     $versions = Get-EBApplicationVersion -ApplicationName $app.ApplicationName
                     if ($versions) {
-                        $versions.Count | Should BeGreaterThan 0
+                        $versions.Count | Should -BeGreaterThan 0
                     }
 
             		$environments = Get-EBEnvironment -ApplicationName $app.ApplicationName -IncludeDeleted $false
                     if ($environments) {
-                        $environments.Count | Should BeGreaterThan 0
+                        $environments.Count | Should -BeGreaterThan 0
                         foreach ($env in $environments) {
         				    $settings = Get-EBConfigurationSetting -ApplicationName $app.ApplicationName -EnvironmentName $env.EnvironmentName
-                            $settings | Should Not Be $null
+                            $settings | Should -Not -Be $null
                         }
                     }
                 }
@@ -44,15 +44,15 @@ Describe -Tag "Smoke" "ElasticBeanstalk" {
 
             $stacks = Get-EBAvailableSolutionStack
             if ($stacks) {
-                $stacks.SolutionStacks | Should Not Be $null
-                $stacks.SolutionStacks.Count | Should BeGreaterThan 0
+                $stacks.SolutionStacks | Should -Not -Be $null
+                $stacks.SolutionStacks.Count | Should -BeGreaterThan 0
 
-                $stacks.SolutionStackDetails | Should Not Be $null
-                $stacks.SolutionStackDetails.Count | Should BeGreaterThan 0
+                $stacks.SolutionStackDetails | Should -Not -Be $null
+                $stacks.SolutionStackDetails.Count | Should -BeGreaterThan 0
 
                 $configs = Get-EBConfigurationOption -SolutionStackName $stacks.SolutionStacks[0]
-                $configs | Should Not Be $null
-                $configs.Count | Should BeGreaterThan 0
+                $configs | Should -Not -Be $null
+                $configs.Count | Should -BeGreaterThan 0
             }
         }
     }
@@ -61,8 +61,8 @@ Describe -Tag "Smoke" "ElasticBeanstalk" {
 
         It "Can check for dns availability" {
         	$dns = Get-EBDNSAvailability -CNAMEPrefix "cname-no-one-would-ever-pick-42"
-            $dns | Should Not Be $null
-            $dns.Available | Should Be $true
+            $dns | Should -Not -Be $null
+            $dns.Available | Should -Be $true
         }
     }
 }

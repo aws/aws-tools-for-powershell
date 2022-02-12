@@ -1,22 +1,23 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "CloudSearch" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "List and Enumerate Domains" {
 
         It "Can list domains" {
             $domains = Get-CSDomain
             if ($domains) {
-                $domains.Count | Should BeGreaterThan 0
+                $domains.Count | Should -BeGreaterThan 0
             }
         }
 
@@ -29,7 +30,7 @@ Describe -Tag "Smoke" "CloudSearch" {
 
                      $indexFields = Get-CSIndexField -DomainName $dn
                      if ($indexFields) {
-                         $indexFields.Count | Should BeGreaterThan 0
+                         $indexFields.Count | Should -BeGreaterThan 0
                      }
 
                 }

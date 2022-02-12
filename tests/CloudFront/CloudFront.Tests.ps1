@@ -1,15 +1,16 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "CloudFront" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
 	Context "Distributions" {
 
@@ -17,7 +18,7 @@ Describe -Tag "Smoke" "CloudFront" {
 			$distributions = Get-CFDistributions
 			if ($distributions)
 			{
-				$distributions.Count | Should BeGreaterThan 0
+				$distributions.Count | Should -BeGreaterThan 0
 			}
 		}
 
@@ -28,7 +29,7 @@ Describe -Tag "Smoke" "CloudFront" {
 				foreach ($dist in $distributions.Items) {
 					$distribution = Get-CFDistribution -Id $dist.Id
 
-					$distribution | Should Not Be $null
+					$distribution | Should -Not -Be $null
 				}
 			}
 	    }
@@ -42,7 +43,7 @@ Describe -Tag "Smoke" "CloudFront" {
 				foreach ($dist in $distributions.Items) {
 					$invalidations = Get-CFInvalidations -DistributionId $dist.Id
 
-					$invalidations | Should Not Be $null
+					$invalidations | Should -Not -Be $null
 				}
 			}
 		}

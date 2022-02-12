@@ -1,22 +1,23 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "CodePipeline" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Pipelines" {
 
         It "Can list pipelines" {
             $pipelines = Get-CPPipelineList
             if ($pipelines) {
-                $pipelines.Count | Should BeGreaterThan 0
+                $pipelines.Count | Should -BeGreaterThan 0
             }
         }
 
@@ -24,8 +25,8 @@ Describe -Tag "Smoke" "CodePipeline" {
             $pipelines = Get-CPPipelineList
             if ($pipelines) {
                 $pipeline = Get-CPPipeline -Name $pipelines[0].Name
-                $pipeline | Should Not Be $null
-                $pipeline.Pipeline.Name | Should Be $pipelines[0].Name
+                $pipeline | Should -Not -Be $null
+                $pipeline.Pipeline.Name | Should -Be $pipelines[0].Name
             }
         }
     }
@@ -35,8 +36,8 @@ Describe -Tag "Smoke" "CodePipeline" {
         It "Can read AWS action owner type" {
 
             $actionTypes = Get-CPActionType -ActionOwnerFilter AWS
-            $actionTypes | Should Not Be $null
-            $actionTypes.Count | Should BeGreaterThan 0
+            $actionTypes | Should -Not -Be $null
+            $actionTypes.Count | Should -BeGreaterThan 0
         }
     }
 }

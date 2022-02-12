@@ -1,22 +1,22 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "ConfigService" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Recorders" {
 
         It "Can list recorders" {
             $recorders = Get-CFGConfigurationRecorders
             if ($recorders) {
-                $recorders.Length | Should BeGreaterThan 0
+                $recorders.Length | Should -BeGreaterThan 0
             }
         }
 
@@ -24,7 +24,7 @@ Describe -Tag "Smoke" "ConfigService" {
             $recorders = Get-CFGConfigurationRecorders
             if ($recorders) {
                 $recorder = Get-CFGConfigurationRecorderStatus -ConfigurationRecorderName $recorders[0].Name
-                $recorder | Should Not Be $null
+                $recorder | Should -Not -Be $null
             }
         }
     }

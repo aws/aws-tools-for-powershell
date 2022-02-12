@@ -1,22 +1,23 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke" "SES" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Send statistics" {
 
         It "Can get send statistics" {
         	$stats = Get-SESSendStatistics
             if ($stats) {
-                $stats.Count | Should BeGreaterThan 0
+                $stats.Count | Should -BeGreaterThan 0
             }
         }
     }
@@ -25,7 +26,7 @@ Describe -Tag "Smoke" "SES" {
 
         It "Can get quotas" {
             $quota = Get-SESSendQuota
-            $quota | Should Not Be $null
+            $quota | Should -Not -Be $null
         }
     }
 
@@ -34,7 +35,7 @@ Describe -Tag "Smoke" "SES" {
         It "Can get send identities" {
             $identities = Get-SESIdentity
             if ($identities) {
-                $identities.Count | Should BeGreaterThan 0
+                $identities.Count | Should -BeGreaterThan 0
             }
         }
     }

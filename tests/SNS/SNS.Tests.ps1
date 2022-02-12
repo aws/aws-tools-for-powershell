@@ -1,24 +1,26 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+
+    $script:newTopicArn = $null
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
+
 
 Describe -Tag "Smoke" "SNS" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
 
     Context "Topics" {
-
-        $script:newTopicArn = $null
 
         It "Can list topics" {
         	$topics = Get-SNSTopic
             if ($topics) {
-                $topics.Count | Should BeGreaterThan 0
+                $topics.Count | Should -BeGreaterThan 0
             }
         }
 
@@ -27,19 +29,19 @@ Describe -Tag "Smoke" "SNS" {
             $topicName = "snsPsTopic" + $random.Next()
 
             $script:newTopicArn = New-SNSTopic -Name $topicName
-            $script:newTopicArn | Should Not BeNullOrEmpty
+            $script:newTopicArn | Should -Not -BeNullOrEmpty
 
             $topics = Get-SNSTopic | select -ExpandProperty TopicArn
-            $topics -contains $script:newTopicArn | Should Be $true
+            $topics -contains $script:newTopicArn | Should -Be $true
         }
 
         It "Can set and read an attribute on the new topic" {
             Set-SNSTopicAttribute -TopicArn $script:newTopicArn -AttributeName DisplayName -AttributeValue SNS_IntegTest_PS
             $attributes = Get-SNSTopicAttribute -TopicArn $script:newTopicArn
-            $attributes | Should Not Be $null
+            $attributes | Should -Not -Be $null
 
             $displayName = $attributes["DisplayName"]
-            $displayName | Should Not BeNullOrEmpty
+            $displayName | Should -Not -BeNullOrEmpty
         }
 
         It "Can delete the new topic" {
@@ -48,7 +50,7 @@ Describe -Tag "Smoke" "SNS" {
 
         It "No longer sees the new topic" {
             $topics = Get-SNSTopic | select -ExpandProperty TopicArn
-            $topics -contains $script:newTopicArn | Should Be $false
+            $topics -contains $script:newTopicArn | Should -Be $false
         }
     }
 }

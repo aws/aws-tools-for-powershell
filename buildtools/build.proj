@@ -160,7 +160,7 @@
 
         <RemoveDir Directories="$(RootPath)/tests/results" />
         <MakeDir Directories="$(RootPath)/tests/results" />
-        <Exec Command="pwsh -NoProfile -Command Invoke-Pester -EnableExit -OutputFile results/PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled" WorkingDirectory="$(RootPath)/tests" />
+        <Exec Command="pwsh -NoProfile -Command Invoke-Pester -EnableExit -OutputFile results/PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled -Show All" WorkingDirectory="$(RootPath)/tests" />
 
         <ItemGroup>
             <TestResults Include="$(RootPath)/test/results/*.*"/>

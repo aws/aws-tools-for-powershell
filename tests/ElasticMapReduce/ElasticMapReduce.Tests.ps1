@@ -1,22 +1,22 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
-$helper = New-Object ServiceTestHelper
+BeforeAll {
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+}
+
+AfterAll {
+    $helper.AfterAll()
+}
 
 Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
-    BeforeAll {
-        $helper.BeforeAll()
-    }
-    AfterAll {
-        $helper.AfterAll()
-    }
-
     Context "Clusters" {
 
         It "Can read clusters" {
             $clusters = Get-EMRClusters
             if ($clusters) {
-                $clusters.Count | Should BeGreaterThan 0
+                $clusters.Count | Should -BeGreaterThan 0
             }            
         }
     }
@@ -44,7 +44,7 @@ Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
             }
             $script:flowId = Start-EMRJobFlow @params 
 
-            $script:flowId | Should Not BeNullOrEmpty
+            $script:flowId | Should -Not -BeNullOrEmpty
         }
 
         It "Can stop a job flow" {

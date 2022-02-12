@@ -10,7 +10,7 @@ phases:
       # Default Windows docker image doesn't come with NuGet provider, it must be added explicitly otherwise Install-Module will fail with below error
       #  Install-Module : NuGet provider is required to interact with NuGet-based repositories. Please ensure that '2.8.5.201' or newer version of NuGet provider is installed.
       - Find-PackageProvider -Name 'Nuget' -ForceBootstrap -IncludeDependencies
-      - Install-Module -Name Pester -RequiredVersion 4.8.1 -Scope AllUsers -Force -SkipPublisherCheck
+      - Install-Module -Name Pester -RequiredVersion 5.3.1 -Scope AllUsers -Force -SkipPublisherCheck
 
   pre_build:
     commands:
