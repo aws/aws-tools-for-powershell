@@ -60,13 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A filter that specifies one or more DB instances to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list will only include information about the DB
-        /// instances associated with the DB clusters identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
-        /// Resource Names (ARNs). The results list will only include information about the DB
-        /// instances identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results
+        /// Resource Names (ARNs). The results list only includes information about the DB instances
+        /// associated with the DB clusters identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
+        /// Resource Names (ARNs). The results list only includes information about the DB instances
+        /// identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results
         /// list will only include information about the DB instances identified by these DB instance
-        /// resource identifiers.</para></li><li><para><code>domain</code> - Accepts Active Directory directory IDs. The results list will
-        /// only include information about the DB instances associated with these domains.</para></li><li><para><code>engine</code> - Accepts engine names. The results list will only include information
+        /// resource identifiers.</para></li><li><para><code>domain</code> - Accepts Active Directory directory IDs. The results list only
+        /// includes information about the DB instances associated with these domains.</para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
         /// about the DB instances for these engines.</para></li></ul>
         /// </para>
         /// </summary>

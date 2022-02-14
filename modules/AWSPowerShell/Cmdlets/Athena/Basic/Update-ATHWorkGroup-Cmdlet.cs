@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// (also known as the client-side setting) for queries in this workgroup should be ignored
         /// and set to null. If set to "false" or not set, and a value is present in the <code>EncryptionConfiguration</code>
         /// in <code>ResultConfigurationUpdates</code> (the client-side setting), the <code>EncryptionConfiguration</code>
-        /// in the workgroup's <code>ResultConfiguration</code> is updated with the new value.
+        /// in the workgroup's <code>ResultConfiguration</code> will be updated with the new value.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// known as a client-side setting) for queries in this workgroup should be ignored and
         /// set to null. If set to "false" or not set, and a value is present in the <code>OutputLocation</code>
         /// in <code>ResultConfigurationUpdates</code> (the client-side setting), the <code>OutputLocation</code>
-        /// in the workgroup's <code>ResultConfiguration</code> is updated with the new value.
+        /// in the workgroup's <code>ResultConfiguration</code> will be updated with the new value.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>

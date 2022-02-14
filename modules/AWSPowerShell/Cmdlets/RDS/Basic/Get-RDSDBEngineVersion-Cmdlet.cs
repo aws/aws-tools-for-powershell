@@ -84,7 +84,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter isn't currently supported.</para>
+        /// <para>A filter that specifies one or more DB engine versions to describe.</para><para>Supported filters:</para><ul><li><para><code>db-parameter-group-family</code> - Accepts parameter groups family names. The
+        /// results list only includes information about the DB engine versions for these parameter
+        /// group families. </para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
+        /// about the DB engine versions for these engines. </para></li><li><para><code>engine-mode</code> - Accepts DB engine modes. The results list only includes
+        /// information about the DB engine versions for these engine modes. Valid DB engine modes
+        /// are the following: </para><ul><li><para><code>global</code></para></li><li><para><code>multimaster</code></para></li><li><para><code>parallelquery</code></para></li><li><para><code>provisioned</code></para></li><li><para><code>serverless</code></para></li></ul></li><li><para><code>engine-version</code> - Accepts engine versions. The results list only includes
+        /// information about the DB engine versions for these engine versions. </para></li><li><para><code>status</code> - Accepts engine version statuses. The results list only includes
+        /// information about the DB engine versions for these statuses. Valid statuses are the
+        /// following: </para><ul><li><para><code>available</code></para></li><li><para><code>deprecated</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

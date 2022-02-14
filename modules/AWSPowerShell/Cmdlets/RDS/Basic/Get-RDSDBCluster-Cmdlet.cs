@@ -68,11 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>clone-group-id</code> - Accepts clone group identifiers. The results list will
-        /// only include information about the DB clusters associated with these clone groups.</para></li><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list will only include information about the DB
-        /// clusters identified by these ARNs.</para></li><li><para><code>domain</code> - Accepts Active Directory directory IDs. The results list will
-        /// only include information about the DB clusters associated with these domains.</para></li><li><para><code>engine</code> - Accepts engine names. The results list will only include information
+        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>clone-group-id</code> - Accepts clone group identifiers. The results list only
+        /// includes information about the DB clusters associated with these clone groups.</para></li><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
+        /// Resource Names (ARNs). The results list only includes information about the DB clusters
+        /// identified by these ARNs.</para></li><li><para><code>domain</code> - Accepts Active Directory directory IDs. The results list only
+        /// includes information about the DB clusters associated with these domains.</para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
         /// about the DB clusters for these engines.</para></li></ul>
         /// </para>
         /// </summary>
