@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. The following are the possible values:</para><ul><li><para><code>coip-pool.pool-id</code></para></li></ul><ul><li><para><code>coip-pool.local-gateway-route-table-id</code></para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway
+        /// route table.</para></li><li><para><code>coip-pool.pool-id</code> - The ID of the address pool.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

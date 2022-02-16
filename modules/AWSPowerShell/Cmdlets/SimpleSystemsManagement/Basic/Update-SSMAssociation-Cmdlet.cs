@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Updates an association. You can update the association name and version, the document
     /// version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output.
-    /// When you call <code>UpdateAssociation</code>, the system drops all optional parameters
+    /// When you call <code>UpdateAssociation</code>, the system removes all optional parameters
     /// from the request and overwrites the association with null values for those parameters.
     /// This is by design. You must specify all optional parameters in the call, even if you
     /// are not changing the parameters. This includes the <code>Name</code> parameter. Before

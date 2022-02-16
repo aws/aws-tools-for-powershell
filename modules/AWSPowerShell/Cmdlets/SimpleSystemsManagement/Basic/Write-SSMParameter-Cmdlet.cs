@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The data type for a <code>String</code> parameter. Supported data types include plain
-        /// text and Amazon Machine Image (AMI) IDs.</para><para><b>The following data type values are supported.</b></para><ul><li><para><code>text</code></para></li><li><para><code>aws:ec2:image</code></para></li></ul><para>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
+        /// text and Amazon Machine Image (AMI) IDs.</para><para><b>The following data type values are supported.</b></para><ul><li><para><code>text</code></para></li><li><para><code>aws:ec2:image</code></para></li><li><para><code>aws:ssm:integration</code></para></li></ul><para>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
         /// Amazon Web Services Systems Manager validates the parameter value is in the required
         /// format, such as <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is
         /// available in your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native

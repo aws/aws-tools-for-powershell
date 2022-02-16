@@ -205,10 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
-        /// is the number of targets that are allowed to run this task in parallel.</para><note><para>For maintenance window tasks without a target specified, you can't supply a value
-        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>,
-        /// which may be reported in the response to this command. This value doesn't affect the
-        /// running of your task and can be ignored.</para></note>
+        /// is the number of targets that are allowed to run this task, in parallel.</para><note><para>Although this element is listed as "Required: No", a value can be omitted only when
+        /// you are registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+        /// task</a> You must provide a value in all other cases.</para><para>For maintenance window tasks without a target specified, you can't supply a value
+        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
+        /// This value doesn't affect the running of your task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,10 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
-        /// number of errors that are allowed before the task stops being scheduled.</para><note><para>For maintenance window tasks without a target specified, you can't supply a value
-        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>,
-        /// which may be reported in the response to this command. This value doesn't affect the
-        /// running of your task and can be ignored.</para></note>
+        /// number of errors that are allowed before the task stops being scheduled.</para><note><para>Although this element is listed as "Required: No", a value can be omitted only when
+        /// you are registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+        /// task</a> You must provide a value in all other cases.</para><para>For maintenance window tasks without a target specified, you can't supply a value
+        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
+        /// This value doesn't affect the running of your task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

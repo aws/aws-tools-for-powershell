@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.209.0",
+    "ProductVersion" : "3.7.210.0",
     "CoreVersion"    : "3.7.7.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.59.3",
+            "Version" : "3.7.59.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"
@@ -370,7 +370,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.12.9",
+            "Version" : "3.7.12.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"
@@ -594,7 +594,7 @@
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "3.7.0.123",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.13.4",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"
@@ -858,7 +858,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.3.72",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.0"

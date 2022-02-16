@@ -174,10 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>The time zone that the scheduled maintenance window executions are based on, in Internet
-        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC",
-        /// or "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-        /// Zone Database</a> on the IANA website.</para>
+        /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
+        /// window to become active. <code>StartDate</code> allows you to delay activation of
+        /// the maintenance window until the specified future date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

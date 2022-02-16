@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>local-gateway-id</code> - The ID of a local gateway.</para></li><li><para><code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</para></li><li><para><code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</para></li><li><para><code>state</code> - The state of the association.</para></li><li><para><code>vpc-id</code> - The ID of the VPC.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>local-gateway-id</code> - The ID of a local gateway.</para></li><li><para><code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
+        /// local gateway route table for the association.</para></li><li><para><code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</para></li><li><para><code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the local
+        /// gateway route table for the association.</para></li><li><para><code>state</code> - The state of the association.</para></li><li><para><code>vpc-id</code> - The ID of the VPC.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

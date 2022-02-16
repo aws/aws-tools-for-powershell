@@ -107,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String TransactionId { get; set; }
         #endregion
         
+        #region Parameter VersionId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -184,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.TransactionId = this.TransactionId;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.TransactionId != null)
             {
                 request.TransactionId = cmdletContext.TransactionId;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -286,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? SkipArchive { get; set; }
             public Amazon.Glue.Model.TableInput TableInput { get; set; }
             public System.String TransactionId { get; set; }
+            public System.String VersionId { get; set; }
             public System.Func<Amazon.Glue.Model.UpdateTableResponse, UpdateGLUETableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

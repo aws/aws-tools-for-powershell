@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// <summary>
     /// Updates a budget. You can change every part of a budget except for the <code>budgetName</code>
     /// and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code>
-    /// drops to zero until AWS has new usage data to use for forecasting.
+    /// drops to zero until Amazon Web Services has new usage data to use for forecasting.
     /// 
     ///  <important><para>
     /// Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
-        /// or budget threshold.</para>
+        /// <para>The cost or usage amount that's associated with a budget forecast, actual spend, or
+        /// budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
-        /// or budget threshold.</para>
+        /// <para>The cost or usage amount that's associated with a budget forecast, actual spend, or
+        /// budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,13 +94,39 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
-        /// or budget threshold.</para>
+        /// <para>The cost or usage amount that's associated with a budget forecast, actual spend, or
+        /// budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NewBudget_CalculatedSpend_ForecastedSpend_Amount")]
         public System.Decimal? ForecastedSpend_Amount { get; set; }
+        #endregion
+        
+        #region Parameter AutoAdjustData_AutoAdjustType
+        /// <summary>
+        /// <para>
+        /// <para>The string that defines whether your budget auto-adjusts based on historical or forecasted
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NewBudget_AutoAdjustData_AutoAdjustType")]
+        [AWSConstantClassSource("Amazon.Budgets.AutoAdjustType")]
+        public Amazon.Budgets.AutoAdjustType AutoAdjustData_AutoAdjustType { get; set; }
+        #endregion
+        
+        #region Parameter HistoricalOptions_BudgetAdjustmentPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of budget periods included in the moving-average calculation that determines
+        /// your auto-adjusted budget amount. The maximum value depends on the <code>TimeUnit</code>
+        /// granularity of the budget:</para><ul><li><para>For the <code>DAILY</code> granularity, the maximum value is <code>60</code>.</para></li><li><para>For the <code>MONTHLY</code> granularity, the maximum value is <code>12</code>.</para></li><li><para>For the <code>QUARTERLY</code> granularity, the maximum value is <code>4</code>.</para></li><li><para>For the <code>ANNUALLY</code> granularity, the maximum value is <code>1</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NewBudget_AutoAdjustData_HistoricalOptions_BudgetAdjustmentPeriod")]
+        public System.Int32? HistoricalOptions_BudgetAdjustmentPeriod { get; set; }
         #endregion
         
         #region Parameter NewBudget_BudgetName
@@ -124,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_BudgetType
         /// <summary>
         /// <para>
-        /// <para>Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans
-        /// utilization, or Savings Plans coverage.</para>
+        /// <para>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings
+        /// Plans utilization, or Savings Plans coverage.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_CostFilter
         /// <summary>
         /// <para>
-        /// <para>The cost filters, such as service or tag, that are applied to a budget.</para><para>AWS Budgets supports the following services as a filter for RI budgets:</para><ul><li><para>Amazon Elastic Compute Cloud - Compute</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon Elasticsearch Service</para></li></ul>
+        /// <para>The cost filters, such as <code>Region</code>, <code>Service</code>, <code>member
+        /// account</code>, <code>Tag</code>, or <code>Cost Category</code>, that are applied
+        /// to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <code>Service</code>
+        /// filter for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,10 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter TimePeriod_End
         /// <summary>
         /// <para>
-        /// <para>The end date for a budget. If you didn't specify an end date, AWS set your end date
-        /// to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing
-        /// and Cost Management console and the API.</para><para>After the end date, AWS deletes the budget and all associated notifications and subscribers.
-        /// You can change your end date with the <code>UpdateBudget</code> operation.</para>
+        /// <para>The end date for a budget. If you didn't specify an end date, Amazon Web Services
+        /// set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for
+        /// the Billing and Cost Management console and the API.</para><para>After the end date, Amazon Web Services deletes the budget and all the associated
+        /// notifications and subscribers. You can change your end date with the <code>UpdateBudget</code>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,6 +293,17 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Boolean? CostTypes_IncludeUpfront { get; set; }
         #endregion
         
+        #region Parameter AutoAdjustData_LastAutoAdjustTime
+        /// <summary>
+        /// <para>
+        /// <para>The last time that your budget was auto-adjusted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NewBudget_AutoAdjustData_LastAutoAdjustTime")]
+        public System.DateTime? AutoAdjustData_LastAutoAdjustTime { get; set; }
+        #endregion
+        
         #region Parameter NewBudget_LastUpdatedTime
         /// <summary>
         /// <para>
@@ -273,26 +314,44 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.DateTime? NewBudget_LastUpdatedTime { get; set; }
         #endregion
         
+        #region Parameter HistoricalOptions_LookBackAvailablePeriod
+        /// <summary>
+        /// <para>
+        /// <para>The integer that describes how many budget periods in your <code>BudgetAdjustmentPeriod</code>
+        /// are included in the calculation of your current <code>BudgetLimit</code>. If the first
+        /// budget period in your <code>BudgetAdjustmentPeriod</code> has no cost data, then that
+        /// budget period isn’t included in the average that determines your budget limit. </para><para>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code> quarters,
+        /// but your account had no cost data in the first quarter, then only the last three quarters
+        /// are included in the calculation. In this scenario, <code>LookBackAvailablePeriods</code>
+        /// returns <code>3</code>. </para><para>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is automatically
+        /// calculated from the <code>BudgetAdjustmentPeriod</code> and your historical cost data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NewBudget_AutoAdjustData_HistoricalOptions_LookBackAvailablePeriods")]
+        public System.Int32? HistoricalOptions_LookBackAvailablePeriod { get; set; }
+        #endregion
+        
         #region Parameter NewBudget_PlannedBudgetLimit
         /// <summary>
         /// <para>
         /// <para>A map containing multiple <code>BudgetLimit</code>, including current or future limits.</para><para><code>PlannedBudgetLimits</code> is available for cost or usage budget and supports
-        /// monthly and quarterly <code>TimeUnit</code>. </para><para>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
+        /// both monthly and quarterly <code>TimeUnit</code>. </para><para>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
         /// This must start from the current month and include the next 11 months. The <code>key</code>
-        /// is the start of the month, <code>UTC</code> in epoch seconds. </para><para>For quarterly budgets, provide 4 quarters of <code>PlannedBudgetLimits</code> value
+        /// is the start of the month, <code>UTC</code> in epoch seconds. </para><para>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
         /// entries in standard calendar quarter increments. This must start from the current
-        /// quarter and include the next 3 quarters. The <code>key</code> is the start of the
-        /// quarter, <code>UTC</code> in epoch seconds. </para><para>If the planned budget expires before 12 months for monthly or 4 quarters for quarterly,
+        /// quarter and include the next three quarters. The <code>key</code> is the start of
+        /// the quarter, <code>UTC</code> in epoch seconds. </para><para>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
         /// provide the <code>PlannedBudgetLimits</code> values only for the remaining periods.</para><para>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code>
         /// values from the start date of the budget. </para><para>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code>
         /// are used, the budget continues to use the last limit as the <code>BudgetLimit</code>.
         /// At that point, the planned budget provides the same experience as a fixed budget.
         /// </para><para><code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
-        /// <code>PlannedBudgetLimits</code> will also contain <code>BudgetLimit</code> representing
+        /// <code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
         /// the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
-        /// only applies to budgets created with <code>PlannedBudgetLimits</code>. Budgets created
-        /// without <code>PlannedBudgetLimits</code> will only contain <code>BudgetLimit</code>,
-        /// and no <code>PlannedBudgetLimits</code>.</para>
+        /// only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
+        /// that are created without <code>PlannedBudgetLimits</code> only contain <code>BudgetLimit</code>.
+        /// They don't contain <code>PlannedBudgetLimits</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,12 +363,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The start date for a budget. If you created your budget and didn't specify a start
-        /// date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY,
-        /// or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>,
-        /// and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>.
-        /// If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00
-        /// UTC</code>. The defaults are the same for the AWS Billing and Cost Management console
-        /// and the API.</para><para>You can change your start date with the <code>UpdateBudget</code> operation.</para>
+        /// date, Amazon Web Services defaults to the start of your chosen time period (DAILY,
+        /// MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January
+        /// 24, 2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services
+        /// set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>,
+        /// Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The defaults
+        /// are the same for the Billing and Cost Management console and the API.</para><para>You can change your start date with the <code>UpdateBudget</code> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,8 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
-        /// threshold, such as dollars or GB.</para>
+        /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
+        /// threshold, such as USD or GBP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,8 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
-        /// threshold, such as dollars or GB.</para>
+        /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
+        /// threshold, such as USD or GBP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,8 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
-        /// threshold, such as dollars or GB.</para>
+        /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
+        /// threshold, such as USD or GBP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,6 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoAdjustData_AutoAdjustType = this.AutoAdjustData_AutoAdjustType;
+            context.HistoricalOptions_BudgetAdjustmentPeriod = this.HistoricalOptions_BudgetAdjustmentPeriod;
+            context.HistoricalOptions_LookBackAvailablePeriod = this.HistoricalOptions_LookBackAvailablePeriod;
+            context.AutoAdjustData_LastAutoAdjustTime = this.AutoAdjustData_LastAutoAdjustTime;
             context.BudgetLimit_Amount = this.BudgetLimit_Amount;
             context.BudgetLimit_Unit = this.BudgetLimit_Unit;
             context.NewBudget_BudgetName = this.NewBudget_BudgetName;
@@ -767,6 +830,76 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.TimePeriod = requestNewBudget_newBudget_TimePeriod;
                 requestNewBudgetIsNull = false;
             }
+            Amazon.Budgets.Model.AutoAdjustData requestNewBudget_newBudget_AutoAdjustData = null;
+            
+             // populate AutoAdjustData
+            var requestNewBudget_newBudget_AutoAdjustDataIsNull = true;
+            requestNewBudget_newBudget_AutoAdjustData = new Amazon.Budgets.Model.AutoAdjustData();
+            Amazon.Budgets.AutoAdjustType requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_AutoAdjustType = null;
+            if (cmdletContext.AutoAdjustData_AutoAdjustType != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_AutoAdjustType = cmdletContext.AutoAdjustData_AutoAdjustType;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_AutoAdjustType != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData.AutoAdjustType = requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_AutoAdjustType;
+                requestNewBudget_newBudget_AutoAdjustDataIsNull = false;
+            }
+            System.DateTime? requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_LastAutoAdjustTime = null;
+            if (cmdletContext.AutoAdjustData_LastAutoAdjustTime != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_LastAutoAdjustTime = cmdletContext.AutoAdjustData_LastAutoAdjustTime.Value;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_LastAutoAdjustTime != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData.LastAutoAdjustTime = requestNewBudget_newBudget_AutoAdjustData_autoAdjustData_LastAutoAdjustTime.Value;
+                requestNewBudget_newBudget_AutoAdjustDataIsNull = false;
+            }
+            Amazon.Budgets.Model.HistoricalOptions requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions = null;
+            
+             // populate HistoricalOptions
+            var requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptionsIsNull = true;
+            requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions = new Amazon.Budgets.Model.HistoricalOptions();
+            System.Int32? requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_BudgetAdjustmentPeriod = null;
+            if (cmdletContext.HistoricalOptions_BudgetAdjustmentPeriod != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_BudgetAdjustmentPeriod = cmdletContext.HistoricalOptions_BudgetAdjustmentPeriod.Value;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_BudgetAdjustmentPeriod != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions.BudgetAdjustmentPeriod = requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_BudgetAdjustmentPeriod.Value;
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptionsIsNull = false;
+            }
+            System.Int32? requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_LookBackAvailablePeriod = null;
+            if (cmdletContext.HistoricalOptions_LookBackAvailablePeriod != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_LookBackAvailablePeriod = cmdletContext.HistoricalOptions_LookBackAvailablePeriod.Value;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_LookBackAvailablePeriod != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions.LookBackAvailablePeriods = requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions_historicalOptions_LookBackAvailablePeriod.Value;
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptionsIsNull = false;
+            }
+             // determine if requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions should be set to null
+            if (requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptionsIsNull)
+            {
+                requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions = null;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions != null)
+            {
+                requestNewBudget_newBudget_AutoAdjustData.HistoricalOptions = requestNewBudget_newBudget_AutoAdjustData_newBudget_AutoAdjustData_HistoricalOptions;
+                requestNewBudget_newBudget_AutoAdjustDataIsNull = false;
+            }
+             // determine if requestNewBudget_newBudget_AutoAdjustData should be set to null
+            if (requestNewBudget_newBudget_AutoAdjustDataIsNull)
+            {
+                requestNewBudget_newBudget_AutoAdjustData = null;
+            }
+            if (requestNewBudget_newBudget_AutoAdjustData != null)
+            {
+                request.NewBudget.AutoAdjustData = requestNewBudget_newBudget_AutoAdjustData;
+                requestNewBudgetIsNull = false;
+            }
             Amazon.Budgets.Model.CostTypes requestNewBudget_newBudget_CostTypes = null;
             
              // populate CostTypes
@@ -959,6 +1092,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public Amazon.Budgets.AutoAdjustType AutoAdjustData_AutoAdjustType { get; set; }
+            public System.Int32? HistoricalOptions_BudgetAdjustmentPeriod { get; set; }
+            public System.Int32? HistoricalOptions_LookBackAvailablePeriod { get; set; }
+            public System.DateTime? AutoAdjustData_LastAutoAdjustTime { get; set; }
             public System.Decimal? BudgetLimit_Amount { get; set; }
             public System.String BudgetLimit_Unit { get; set; }
             public System.String NewBudget_BudgetName { get; set; }

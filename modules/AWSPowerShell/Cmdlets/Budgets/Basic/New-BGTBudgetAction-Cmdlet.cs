@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter SsmActionDefinition_ActionSubType
         /// <summary>
         /// <para>
-        /// <para> The action subType. </para>
+        /// <para>The action subType. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_Group
         /// <summary>
         /// <para>
-        /// <para> A list of groups to be attached. There must be at least one group. </para>
+        /// <para>A list of groups to be attached. There must be at least one group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter SsmActionDefinition_InstanceId
         /// <summary>
         /// <para>
-        /// <para> The EC2 and RDS instance IDs. </para>
+        /// <para>The EC2 and RDS instance IDs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_PolicyArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the policy to be attached. </para>
+        /// <para>The Amazon Resource Name (ARN) of the policy to be attached. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ScpActionDefinition_PolicyId
         /// <summary>
         /// <para>
-        /// <para> The policy ID attached. </para>
+        /// <para>The policy ID attached. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter SsmActionDefinition_Region
         /// <summary>
         /// <para>
-        /// <para> The Region to run the SSM document. </para>
+        /// <para>The Region to run the SSM document. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_Role
         /// <summary>
         /// <para>
-        /// <para> A list of roles to be attached. There must be at least one role. </para>
+        /// <para>A list of roles to be attached. There must be at least one role. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ScpActionDefinition_TargetId
         /// <summary>
         /// <para>
-        /// <para> A list of target IDs. </para>
+        /// <para>A list of target IDs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_User
         /// <summary>
         /// <para>
-        /// <para> A list of users to be attached. There must be at least one user. </para>
+        /// <para>A list of users to be attached. There must be at least one user. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

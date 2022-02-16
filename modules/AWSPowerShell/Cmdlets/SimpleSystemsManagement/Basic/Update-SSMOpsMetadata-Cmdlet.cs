@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OpsMetadataArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the OpsMetadata Object to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

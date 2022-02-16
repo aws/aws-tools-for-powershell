@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// additional parameters.</para></li><li><para><code>targeted</code> - The Capacity Reservation only accepts instances that have
         /// matching attributes (instance type, platform, and Availability Zone), and explicitly
         /// target the Capacity Reservation. This ensures that only permitted instances can use
-        /// the reserved capacity.</para></li></ul></li></ul>
+        /// the reserved capacity.</para></li></ul></li><li><para><code>placement-group-arn</code> - The ARN of the cluster placement group in which
+        /// the Capacity Reservation was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

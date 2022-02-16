@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. The following are the possible values:</para><ul><li><para><code>coip-address-usage.allocation-id</code></para></li></ul><ul><li><para><code>coip-address-usage.aws-account-id</code></para></li></ul><ul><li><para><code>coip-address-usage.aws-service</code></para></li></ul><ul><li><para><code>coip-address-usage.co-ip</code></para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</para></li><li><para><code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services
+        /// account that is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.aws-service</code> - The Amazon Web Services service that
+        /// is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.co-ip</code> - The customer-owned IP address.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,12 @@
-﻿### 4.1.24.0 (2022-02-14 23:12Z)
+﻿### 4.1.25.0 (2022-02-16 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.210.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Budgets
+    * Modified cmdlet New-BGTBudget: added parameters AutoAdjustData_AutoAdjustType, AutoAdjustData_LastAutoAdjustTime, HistoricalOptions_BudgetAdjustmentPeriod and HistoricalOptions_LookBackAvailablePeriod.
+    * Modified cmdlet Update-BGTBudget: added parameters AutoAdjustData_AutoAdjustType, AutoAdjustData_LastAutoAdjustTime, HistoricalOptions_BudgetAdjustmentPeriod and HistoricalOptions_LookBackAvailablePeriod.
+  * Amazon Glue
+    * Modified cmdlet Update-GLUETable: added parameter VersionId.
+
+### 4.1.24.0 (2022-02-14 23:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.209.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.23.0 (2022-02-11 21:09Z)

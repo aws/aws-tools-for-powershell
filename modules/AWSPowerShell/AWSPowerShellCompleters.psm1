@@ -4972,6 +4972,16 @@ $BGT_Completers = {
             break
         }
 
+        # Amazon.Budgets.AutoAdjustType
+        {
+            ($_ -eq "New-BGTBudget/Budget_AutoAdjustData_AutoAdjustType") -Or
+            ($_ -eq "Update-BGTBudget/NewBudget_AutoAdjustData_AutoAdjustType")
+        }
+        {
+            $v = "FORECAST","HISTORICAL"
+            break
+        }
+
         # Amazon.Budgets.BudgetType
         {
             ($_ -eq "New-BGTBudget/Budget_BudgetType") -Or
@@ -5091,10 +5101,12 @@ $BGT_map = @{
     "ActionThreshold_ActionThresholdType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "ActionType"=@("New-BGTBudgetAction")
     "ApprovalModel"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
+    "Budget_AutoAdjustData_AutoAdjustType"=@("New-BGTBudget")
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
     "Definition_SsmActionDefinition_ActionSubType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "ExecutionType"=@("Invoke-BGTBudgetAction")
+    "NewBudget_AutoAdjustData_AutoAdjustType"=@("Update-BGTBudget")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")

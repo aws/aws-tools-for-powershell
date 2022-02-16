@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to use in the free tier (<code>true</code> | <code>false</code>).</para></li><li><para><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
         /// (<code>true</code> | <code>false</code>).</para></li><li><para><code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</para></li><li><para><code>instance-storage-info.disk.count</code> - The number of local disks.</para></li><li><para><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance
         /// storage disk, in GB.</para></li><li><para><code>instance-storage-info.disk.type</code> - The storage technology for the local
-        /// instance storage disks (<code>hdd</code> | <code>ssd</code>).</para></li><li><para><code>instance-storage-info.encryption-supported</code> - Indicates whether data
-        /// is encrypted at rest (<code>required</code> | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile
+        /// instance storage disks (<code>hdd</code> | <code>ssd</code>).</para></li><li><para><code>instance-storage-info.encryption-support</code> - Indicates whether data is
+        /// encrypted at rest (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile
         /// memory express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>
         /// | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage
         /// available from all local instance storage, in GB.</para></li><li><para><code>instance-storage-supported</code> - Indicates whether the instance type has
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>false</code>).</para></li><li><para><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
         /// IPv4 addresses per network interface.</para></li><li><para><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private
         /// IPv6 addresses per network interface.</para></li><li><para><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
-        /// IPv6 (<code>true</code> | <code>false</code>).</para></li><li><para><code>network-info.maximum-network-interfaces</code> - The maximum number of network
+        /// IPv6 (<code>true</code> | <code>false</code>).</para></li><li><para><code>network-info.maximum-network-cards</code> - The maximum number of network cards
+        /// per instance.</para></li><li><para><code>network-info.maximum-network-interfaces</code> - The maximum number of network
         /// interfaces per instance.</para></li><li><para><code>network-info.network-performance</code> - The network performance (for example,
         /// "25 Gigabit").</para></li><li><para><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code>
         /// | <code>i386</code> | <code>x86_64</code>).</para></li><li><para><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in

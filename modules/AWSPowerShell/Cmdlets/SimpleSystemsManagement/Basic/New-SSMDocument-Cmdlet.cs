@@ -106,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentType
         /// <summary>
         /// <para>
-        /// <para>The type of document to create.</para>
+        /// <para>The type of document to create.</para><note><para>The <code>DeploymentStrategy</code> document type is an internal-use-only document
+        /// type reserved for AppConfig.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
