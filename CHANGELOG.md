@@ -1,4 +1,13 @@
-﻿### 4.1.25.0 (2022-02-16 21:26Z)
+﻿### 4.1.26.0 (2022-02-17 21:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.211.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Evidently
+    * Modified cmdlet Get-CWEVDExperimentList: added parameter Status.
+    * Modified cmdlet Get-CWEVDLaunchList: added parameter Status.
+  * Amazon Redshift
+    * Modified cmdlet Add-RSDataShareConsumer: added parameter ConsumerRegion.
+    * Modified cmdlet Remove-RSDataShareConsumer: added parameter ConsumerRegion.
+
+### 4.1.25.0 (2022-02-16 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.210.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Budgets
     * Modified cmdlet New-BGTBudget: added parameters AutoAdjustData_AutoAdjustType, AutoAdjustData_LastAutoAdjustTime, HistoricalOptions_BudgetAdjustmentPeriod and HistoricalOptions_LookBackAvailablePeriod.

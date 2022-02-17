@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         public System.String Project { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Use this optional parameter to limit the returned results to only the launches with
+        /// the status that you specify here.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchEvidently.LaunchStatus")]
+        public Amazon.CloudWatchEvidently.LaunchStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -133,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 WriteWarning("You are passing $null as a value for parameter Project which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             if (cmdletContext.Project != null)
             {
                 request.Project = cmdletContext.Project;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -225,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Project { get; set; }
+            public Amazon.CloudWatchEvidently.LaunchStatus Status { get; set; }
             public System.Func<Amazon.CloudWatchEvidently.Model.ListLaunchesResponse, GetCWEVDLaunchListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Launches;
         }

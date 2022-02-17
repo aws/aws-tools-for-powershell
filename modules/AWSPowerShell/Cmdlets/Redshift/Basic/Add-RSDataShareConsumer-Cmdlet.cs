@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ConsumerArn { get; set; }
         #endregion
         
+        #region Parameter ConsumerRegion
+        /// <summary>
+        /// <para>
+        /// <para>From a datashare consumer account, associates a datashare with all existing and future
+        /// namespaces in the specified Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConsumerRegion { get; set; }
+        #endregion
+        
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
@@ -142,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssociateEntireAccount = this.AssociateEntireAccount;
             context.ConsumerArn = this.ConsumerArn;
+            context.ConsumerRegion = this.ConsumerRegion;
             context.DataShareArn = this.DataShareArn;
             #if MODULAR
             if (this.DataShareArn == null && ParameterWasBound(nameof(this.DataShareArn)))
@@ -172,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ConsumerArn != null)
             {
                 request.ConsumerArn = cmdletContext.ConsumerArn;
+            }
+            if (cmdletContext.ConsumerRegion != null)
+            {
+                request.ConsumerRegion = cmdletContext.ConsumerRegion;
             }
             if (cmdletContext.DataShareArn != null)
             {
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.Boolean? AssociateEntireAccount { get; set; }
             public System.String ConsumerArn { get; set; }
+            public System.String ConsumerRegion { get; set; }
             public System.String DataShareArn { get; set; }
             public System.Func<Amazon.Redshift.Model.AssociateDataShareConsumerResponse, AddRSDataShareConsumerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -287,7 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A list of Identity and Access Management (IAM) roles that can be used by the cluster
         /// to access other Amazon Web Services services. You must supply the IAM roles in their
-        /// Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated with it at any time.</para>
+        /// Amazon Resource Name (ARN) format. </para><para>The maximum number of IAM roles that you can associate is subject to a quota. For
+        /// more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas
+        /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,8 +355,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The password associated with the admin user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote),
-        /// " (double quote), \, /, @, or space.</para></li></ul>
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except ' (single quote),
+        /// " (double quote), \, /, or @.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

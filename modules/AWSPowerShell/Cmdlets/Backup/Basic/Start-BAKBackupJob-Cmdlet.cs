@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A value in minutes during which a successfully started backup must complete, or else
-        /// AWS Backup will cancel the job. This value is optional. This value begins counting
-        /// down from when the backup was scheduled. It does not add additional time for <code>StartWindowMinutes</code>,
+        /// Backup will cancel the job. This value is optional. This value begins counting down
+        /// from when the backup was scheduled. It does not add additional time for <code>StartWindowMinutes</code>,
         /// or if the backup started later than scheduled.</para>
         /// </para>
         /// </summary>

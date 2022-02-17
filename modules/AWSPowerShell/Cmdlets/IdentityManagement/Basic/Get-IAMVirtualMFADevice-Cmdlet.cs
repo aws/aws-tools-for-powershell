@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  <note><para>
     /// IAM resource-listing operations return a subset of the available attributes for the
     /// resource. For example, this operation does not return tags, even though they are an
-    /// attribute of the returned object. To view all of the information for a virtual MFA
-    /// device, see <a>ListVirtualMFADevices</a>.
+    /// attribute of the returned object. To view tag information for a virtual MFA device,
+    /// see <a>ListMFADeviceTags</a>.
     /// </para></note><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters.

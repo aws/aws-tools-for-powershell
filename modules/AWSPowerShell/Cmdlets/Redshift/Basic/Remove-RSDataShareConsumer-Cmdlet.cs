@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ConsumerArn { get; set; }
         #endregion
         
+        #region Parameter ConsumerRegion
+        /// <summary>
+        /// <para>
+        /// <para>From a datashare consumer account, removes association of a datashare from all the
+        /// existing and future namespaces in the specified Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConsumerRegion { get; set; }
+        #endregion
+        
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
@@ -140,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConsumerArn = this.ConsumerArn;
+            context.ConsumerRegion = this.ConsumerRegion;
             context.DataShareArn = this.DataShareArn;
             #if MODULAR
             if (this.DataShareArn == null && ParameterWasBound(nameof(this.DataShareArn)))
@@ -167,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ConsumerArn != null)
             {
                 request.ConsumerArn = cmdletContext.ConsumerArn;
+            }
+            if (cmdletContext.ConsumerRegion != null)
+            {
+                request.ConsumerRegion = cmdletContext.ConsumerRegion;
             }
             if (cmdletContext.DataShareArn != null)
             {
@@ -238,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConsumerArn { get; set; }
+            public System.String ConsumerRegion { get; set; }
             public System.String DataShareArn { get; set; }
             public System.Boolean? DisassociateEntireAccount { get; set; }
             public System.Func<Amazon.Redshift.Model.DisassociateDataShareConsumerResponse, RemoveRSDataShareConsumerCmdlet, object> Select { get; set; } =

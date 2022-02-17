@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>Storage Gateway</code> for Storage Gateway</para></li></ul>
+        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>FSx</code> for Amazon FSx</para></li><li><para><code>Neptune</code> for Amazon Neptune</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Storage Gateway</code> for Storage Gateway</para></li><li><para><code>S3</code> for Amazon S3</para></li><li><para><code>VirtualMachine</code> for virtual machines</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

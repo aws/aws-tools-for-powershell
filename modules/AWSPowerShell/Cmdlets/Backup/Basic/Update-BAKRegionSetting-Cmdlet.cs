@@ -47,8 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceTypeManagementPreference
         /// <summary>
         /// <para>
-        /// <para>Enables or disables <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html">
-        /// Backup's advanced DynamoDB backup features</a> for the Region.</para>
+        /// <para>Enables or disables full Backup management of backups for a resource type. To enable
+        /// full Backup management for DynamoDB along with <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html">
+        /// Backup's advanced DynamoDB backup features</a>, follow the procedure to <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli">
+        /// enable advanced DynamoDB backup programmatically</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

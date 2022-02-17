@@ -156,7 +156,7 @@ $RS_Completers = {
             ($_ -eq "New-RSUsageLimit/FeatureType")
         }
         {
-            $v = "concurrency-scaling","spectrum"
+            $v = "concurrency-scaling","cross-region-datasharing","spectrum"
             break
         }
 

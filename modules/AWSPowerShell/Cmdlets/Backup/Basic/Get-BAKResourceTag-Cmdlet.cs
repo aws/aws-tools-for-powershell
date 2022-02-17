@@ -31,8 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// Returns a list of key-value pairs assigned to a target recovery point, backup plan,
     /// or backup vault.
     /// 
-    ///  <note><para><code>ListTags</code> are currently only supported with Amazon EFS backups.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  
+    /// <para><code>ListTags</code> only works for resource types that support full Backup management
+    /// of their backups. Those resource types are listed in the "Full Backup management"
+    /// section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+    /// Feature availability by resource</a> table.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKResourceTag")]
     [OutputType("System.String")]

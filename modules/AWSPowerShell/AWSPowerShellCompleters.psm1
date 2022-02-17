@@ -19707,6 +19707,13 @@ $CWEVD_Completers = {
             break
         }
 
+        # Amazon.CloudWatchEvidently.ExperimentStatus
+        "Get-CWEVDExperimentList/Status"
+        {
+            $v = "CANCELLED","COMPLETED","CREATED","RUNNING","UPDATING"
+            break
+        }
+
         # Amazon.CloudWatchEvidently.ExperimentStopDesiredState
         "Stop-CWEVDExperiment/DesiredState"
         {
@@ -19721,6 +19728,13 @@ $CWEVD_Completers = {
         }
         {
             $v = "ALL_RULES","DEFAULT_VARIATION"
+            break
+        }
+
+        # Amazon.CloudWatchEvidently.LaunchStatus
+        "Get-CWEVDLaunchList/Status"
+        {
+            $v = "CANCELLED","COMPLETED","CREATED","RUNNING","UPDATING"
             break
         }
 
@@ -19743,6 +19757,7 @@ $CWEVD_map = @{
     "BaseStat"=@("Get-CWEVDExperimentResult")
     "DesiredState"=@("Stop-CWEVDExperiment","Stop-CWEVDLaunch")
     "EvaluationStrategy"=@("New-CWEVDFeature","Update-CWEVDFeature")
+    "Status"=@("Get-CWEVDExperimentList","Get-CWEVDLaunchList")
 }
 
 _awsArgumentCompleterRegistration $CWEVD_Completers $CWEVD_map
@@ -38167,7 +38182,7 @@ $RS_Completers = {
             ($_ -eq "New-RSUsageLimit/FeatureType")
         }
         {
-            $v = "concurrency-scaling","spectrum"
+            $v = "concurrency-scaling","cross-region-datasharing","spectrum"
             break
         }
 

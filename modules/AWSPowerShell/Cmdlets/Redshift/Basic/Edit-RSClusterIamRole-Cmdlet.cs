@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// A cluster can have up to 10 IAM roles associated at any time.
+    /// The maximum number of IAM roles that you can associate is subject to a quota. For
+    /// more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas
+    /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RSClusterIamRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon
-        /// Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster
-        /// in a single request.</para>
+        /// Resource Name (ARN) format. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter RemoveIamRole
         /// <summary>
         /// <para>
-        /// <para>Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate
-        /// up to 10 IAM roles from a single cluster in a single request.</para>
+        /// <para>Zero or more IAM roles in ARN format to disassociate from the cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

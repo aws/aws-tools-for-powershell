@@ -37,13 +37,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// the lifecycle that you define.
     /// </para><para>
     /// Backups transitioned to cold storage must be stored in cold storage for a minimum
-    /// of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
-    /// the “transition to cold after days” setting. The “transition to cold after days” setting
-    /// cannot be changed after a backup has been transitioned to cold.
+    /// of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition
+    /// to cold after days” setting. The “transition to cold after days” setting cannot be
+    /// changed after a backup has been transitioned to cold.
     /// </para><para>
-    /// Only Amazon EFS file system backups can be transitioned to cold storage.
+    /// Only resource types that support full Backup management can transition their backups
+    /// to cold storage. Those resource types are listed in the "Full Backup management" section
+    /// of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+    /// Feature availability by resource</a> table. Backup ignores this expression for other
+    /// resource types.
     /// </para><para>
-    /// Does not support continuous backups.
+    /// This operation does not support continuous backups.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRecoveryPointLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Updates the password policy settings for the Amazon Web Services account.
     /// 
-    ///  <note><ul><li><para>
+    ///  <note><para>
     /// This operation does not support partial updates. No parameters are required, but if
     /// you do not specify a parameter, that parameter's value reverts to its default value.
     /// See the <b>Request Parameters</b> section for each parameter's default value. Also
     /// note that some parameters do not allow the default parameter to be explicitly set.
     /// Instead, to invoke the default value, do not include that parameter when you invoke
     /// the operation.
-    /// </para></li></ul></note><para>
+    /// </para></note><para>
     ///  For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing
     /// an IAM password policy</a> in the <i>IAM User Guide</i>.
     /// </para>
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> Allows all IAM users in your account to use the Amazon Web Services Management Console
-        /// to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
-        /// IAM users change their own passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting
+        /// IAM users to change their own passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
         /// value of <code>false</code>. The result is that IAM users in the account do not automatically
         /// have permissions to change their own password.</para>
         /// </para>
@@ -69,10 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter HardExpiry
         /// <summary>
         /// <para>
-        /// <para>Prevents IAM users from setting a new password after their password has expired. The
-        /// IAM user cannot be accessed until an administrator resets the password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// <para> Prevents IAM users who are accessing the account via the Amazon Web Services Management
+        /// Console from setting a new console password after their password has expired. The
+        /// IAM user cannot access the console until an administrator resets the password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
         /// value of <code>false</code>. The result is that IAM users can change their passwords
-        /// after they expire and continue to sign in as the user.</para>
+        /// after they expire and continue to sign in as the user.</para><note><para> In the Amazon Web Services Management Console, the custom password policy option
+        /// <b>Allow users to change their own password</b> gives IAM users permissions to <code>iam:ChangePassword</code>
+        /// for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This
+        /// option does not attach a permissions policy to each user, rather the permissions are
+        /// applied at the account-level for all users by IAM. IAM users with <code>iam:ChangePassword</code>
+        /// permission and active access keys can reset their own expired console password using
+        /// the CLI or API.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -109,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The type of limit. Depending on the feature type, this can be based on a time duration
         /// or data size. If <code>FeatureType</code> is <code>spectrum</code>, then <code>LimitType</code>
         /// must be <code>data-scanned</code>. If <code>FeatureType</code> is <code>concurrency-scaling</code>,
-        /// then <code>LimitType</code> must be <code>time</code>. </para>
+        /// then <code>LimitType</code> must be <code>time</code>. If <code>FeatureType</code>
+        /// is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
