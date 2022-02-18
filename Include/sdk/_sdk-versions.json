@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.211.0",
+    "ProductVersion" : "3.7.212.0",
     "CoreVersion"    : "3.7.7.1",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -514,7 +514,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.1.37",
+            "Version" : "3.7.1.38",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.1"
@@ -594,7 +594,7 @@
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "3.7.1.1",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.1"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.5.15",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.7.1"

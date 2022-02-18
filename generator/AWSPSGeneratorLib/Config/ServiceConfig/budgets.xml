@@ -71,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetNotificationsForAccount" OutputProperty="BudgetNotificationsForAccount" Verb="Get" Noun="BudgetNotificationsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
