@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves all aliases for this AWS account. You can filter the result set by alias
-    /// name and/or routing strategy type. Use the pagination parameters to retrieve results
-    /// in sequential pages.
+    /// Retrieves all aliases for this Amazon Web Services account. You can filter the result
+    /// set by alias name and/or routing strategy type. Use the pagination parameters to retrieve
+    /// results in sequential pages.
     /// 
     ///  <note><para>
     /// Returned aliases are not listed in any particular order.

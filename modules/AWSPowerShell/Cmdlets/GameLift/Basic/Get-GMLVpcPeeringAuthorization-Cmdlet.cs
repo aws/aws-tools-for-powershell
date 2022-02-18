@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves valid VPC peering authorizations that are pending for the AWS account. This
-    /// operation returns all VPC peering authorizations and requests for peering. This includes
-    /// those initiated and received by this account. 
+    /// Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services
+    /// account. This operation returns all VPC peering authorizations and requests for peering.
+    /// This includes those initiated and received by this account. 
     /// 
     ///  
     /// <para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |

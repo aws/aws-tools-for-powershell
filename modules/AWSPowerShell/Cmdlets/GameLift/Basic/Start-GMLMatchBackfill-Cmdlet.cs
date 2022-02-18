@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a
     /// match backfill ticket is created and returned with status set to QUEUED. Track the
     /// status of backfill tickets using the same method for tracking tickets for new matches.
+    /// </para><para>
+    /// Only game sessions created by FlexMatch are supported for match backfill.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
     /// Backfill existing games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
     /// Matchmaking events</a> (reference)
@@ -113,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// object, <code>MatchmakerData</code> property, for all players who are currently assigned
         /// to the game session. The matchmaker data is in JSON syntax, formatted as a string.
         /// For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
-        /// Match Data</a>. </para></li><li><para>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in
+        /// Match Data</a>. </para><para>The backfill request must specify the team membership for every player. Do not specify
+        /// team if you are not using backfill.</para></li><li><para>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the Region that the game session is currently in. Do not include
         /// latency values for any other Region.</para></li></ul>
         /// </para>
@@ -134,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
-        /// GameLift will generate one in the form of a UUID. Use this identifier to track the
-        /// match backfill ticket status and retrieve match results.</para>
+        /// Web Services will generate one in the form of a UUID. Use this identifier to track
+        /// the match backfill ticket status and retrieve match results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

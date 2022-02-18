@@ -35,8 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
-    /// Using Multi-Region Queues</a></para><para><b>Related actions</b></para><para><a>CreateGameSessionQueue</a> | <a>DescribeGameSessionQueues</a> | <a>UpdateGameSessionQueue</a>
-    /// | <a>DeleteGameSessionQueue</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Using Multi-Region Queues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FilterConfiguration_AllowedLocation
         /// <summary>
         /// <para>
-        /// <para> A list of locations to allow game session placement in, in the form of AWS Region
-        /// codes such as <code>us-west-2</code>. </para>
+        /// <para> A list of locations to allow game session placement in, in the form of Amazon Web
+        /// Services Region codes such as <code>us-west-2</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The prioritization order to use for fleet locations, when the <code>PriorityOrder</code>
-        /// property includes <code>LOCATION</code>. Locations are identified by AWS Region codes
-        /// such as <code>us-west-2</code>. Each location can only be listed once. </para>
+        /// property includes <code>LOCATION</code>. Locations are identified by Amazon Web Services
+        /// Region codes such as <code>us-west-2</code>. Each location can only be listed once.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

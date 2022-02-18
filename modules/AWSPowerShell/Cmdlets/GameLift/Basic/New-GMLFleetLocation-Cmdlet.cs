@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  <note><para>
     /// This operation cannot be used with fleets that don't support remote locations. Fleets
-    /// can have multiple locations only if they reside in AWS Regions that support this feature
-    /// (see <a>CreateFleet</a> for the complete list) and were created after the feature
-    /// was released in March 2021.
+    /// can have multiple locations only if they reside in Amazon Web Services Regions that
+    /// support this feature (see <a>CreateFleet</a> for the complete list) and were created
+    /// after the feature was released in March 2021.
     /// </para></note><para>
     /// To add fleet locations, specify the fleet to be updated and provide a list of one
     /// or more locations. 
@@ -87,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of locations to deploy additional instances to and manage as part of the fleet.
-        /// You can add any GameLift-supported AWS Region as a remote location, in the form of
-        /// an AWS Region code such as <code>us-west-2</code>. </para>
+        /// You can add any GameLift-supported Amazon Web Services Region as a remote location,
+        /// in the form of an Amazon Web Services Region code such as <code>us-west-2</code>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

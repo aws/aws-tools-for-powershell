@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// and retains them for 14 days. Use this URL to download the logs.
     /// 
     ///  <note><para>
-    /// See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
+    /// See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon
+    /// Web Services Service Limits</a> page for maximum log file sizes. Log files that exceed
+    /// this limit are not saved.
     /// </para></note><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
     /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
     /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>

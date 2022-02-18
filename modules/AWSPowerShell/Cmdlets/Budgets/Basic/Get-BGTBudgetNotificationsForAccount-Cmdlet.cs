@@ -22,53 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Budgets;
+using Amazon.Budgets.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Retrieves information on a fleet's remote locations, including life-cycle status and
-    /// any suspended fleet activity. 
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be used in the following ways: 
-    /// </para><ul><li><para>
-    /// To get data for specific locations, provide a fleet identifier and a list of locations.
-    /// Location data is returned in the order that it is requested. 
-    /// </para></li><li><para>
-    /// To get data for all locations, provide a fleet identifier only. Location data is returned
-    /// in no particular order. 
-    /// </para></li></ul><para>
-    /// When requesting attributes for multiple locations, use the pagination parameters to
-    /// retrieve results as a set of sequential pages. 
-    /// </para><para>
-    /// If successful, a <code>LocationAttributes</code> object is returned for each requested
-    /// location. If the fleet does not have a requested location, no information is returned.
-    /// This operation does not return the home Region. To get information on a fleet's home
-    /// Region, call <code>DescribeFleetAttributes</code>.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>DescribeFleetLocationAttributes</a> | <a>DescribeFleetLocationCapacity</a>
-    /// | <a>DescribeFleetLocationUtilization</a> | <a>DescribeFleetAttributes</a> | <a>DescribeFleetCapacity</a>
-    /// | <a>DescribeFleetUtilization</a> | <a>UpdateFleetCapacity</a> | <a>StopFleetActions</a>
-    /// | <a>DeleteFleetLocations</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the budget names and notifications that are associated with an account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GMLFleetLocationAttribute")]
-    [OutputType("Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DescribeFleetLocationAttributes API operation.", Operation = new[] {"DescribeFleetLocationAttributes"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BGTBudgetNotificationsForAccount")]
+    [OutputType("Amazon.Budgets.Model.BudgetNotificationsForAccount")]
+    [AWSCmdlet("Calls the AWS Budgets DescribeBudgetNotificationsForAccount API operation.", Operation = new[] {"DescribeBudgetNotificationsForAccount"}, SelectReturnType = typeof(Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse))]
+    [AWSCmdletOutput("Amazon.Budgets.Model.BudgetNotificationsForAccount or Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse",
+        "This cmdlet returns a collection of Amazon.Budgets.Model.BudgetNotificationsForAccount objects.",
+        "The service call response (type Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLFleetLocationAttributeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetBGTBudgetNotificationsForAccountCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet to retrieve remote locations for. You can use either
-        /// the fleet ID or ARN value.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,39 +54,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String AccountId { get; set; }
         #endregion
         
-        #region Parameter Location
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A list of fleet locations to retrieve information for. Specify locations in the form
-        /// of an Amazon Web Services Region code, such as <code>us-west-2</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Locations")]
-        public System.String[] Location { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages. This limit is not currently enforced.
+        /// <para> An integer that shows how many budget name entries a paginated response contains.
         /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this operation. To start at the beginning
-        /// of the result set, do not specify a value.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -124,21 +85,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BudgetNotificationsForAccount'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse).
+        /// Specifying the name of a property of type Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "BudgetNotificationsForAccount";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -165,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse, GetGMLFleetLocationAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse, GetBGTBudgetNotificationsForAccountCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -174,21 +135,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FleetId;
+                context.Select = (response, cmdlet) => this.AccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FleetId = this.FleetId;
+            context.AccountId = this.AccountId;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Limit = this.Limit;
-            if (this.Location != null)
-            {
-                context.Location = new List<System.String>(this.Location);
-            }
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -208,19 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.DescribeFleetLocationAttributesRequest();
+            var request = new Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.AccountId != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.AccountId = cmdletContext.AccountId;
             }
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.Location != null)
-            {
-                request.Locations = cmdletContext.Location;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -279,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeFleetLocationAttributesRequest request)
+        private Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeFleetLocationAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DescribeBudgetNotificationsForAccount");
             try
             {
                 #if DESKTOP
-                return client.DescribeFleetLocationAttributes(request);
+                return client.DescribeBudgetNotificationsForAccount(request);
                 #elif CORECLR
-                return client.DescribeFleetLocationAttributesAsync(request).GetAwaiter().GetResult();
+                return client.DescribeBudgetNotificationsForAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -307,12 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.Int32? Limit { get; set; }
-            public List<System.String> Location { get; set; }
+            public System.String AccountId { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse, GetGMLFleetLocationAttributeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Budgets.Model.DescribeBudgetNotificationsForAccountResponse, GetBGTBudgetNotificationsForAccountCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BudgetNotificationsForAccount;
         }
         
     }

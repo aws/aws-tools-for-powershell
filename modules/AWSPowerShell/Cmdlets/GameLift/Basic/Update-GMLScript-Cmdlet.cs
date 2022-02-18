@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to the script.
     /// </para><para>
     /// If the call is successful, the updated metadata is stored in the script record and
-    /// a revised script is uploaded to the Amazon GameLift service. Once the script is updated
-    /// and acquired by a fleet instance, the new version is used for all new game sessions.
-    /// 
+    /// a revised script is uploaded to the Amazon Web Services service. Once the script is
+    /// updated and acquired by a fleet instance, the new version is used for all new game
+    /// sessions. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
+    /// Web Services Realtime Servers</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
     /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
-        /// Use this parameter to specify a specific version of the file. If not set, the latest
-        /// version of the file is retrieved. </para>
+        /// Web Services uses this information when retrieving files from an S3 bucket that you
+        /// own. Use this parameter to specify a specific version of the file. If not set, the
+        /// latest version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon Web Services to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A data object containing your Realtime scripts and dependencies as a zip file. The
-        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
-        /// name. It must be prepended with the string "fileb://" to indicate that the file data
-        /// is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
+        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the Amazon Web Services CLI tool to create a script, this parameter is
+        /// set to the zip file name. It must be prepended with the string "fileb://" to indicate
+        /// that the file data is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

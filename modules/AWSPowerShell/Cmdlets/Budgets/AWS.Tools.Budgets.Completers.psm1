@@ -325,6 +325,7 @@ $BGT_SelectMap = @{
                "Get-BGTBudgetActionHistory",
                "Get-BGTBudgetActionsForAccount",
                "Get-BGTBudgetActionsForBudget",
+               "Get-BGTBudgetNotificationsForAccount",
                "Get-BGTBudgetPerformanceHistory",
                "Get-BGTBudgetList",
                "Get-BGTNotificationsForBudget",

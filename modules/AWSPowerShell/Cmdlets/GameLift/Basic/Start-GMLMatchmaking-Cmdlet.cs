@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// Track matchmaking events to respond as needed and acquire game session connection
     /// information for successfully completed matches. Ticket status updates are tracked
-    /// using event notification through Amazon Simple Notification Service (SNS), which is
-    /// defined in the matchmaking configuration.
+    /// using event notification through Amazon Simple Notification Service, which is defined
+    /// in the matchmaking configuration.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
     /// Set Up FlexMatch event notification</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
-        /// GameLift will generate one in the form of a UUID. Use this identifier to track the
-        /// matchmaking ticket status and retrieve match results.</para>
+        /// Web Services will generate one in the form of a UUID. Use this identifier to track
+        /// the matchmaking ticket status and retrieve match results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// with GameLift hosting, you also need to identify the game session queue to use when
     /// starting a game session for the match.
     /// </para><para>
-    /// In addition, you must set up an Amazon Simple Notification Service (SNS) topic to
-    /// receive matchmaking notifications. Provide the topic ARN in the matchmaking configuration.
+    /// In addition, you must set up an Amazon Simple Notification Service topic to receive
+    /// matchmaking notifications. Provide the topic ARN in the matchmaking configuration.
     /// An alternative method, continuously polling ticket status with <a>DescribeMatchmaking</a>,
     /// is only suitable for games in development with low matchmaking usage.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
@@ -282,12 +282,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new matchmaking configuration resource. Tags are
-        /// developer-defined key-value pairs. Tagging AWS resources are useful for resource management,
-        /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the AWS General Reference for actual tagging limits.</para>
+        /// developer-defined key-value pairs. Tagging Amazon Web Services resources are useful
+        /// for resource management, access management and cost allocation. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging
+        /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
+        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
+        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
+        /// may be lower than stated. See the Amazon Web Services General Reference for actual
+        /// tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A custom string that uniquely identifies the game server to register. Game server
         /// IDs are developer-defined and must be unique across all game server groups in your
-        /// AWS account.</para>
+        /// Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

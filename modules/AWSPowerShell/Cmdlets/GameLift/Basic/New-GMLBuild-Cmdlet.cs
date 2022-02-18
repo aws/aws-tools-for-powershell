@@ -28,22 +28,23 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new Amazon GameLift build resource for your game server binary files. Game
-    /// server binaries must be combined into a zip file for use with Amazon GameLift. 
+    /// Creates a new Amazon Web Services build resource for your game server binary files.
+    /// Game server binaries must be combined into a zip file for use with Amazon Web Services.
+    /// 
     /// 
     ///  <important><para>
-    /// When setting up a new game build for GameLift, we recommend using the AWS CLI command
-    /// <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
+    /// When setting up a new game build for GameLift, we recommend using the Amazon Web Services
+    /// CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
     /// a file directory to a GameLift Amazon S3 location, and (2) it creates a new build
     /// resource. 
     /// </para></important><para>
     /// The <code>CreateBuild</code> operation can used in the following scenarios:
     /// </para><ul><li><para>
     /// To create a new game build with build files that are in an Amazon S3 location under
-    /// an AWS account that you control. To use this option, you must first give Amazon GameLift
-    /// access to the Amazon S3 bucket. With permissions in place, call <code>CreateBuild</code>
-    /// and specify a build name, operating system, and the Amazon S3 storage location of
-    /// your game build.
+    /// an Amazon Web Services account that you control. To use this option, you must first
+    /// give Amazon Web Services access to the Amazon S3 bucket. With permissions in place,
+    /// call <code>CreateBuild</code> and specify a build name, operating system, and the
+    /// Amazon S3 storage location of your game build.
     /// </para></li><li><para>
     /// To directly upload your build files to a GameLift Amazon S3 location. To use this
     /// option, first call <code>CreateBuild</code> and specify a build name and operating
@@ -107,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
-        /// Use this parameter to specify a specific version of the file. If not set, the latest
-        /// version of the file is retrieved. </para>
+        /// Web Services uses this information when retrieving files from an S3 bucket that you
+        /// own. Use this parameter to specify a specific version of the file. If not set, the
+        /// latest version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon Web Services to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,12 +147,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new build resource. Tags are developer-defined key-value
-        /// pairs. Tagging AWS resources are useful for resource management, access management
-        /// and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the AWS General Reference for actual tagging limits.</para>
+        /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
+        /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
+        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
+        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
+        /// may be lower than stated. See the Amazon Web Services General Reference for actual
+        /// tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -41,19 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><ul><li><para>
     /// A locally available directory. Use the <i>ZipFile</i> parameter for this option.
     /// </para></li><li><para>
-    /// An Amazon Simple Storage Service (Amazon S3) bucket under your AWS account. Use the
-    /// <i>StorageLocation</i> parameter for this option. You'll need to have an Identity
-    /// Access Management (IAM) role that allows the Amazon GameLift service to access your
-    /// S3 bucket. 
+    /// An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services
+    /// account. Use the <i>StorageLocation</i> parameter for this option. You'll need to
+    /// have an Identity Access Management (IAM) role that allows the Amazon Web Services
+    /// service to access your S3 bucket. 
     /// </para></li></ul><para>
     /// If the call is successful, a new script record is created with a unique script ID.
     /// If the script file is provided as a local file, the file is uploaded to an Amazon
-    /// GameLift-owned S3 bucket and the script record's storage location reflects this location.
-    /// If the script file is provided as an S3 bucket, Amazon GameLift accesses the file
-    /// at this storage location as needed for deployment.
+    /// Web Services-owned S3 bucket and the script record's storage location reflects this
+    /// location. If the script file is provided as an S3 bucket, Amazon Web Services accesses
+    /// the file at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
-    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
+    /// Web Services Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
+    /// Up a Role for Amazon Web Services Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
     /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
-        /// Use this parameter to specify a specific version of the file. If not set, the latest
-        /// version of the file is retrieved. </para>
+        /// Web Services uses this information when retrieving files from an S3 bucket that you
+        /// own. Use this parameter to specify a specific version of the file. If not set, the
+        /// latest version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon Web Services to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,12 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new script resource. Tags are developer-defined
-        /// key-value pairs. Tagging AWS resources are useful for resource management, access
-        /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the AWS General Reference for actual tagging limits.</para>
+        /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+        /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
+        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
+        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
+        /// may be lower than stated. See the Amazon Web Services General Reference for actual
+        /// tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A data object containing your Realtime scripts and dependencies as a zip file. The
-        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
-        /// name. It must be prepended with the string "fileb://" to indicate that the file data
-        /// is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
+        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the Amazon Web Services CLI tool to create a script, this parameter is
+        /// set to the zip file name. It must be prepended with the string "fileb://" to indicate
+        /// that the file data is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

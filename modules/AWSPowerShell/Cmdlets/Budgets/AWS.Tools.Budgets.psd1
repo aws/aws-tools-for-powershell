@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BGTBudgetActionsForAccount', 
         'Get-BGTBudgetActionsForBudget', 
         'Get-BGTBudgetList', 
+        'Get-BGTBudgetNotificationsForAccount', 
         'Get-BGTBudgetPerformanceHistory', 
         'Get-BGTNotificationsForBudget', 
         'Get-BGTSubscribersForNotification', 

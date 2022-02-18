@@ -29,27 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>).
-    /// When processing a placement request, Amazon GameLift searches for available resources
+    /// When processing a placement request, Amazon Web Services searches for available resources
     /// on the queue's destinations, scanning each until it finds resources or the placement
     /// request times out.
     /// 
     ///  
     /// <para>
     /// A game session placement request can also request player sessions. When a new game
-    /// session is successfully created, Amazon GameLift creates a player session for each
-    /// player included in the request.
+    /// session is successfully created, Amazon Web Services creates a player session for
+    /// each player included in the request.
     /// </para><para>
-    /// When placing a game session, by default Amazon GameLift tries each fleet in the order
-    /// they are listed in the queue configuration. Ideally, a queue's destinations are listed
-    /// in preference order.
+    /// When placing a game session, by default Amazon Web Services tries each fleet in the
+    /// order they are listed in the queue configuration. Ideally, a queue's destinations
+    /// are listed in preference order.
     /// </para><para>
     /// Alternatively, when requesting a game session with players, you can also provide latency
     /// data for each player in relevant Regions. Latency data indicates the performance lag
-    /// a player experiences when connected to a fleet in the Region. Amazon GameLift uses
-    /// latency data to reorder the list of destinations to place the game session in a Region
-    /// with minimal lag. If latency data is provided for multiple players, Amazon GameLift
-    /// calculates each Region's average lag for all players and reorders to get the best
-    /// game play across all players. 
+    /// a player experiences when connected to a fleet in the Region. Amazon Web Services
+    /// uses latency data to reorder the list of destinations to place the game session in
+    /// a Region with minimal lag. If latency data is provided for multiple players, Amazon
+    /// Web Services calculates each Region's average lag for all players and reorders to
+    /// get the best game play across all players. 
     /// </para><para>
     /// To place a new game session request, specify the following:
     /// </para><ul><li><para>
@@ -193,8 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of values, expressed in milliseconds, that indicates the amount of latency that
-        /// a player experiences when connected to AWS Regions. This information is used to try
-        /// to place the new game session where it can offer the best possible gameplay experience
+        /// a player experiences when connected to @aws; Regions. This information is used to
+        /// try to place the new game session where it can offer the best possible gameplay experience
         /// for the players. </para>
         /// </para>
         /// </summary>

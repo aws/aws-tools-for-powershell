@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves all tags that are assigned to a GameLift resource. Resource tags are used
-    /// to organize AWS resources for a range of purposes. This operation handles the permissions
-    /// necessary to manage tags for the following GameLift resource types:
+    /// to organize Amazon Web Services resources for a range of purposes. This operation
+    /// handles the permissions necessary to manage tags for the following GameLift resource
+    /// types:
     /// 
     ///  <ul><li><para>
     /// Build
@@ -49,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// To list tags for a resource, specify the unique ARN value for the resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// AWS Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
+    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLResourceTag")]

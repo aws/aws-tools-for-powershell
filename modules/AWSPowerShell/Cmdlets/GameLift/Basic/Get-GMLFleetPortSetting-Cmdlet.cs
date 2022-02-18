@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>A remote location to check for status of port setting updates. Use the AWS Region
-        /// code format, such as <code>us-west-2</code>.</para>
+        /// <para>A remote location to check for status of port setting updates. Use the Amazon Web
+        /// Services Region code format, such as <code>us-west-2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

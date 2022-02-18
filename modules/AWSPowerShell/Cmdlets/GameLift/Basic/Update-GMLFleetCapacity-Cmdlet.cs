@@ -39,10 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// capacity to a value outside of this range, whether the capacity is changed manually
     /// or through automatic scaling. 
     /// </para></li><li><para>
-    /// Desired capacity: Manually set the number of EC2 instances to be maintained in a fleet
-    /// location. Before changing a fleet's desired capacity, you may want to call <a>DescribeEC2InstanceLimits</a>
-    /// to get the maximum capacity of the fleet's EC2 instance type. Alternatively, consider
-    /// using automatic scaling to adjust capacity based on player demand.
+    /// Desired capacity: Manually set the number of Amazon EC2 instances to be maintained
+    /// in a fleet location. Before changing a fleet's desired capacity, you may want to call
+    /// <a>DescribeEC2InstanceLimits</a> to get the maximum capacity of the fleet's Amazon
+    /// EC2 instance type. Alternatively, consider using automatic scaling to adjust capacity
+    /// based on player demand.
     /// </para></li></ul><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DesiredInstance
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances you want to maintain in the specified fleet location.
+        /// <para>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
         /// This value must fall between the minimum and maximum size limits.</para>
         /// </para>
         /// </summary>
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The name of a remote location to update fleet capacity settings for, in the form of
-        /// an AWS Region code such as <code>us-west-2</code>.</para>
+        /// an Amazon Web Services Region code such as <code>us-west-2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

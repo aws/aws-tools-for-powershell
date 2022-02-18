@@ -218,6 +218,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ProtocolDetails_PassiveIp { get; set; }
         #endregion
         
+        #region Parameter PostAuthenticationLoginBanner
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostAuthenticationLoginBanner { get; set; }
+        #endregion
+        
+        #region Parameter PreAuthenticationLoginBanner
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreAuthenticationLoginBanner { get; set; }
+        #endregion
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>
@@ -406,6 +426,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.IdentityProviderType = this.IdentityProviderType;
             context.LoggingRole = this.LoggingRole;
+            context.PostAuthenticationLoginBanner = this.PostAuthenticationLoginBanner;
+            context.PreAuthenticationLoginBanner = this.PreAuthenticationLoginBanner;
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
             context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
             if (this.Protocol != null)
@@ -569,6 +591,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            if (cmdletContext.PostAuthenticationLoginBanner != null)
+            {
+                request.PostAuthenticationLoginBanner = cmdletContext.PostAuthenticationLoginBanner;
+            }
+            if (cmdletContext.PreAuthenticationLoginBanner != null)
+            {
+                request.PreAuthenticationLoginBanner = cmdletContext.PreAuthenticationLoginBanner;
+            }
             
              // populate ProtocolDetails
             var requestProtocolDetailsIsNull = true;
@@ -705,6 +735,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_Url { get; set; }
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public System.String LoggingRole { get; set; }
+            public System.String PostAuthenticationLoginBanner { get; set; }
+            public System.String PreAuthenticationLoginBanner { get; set; }
             public System.String ProtocolDetails_PassiveIp { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }

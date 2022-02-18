@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// A game session queue is configured with a set of destinations (GameLift fleets or
     /// aliases), which determine the locations where the queue can place new game sessions.
     /// These destinations can span multiple fleet types (Spot and On-Demand), instance types,
-    /// and AWS Regions. If the queue includes multi-location fleets, the queue is able to
-    /// place game sessions in all of a fleet's remote locations. You can opt to filter out
-    /// individual locations if needed.
+    /// and Amazon Web Services Regions. If the queue includes multi-location fleets, the
+    /// queue is able to place game sessions in all of a fleet's remote locations. You can
+    /// opt to filter out individual locations if needed.
     /// </para><para>
     /// The queue configuration also determines how FleetIQ selects the best available placement
     /// for a new game session. Before searching for an available game server, FleetIQ first
@@ -55,12 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// using SNS or CloudWatch events is the preferred way to track placement activity.
     /// </para><para>
     /// If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
-    /// queue ARN. New game session requests, which are submitted to the queue with <a>StartGameSessionPlacement</a>
-    /// or <a>StartMatchmaking</a>, reference a queue's name or ARN. 
+    /// queue ARN. New game session requests, which are submitted to queue with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
+    /// or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html">StartMatchmaking</a>,
+    /// reference a queue's name or ARN. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
     /// Design a game session queue</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
-    /// Create a game session queue</a></para><para><b>Related actions</b></para><para><a>CreateGameSessionQueue</a> | <a>DescribeGameSessionQueues</a> | <a>UpdateGameSessionQueue</a>
-    /// | <a>DeleteGameSessionQueue</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Create a game session queue</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FilterConfiguration_AllowedLocation
         /// <summary>
         /// <para>
-        /// <para> A list of locations to allow game session placement in, in the form of AWS Region
-        /// codes such as <code>us-west-2</code>. </para>
+        /// <para> A list of locations to allow game session placement in, in the form of Amazon Web
+        /// Services Region codes such as <code>us-west-2</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The prioritization order to use for fleet locations, when the <code>PriorityOrder</code>
-        /// property includes <code>LOCATION</code>. Locations are identified by AWS Region codes
-        /// such as <code>us-west-2</code>. Each location can only be listed once. </para>
+        /// property includes <code>LOCATION</code>. Locations are identified by Amazon Web Services
+        /// Region codes such as <code>us-west-2</code>. Each location can only be listed once.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,12 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new game session queue resource. Tags are developer-defined
-        /// key-value pairs. Tagging AWS resources are useful for resource management, access
-        /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the AWS General Reference for actual tagging limits.</para>
+        /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+        /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
+        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
+        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
+        /// may be lower than stated. See the Amazon Web Services General Reference for actual
+        /// tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

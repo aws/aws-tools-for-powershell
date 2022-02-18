@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Assigns a tag to a GameLift resource. AWS resource tags provide an additional management
-    /// tool set. You can use tags to organize resources, create IAM permissions policies
-    /// to manage access to groups of resources, customize AWS cost breakdowns, etc. This
-    /// operation handles the permissions necessary to manage tags for the following GameLift
-    /// resource types:
+    /// Assigns a tag to a GameLift resource. Amazon Web Services resource tags provide an
+    /// additional management tool set. You can use tags to organize resources, create IAM
+    /// permissions policies to manage access to groups of resources, customize Amazon Web
+    /// Services cost breakdowns, etc. This operation handles the permissions necessary to
+    /// manage tags for the following GameLift resource types:
     /// 
     ///  <ul><li><para>
     /// Build
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a tag list containing one or more tags. The operation succeeds even if the list includes
     /// tags that are already assigned to the specified resource. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// AWS Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
+    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Add", "GMLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of one or more tags to assign to the specified GameLift resource. Tags are
         /// developer-defined and structured as key-value pairs. The maximum tag limit may be
         /// lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> for actual tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> for actual tagging limits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet to retrieve scaling policies for. You can use either
-        /// the fleet ID or ARN value.</para>
+        /// <para>A unique identifier for the fleet for which to retrieve scaling policies. You can
+        /// use either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para> CONTENT TODO </para>
+        /// <para> The fleet location. If you don't specify this value, the response contains the scaling
+        /// policies of every location in the fleet. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

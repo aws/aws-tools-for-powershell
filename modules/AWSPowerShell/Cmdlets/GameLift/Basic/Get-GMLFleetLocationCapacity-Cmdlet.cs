@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The fleet location to retrieve capacity information for. Specify a location in the
-        /// form of an AWS Region code, such as <code>us-west-2</code>.</para>
+        /// form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

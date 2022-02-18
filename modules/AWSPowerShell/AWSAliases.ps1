@@ -1978,6 +1978,8 @@ Set-Alias -Name Describe-BGTBudgetActionsForBudget -Value Get-BGTBudgetActionsFo
 Set-Alias -Name BGT-DescribeBudgetActionsForBudget -Value Get-BGTBudgetActionsForBudget
 Set-Alias -Name Describe-BGTBudget -Value Get-BGTBudget
 Set-Alias -Name BGT-DescribeBudget -Value Get-BGTBudget
+Set-Alias -Name Describe-BGTBudgetNotificationsForAccount -Value Get-BGTBudgetNotificationsForAccount
+Set-Alias -Name BGT-DescribeBudgetNotificationsForAccount -Value Get-BGTBudgetNotificationsForAccount
 Set-Alias -Name Describe-BGTBudgetPerformanceHistory -Value Get-BGTBudgetPerformanceHistory
 Set-Alias -Name BGT-DescribeBudgetPerformanceHistory -Value Get-BGTBudgetPerformanceHistory
 Set-Alias -Name Describe-BGTBudgets -Value Get-BGTBudgetList

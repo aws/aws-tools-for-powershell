@@ -30,27 +30,30 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Creates a GameLift FleetIQ game server group for managing game hosting on a collection
-    /// of Amazon EC2 instances for game hosting. This operation creates the game server group,
-    /// creates an Auto Scaling group in your AWS account, and establishes a link between
-    /// the two groups. You can view the status of your game server groups in the GameLift
-    /// console. Game server group metrics and events are emitted to Amazon CloudWatch.
+    /// of Amazon Elastic Compute Cloud instances for game hosting. This operation creates
+    /// the game server group, creates an Auto Scaling group in your Amazon Web Services account,
+    /// and establishes a link between the two groups. You can view the status of your game
+    /// server groups in the GameLift console. Game server group metrics and events are emitted
+    /// to Amazon CloudWatch.
     /// </para><para>
     /// Before creating a new game server group, you must have the following: 
     /// </para><ul><li><para>
-    /// An Amazon EC2 launch template that specifies how to launch Amazon EC2 instances with
-    /// your game server build. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">
-    /// Launching an Instance from a Launch Template</a> in the <i>Amazon EC2 User Guide</i>.
-    /// 
+    /// An Amazon Elastic Compute Cloud launch template that specifies how to launch Amazon
+    /// Elastic Compute Cloud instances with your game server build. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">
+    /// Launching an Instance from a Launch Template</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>. 
     /// </para></li><li><para>
-    /// An IAM role that extends limited access to your AWS account to allow GameLift FleetIQ
-    /// to create and interact with the Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create
+    /// An IAM role that extends limited access to your Amazon Web Services account to allow
+    /// GameLift FleetIQ to create and interact with the Auto Scaling group. For more information,
+    /// see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create
     /// IAM roles for cross-service interaction</a> in the <i>GameLift FleetIQ Developer Guide</i>.
     /// </para></li></ul><para>
     /// To create a new game server group, specify a unique group name, IAM role and Amazon
-    /// EC2 launch template, and provide a list of instance types that can be used in the
-    /// group. You must also set initial maximum and minimum limits on the group's instance
-    /// count. You can optionally set an Auto Scaling policy with target tracking based on
-    /// a GameLift FleetIQ metric.
+    /// Elastic Compute Cloud launch template, and provide a list of instance types that can
+    /// be used in the group. You must also set initial maximum and minimum limits on the
+    /// group's instance count. You can optionally set an Auto Scaling policy with target
+    /// tracking based on a GameLift FleetIQ metric.
     /// </para><para>
     /// Once the game server group and corresponding Auto Scaling group are created, you have
     /// full access to change the Auto Scaling group's configuration as needed. Several properties
@@ -113,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>An identifier for the new game server group. This value is used to generate unique
-        /// ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server
-        /// group. The name must be unique per Region per AWS account.</para>
+        /// ARN identifiers for the Amazon EC2 Auto Scaling group and the GameLift FleetIQ game
+        /// server group. The name must be unique per Region per Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// be terminated during a scale-down event, causing players to be dropped from the game.
         /// Protected instances cannot be terminated while there are active game servers running
         /// except in the event of a forced game server group deletion (see ). An exception to
-        /// this is with Spot Instances, which can be terminated by AWS regardless of protection
-        /// status. This property is set to <code>NO_PROTECTION</code> by default.</para>
+        /// this is with Spot Instances, which can be terminated by Amazon Web Services regardless
+        /// of protection status. This property is set to <code>NO_PROTECTION</code> by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,13 +151,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceDefinition
         /// <summary>
         /// <para>
-        /// <para>The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions
-        /// must specify at least two different instance types that are supported by GameLift
-        /// FleetIQ. For more information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
-        /// Instance Types</a> in the <i>Amazon EC2 User Guide</i>. You can optionally specify
-        /// capacity weighting for each instance type. If no weight value is specified for an
-        /// instance type, it is set to the default value "1". For more information about capacity
-        /// weighting, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">
+        /// <para>The Amazon EC2 instance types and sizes to use in the Auto Scaling group. The instance
+        /// definitions must specify at least two different instance types that are supported
+        /// by GameLift FleetIQ. For more information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
+        /// Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. You can
+        /// optionally specify capacity weighting for each instance type. If no weight value is
+        /// specified for an instance type, it is set to the default value "1". For more information
+        /// about capacity weighting, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">
         /// Instance Weighting for Amazon EC2 Auto Scaling</a> in the Amazon EC2 Auto Scaling
         /// User Guide.</para>
         /// </para>
@@ -174,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter LaunchTemplate_LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for an existing EC2 launch template.</para>
+        /// <para>A unique identifier for an existing Amazon EC2 launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter LaunchTemplate_LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>A readable identifier for an existing EC2 launch template. </para>
+        /// <para>A readable identifier for an existing Amazon EC2 launch template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances allowed in the EC2 Auto Scaling group. During automatic
-        /// scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        /// After the Auto Scaling group is created, update this value directly in the Auto Scaling
-        /// group using the AWS console or APIs.</para>
+        /// <para>The maximum number of instances allowed in the Amazon EC2 Auto Scaling group. During
+        /// automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above
+        /// this maximum. After the Auto Scaling group is created, update this value directly
+        /// in the Auto Scaling group using the Amazon Web Services console or APIs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -213,11 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of instances allowed in the EC2 Auto Scaling group. During automatic
-        /// scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
-        /// In production, this value should be set to at least 1. After the Auto Scaling group
-        /// is created, update this value directly in the Auto Scaling group using the AWS console
-        /// or APIs.</para>
+        /// <para>The minimum number of instances allowed in the Amazon EC2 Auto Scaling group. During
+        /// automatic scaling events, GameLift FleetIQ and Amazon EC2 do not scale down the group
+        /// below this minimum. In production, this value should be set to at least 1. After the
+        /// Auto Scaling group is created, update this value directly in the Auto Scaling group
+        /// using the Amazon Web Services console or APIs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -234,7 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.</para>
+        /// for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling
+        /// groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -252,12 +256,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new game server group resource. Tags are developer-defined
-        /// key-value pairs. Tagging AWS resources is useful for resource management, access management,
-        /// and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags, respectively. The maximum tag limit may be lower than
-        /// stated. See the AWS General Reference for actual tagging limits.</para>
+        /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
+        /// access management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
+        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
+        /// and <a>ListTagsForResource</a> to add, remove, and view tags, respectively. The maximum
+        /// tag limit may be lower than stated. See the Amazon Web Services General Reference
+        /// for actual tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,9 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the EC2 launch template to use. If no version is specified, the default
-        /// version will be used. With Amazon EC2, you can specify a default version for a launch
-        /// template. If none is set, the default is the first version created.</para>
+        /// <para>The version of the Amazon EC2 launch template to use. If no version is specified,
+        /// the default version will be used. With Amazon Elastic Compute Cloud, you can specify
+        /// a default version for a launch template. If none is set, the default is the first
+        /// version created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

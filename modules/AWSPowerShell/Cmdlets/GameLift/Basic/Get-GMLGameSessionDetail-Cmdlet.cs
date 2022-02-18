@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// filter. The location can be the fleet's home Region or any remote location.
     /// </para></li><li><para>
     /// To retrieve details for a specific game session, provide the game session ID. This
-    /// approach looks for the game session ID in all fleets that reside in the AWS Region
-    /// defined in the request.
+    /// approach looks for the game session ID in all fleets that reside in the Amazon Web
+    /// Services Region defined in the request.
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A fleet location to get game sessions for. You can specify a fleet's home Region or
-        /// a remote location. Use the AWS Region code format, such as <code>us-west-2</code>.
+        /// a remote location. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.
         /// </para>
         /// </para>
         /// </summary>

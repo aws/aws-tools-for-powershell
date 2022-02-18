@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The name of a location to retrieve instance information for, in the form of an AWS
-        /// Region code such as <code>us-west-2</code>. </para>
+        /// <para>The name of a location to retrieve instance information for, in the form of an Amazon
+        /// Web Services Region code such as <code>us-west-2</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

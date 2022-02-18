@@ -28,13 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Establishes a VPC peering connection between a virtual private cloud (VPC) in an AWS
-    /// account with the VPC for your Amazon GameLift fleet. VPC peering enables the game
-    /// servers on your fleet to communicate directly with other AWS resources. You can peer
-    /// with VPCs in any AWS account that you have access to, including the account that you
-    /// use to manage your Amazon GameLift fleets. You cannot peer with VPCs that are in different
-    /// Regions. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-    /// Peering with Amazon GameLift Fleets</a>.
+    /// Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon
+    /// Web Services account with the VPC for your Amazon Web Services fleet. VPC peering
+    /// enables the game servers on your fleet to communicate directly with other Amazon Web
+    /// Services resources. You can peer with VPCs in any Amazon Web Services account that
+    /// you have access to, including the account that you use to manage your Amazon Web Services
+    /// fleets. You cannot peer with VPCs that are in different Regions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+    /// Peering with Amazon Web Services Fleets</a>.
     /// 
     ///  
     /// <para>
@@ -44,14 +45,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// establish the connection. These two operations handle all tasks necessary to peer
     /// the two VPCs, including acceptance, updating routing tables, etc. 
     /// </para><para>
-    /// To establish the connection, call this operation from the AWS account that is used
-    /// to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of
-    /// the fleet you want to be enable a VPC peering connection for; (2) The AWS account
-    /// with the VPC that you want to peer with; and (3) The ID of the VPC you want to peer
-    /// with. This operation is asynchronous. If successful, a <a>VpcPeeringConnection</a>
-    /// request is created. You can use continuous polling to track the request's status using
-    /// <a>DescribeVpcPeeringConnections</a>, or by monitoring fleet events for success or
-    /// failure using <a>DescribeFleetEvents</a>. 
+    /// To establish the connection, call this operation from the Amazon Web Services account
+    /// that is used to manage the Amazon Web Services fleets. Identify the following values:
+    /// (1) The ID of the fleet you want to be enable a VPC peering connection for; (2) The
+    /// Amazon Web Services account with the VPC that you want to peer with; and (3) The ID
+    /// of the VPC you want to peer with. This operation is asynchronous. If successful, a
+    /// <a>VpcPeeringConnection</a> request is created. You can use continuous polling to
+    /// track the request's status using <a>DescribeVpcPeeringConnections</a>, or by monitoring
+    /// fleet events for success or failure using <a>DescribeFleetEvents</a>. 
     /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
     /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
     /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This
-        /// tells Amazon GameLift which GameLift VPC to peer with. </para>
+        /// tells Amazon Web Services which GameLift VPC to peer with. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PeerVpcAwsAccountId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the AWS account with the VPC that you want to peer your Amazon
-        /// GameLift fleet with. You can find your Account ID in the AWS Management Console under
-        /// account settings.</para>
+        /// <para>A unique identifier for the Amazon Web Services account with the VPC that you want
+        /// to peer your Amazon Web Services fleet with. You can find your Account ID in the Amazon
+        /// Web Services Management Console under account settings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
-        /// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management
-        /// Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the Amazon Web Services
+        /// Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
         /// Peering with GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>

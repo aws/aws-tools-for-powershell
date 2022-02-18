@@ -28,8 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a collection of fleet resources in an AWS Region. You can call this operation
-    /// to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
+    /// Retrieves a collection of fleet resources in an Amazon Web Services Region. You can
+    /// call this operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
     /// specify a Region in your request. You can filter the result set to find only those
     /// fleets that are deployed with a specific build or script. For fleets that have multiple
     /// locations, this operation retrieves fleets based on their home Region only.

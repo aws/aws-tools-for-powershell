@@ -35,6 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
+    /// This operation is not designed to be continually called to track game session status.
+    /// This practice can cause you to exceed your API limit, which results in errors. Instead,
+    /// you must configure configure an Amazon Simple Notification Service (SNS) topic to
+    /// receive notifications from FlexMatch or queues. Continuously polling with <code>DescribeGameSessions</code>
+    /// should only be used for games in development with low game session usage. 
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To retrieve all game sessions that are currently running on all locations in a fleet,
@@ -46,14 +52,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// location can be the fleet's home Region or any remote location.
     /// </para></li><li><para>
     /// To retrieve a specific game session, provide the game session ID. This approach looks
-    /// for the game session ID in all fleets that reside in the AWS Region defined in the
-    /// request.
+    /// for the game session ID in all fleets that reside in the Amazon Web Services Region
+    /// defined in the request.
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
     /// If successful, a <code>GameSession</code> object is returned for each game session
     /// that matches the request.
-    /// </para><para><i>Available in GameLift Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find
+    /// </para><para>
+    /// This operation is not designed to be continually called to track matchmaking ticket
+    /// status. This practice can cause you to exceed your API limit, which results in errors.
+    /// Instead, as a best practice, set up an Amazon Simple Notification Service to receive
+    /// notifications, and provide the topic ARN in the matchmaking configuration. Continuously
+    /// poling ticket status with <a>DescribeGameSessions</a> should only be used for games
+    /// in development with low matchmaking usage.
+    /// </para><para><i>Available in Amazon Web Services Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find
     /// a game session</a></para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
     /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
     /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
@@ -106,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A fleet location to get game session details for. You can specify a fleet's home Region
-        /// or a remote location. Use the AWS Region code format, such as <code>us-west-2</code>.
+        /// or a remote location. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.
         /// </para>
         /// </para>
         /// </summary>

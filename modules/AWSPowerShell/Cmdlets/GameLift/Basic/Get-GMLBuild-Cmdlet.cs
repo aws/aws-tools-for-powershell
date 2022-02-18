@@ -28,10 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves build resources for all builds associated with the AWS account in use. You
-    /// can limit results to builds that are in a specific status by using the <code>Status</code>
-    /// parameter. Use the pagination parameters to retrieve results in a set of sequential
-    /// pages. 
+    /// Retrieves build resources for all builds associated with the Amazon Web Services account
+    /// in use. You can limit results to builds that are in a specific status by using the
+    /// <code>Status</code> parameter. Use the pagination parameters to retrieve results in
+    /// a set of sequential pages. 
     /// 
     ///  <note><para>
     /// Build resources are not listed in any particular order.

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
-    /// Retrieves information on all game servers groups that exist in the current AWS account
-    /// for the selected Region. Use the pagination parameters to retrieve results in a set
-    /// of sequential segments. 
+    /// Retrieves information on all game servers groups that exist in the current Amazon
+    /// Web Services account for the selected Region. Use the pagination parameters to retrieve
+    /// results in a set of sequential segments. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
     /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
     /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>

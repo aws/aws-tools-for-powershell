@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Removes a tag that is assigned to a GameLift resource. Resource tags are used to organize
-    /// AWS resources for a range of purposes. This operation handles the permissions necessary
-    /// to manage tags for the following GameLift resource types:
+    /// Amazon Web Services resources for a range of purposes. This operation handles the
+    /// permissions necessary to manage tags for the following GameLift resource types:
     /// 
     ///  <ul><li><para>
     /// Build
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// provide a string list containing one or more tags to be removed. This operation succeeds
     /// even if the list includes tags that are not currently assigned to the specified resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// AWS Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
+    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of one or more tag keys to remove from the specified GameLift resource. An
-        /// AWS resource can have only one tag with a specific tag key, so specifying the tag
-        /// key identifies which tag to remove. </para>
+        /// Amazon Web Services resource can have only one tag with a specific tag key, so specifying
+        /// the tag key identifies which tag to remove. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
