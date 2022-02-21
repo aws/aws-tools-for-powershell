@@ -1,4 +1,17 @@
-﻿### 4.1.27.0 (2022-02-18 21:15Z)
+﻿### 4.1.28.0 (2022-02-21 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.213.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFWorkflow leveraging the GetWorkflow service API.
+    * Added cmdlet Get-CPFWorkflowList leveraging the ListWorkflows service API.
+    * Added cmdlet Get-CPFWorkflowStep leveraging the GetWorkflowSteps service API.
+    * Added cmdlet New-CPFIntegrationWorkflow leveraging the CreateIntegrationWorkflow service API.
+    * Added cmdlet Remove-CPFWorkflow leveraging the DeleteWorkflow service API.
+    * Modified cmdlet Get-CPFAccountIntegrationList: added parameter IncludeHidden.
+    * Modified cmdlet Get-CPFIntegrationList: added parameter IncludeHidden.
+  * Amazon DynamoDB
+    * Modified cmdlet Invoke-DDBDDBExecuteStatement: added parameter Limit.
+
+### 4.1.27.0 (2022-02-18 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.212.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Budgets
     * Added cmdlet Get-BGTBudgetNotificationsForAccount leveraging the DescribeBudgetNotificationsForAccount service API.

@@ -30,6 +30,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// This operation allows you to perform reads and singleton writes on data stored in
     /// DynamoDB, using PartiQL.
+    /// 
+    ///  
+    /// <para>
+    /// For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
+    /// items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
+    /// returned to the user as a <code>LastEvaluatedKey</code> value to continue the read
+    /// in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does
+    /// not match any data, the read will return an empty result set.
+    /// </para><para>
+    /// A single <code>SELECT</code> statement response can return up to the maximum number
+    /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
+    /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
+    /// is present in the response, you need to paginate the result set.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "DDBDDBExecuteStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Collections.Generic.Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>")]
@@ -89,6 +103,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Statement { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to evaluate (not necessarily the number of matching items).
+        /// If DynamoDB processes the number of items up to the limit while processing the results,
+        /// it stops the operation and returns the matching values up to that point, along with
+        /// a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can
+        /// pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+        /// DynamoDB reaches this limit, it stops the operation and returns the matching values
+        /// up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+        /// operation to continue the operation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -164,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConsistentRead = this.ConsistentRead;
+            context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             if (this.Parameter != null)
             {
@@ -196,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ConsistentRead != null)
             {
                 request.ConsistentRead = cmdletContext.ConsistentRead.Value;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -275,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ConsistentRead { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.DynamoDBv2.Model.AttributeValue> Parameter { get; set; }
             public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }

@@ -29,7 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// Creates a new component that can be used to build, validate, test, and assess your
-    /// image.
+    /// image. The component is based on a YAML document that you specify using exactly one
+    /// of the following methods:
+    /// 
+    ///  <ul><li><para>
+    /// Inline, using the <code>data</code> property in the request body.
+    /// </para></li><li><para>
+    /// A URL that points to a YAML document file stored in Amazon S3, using the <code>uri</code>
+    /// property in the request body.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "EC2IBComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,8 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The data of the component. Used to specify the data inline. Either <code>data</code>
-        /// or <code>uri</code> can be used to specify the data within the component.</para>
+        /// <para>Component <code>data</code> contains inline YAML document content for the component.
+        /// Alternatively, you can specify the <code>uri</code> of a YAML document file stored
+        /// in Amazon S3. However, you cannot specify both properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,10 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
-        /// to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
-        /// up to your service quota. Either <code>data</code> or <code>uri</code> can be used
-        /// to specify the data within the component.</para>
+        /// <para>The <code>uri</code> of a YAML component document file. This must be an S3 URL (<code>s3://bucket/key</code>),
+        /// and the requester must have permission to access the S3 bucket it points to. If you
+        /// use Amazon S3, you can specify component content up to your service quota.</para><para>Alternatively, you can specify the YAML document inline, using the component <code>data</code>
+        /// property. You cannot specify both properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class GetCPFAccountIntegrationListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        #region Parameter IncludeHidden
+        /// <summary>
+        /// <para>
+        /// <para>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeHidden { get; set; }
+        #endregion
+        
         #region Parameter Uri
         /// <summary>
         /// <para>
@@ -123,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Select = (response, cmdlet) => this.Uri;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeHidden = this.IncludeHidden;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Uri = this.Uri;
@@ -148,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             // create request
             var request = new Amazon.CustomerProfiles.Model.ListAccountIntegrationsRequest();
             
+            if (cmdletContext.IncludeHidden != null)
+            {
+                request.IncludeHidden = cmdletContext.IncludeHidden.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -221,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeHidden { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Uri { get; set; }

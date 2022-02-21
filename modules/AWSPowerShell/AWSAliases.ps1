@@ -4849,6 +4849,8 @@ Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CPF-AddProfileKey -Value Add-CPFProfileKey
 Set-Alias -Name Create-CPFDomain -Value New-CPFDomain
 Set-Alias -Name CPF-CreateDomain -Value New-CPFDomain
+Set-Alias -Name Create-CPFIntegrationWorkflow -Value New-CPFIntegrationWorkflow
+Set-Alias -Name CPF-CreateIntegrationWorkflow -Value New-CPFIntegrationWorkflow
 Set-Alias -Name Create-CPFProfile -Value New-CPFProfile
 Set-Alias -Name CPF-CreateProfile -Value New-CPFProfile
 Set-Alias -Name Delete-CPFDomain -Value Remove-CPFDomain
@@ -4863,6 +4865,8 @@ Set-Alias -Name Delete-CPFProfileObject -Value Remove-CPFProfileObject
 Set-Alias -Name CPF-DeleteProfileObject -Value Remove-CPFProfileObject
 Set-Alias -Name Delete-CPFProfileObjectType -Value Remove-CPFProfileObjectType
 Set-Alias -Name CPF-DeleteProfileObjectType -Value Remove-CPFProfileObjectType
+Set-Alias -Name Delete-CPFWorkflow -Value Remove-CPFWorkflow
+Set-Alias -Name CPF-DeleteWorkflow -Value Remove-CPFWorkflow
 Set-Alias -Name CPF-GetAutoMergingPreview -Value Get-CPFAutoMergingPreview
 Set-Alias -Name CPF-GetDomain -Value Get-CPFDomain
 Set-Alias -Name CPF-GetIdentityResolutionJob -Value Get-CPFIdentityResolutionJob
@@ -4871,6 +4875,9 @@ Set-Alias -Name Get-CPFMatches -Value Get-CPFMatch
 Set-Alias -Name CPF-GetMatches -Value Get-CPFMatch
 Set-Alias -Name CPF-GetProfileObjectType -Value Get-CPFProfileObjectType
 Set-Alias -Name CPF-GetProfileObjectTypeTemplate -Value Get-CPFProfileObjectTypeTemplate
+Set-Alias -Name CPF-GetWorkflow -Value Get-CPFWorkflow
+Set-Alias -Name Get-CPFWorkflowSteps -Value Get-CPFWorkflowStep
+Set-Alias -Name CPF-GetWorkflowSteps -Value Get-CPFWorkflowStep
 Set-Alias -Name List-CPFAccountIntegrations -Value Get-CPFAccountIntegrationList
 Set-Alias -Name List-CPFAccountIntegrationList -Value Get-CPFAccountIntegrationList
 Set-Alias -Name CPF-ListAccountIntegrations -Value Get-CPFAccountIntegrationList
@@ -4893,6 +4900,9 @@ Set-Alias -Name List-CPFProfileObjectTypeTemplates -Value Get-CPFProfileObjectTy
 Set-Alias -Name List-CPFProfileObjectTypeTemplateList -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name CPF-ListProfileObjectTypeTemplates -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name CPF-ListTagsForResource -Value Get-CPFResourceTag
+Set-Alias -Name List-CPFWorkflows -Value Get-CPFWorkflowList
+Set-Alias -Name List-CPFWorkflowList -Value Get-CPFWorkflowList
+Set-Alias -Name CPF-ListWorkflows -Value Get-CPFWorkflowList
 Set-Alias -Name Merge-CPFProfiles -Value Merge-CPFProfile
 Set-Alias -Name CPF-MergeProfiles -Value Merge-CPFProfile
 Set-Alias -Name Put-CPFIntegration -Value Write-CPFIntegration

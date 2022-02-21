@@ -28,16 +28,16 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Lists all of the integrations in your domain.
+    /// Query to list all workflows.
     /// </summary>
-    [Cmdlet("Get", "CPFIntegrationList")]
-    [OutputType("Amazon.CustomerProfiles.Model.ListIntegrationItem")]
-    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListIntegrations API operation.", Operation = new[] {"ListIntegrations"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListIntegrationsResponse))]
-    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.ListIntegrationItem or Amazon.CustomerProfiles.Model.ListIntegrationsResponse",
-        "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.ListIntegrationItem objects.",
-        "The service call response (type Amazon.CustomerProfiles.Model.ListIntegrationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPFWorkflowList")]
+    [OutputType("Amazon.CustomerProfiles.Model.ListWorkflowsItem")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListWorkflows API operation.", Operation = new[] {"ListWorkflows"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListWorkflowsResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.ListWorkflowsItem or Amazon.CustomerProfiles.Model.ListWorkflowsResponse",
+        "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.ListWorkflowsItem objects.",
+        "The service call response (type Amazon.CustomerProfiles.Model.ListWorkflowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCPFIntegrationListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
+    public partial class GetCPFWorkflowListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -57,20 +57,52 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter IncludeHidden
+        #region Parameter QueryEndDate
         /// <summary>
         /// <para>
-        /// <para>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</para>
+        /// <para>Retrieve workflows ended after timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeHidden { get; set; }
+        public System.DateTime? QueryEndDate { get; set; }
+        #endregion
+        
+        #region Parameter QueryStartDate
+        /// <summary>
+        /// <para>
+        /// <para>Retrieve workflows started after timestamp.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? QueryStartDate { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Status of workflow execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.Status")]
+        public Amazon.CustomerProfiles.Status Status { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowType
+        /// <summary>
+        /// <para>
+        /// <para>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.WorkflowType")]
+        public Amazon.CustomerProfiles.WorkflowType WorkflowType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects returned per page.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the previous ListIntegrations API call.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListIntegrationsResponse).
-        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListIntegrationsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListWorkflowsResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListWorkflowsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListIntegrationsResponse, GetCPFIntegrationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListWorkflowsResponse, GetCPFWorkflowListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,9 +173,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludeHidden = this.IncludeHidden;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.QueryEndDate = this.QueryEndDate;
+            context.QueryStartDate = this.QueryStartDate;
+            context.Status = this.Status;
+            context.WorkflowType = this.WorkflowType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,15 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CustomerProfiles.Model.ListIntegrationsRequest();
+            var request = new Amazon.CustomerProfiles.Model.ListWorkflowsRequest();
             
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
-            }
-            if (cmdletContext.IncludeHidden != null)
-            {
-                request.IncludeHidden = cmdletContext.IncludeHidden.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -174,6 +206,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.QueryEndDate != null)
+            {
+                request.QueryEndDate = cmdletContext.QueryEndDate.Value;
+            }
+            if (cmdletContext.QueryStartDate != null)
+            {
+                request.QueryStartDate = cmdletContext.QueryStartDate.Value;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.WorkflowType != null)
+            {
+                request.WorkflowType = cmdletContext.WorkflowType;
             }
             
             CmdletOutput output;
@@ -208,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         #region AWS Service Operation Call
         
-        private Amazon.CustomerProfiles.Model.ListIntegrationsResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListIntegrationsRequest request)
+        private Amazon.CustomerProfiles.Model.ListWorkflowsResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListWorkflowsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListIntegrations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListWorkflows");
             try
             {
                 #if DESKTOP
-                return client.ListIntegrations(request);
+                return client.ListWorkflows(request);
                 #elif CORECLR
-                return client.ListIntegrationsAsync(request).GetAwaiter().GetResult();
+                return client.ListWorkflowsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +285,13 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
-            public System.Boolean? IncludeHidden { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.CustomerProfiles.Model.ListIntegrationsResponse, GetCPFIntegrationListCmdlet, object> Select { get; set; } =
+            public System.DateTime? QueryEndDate { get; set; }
+            public System.DateTime? QueryStartDate { get; set; }
+            public Amazon.CustomerProfiles.Status Status { get; set; }
+            public Amazon.CustomerProfiles.WorkflowType WorkflowType { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.ListWorkflowsResponse, GetCPFWorkflowListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

@@ -64,8 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// BusinessEmailAddress
     /// </para></li><li><para>
     /// FullName
-    /// </para></li><li><para>
-    /// BusinessName
     /// </para></li></ul><para>
     /// For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and
     /// <b>Jhn Doe</b>, or different casing email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b>

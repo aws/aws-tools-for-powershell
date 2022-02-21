@@ -12132,7 +12132,10 @@ $CPF_Completers = {
         }
 
         # Amazon.CustomerProfiles.DataPullMode
-        "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"
+        {
+            ($_ -eq "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode") -Or
+            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode")
+        }
         {
             $v = "Complete","Incremental"
             break
@@ -12169,16 +12172,39 @@ $CPF_Completers = {
         }
 
         # Amazon.CustomerProfiles.SourceConnectorType
-        "Write-CPFIntegration/FlowDefinition_SourceFlowConfig_ConnectorType"
+        {
+            ($_ -eq "Write-CPFIntegration/FlowDefinition_SourceFlowConfig_ConnectorType") -Or
+            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType")
+        }
         {
             $v = "Marketo","S3","Salesforce","Servicenow","Zendesk"
             break
         }
 
+        # Amazon.CustomerProfiles.Status
+        "Get-CPFWorkflowList/Status"
+        {
+            $v = "CANCELLED","COMPLETE","FAILED","IN_PROGRESS","NOT_STARTED","RETRY","SPLIT"
+            break
+        }
+
         # Amazon.CustomerProfiles.TriggerType
-        "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerType"
+        {
+            ($_ -eq "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerType") -Or
+            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType")
+        }
         {
             $v = "Event","OnDemand","Scheduled"
+            break
+        }
+
+        # Amazon.CustomerProfiles.WorkflowType
+        {
+            ($_ -eq "Get-CPFWorkflowList/WorkflowType") -Or
+            ($_ -eq "New-CPFIntegrationWorkflow/WorkflowType")
+        }
+        {
+            $v = "APPFLOW_INTEGRATION"
             break
         }
 
@@ -12196,9 +12222,14 @@ $CPF_map = @{
     "FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("Write-CPFIntegration")
     "FlowDefinition_TriggerConfig_TriggerType"=@("Write-CPFIntegration")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
+    "IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow")
+    "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow")
+    "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType"=@("New-CPFIntegrationWorkflow")
     "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
+    "Status"=@("Get-CPFWorkflowList")
+    "WorkflowType"=@("Get-CPFWorkflowList","New-CPFIntegrationWorkflow")
 }
 
 _awsArgumentCompleterRegistration $CPF_Completers $CPF_map
@@ -12253,6 +12284,7 @@ $CPF_SelectCompleters = {
 $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
                "New-CPFDomain",
+               "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
                "Remove-CPFDomain",
                "Remove-CPFIntegration",
@@ -12260,6 +12292,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Remove-CPFWorkflow",
                "Get-CPFAutoMergingPreview",
                "Get-CPFDomain",
                "Get-CPFIdentityResolutionJob",
@@ -12267,6 +12300,8 @@ $CPF_SelectMap = @{
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFWorkflow",
+               "Get-CPFWorkflowStep",
                "Get-CPFAccountIntegrationList",
                "Get-CPFDomainList",
                "Get-CPFIdentityResolutionJobList",
@@ -12275,6 +12310,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
                "Get-CPFResourceTag",
+               "Get-CPFWorkflowList",
                "Merge-CPFProfile",
                "Write-CPFIntegration",
                "Write-CPFProfileObject",
