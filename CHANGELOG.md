@@ -1,4 +1,10 @@
-﻿### 4.1.28.0 (2022-02-21 21:26Z)
+﻿### 4.1.29.0 (2022-02-22 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.215.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Translate
+    * Modified cmdlet ConvertTo-TRNTargetLanguage: added parameter Settings_Formality.
+    * Modified cmdlet Start-TRNTextTranslationJob: added parameter Settings_Formality.
+
+### 4.1.28.0 (2022-02-21 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.213.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Customer Profiles
     * Added cmdlet Get-CPFWorkflow leveraging the GetWorkflow service API.

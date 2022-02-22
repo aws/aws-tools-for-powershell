@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class ConvertToTRNTargetLanguageCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        #region Parameter Settings_Formality
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Formality")]
+        public Amazon.Translate.Formality Settings_Formality { get; set; }
+        #endregion
+        
         #region Parameter Settings_Profanity
         /// <summary>
         /// <para>
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 context.Select = (response, cmdlet) => this.Text;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Settings_Formality = this.Settings_Formality;
             context.Settings_Profanity = this.Settings_Profanity;
             context.SourceLanguageCode = this.SourceLanguageCode;
             #if MODULAR
@@ -233,6 +245,16 @@ namespace Amazon.PowerShell.Cmdlets.TRN
              // populate Settings
             var requestSettingsIsNull = true;
             request.Settings = new Amazon.Translate.Model.TranslationSettings();
+            Amazon.Translate.Formality requestSettings_settings_Formality = null;
+            if (cmdletContext.Settings_Formality != null)
+            {
+                requestSettings_settings_Formality = cmdletContext.Settings_Formality;
+            }
+            if (requestSettings_settings_Formality != null)
+            {
+                request.Settings.Formality = requestSettings_settings_Formality;
+                requestSettingsIsNull = false;
+            }
             Amazon.Translate.Profanity requestSettings_settings_Profanity = null;
             if (cmdletContext.Settings_Profanity != null)
             {
@@ -325,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Translate.Formality Settings_Formality { get; set; }
             public Amazon.Translate.Profanity Settings_Profanity { get; set; }
             public System.String SourceLanguageCode { get; set; }
             public System.String TargetLanguageCode { get; set; }

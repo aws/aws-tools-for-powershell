@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         public System.String DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter Settings_Formality
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Formality")]
+        public Amazon.Translate.Formality Settings_Formality { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKey_Id
         /// <summary>
         /// <para>
@@ -337,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 context.ParallelDataName = new List<System.String>(this.ParallelDataName);
             }
+            context.Settings_Formality = this.Settings_Formality;
             context.Settings_Profanity = this.Settings_Profanity;
             context.SourceLanguageCode = this.SourceLanguageCode;
             #if MODULAR
@@ -478,6 +490,16 @@ namespace Amazon.PowerShell.Cmdlets.TRN
              // populate Settings
             var requestSettingsIsNull = true;
             request.Settings = new Amazon.Translate.Model.TranslationSettings();
+            Amazon.Translate.Formality requestSettings_settings_Formality = null;
+            if (cmdletContext.Settings_Formality != null)
+            {
+                requestSettings_settings_Formality = cmdletContext.Settings_Formality;
+            }
+            if (requestSettings_settings_Formality != null)
+            {
+                request.Settings.Formality = requestSettings_settings_Formality;
+                requestSettingsIsNull = false;
+            }
             Amazon.Translate.Profanity requestSettings_settings_Profanity = null;
             if (cmdletContext.Settings_Profanity != null)
             {
@@ -575,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<System.String> ParallelDataName { get; set; }
+            public Amazon.Translate.Formality Settings_Formality { get; set; }
             public Amazon.Translate.Profanity Settings_Profanity { get; set; }
             public System.String SourceLanguageCode { get; set; }
             public List<System.String> TargetLanguageCode { get; set; }

@@ -98,6 +98,16 @@ $TRN_Completers = {
             break
         }
 
+        # Amazon.Translate.Formality
+        {
+            ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Formality") -Or
+            ($_ -eq "Start-TRNTextTranslationJob/Settings_Formality")
+        }
+        {
+            $v = "FORMAL","INFORMAL"
+            break
+        }
+
         # Amazon.Translate.JobStatus
         "Get-TRNTextTranslationJobList/Filter_JobStatus"
         {
@@ -156,6 +166,7 @@ $TRN_map = @{
     "MergeStrategy"=@("Import-TRNTerminology")
     "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
+    "Settings_Formality"=@("ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Profanity"=@("ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "TerminologyData_Directionality"=@("Import-TRNTerminology")
     "TerminologyData_Format"=@("Import-TRNTerminology")
