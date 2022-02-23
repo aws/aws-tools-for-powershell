@@ -1,5 +1,5 @@
 ﻿/*******************************************************************************
- *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -140,6 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter ReportErrorsOnly { get; set; }
         #endregion
 
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// Indicates the algorithm you want Amazon S3 to use to create the checksum for the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_WithKeyVersionCollection)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_WithKeyCollection)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+
         #region Shared Parameters
 
         #region Parameter SerialNumber
@@ -218,6 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (this.InputObject != null && this.InputObject.Length > 0)
                     context.S3ObjectCollection = new List<S3Object>(this.InputObject);
 
+                if (this.ChecksumAlgorithm != null)
+                    context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+
                 if (this.ReportErrorsOnly.IsPresent)
                     context.Quiet = true;
             }
@@ -293,7 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             var request = new DeleteObjectsRequest
             {
-                Quiet = cmdletContext.Quiet
+                Quiet = cmdletContext.Quiet,
+                ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm
             };
 
             if (cmdletContext.KeyCollection != null)
@@ -433,6 +449,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public String SerialNumber { get; set; }
             public String AuthenticationValue { get; set; }
+
+            public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         }
     }
 }

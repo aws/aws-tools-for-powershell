@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -224,6 +224,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
 
+        #region Parameter ChecksumMode
+        /// <summary>
+        /// This must be enabled to retrieve the checksum. In addition, if you enable <code>ChecksumMode</code> 
+        /// and the object is KMS encrypted, you must have permission to the <code>kms:Decrypt</code> action
+        /// for the request to succeed.
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object, ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumMode")]
+        public ChecksumMode ChecksumMode { get; set; }
+        #endregion
+
         #endregion
 
         protected override void ProcessRecord()
@@ -290,6 +302,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
+
+            if (ParameterWasBound("ChecksumMode"))
+                context.ChecksumMode = this.ChecksumMode;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -345,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+            request.ChecksumMode = cmdletContext.ChecksumMode;
 
             CmdletOutput output;
             using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
@@ -444,6 +460,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
             public string ServerSideEncryptionCustomerProvidedKey { get; set; }
             public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+
+            public ChecksumMode ChecksumMode { get; set; }
         }
 
         internal class DownloadFileProgressTracker : ProgressTracker<WriteObjectProgressArgs>

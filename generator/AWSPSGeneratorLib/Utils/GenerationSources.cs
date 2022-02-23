@@ -40,7 +40,7 @@ namespace AWSPowerShellGenerator.Utils
         private const string AWSPowerShellNetCoreGuid = "cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683";
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
         private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
-        private readonly string[] AdditionalCrtAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "AWSSDK.Extensions.CrtIntegration" };
+        private readonly string[] AdditionalCrtAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration" };
 
         //All paths are relative to the AwsPowerShellModuleFolder
         public static readonly string AWSPowerShellModularSolutionFilename = Path.Combine("..", "..", "solutions", "ModularAWSPowerShell.sln");
