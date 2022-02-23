@@ -1,4 +1,7 @@
-﻿### 4.1.29.0 (2022-02-22 21:22Z)
+﻿### 4.1.30.0 (2022-02-23 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.216.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.29.0 (2022-02-22 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.215.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Translate
     * Modified cmdlet ConvertTo-TRNTargetLanguage: added parameter Settings_Formality.

@@ -34,6 +34,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// If the function's package type is <code>Image</code>, you must specify the code package
+    /// in <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+    /// image</a> in the Amazon ECR registry. 
+    /// </para><para>
+    /// If the function's package type is <code>Zip</code>, you must specify the deployment
+    /// package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+    /// file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location.
+    /// You can also provide the function code inline using the <code>ZipFile</code> field.
+    /// 
+    /// </para><para>
+    /// The code in the deployment package must be compatible with the target instruction
+    /// set architecture of the function (<code>x86-64</code> or <code>arm64</code>). 
+    /// </para><para>
     /// The function's code is locked when you publish a version. You can't modify the code
     /// of a published version, only the unpublished version.
     /// </para><note><para>
@@ -87,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ImageUri
         /// <summary>
         /// <para>
-        /// <para>URI of a container image in the Amazon ECR registry.</para>
+        /// <para>URI of a container image in the Amazon ECR registry. Do not use for a function defined
+        /// with a .zip file archive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromImage")]
@@ -120,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket
-        /// can be in a different Amazon Web Services account.</para>
+        /// can be in a different Amazon Web Services account. Use only with a function defined
+        /// with a .zip file archive deployment package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromS3Object")]
@@ -131,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter S3Key
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 key of the deployment package.</para>
+        /// <para>The Amazon S3 key of the deployment package. Use only with a function defined with
+        /// a .zip file archive deployment package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromS3Object")]
@@ -154,7 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The base64-encoded contents of the deployment package. Amazon Web Services SDK and
-        /// Amazon Web Services CLI clients handle the encoding for you.</para>
+        /// Amazon Web Services CLI clients handle the encoding for you. Use only with a function
+        /// defined with a .zip file archive deployment package.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

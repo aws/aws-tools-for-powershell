@@ -79,13 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// is set to <i>LOGICAL</i>.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example.</para><para><code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code></para><para>In most cases, you can use this value instead of the session policy to lock your user
         /// down to the designated home directory ("<code>chroot</code>"). To do this, you can
         /// set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
-        /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para><note><para>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the
-        /// entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
-        /// 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code>
-        /// or <code>efsapi</code> call instead of <code>s3</code> or <code>efs</code> so you
-        /// can use the put-object operation. For example, you use the following: <code>aws s3api
-        /// put-object --bucket bucketname --key path/to/folder/</code>. Make sure that the end
-        /// of the key name ends in a <code>/</code> for it to be considered a folder.</para></note>
+        /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
