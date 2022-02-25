@@ -143,4 +143,49 @@ Describe -Tag "Smoke" "S3" {
             Copy-S3Object -BucketName $eastBucketName -Key $prefixedKey -DestinationKey "/data/keycopy" -Region us-east-1
         }
     }
+
+    Context "Checksums" {
+
+        BeforeAll {
+            $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
+            New-S3Bucket -BucketName $script:bucketName
+        }
+
+        AfterAll {
+            $script:bucketName | Remove-S3Bucket -Force -DeleteBucketContent
+        }
+
+        It "Put and get an object with a SHA1 checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "ps-sha1" -Content "this is a test" -ChecksumAlgorithm SHA1
+            Read-S3Object -BucketName $script:bucketName -Key "ps-sha1" -ChecksumMode ENABLED -File "temp\sha1.txt"
+        }
+        It "Put and get an object with a SHA256 checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "ps-sha256" -Content "this is a test" -ChecksumAlgorithm SHA256
+            Read-S3Object -BucketName $script:bucketName -Key "ps-sha256" -ChecksumMode ENABLED -File "temp\sha256.txt"
+        }
+        It "Put and get an object with a CRC32 checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "ps-crc32" -Content "this is a test" -ChecksumAlgorithm CRC32
+            Read-S3Object -BucketName $script:bucketName -Key "ps-crc32" -ChecksumMode ENABLED -File "temp\crc32.txt"
+        }
+        It "Put and get an object with a CRC32C checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "ps-crc32c" -Content "this is a test" -ChecksumAlgorithm CRC32C
+            Read-S3Object -BucketName $script:bucketName -Key "ps-crc32c" -ChecksumMode ENABLED -File "temp\crc32c.txt"
+        }
+
+        It "Can copy an object with a checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "source" -Content "this is a test" -ChecksumAlgorithm SHA256
+            Copy-S3Object -BucketName $script:bucketName -Key "source" -DestinationBucket $script -DestinationKey "dest" -ChecksumAlgorithm SHA256
+            Get-S3ObjectAttribute -BucketName $script:bucketName -Key "dest" -ObjectAttributes Checksum | Select-Object -ExpandProperty Checksum | Should -Not -BeNullOrEmpty
+        }
+
+        It "Can delete objects with a checksum" {
+            Write-S3Object -BucketName $script:bucketName -Key "key1" -Content "this is a test"
+            Write-S3Object -BucketName $script:bucketName -Key "key2" -Content "this is a test"
+
+            Remove-S3Object -BucketName $script:bucketName -KeyCollection @( "key1", "key2" ) -ChecksumAlgorithm SHA256 -Force
+
+            { Read-S3Object -BucketName $script:bucketName -Key "key1" -File "temp\key1.txt" } | Should -Throw
+            { Read-S3Object -BucketName $script:bucketName -Key "key2" -File "temp\key2.txt" } | Should -Throw
+        }
+    }
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -345,6 +345,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// Indicates the algorithm you want Amazon S3 to use to create the checksum for the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFile)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromStream)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+
         #endregion
 
         #region TransferUtility Params
@@ -478,6 +491,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Headers = this.HeaderCollection;
             context.TagSet = this.TagSet;
             context.CalculateContentMD5Header = this.CalculateContentMD5Header;
+            
+            if (this.ChecksumAlgorithm != null)
+            {
+                context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+            }
 
             if (this.PartSize != null)
             {
@@ -550,6 +568,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
+            if (cmdletContext.ChecksumAlgorithm != null)
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
@@ -612,6 +632,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
                 if (cmdletContext.TagSet != null)
                     request.TagSet = new List<Tag>(cmdletContext.TagSet);
+                if (cmdletContext.ChecksumAlgorithm != null)
+                    request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
 
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
@@ -751,6 +773,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
             public string ServerSideEncryptionCustomerProvidedKey { get; set; }
             public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+
+            public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
 
             public Hashtable Metadata { get; set; }
             public Hashtable Headers { get; set; }

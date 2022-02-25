@@ -51,6 +51,7 @@ Copy-Item -Path "$monolithicModuleFolder/ImportGuard.ps1" -Destination "$modular
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-auth.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-auth.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-http.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-http.dll"
+Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-checksums.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-checksums.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/AWSSDK.Extensions.CrtIntegration.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Extensions.CrtIntegration.dll"
 
 $projectNameList = @@('@(string.Join("', '", Projects.Select(project => project.AssemblyName)))')

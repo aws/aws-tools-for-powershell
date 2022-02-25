@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -427,6 +427,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
 
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// Indicates the algorithm you want Amazon S3 to use to create the checksum for the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.
+        /// </summary>
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+
+        #region Parameter ChecksumMode
+        /// <summary>
+        /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, 
+        /// the SDK will calculate the MD5 if this is not set.
+        /// </summary>
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFolder, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFile, ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumMode")]
+        public ChecksumMode ChecksumMode { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -465,6 +488,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CopySourceServerSideEncryptionCustomerMethod = this.CopySourceServerSideEncryptionCustomerMethod,
                 CopySourceServerSideEncryptionCustomerProvidedKey = this.CopySourceServerSideEncryptionCustomerProvidedKey,
                 CopySourceServerSideEncryptionCustomerProvidedKeyMD5 = this.CopySourceServerSideEncryptionCustomerProvidedKeyMD5,
+
+                ChecksumAlgorithm = this.ChecksumAlgorithm,
+                ChecksumMode = this.ChecksumMode,
 
                 Metadata = this.Metadata,
                 Headers = this.HeaderCollection
@@ -649,6 +675,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
 
+            request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+
             if (cmdletContext.TagSet != null)
                 request.TagSet.AddRange(cmdletContext.TagSet);
 
@@ -793,6 +821,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
 
+            request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+
             if (cmdletContext.WebsiteRedirectLocation != null)
                 request.WebsiteRedirectLocation = cmdletContext.WebsiteRedirectLocation;
 
@@ -845,6 +875,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+
+            request.ChecksumMode = cmdletContext.ChecksumMode;
 
             CmdletOutput output;
             using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
@@ -1061,6 +1093,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String WebsiteRedirectLocation { get; set; }
 
             public Tag[] TagSet { get; set; }
+
+            public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+            public ChecksumMode ChecksumMode { get; set; }
         }
 
         internal class MultiPartObjectCopyController
@@ -1089,6 +1124,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 public long StartByte { get; set; }
                 public long Size { get; set; }
                 public string ETag { get; set; }
+
+                public string ChecksumSHA1 { get; set; }
+                public string ChecksumSHA256 { get; set; }
+                public string ChecksumCRC32 { get; set; }
+                public string ChecksumCRC32C { get; set; }
+
+                public PartETag ToPartETag()
+                {
+                    var partETag = new PartETag(PartNumber, ETag);
+                    partETag.ChecksumSHA1 = ChecksumSHA1;
+                    partETag.ChecksumSHA256 = ChecksumSHA256;
+                    partETag.ChecksumCRC32 = ChecksumCRC32;
+                    partETag.ChecksumCRC32C = ChecksumCRC32C;
+
+                    return partETag;
+                }
             }
 
             /// <summary>
@@ -1192,7 +1243,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 get
                 {
-                    return _parts.Select(p => new PartETag(p.PartNumber, p.ETag)).ToList();
+                    return _parts.Select(p => p.ToPartETag()).ToList();
                 }
             }
 
@@ -1223,6 +1274,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     {
                         var response = _this.CallAWSServiceOperation(_this._s3Client, copyPartRequest);
                         part.ETag = response.ETag;
+                        part.ChecksumSHA1 = response.ChecksumSHA1;
+                        part.ChecksumSHA256 = response.ChecksumSHA256;
+                        part.ChecksumCRC32 = response.ChecksumCRC32;
+                        part.ChecksumCRC32C = response.ChecksumCRC32C;
                         lock (_this._lock)
                         {
                             _this._bytesUploaded += part.Size;

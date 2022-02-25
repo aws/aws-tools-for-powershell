@@ -1,0 +1,4 @@
+{
+    "Type": "Patch",
+    "Description": "Added parameters ChecksumAlgorithm and ChecksumMode to Copy-S3Object. Added parameter ChecksumMode to Read-S3Object. Added parameter ChecksumAlgorithm to Remove-S3Object. Added parameter ChecksumAlgorithm to Write-S3Object."
+  }
