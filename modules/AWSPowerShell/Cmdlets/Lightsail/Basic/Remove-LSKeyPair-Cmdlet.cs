@@ -28,10 +28,17 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Deletes a specific SSH key pair.
+    /// Deletes the specified key pair by removing the public key from Amazon Lightsail.
     /// 
     ///  
     /// <para>
+    /// You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a>
+    /// and <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a>
+    /// actions, as well as the Lightsail default key pair. A new default key pair will not
+    /// be created unless you launch an instance without specifying a custom key pair, or
+    /// you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a>
+    /// API. 
+    /// </para><para>
     /// The <code>delete key pair</code> operation supports tag-based access control via resource
     /// tags applied to the resource identified by <code>key pair name</code>. For more information,
     /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
@@ -47,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
     )]
     public partial class RemoveLSKeyPairCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExpectedFingerprint
+        /// <summary>
+        /// <para>
+        /// <para>The RSA fingerprint of the Lightsail default key pair to delete.</para><note><para>The <code>expectedFingerprint</code> parameter is required only when specifying to
+        /// delete a Lightsail default key pair.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedFingerprint { get; set; }
+        #endregion
         
         #region Parameter KeyPairName
         /// <summary>
@@ -126,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = (response, cmdlet) => this.KeyPairName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExpectedFingerprint = this.ExpectedFingerprint;
             context.KeyPairName = this.KeyPairName;
             #if MODULAR
             if (this.KeyPairName == null && ParameterWasBound(nameof(this.KeyPairName)))
@@ -149,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.DeleteKeyPairRequest();
             
+            if (cmdletContext.ExpectedFingerprint != null)
+            {
+                request.ExpectedFingerprint = cmdletContext.ExpectedFingerprint;
+            }
             if (cmdletContext.KeyPairName != null)
             {
                 request.KeyPairName = cmdletContext.KeyPairName;
@@ -214,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ExpectedFingerprint { get; set; }
             public System.String KeyPairName { get; set; }
             public System.Func<Amazon.Lightsail.Model.DeleteKeyPairResponse, RemoveLSKeyPairCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operation;

@@ -60,6 +60,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'aws-crt.dll',
         'aws-crt-auth.dll',
         'aws-crt-http.dll',
+        'aws-crt-checksums.dll',
         'AWSSDK.Extensions.CrtIntegration.dll'
     )
 

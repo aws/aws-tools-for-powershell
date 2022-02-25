@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Applies a Legal Hold configuration to the specified object. For more information,
+    /// Applies a legal hold configuration to the specified object. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     /// Objects</a>.
     /// 
@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
         #region Parameter ContentMD5
@@ -188,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
@@ -213,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             if (cmdletContext.ContentMD5 != null)
             {
@@ -315,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }

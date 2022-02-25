@@ -55,6 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// You can disable notifications by adding the empty NotificationConfiguration element.
     /// </para><para>
+    /// For more information about the number of event notification configurations that you
+    /// can create per bucket, see <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3">Amazon
+    /// S3 service quotas</a> in <i>Amazon Web Services General Reference</i>.
+    /// </para><para>
     /// By default, only the bucket owner can configure notifications on a bucket. However,
     /// bucket owners can use a bucket policy to grant permission to other users to set this
     /// configuration with <code>s3:PutBucketNotification</code> permission.
@@ -91,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
         #region Parameter EventBridgeConfiguration
@@ -221,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             if (this.TopicConfiguration != null)
             {
                 context.TopicConfiguration = new List<Amazon.S3.Model.TopicConfiguration>(this.TopicConfiguration);
@@ -255,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             if (cmdletContext.TopicConfiguration != null)
             {
@@ -342,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public List<Amazon.S3.Model.TopicConfiguration> TopicConfiguration { get; set; }
             public List<Amazon.S3.Model.QueueConfiguration> QueueConfiguration { get; set; }
             public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfiguration { get; set; }

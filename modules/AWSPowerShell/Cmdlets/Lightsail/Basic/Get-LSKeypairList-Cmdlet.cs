@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSKeypairListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter IncludeDefaultKeyPair
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether to include the default key pair in the response
+        /// of your request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? IncludeDefaultKeyPair { get; set; }
+        #endregion
+        
         #region Parameter PageToken
         /// <summary>
         /// <para>
@@ -68,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public string Select { get; set; } = "KeyPairs";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the IncludeDefaultKeyPair parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IncludeDefaultKeyPair' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IncludeDefaultKeyPair' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -87,11 +108,22 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.GetKeyPairsResponse, GetLSKeypairListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.IncludeDefaultKeyPair;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeDefaultKeyPair = this.IncludeDefaultKeyPair;
             context.PageToken = this.PageToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -106,11 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.Lightsail.Model.GetKeyPairsRequest();
             
+            if (cmdletContext.IncludeDefaultKeyPair != null)
+            {
+                request.IncludeDefaultKeyPair = cmdletContext.IncludeDefaultKeyPair.Value;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.PageToken;
@@ -196,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeDefaultKeyPair { get; set; }
             public System.String PageToken { get; set; }
             public System.Func<Amazon.Lightsail.Model.GetKeyPairsResponse, GetLSKeypairListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.KeyPairs;

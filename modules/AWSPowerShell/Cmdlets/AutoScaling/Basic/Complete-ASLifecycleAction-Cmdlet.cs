@@ -36,8 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
     /// </para><ol><li><para>
+    /// (Optional) Create a launch template or launch configuration with a user data script
+    /// that runs while an instance is in a wait state due to a lifecycle hook.
+    /// </para></li><li><para>
     /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
-    /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
+    /// your Lambda function when an instance is put into a wait state due to a lifecycle
+    /// hook.
     /// </para></li><li><para>
     /// (Optional) Create a notification target and an IAM role. The target can be either
     /// an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling
@@ -47,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// or terminate.
     /// </para></li><li><para>
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
-    /// in a pending state.
+    /// in a wait state.
     /// </para></li><li><para><b>If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
     /// API call.</b></para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon

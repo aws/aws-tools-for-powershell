@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+    /// configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+    /// so if you want to retain any configuration details, they must be included in the new
+    /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
     /// your storage lifecycle</a>.
     /// 
     ///  <note><para>
@@ -61,19 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// subresources (for example, lifecycle configuration and website configuration). Only
     /// the resource owner (that is, the Amazon Web Services account that created it) can
     /// access the resource. The resource owner can optionally grant access permissions to
-    /// others by writing an access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+    /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
     /// permission.
     /// </para><para>
     /// You can also explicitly deny permissions. Explicit deny also supersedes any other
     /// permissions. If you want to block users or accounts from removing or deleting objects
     /// from your bucket, you must deny them permissions for the following actions:
-    /// </para><ul><li><para>
-    /// s3:DeleteObject
-    /// </para></li><li><para>
-    /// s3:DeleteObjectVersion
-    /// </para></li><li><para>
-    /// s3:PutLifecycleConfiguration
-    /// </para></li></ul><para>
+    /// </para><ul><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:DeleteObjectVersion</code></para></li><li><para><code>s3:PutLifecycleConfiguration</code></para></li></ul><para>
     /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para>
@@ -99,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
         #region Parameter ExpectedBucketOwner
@@ -184,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             if (this.Configuration_Rule != null)
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
@@ -208,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             
              // populate Configuration
@@ -294,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public List<Amazon.S3.Model.LifecycleRule> Configuration_Rule { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutLifecycleConfigurationResponse, WriteS3LifecycleConfigurationCmdlet, object> Select { get; set; } =

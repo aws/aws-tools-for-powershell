@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// An export snapshot record can be used to create a new Amazon EC2 instance and its
-    /// related resources with the <a>CreateCloudFormationStack</a> action.
+    /// related resources with the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html">CreateCloudFormationStack</a>
+    /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSExportSnapshotRecord")]

@@ -210,6 +210,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="*" Verb="Get" Noun="ObjectAttribute" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetObjectLegalHold" OutputProperty="LegalHold" Verb="Get" Noun="ObjectLegalHold" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

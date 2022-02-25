@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    ///  To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration
+    ///  To use this operation, you must have permission to perform the <code>s3:PutAccelerateConfiguration</code>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -80,6 +80,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
         #region Parameter ExpectedBucketOwner
@@ -165,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.AccelerateConfiguration_Status = this.AccelerateConfiguration_Status;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
@@ -186,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             
              // populate AccelerateConfiguration
@@ -272,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketAccelerateConfigurationResponse, WriteS3BucketAccelerateConfigurationCmdlet, object> Select { get; set; } =

@@ -69,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The ID of the bundle to use for the bucket.</para><para>A bucket bundle specifies the monthly cost, storage space, and data transfer quota
-        /// for a bucket.</para><para>Use the <a>GetBucketBundles</a> action to get a list of bundle IDs that you can specify.</para><para>Use the <a>UpdateBucketBundle</a> action to change the bundle after the bucket is
-        /// created.</para>
+        /// for a bucket.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a>
+        /// action to get a list of bundle IDs that you can specify.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a>
+        /// action to change the bundle after the bucket is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the bucket during creation.</para><para>Use the <a>TagResource</a> action to tag the bucket after it's created.</para>
+        /// <para>The tag keys and optional values to add to the bucket during creation.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html">TagResource</a>
+        /// action to tag the bucket after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

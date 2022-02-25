@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// the health status of an EC2 instance that has come into service and marking it unhealthy
         /// due to a failed health check. The default value is <code>0</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
-        /// check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Conditional: Required if you are adding an <code>ELB</code> health check.</para>
+        /// check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Required if you are adding an <code>ELB</code> health check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

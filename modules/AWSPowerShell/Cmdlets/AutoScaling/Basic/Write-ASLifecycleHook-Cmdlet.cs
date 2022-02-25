@@ -32,15 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// A lifecycle hook enables an Auto Scaling group to be aware of events in the Auto Scaling
-    /// instance lifecycle, and then perform a custom action when the corresponding lifecycle
-    /// event occurs.
+    /// Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling
+    /// instance lifecycle, and then perform a custom action on instances when the corresponding
+    /// lifecycle event occurs.
     /// </para><para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
     /// </para><ol><li><para>
+    /// (Optional) Create a launch template or launch configuration with a user data script
+    /// that runs while an instance is in a wait state due to a lifecycle hook.
+    /// </para></li><li><para>
     /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
-    /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
+    /// your Lambda function when an instance is put into a wait state due to a lifecycle
+    /// hook.
     /// </para></li><li><para>
     /// (Optional) Create a notification target and an IAM role. The target can be either
     /// an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling
@@ -48,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para><b>Create the lifecycle hook. Specify whether the hook is used when the instances
     /// launch or terminate.</b></para></li><li><para>
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
-    /// in a pending state using the <a>RecordLifecycleActionHeartbeat</a> API call.
+    /// in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.
     /// </para></li><li><para>
     /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
     /// API call.
@@ -174,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-        /// notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</para><para>Required for new lifecycle hooks, but optional when updating existing hooks.</para>
+        /// notification target.</para><para>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
+        /// Required for new lifecycle hooks, but optional when updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value that indicates whether to include Lightsail instances that were given
-        /// access to the bucket using the <a>SetResourceAccessForBucket</a> action.</para>
+        /// access to the bucket using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

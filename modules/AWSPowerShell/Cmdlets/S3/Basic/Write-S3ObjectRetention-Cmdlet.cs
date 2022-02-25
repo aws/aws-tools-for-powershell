@@ -36,10 +36,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  
     /// <para>
     /// This action is not supported by Amazon S3 on Outposts.
-    /// </para><para><b>Permissions</b></para><para>
-    /// When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code>
-    /// and <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
-    /// only <code>s3:PutObjectRetention</code> permissions are required.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3ObjectRetention", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,6 +72,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? BypassGovernanceRetention { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
         #region Parameter ContentMD5
@@ -217,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.BypassGovernanceRetention = this.BypassGovernanceRetention;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
@@ -247,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BypassGovernanceRetention != null)
             {
                 request.BypassGovernanceRetention = cmdletContext.BypassGovernanceRetention.Value;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             if (cmdletContext.ContentMD5 != null)
             {
@@ -360,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.Boolean? BypassGovernanceRetention { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }

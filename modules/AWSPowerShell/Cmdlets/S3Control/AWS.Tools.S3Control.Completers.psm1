@@ -153,6 +153,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3ChecksumAlgorithm
+        "New-S3CJob/Operation_S3PutObjectCopy_ChecksumAlgorithm"
+        {
+            $v = "CRC32","CRC32C","SHA1","SHA256"
+            break
+        }
+
         # Amazon.S3Control.S3GlacierJobTier
         "New-S3CJob/Operation_S3InitiateRestoreObject_GlacierJobTier"
         {
@@ -221,6 +228,7 @@ $S3C_map = @{
     "Operation_S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "Operation_S3PutObjectAcl_AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_CannedAccessControlList"=@("New-S3CJob")
+    "Operation_S3PutObjectCopy_ChecksumAlgorithm"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_MetadataDirective"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_NewObjectMetadata_SSEAlgorithm"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_ObjectLockLegalHoldStatus"=@("New-S3CJob")

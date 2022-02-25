@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.216.0",
+    "ProductVersion" : "3.7.217.0",
     "CoreVersion"    : "3.7.8.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -14,7 +14,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.8.26",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -298,7 +298,7 @@
             "InPreview"               : false
         },
         "Route53"              : {
-            "Version" : "3.7.2.23",
+            "Version" : "3.7.2.24",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.7.26",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -618,7 +618,7 @@
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "3.7.4.39",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -1066,7 +1066,7 @@
             "InPreview"               : false
         },
         "FMS"                             : {
-            "Version" : "3.7.4.14",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -1194,7 +1194,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.5.7",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.7.0",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"
@@ -1874,7 +1874,7 @@
             "InPreview"               : false
         },
         "GlueDataBrew"                    : {
-            "Version" : "3.7.6.15",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.2"

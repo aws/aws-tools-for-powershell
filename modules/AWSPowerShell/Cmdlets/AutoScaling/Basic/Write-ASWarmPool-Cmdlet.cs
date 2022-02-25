@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public Amazon.AutoScaling.WarmPoolState PoolState { get; set; }
         #endregion
         
+        #region Parameter InstanceReusePolicy_ReuseOnScaleIn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether instances in the Auto Scaling group can be returned to the warm
+        /// pool on scale in. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InstanceReusePolicy_ReuseOnScaleIn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceReusePolicy_ReuseOnScaleIn = this.InstanceReusePolicy_ReuseOnScaleIn;
             context.MaxGroupPreparedCapacity = this.MaxGroupPreparedCapacity;
             context.MinSize = this.MinSize;
             context.PoolState = this.PoolState;
@@ -209,6 +221,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            
+             // populate InstanceReusePolicy
+            var requestInstanceReusePolicyIsNull = true;
+            request.InstanceReusePolicy = new Amazon.AutoScaling.Model.InstanceReusePolicy();
+            System.Boolean? requestInstanceReusePolicy_instanceReusePolicy_ReuseOnScaleIn = null;
+            if (cmdletContext.InstanceReusePolicy_ReuseOnScaleIn != null)
+            {
+                requestInstanceReusePolicy_instanceReusePolicy_ReuseOnScaleIn = cmdletContext.InstanceReusePolicy_ReuseOnScaleIn.Value;
+            }
+            if (requestInstanceReusePolicy_instanceReusePolicy_ReuseOnScaleIn != null)
+            {
+                request.InstanceReusePolicy.ReuseOnScaleIn = requestInstanceReusePolicy_instanceReusePolicy_ReuseOnScaleIn.Value;
+                requestInstanceReusePolicyIsNull = false;
+            }
+             // determine if request.InstanceReusePolicy should be set to null
+            if (requestInstanceReusePolicyIsNull)
+            {
+                request.InstanceReusePolicy = null;
             }
             if (cmdletContext.MaxGroupPreparedCapacity != null)
             {
@@ -284,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.Boolean? InstanceReusePolicy_ReuseOnScaleIn { get; set; }
             public System.Int32? MaxGroupPreparedCapacity { get; set; }
             public System.Int32? MinSize { get; set; }
             public Amazon.AutoScaling.WarmPoolState PoolState { get; set; }

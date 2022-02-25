@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3LifecycleConfiguration', 
         'Get-S3MultipartUpload', 
         'Get-S3Object', 
+        'Get-S3ObjectAttribute', 
         'Get-S3ObjectLegalHold', 
         'Get-S3ObjectLockConfiguration', 
         'Get-S3ObjectMetadata', 

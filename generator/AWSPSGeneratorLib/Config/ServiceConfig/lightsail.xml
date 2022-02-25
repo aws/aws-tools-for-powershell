@@ -419,7 +419,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="KeypairList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="KeypairList" PipelineParameter="IncludeDefaultKeyPair" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

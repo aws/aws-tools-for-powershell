@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// to others.
     /// </para><para><code>GetBucketTagging</code> has the following special error:
     /// </para><ul><li><para>
-    /// Error code: <code>NoSuchTagSetError</code></para><ul><li><para>
+    /// Error code: <code>NoSuchTagSet</code></para><ul><li><para>
     /// Description: There is no tag set associated with the bucket.
     /// </para></li></ul></li></ul><para>
     /// The following operations are related to <code>GetBucketTagging</code>:

@@ -87,6 +87,47 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ChecksumAlgorithm
+        {
+            ($_ -eq "Add-S3PublicAccessBlock/ChecksumAlgorithm") -Or
+            ($_ -eq "Copy-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "Set-S3ACL/ChecksumAlgorithm") -Or
+            ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketPolicy/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketReplication/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketRequestPayment/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketTagging/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketVersioning/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketWebsite/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3CORSConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3LifecycleConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3ObjectLegalHold/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3ObjectLockConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3ObjectRetention/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3ObjectTagSet/ChecksumAlgorithm")
+        }
+        {
+            $v = "CRC32","CRC32C","SHA1","SHA256"
+            break
+        }
+
+        # Amazon.S3.ChecksumMode
+        {
+            ($_ -eq "Copy-S3Object/ChecksumMode") -Or
+            ($_ -eq "Get-S3ObjectMetadata/ChecksumMode") -Or
+            ($_ -eq "Read-S3Object/ChecksumMode")
+        }
+        {
+            $v = "ENABLED"
+            break
+        }
+
         # Amazon.S3.EncodingType
         {
             ($_ -eq "Get-S3MultipartUpload/Encoding") -Or
@@ -195,6 +236,7 @@ $S3_Completers = {
         # Amazon.S3.RequestPayer
         {
             ($_ -eq "Get-S3Object/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectRetention/RequestPayer") -Or
@@ -297,6 +339,8 @@ $S3_map = @{
     "AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
     "ExpressionType"=@("Select-S3ObjectContent")
@@ -314,7 +358,7 @@ $S3_map = @{
     "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3Object","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -412,6 +456,7 @@ $S3_SelectMap = @{
                "Get-S3BucketWebsite",
                "Get-S3CORSConfiguration",
                "Get-S3LifecycleConfiguration",
+               "Get-S3ObjectAttribute",
                "Get-S3ObjectLegalHold",
                "Get-S3ObjectLockConfiguration",
                "Get-S3ObjectMetadata",

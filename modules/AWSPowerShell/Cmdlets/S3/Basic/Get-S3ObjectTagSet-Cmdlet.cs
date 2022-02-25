@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
     /// Tagging</a>.
     /// </para><para>
-    /// The following action is related to <code>GetObjectTagging</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a></para></li></ul>
+    /// The following actions are related to <code>GetObjectTagging</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]
     [OutputType("Amazon.S3.Model.Tag")]

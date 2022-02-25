@@ -92,6 +92,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -203,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.LoggingConfig_TargetBucketName = this.LoggingConfig_TargetBucketName;
             if (this.LoggingConfig_Grant != null)
             {
@@ -229,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             
              // populate LoggingConfig
@@ -335,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String LoggingConfig_TargetBucketName { get; set; }
             public List<Amazon.S3.Model.S3Grant> LoggingConfig_Grant { get; set; }
             public System.String LoggingConfig_TargetPrefix { get; set; }

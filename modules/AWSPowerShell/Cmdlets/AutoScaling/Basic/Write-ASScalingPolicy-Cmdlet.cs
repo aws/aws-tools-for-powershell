@@ -304,10 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The metric type. The following predefined metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
-        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
-        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
-        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in
-        /// an Application Load Balancer target group.</para></li></ul>
+        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received (per instance
+        /// per minute) for the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out (per instance
+        /// per minute) for the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request
+        /// count (per target per minute) for your Auto Scaling group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -393,7 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetTrackingConfiguration_TargetValue
         /// <summary>
         /// <para>
-        /// <para>The target value for the metric.</para>
+        /// <para>The target value for the metric.</para><note><para>Some metrics are based on a count instead of a percentage, such as the request count
+        /// for an Application Load Balancer or the number of messages in an SQS queue. If the
+        /// scaling policy specifies one of these metrics, specify the target utilization as the
+        /// optimal average request or message count per instance during any one-minute interval.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

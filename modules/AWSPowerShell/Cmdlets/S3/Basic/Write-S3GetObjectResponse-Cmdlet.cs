@@ -127,6 +127,58 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String CacheControl { get; set; }
         #endregion
         
+        #region Parameter ChecksumCRC32
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This specifies the base64-encoded, 32-bit
+        /// CRC32 checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumCRC32 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumCRC32C
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This specifies the base64-encoded, 32-bit
+        /// CRC32C checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumCRC32C { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumSHA1
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This specifies the base64-encoded, 160-bit
+        /// SHA-1 digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumSHA1 { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumSHA256
+        /// <summary>
+        /// <para>
+        /// <para>This header can be used as a data integrity check to verify that the data received
+        /// is the same data that was originally sent. This specifies the base64-encoded, 256-bit
+        /// SHA-256 digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChecksumSHA256 { get; set; }
+        #endregion
+        
         #region Parameter ContentDisposition
         /// <summary>
         /// <para>
@@ -493,6 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ErrorMessage = this.ErrorMessage;
             context.AcceptRange = this.AcceptRange;
             context.CacheControl = this.CacheControl;
+            context.ChecksumCRC32 = this.ChecksumCRC32;
+            context.ChecksumCRC32C = this.ChecksumCRC32C;
+            context.ChecksumSHA1 = this.ChecksumSHA1;
+            context.ChecksumSHA256 = this.ChecksumSHA256;
             context.ContentDisposition = this.ContentDisposition;
             context.ContentEncoding = this.ContentEncoding;
             context.ContentLanguage = this.ContentLanguage;
@@ -568,6 +624,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (cmdletContext.CacheControl != null)
                 {
                     request.CacheControl = cmdletContext.CacheControl;
+                }
+                if (cmdletContext.ChecksumCRC32 != null)
+                {
+                    request.ChecksumCRC32 = cmdletContext.ChecksumCRC32;
+                }
+                if (cmdletContext.ChecksumCRC32C != null)
+                {
+                    request.ChecksumCRC32C = cmdletContext.ChecksumCRC32C;
+                }
+                if (cmdletContext.ChecksumSHA1 != null)
+                {
+                    request.ChecksumSHA1 = cmdletContext.ChecksumSHA1;
+                }
+                if (cmdletContext.ChecksumSHA256 != null)
+                {
+                    request.ChecksumSHA256 = cmdletContext.ChecksumSHA256;
                 }
                 if (cmdletContext.ContentDisposition != null)
                 {
@@ -758,6 +830,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ErrorMessage { get; set; }
             public System.String AcceptRange { get; set; }
             public System.String CacheControl { get; set; }
+            public System.String ChecksumCRC32 { get; set; }
+            public System.String ChecksumCRC32C { get; set; }
+            public System.String ChecksumSHA1 { get; set; }
+            public System.String ChecksumSHA256 { get; set; }
             public System.String ContentDisposition { get; set; }
             public System.String ContentEncoding { get; set; }
             public System.String ContentLanguage { get; set; }

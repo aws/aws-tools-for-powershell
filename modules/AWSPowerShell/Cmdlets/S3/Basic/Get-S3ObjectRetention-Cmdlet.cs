@@ -34,7 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  
     /// <para>
     /// This action is not supported by Amazon S3 on Outposts.
-    /// </para>
+    /// </para><para>
+    /// The following action is related to <code>GetObjectRetention</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectRetention")]
     [OutputType("Amazon.S3.Model.ObjectLockRetention")]

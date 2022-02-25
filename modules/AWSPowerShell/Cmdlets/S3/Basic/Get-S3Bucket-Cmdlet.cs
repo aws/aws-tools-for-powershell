@@ -28,7 +28,8 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns a list of all buckets owned by the authenticated sender of the request.
+    /// Returns a list of all buckets owned by the authenticated sender of the request. To
+    /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]
     [OutputType("Amazon.S3.Model.S3Bucket")]

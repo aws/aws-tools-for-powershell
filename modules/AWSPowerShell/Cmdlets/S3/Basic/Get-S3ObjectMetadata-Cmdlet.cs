@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code 403 ("access denied") error.
     /// </para></li></ul><para>
-    /// The following action is related to <code>HeadObject</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li></ul>
+    /// The following actions are related to <code>HeadObject</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectMetadata")]
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
@@ -123,6 +123,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ChecksumMode
+        /// <summary>
+        /// <para>
+        /// <para>This must be enabled to retrieve the checksum.</para><para>In addition, if you enable <code>ChecksumMode</code> and the object is KMS encrypted,
+        /// you must have permission to the <code>kms:Decrypt</code> action for the request to
+        /// succeed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumMode")]
+        public Amazon.S3.ChecksumMode ChecksumMode { get; set; }
         #endregion
         
         #region Parameter EtagToMatch
@@ -344,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ChecksumMode = this.ChecksumMode;
             context.EtagToMatch = this.EtagToMatch;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ModifiedSinceDate = this.ModifiedSinceDate;
@@ -381,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumMode != null)
+            {
+                request.ChecksumMode = cmdletContext.ChecksumMode;
             }
             if (cmdletContext.EtagToMatch != null)
             {
@@ -512,6 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumMode ChecksumMode { get; set; }
             public System.String EtagToMatch { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? ModifiedSinceDate { get; set; }

@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket to delete.</para><para>Use the <a>GetBuckets</a> action to get a list of bucket names that you can specify.</para>
+        /// <para>The name of the bucket to delete.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a>
+        /// action to get a list of bucket names that you can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that indicates whether to force delete the bucket.</para><para>You must force delete the bucket if it has one of the following conditions:</para><ul><li><para>The bucket is the origin of a distribution.</para></li><li><para>The bucket has instances that were granted access to it using the <a>SetResourceAccessForBucket</a>
+        /// <para>A Boolean value that indicates whether to force delete the bucket.</para><para>You must force delete the bucket if it has one of the following conditions:</para><ul><li><para>The bucket is the origin of a distribution.</para></li><li><para>The bucket has instances that were granted access to it using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
         /// action.</para></li><li><para>The bucket has objects.</para></li><li><para>The bucket has access keys.</para></li></ul><important><para>Force deleting a bucket might impact other resources that rely on the bucket, such
         /// as instances, distributions, or software that use the issued access keys.</para></important>
         /// </para>

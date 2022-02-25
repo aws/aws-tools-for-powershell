@@ -162,6 +162,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public Amazon.S3Control.S3CannedAccessControlList S3PutObjectCopy_CannedAccessControlList { get; set; }
         #endregion
         
+        #region Parameter S3PutObjectCopy_ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
+        /// information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectCopy_ChecksumAlgorithm")]
+        [AWSConstantClassSource("Amazon.S3Control.S3ChecksumAlgorithm")]
+        public Amazon.S3Control.S3ChecksumAlgorithm S3PutObjectCopy_ChecksumAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -1015,6 +1029,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             context.S3PutObjectCopy_BucketKeyEnabled = this.S3PutObjectCopy_BucketKeyEnabled;
             context.S3PutObjectCopy_CannedAccessControlList = this.S3PutObjectCopy_CannedAccessControlList;
+            context.S3PutObjectCopy_ChecksumAlgorithm = this.S3PutObjectCopy_ChecksumAlgorithm;
             context.S3PutObjectCopy_MetadataDirective = this.S3PutObjectCopy_MetadataDirective;
             context.S3PutObjectCopy_ModifiedSinceConstraint = this.S3PutObjectCopy_ModifiedSinceConstraint;
             context.NewObjectMetadata_CacheControl = this.NewObjectMetadata_CacheControl;
@@ -1766,6 +1781,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 requestOperation_operation_S3PutObjectCopy.CannedAccessControlList = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_CannedAccessControlList;
                 requestOperation_operation_S3PutObjectCopyIsNull = false;
             }
+            Amazon.S3Control.S3ChecksumAlgorithm requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_ChecksumAlgorithm = null;
+            if (cmdletContext.S3PutObjectCopy_ChecksumAlgorithm != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_ChecksumAlgorithm = cmdletContext.S3PutObjectCopy_ChecksumAlgorithm;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_ChecksumAlgorithm != null)
+            {
+                requestOperation_operation_S3PutObjectCopy.ChecksumAlgorithm = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_ChecksumAlgorithm;
+                requestOperation_operation_S3PutObjectCopyIsNull = false;
+            }
             Amazon.S3Control.S3MetadataDirective requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_MetadataDirective = null;
             if (cmdletContext.S3PutObjectCopy_MetadataDirective != null)
             {
@@ -2201,6 +2226,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public List<Amazon.S3Control.Model.S3Grant> S3PutObjectCopy_AccessControlGrant { get; set; }
             public System.Boolean? S3PutObjectCopy_BucketKeyEnabled { get; set; }
             public Amazon.S3Control.S3CannedAccessControlList S3PutObjectCopy_CannedAccessControlList { get; set; }
+            public Amazon.S3Control.S3ChecksumAlgorithm S3PutObjectCopy_ChecksumAlgorithm { get; set; }
             public Amazon.S3Control.S3MetadataDirective S3PutObjectCopy_MetadataDirective { get; set; }
             public System.DateTime? S3PutObjectCopy_ModifiedSinceConstraint { get; set; }
             public System.String NewObjectMetadata_CacheControl { get; set; }

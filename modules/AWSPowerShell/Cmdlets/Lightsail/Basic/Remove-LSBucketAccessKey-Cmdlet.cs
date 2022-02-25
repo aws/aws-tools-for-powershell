@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the access key to delete.</para><para>Use the <a>GetBucketAccessKeys</a> action to get a list of access key IDs that you
-        /// can specify.</para>
+        /// <para>The ID of the access key to delete.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">GetBucketAccessKeys</a>
+        /// action to get a list of access key IDs that you can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

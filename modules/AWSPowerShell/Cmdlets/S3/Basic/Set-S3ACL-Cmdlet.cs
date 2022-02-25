@@ -67,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.S3CannedACL CannedACL { get; set; }
         #endregion
         
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter Owner_DisplayName
         /// <summary>
         /// <para>
@@ -211,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             context.CannedACL = this.CannedACL;
             context.BucketName = this.BucketName;
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
             context.VersionId = this.VersionId;
@@ -292,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
@@ -370,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public Amazon.S3.S3CannedACL CannedACL { get; set; }
             public System.String BucketName { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
             public System.String VersionId { get; set; }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// A bucket bundle specifies the monthly cost, storage space, and data transfer quota
     /// for a bucket. You can update a bucket's bundle only one time within a monthly AWS
-    /// billing cycle. To determine if you can update a bucket's bundle, use the <a>GetBuckets</a>
+    /// billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a>
     /// action. The <code>ableToUpdateBundle</code> parameter in the response will indicate
     /// whether you can currently update a bucket's bundle.
     /// </para><para>
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the new bundle to apply to the bucket.</para><para>Use the <a>GetBucketBundles</a> action to get a list of bundle IDs that you can specify.</para>
+        /// <para>The ID of the new bundle to apply to the bucket.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a>
+        /// action to get a list of bundle IDs that you can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

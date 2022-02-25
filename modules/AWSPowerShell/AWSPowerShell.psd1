@@ -348,6 +348,7 @@ This product provides support for all AWS services in a single module. As an alt
         'aws-crt.dll',
         'aws-crt-auth.dll',
         'aws-crt-http.dll',
+        'aws-crt-checksums.dll',
         'AWSSDK.Extensions.CrtIntegration.dll'
     )
 

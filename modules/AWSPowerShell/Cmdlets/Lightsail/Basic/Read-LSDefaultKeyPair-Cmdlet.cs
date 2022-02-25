@@ -28,7 +28,13 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Downloads the default SSH key pair from the user's account.
+    /// Downloads the regional Amazon Lightsail default key pair.
+    /// 
+    ///  
+    /// <para>
+    /// This action also creates a Lightsail default key pair if a default key pair does not
+    /// currently exist in the Amazon Web Services Region.
+    /// </para>
     /// </summary>
     [Cmdlet("Read", "LSDefaultKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse")]

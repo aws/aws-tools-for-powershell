@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Lock configuration will be applied by default to every new object placed in the specified
     /// bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     /// Objects</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The following action is related to <code>GetObjectLockConfiguration</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectLockConfiguration")]
     [OutputType("Amazon.S3.Model.ObjectLockConfiguration")]

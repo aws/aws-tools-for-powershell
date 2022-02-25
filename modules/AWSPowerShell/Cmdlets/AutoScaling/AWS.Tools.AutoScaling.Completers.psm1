@@ -132,7 +132,7 @@ $AS_Completers = {
         # Amazon.AutoScaling.WarmPoolState
         "Write-ASWarmPool/PoolState"
         {
-            $v = "Running","Stopped"
+            $v = "Hibernated","Running","Stopped"
             break
         }
 

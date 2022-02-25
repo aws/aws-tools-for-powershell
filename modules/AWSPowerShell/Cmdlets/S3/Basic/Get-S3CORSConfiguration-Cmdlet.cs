@@ -28,14 +28,15 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the cors configuration information set for the bucket.
+    /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
+    /// the bucket.
     /// 
     ///  
     /// <para>
-    ///  To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-    /// By default, the bucket owner has this permission and can grant it to others.
+    ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+    /// action. By default, the bucket owner has this permission and can grant it to others.
     /// </para><para>
-    ///  For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
+    ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
     /// Enabling Cross-Origin Resource Sharing</a>.
     /// </para><para>
     /// The following operations are related to <code>GetBucketCors</code>:

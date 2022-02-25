@@ -17809,6 +17809,8 @@ Set-Alias -Name S3-GetBucketVersioning -Value Get-S3BucketVersioning
 Set-Alias -Name S3-GetBucketWebsite -Value Get-S3BucketWebsite
 Set-Alias -Name S3-GetCORSConfiguration -Value Get-S3CORSConfiguration
 Set-Alias -Name S3-GetLifecycleConfiguration -Value Get-S3LifecycleConfiguration
+Set-Alias -Name Get-S3ObjectAttributes -Value Get-S3ObjectAttribute
+Set-Alias -Name S3-GetObjectAttributes -Value Get-S3ObjectAttribute
 Set-Alias -Name S3-GetObjectLegalHold -Value Get-S3ObjectLegalHold
 Set-Alias -Name S3-GetObjectLockConfiguration -Value Get-S3ObjectLockConfiguration
 Set-Alias -Name S3-GetObjectMetadata -Value Get-S3ObjectMetadata

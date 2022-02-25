@@ -68,7 +68,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><para>
     /// The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code>
     /// permission.
-    /// </para>
+    /// </para><note><para>
+    /// When creating private hosted zones, the Amazon VPC must belong to the same partition
+    /// where the hosted zone is created. A partition is a group of Amazon Web Services Regions.
+    /// Each Amazon Web Services account is scoped to one partition.
+    /// </para><para>
+    /// The following are the supported partitions:
+    /// </para><ul><li><para><code>aws</code> - Amazon Web Services Regions
+    /// </para></li><li><para><code>aws-cn</code> - China Regions
+    /// </para></li><li><para><code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+    /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateHostedZoneResponse")]
