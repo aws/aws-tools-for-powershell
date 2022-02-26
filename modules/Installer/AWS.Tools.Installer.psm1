@@ -180,10 +180,10 @@ function Uninstall-AWSToolsModule {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -le $MaximumVersion }
         }
         if ($RequiredVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -eq $RequiredVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { Confirm-VersionsEqual -V1 $_.Version -V2 $RequiredVersion }
         }
         if ($ExceptVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ne $ExceptVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { Confirm-VersionsNotEqual -V1 $_.Version -V2 $ExceptVersion }
         }
 
         if ($InstalledAwsToolsModules) {
@@ -391,6 +391,62 @@ function Get-AWSToolsModuleDependenciesAndValidate {
     }
 }
 
+function Confirm-VersionsEqual {
+    Param(
+        ## Path of the manifest file to validate
+        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
+        [version]
+        $V1,
+
+        ## Name of the module to validate
+        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
+        [version]
+        $V2
+    )
+
+    Begin {
+        $V1 = Get-CleanVersion $V1
+        $V2 = Get-CleanVersion $V2
+        $V1 -eq $V2
+    }
+
+    Process {
+    }
+
+    
+    End {
+        Write-Verbose "[$($MyInvocation.MyCommand)] End"
+    }
+} 
+
+function Confirm-VersionsNotEqual {
+    Param(
+        ## Path of the manifest file to validate
+        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
+        [version]
+        $V1,
+
+        ## Name of the module to validate
+        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
+        [version]
+        $V2
+    )
+
+    Begin {
+        $V1 = Get-CleanVersion $V1
+        $V2 = Get-CleanVersion $V2
+        $V1 -ne $V2
+    }
+
+    Process {
+    }
+
+    
+    End {
+        Write-Verbose "[$($MyInvocation.MyCommand)] End"
+    }
+} 
+
 <#
 .Synopsis
     Install AWS.Tools modules.
@@ -543,7 +599,7 @@ function Install-AWSToolsModule {
             }
         }
 
-        $modulesToInstall = $modulesToInstall | Where-Object { -not (Get-Module $_ -ListAvailable -Verbose:$false | Where-Object { $_.Version -eq $RequiredVersion }) }
+        $modulesToInstall = $modulesToInstall | Where-Object { -not (Get-Module $_ -ListAvailable -Verbose:$false | Where-Object { Confirm-VersionsEqual -V1 $_.Version -V2 $RequiredVersion }) }
         Write-Verbose "[$($MyInvocation.MyCommand)] Removing already installed modules from the. Final list of modules to install: ($modulesToInstall)"
 
         if ($modulesToInstall) {
