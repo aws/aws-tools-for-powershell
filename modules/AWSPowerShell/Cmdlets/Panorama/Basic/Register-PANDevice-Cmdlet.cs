@@ -173,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Ntp_NtpServer
+        /// <summary>
+        /// <para>
+        /// <para>NTP servers to use, in order of preference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkingConfiguration_Ntp_NtpServers")]
+        public System.String[] Ntp_NtpServer { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -269,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             }
             context.NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_IpAddress = this.NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_IpAddress;
             context.NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Mask = this.NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Mask;
+            if (this.Ntp_NtpServer != null)
+            {
+                context.Ntp_NtpServer = new List<System.String>(this.Ntp_NtpServer);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -305,6 +320,31 @@ namespace Amazon.PowerShell.Cmdlets.PAN
              // populate NetworkingConfiguration
             var requestNetworkingConfigurationIsNull = true;
             request.NetworkingConfiguration = new Amazon.Panorama.Model.NetworkPayload();
+            Amazon.Panorama.Model.NtpPayload requestNetworkingConfiguration_networkingConfiguration_Ntp = null;
+            
+             // populate Ntp
+            var requestNetworkingConfiguration_networkingConfiguration_NtpIsNull = true;
+            requestNetworkingConfiguration_networkingConfiguration_Ntp = new Amazon.Panorama.Model.NtpPayload();
+            List<System.String> requestNetworkingConfiguration_networkingConfiguration_Ntp_ntp_NtpServer = null;
+            if (cmdletContext.Ntp_NtpServer != null)
+            {
+                requestNetworkingConfiguration_networkingConfiguration_Ntp_ntp_NtpServer = cmdletContext.Ntp_NtpServer;
+            }
+            if (requestNetworkingConfiguration_networkingConfiguration_Ntp_ntp_NtpServer != null)
+            {
+                requestNetworkingConfiguration_networkingConfiguration_Ntp.NtpServers = requestNetworkingConfiguration_networkingConfiguration_Ntp_ntp_NtpServer;
+                requestNetworkingConfiguration_networkingConfiguration_NtpIsNull = false;
+            }
+             // determine if requestNetworkingConfiguration_networkingConfiguration_Ntp should be set to null
+            if (requestNetworkingConfiguration_networkingConfiguration_NtpIsNull)
+            {
+                requestNetworkingConfiguration_networkingConfiguration_Ntp = null;
+            }
+            if (requestNetworkingConfiguration_networkingConfiguration_Ntp != null)
+            {
+                request.NetworkingConfiguration.Ntp = requestNetworkingConfiguration_networkingConfiguration_Ntp;
+                requestNetworkingConfigurationIsNull = false;
+            }
             Amazon.Panorama.Model.EthernetPayload requestNetworkingConfiguration_networkingConfiguration_Ethernet0 = null;
             
              // populate Ethernet0
@@ -547,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             public List<System.String> NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Dns { get; set; }
             public System.String NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_IpAddress { get; set; }
             public System.String NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Mask { get; set; }
+            public List<System.String> Ntp_NtpServer { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Panorama.Model.ProvisionDeviceResponse, RegisterPANDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

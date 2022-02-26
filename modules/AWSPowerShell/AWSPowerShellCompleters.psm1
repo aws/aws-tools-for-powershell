@@ -35437,7 +35437,7 @@ $PAN_Completers = {
         # Amazon.Panorama.PackageImportJobType
         "New-PANPackageImportJob/JobType"
         {
-            $v = "NODE_PACKAGE_VERSION"
+            $v = "MARKETPLACE_NODE_PACKAGE_VERSION","NODE_PACKAGE_VERSION"
             break
         }
 

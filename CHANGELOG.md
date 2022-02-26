@@ -1,4 +1,9 @@
-﻿### 4.1.31 (2022-02-25 02:01Z)
+﻿### 4.1.32 (2022-02-26 00:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.218.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Panorama
+    * Modified cmdlet Register-PANDevice: added parameter Ntp_NtpServer.
+
+### 4.1.31 (2022-02-25 02:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.217.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Auto Scaling
     * Modified cmdlet Write-ASWarmPool: added parameter InstanceReusePolicy_ReuseOnScaleIn.
