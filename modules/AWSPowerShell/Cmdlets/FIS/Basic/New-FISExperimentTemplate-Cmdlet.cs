@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         public System.Collections.Hashtable Action { get; set; }
         #endregion
         
+        #region Parameter S3Configuration_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the destination bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3Configuration_BucketName")]
+        public System.String S3Configuration_BucketName { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -89,6 +100,38 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogsConfiguration_LogGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_CloudWatchLogsConfiguration_LogGroupArn")]
+        public System.String CloudWatchLogsConfiguration_LogGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_LogSchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The schema version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LogConfiguration_LogSchemaVersion { get; set; }
+        #endregion
+        
+        #region Parameter S3Configuration_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The bucket prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3Configuration_Prefix")]
+        public System.String S3Configuration_Prefix { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -223,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CloudWatchLogsConfiguration_LogGroupArn = this.CloudWatchLogsConfiguration_LogGroupArn;
+            context.LogConfiguration_LogSchemaVersion = this.LogConfiguration_LogSchemaVersion;
+            context.S3Configuration_BucketName = this.S3Configuration_BucketName;
+            context.S3Configuration_Prefix = this.S3Configuration_Prefix;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -283,6 +330,85 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate LogConfiguration
+            var requestLogConfigurationIsNull = true;
+            request.LogConfiguration = new Amazon.FIS.Model.CreateExperimentTemplateLogConfigurationInput();
+            System.Int32? requestLogConfiguration_logConfiguration_LogSchemaVersion = null;
+            if (cmdletContext.LogConfiguration_LogSchemaVersion != null)
+            {
+                requestLogConfiguration_logConfiguration_LogSchemaVersion = cmdletContext.LogConfiguration_LogSchemaVersion.Value;
+            }
+            if (requestLogConfiguration_logConfiguration_LogSchemaVersion != null)
+            {
+                request.LogConfiguration.LogSchemaVersion = requestLogConfiguration_logConfiguration_LogSchemaVersion.Value;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.FIS.Model.ExperimentTemplateCloudWatchLogsLogConfigurationInput requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration = null;
+            
+             // populate CloudWatchLogsConfiguration
+            var requestLogConfiguration_logConfiguration_CloudWatchLogsConfigurationIsNull = true;
+            requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration = new Amazon.FIS.Model.ExperimentTemplateCloudWatchLogsLogConfigurationInput();
+            System.String requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogGroupArn = null;
+            if (cmdletContext.CloudWatchLogsConfiguration_LogGroupArn != null)
+            {
+                requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogGroupArn = cmdletContext.CloudWatchLogsConfiguration_LogGroupArn;
+            }
+            if (requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogGroupArn != null)
+            {
+                requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration.LogGroupArn = requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogGroupArn;
+                requestLogConfiguration_logConfiguration_CloudWatchLogsConfigurationIsNull = false;
+            }
+             // determine if requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration should be set to null
+            if (requestLogConfiguration_logConfiguration_CloudWatchLogsConfigurationIsNull)
+            {
+                requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration = null;
+            }
+            if (requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration != null)
+            {
+                request.LogConfiguration.CloudWatchLogsConfiguration = requestLogConfiguration_logConfiguration_CloudWatchLogsConfiguration;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.FIS.Model.ExperimentTemplateS3LogConfigurationInput requestLogConfiguration_logConfiguration_S3Configuration = null;
+            
+             // populate S3Configuration
+            var requestLogConfiguration_logConfiguration_S3ConfigurationIsNull = true;
+            requestLogConfiguration_logConfiguration_S3Configuration = new Amazon.FIS.Model.ExperimentTemplateS3LogConfigurationInput();
+            System.String requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_BucketName = null;
+            if (cmdletContext.S3Configuration_BucketName != null)
+            {
+                requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_BucketName = cmdletContext.S3Configuration_BucketName;
+            }
+            if (requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_BucketName != null)
+            {
+                requestLogConfiguration_logConfiguration_S3Configuration.BucketName = requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_BucketName;
+                requestLogConfiguration_logConfiguration_S3ConfigurationIsNull = false;
+            }
+            System.String requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_Prefix = null;
+            if (cmdletContext.S3Configuration_Prefix != null)
+            {
+                requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_Prefix = cmdletContext.S3Configuration_Prefix;
+            }
+            if (requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_Prefix != null)
+            {
+                requestLogConfiguration_logConfiguration_S3Configuration.Prefix = requestLogConfiguration_logConfiguration_S3Configuration_s3Configuration_Prefix;
+                requestLogConfiguration_logConfiguration_S3ConfigurationIsNull = false;
+            }
+             // determine if requestLogConfiguration_logConfiguration_S3Configuration should be set to null
+            if (requestLogConfiguration_logConfiguration_S3ConfigurationIsNull)
+            {
+                requestLogConfiguration_logConfiguration_S3Configuration = null;
+            }
+            if (requestLogConfiguration_logConfiguration_S3Configuration != null)
+            {
+                request.LogConfiguration.S3Configuration = requestLogConfiguration_logConfiguration_S3Configuration;
+                requestLogConfigurationIsNull = false;
+            }
+             // determine if request.LogConfiguration should be set to null
+            if (requestLogConfigurationIsNull)
+            {
+                request.LogConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -364,6 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             public Dictionary<System.String, Amazon.FIS.Model.CreateExperimentTemplateActionInput> Action { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String CloudWatchLogsConfiguration_LogGroupArn { get; set; }
+            public System.Int32? LogConfiguration_LogSchemaVersion { get; set; }
+            public System.String S3Configuration_BucketName { get; set; }
+            public System.String S3Configuration_Prefix { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.FIS.Model.CreateExperimentTemplateStopConditionInput> StopCondition { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

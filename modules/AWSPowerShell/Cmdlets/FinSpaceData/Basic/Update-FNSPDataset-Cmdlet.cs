@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter Kind
         /// <summary>
         /// <para>
-        /// <para>The format in which the Dataset data is structured.</para><ul><li><para><code>TABULAR</code> - Data is structured in a tabular format.</para></li><li><para><code>NON_TABULAR</code> - Data is structured in a non-tabular format.</para></li></ul>
+        /// <para>The format in which the Dataset data is structured.</para><ul><li><para><code>TABULAR</code> – Data is structured in a tabular format.</para></li><li><para><code>NON_TABULAR</code> – Data is structured in a non-tabular format.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

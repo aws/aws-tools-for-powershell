@@ -80,6 +80,16 @@ $FNSP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FinSpaceData.ApiAccess
+        {
+            ($_ -eq "New-FNSPUser/ApiAccess") -Or
+            ($_ -eq "Update-FNSPUser/ApiAccess")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.FinSpaceData.ChangeType
         "New-FNSPChangeset/ChangeType"
         {
@@ -111,6 +121,16 @@ $FNSP_Completers = {
             break
         }
 
+        # Amazon.FinSpaceData.UserType
+        {
+            ($_ -eq "New-FNSPUser/Type") -Or
+            ($_ -eq "Update-FNSPUser/Type")
+        }
+        {
+            $v = "APP_USER","SUPER_USER"
+            break
+        }
+
 
     }
 
@@ -120,10 +140,12 @@ $FNSP_Completers = {
 }
 
 $FNSP_map = @{
+    "ApiAccess"=@("New-FNSPUser","Update-FNSPUser")
     "ChangeType"=@("New-FNSPChangeset")
     "DestinationTypeParams_S3DestinationExportFileFormat"=@("New-FNSPDataView")
     "Kind"=@("New-FNSPDataset","Update-FNSPDataset")
     "LocationType"=@("Get-FNSPWorkingLocation")
+    "Type"=@("New-FNSPUser","Update-FNSPUser")
 }
 
 _awsArgumentCompleterRegistration $FNSP_Completers $FNSP_map
@@ -179,17 +201,28 @@ $FNSP_SelectMap = @{
     "Select"=@("New-FNSPChangeset",
                "New-FNSPDataset",
                "New-FNSPDataView",
+               "New-FNSPPermissionGroup",
+               "New-FNSPUser",
                "Remove-FNSPDataset",
+               "Remove-FNSPPermissionGroup",
+               "Disable-FNSPUser",
+               "Enable-FNSPUser",
                "Get-FNSPChangeset",
                "Get-FNSPDataset",
                "Get-FNSPDataView",
                "Get-FNSPProgrammaticAccessCredential",
+               "Get-FNSPUser",
                "Get-FNSPWorkingLocation",
                "Get-FNSPChangesetList",
                "Get-FNSPDatasetList",
                "Get-FNSPDataViewList",
+               "Get-FNSPPermissionGroupList",
+               "Get-FNSPUserList",
+               "Reset-FNSPUserPassword",
                "Update-FNSPChangeset",
-               "Update-FNSPDataset")
+               "Update-FNSPDataset",
+               "Update-FNSPPermissionGroup",
+               "Update-FNSPUser")
 }
 
 _awsArgumentCompleterRegistration $FNSP_SelectCompleters $FNSP_SelectMap

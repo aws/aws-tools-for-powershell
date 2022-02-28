@@ -905,7 +905,7 @@ $AMP_Completers = {
             ($_ -eq "Update-AMPApp/Platform")
         }
         {
-            $v = "WEB"
+            $v = "WEB","WEB_DYNAMIC"
             break
         }
 
@@ -3782,6 +3782,7 @@ $ATH_SelectMap = @{
                "Add-ATHResourceTag",
                "Remove-ATHResourceTag",
                "Update-ATHDataCatalog",
+               "Update-ATHNamedQuery",
                "Update-ATHPreparedStatement",
                "Update-ATHWorkGroup")
 }
@@ -15744,7 +15745,7 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","kernel","launchPermission","productCodes","ramdisk","sriovNetSupport"
+            $v = "blockDeviceMapping","bootMode","description","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport"
             break
         }
 
@@ -19981,6 +19982,16 @@ $FNSP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FinSpaceData.ApiAccess
+        {
+            ($_ -eq "New-FNSPUser/ApiAccess") -Or
+            ($_ -eq "Update-FNSPUser/ApiAccess")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.FinSpaceData.ChangeType
         "New-FNSPChangeset/ChangeType"
         {
@@ -20012,6 +20023,16 @@ $FNSP_Completers = {
             break
         }
 
+        # Amazon.FinSpaceData.UserType
+        {
+            ($_ -eq "New-FNSPUser/Type") -Or
+            ($_ -eq "Update-FNSPUser/Type")
+        }
+        {
+            $v = "APP_USER","SUPER_USER"
+            break
+        }
+
 
     }
 
@@ -20021,10 +20042,12 @@ $FNSP_Completers = {
 }
 
 $FNSP_map = @{
+    "ApiAccess"=@("New-FNSPUser","Update-FNSPUser")
     "ChangeType"=@("New-FNSPChangeset")
     "DestinationTypeParams_S3DestinationExportFileFormat"=@("New-FNSPDataView")
     "Kind"=@("New-FNSPDataset","Update-FNSPDataset")
     "LocationType"=@("Get-FNSPWorkingLocation")
+    "Type"=@("New-FNSPUser","Update-FNSPUser")
 }
 
 _awsArgumentCompleterRegistration $FNSP_Completers $FNSP_map
@@ -20080,17 +20103,28 @@ $FNSP_SelectMap = @{
     "Select"=@("New-FNSPChangeset",
                "New-FNSPDataset",
                "New-FNSPDataView",
+               "New-FNSPPermissionGroup",
+               "New-FNSPUser",
                "Remove-FNSPDataset",
+               "Remove-FNSPPermissionGroup",
+               "Disable-FNSPUser",
+               "Enable-FNSPUser",
                "Get-FNSPChangeset",
                "Get-FNSPDataset",
                "Get-FNSPDataView",
                "Get-FNSPProgrammaticAccessCredential",
+               "Get-FNSPUser",
                "Get-FNSPWorkingLocation",
                "Get-FNSPChangesetList",
                "Get-FNSPDatasetList",
                "Get-FNSPDataViewList",
+               "Get-FNSPPermissionGroupList",
+               "Get-FNSPUserList",
+               "Reset-FNSPUserPassword",
                "Update-FNSPChangeset",
-               "Update-FNSPDataset")
+               "Update-FNSPDataset",
+               "Update-FNSPPermissionGroup",
+               "Update-FNSPUser")
 }
 
 _awsArgumentCompleterRegistration $FNSP_SelectCompleters $FNSP_SelectMap
@@ -20965,7 +20999,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType")
         }
         {
-            $v = "NONE","ZSTD"
+            $v = "LZ4","NONE","ZSTD"
             break
         }
 

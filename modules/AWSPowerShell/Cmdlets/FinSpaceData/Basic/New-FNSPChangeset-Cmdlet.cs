@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ChangeType
         /// <summary>
         /// <para>
-        /// <para>Option to indicate how a Changeset will be applied to a Dataset.</para><ul><li><para><code>REPLACE</code> - Changeset will be considered as a replacement to all prior
-        /// loaded Changesets.</para></li><li><para><code>APPEND</code> - Changeset will be considered as an addition to the end of all
-        /// prior loaded Changesets.</para></li><li><para><code>MODIFY</code> - Changeset is considered as a replacement to a specific prior
+        /// <para>The option to indicate how a Changeset will be applied to a Dataset.</para><ul><li><para><code>REPLACE</code> – Changeset will be considered as a replacement to all prior
+        /// loaded Changesets.</para></li><li><para><code>APPEND</code> – Changeset will be considered as an addition to the end of all
+        /// prior loaded Changesets.</para></li><li><para><code>MODIFY</code> – Changeset is considered as a replacement to a specific prior
         /// ingested Changeset.</para></li></ul>
         /// </para>
         /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         /// <para>Options that define the structure of the source file(s) including the format type
         /// (<code>formatType</code>), header row (<code>withHeader</code>), data separation character
         /// (<code>separator</code>) and the type of compression (<code>compression</code>). </para><para><code>formatType</code> is a required attribute and can have the following values:
-        /// </para><ul><li><para><code>PARQUET</code> - Parquet source file format.</para></li><li><para><code>CSV</code> - CSV source file format.</para></li><li><para><code>JSON</code> - JSON source file format.</para></li><li><para><code>XML</code> - XML source file format.</para></li></ul><para>Here is an example of how you could specify the <code>formatParams</code>:</para><para><code> "formatParams": { "formatType": "CSV", "withHeader": "true", "separator":
+        /// </para><ul><li><para><code>PARQUET</code> – Parquet source file format.</para></li><li><para><code>CSV</code> – CSV source file format.</para></li><li><para><code>JSON</code> – JSON source file format.</para></li><li><para><code>XML</code> – XML source file format.</para></li></ul><para>Here is an example of how you could specify the <code>formatParams</code>:</para><para><code> "formatParams": { "formatType": "CSV", "withHeader": "true", "separator":
         /// ",", "compression":"None" } </code></para><para>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest
         /// of the attributes will automatically default to CSV values as following:</para><para><code> { "withHeader": "true", "separator": "," } </code></para><para> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported
         /// Data Types and File Formats</a> in the FinSpace User Guide.</para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         /// and the source of the changeset (<code>sourceType</code>).</para><para>Both <code>s3SourcePath</code> and <code>sourceType</code> are required attributes.</para><para>Here is an example of how you could specify the <code>sourceParams</code>:</para><para><code> "sourceParams": { "s3SourcePath": "s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv",
         /// "sourceType": "S3" } </code></para><para>The S3 path that you specify must allow the FinSpace role access. To do that, you
         /// first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading
-        /// data from an Amazon S3 Bucket using the FinSpace API</a>section.</para>
+        /// data from an Amazon S3 Bucket using the FinSpace API</a> section.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

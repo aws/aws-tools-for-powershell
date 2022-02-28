@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ATHQueryExecution', 
         'Stop-ATHQueryExecution', 
         'Update-ATHDataCatalog', 
+        'Update-ATHNamedQuery', 
         'Update-ATHPreparedStatement', 
         'Update-ATHWorkGroup')
 

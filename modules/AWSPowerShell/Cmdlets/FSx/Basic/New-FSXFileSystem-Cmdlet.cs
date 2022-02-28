@@ -142,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter RootVolumeConfiguration_CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the volume are copied to snapshots where the user doesn't specify tags. If this
-        /// value is <code>true</code> and you specify one or more tags, only the specified tags
-        /// are copied to snapshots. If you specify one or more tags when creating the snapshot,
+        /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots
+        /// of the volume. This value defaults to <code>false</code>. If it's set to <code>true</code>,
+        /// all tags for the volume are copied to snapshots where the user doesn't specify tags.
+        /// If this value is <code>true</code> and you specify one or more tags, only the specified
+        /// tags are copied to snapshots. If you specify one or more tags when creating the snapshot,
         /// no tags are copied from the volume, regardless of this value. </para>
         /// </para>
         /// </summary>
@@ -194,11 +194,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter RootVolumeConfiguration_DataCompressionType
         /// <summary>
         /// <para>
-        /// <para>Specifies the method used to compress the data on the volume. Unless the compression
-        /// type is specified, volumes inherit the <code>DataCompressionType</code> value of their
-        /// parent volume.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the ZStandard (ZSTD)
-        /// compression algorithm. This algorithm reduces the amount of space used on your volume
-        /// and has very little impact on compute resources.</para></li></ul>
+        /// <para>Specifies the method used to compress the data on the volume. The compression type
+        /// is <code>NONE</code> by default.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is
+        /// the default.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
+        /// compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio
+        /// to minimize on-disk storage utilization.</para></li><li><para><code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm.
+        /// Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput
+        /// speeds.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,6 +386,22 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OpenZFSConfiguration_RootVolumeConfiguration_ReadOnly")]
         public System.Boolean? RootVolumeConfiguration_ReadOnly { get; set; }
+        #endregion
+        
+        #region Parameter RootVolumeConfiguration_RecordSizeKiB
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values
+        /// are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads
+        /// should use the default record size. Database workflows can benefit from a smaller
+        /// record size, while streaming workflows can benefit from a larger record size. For
+        /// additional guidance on setting a custom record size, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
+        /// Tips for maximizing performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_RootVolumeConfiguration_RecordSizeKiB")]
+        public System.Int32? RootVolumeConfiguration_RecordSizeKiB { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_RouteTableId
@@ -641,6 +659,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.RootVolumeConfiguration_NfsExport = new List<Amazon.FSx.Model.OpenZFSNfsExport>(this.RootVolumeConfiguration_NfsExport);
             }
             context.RootVolumeConfiguration_ReadOnly = this.RootVolumeConfiguration_ReadOnly;
+            context.RootVolumeConfiguration_RecordSizeKiB = this.RootVolumeConfiguration_RecordSizeKiB;
             if (this.RootVolumeConfiguration_UserAndGroupQuota != null)
             {
                 context.RootVolumeConfiguration_UserAndGroupQuota = new List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota>(this.RootVolumeConfiguration_UserAndGroupQuota);
@@ -998,6 +1017,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration.ReadOnly = requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_ReadOnly.Value;
                 requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfigurationIsNull = false;
             }
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_RecordSizeKiB = null;
+            if (cmdletContext.RootVolumeConfiguration_RecordSizeKiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_RecordSizeKiB = cmdletContext.RootVolumeConfiguration_RecordSizeKiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_RecordSizeKiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration.RecordSizeKiB = requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_RecordSizeKiB.Value;
+                requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfigurationIsNull = false;
+            }
             List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration_rootVolumeConfiguration_UserAndGroupQuota = null;
             if (cmdletContext.RootVolumeConfiguration_UserAndGroupQuota != null)
             {
@@ -1135,6 +1164,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.OpenZFSDataCompressionType RootVolumeConfiguration_DataCompressionType { get; set; }
             public List<Amazon.FSx.Model.OpenZFSNfsExport> RootVolumeConfiguration_NfsExport { get; set; }
             public System.Boolean? RootVolumeConfiguration_ReadOnly { get; set; }
+            public System.Int32? RootVolumeConfiguration_RecordSizeKiB { get; set; }
             public List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> RootVolumeConfiguration_UserAndGroupQuota { get; set; }
             public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
             public System.String OpenZFSConfiguration_WeeklyMaintenanceStartTime { get; set; }

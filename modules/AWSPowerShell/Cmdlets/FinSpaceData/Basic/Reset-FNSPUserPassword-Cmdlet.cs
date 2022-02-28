@@ -22,45 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.FinSpaceData;
+using Amazon.FinSpaceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
-    /// exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored
-    /// in a file system backup. 
-    /// 
-    ///  
-    /// <para>
-    /// The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears
-    /// with the lifecycle status of <code>DELETING</code> until the deletion is complete.
-    /// </para>
+    /// Resets the password for a specified user ID and generates a temporary one. Only a
+    /// superuser can reset password for other users. Resetting the password immediately invalidates
+    /// the previous password associated with the user.
     /// </summary>
-    [Cmdlet("Remove", "FSXSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.FSx.Model.DeleteSnapshotResponse")]
-    [AWSCmdlet("Calls the Amazon FSx DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.DeleteSnapshotResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Reset", "FNSPUserPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.FinSpaceData.Model.ResetUserPasswordResponse")]
+    [AWSCmdlet("Calls the FinSpace Public API ResetUserPassword API operation.", Operation = new[] {"ResetUserPassword"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.ResetUserPasswordResponse))]
+    [AWSCmdletOutput("Amazon.FinSpaceData.Model.ResetUserPasswordResponse",
+        "This cmdlet returns an Amazon.FinSpaceData.Model.ResetUserPasswordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class ResetFNSPUserPasswordCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientRequestToken
+        #region Parameter UserId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter SnapshotId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the snapshot that you want to delete.</para>
+        /// <para>The unique identifier of the user that a temporary password is requested for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,14 +55,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotId { get; set; }
+        public System.String UserId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that ensures idempotency. This token expires in 10 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.DeleteSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.DeleteSnapshotResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.ResetUserPasswordResponse).
+        /// Specifying the name of a property of type Amazon.FinSpaceData.Model.ResetUserPasswordResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SnapshotId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FSXSnapshot (DeleteSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-FNSPUserPassword (ResetUserPassword)"))
             {
                 return;
             }
@@ -123,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.DeleteSnapshotResponse, RemoveFSXSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FinSpaceData.Model.ResetUserPasswordResponse, ResetFNSPUserPasswordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,15 +126,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SnapshotId;
+                context.Select = (response, cmdlet) => this.UserId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.SnapshotId = this.SnapshotId;
+            context.ClientToken = this.ClientToken;
+            context.UserId = this.UserId;
             #if MODULAR
-            if (this.SnapshotId == null && ParameterWasBound(nameof(this.SnapshotId)))
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -157,15 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.DeleteSnapshotRequest();
+            var request = new Amazon.FinSpaceData.Model.ResetUserPasswordRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.SnapshotId != null)
+            if (cmdletContext.UserId != null)
             {
-                request.SnapshotId = cmdletContext.SnapshotId;
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -200,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.DeleteSnapshotRequest request)
+        private Amazon.FinSpaceData.Model.ResetUserPasswordResponse CallAWSServiceOperation(IAmazonFinSpaceData client, Amazon.FinSpaceData.Model.ResetUserPasswordRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "DeleteSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "ResetUserPassword");
             try
             {
                 #if DESKTOP
-                return client.DeleteSnapshot(request);
+                return client.ResetUserPassword(request);
                 #elif CORECLR
-                return client.DeleteSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.ResetUserPasswordAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -228,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
-            public System.String SnapshotId { get; set; }
-            public System.Func<Amazon.FSx.Model.DeleteSnapshotResponse, RemoveFSXSnapshotCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.FinSpaceData.Model.ResetUserPasswordResponse, ResetFNSPUserPasswordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

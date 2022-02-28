@@ -119,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public System.String EnvironmentName { get; set; }
         #endregion
         
+        #region Parameter UpdatedComponent_Event
+        /// <summary>
+        /// <para>
+        /// <para>The event configuration for the component. Use for the workflow feature in Amplify
+        /// Studio that allows you to bind events and actions to components.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UpdatedComponent_Events")]
+        public System.Collections.Hashtable UpdatedComponent_Event { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -176,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("UpdatedComponent_Properties")]
         public System.Collections.Hashtable UpdatedComponent_Property { get; set; }
+        #endregion
+        
+        #region Parameter UpdatedComponent_SchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The schema version of the component when it was imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UpdatedComponent_SchemaVersion { get; set; }
         #endregion
         
         #region Parameter UpdatedComponent_SourceId
@@ -313,6 +335,14 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 }
             }
             context.UpdatedComponent_ComponentType = this.UpdatedComponent_ComponentType;
+            if (this.UpdatedComponent_Event != null)
+            {
+                context.UpdatedComponent_Event = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent>(StringComparer.Ordinal);
+                foreach (var hashKey in this.UpdatedComponent_Event.Keys)
+                {
+                    context.UpdatedComponent_Event.Add((String)hashKey, (ComponentEvent)(this.UpdatedComponent_Event[hashKey]));
+                }
+            }
             context.UpdatedComponent_Id = this.UpdatedComponent_Id;
             context.UpdatedComponent_Name = this.UpdatedComponent_Name;
             if (this.UpdatedComponent_Override != null)
@@ -331,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                     context.UpdatedComponent_Property.Add((String)hashKey, (ComponentProperty)(this.UpdatedComponent_Property[hashKey]));
                 }
             }
+            context.UpdatedComponent_SchemaVersion = this.UpdatedComponent_SchemaVersion;
             context.UpdatedComponent_SourceId = this.UpdatedComponent_SourceId;
             if (this.UpdatedComponent_Variant != null)
             {
@@ -412,6 +443,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 request.UpdatedComponent.ComponentType = requestUpdatedComponent_updatedComponent_ComponentType;
                 requestUpdatedComponentIsNull = false;
             }
+            Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent> requestUpdatedComponent_updatedComponent_Event = null;
+            if (cmdletContext.UpdatedComponent_Event != null)
+            {
+                requestUpdatedComponent_updatedComponent_Event = cmdletContext.UpdatedComponent_Event;
+            }
+            if (requestUpdatedComponent_updatedComponent_Event != null)
+            {
+                request.UpdatedComponent.Events = requestUpdatedComponent_updatedComponent_Event;
+                requestUpdatedComponentIsNull = false;
+            }
             System.String requestUpdatedComponent_updatedComponent_Id = null;
             if (cmdletContext.UpdatedComponent_Id != null)
             {
@@ -450,6 +491,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Property != null)
             {
                 request.UpdatedComponent.Properties = requestUpdatedComponent_updatedComponent_Property;
+                requestUpdatedComponentIsNull = false;
+            }
+            System.String requestUpdatedComponent_updatedComponent_SchemaVersion = null;
+            if (cmdletContext.UpdatedComponent_SchemaVersion != null)
+            {
+                requestUpdatedComponent_updatedComponent_SchemaVersion = cmdletContext.UpdatedComponent_SchemaVersion;
+            }
+            if (requestUpdatedComponent_updatedComponent_SchemaVersion != null)
+            {
+                request.UpdatedComponent.SchemaVersion = requestUpdatedComponent_updatedComponent_SchemaVersion;
                 requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_SourceId = null;
@@ -546,10 +597,12 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public List<Amazon.AmplifyUIBuilder.Model.ComponentChild> UpdatedComponent_Child { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration> UpdatedComponent_CollectionProperty { get; set; }
             public System.String UpdatedComponent_ComponentType { get; set; }
+            public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent> UpdatedComponent_Event { get; set; }
             public System.String UpdatedComponent_Id { get; set; }
             public System.String UpdatedComponent_Name { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> UpdatedComponent_Override { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentProperty> UpdatedComponent_Property { get; set; }
+            public System.String UpdatedComponent_SchemaVersion { get; set; }
             public System.String UpdatedComponent_SourceId { get; set; }
             public List<Amazon.AmplifyUIBuilder.Model.ComponentVariant> UpdatedComponent_Variant { get; set; }
             public System.Func<Amazon.AmplifyUIBuilder.Model.UpdateComponentResponse, UpdateAMPUIComponentCmdlet, object> Select { get; set; } =

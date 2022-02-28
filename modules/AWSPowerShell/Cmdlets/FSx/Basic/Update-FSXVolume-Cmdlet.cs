@@ -68,11 +68,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DataCompressionType
         /// <summary>
         /// <para>
-        /// <para>Specifies the method used to compress the data on the volume. Unless the compression
-        /// type is specified, volumes inherit the <code>DataCompressionType</code> value of their
-        /// parent volume.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
-        /// compression algorithm. This algorithm reduces the amount of space used on your volume
-        /// and has very little impact on compute resources.</para></li></ul>
+        /// <para>Specifies the method used to compress the data on the volume. The compression type
+        /// is <code>NONE</code> by default.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is
+        /// the default.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
+        /// compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio
+        /// to minimize on-disk storage utilization.</para></li><li><para><code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm.
+        /// Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput
+        /// speeds.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,6 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Boolean? OpenZFSConfiguration_ReadOnly { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_RecordSizeKiB
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the record size of an OpenZFS volume, in kibibytes (KiB). Valid values are
+        /// 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads
+        /// should use the default record size. Database workflows can benefit from a smaller
+        /// record size, while streaming workflows can benefit from a larger record size. For
+        /// additional guidance on when to set a custom record size, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
+        /// Tips for maximizing performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OpenZFSConfiguration_RecordSizeKiB { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_SecurityStyle
         /// <summary>
         /// <para>
@@ -166,7 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
-        /// parent. You can specify a quota larger than the storage on the parent volume.</para>
+        /// parent. You can specify a quota larger than the storage on the parent volume. You
+        /// can specify a value of <code>-1</code> to unset a volume's storage capacity quota.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't
-        /// reserve more storage than the parent volume has reserved.</para>
+        /// reserve more storage than the parent volume has reserved. You can specify a value
+        /// of <code>-1</code> to unset a volume's storage capacity reservation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.OpenZFSConfiguration_NfsExport = new List<Amazon.FSx.Model.OpenZFSNfsExport>(this.OpenZFSConfiguration_NfsExport);
             }
             context.OpenZFSConfiguration_ReadOnly = this.OpenZFSConfiguration_ReadOnly;
+            context.OpenZFSConfiguration_RecordSizeKiB = this.OpenZFSConfiguration_RecordSizeKiB;
             context.OpenZFSConfiguration_StorageCapacityQuotaGiB = this.OpenZFSConfiguration_StorageCapacityQuotaGiB;
             context.OpenZFSConfiguration_StorageCapacityReservationGiB = this.OpenZFSConfiguration_StorageCapacityReservationGiB;
             if (this.OpenZFSConfiguration_UserAndGroupQuota != null)
@@ -453,6 +473,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OpenZFSConfiguration.ReadOnly = requestOpenZFSConfiguration_openZFSConfiguration_ReadOnly.Value;
                 requestOpenZFSConfigurationIsNull = false;
             }
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_RecordSizeKiB = null;
+            if (cmdletContext.OpenZFSConfiguration_RecordSizeKiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_RecordSizeKiB = cmdletContext.OpenZFSConfiguration_RecordSizeKiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_RecordSizeKiB != null)
+            {
+                request.OpenZFSConfiguration.RecordSizeKiB = requestOpenZFSConfiguration_openZFSConfiguration_RecordSizeKiB.Value;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_StorageCapacityQuotaGiB = null;
             if (cmdletContext.OpenZFSConfiguration_StorageCapacityQuotaGiB != null)
             {
@@ -564,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.OpenZFSDataCompressionType OpenZFSConfiguration_DataCompressionType { get; set; }
             public List<Amazon.FSx.Model.OpenZFSNfsExport> OpenZFSConfiguration_NfsExport { get; set; }
             public System.Boolean? OpenZFSConfiguration_ReadOnly { get; set; }
+            public System.Int32? OpenZFSConfiguration_RecordSizeKiB { get; set; }
             public System.Int32? OpenZFSConfiguration_StorageCapacityQuotaGiB { get; set; }
             public System.Int32? OpenZFSConfiguration_StorageCapacityReservationGiB { get; set; }
             public List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> OpenZFSConfiguration_UserAndGroupQuota { get; set; }

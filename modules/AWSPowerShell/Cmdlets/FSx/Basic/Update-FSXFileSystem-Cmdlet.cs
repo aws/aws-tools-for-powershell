@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// user doesn't specify tags. If this value is <code>true</code> and you specify one
         /// or more tags, only the specified tags are copied to backups. If you specify one or
         /// more tags when creating a user-initiated backup, no tags are copied from the file
-        /// system, regardless of this value. </para>
+        /// system, regardless of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for the volume are copied to snapshots where the user doesn't specify tags. If this
         /// value is <code>true</code> and you specify one or more tags, only the specified tags
         /// are copied to snapshots. If you specify one or more tags when creating the snapshot,
-        /// no tags are copied from the volume, regardless of this value. </para>
+        /// no tags are copied from the volume, regardless of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_ThroughputCapacity
         /// <summary>
         /// <para>
-        /// <para>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps),
-        /// in 2 to the nth increments, between 2^3 (8) and 2^12 (4096). </para>
+        /// <para>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps).
+        /// Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter Kind
         /// <summary>
         /// <para>
-        /// <para>The format in which Dataset data is structured.</para><ul><li><para><code>TABULAR</code> - Data is structured in a tabular format.</para></li><li><para><code>NON_TABULAR</code> - Data is structured in a non-tabular format.</para></li></ul>
+        /// <para>The format in which Dataset data is structured.</para><ul><li><para><code>TABULAR</code> – Data is structured in a tabular format.</para></li><li><para><code>NON_TABULAR</code> – Data is structured in a non-tabular format.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter OwnerInfo_Name
         /// <summary>
         /// <para>
-        /// <para>Name of the Dataset owner.</para>
+        /// <para>The name of the Dataset owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter PermissionGroupParams_PermissionGroupId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the PermissionGroup.</para>
+        /// <para>The unique identifier for the <code>PermissionGroup</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

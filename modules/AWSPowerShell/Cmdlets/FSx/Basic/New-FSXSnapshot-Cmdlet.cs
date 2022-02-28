@@ -28,9 +28,9 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates a snapshot of an existing Amazon FSx for OpenZFS file system. With snapshots,
-    /// you can easily undo file changes and compare file versions by restoring the volume
-    /// to a previous version.
+    /// Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With snapshots, you
+    /// can easily undo file changes and compare file versions by restoring the volume to
+    /// a previous version.
     /// 
     ///  
     /// <para>
@@ -39,7 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// the specified client request token exists, and the parameters don't match, this operation
     /// returns <code>IncompatibleParameterError</code>. If a snapshot with the specified
     /// client request token doesn't exist, <code>CreateSnapshot</code> does the following:
-    /// 
     /// </para><ul><li><para>
     /// Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle state
     /// of <code>CREATING</code>.
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state
     /// is still <code>CREATING</code>. You can check the snapshot creation status by calling
     /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
-    /// operation, which returns the snapshot state along with other information. 
+    /// operation, which returns the snapshot state along with other information.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FSXSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

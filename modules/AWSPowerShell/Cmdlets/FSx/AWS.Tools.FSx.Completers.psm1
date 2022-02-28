@@ -129,7 +129,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType")
         }
         {
-            $v = "NONE","ZSTD"
+            $v = "LZ4","NONE","ZSTD"
             break
         }
 

@@ -477,7 +477,7 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","kernel","launchPermission","productCodes","ramdisk","sriovNetSupport"
+            $v = "blockDeviceMapping","bootMode","description","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport"
             break
         }
 

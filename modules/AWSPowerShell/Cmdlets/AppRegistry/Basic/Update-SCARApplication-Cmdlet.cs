@@ -73,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         /// <para>The new name of the application. The name must be unique in the region in which you
         /// are updating the application.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Name update for application is deprecated.")]
         public System.String Name { get; set; }
         #endregion
         
@@ -147,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             }
             #endif
             context.Description = this.Description;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,10 +176,12 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             {
                 request.Description = cmdletContext.Description;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -239,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             public System.String Application { get; set; }
             public System.String Description { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Name { get; set; }
             public System.Func<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Application;

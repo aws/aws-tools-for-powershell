@@ -132,6 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public System.String EnvironmentName { get; set; }
         #endregion
         
+        #region Parameter ComponentToCreate_Event
+        /// <summary>
+        /// <para>
+        /// <para>The event configuration for the component. Use for the workflow feature in Amplify
+        /// Studio that allows you to bind events and actions to components.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComponentToCreate_Events")]
+        public System.Collections.Hashtable ComponentToCreate_Event { get; set; }
+        #endregion
+        
         #region Parameter ComponentToCreate_Name
         /// <summary>
         /// <para>
@@ -184,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ComponentToCreate_Properties")]
         public System.Collections.Hashtable ComponentToCreate_Property { get; set; }
+        #endregion
+        
+        #region Parameter ComponentToCreate_SchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The schema version of the component when it was imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentToCreate_SchemaVersion { get; set; }
         #endregion
         
         #region Parameter ComponentToCreate_SourceId
@@ -317,6 +339,14 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter ComponentToCreate_ComponentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ComponentToCreate_Event != null)
+            {
+                context.ComponentToCreate_Event = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ComponentToCreate_Event.Keys)
+                {
+                    context.ComponentToCreate_Event.Add((String)hashKey, (ComponentEvent)(this.ComponentToCreate_Event[hashKey]));
+                }
+            }
             context.ComponentToCreate_Name = this.ComponentToCreate_Name;
             #if MODULAR
             if (this.ComponentToCreate_Name == null && ParameterWasBound(nameof(this.ComponentToCreate_Name)))
@@ -352,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter ComponentToCreate_Property which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ComponentToCreate_SchemaVersion = this.ComponentToCreate_SchemaVersion;
             context.ComponentToCreate_SourceId = this.ComponentToCreate_SourceId;
             if (this.ComponentToCreate_Tag != null)
             {
@@ -446,6 +477,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 request.ComponentToCreate.ComponentType = requestComponentToCreate_componentToCreate_ComponentType;
                 requestComponentToCreateIsNull = false;
             }
+            Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent> requestComponentToCreate_componentToCreate_Event = null;
+            if (cmdletContext.ComponentToCreate_Event != null)
+            {
+                requestComponentToCreate_componentToCreate_Event = cmdletContext.ComponentToCreate_Event;
+            }
+            if (requestComponentToCreate_componentToCreate_Event != null)
+            {
+                request.ComponentToCreate.Events = requestComponentToCreate_componentToCreate_Event;
+                requestComponentToCreateIsNull = false;
+            }
             System.String requestComponentToCreate_componentToCreate_Name = null;
             if (cmdletContext.ComponentToCreate_Name != null)
             {
@@ -474,6 +515,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestComponentToCreate_componentToCreate_Property != null)
             {
                 request.ComponentToCreate.Properties = requestComponentToCreate_componentToCreate_Property;
+                requestComponentToCreateIsNull = false;
+            }
+            System.String requestComponentToCreate_componentToCreate_SchemaVersion = null;
+            if (cmdletContext.ComponentToCreate_SchemaVersion != null)
+            {
+                requestComponentToCreate_componentToCreate_SchemaVersion = cmdletContext.ComponentToCreate_SchemaVersion;
+            }
+            if (requestComponentToCreate_componentToCreate_SchemaVersion != null)
+            {
+                request.ComponentToCreate.SchemaVersion = requestComponentToCreate_componentToCreate_SchemaVersion;
                 requestComponentToCreateIsNull = false;
             }
             System.String requestComponentToCreate_componentToCreate_SourceId = null;
@@ -582,9 +633,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public List<Amazon.AmplifyUIBuilder.Model.ComponentChild> ComponentToCreate_Child { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration> ComponentToCreate_CollectionProperty { get; set; }
             public System.String ComponentToCreate_ComponentType { get; set; }
+            public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent> ComponentToCreate_Event { get; set; }
             public System.String ComponentToCreate_Name { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> ComponentToCreate_Override { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentProperty> ComponentToCreate_Property { get; set; }
+            public System.String ComponentToCreate_SchemaVersion { get; set; }
             public System.String ComponentToCreate_SourceId { get; set; }
             public Dictionary<System.String, System.String> ComponentToCreate_Tag { get; set; }
             public List<Amazon.AmplifyUIBuilder.Model.ComponentVariant> ComponentToCreate_Variant { get; set; }

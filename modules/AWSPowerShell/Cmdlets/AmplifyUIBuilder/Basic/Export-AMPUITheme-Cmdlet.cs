@@ -74,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public System.String EnvironmentName { get; set; }
         #endregion
         
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token to request the next page of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Entities'.
@@ -129,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (cmdletContext.EnvironmentName != null)
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -216,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         {
             public System.String AppId { get; set; }
             public System.String EnvironmentName { get; set; }
+            public System.String NextToken { get; set; }
             public System.Func<Amazon.AmplifyUIBuilder.Model.ExportThemesResponse, ExportAMPUIThemeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Entities;
         }

@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_FinalBackupTag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of tags to apply to the file system's final backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WindowsConfiguration_FinalBackupTags")]
         public Amazon.FSx.Model.Tag[] WindowsConfiguration_FinalBackupTag { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_Option
+        /// <summary>
+        /// <para>
+        /// <para>To delete a file system if there are child volumes present below the root volume,
+        /// use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>. If your file system
+        /// has child volumes and you don't use this option, the delete request will fail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_Options")]
+        public System.String[] OpenZFSConfiguration_Option { get; set; }
         #endregion
         
         #region Parameter LustreConfiguration_SkipFinalBackup
@@ -149,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when the <code>DeleteFileSystem</code>
         /// operation is invoked. Doing this helps protect you from data loss, and we highly recommend
-        /// taking the final backup. If you want to skip this backup, use this value to do so.
-        /// </para>
+        /// taking the final backup. If you want to skip taking a final backup, set this value
+        /// to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.OpenZFSConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.OpenZFSConfiguration_FinalBackupTag);
             }
+            if (this.OpenZFSConfiguration_Option != null)
+            {
+                context.OpenZFSConfiguration_Option = new List<System.String>(this.OpenZFSConfiguration_Option);
+            }
             context.OpenZFSConfiguration_SkipFinalBackup = this.OpenZFSConfiguration_SkipFinalBackup;
             if (this.WindowsConfiguration_FinalBackupTag != null)
             {
@@ -318,6 +335,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag != null)
             {
                 request.OpenZFSConfiguration.FinalBackupTags = requestOpenZFSConfiguration_openZFSConfiguration_FinalBackupTag;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_Option = null;
+            if (cmdletContext.OpenZFSConfiguration_Option != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_Option = cmdletContext.OpenZFSConfiguration_Option;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_Option != null)
+            {
+                request.OpenZFSConfiguration.Options = requestOpenZFSConfiguration_openZFSConfiguration_Option;
                 requestOpenZFSConfigurationIsNull = false;
             }
             System.Boolean? requestOpenZFSConfiguration_openZFSConfiguration_SkipFinalBackup = null;
@@ -430,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public List<Amazon.FSx.Model.Tag> LustreConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? LustreConfiguration_SkipFinalBackup { get; set; }
             public List<Amazon.FSx.Model.Tag> OpenZFSConfiguration_FinalBackupTag { get; set; }
+            public List<System.String> OpenZFSConfiguration_Option { get; set; }
             public System.Boolean? OpenZFSConfiguration_SkipFinalBackup { get; set; }
             public List<Amazon.FSx.Model.Tag> WindowsConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? WindowsConfiguration_SkipFinalBackup { get; set; }

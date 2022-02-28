@@ -22,38 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.Athena;
+using Amazon.Athena.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Updates the name of an Amazon FSx for OpenZFS snapshot.
+    /// Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.
     /// </summary>
-    [Cmdlet("Update", "FSXSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.FSx.Model.Snapshot")]
-    [AWSCmdlet("Calls the Amazon FSx UpdateSnapshot API operation.", Operation = new[] {"UpdateSnapshot"}, SelectReturnType = typeof(Amazon.FSx.Model.UpdateSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.Snapshot or Amazon.FSx.Model.UpdateSnapshotResponse",
-        "This cmdlet returns an Amazon.FSx.Model.Snapshot object.",
-        "The service call response (type Amazon.FSx.Model.UpdateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ATHNamedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Athena UpdateNamedQuery API operation.", Operation = new[] {"UpdateNamedQuery"}, SelectReturnType = typeof(Amazon.Athena.Model.UpdateNamedQueryResponse))]
+    [AWSCmdletOutput("None or Amazon.Athena.Model.UpdateNamedQueryResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Athena.Model.UpdateNamedQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class UpdateATHNamedQueryCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientRequestToken
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The query description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the snapshot to update.</para>
+        /// <para>The name of the query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter SnapshotId
+        #region Parameter NamedQueryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot that you want to update, in the format <code>fsvolsnap-0123456789abcdef0</code>.</para>
+        /// <para>The unique identifier (UUID) of the query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,26 +81,42 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotId { get; set; }
+        public System.String NamedQueryId { get; set; }
+        #endregion
+        
+        #region Parameter QueryString
+        /// <summary>
+        /// <para>
+        /// <para>The contents of the query with all query statements.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String QueryString { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshot'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.UpdateSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.UpdateSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.UpdateNamedQueryResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Snapshot";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SnapshotId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the NamedQueryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NamedQueryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NamedQueryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FSXSnapshot (UpdateSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NamedQueryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ATHNamedQuery (UpdateNamedQuery)"))
             {
                 return;
             }
@@ -133,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.UpdateSnapshotResponse, UpdateFSXSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Athena.Model.UpdateNamedQueryResponse, UpdateATHNamedQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SnapshotId;
+                context.Select = (response, cmdlet) => this.NamedQueryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
+            context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -153,11 +169,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SnapshotId = this.SnapshotId;
+            context.NamedQueryId = this.NamedQueryId;
             #if MODULAR
-            if (this.SnapshotId == null && ParameterWasBound(nameof(this.SnapshotId)))
+            if (this.NamedQueryId == null && ParameterWasBound(nameof(this.NamedQueryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NamedQueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.QueryString = this.QueryString;
+            #if MODULAR
+            if (this.QueryString == null && ParameterWasBound(nameof(this.QueryString)))
+            {
+                WriteWarning("You are passing $null as a value for parameter QueryString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -174,19 +197,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.UpdateSnapshotRequest();
+            var request = new Amazon.Athena.Model.UpdateNamedQueryRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.Description != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.SnapshotId != null)
+            if (cmdletContext.NamedQueryId != null)
             {
-                request.SnapshotId = cmdletContext.SnapshotId;
+                request.NamedQueryId = cmdletContext.NamedQueryId;
+            }
+            if (cmdletContext.QueryString != null)
+            {
+                request.QueryString = cmdletContext.QueryString;
             }
             
             CmdletOutput output;
@@ -221,15 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.UpdateSnapshotResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.UpdateSnapshotRequest request)
+        private Amazon.Athena.Model.UpdateNamedQueryResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.UpdateNamedQueryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "UpdateSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "UpdateNamedQuery");
             try
             {
                 #if DESKTOP
-                return client.UpdateSnapshot(request);
+                return client.UpdateNamedQuery(request);
                 #elif CORECLR
-                return client.UpdateSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.UpdateNamedQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,11 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
+            public System.String Description { get; set; }
             public System.String Name { get; set; }
-            public System.String SnapshotId { get; set; }
-            public System.Func<Amazon.FSx.Model.UpdateSnapshotResponse, UpdateFSXSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Snapshot;
+            public System.String NamedQueryId { get; set; }
+            public System.String QueryString { get; set; }
+            public System.Func<Amazon.Athena.Model.UpdateNamedQueryResponse, UpdateATHNamedQueryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

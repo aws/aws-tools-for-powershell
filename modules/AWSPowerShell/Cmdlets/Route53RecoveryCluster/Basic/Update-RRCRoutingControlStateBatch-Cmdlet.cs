@@ -29,14 +29,33 @@ namespace Amazon.PowerShell.Cmdlets.RRC
 {
     /// <summary>
     /// Set multiple routing control states. You can set the value for each state to be On
-    /// or Off. When the state is On, traffic flows to a cell. When it's off, traffic does
+    /// or Off. When the state is On, traffic flows to a cell. When it's Off, traffic does
     /// not flow.
     /// 
     ///  
     /// <para>
-    /// For more information about working with routing controls, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Routing
-    /// control</a> in the Route 53 Application Recovery Controller Developer Guide.
-    /// </para>
+    /// With Application Recovery Controller, you can add safety rules for routing controls,
+    /// which are safeguards for routing control state updates that help prevent unexpected
+    /// outcomes, like fail open traffic routing. However, there are scenarios when you might
+    /// want to bypass the routing control safeguards that are enforced with safety rules
+    /// that you've configured. For example, you might want to fail over quickly for disaster
+    /// recovery, and one or more safety rules might be unexpectedly preventing you from updating
+    /// a routing control state to reroute traffic. In a "break glass" scenario like this,
+    /// you can override one or more safety rules to change a routing control state and fail
+    /// over your application.
+    /// </para><para>
+    /// The <code>SafetyRulesToOverride</code> property enables you override one or more safety
+    /// rules and update routing control states. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+    /// Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery
+    /// Controller Developer Guide.
+    /// </para><para><i>You must specify Regional endpoints when you work with API cluster operations
+    /// to get or update routing control states in Application Recovery Controller.</i></para><para>
+    /// To see a code example for getting a routing control state, including accessing Regional
+    /// cluster endpoints in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API
+    /// examples</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
+    /// Viewing and updating routing control states</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working
+    /// with routing controls overall</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "RRCRoutingControlStateBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,6 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     )]
     public partial class UpdateRRCRoutingControlStateBatchCmdlet : AmazonRoute53RecoveryClusterClientCmdlet, IExecutor
     {
+        
+        #region Parameter SafetyRulesToOverride
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override
+        /// when you're updating routing control states. You can override one safety rule or multiple
+        /// safety rules by including one or more ARNs, separated by commas.</para><para>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+        /// Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery
+        /// Controller Developer Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SafetyRulesToOverride { get; set; }
+        #endregion
         
         #region Parameter UpdateRoutingControlStateEntry
         /// <summary>
@@ -106,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.RRC
                 context.Select = CreateSelectDelegate<Amazon.Route53RecoveryCluster.Model.UpdateRoutingControlStatesResponse, UpdateRRCRoutingControlStateBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.SafetyRulesToOverride != null)
+            {
+                context.SafetyRulesToOverride = new List<System.String>(this.SafetyRulesToOverride);
+            }
             if (this.UpdateRoutingControlStateEntry != null)
             {
                 context.UpdateRoutingControlStateEntry = new List<Amazon.Route53RecoveryCluster.Model.UpdateRoutingControlStateEntry>(this.UpdateRoutingControlStateEntry);
@@ -132,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.RRC
             // create request
             var request = new Amazon.Route53RecoveryCluster.Model.UpdateRoutingControlStatesRequest();
             
+            if (cmdletContext.SafetyRulesToOverride != null)
+            {
+                request.SafetyRulesToOverride = cmdletContext.SafetyRulesToOverride;
+            }
             if (cmdletContext.UpdateRoutingControlStateEntry != null)
             {
                 request.UpdateRoutingControlStateEntries = cmdletContext.UpdateRoutingControlStateEntry;
@@ -197,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> SafetyRulesToOverride { get; set; }
             public List<Amazon.Route53RecoveryCluster.Model.UpdateRoutingControlStateEntry> UpdateRoutingControlStateEntry { get; set; }
             public System.Func<Amazon.Route53RecoveryCluster.Model.UpdateRoutingControlStatesResponse, UpdateRRCRoutingControlStateBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

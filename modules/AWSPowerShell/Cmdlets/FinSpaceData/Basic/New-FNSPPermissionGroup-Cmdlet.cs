@@ -22,28 +22,59 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppRegistry;
-using Amazon.AppRegistry.Model;
+using Amazon.FinSpaceData;
+using Amazon.FinSpaceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SCAR
+namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Updates an existing attribute group with new details.
+    /// Creates a group of permissions for various actions that a user can perform in FinSpace.
     /// </summary>
-    [Cmdlet("Update", "SCARAttributeGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppRegistry.Model.AttributeGroup")]
-    [AWSCmdlet("Calls the AWS Service Catalog App Registry UpdateAttributeGroup API operation.", Operation = new[] {"UpdateAttributeGroup"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.UpdateAttributeGroupResponse))]
-    [AWSCmdletOutput("Amazon.AppRegistry.Model.AttributeGroup or Amazon.AppRegistry.Model.UpdateAttributeGroupResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.AttributeGroup object.",
-        "The service call response (type Amazon.AppRegistry.Model.UpdateAttributeGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "FNSPPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the FinSpace Public API CreatePermissionGroup API operation.", Operation = new[] {"CreatePermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.CreatePermissionGroupResponse))]
+    [AWSCmdletOutput("System.String or Amazon.FinSpaceData.Model.CreatePermissionGroupResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.FinSpaceData.Model.CreatePermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSCARAttributeGroupCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
+    public partial class NewFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributeGroup
+        #region Parameter ApplicationPermission
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the attribute group that holds the attributes to describe the application.</para>
+        /// <para>The option to indicate FinSpace application permissions that are granted to a specific
+        /// group.</para><ul><li><para><code>CreateDataset</code> – Group members can create new datasets.</para></li><li><para><code>ManageClusters</code> – Group members can manage Apache Spark clusters from
+        /// FinSpace notebooks.</para></li><li><para><code>ManageUsersAndGroups</code> – Group members can manage users and permission
+        /// groups.</para></li><li><para><code>ManageAttributeSets</code> – Group members can manage attribute sets.</para></li><li><para><code>ViewAuditData</code> – Group members can view audit data.</para></li><li><para><code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</para></li><li><para><code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</para></li></ul>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("ApplicationPermissions")]
+        public System.String[] ApplicationPermission { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A brief description for the permission group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the permission group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,61 +85,36 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AttributeGroup { get; set; }
-        #endregion
-        
-        #region Parameter Attribute
-        /// <summary>
-        /// <para>
-        /// <para>A JSON string in the form of nested key-value pairs that represent the attributes
-        /// in the group and describes an application and its components.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Attributes")]
-        public System.String Attribute { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The description of the attribute group that the user provides.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The new name of the attribute group. The name must be unique in the region in which
-        /// you are updating the attribute group.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Name update for attribute group is deprecated.")]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that ensures idempotency. This token expires in 10 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AttributeGroup'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRegistry.Model.UpdateAttributeGroupResponse).
-        /// Specifying the name of a property of type Amazon.AppRegistry.Model.UpdateAttributeGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PermissionGroupId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.CreatePermissionGroupResponse).
+        /// Specifying the name of a property of type Amazon.FinSpaceData.Model.CreatePermissionGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AttributeGroup";
+        public string Select { get; set; } = "PermissionGroupId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AttributeGroup parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AttributeGroup' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AttributeGroup' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCARAttributeGroup (UpdateAttributeGroup)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-FNSPPermissionGroup (CreatePermissionGroup)"))
             {
                 return;
             }
@@ -141,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRegistry.Model.UpdateAttributeGroupResponse, UpdateSCARAttributeGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FinSpaceData.Model.CreatePermissionGroupResponse, NewFNSPPermissionGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,21 +156,28 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AttributeGroup;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AttributeGroup = this.AttributeGroup;
-            #if MODULAR
-            if (this.AttributeGroup == null && ParameterWasBound(nameof(this.AttributeGroup)))
+            if (this.ApplicationPermission != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AttributeGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ApplicationPermission = new List<System.String>(this.ApplicationPermission);
+            }
+            #if MODULAR
+            if (this.ApplicationPermission == null && ParameterWasBound(nameof(this.ApplicationPermission)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ApplicationPermission which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Attribute = this.Attribute;
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,26 +192,24 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppRegistry.Model.UpdateAttributeGroupRequest();
+            var request = new Amazon.FinSpaceData.Model.CreatePermissionGroupRequest();
             
-            if (cmdletContext.AttributeGroup != null)
+            if (cmdletContext.ApplicationPermission != null)
             {
-                request.AttributeGroup = cmdletContext.AttributeGroup;
+                request.ApplicationPermissions = cmdletContext.ApplicationPermission;
             }
-            if (cmdletContext.Attribute != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Attributes = cmdletContext.Attribute;
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -232,15 +243,15 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRegistry.Model.UpdateAttributeGroupResponse CallAWSServiceOperation(IAmazonAppRegistry client, Amazon.AppRegistry.Model.UpdateAttributeGroupRequest request)
+        private Amazon.FinSpaceData.Model.CreatePermissionGroupResponse CallAWSServiceOperation(IAmazonFinSpaceData client, Amazon.FinSpaceData.Model.CreatePermissionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog App Registry", "UpdateAttributeGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "CreatePermissionGroup");
             try
             {
                 #if DESKTOP
-                return client.UpdateAttributeGroup(request);
+                return client.CreatePermissionGroup(request);
                 #elif CORECLR
-                return client.UpdateAttributeGroupAsync(request).GetAwaiter().GetResult();
+                return client.CreatePermissionGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,13 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttributeGroup { get; set; }
-            public System.String Attribute { get; set; }
+            public List<System.String> ApplicationPermission { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            [System.ObsoleteAttribute]
             public System.String Name { get; set; }
-            public System.Func<Amazon.AppRegistry.Model.UpdateAttributeGroupResponse, UpdateSCARAttributeGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AttributeGroup;
+            public System.Func<Amazon.FinSpaceData.Model.CreatePermissionGroupResponse, NewFNSPPermissionGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PermissionGroupId;
         }
         
     }

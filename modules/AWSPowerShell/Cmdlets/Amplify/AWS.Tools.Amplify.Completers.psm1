@@ -93,7 +93,7 @@ $AMP_Completers = {
             ($_ -eq "Update-AMPApp/Platform")
         }
         {
-            $v = "WEB"
+            $v = "WEB","WEB_DYNAMIC"
             break
         }
 

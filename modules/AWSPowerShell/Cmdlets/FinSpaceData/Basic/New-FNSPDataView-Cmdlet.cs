@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter AsOfTimestamp
         /// <summary>
         /// <para>
-        /// <para>Beginning time to use for the Dataview. The value is determined as Epoch time in milliseconds.
+        /// <para>Beginning time to use for the Dataview. The value is determined as epoch time in milliseconds.
         /// For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as
         /// 1635768000000.</para>
         /// </para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_DestinationType
         /// <summary>
         /// <para>
-        /// <para>Destination type for a Dataview.</para><ul><li><para><code>GLUE_TABLE</code> - Glue table destination type.</para></li><li><para><code>S3</code> - S3 destination type.</para></li></ul>
+        /// <para>Destination type for a Dataview.</para><ul><li><para><code>GLUE_TABLE</code> – Glue table destination type.</para></li><li><para><code>S3</code> – S3 destination type.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormat
         /// <summary>
         /// <para>
-        /// <para>Data view export file format.</para><ul><li><para><code>PARQUET</code> - Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> - Delimited text export file format.</para></li></ul>
+        /// <para>Data view export file format.</para><ul><li><para><code>PARQUET</code> – Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> – Delimited text export file format.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

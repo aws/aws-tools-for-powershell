@@ -1,4 +1,38 @@
-﻿### 4.1.32 (2022-02-26 00:51Z)
+﻿### 4.1.33 (2022-02-28 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.219.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify UI Builder
+    * Modified cmdlet Export-AMPUIComponent: added parameter NextToken.
+    * Modified cmdlet Export-AMPUITheme: added parameter NextToken.
+    * Modified cmdlet New-AMPUIComponent: added parameters ComponentToCreate_Event and ComponentToCreate_SchemaVersion.
+    * Modified cmdlet Update-AMPUIComponent: added parameters UpdatedComponent_Event and UpdatedComponent_SchemaVersion.
+  * Amazon Athena
+    * Added cmdlet Update-ATHNamedQuery leveraging the UpdateNamedQuery service API.
+  * Amazon Fault Injection Simulator
+    * Modified cmdlet New-FISExperimentTemplate: added parameters CloudWatchLogsConfiguration_LogGroupArn, LogConfiguration_LogSchemaVersion, S3Configuration_BucketName and S3Configuration_Prefix.
+    * Modified cmdlet Update-FISExperimentTemplate: added parameters CloudWatchLogsConfiguration_LogGroupArn, LogConfiguration_LogSchemaVersion, S3Configuration_BucketName and S3Configuration_Prefix.
+  * Amazon FinSpace Public API
+    * Added cmdlet Disable-FNSPUser leveraging the DisableUser service API.
+    * Added cmdlet Enable-FNSPUser leveraging the EnableUser service API.
+    * Added cmdlet Get-FNSPPermissionGroupList leveraging the ListPermissionGroups service API.
+    * Added cmdlet Get-FNSPUser leveraging the GetUser service API.
+    * Added cmdlet Get-FNSPUserList leveraging the ListUsers service API.
+    * Added cmdlet New-FNSPPermissionGroup leveraging the CreatePermissionGroup service API.
+    * Added cmdlet New-FNSPUser leveraging the CreateUser service API.
+    * Added cmdlet Remove-FNSPPermissionGroup leveraging the DeletePermissionGroup service API.
+    * Added cmdlet Reset-FNSPUserPassword leveraging the ResetUserPassword service API.
+    * Added cmdlet Update-FNSPPermissionGroup leveraging the UpdatePermissionGroup service API.
+    * Added cmdlet Update-FNSPUser leveraging the UpdateUser service API.
+  * Amazon FSx
+    * Modified cmdlet New-FSXFileSystem: added parameter RootVolumeConfiguration_RecordSizeKiB.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameter RootVolumeConfiguration_RecordSizeKiB.
+    * Modified cmdlet New-FSXVolume: added parameter OpenZFSConfiguration_RecordSizeKiB.
+    * Modified cmdlet Remove-FSXFileSystem: added parameter OpenZFSConfiguration_Option.
+    * Modified cmdlet Update-FSXVolume: added parameter OpenZFSConfiguration_RecordSizeKiB.
+  * Amazon Route53 Recovery Cluster
+    * Modified cmdlet Update-RRCRoutingControlState: added parameter SafetyRulesToOverride.
+    * Modified cmdlet Update-RRCRoutingControlStateBatch: added parameter SafetyRulesToOverride.
+
+### 4.1.32 (2022-02-26 00:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.218.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Panorama
     * Modified cmdlet Register-PANDevice: added parameter Ntp_NtpServer.

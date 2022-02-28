@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token indicating where a results page should begin.</para>
+        /// <para>A token that indicates where a results page should begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

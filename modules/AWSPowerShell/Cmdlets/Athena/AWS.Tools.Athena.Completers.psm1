@@ -206,6 +206,7 @@ $ATH_SelectMap = @{
                "Add-ATHResourceTag",
                "Remove-ATHResourceTag",
                "Update-ATHDataCatalog",
+               "Update-ATHNamedQuery",
                "Update-ATHPreparedStatement",
                "Update-ATHWorkGroup")
 }

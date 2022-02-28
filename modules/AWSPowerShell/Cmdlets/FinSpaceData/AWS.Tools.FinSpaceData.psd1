@@ -86,20 +86,31 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Disable-FNSPUser', 
+        'Enable-FNSPUser', 
         'Get-FNSPChangeset', 
         'Get-FNSPChangesetList', 
         'Get-FNSPDataset', 
         'Get-FNSPDatasetList', 
         'Get-FNSPDataView', 
         'Get-FNSPDataViewList', 
+        'Get-FNSPPermissionGroupList', 
         'Get-FNSPProgrammaticAccessCredential', 
+        'Get-FNSPUser', 
+        'Get-FNSPUserList', 
         'Get-FNSPWorkingLocation', 
         'New-FNSPChangeset', 
         'New-FNSPDataset', 
         'New-FNSPDataView', 
+        'New-FNSPPermissionGroup', 
+        'New-FNSPUser', 
         'Remove-FNSPDataset', 
+        'Remove-FNSPPermissionGroup', 
+        'Reset-FNSPUserPassword', 
         'Update-FNSPChangeset', 
-        'Update-FNSPDataset')
+        'Update-FNSPDataset', 
+        'Update-FNSPPermissionGroup', 
+        'Update-FNSPUser')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -112,14 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para> Describes the settings for the subdomain. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubDomainSettings")]
         public Amazon.Amplify.Model.SubDomainSetting[] SubDomainSetting { get; set; }
         #endregion
@@ -209,12 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 context.SubDomainSetting = new List<Amazon.Amplify.Model.SubDomainSetting>(this.SubDomainSetting);
             }
-            #if MODULAR
-            if (this.SubDomainSetting == null && ParameterWasBound(nameof(this.SubDomainSetting)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubDomainSetting which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
