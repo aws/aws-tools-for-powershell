@@ -174,16 +174,16 @@ function Uninstall-AWSToolsModule {
         [PSModuleInfo[]]$InstalledAwsToolsModules = Get-AWSToolsModule
 
         if ($MinimumVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ge $MinimumVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { (Get-CleanVersion $_.Version) -ge $MinimumVersion }
         }
         if ($MaximumVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -le $MaximumVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { (Get-CleanVersion $_.Version) -le $MaximumVersion }
         }
         if ($RequiredVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { Confirm-VersionsEqual -V1 $_.Version -V2 $RequiredVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { (Get-CleanVersion $_.Version) -eq $RequiredVersion }
         }
         if ($ExceptVersion -and $InstalledAwsToolsModules) {
-            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { Confirm-VersionsNotEqual -V1 $_.Version -V2 $ExceptVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { (Get-CleanVersion $_.Version) -ne $ExceptVersion }
         }
 
         if ($InstalledAwsToolsModules) {
@@ -391,62 +391,6 @@ function Get-AWSToolsModuleDependenciesAndValidate {
     }
 }
 
-function Confirm-VersionsEqual {
-    Param(
-        ## Path of the manifest file to validate
-        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [version]
-        $V1,
-
-        ## Name of the module to validate
-        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [version]
-        $V2
-    )
-
-    Begin {
-        $V1 = Get-CleanVersion $V1
-        $V2 = Get-CleanVersion $V2
-        $V1 -eq $V2
-    }
-
-    Process {
-    }
-
-    
-    End {
-        Write-Verbose "[$($MyInvocation.MyCommand)] End"
-    }
-} 
-
-function Confirm-VersionsNotEqual {
-    Param(
-        ## Path of the manifest file to validate
-        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [version]
-        $V1,
-
-        ## Name of the module to validate
-        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [version]
-        $V2
-    )
-
-    Begin {
-        $V1 = Get-CleanVersion $V1
-        $V2 = Get-CleanVersion $V2
-        $V1 -ne $V2
-    }
-
-    Process {
-    }
-
-    
-    End {
-        Write-Verbose "[$($MyInvocation.MyCommand)] End"
-    }
-} 
-
 <#
 .Synopsis
     Install AWS.Tools modules.
@@ -567,6 +511,8 @@ function Install-AWSToolsModule {
 
         [Version]$availableVersion = [Version[]]$availableModulesToInstall.Version | Measure-Object -Minimum | Select-Object -Expand Minimum
 
+        $availableVersion = Get-CleanVersion $availableVersion
+
         if ($MinimumVersion -and $MinimumVersion -gt $availableVersion) {
             throw "The maximum version available is $availableVersion."
         }
@@ -599,7 +545,7 @@ function Install-AWSToolsModule {
             }
         }
 
-        $modulesToInstall = $modulesToInstall | Where-Object { -not (Get-Module $_ -ListAvailable -Verbose:$false | Where-Object { Confirm-VersionsEqual -V1 $_.Version -V2 $RequiredVersion }) }
+        $modulesToInstall = $modulesToInstall | Where-Object { -not (Get-Module $_ -ListAvailable -Verbose:$false | Where-Object { (Get-CleanVersion $_.Version) -eq $RequiredVersion }) }
         Write-Verbose "[$($MyInvocation.MyCommand)] Removing already installed modules from the. Final list of modules to install: ($modulesToInstall)"
 
         if ($modulesToInstall) {
