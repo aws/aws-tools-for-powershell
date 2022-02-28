@@ -147,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNamedQuery" Verb="Update" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePreparedStatement" Verb="Update" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
