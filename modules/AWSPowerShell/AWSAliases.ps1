@@ -12002,6 +12002,8 @@ Set-Alias -Name Create-MSKCWorkerConfiguration -Value New-MSKCWorkerConfiguratio
 Set-Alias -Name MSKC-CreateWorkerConfiguration -Value New-MSKCWorkerConfiguration
 Set-Alias -Name Delete-MSKCConnector -Value Remove-MSKCConnector
 Set-Alias -Name MSKC-DeleteConnector -Value Remove-MSKCConnector
+Set-Alias -Name Delete-MSKCCustomPlugin -Value Remove-MSKCCustomPlugin
+Set-Alias -Name MSKC-DeleteCustomPlugin -Value Remove-MSKCCustomPlugin
 Set-Alias -Name Describe-MSKCConnector -Value Get-MSKCConnector
 Set-Alias -Name MSKC-DescribeConnector -Value Get-MSKCConnector
 Set-Alias -Name Describe-MSKCCustomPlugin -Value Get-MSKCCustomPlugin

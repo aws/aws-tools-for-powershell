@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH
+    /// Launches a Test Instance for specific Source Servers. This command starts a LAUNCH
     /// job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state
     /// property to TESTING.
     /// </summary>

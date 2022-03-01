@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Retrieves detailed Job log with paging.
+    /// Retrieves detailed job log items with paging.
     /// </summary>
     [Cmdlet("Get", "MGNJobLogItem")]
     [OutputType("Amazon.Mgn.Model.JobLog")]

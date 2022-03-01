@@ -201,7 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// values in the list depend on the DB engine being used.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -46,9 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide.</i></para><note><para>
-    /// The Multi-AZ DB clusters feature is in preview and is subject to change.
-    /// </para></note>
+    /// User Guide.</i></para>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -89,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the restored DB cluster to snapshots
-        /// of the restored DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters only</para>
+        /// of the restored DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,8 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database Service
+        /// User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

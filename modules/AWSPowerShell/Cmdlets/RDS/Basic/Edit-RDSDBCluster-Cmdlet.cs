@@ -38,9 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide.</i></para><note><para>
-    /// The Multi-AZ DB clusters feature is in preview and is subject to change.
-    /// </para></note>
+    /// User Guide.</i></para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -145,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the DB cluster to snapshots of
-        /// the DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters only</para>
+        /// the DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

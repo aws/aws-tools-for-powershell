@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter SourceServerID
         /// <summary>
         /// <para>
-        /// <para>Request to get Replication Configuaration by Source Server ID.</para>
+        /// <para>Request to get Replication Configuration by Source Server ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -39,8 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// results in a momentary outage, during which the DB cluster status is set to rebooting.
     /// 
     /// </para><para>
-    /// Use this operation only for a non-Aurora Multi-AZ DB cluster. The Multi-AZ DB clusters
-    /// feature is in preview and is subject to change.
+    /// Use this operation only for a non-Aurora Multi-AZ DB cluster.
     /// </para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS

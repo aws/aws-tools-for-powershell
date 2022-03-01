@@ -28,7 +28,8 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Updates source server Replication Type by ID.
+    /// Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING
+    /// replication type.
     /// </summary>
     [Cmdlet("Update", "MGNSourceServerReplicationType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.UpdateSourceServerReplicationTypeResponse")]

@@ -26875,6 +26875,7 @@ $MSKC_SelectMap = @{
                "New-MSKCCustomPlugin",
                "New-MSKCWorkerConfiguration",
                "Remove-MSKCConnector",
+               "Remove-MSKCCustomPlugin",
                "Get-MSKCConnector",
                "Get-MSKCCustomPlugin",
                "Get-MSKCWorkerConfiguration",
@@ -32260,6 +32261,13 @@ $MGN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Mgn.BootMode
+        "Update-MGNLaunchConfiguration/BootMode"
+        {
+            $v = "LEGACY_BIOS","UEFI"
+            break
+        }
+
         # Amazon.Mgn.ChangeServerLifeCycleStateSourceServerLifecycleState
         "Set-MGNServerLifeCycleState/LifeCycle_State"
         {
@@ -32292,7 +32300,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNReplicationConfigurationTemplate/DefaultLargeStagingDiskType")
         }
         {
-            $v = "GP2","ST1"
+            $v = "GP2","GP3","ST1"
             break
         }
 
@@ -32330,6 +32338,7 @@ $MGN_Completers = {
 }
 
 $MGN_map = @{
+    "BootMode"=@("Update-MGNLaunchConfiguration")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")

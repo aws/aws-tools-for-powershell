@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Lists all vCenter clients.
+    /// Returns a list of the installed vCenter clients.
     /// </summary>
     [Cmdlet("Get", "MGNVcenterClient")]
     [OutputType("Amazon.Mgn.Model.VcenterClient")]

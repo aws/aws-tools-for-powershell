@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     /// <summary>
     /// Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which
     /// jobs are returned. The response is sorted by creationDataTime - latest date first.
-    /// Jobs are normaly created by the StartTest, StartCutover, and TerminateTargetInstances
+    /// Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances
     /// APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances,
     /// which are APIs available only to *Support* and only used in response to relevant support
     /// tickets.
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Filters_ToDate
         /// <summary>
         /// <para>
-        /// <para>Request to describe Job log by last date.</para>
+        /// <para>Request to describe job log items by last date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Request to describe Job log by max results.</para>
+        /// <para>Request to describe job log items by max results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Request to describe Job logby next token.</para>
+        /// <para>Request to describe job log items by next token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

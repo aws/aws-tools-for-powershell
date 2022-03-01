@@ -169,6 +169,7 @@ $MSKC_SelectMap = @{
                "New-MSKCCustomPlugin",
                "New-MSKCWorkerConfiguration",
                "Remove-MSKCConnector",
+               "Remove-MSKCCustomPlugin",
                "Get-MSKCConnector",
                "Get-MSKCCustomPlugin",
                "Get-MSKCWorkerConfiguration",

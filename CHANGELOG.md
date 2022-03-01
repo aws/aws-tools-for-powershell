@@ -1,4 +1,11 @@
-﻿### 4.1.33 (2022-02-28 21:34Z)
+﻿### 4.1.34 (2022-03-01 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.220.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Application Migration Service
+    * Modified cmdlet Update-MGNLaunchConfiguration: added parameter BootMode.
+  * Amazon Managed Streaming for Kafka Connect
+    * Added cmdlet Remove-MSKCCustomPlugin leveraging the DeleteCustomPlugin service API.
+
+### 4.1.33 (2022-02-28 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.219.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Amplify UI Builder
     * Modified cmdlet Export-AMPUIComponent: added parameter NextToken.

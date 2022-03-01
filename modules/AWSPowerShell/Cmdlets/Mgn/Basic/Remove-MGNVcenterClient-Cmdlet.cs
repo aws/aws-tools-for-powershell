@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Deletes a single vCenter client by ID.
+    /// Deletes a given vCenter client by ID.
     /// </summary>
     [Cmdlet("Remove", "MGNVcenterClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

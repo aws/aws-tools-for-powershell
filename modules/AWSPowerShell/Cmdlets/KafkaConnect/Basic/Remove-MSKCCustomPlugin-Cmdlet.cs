@@ -22,37 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Mgn;
-using Amazon.Mgn.Model;
+using Amazon.KafkaConnect;
+using Amazon.KafkaConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MGN
+namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Disconnects specific Source Servers from Application Migration Service. Data replication
-    /// is stopped immediately. All AWS resources created by Application Migration Service
-    /// for enabling the replication of these source servers will be terminated / deleted
-    /// within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the
-    /// agent on the source server has not been prevented from communicating with the Application
-    /// Migration Service service, then it will receive a command to uninstall itself (within
-    /// approximately 10 minutes). The following properties of the SourceServer will be changed
-    /// immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED;
-    /// The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
-    /// be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration
-    /// will be nullified.
+    /// Deletes a custom plugin.
     /// </summary>
-    [Cmdlet("Disconnect", "MGNFromService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Mgn.Model.DisconnectFromServiceResponse")]
-    [AWSCmdlet("Calls the Application Migration Service DisconnectFromService API operation.", Operation = new[] {"DisconnectFromService"}, SelectReturnType = typeof(Amazon.Mgn.Model.DisconnectFromServiceResponse))]
-    [AWSCmdletOutput("Amazon.Mgn.Model.DisconnectFromServiceResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.DisconnectFromServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "MSKCCustomPlugin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.KafkaConnect.Model.DeleteCustomPluginResponse")]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect DeleteCustomPlugin API operation.", Operation = new[] {"DeleteCustomPlugin"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.DeleteCustomPluginResponse))]
+    [AWSCmdletOutput("Amazon.KafkaConnect.Model.DeleteCustomPluginResponse",
+        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteCustomPluginResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisconnectMGNFromServiceCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class RemoveMSKCCustomPluginCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter SourceServerID
+        #region Parameter CustomPluginArn
         /// <summary>
         /// <para>
-        /// <para>Request to disconnect Source Server from service by Server ID.</para>
+        /// <para>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,14 +53,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SourceServerID { get; set; }
+        public System.String CustomPluginArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.DisconnectFromServiceResponse).
-        /// Specifying the name of a property of type Amazon.Mgn.Model.DisconnectFromServiceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.DeleteCustomPluginResponse).
+        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.DeleteCustomPluginResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SourceServerID parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CustomPluginArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CustomPluginArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CustomPluginArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -101,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerID), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-MGNFromService (DisconnectFromService)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CustomPluginArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MSKCCustomPlugin (DeleteCustomPlugin)"))
             {
                 return;
             }
@@ -115,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DisconnectFromServiceResponse, DisconnectMGNFromServiceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.DeleteCustomPluginResponse, RemoveMSKCCustomPluginCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,14 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SourceServerID;
+                context.Select = (response, cmdlet) => this.CustomPluginArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SourceServerID = this.SourceServerID;
+            context.CustomPluginArn = this.CustomPluginArn;
             #if MODULAR
-            if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
+            if (this.CustomPluginArn == null && ParameterWasBound(nameof(this.CustomPluginArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter SourceServerID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CustomPluginArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -148,11 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Mgn.Model.DisconnectFromServiceRequest();
+            var request = new Amazon.KafkaConnect.Model.DeleteCustomPluginRequest();
             
-            if (cmdletContext.SourceServerID != null)
+            if (cmdletContext.CustomPluginArn != null)
             {
-                request.SourceServerID = cmdletContext.SourceServerID;
+                request.CustomPluginArn = cmdletContext.CustomPluginArn;
             }
             
             CmdletOutput output;
@@ -187,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.DisconnectFromServiceResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.DisconnectFromServiceRequest request)
+        private Amazon.KafkaConnect.Model.DeleteCustomPluginResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.DeleteCustomPluginRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "DisconnectFromService");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "DeleteCustomPlugin");
             try
             {
                 #if DESKTOP
-                return client.DisconnectFromService(request);
+                return client.DeleteCustomPlugin(request);
                 #elif CORECLR
-                return client.DisconnectFromServiceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCustomPluginAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -215,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String SourceServerID { get; set; }
-            public System.Func<Amazon.Mgn.Model.DisconnectFromServiceResponse, DisconnectMGNFromServiceCmdlet, object> Select { get; set; } =
+            public System.String CustomPluginArn { get; set; }
+            public System.Func<Amazon.KafkaConnect.Model.DeleteCustomPluginResponse, RemoveMSKCCustomPluginCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

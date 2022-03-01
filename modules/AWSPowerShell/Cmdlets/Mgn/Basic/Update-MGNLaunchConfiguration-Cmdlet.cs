@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class UpdateMGNLaunchConfigurationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter BootMode
+        /// <summary>
+        /// <para>
+        /// <para>Update Launch configuration boot mode request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.BootMode")]
+        public Amazon.Mgn.BootMode BootMode { get; set; }
+        #endregion
+        
         #region Parameter CopyPrivateIp
         /// <summary>
         /// <para>
@@ -180,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BootMode = this.BootMode;
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
             context.LaunchDisposition = this.LaunchDisposition;
@@ -209,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.UpdateLaunchConfigurationRequest();
             
+            if (cmdletContext.BootMode != null)
+            {
+                request.BootMode = cmdletContext.BootMode;
+            }
             if (cmdletContext.CopyPrivateIp != null)
             {
                 request.CopyPrivateIp = cmdletContext.CopyPrivateIp.Value;
@@ -313,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Mgn.BootMode BootMode { get; set; }
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
             public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }

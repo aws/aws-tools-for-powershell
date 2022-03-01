@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     /// <summary>
     /// Archives specific Source Servers by setting the SourceServer.isArchived property to
     /// true for specified SourceServers by ID. This command only works for SourceServers
-    /// with a lifecycle.state which equals DISCONNECTED or CUTOVER.
+    /// with a lifecycle. state which equals DISCONNECTED or CUTOVER.
     /// </summary>
     [Cmdlet("Set", "MGNAsArchived", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.MarkAsArchivedResponse")]

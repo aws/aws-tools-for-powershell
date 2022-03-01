@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter DefaultLargeStagingDiskType
         /// <summary>
         /// <para>
-        /// <para>Request to configure the Staging Disk EBS volume type to "gp2" during Replication
+        /// <para>Request to configure the default large staging disk EBS volume type during Replication
         /// Settings template creation.</para>
         /// </para>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter EbsEncryption
         /// <summary>
         /// <para>
-        /// <para>Request to configure EBS enryption during Replication Settings template creation.</para>
+        /// <para>Request to configure EBS encryption during Replication Settings template creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter EbsEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>Request to configure an EBS enryption key during Replication Settings template creation.</para>
+        /// <para>Request to configure an EBS encryption key during Replication Settings template creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter ReplicationServersSecurityGroupsIDs
         /// <summary>
         /// <para>
-        /// <para>Request to configure the Replication Server Secuirity group ID during Replication
-        /// Settings template creation.</para>
+        /// <para>Request to configure the Replication Server Security group ID during Replication Settings
+        /// template creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter StagingAreaTag
         /// <summary>
         /// <para>
-        /// <para>Request to configure Staiging Area tags during Replication Settings template creation.</para>
+        /// <para>Request to configure Staging Area tags during Replication Settings template creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
