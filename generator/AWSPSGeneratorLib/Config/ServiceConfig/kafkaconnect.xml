@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomPlugin" OutputProperty="*" Verb="Remove" Noun="CustomPlugin" ShouldProcessTarget="CustomPluginArn" PipelineParameter="CustomPluginArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeConnector" OutputProperty="*" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
