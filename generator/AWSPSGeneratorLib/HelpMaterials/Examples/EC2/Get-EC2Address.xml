@@ -15,7 +15,7 @@ PublicIp                : 198.51.100.2</code>
     <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
   </example>
   <example>
-    <code>Get-EC2Address -Filter @{ Name="domain";Value="vpc" }</code>
+    <code>Get-EC2Address -Filter @{ Name="domain";Values="vpc" }</code>
     <description>This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.</description>
   </example>
   <example>
@@ -32,7 +32,7 @@ PublicIp                : 203.0.113.17</code>
     <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
   </example>
   <example>
-    <code>Get-EC2Address -Filter @{ Name="domain";Value="standard" }</code>
+    <code>Get-EC2Address -Filter @{ Name="domain";Values="standard" }</code>
     <description>This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.</description>
   </example>
   <example>

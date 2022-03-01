@@ -29,7 +29,7 @@ VpcPeeringConnectionId  :</code>
     <description>This example returns details for the specified route table.</description>
   </example>
   <example>
-    <code>Get-EC2RouteTable -Filter @{ Name="vpc-id"; Value="vpc-1a2b3c4d" }
+    <code>Get-EC2RouteTable -Filter @{ Name="vpc-id"; Values="vpc-1a2b3c4d" }
     
 Associations    : {rtbassoc-12345678}
 PropagatingVgws : {}

@@ -21,7 +21,7 @@ TotalScheduledInstanceHours : 1219
     <description>This example describes a schedule that occurs every week on Sunday, starting on the specified date.</description>
   </example>
   <example>
-    <code>-Filter @{ Name="platform";Value="Linux/UNIX" },@{ Name="network-platform";Value="EC2-VPC" },@{ Name="instance-type";Value="c4.large" }</code>
+    <code>-Filter @{ Name="platform";Values="Linux/UNIX" },@{ Name="network-platform";Values="EC2-VPC" },@{ Name="instance-type";Values="c4.large" }</code>
     <description>To narrow the results, you can add filters for criteria such as operating system, network, and instance type.</description>
   </example>
 </examples>

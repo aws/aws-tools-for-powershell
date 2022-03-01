@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-EC2FlowLog -Filter @{Name="log-destination-type";Value="s3"}
+    <code>Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}
 
 
 CreationTime             : 2/25/2019 9:07:36 PM

@@ -13,13 +13,13 @@ Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState</
     <description>This example starts the specified instances.</description>
   </example>
   <example>
-    <code>(Get-EC2Instance -Filter @{ Name="instance-state-name"; Value="stopped"}).Instances | Start-EC2Instance</code>
+    <code>(Get-EC2Instance -Filter @{ Name="instance-state-name"; Values="stopped"}).Instances | Start-EC2Instance</code>
     <description>This example starts the set of instances that are currently stopped. The Instance objects returned by Get-EC2Instance are piped to Start-EC2Instance. The syntax used by this example requires PowerShell version 3 or higher.</description>
   </example>
   <example>
     <code>$filter = New-Object Amazon.EC2.Model.Filter
 $filter.Name = "instance-state-name"
-$filter.Value = "stopped"
+$filter.Values = "stopped"
 
 (Get-EC2Instance -Filter $filter).Instances | Start-EC2Instance
     </code>
