@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.220.0",
+    "ProductVersion" : "3.7.221.0",
     "CoreVersion"    : "3.7.8.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -62,7 +62,7 @@
             "InPreview"               : false
         },
         "CloudTrail"        : {
-            "Version" : "3.7.2.21",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.5"
@@ -490,7 +490,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.2.28",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.5"
@@ -514,7 +514,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.1.45",
+            "Version" : "3.7.1.46",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.5"
@@ -794,7 +794,7 @@
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "3.7.4.1",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.5"
@@ -2395,6 +2395,14 @@
         },
         "AmplifyUIBuilder"                    : {
             "Version" : "3.7.1.1",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.8.5"
+            },
+            "InPreview"               : false
+        },
+        "Keyspaces"                           : {
+            "Version" : "3.7.0.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.5"

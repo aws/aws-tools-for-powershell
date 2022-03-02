@@ -196,6 +196,23 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? Configuration_RequesterPaysEnabled { get; set; }
         #endregion
         
+        #region Parameter AclConfiguration_S3AclOption
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
+        /// the only supported canned ACL is <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query
+        /// runs in a workgroup and the workgroup overrides client-side settings, then the Amazon
+        /// S3 canned ACL specified in the workgroup's settings is used for all queries that run
+        /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
+        /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ResultConfiguration_AclConfiguration_S3AclOption")]
+        [AWSConstantClassSource("Amazon.Athena.S3AclOption")]
+        public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion_SelectedEngineVersion
         /// <summary>
         /// <para>
@@ -285,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
             context.Configuration_PublishCloudWatchMetricsEnabled = this.Configuration_PublishCloudWatchMetricsEnabled;
             context.Configuration_RequesterPaysEnabled = this.Configuration_RequesterPaysEnabled;
+            context.AclConfiguration_S3AclOption = this.AclConfiguration_S3AclOption;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ResultConfiguration_ExpectedBucketOwner = this.ResultConfiguration_ExpectedBucketOwner;
@@ -421,6 +439,31 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 requestConfiguration_configuration_ResultConfiguration.OutputLocation = requestConfiguration_configuration_ResultConfiguration_resultConfiguration_OutputLocation;
                 requestConfiguration_configuration_ResultConfigurationIsNull = false;
             }
+            Amazon.Athena.Model.AclConfiguration requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration = null;
+            
+             // populate AclConfiguration
+            var requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfigurationIsNull = true;
+            requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration = new Amazon.Athena.Model.AclConfiguration();
+            Amazon.Athena.S3AclOption requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration_aclConfiguration_S3AclOption = null;
+            if (cmdletContext.AclConfiguration_S3AclOption != null)
+            {
+                requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration_aclConfiguration_S3AclOption = cmdletContext.AclConfiguration_S3AclOption;
+            }
+            if (requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration_aclConfiguration_S3AclOption != null)
+            {
+                requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration.S3AclOption = requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration_aclConfiguration_S3AclOption;
+                requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration should be set to null
+            if (requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration != null)
+            {
+                requestConfiguration_configuration_ResultConfiguration.AclConfiguration = requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_AclConfiguration;
+                requestConfiguration_configuration_ResultConfigurationIsNull = false;
+            }
             Amazon.Athena.Model.EncryptionConfiguration requestConfiguration_configuration_ResultConfiguration_configuration_ResultConfiguration_EncryptionConfiguration = null;
             
              // populate EncryptionConfiguration
@@ -550,6 +593,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String EngineVersion_SelectedEngineVersion { get; set; }
             public System.Boolean? Configuration_PublishCloudWatchMetricsEnabled { get; set; }
             public System.Boolean? Configuration_RequesterPaysEnabled { get; set; }
+            public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }

@@ -161,6 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String QueryString { get; set; }
         #endregion
         
+        #region Parameter AclConfiguration_S3AclOption
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
+        /// the only supported canned ACL is <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query
+        /// runs in a workgroup and the workgroup overrides client-side settings, then the Amazon
+        /// S3 canned ACL specified in the workgroup's settings is used for all queries that run
+        /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
+        /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResultConfiguration_AclConfiguration_S3AclOption")]
+        [AWSConstantClassSource("Amazon.Athena.S3AclOption")]
+        public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
+        #endregion
+        
         #region Parameter WorkGroup
         /// <summary>
         /// <para>
@@ -242,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 WriteWarning("You are passing $null as a value for parameter QueryString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AclConfiguration_S3AclOption = this.AclConfiguration_S3AclOption;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ResultConfiguration_ExpectedBucketOwner = this.ResultConfiguration_ExpectedBucketOwner;
@@ -322,6 +340,31 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestResultConfiguration_resultConfiguration_OutputLocation != null)
             {
                 request.ResultConfiguration.OutputLocation = requestResultConfiguration_resultConfiguration_OutputLocation;
+                requestResultConfigurationIsNull = false;
+            }
+            Amazon.Athena.Model.AclConfiguration requestResultConfiguration_resultConfiguration_AclConfiguration = null;
+            
+             // populate AclConfiguration
+            var requestResultConfiguration_resultConfiguration_AclConfigurationIsNull = true;
+            requestResultConfiguration_resultConfiguration_AclConfiguration = new Amazon.Athena.Model.AclConfiguration();
+            Amazon.Athena.S3AclOption requestResultConfiguration_resultConfiguration_AclConfiguration_aclConfiguration_S3AclOption = null;
+            if (cmdletContext.AclConfiguration_S3AclOption != null)
+            {
+                requestResultConfiguration_resultConfiguration_AclConfiguration_aclConfiguration_S3AclOption = cmdletContext.AclConfiguration_S3AclOption;
+            }
+            if (requestResultConfiguration_resultConfiguration_AclConfiguration_aclConfiguration_S3AclOption != null)
+            {
+                requestResultConfiguration_resultConfiguration_AclConfiguration.S3AclOption = requestResultConfiguration_resultConfiguration_AclConfiguration_aclConfiguration_S3AclOption;
+                requestResultConfiguration_resultConfiguration_AclConfigurationIsNull = false;
+            }
+             // determine if requestResultConfiguration_resultConfiguration_AclConfiguration should be set to null
+            if (requestResultConfiguration_resultConfiguration_AclConfigurationIsNull)
+            {
+                requestResultConfiguration_resultConfiguration_AclConfiguration = null;
+            }
+            if (requestResultConfiguration_resultConfiguration_AclConfiguration != null)
+            {
+                request.ResultConfiguration.AclConfiguration = requestResultConfiguration_resultConfiguration_AclConfiguration;
                 requestResultConfigurationIsNull = false;
             }
             Amazon.Athena.Model.EncryptionConfiguration requestResultConfiguration_resultConfiguration_EncryptionConfiguration = null;
@@ -433,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String QueryExecutionContext_Catalog { get; set; }
             public System.String QueryExecutionContext_Database { get; set; }
             public System.String QueryString { get; set; }
+            public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }

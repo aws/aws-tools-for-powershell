@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// you can specify a time range, formatted as timestamps, by adding <code>StartTime</code>
     /// and <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values
     /// for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>,
-    /// <code>FAILED</code>, or <code>CANCELLED</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTQuerySummary")]
     [OutputType("Amazon.CloudTrail.Model.Query")]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>The status of queries that you want to return in results. Valid values for <code>QueryStatus</code>
         /// include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
-        /// or <code>CANCELLED</code>.</para>
+        /// <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

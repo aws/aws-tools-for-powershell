@@ -1,4 +1,12 @@
-﻿### 4.1.34 (2022-03-01 21:45Z)
+﻿### 4.1.35 (2022-03-02 23:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.221.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Modified cmdlet New-ATHWorkGroup: added parameter AclConfiguration_S3AclOption.
+    * Modified cmdlet Start-ATHQueryExecution: added parameter AclConfiguration_S3AclOption.
+    * Modified cmdlet Update-ATHWorkGroup: added parameters AclConfiguration_S3AclOption and ResultConfigurationUpdates_RemoveAclConfiguration.
+  * Amazon Keyspaces. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KS and can be listed using the command 'Get-AWSCmdletName -Service KS'.
+
+### 4.1.34 (2022-03-01 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.220.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Application Migration Service
     * Modified cmdlet Update-MGNLaunchConfiguration: added parameter BootMode.

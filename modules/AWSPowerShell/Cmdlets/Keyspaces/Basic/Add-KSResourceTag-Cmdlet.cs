@@ -22,50 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudTrail;
-using Amazon.CloudTrail.Model;
+using Amazon.Keyspaces;
+using Amazon.Keyspaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CT
+namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>,
-    /// <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>FINISHED</code>. You must specify
-    /// an ARN value for <code>EventDataStore</code>. The ID of the query that you want to
-    /// cancel is also required. When you run <code>CancelQuery</code>, the query status might
-    /// show as <code>CANCELLED</code> even if the operation is not yet finished.
+    /// Associates a set of tags with a Amazon Keyspaces resource. You can then activate these
+    /// user-defined tags so that they appear on the Cost Management Console for cost allocation
+    /// tracking.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding
+    /// tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
+    /// Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Stop", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudTrail.Model.CancelQueryResponse")]
-    [AWSCmdlet("Calls the AWS CloudTrail CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.CancelQueryResponse))]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.CancelQueryResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.CancelQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "KSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Keyspaces TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.Keyspaces.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Keyspaces.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class AddKSResourceTagCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
-        #region Parameter EventDataStore
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
-        /// query is running.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EventDataStore { get; set; }
-        #endregion
-        
-        #region Parameter QueryId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the
-        /// response of a <code>StartQuery</code> operation.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,14 +63,31 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be assigned to the Amazon Keyspaces resource.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Tags")]
+        public Amazon.Keyspaces.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.CancelQueryResponse).
-        /// Specifying the name of a property of type Amazon.CloudTrail.Model.CancelQueryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CTQuery (CancelQuery)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KSResourceTag (TagResource)"))
             {
                 return;
             }
@@ -128,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.TagResourceResponse, AddKSResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,21 +141,24 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EventDataStore = this.EventDataStore;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.EventDataStore == null && ParameterWasBound(nameof(this.EventDataStore)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EventDataStore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.QueryId = this.QueryId;
-            #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.Keyspaces.Model.Tag>(this.Tag);
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.CancelQueryRequest();
+            var request = new Amazon.Keyspaces.Model.TagResourceRequest();
             
-            if (cmdletContext.EventDataStore != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.EventDataStore = cmdletContext.EventDataStore;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.QueryId != null)
+            if (cmdletContext.Tag != null)
             {
-                request.QueryId = cmdletContext.QueryId;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -211,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.CancelQueryResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.CancelQueryRequest request)
+        private Amazon.Keyspaces.Model.TagResourceResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "CancelQuery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.CancelQuery(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.CancelQueryAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,10 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EventDataStore { get; set; }
-            public System.String QueryId { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public List<Amazon.Keyspaces.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.Keyspaces.Model.TagResourceResponse, AddKSResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

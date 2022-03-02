@@ -22,79 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Keyspaces;
+using Amazon.Keyspaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information,
-    /// including--after a successful match is made--connection information for the resulting
-    /// new game session. 
-    /// 
-    ///  
-    /// <para>
-    /// To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
-    /// is successful, a ticket object is returned for each requested ID that currently exists.
-    /// </para><para>
-    /// This operation is not designed to be continually called to track matchmaking ticket
-    /// status. This practice can cause you to exceed your API limit, which results in errors.
-    /// Instead, as a best practice, set up an Amazon Simple Notification Service to receive
-    /// notifications, and provide the topic ARN in the matchmaking configuration. Continuously
-    /// polling ticket status with <a>DescribeMatchmaking</a> should only be used for games
-    /// in development with low matchmaking usage.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
-    /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
-    /// Set Up FlexMatch event notification</a></para><para><b>Related actions</b></para><para><a>StartMatchmaking</a> | <a>DescribeMatchmaking</a> | <a>StopMatchmaking</a> | <a>AcceptMatch</a>
-    /// | <a>StartMatchBackfill</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Returns the name and the Amazon Resource Name (ARN) of the specified table.
     /// </summary>
-    [Cmdlet("Get", "GMLMatchmaking")]
-    [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DescribeMatchmaking API operation.", Operation = new[] {"DescribeMatchmaking"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeMatchmakingResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingTicket or Amazon.GameLift.Model.DescribeMatchmakingResponse",
-        "This cmdlet returns a collection of Amazon.GameLift.Model.MatchmakingTicket objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeMatchmakingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KSKeyspace")]
+    [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]
+    [AWSCmdlet("Calls the Amazon Keyspaces GetKeyspace API operation.", Operation = new[] {"GetKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetKeyspaceResponse))]
+    [AWSCmdletOutput("Amazon.Keyspaces.Model.GetKeyspaceResponse",
+        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLMatchmakingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
-        #region Parameter TicketId
+        #region Parameter KeyspaceName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
-        /// </para>
+        /// <para>The name of the keyspace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TicketIds")]
-        public System.String[] TicketId { get; set; }
+        public System.String KeyspaceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TicketList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeMatchmakingResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeMatchmakingResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.GetKeyspaceResponse).
+        /// Specifying the name of a property of type Amazon.Keyspaces.Model.GetKeyspaceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TicketList";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TicketId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TicketId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the KeyspaceName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TicketId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeMatchmakingResponse, GetGMLMatchmakingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,17 +98,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TicketId;
+                context.Select = (response, cmdlet) => this.KeyspaceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.TicketId != null)
-            {
-                context.TicketId = new List<System.String>(this.TicketId);
-            }
+            context.KeyspaceName = this.KeyspaceName;
             #if MODULAR
-            if (this.TicketId == null && ParameterWasBound(nameof(this.TicketId)))
+            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
             {
-                WriteWarning("You are passing $null as a value for parameter TicketId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DescribeMatchmakingRequest();
+            var request = new Amazon.Keyspaces.Model.GetKeyspaceRequest();
             
-            if (cmdletContext.TicketId != null)
+            if (cmdletContext.KeyspaceName != null)
             {
-                request.TicketIds = cmdletContext.TicketId;
+                request.KeyspaceName = cmdletContext.KeyspaceName;
             }
             
             CmdletOutput output;
@@ -186,15 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeMatchmakingResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeMatchmakingRequest request)
+        private Amazon.Keyspaces.Model.GetKeyspaceResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.GetKeyspaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeMatchmaking");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "GetKeyspace");
             try
             {
                 #if DESKTOP
-                return client.DescribeMatchmaking(request);
+                return client.GetKeyspace(request);
                 #elif CORECLR
-                return client.DescribeMatchmakingAsync(request).GetAwaiter().GetResult();
+                return client.GetKeyspaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> TicketId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DescribeMatchmakingResponse, GetGMLMatchmakingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TicketList;
+            public System.String KeyspaceName { get; set; }
+            public System.Func<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

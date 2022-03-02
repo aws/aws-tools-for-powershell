@@ -101,6 +101,17 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.S3AclOption
+        {
+            ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_AclConfiguration_S3AclOption") -Or
+            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption") -Or
+            ($_ -eq "Start-ATHQueryExecution/ResultConfiguration_AclConfiguration_S3AclOption")
+        }
+        {
+            $v = "BUCKET_OWNER_FULL_CONTROL"
+            break
+        }
+
         # Amazon.Athena.WorkGroupState
         "Update-ATHWorkGroup/State"
         {
@@ -117,8 +128,11 @@ $ATH_Completers = {
 }
 
 $ATH_map = @{
+    "Configuration_ResultConfiguration_AclConfiguration_S3AclOption"=@("New-ATHWorkGroup")
     "Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup")
+    "ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption"=@("Update-ATHWorkGroup")
     "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
+    "ResultConfiguration_AclConfiguration_S3AclOption"=@("Start-ATHQueryExecution")
     "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
     "State"=@("Update-ATHWorkGroup")
     "Type"=@("New-ATHDataCatalog","Update-ATHDataCatalog")

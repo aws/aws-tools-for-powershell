@@ -28,7 +28,13 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
+    /// <important><para>
+    /// The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor of
+    /// specifying the image scanning configuration at the registry level. For more information,
+    /// see <a>PutRegistryScanningConfiguration</a>.
+    /// </para></important><para>
     /// Updates the image scanning configuration for the specified repository.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "ECRImageScanningConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutImageScanningConfigurationResponse")]

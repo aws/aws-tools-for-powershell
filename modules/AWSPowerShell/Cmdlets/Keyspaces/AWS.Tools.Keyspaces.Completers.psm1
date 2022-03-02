@@ -72,25 +72,54 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS CloudTrail
+# Argument completions for service Amazon Keyspaces
 
 
-$CT_Completers = {
+$KS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.CloudTrail.EventCategory
-        "Find-CTEvent/EventCategory"
+        # Amazon.Keyspaces.EncryptionType
         {
-            $v = "insight"
+            ($_ -eq "New-KSTable/EncryptionSpecification_Type") -Or
+            ($_ -eq "Update-KSTable/EncryptionSpecification_Type") -Or
+            ($_ -eq "Restore-KSTable/EncryptionSpecificationOverride_Type")
+        }
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
             break
         }
 
-        # Amazon.CloudTrail.QueryStatus
-        "Get-CTQuerySummary/QueryStatus"
+        # Amazon.Keyspaces.PointInTimeRecoveryStatus
         {
-            $v = "CANCELLED","FAILED","FINISHED","QUEUED","RUNNING","TIMED_OUT"
+            ($_ -eq "New-KSTable/PointInTimeRecovery_Status") -Or
+            ($_ -eq "Update-KSTable/PointInTimeRecovery_Status") -Or
+            ($_ -eq "Restore-KSTable/PointInTimeRecoveryOverride_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Keyspaces.ThroughputMode
+        {
+            ($_ -eq "New-KSTable/CapacitySpecification_ThroughputMode") -Or
+            ($_ -eq "Update-KSTable/CapacitySpecification_ThroughputMode") -Or
+            ($_ -eq "Restore-KSTable/CapacitySpecificationOverride_ThroughputMode")
+        }
+        {
+            $v = "PAY_PER_REQUEST","PROVISIONED"
+            break
+        }
+
+        # Amazon.Keyspaces.TimeToLiveStatus
+        {
+            ($_ -eq "New-KSTable/Ttl_Status") -Or
+            ($_ -eq "Update-KSTable/Ttl_Status")
+        }
+        {
+            $v = "ENABLED"
             break
         }
 
@@ -102,17 +131,22 @@ $CT_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$CT_map = @{
-    "EventCategory"=@("Find-CTEvent")
-    "QueryStatus"=@("Get-CTQuerySummary")
+$KS_map = @{
+    "CapacitySpecification_ThroughputMode"=@("New-KSTable","Update-KSTable")
+    "CapacitySpecificationOverride_ThroughputMode"=@("Restore-KSTable")
+    "EncryptionSpecification_Type"=@("New-KSTable","Update-KSTable")
+    "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
+    "PointInTimeRecovery_Status"=@("New-KSTable","Update-KSTable")
+    "PointInTimeRecoveryOverride_Status"=@("Restore-KSTable")
+    "Ttl_Status"=@("New-KSTable","Update-KSTable")
 }
 
-_awsArgumentCompleterRegistration $CT_Completers $CT_map
+_awsArgumentCompleterRegistration $KS_Completers $KS_map
 
-$CT_SelectCompleters = {
+$KS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CT.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.KS.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -156,37 +190,21 @@ $CT_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$CT_SelectMap = @{
-    "Select"=@("Add-CTResourceTag",
-               "Stop-CTQuery",
-               "New-CTEventDataStore",
-               "New-CTTrail",
-               "Remove-CTEventDataStore",
-               "Remove-CTTrail",
-               "Get-CTQuery",
-               "Get-CTTrail",
-               "Get-CTEventDataStore",
-               "Get-CTEventSelector",
-               "Get-CTInsightSelector",
-               "Get-CTQueryResult",
-               "Get-CTTrailByName",
-               "Get-CTTrailStatus",
-               "Get-CTEventDataStoreSummary",
-               "Get-CTPublicKey",
-               "Get-CTQuerySummary",
-               "Get-CTResourceTag",
-               "Get-CTTrailSummary",
-               "Find-CTEvent",
-               "Write-CTEventSelector",
-               "Write-CTInsightSelector",
-               "Remove-CTResourceTag",
-               "Restore-CTEventDataStore",
-               "Start-CTLogging",
-               "Start-CTQuery",
-               "Stop-CTLogging",
-               "Update-CTEventDataStore",
-               "Update-CTTrail")
+$KS_SelectMap = @{
+    "Select"=@("New-KSKeyspace",
+               "New-KSTable",
+               "Remove-KSKeyspace",
+               "Remove-KSTable",
+               "Get-KSKeyspace",
+               "Get-KSTable",
+               "Get-KSKeyspaceList",
+               "Get-KSTableList",
+               "Get-KSResourceTag",
+               "Restore-KSTable",
+               "Add-KSResourceTag",
+               "Remove-KSResourceTag",
+               "Update-KSTable")
 }
 
-_awsArgumentCompleterRegistration $CT_SelectCompleters $CT_SelectMap
+_awsArgumentCompleterRegistration $KS_SelectCompleters $KS_SelectMap
 

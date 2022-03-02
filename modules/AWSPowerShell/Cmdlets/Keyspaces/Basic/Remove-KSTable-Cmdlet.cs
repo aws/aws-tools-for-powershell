@@ -22,63 +22,72 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECR;
-using Amazon.ECR.Model;
+using Amazon.Keyspaces;
+using Amazon.Keyspaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECR
+namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Creates or updates the scanning configuration for your private registry.
+    /// The <code>DeleteTable</code> operation deletes a table and all of its data. After
+    /// a <code>DeleteTable</code> request is received, the specified table is in the <code>DELETING</code>
+    /// state until Amazon Keyspaces completes the deletion. If the table is in the <code>ACTIVE</code>
+    /// state, you can delete it. If a table is either in the <code>CREATING</code> or <code>UPDATING</code>
+    /// states, then Amazon Keyspaces returns a <code>ResourceInUseException</code>. If the
+    /// specified table does not exist, Amazon Keyspaces returns a <code>ResourceNotFoundException</code>.
+    /// If the table is already in the <code>DELETING</code> state, no error is returned.
     /// </summary>
-    [Cmdlet("Write", "ECRRegistryScanningConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ECR.Model.RegistryScanningConfiguration")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutRegistryScanningConfiguration API operation.", Operation = new[] {"PutRegistryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutRegistryScanningConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.ECR.Model.RegistryScanningConfiguration or Amazon.ECR.Model.PutRegistryScanningConfigurationResponse",
-        "This cmdlet returns an Amazon.ECR.Model.RegistryScanningConfiguration object.",
-        "The service call response (type Amazon.ECR.Model.PutRegistryScanningConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "KSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Keyspaces DeleteTable API operation.", Operation = new[] {"DeleteTable"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.DeleteTableResponse))]
+    [AWSCmdletOutput("None or Amazon.Keyspaces.Model.DeleteTableResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Keyspaces.Model.DeleteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteECRRegistryScanningConfigurationCmdlet : AmazonECRClientCmdlet, IExecutor
+    public partial class RemoveKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
-        #region Parameter Rule
+        #region Parameter KeyspaceName
         /// <summary>
         /// <para>
-        /// <para>The scanning rules to use for the registry. A scanning rule is used to determine which
-        /// repository filters are used and at what frequency scanning will occur.</para>
+        /// <para>The name of the keyspace of the to be deleted table.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Rules")]
-        public Amazon.ECR.Model.RegistryScanningRule[] Rule { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String KeyspaceName { get; set; }
         #endregion
         
-        #region Parameter ScanType
+        #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The scanning type to set for the registry.</para><para>When a registry scanning configuration is not defined, by default the <code>BASIC</code>
-        /// scan type is used. When basic scanning is used, you may specify filters to determine
-        /// which individual repositories, or all repositories, are scanned when new images are
-        /// pushed to those repositories. Alternatively, you can do manual scans of images with
-        /// basic scanning.</para><para>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
-        /// vulnerability scanning. You may choose between continuous scanning or scan on push
-        /// and you may specify filters to determine which individual repositories, or all repositories,
-        /// are scanned.</para>
+        /// <para>The name of the table to be deleted.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ECR.ScanType")]
-        public Amazon.ECR.ScanType ScanType { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TableName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RegistryScanningConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECR.Model.PutRegistryScanningConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.ECR.Model.PutRegistryScanningConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.DeleteTableResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RegistryScanningConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -96,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ECRRegistryScanningConfiguration (PutRegistryScanningConfiguration)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KSTable (DeleteTable)"))
             {
                 return;
             }
@@ -108,14 +117,23 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECR.Model.PutRegistryScanningConfigurationResponse, WriteECRRegistryScanningConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.DeleteTableResponse, RemoveKSTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Rule != null)
+            context.KeyspaceName = this.KeyspaceName;
+            #if MODULAR
+            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
             {
-                context.Rule = new List<Amazon.ECR.Model.RegistryScanningRule>(this.Rule);
+                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.ScanType = this.ScanType;
+            #endif
+            context.TableName = this.TableName;
+            #if MODULAR
+            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,15 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECR.Model.PutRegistryScanningConfigurationRequest();
+            var request = new Amazon.Keyspaces.Model.DeleteTableRequest();
             
-            if (cmdletContext.Rule != null)
+            if (cmdletContext.KeyspaceName != null)
             {
-                request.Rules = cmdletContext.Rule;
+                request.KeyspaceName = cmdletContext.KeyspaceName;
             }
-            if (cmdletContext.ScanType != null)
+            if (cmdletContext.TableName != null)
             {
-                request.ScanType = cmdletContext.ScanType;
+                request.TableName = cmdletContext.TableName;
             }
             
             CmdletOutput output;
@@ -173,15 +191,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private Amazon.ECR.Model.PutRegistryScanningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutRegistryScanningConfigurationRequest request)
+        private Amazon.Keyspaces.Model.DeleteTableResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.DeleteTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutRegistryScanningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "DeleteTable");
             try
             {
                 #if DESKTOP
-                return client.PutRegistryScanningConfiguration(request);
+                return client.DeleteTable(request);
                 #elif CORECLR
-                return client.PutRegistryScanningConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.DeleteTableAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -201,10 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.ECR.Model.RegistryScanningRule> Rule { get; set; }
-            public Amazon.ECR.ScanType ScanType { get; set; }
-            public System.Func<Amazon.ECR.Model.PutRegistryScanningConfigurationResponse, WriteECRRegistryScanningConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RegistryScanningConfiguration;
+            public System.String KeyspaceName { get; set; }
+            public System.String TableName { get; set; }
+            public System.Func<Amazon.Keyspaces.Model.DeleteTableResponse, RemoveKSTableCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
