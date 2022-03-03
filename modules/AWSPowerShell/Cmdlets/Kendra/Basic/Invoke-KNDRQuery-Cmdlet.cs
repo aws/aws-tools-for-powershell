@@ -138,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String[] UserContext_Group { get; set; }
         #endregion
         
+        #region Parameter SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion
+        /// <summary>
+        /// <para>
+        /// <para><code>TRUE</code> to suggest spell corrections for queries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestions")]
+        public System.Boolean? SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion { get; set; }
+        #endregion
+        
         #region Parameter IndexId
         /// <summary>
         /// <para>
@@ -347,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
             context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
+            context.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = this.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion;
             if (this.UserContext_DataSourceGroup != null)
             {
                 context.UserContext_DataSourceGroup = new List<Amazon.Kendra.Model.DataSourceGroup>(this.UserContext_DataSourceGroup);
@@ -438,6 +450,25 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestSortingConfigurationIsNull)
             {
                 request.SortingConfiguration = null;
+            }
+            
+             // populate SpellCorrectionConfiguration
+            var requestSpellCorrectionConfigurationIsNull = true;
+            request.SpellCorrectionConfiguration = new Amazon.Kendra.Model.SpellCorrectionConfiguration();
+            System.Boolean? requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = null;
+            if (cmdletContext.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion != null)
+            {
+                requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = cmdletContext.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.Value;
+            }
+            if (requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion != null)
+            {
+                request.SpellCorrectionConfiguration.IncludeQuerySpellCheckSuggestions = requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.Value;
+                requestSpellCorrectionConfigurationIsNull = false;
+            }
+             // determine if request.SpellCorrectionConfiguration should be set to null
+            if (requestSpellCorrectionConfigurationIsNull)
+            {
+                request.SpellCorrectionConfiguration = null;
             }
             
              // populate UserContext
@@ -564,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public List<System.String> RequestedDocumentAttribute { get; set; }
             public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
             public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
+            public System.Boolean? SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion { get; set; }
             public List<Amazon.Kendra.Model.DataSourceGroup> UserContext_DataSourceGroup { get; set; }
             public List<System.String> UserContext_Group { get; set; }
             public System.String UserContext_Token { get; set; }

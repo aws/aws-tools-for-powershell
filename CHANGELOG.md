@@ -1,4 +1,9 @@
-﻿### 4.1.35 (2022-03-02 23:32Z)
+﻿### 4.1.36 (2022-03-03 23:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Kendra
+    * Modified cmdlet Invoke-KNDRQuery: added parameter SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.
+
+### 4.1.35 (2022-03-02 23:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.221.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Modified cmdlet New-ATHWorkGroup: added parameter AclConfiguration_S3AclOption.

@@ -193,8 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the file system deployment type. Amazon FSx for OpenZFS supports <code>SINGLE_AZ_1</code>.
-        /// <code>SINGLE_AZ_1</code> is a file system configured for a single Availability Zone
-        /// (AZ) of redundancy.</para>
+        /// <code>SINGLE_AZ_1</code> deployment type is configured for redundancy within a single
+        /// Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

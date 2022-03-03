@@ -150,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// with file system path <code>/ns1/</code>, then you cannot link another data repository
         /// with file system path <code>/ns1/ns2</code>.</para><para>This path specifies where in your file system files will be exported from or imported
         /// to. This file system directory can be linked to only one Amazon S3 bucket, and no
-        /// other S3 bucket can be linked to the directory.</para>
+        /// other S3 bucket can be linked to the directory.</para><note><para>If you specify only a forward slash (<code>/</code>) as the file system path, you
+        /// can link only 1 data repository to the file system. You can only specify "/" as the
+        /// file system path for the first data repository associated with a file system.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

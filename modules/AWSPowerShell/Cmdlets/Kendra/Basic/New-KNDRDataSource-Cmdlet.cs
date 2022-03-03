@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The connector configuration information that is required to access the repository.</para><para>You can't specify the <code>Configuration</code> parameter when the <code>Type</code>
+        /// <para>Configuration information that is required to access the data source repository.</para><para>You can't specify the <code>Configuration</code> parameter when the <code>Type</code>
         /// parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para><para>The <code>Configuration</code> parameter is required for all other data sources.</para>
         /// </para>

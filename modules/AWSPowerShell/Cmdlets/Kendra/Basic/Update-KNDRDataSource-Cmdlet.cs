@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for an Amazon Kendra data source.</para>
+        /// <para>Configuration information for an Amazon Kendra data source you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

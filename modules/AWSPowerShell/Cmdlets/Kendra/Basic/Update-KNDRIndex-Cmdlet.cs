@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DocumentMetadataConfigurationUpdate
         /// <summary>
         /// <para>
-        /// <para>The document metadata to update. </para>
+        /// <para>The document metadata you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

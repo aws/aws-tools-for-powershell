@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     /// architecture, including the management and mapping of the service endpoints, <i>it
     /// is not recommended that you use this API unless</i>:
     /// </para><ul><li><para>
-    /// You are using <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/VPCEndpoints">VPC
+    /// You are using <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints">VPC
     /// endpoints (Amazon Web Services PrivateLink) with Timestream </a></para></li><li><para>
     /// Your application uses a programming language that does not yet have SDK support
     /// </para></li><li><para>
     /// You require better control over the client-side implementation
     /// </para></li></ul><para>
     /// For detailed information on how and when to use and implement DescribeEndpoints, see
-    /// <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery">The
+    /// <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery">The
     /// Endpoint Discovery Pattern</a>.
     /// </para>
     /// </summary>

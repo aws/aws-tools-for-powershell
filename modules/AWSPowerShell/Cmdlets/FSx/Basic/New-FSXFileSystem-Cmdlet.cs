@@ -225,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the file system deployment type. Amazon FSx for OpenZFS supports <code>SINGLE_AZ_1</code>.
-        /// <code>SINGLE_AZ_1</code> is a file system configured for a single Availability Zone
-        /// (AZ) of redundancy.</para>
+        /// <code>SINGLE_AZ_1</code> deployment type is configured for redundancy within a single
+        /// Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the IP address range in which the endpoints to access your file system will
         /// be created. By default, Amazon FSx selects an unused IP address range for you from
-        /// the 198.19.* range.</para>
+        /// the 198.19.* range.</para><important><para>The Endpoint IP address range you select for your file system must exist outside the
+        /// VPC's CIDR range and must be at least /30 or larger.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
