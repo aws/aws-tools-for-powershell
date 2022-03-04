@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.222.0",
+    "ProductVersion" : "3.7.223.0",
     "CoreVersion"    : "3.7.8.6",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.60.2",
+            "Version" : "3.7.60.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -322,7 +322,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.1.123",
+            "Version" : "3.7.1.124",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.13.14",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -1146,7 +1146,7 @@
             "InPreview"               : false
         },
         "Macie"                           : {
-            "Version" : "3.7.0.132",
+            "Version" : "3.7.0.133",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.8.4",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -1762,7 +1762,7 @@
             "InPreview"               : false
         },
         "Synthetics"                      : {
-            "Version" : "3.7.3.11",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
@@ -1906,7 +1906,7 @@
             "InPreview"               : false
         },
         "DevOpsGuru"                      : {
-            "Version" : "3.7.7.24",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.6"
