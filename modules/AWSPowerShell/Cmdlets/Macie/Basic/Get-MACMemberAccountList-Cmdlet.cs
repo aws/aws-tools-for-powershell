@@ -28,8 +28,8 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator
-    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// (Discontinued) Lists all Amazon Macie Classic member accounts for the current Macie
+    /// Classic administrator account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MACMemberAccountList")]
     [OutputType("Amazon.Macie.Model.MemberAccount")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to indicate the maximum number of items that you want in the response.
-        /// The default value is 250. </para>
+        /// <para>(Discontinued) Use this parameter to indicate the maximum number of items that you
+        /// want in the response. The default value is 250.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Use this parameter when paginating results. Set the value of this parameter to null
-        /// on your first call to the ListMemberAccounts action. Subsequent calls to the action
-        /// fill nextToken in the request with the value of nextToken from the previous response
-        /// to continue listing data. </para>
+        /// <para>(Discontinued) Use this parameter when paginating results. Set the value of this parameter
+        /// to null on your first call to the <code>ListMemberAccounts</code> action. Subsequent
+        /// calls to the action fill <code>nextToken</code> in the request with the value of <code>nextToken</code>
+        /// from the previous response to continue listing data.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

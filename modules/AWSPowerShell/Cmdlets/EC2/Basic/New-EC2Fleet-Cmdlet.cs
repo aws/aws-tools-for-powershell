@@ -382,7 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// your desired capacity, but does submit Spot requests in alternative capacity pools
         /// if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances
         /// are interrupted.</para></li><li><para><code>instant</code> - The EC2 Fleet places a synchronous one-time request for your
-        /// desired capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html">EC2
+        /// desired capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2
         /// Fleet request types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>

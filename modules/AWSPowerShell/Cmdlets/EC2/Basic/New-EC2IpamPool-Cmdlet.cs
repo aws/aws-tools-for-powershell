@@ -57,7 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for a pool.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.AddressFamily")]
         public Amazon.EC2.AddressFamily AddressFamily { get; set; }
         #endregion
@@ -298,6 +304,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AddressFamily = this.AddressFamily;
+            #if MODULAR
+            if (this.AddressFamily == null && ParameterWasBound(nameof(this.AddressFamily)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AddressFamily which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.AllocationDefaultNetmaskLength = this.AllocationDefaultNetmaskLength;
             context.AllocationMaxNetmaskLength = this.AllocationMaxNetmaskLength;
             context.AllocationMinNetmaskLength = this.AllocationMinNetmaskLength;

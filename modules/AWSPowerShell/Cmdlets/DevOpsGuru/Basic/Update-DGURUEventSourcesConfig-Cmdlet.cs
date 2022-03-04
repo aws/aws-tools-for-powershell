@@ -22,61 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Macie;
-using Amazon.Macie.Model;
+using Amazon.DevOpsGuru;
+using Amazon.DevOpsGuru.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MAC
+namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// (Discontinued) Associates a specified Amazon Web Services account with Amazon Macie
-    /// Classic as a member account.
+    /// Updates the event source configuration.
     /// </summary>
-    [Cmdlet("Add", "MACMemberAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DGURUEventSourcesConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Macie AssociateMemberAccount API operation.", Operation = new[] {"AssociateMemberAccount"}, SelectReturnType = typeof(Amazon.Macie.Model.AssociateMemberAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.Macie.Model.AssociateMemberAccountResponse",
+    [AWSCmdlet("Calls the Amazon DevOps Guru UpdateEventSourcesConfig API operation.", Operation = new[] {"UpdateEventSourcesConfig"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse))]
+    [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie.Model.AssociateMemberAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddMACMemberAccountCmdlet : AmazonMacieClientCmdlet, IExecutor
+    public partial class UpdateDGURUEventSourcesConfigCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
-        #region Parameter MemberAccountId
+        #region Parameter AmazonCodeGuruProfiler_Status
         /// <summary>
         /// <para>
-        /// <para>(Discontinued) The ID of the Amazon Web Services account that you want to associate
-        /// with Amazon Macie Classic as a member account.</para>
+        /// <para>The status of the CodeGuru Profiler integration.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemberAccountId { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventSources_AmazonCodeGuruProfiler_Status")]
+        [AWSConstantClassSource("Amazon.DevOpsGuru.EventSourceOptInStatus")]
+        public Amazon.DevOpsGuru.EventSourceOptInStatus AmazonCodeGuruProfiler_Status { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Macie.Model.AssociateMemberAccountResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MemberAccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MemberAccountId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MemberAccountId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemberAccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MACMemberAccount (AssociateMemberAccount)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DGURUEventSourcesConfig (UpdateEventSourcesConfig)"))
             {
                 return;
             }
@@ -104,28 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.MAC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Macie.Model.AssociateMemberAccountResponse, AddMACMemberAccountCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse, UpdateDGURUEventSourcesConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.MemberAccountId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MemberAccountId = this.MemberAccountId;
-            #if MODULAR
-            if (this.MemberAccountId == null && ParameterWasBound(nameof(this.MemberAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemberAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AmazonCodeGuruProfiler_Status = this.AmazonCodeGuruProfiler_Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,11 +107,41 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Macie.Model.AssociateMemberAccountRequest();
+            var request = new Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigRequest();
             
-            if (cmdletContext.MemberAccountId != null)
+            
+             // populate EventSources
+            var requestEventSourcesIsNull = true;
+            request.EventSources = new Amazon.DevOpsGuru.Model.EventSourcesConfig();
+            Amazon.DevOpsGuru.Model.AmazonCodeGuruProfilerIntegration requestEventSources_eventSources_AmazonCodeGuruProfiler = null;
+            
+             // populate AmazonCodeGuruProfiler
+            var requestEventSources_eventSources_AmazonCodeGuruProfilerIsNull = true;
+            requestEventSources_eventSources_AmazonCodeGuruProfiler = new Amazon.DevOpsGuru.Model.AmazonCodeGuruProfilerIntegration();
+            Amazon.DevOpsGuru.EventSourceOptInStatus requestEventSources_eventSources_AmazonCodeGuruProfiler_amazonCodeGuruProfiler_Status = null;
+            if (cmdletContext.AmazonCodeGuruProfiler_Status != null)
             {
-                request.MemberAccountId = cmdletContext.MemberAccountId;
+                requestEventSources_eventSources_AmazonCodeGuruProfiler_amazonCodeGuruProfiler_Status = cmdletContext.AmazonCodeGuruProfiler_Status;
+            }
+            if (requestEventSources_eventSources_AmazonCodeGuruProfiler_amazonCodeGuruProfiler_Status != null)
+            {
+                requestEventSources_eventSources_AmazonCodeGuruProfiler.Status = requestEventSources_eventSources_AmazonCodeGuruProfiler_amazonCodeGuruProfiler_Status;
+                requestEventSources_eventSources_AmazonCodeGuruProfilerIsNull = false;
+            }
+             // determine if requestEventSources_eventSources_AmazonCodeGuruProfiler should be set to null
+            if (requestEventSources_eventSources_AmazonCodeGuruProfilerIsNull)
+            {
+                requestEventSources_eventSources_AmazonCodeGuruProfiler = null;
+            }
+            if (requestEventSources_eventSources_AmazonCodeGuruProfiler != null)
+            {
+                request.EventSources.AmazonCodeGuruProfiler = requestEventSources_eventSources_AmazonCodeGuruProfiler;
+                requestEventSourcesIsNull = false;
+            }
+             // determine if request.EventSources should be set to null
+            if (requestEventSourcesIsNull)
+            {
+                request.EventSources = null;
             }
             
             CmdletOutput output;
@@ -179,15 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         
         #region AWS Service Operation Call
         
-        private Amazon.Macie.Model.AssociateMemberAccountResponse CallAWSServiceOperation(IAmazonMacie client, Amazon.Macie.Model.AssociateMemberAccountRequest request)
+        private Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse CallAWSServiceOperation(IAmazonDevOpsGuru client, Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Macie", "AssociateMemberAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DevOps Guru", "UpdateEventSourcesConfig");
             try
             {
                 #if DESKTOP
-                return client.AssociateMemberAccount(request);
+                return client.UpdateEventSourcesConfig(request);
                 #elif CORECLR
-                return client.AssociateMemberAccountAsync(request).GetAwaiter().GetResult();
+                return client.UpdateEventSourcesConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemberAccountId { get; set; }
-            public System.Func<Amazon.Macie.Model.AssociateMemberAccountResponse, AddMACMemberAccountCmdlet, object> Select { get; set; } =
+            public Amazon.DevOpsGuru.EventSourceOptInStatus AmazonCodeGuruProfiler_Status { get; set; }
+            public System.Func<Amazon.DevOpsGuru.Model.UpdateEventSourcesConfigResponse, UpdateDGURUEventSourcesConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

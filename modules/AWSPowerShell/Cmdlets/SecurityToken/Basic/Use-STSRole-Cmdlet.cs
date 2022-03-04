@@ -326,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// session inherits any transitive session tags from the calling session. If you pass
         /// a session tag with the same key as an inherited tag, the operation fails. To view
         /// the inherited tags for a session, see the CloudTrail logs. For more information, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs">Viewing
+        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs">Viewing
         /// Session Tags in CloudTrail</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>

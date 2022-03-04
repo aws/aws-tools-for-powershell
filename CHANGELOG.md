@@ -1,4 +1,10 @@
-﻿### 4.1.36 (2022-03-03 23:13Z)
+﻿### 4.1.37 (2022-03-04 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DevOps Guru
+    * Added cmdlet Get-DGURUEventSourcesConfig leveraging the DescribeEventSourcesConfig service API.
+    * Added cmdlet Update-DGURUEventSourcesConfig leveraging the UpdateEventSourcesConfig service API.
+
+### 4.1.36 (2022-03-03 23:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.222.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Kendra
     * Modified cmdlet Invoke-KNDRQuery: added parameter SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.

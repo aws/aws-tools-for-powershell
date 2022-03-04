@@ -394,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C,
         /// or R instance type with your specified attributes. When Amazon EC2 selects instance
         /// types with your attributes, it excludes instance types priced above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <code>999999</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><para>Default: <code>20</code></para>
+        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>,
+        /// the price protection threshold is applied based on the per-vCPU or per-memory price
+        /// instead of the per-instance price.</para></note><para>Default: <code>20</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +446,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance
         /// type with your specified attributes. When Amazon EC2 selects instance types with your
         /// attributes, it excludes instance types priced above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <code>999999</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><para>Default: <code>100</code></para>
+        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>,
+        /// the price protection threshold is applied based on the per-vCPU or per-memory price
+        /// instead of the per-instance price.</para></note><para>Default: <code>100</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

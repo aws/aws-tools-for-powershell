@@ -94,6 +94,13 @@ $DGURU_Completers = {
             break
         }
 
+        # Amazon.DevOpsGuru.EventSourceOptInStatus
+        "Update-DGURUEventSourcesConfig/EventSources_AmazonCodeGuruProfiler_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.DevOpsGuru.InsightType
         {
             ($_ -eq "Get-DGURUOrganizationInsightList/StatusFilter_Any_Type") -Or
@@ -148,6 +155,7 @@ $DGURU_Completers = {
 
 $DGURU_map = @{
     "Action"=@("Update-DGURUResourceCollection")
+    "EventSources_AmazonCodeGuruProfiler_Status"=@("Update-DGURUEventSourcesConfig")
     "Filters_DataSource"=@("Get-DGURUEventList")
     "Filters_EventClass"=@("Get-DGURUEventList")
     "Locale"=@("Get-DGURURecommendationList")
@@ -213,6 +221,7 @@ $DGURU_SelectMap = @{
                "Get-DGURUAccountHealth",
                "Get-DGURUAccountOverview",
                "Get-DGURUAnomaly",
+               "Get-DGURUEventSourcesConfig",
                "Get-DGURUFeedback",
                "Get-DGURUInsight",
                "Get-DGURUOrganizationHealth",
@@ -233,6 +242,7 @@ $DGURU_SelectMap = @{
                "Search-DGURUInsight",
                "Search-DGURUOrganizationInsight",
                "Start-DGURUCostEstimation",
+               "Update-DGURUEventSourcesConfig",
                "Update-DGURUResourceCollection",
                "Update-DGURUServiceIntegration")
 }

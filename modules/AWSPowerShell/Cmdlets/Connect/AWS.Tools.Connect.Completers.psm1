@@ -152,7 +152,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceStorageConfig/ResourceType")
         }
         {
-            $v = "AGENT_EVENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","SCHEDULED_REPORTS"
+            $v = "AGENT_EVENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","REAL_TIME_CONTACT_ANALYSIS_SEGMENTS","SCHEDULED_REPORTS"
             break
         }
 

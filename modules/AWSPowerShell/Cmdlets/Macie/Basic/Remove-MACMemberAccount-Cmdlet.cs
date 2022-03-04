@@ -28,7 +28,7 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Removes the specified member account from Amazon Macie Classic.
+    /// (Discontinued) Removes the specified member account from Amazon Macie Classic.
     /// </summary>
     [Cmdlet("Remove", "MACMemberAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the member account that you want to remove from Amazon Macie Classic.</para>
+        /// <para>(Discontinued) The ID of the member account that you want to remove from Amazon Macie
+        /// Classic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

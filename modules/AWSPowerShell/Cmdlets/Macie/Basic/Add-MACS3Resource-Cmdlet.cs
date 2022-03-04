@@ -28,11 +28,11 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Associates specified S3 resources with Amazon Macie Classic for monitoring and data
-    /// classification. If memberAccountId isn't specified, the action associates specified
-    /// S3 resources with Macie Classic for the current Macie Classic administrator account.
-    /// If memberAccountId is specified, the action associates specified S3 resources with
-    /// Macie Classic for the specified member account.
+    /// (Discontinued) Associates specified S3 resources with Amazon Macie Classic for monitoring
+    /// and data classification. If <code>memberAccountId</code> isn't specified, the action
+    /// associates specified S3 resources with Macie Classic for the current Macie Classic
+    /// administrator account. If <code>memberAccountId</code> is specified, the action associates
+    /// specified S3 resources with Macie Classic for the specified member account.
     /// </summary>
     [Cmdlet("Add", "MACS3Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie.Model.FailedS3Resource")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Macie Classic member account whose resources you want to associate
-        /// with Macie Classic. </para>
+        /// <para>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you
+        /// want to associate with Macie Classic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter S3Resource
         /// <summary>
         /// <para>
-        /// <para>The S3 resources that you want to associate with Amazon Macie Classic for monitoring
-        /// and data classification. </para>
+        /// <para>(Discontinued) The S3 resources that you want to associate with Amazon Macie Classic
+        /// for monitoring and data classification.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

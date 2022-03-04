@@ -28,11 +28,11 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId
-    /// isn't specified, the action lists the S3 resources associated with Macie Classic for
-    /// the current Macie Classic administrator account. If memberAccountId is specified,
-    /// the action lists the S3 resources associated with Macie Classic for the specified
-    /// member account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// (Discontinued) Lists all the S3 resources associated with Amazon Macie Classic. If
+    /// <code>memberAccountId</code> isn't specified, the action lists the S3 resources associated
+    /// with Macie Classic for the current Macie Classic administrator account. If <code>memberAccountId</code>
+    /// is specified, the action lists the S3 resources associated with Macie Classic for
+    /// the specified member account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MACS3ResourceList")]
     [OutputType("Amazon.Macie.Model.S3ResourceClassification")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Macie Classic member account ID whose associated S3 resources you want
-        /// to list. </para>
+        /// <para>(Discontinued) The Amazon Macie Classic member account ID whose associated S3 resources
+        /// you want to list. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to indicate the maximum number of items that you want in the response.
-        /// The default value is 250. </para>
+        /// <para>(Discontinued) Use this parameter to indicate the maximum number of items that you
+        /// want in the response. The default value is 250. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Use this parameter when paginating results. Set its value to null on your first call
-        /// to the ListS3Resources action. Subsequent calls to the action fill nextToken in the
-        /// request with the value of nextToken from the previous response to continue listing
-        /// data. </para>
+        /// <para>(Discontinued) Use this parameter when paginating results. Set its value to null on
+        /// your first call to the <code>ListS3Resources</code> action. Subsequent calls to the
+        /// action fill <code>nextToken</code> in the request with the value of <code>nextToken</code>
+        /// from the previous response to continue listing data. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

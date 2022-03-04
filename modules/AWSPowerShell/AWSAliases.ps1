@@ -5405,6 +5405,8 @@ Set-Alias -Name Describe-DGURUAccountOverview -Value Get-DGURUAccountOverview
 Set-Alias -Name DGURU-DescribeAccountOverview -Value Get-DGURUAccountOverview
 Set-Alias -Name Describe-DGURUAnomaly -Value Get-DGURUAnomaly
 Set-Alias -Name DGURU-DescribeAnomaly -Value Get-DGURUAnomaly
+Set-Alias -Name Describe-DGURUEventSourcesConfig -Value Get-DGURUEventSourcesConfig
+Set-Alias -Name DGURU-DescribeEventSourcesConfig -Value Get-DGURUEventSourcesConfig
 Set-Alias -Name Describe-DGURUFeedback -Value Get-DGURUFeedback
 Set-Alias -Name DGURU-DescribeFeedback -Value Get-DGURUFeedback
 Set-Alias -Name Describe-DGURUInsight -Value Get-DGURUInsight
@@ -5447,6 +5449,7 @@ Set-Alias -Name DGURU-SearchInsights -Value Search-DGURUInsight
 Set-Alias -Name Search-DGURUOrganizationInsights -Value Search-DGURUOrganizationInsight
 Set-Alias -Name DGURU-SearchOrganizationInsights -Value Search-DGURUOrganizationInsight
 Set-Alias -Name DGURU-StartCostEstimation -Value Start-DGURUCostEstimation
+Set-Alias -Name DGURU-UpdateEventSourcesConfig -Value Update-DGURUEventSourcesConfig
 Set-Alias -Name DGURU-UpdateResourceCollection -Value Update-DGURUResourceCollection
 Set-Alias -Name DGURU-UpdateServiceIntegration -Value Update-DGURUServiceIntegration
 Set-Alias -Name Accept-DCDirectConnectGatewayAssociationProposal -Value Confirm-DCDirectConnectGatewayAssociationProposal

@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSourcesConfig" OutputProperty="EventSources" Verb="Get" Noun="EventSourcesConfig" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFeedback" OutputProperty="InsightFeedback" Verb="Get" Noun="Feedback" PipelineParameter="InsightId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -126,6 +130,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCostEstimation" Verb="Start" Noun="CostEstimation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventSourcesConfig" Verb="Update" Noun="EventSourcesConfig" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
