@@ -1,4 +1,11 @@
-﻿### 4.1.37 (2022-03-04 21:41Z)
+﻿### 4.1.38 (2022-03-07 22:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.224.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet Start-CHMTGMeetingTranscription: added parameters EngineTranscribeSettings_IdentifyLanguage, EngineTranscribeSettings_LanguageOption and EngineTranscribeSettings_PreferredLanguage.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Update-ECSService: added parameters EnableECSManagedTag, LoadBalancer, PropagateTag and ServiceRegistry.
+
+### 4.1.37 (2022-03-04 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.223.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DevOps Guru
     * Added cmdlet Get-DGURUEventSourcesConfig leveraging the DescribeEventSourcesConfig service API.

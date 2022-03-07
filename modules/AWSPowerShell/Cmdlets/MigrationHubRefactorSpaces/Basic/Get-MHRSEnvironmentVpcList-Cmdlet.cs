@@ -28,8 +28,8 @@ using Amazon.MigrationHubRefactorSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.MHRS
 {
     /// <summary>
-    /// Lists all the virtual private clouds (VPCs) that are part of an Amazon Web Services
-    /// Migration Hub Refactor Spaces environment.
+    /// Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private
+    /// clouds (VPCs) that are part of the environment.
     /// </summary>
     [Cmdlet("Get", "MHRSEnvironmentVpcList")]
     [OutputType("Amazon.MigrationHubRefactorSpaces.Model.EnvironmentVpc")]

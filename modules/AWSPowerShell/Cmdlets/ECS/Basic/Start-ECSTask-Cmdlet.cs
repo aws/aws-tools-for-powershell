@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableECSManagedTag
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
+        /// <para>Specifies whether to use Amazon ECS managed tags for the task. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LogConfiguration_CloudWatchEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable encryption on the CloudWatch logs. If not specified,
-        /// encryption will be disabled.</para>
+        /// <para>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
+        /// will be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

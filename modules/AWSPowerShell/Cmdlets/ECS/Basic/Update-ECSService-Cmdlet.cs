@@ -36,22 +36,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></important><para>
     /// Modifies the parameters of a service.
     /// </para><para>
-    /// For services using the rolling update (<code>ECS</code>) deployment controller, the
-    /// desired count, deployment configuration, network configuration, task placement constraints
-    /// and strategies, or task definition used can be updated.
+    /// For services using the rolling update (<code>ECS</code>) you can update the desired
+    /// count, the deployment configuration, the network configuration, load balancers, service
+    /// registries, enable ECS managed tags option, propagate tags option, task placement
+    /// constraints and strategies, and the task definition. When you update any of these
+    /// parameters, Amazon ECS starts new tasks with the new configuration. 
     /// </para><para>
     /// For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
     /// only the desired count, deployment configuration, task placement constraints and strategies,
-    /// and health check grace period can be updated using this API. If the network configuration,
-    /// platform version, or task definition need to be updated, a new CodeDeploy deployment
-    /// is created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
+    /// enable ECS managed tags option, and propagate tags can be updated using this API.
+    /// If the network configuration, platform version, task definition, or load balancer
+    /// need to be updated, create a new CodeDeploy deployment. For more information, see
+    /// <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
     /// in the <i>CodeDeploy API Reference</i>.
     /// </para><para>
     /// For services using an external deployment controller, you can update only the desired
-    /// count, task placement constraints and strategies, and health check grace period using
-    /// this API. If the launch type, load balancer, network configuration, platform version,
-    /// or task definition need to be updated, create a new task set. For more information,
-    /// see <a>CreateTaskSet</a>.
+    /// count, task placement constraints and strategies, health check grace period, enable
+    /// ECS managed tags option, and propagate tags option, using this API. If the launch
+    /// type, load balancer, network configuration, platform version, or task definition need
+    /// to be updated, create a new task set For more information, see <a>CreateTaskSet</a>.
     /// </para><para>
     /// You can add to or subtract from the number of instantiations of a task definition
     /// in a service by specifying the cluster that the service is running in and a new <code>desiredCount</code>
@@ -78,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting
     /// two new tasks. Tasks for services that don't use a load balancer are considered healthy
     /// if they're in the <code>RUNNING</code> state. Tasks for services that use a load balancer
-    /// are considered healthy if they're in the <code>RUNNING</code> state and the container
-    /// instance they're hosted on is reported as healthy by the load balancer.
+    /// are considered healthy if they're in the <code>RUNNING</code> state and are reported
+    /// as healthy by the load balancer.
     /// </para></li><li><para>
     /// The <code>maximumPercent</code> parameter represents an upper limit on the number
     /// of running tasks during a deployment. You can use it to define the deployment batch
@@ -123,7 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Stop the task on a container instance in an optimal Availability Zone (based on the
     /// previous steps), favoring container instances with the largest number of running tasks
     /// for this service.
-    /// </para></li></ul>
+    /// </para></li></ul><note><para>
+    /// You must have a service-linked role when you update any of the following service properties.
+    /// If you specified a custom IAM role when you created the service, Amazon ECS automatically
+    /// replaces the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn">roleARN</a>
+    /// associated with the service with the ARN of your service-linked role. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked
+    /// roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><ul><li><para><code>loadBalancers,</code></para></li><li><para><code>serviceRegistries</code></para></li></ul></note>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
@@ -196,12 +206,28 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentCircuitBreaker_Enable
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable the deployment circuit breaker logic for the service.</para>
+        /// <para>Determines whether to use the deployment circuit breaker logic for the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DeploymentConfiguration_DeploymentCircuitBreaker_Enable")]
         public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
+        #endregion
+        
+        #region Parameter EnableECSManagedTag
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to turn on Amazon ECS managed tags for the tasks in the service.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
+        /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para><para>Only tasks launched after the update will reflect the update. To update the tags on
+        /// all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon
+        /// ECS starts new tasks with the updated tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableECSManagedTags")]
+        public System.Boolean? EnableECSManagedTag { get; set; }
         #endregion
         
         #region Parameter EnableExecuteCommand
@@ -245,6 +271,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HealthCheckGracePeriodSeconds")]
         public System.Int32? HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancer
+        /// <summary>
+        /// <para>
+        /// <para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
+        /// name, the container name, and the container port to access from the load balancer.
+        /// The container name is as it appears in a container definition.</para><para>When you add, update, or remove a load balancer configuration, Amazon ECS starts new
+        /// tasks with the updated Elastic Load Balancing configuration, and then stops the old
+        /// tasks when the new tasks are running.</para><para>You can remove existing <code>loadBalancers</code> by passing an empty list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoadBalancers")]
+        public Amazon.ECS.Model.LoadBalancer[] LoadBalancer { get; set; }
         #endregion
         
         #region Parameter DeploymentConfiguration_MaximumPercent
@@ -343,10 +384,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String PlatformVersion { get; set; }
         #endregion
         
+        #region Parameter PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to propagate the tags from the task definition or the service to
+        /// the task. If no value is specified, the tags aren't propagated.</para><para>Only tasks launched after the update will reflect the update. To update the tags on
+        /// all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon
+        /// ECS starts new tasks with the updated tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropagateTags")]
+        [AWSConstantClassSource("Amazon.ECS.PropagateTags")]
+        public Amazon.ECS.PropagateTags PropagateTag { get; set; }
+        #endregion
+        
         #region Parameter DeploymentCircuitBreaker_Rollback
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable Amazon ECS to roll back the service if a service deployment
+        /// <para>Determines whether to configure Amazon ECS to roll back the service if a service deployment
         /// fails. If rollback is enabled, when a service deployment fails, the service is rolled
         /// back to the last deployment that completed successfully.</para>
         /// </para>
@@ -384,6 +440,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Service { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRegistry
+        /// <summary>
+        /// <para>
+        /// <para>The details for the service discovery registries to assign to this service. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+        /// Discovery</a>.</para><para>When you add, update, or remove the service registries configuration, Amazon ECS starts
+        /// new tasks with the updated service registries configuration, and then stops the old
+        /// tasks when the new tasks are running.</para><para>You can remove existing <code>serviceRegistries</code> by passing an empty list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceRegistries")]
+        public Amazon.ECS.Model.ServiceRegistry[] ServiceRegistry { get; set; }
         #endregion
         
         #region Parameter AwsvpcConfiguration_Subnet
@@ -484,9 +555,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             context.DesiredCount = this.DesiredCount;
+            context.EnableECSManagedTag = this.EnableECSManagedTag;
             context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.ForceNewDeployment = this.ForceNewDeployment;
             context.HealthCheckGracePeriodSecond = this.HealthCheckGracePeriodSecond;
+            if (this.LoadBalancer != null)
+            {
+                context.LoadBalancer = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
+            }
             context.AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
@@ -505,6 +581,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
             }
             context.PlatformVersion = this.PlatformVersion;
+            context.PropagateTag = this.PropagateTag;
             context.Service = this.Service;
             #if MODULAR
             if (this.Service == null && ParameterWasBound(nameof(this.Service)))
@@ -512,6 +589,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Service which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ServiceRegistry != null)
+            {
+                context.ServiceRegistry = new List<Amazon.ECS.Model.ServiceRegistry>(this.ServiceRegistry);
+            }
             context.TaskDefinition = this.TaskDefinition;
             
             // allow further manipulation of loaded context prior to processing
@@ -605,6 +686,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.DesiredCount = cmdletContext.DesiredCount.Value;
             }
+            if (cmdletContext.EnableECSManagedTag != null)
+            {
+                request.EnableECSManagedTags = cmdletContext.EnableECSManagedTag.Value;
+            }
             if (cmdletContext.EnableExecuteCommand != null)
             {
                 request.EnableExecuteCommand = cmdletContext.EnableExecuteCommand.Value;
@@ -616,6 +701,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.HealthCheckGracePeriodSecond != null)
             {
                 request.HealthCheckGracePeriodSeconds = cmdletContext.HealthCheckGracePeriodSecond.Value;
+            }
+            if (cmdletContext.LoadBalancer != null)
+            {
+                request.LoadBalancers = cmdletContext.LoadBalancer;
             }
             
              // populate NetworkConfiguration
@@ -683,9 +772,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.PlatformVersion = cmdletContext.PlatformVersion;
             }
+            if (cmdletContext.PropagateTag != null)
+            {
+                request.PropagateTags = cmdletContext.PropagateTag;
+            }
             if (cmdletContext.Service != null)
             {
                 request.Service = cmdletContext.Service;
+            }
+            if (cmdletContext.ServiceRegistry != null)
+            {
+                request.ServiceRegistries = cmdletContext.ServiceRegistry;
             }
             if (cmdletContext.TaskDefinition != null)
             {
@@ -759,16 +856,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
+            public System.Boolean? EnableECSManagedTag { get; set; }
             public System.Boolean? EnableExecuteCommand { get; set; }
             public System.Boolean? ForceNewDeployment { get; set; }
             public System.Int32? HealthCheckGracePeriodSecond { get; set; }
+            public List<Amazon.ECS.Model.LoadBalancer> LoadBalancer { get; set; }
             public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> AwsvpcConfiguration_SecurityGroup { get; set; }
             public List<System.String> AwsvpcConfiguration_Subnet { get; set; }
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraint { get; set; }
             public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
             public System.String PlatformVersion { get; set; }
+            public Amazon.ECS.PropagateTags PropagateTag { get; set; }
             public System.String Service { get; set; }
+            public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
             public System.String TaskDefinition { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateServiceResponse, UpdateECSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;

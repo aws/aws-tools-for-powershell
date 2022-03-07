@@ -114,7 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
-        /// <para>The Region in which to create the meeting.</para>
+        /// <para>The Region in which to create the meeting.</para><para> Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>,
+        /// <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>,
+        /// <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
+        /// <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>,
+        /// <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.
+        /// </para><para>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

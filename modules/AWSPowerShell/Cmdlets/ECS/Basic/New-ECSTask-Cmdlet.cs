@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableECSManagedTag
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
+        /// <para>Specifies whether to use Amazon ECS managed tags for the task. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableExecuteCommand
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable the execute command functionality for the containers
-        /// in this task. If <code>true</code>, this enables execute command functionality on
-        /// all containers in the task.</para>
+        /// <para>Determines whether to use the execute command functionality for the containers in
+        /// this task. If <code>true</code>, this enables execute command functionality on all
+        /// containers in the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

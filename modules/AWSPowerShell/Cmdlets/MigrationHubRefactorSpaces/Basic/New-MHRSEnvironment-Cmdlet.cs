@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
 {
     /// <summary>
     /// Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller
-    /// owns the environment resource, and they are referred to as the <i>environment owner</i>.
-    /// The environment owner has cross-account visibility and control of Refactor Spaces
-    /// resources that are added to the environment by other accounts that the environment
+    /// owns the environment resource, and all Refactor Spaces applications, services, and
+    /// routes created within the environment. They are referred to as the <i>environment
+    /// owner</i>. The environment owner has cross-account visibility and control of Refactor
+    /// Spaces resources that are added to the environment by other accounts that the environment
     /// is shared with. When creating an environment, Refactor Spaces provisions a transit
     /// gateway in your account.
     /// </summary>

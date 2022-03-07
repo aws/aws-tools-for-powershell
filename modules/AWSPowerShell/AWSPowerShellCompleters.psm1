@@ -6223,7 +6223,10 @@ $CHMTG_Completers = {
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeLanguageCode
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
+        {
+            ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode") -Or
+            ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
+        }
         {
             $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
             break
@@ -6304,6 +6307,7 @@ $CHMTG_map = @{
     "TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMTGMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMTGMeetingTranscription")
 }
@@ -17335,10 +17339,11 @@ $ECS_Completers = {
         {
             ($_ -eq "New-ECSService/PropagateTags") -Or
             ($_ -eq "New-ECSTask/PropagateTags") -Or
-            ($_ -eq "Start-ECSTask/PropagateTags")
+            ($_ -eq "Start-ECSTask/PropagateTags") -Or
+            ($_ -eq "Update-ECSService/PropagateTags")
         }
         {
-            $v = "SERVICE","TASK_DEFINITION"
+            $v = "NONE","SERVICE","TASK_DEFINITION"
             break
         }
 
@@ -17429,7 +17434,7 @@ $ECS_map = @{
     "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
-    "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask")
+    "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")

@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LogConfiguration_CloudWatchEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable encryption on the CloudWatch logs. If not specified,
-        /// encryption will be disabled.</para>
+        /// <para>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
+        /// will be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Setting
         /// <summary>
         /// <para>
-        /// <para>The setting to use when creating a cluster. This parameter is used to enable CloudWatch
+        /// <para>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
         /// Container Insights for a cluster. If this value is specified, it overrides the <code>containerInsights</code>
         /// value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para>
         /// </para>

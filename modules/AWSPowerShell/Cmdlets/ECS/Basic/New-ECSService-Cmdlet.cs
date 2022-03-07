@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// Tasks for services that don't use a load balancer are considered healthy if they're
     /// in the <code>RUNNING</code> state. Tasks for services that use a load balancer are
-    /// considered healthy if they're in the <code>RUNNING</code> state and the container
-    /// instance that they're hosted on is reported as healthy by the load balancer.
+    /// considered healthy if they're in the <code>RUNNING</code> state and are reported as
+    /// healthy by the load balancer.
     /// </para><para>
     /// There are two service scheduler strategies available:
     /// </para><ul><li><para><code>REPLICA</code> - The replica scheduling strategy places and maintains your
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentCircuitBreaker_Enable
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable the deployment circuit breaker logic for the service.</para>
+        /// <para>Determines whether to use the deployment circuit breaker logic for the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableECSManagedTag
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// <para>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
@@ -234,7 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Elastic Load Balancing target health checks after a task has first started. This is
         /// only used when your service is configured to use a load balancer. If your service
         /// has a load balancer defined and you don't specify a health check grace period value,
-        /// the default value of <code>0</code> is used.</para><para>If your service's tasks take a while to start and respond to Elastic Load Balancing
+        /// the default value of <code>0</code> is used.</para><para>If you do not use an Elastic Load Balancing, we recomend that you use the <code>startPeriod</code>
+        /// in the task definition healtch check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
+        /// check</a>.</para><para>If your service's tasks take a while to start and respond to Elastic Load Balancing
         /// health checks, you can specify a health check grace period of up to 2,147,483,647
         /// seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores
         /// health check status. This grace period can prevent the service scheduler from marking
@@ -281,10 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// target group with it. Then, it also associates the other target group with the replacement
         /// task set. The load balancer can also have up to two listeners: a required listener
         /// for production traffic and an optional listener that you can use to perform validation
-        /// tests with Lambda functions before routing production traffic to it.</para><para>After you create a service using the <code>ECS</code> deployment controller, the load
-        /// balancer name or target group ARN, container name, and container port that's specified
-        /// in the service definition are immutable. If you use the <code>CODE_DEPLOY</code> deployment
-        /// controller, these values can be changed when updating the service.</para><para>For Application Load Balancers and Network Load Balancers, this object must contain
+        /// tests with Lambda functions before routing production traffic to it.</para><para>If you use the <code>CODE_DEPLOY</code> deployment controller, these values can be
+        /// changed when updating the service.</para><para>For Application Load Balancers and Network Load Balancers, this object must contain
         /// the load balancer target group ARN, the container name, and the container port to
         /// access from the load balancer. The container name must be as it appears in a container
         /// definition. The load balancer name parameter must be omitted. When a task from this
@@ -441,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentCircuitBreaker_Rollback
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable Amazon ECS to roll back the service if a service deployment
+        /// <para>Determines whether to configure Amazon ECS to roll back the service if a service deployment
         /// fails. If rollback is enabled, when a service deployment fails, the service is rolled
         /// back to the last deployment that completed successfully.</para>
         /// </para>

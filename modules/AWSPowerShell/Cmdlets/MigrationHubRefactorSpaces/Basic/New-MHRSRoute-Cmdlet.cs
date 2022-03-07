@@ -44,12 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// If the service has a URL endpoint, and the endpoint resolves to a public IP address,
     /// Refactor Spaces routes traffic over the public internet.
     /// </para></li><li><para>
-    /// If the service has an Lambda function endpoint, then Refactor Spaces uses the API
-    /// Gateway Lambda integration.
+    /// If the service has an Lambda function endpoint, then Refactor Spaces configures the
+    /// Lambda function's resource policy to allow the application's API Gateway to invoke
+    /// the function.
     /// </para></li></ul><para>
-    /// A health check is performed on the service when the route is created. If the health
-    /// check fails, the route transitions to <code>FAILED</code>, and no traffic is sent
-    /// to the service.
+    /// A one-time health check is performed on the service when the route is created. If
+    /// the health check fails, the route transitions to <code>FAILED</code>, and no traffic
+    /// is sent to the service.
     /// </para><para>
     /// For Lambda functions, the Lambda function state is checked. If the function is not
     /// active, the function configuration is updated so that Lambda resources are provisioned.
@@ -66,6 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// All other settings use the default values, as described in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health
     /// checks for your target groups</a>. The health check is considered successful if at
     /// least one target within the target group transitions to a healthy state.
+    /// </para><para>
+    /// Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs, publicly-signed certificates
+    /// are supported. Private Certificate Authorities (CAs) are permitted only if the CA's
+    /// domain is publicly resolvable.
     /// </para>
     /// </summary>
     [Cmdlet("New", "MHRSRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

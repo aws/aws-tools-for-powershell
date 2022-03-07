@@ -199,10 +199,11 @@ $ECS_Completers = {
         {
             ($_ -eq "New-ECSService/PropagateTags") -Or
             ($_ -eq "New-ECSTask/PropagateTags") -Or
-            ($_ -eq "Start-ECSTask/PropagateTags")
+            ($_ -eq "Start-ECSTask/PropagateTags") -Or
+            ($_ -eq "Update-ECSService/PropagateTags")
         }
         {
-            $v = "SERVICE","TASK_DEFINITION"
+            $v = "NONE","SERVICE","TASK_DEFINITION"
             break
         }
 
@@ -293,7 +294,7 @@ $ECS_map = @{
     "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
-    "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask")
+    "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")

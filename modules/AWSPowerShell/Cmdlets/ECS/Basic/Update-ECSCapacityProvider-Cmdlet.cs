@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_Status
         /// <summary>
         /// <para>
-        /// <para>Determines whether to enable managed scaling for the capacity provider.</para>
+        /// <para>Determines whether to use managed scaling for the capacity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
