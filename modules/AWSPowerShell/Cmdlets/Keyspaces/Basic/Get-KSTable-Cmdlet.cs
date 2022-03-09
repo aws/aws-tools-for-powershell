@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// <summary>
     /// Returns information about the table, including the table's name and current status,
     /// the keyspace name, configuration settings, and metadata.
+    /// 
+    ///  
+    /// <para>
+    /// To read table metadata using <code>GetTable</code>, <code>Select</code> action permissions
+    /// for the table and system tables are required to complete the operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KSTable")]
     [OutputType("Amazon.Keyspaces.Model.GetTableResponse")]

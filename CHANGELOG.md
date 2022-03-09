@@ -1,4 +1,7 @@
-﻿### 4.1.38 (2022-03-07 22:06Z)
+﻿### 4.1.39.0 (2022-03-09 00:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.225.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.38 (2022-03-07 22:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.224.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Meetings
     * Modified cmdlet Start-CHMTGMeetingTranscription: added parameters EngineTranscribeSettings_IdentifyLanguage, EngineTranscribeSettings_LanguageOption and EngineTranscribeSettings_PreferredLanguage.

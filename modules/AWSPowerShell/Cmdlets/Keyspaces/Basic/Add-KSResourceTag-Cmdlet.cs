@@ -30,13 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// <summary>
     /// Associates a set of tags with a Amazon Keyspaces resource. You can then activate these
     /// user-defined tags so that they appear on the Cost Management Console for cost allocation
-    /// tracking.
+    /// tracking. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding
+    /// tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
+    /// Guide</i>.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding
-    /// tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
-    /// Guide</i>.
+    /// For IAM policy examples that show how to control access to Amazon Keyspaces resources
+    /// based on tags, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples-tags">Amazon
+    /// Keyspaces resource access based on tags</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "KSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
