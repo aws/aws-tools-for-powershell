@@ -28,16 +28,16 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Starts an asynchronous sentiment detection job for a collection of documents. Use
-    /// the operation to track the status of a job.
+    /// Starts an asynchronous targeted sentiment detection job for a collection of documents.
+    /// Use the operation to track the status of a job.
     /// </summary>
-    [Cmdlet("Start", "COMPSentimentDetectionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Comprehend.Model.StartSentimentDetectionJobResponse")]
-    [AWSCmdlet("Calls the Amazon Comprehend StartSentimentDetectionJob API operation.", Operation = new[] {"StartSentimentDetectionJob"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StartSentimentDetectionJobResponse))]
-    [AWSCmdletOutput("Amazon.Comprehend.Model.StartSentimentDetectionJobResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.StartSentimentDetectionJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "COMPTargetedSentimentDetectionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse")]
+    [AWSCmdlet("Calls the Amazon Comprehend StartTargetedSentimentDetectionJob API operation.", Operation = new[] {"StartTargetedSentimentDetectionJob"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse))]
+    [AWSCmdletOutput("Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse",
+        "This cmdlet returns an Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartCOMPSentimentDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
+    public partial class StartCOMPTargetedSentimentDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
         #region Parameter ClientRequestToken
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
         /// that grants Amazon Comprehend read access to your input data. For more information,
-        /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</para>
+        /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based
+        /// permissions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the format and location of the input data for the job.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,9 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the sentiment detection job. A tag is a key-value pair
-        /// that adds metadata to a resource used by Amazon Comprehend. For example, a tag with
-        /// "Sales" as the key might be added to a resource to indicate its use by the sales department.</para>
+        /// <para>Tags to be associated with the targeted sentiment detection job. A tag is a key-value
+        /// pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag
+        /// with "Sales" as the key might be added to a resource to indicate its use by the sales
+        /// department.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that process the
-        /// analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt data on the storage volume
+        /// attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId
+        /// can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Comprehend.Model.StartSentimentDetectionJobResponse).
-        /// Specifying the name of a property of type Amazon.Comprehend.Model.StartSentimentDetectionJobResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse).
+        /// Specifying the name of a property of type Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,8 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-COMPSentimentDetectionJob (StartSentimentDetectionJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataAccessRoleArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-COMPTargetedSentimentDetectionJob (StartTargetedSentimentDetectionJob)"))
             {
                 return;
             }
@@ -235,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Comprehend.Model.StartSentimentDetectionJobResponse, StartCOMPSentimentDetectionJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse, StartCOMPTargetedSentimentDetectionJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -304,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Comprehend.Model.StartSentimentDetectionJobRequest();
+            var request = new Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobRequest();
             
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -400,15 +402,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         #region AWS Service Operation Call
         
-        private Amazon.Comprehend.Model.StartSentimentDetectionJobResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.StartSentimentDetectionJobRequest request)
+        private Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "StartSentimentDetectionJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "StartTargetedSentimentDetectionJob");
             try
             {
                 #if DESKTOP
-                return client.StartSentimentDetectionJob(request);
+                return client.StartTargetedSentimentDetectionJob(request);
                 #elif CORECLR
-                return client.StartSentimentDetectionJobAsync(request).GetAwaiter().GetResult();
+                return client.StartTargetedSentimentDetectionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -438,7 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }
-            public System.Func<Amazon.Comprehend.Model.StartSentimentDetectionJobResponse, StartCOMPSentimentDetectionJobCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse, StartCOMPTargetedSentimentDetectionJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

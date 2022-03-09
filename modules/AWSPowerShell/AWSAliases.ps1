@@ -4225,6 +4225,8 @@ Set-Alias -Name Describe-COMPResourcePolicy -Value Get-COMPResourcePolicy
 Set-Alias -Name COMP-DescribeResourcePolicy -Value Get-COMPResourcePolicy
 Set-Alias -Name Describe-COMPSentimentDetectionJob -Value Get-COMPSentimentDetectionJob
 Set-Alias -Name COMP-DescribeSentimentDetectionJob -Value Get-COMPSentimentDetectionJob
+Set-Alias -Name Describe-COMPTargetedSentimentDetectionJob -Value Get-COMPTargetedSentimentDetectionJob
+Set-Alias -Name COMP-DescribeTargetedSentimentDetectionJob -Value Get-COMPTargetedSentimentDetectionJob
 Set-Alias -Name Describe-COMPTopicsDetectionJob -Value Get-COMPTopicsDetectionJob
 Set-Alias -Name COMP-DescribeTopicsDetectionJob -Value Get-COMPTopicsDetectionJob
 Set-Alias -Name Detect-COMPDominantLanguage -Value Find-COMPDominantLanguage
@@ -4280,6 +4282,9 @@ Set-Alias -Name List-COMPSentimentDetectionJobs -Value Get-COMPSentimentDetectio
 Set-Alias -Name List-COMPSentimentDetectionJobList -Value Get-COMPSentimentDetectionJobList
 Set-Alias -Name COMP-ListSentimentDetectionJobs -Value Get-COMPSentimentDetectionJobList
 Set-Alias -Name COMP-ListTagsForResource -Value Get-COMPResourceTag
+Set-Alias -Name List-COMPTargetedSentimentDetectionJobs -Value Get-COMPTargetedSentimentDetectionJobList
+Set-Alias -Name List-COMPTargetedSentimentDetectionJobList -Value Get-COMPTargetedSentimentDetectionJobList
+Set-Alias -Name COMP-ListTargetedSentimentDetectionJobs -Value Get-COMPTargetedSentimentDetectionJobList
 Set-Alias -Name List-COMPTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
 Set-Alias -Name List-COMPTopicsDetectionJobList -Value Get-COMPTopicsDetectionJobList
 Set-Alias -Name COMP-ListTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
@@ -4292,6 +4297,7 @@ Set-Alias -Name COMP-StartEventsDetectionJob -Value Start-COMPEventsDetectionJob
 Set-Alias -Name COMP-StartKeyPhrasesDetectionJob -Value Start-COMPKeyPhrasesDetectionJob
 Set-Alias -Name COMP-StartPiiEntitiesDetectionJob -Value Start-COMPPiiEntitiesDetectionJob
 Set-Alias -Name COMP-StartSentimentDetectionJob -Value Start-COMPSentimentDetectionJob
+Set-Alias -Name COMP-StartTargetedSentimentDetectionJob -Value Start-COMPTargetedSentimentDetectionJob
 Set-Alias -Name COMP-StartTopicsDetectionJob -Value Start-COMPTopicsDetectionJob
 Set-Alias -Name COMP-StopDominantLanguageDetectionJob -Value Stop-COMPDominantLanguageDetectionJob
 Set-Alias -Name COMP-StopEntitiesDetectionJob -Value Stop-COMPEntitiesDetectionJob
@@ -4299,6 +4305,7 @@ Set-Alias -Name COMP-StopEventsDetectionJob -Value Stop-COMPEventsDetectionJob
 Set-Alias -Name COMP-StopKeyPhrasesDetectionJob -Value Stop-COMPKeyPhrasesDetectionJob
 Set-Alias -Name COMP-StopPiiEntitiesDetectionJob -Value Stop-COMPPiiEntitiesDetectionJob
 Set-Alias -Name COMP-StopSentimentDetectionJob -Value Stop-COMPSentimentDetectionJob
+Set-Alias -Name COMP-StopTargetedSentimentDetectionJob -Value Stop-COMPTargetedSentimentDetectionJob
 Set-Alias -Name COMP-StopTrainingDocumentClassifier -Value Stop-COMPTrainingDocumentClassifier
 Set-Alias -Name COMP-StopTrainingEntityRecognizer -Value Stop-COMPTrainingEntityRecognizer
 Set-Alias -Name COMP-TagResource -Value Add-COMPResourceTag

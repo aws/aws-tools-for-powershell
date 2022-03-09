@@ -118,7 +118,8 @@ $COMP_Completers = {
         # Amazon.Comprehend.JobStatus
         {
             ($_ -eq "Get-COMPDocumentClassificationJobList/Filter_JobStatus") -Or
-            ($_ -eq "Get-COMPEventsDetectionJobList/Filter_JobStatus")
+            ($_ -eq "Get-COMPEventsDetectionJobList/Filter_JobStatus") -Or
+            ($_ -eq "Get-COMPTargetedSentimentDetectionJobList/Filter_JobStatus")
         }
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS","STOPPED","STOP_REQUESTED","SUBMITTED"
@@ -141,7 +142,8 @@ $COMP_Completers = {
             ($_ -eq "Start-COMPEventsDetectionJob/LanguageCode") -Or
             ($_ -eq "Start-COMPKeyPhrasesDetectionJob/LanguageCode") -Or
             ($_ -eq "Start-COMPPiiEntitiesDetectionJob/LanguageCode") -Or
-            ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode")
+            ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode") -Or
+            ($_ -eq "Start-COMPTargetedSentimentDetectionJob/LanguageCode")
         }
         {
             $v = "ar","de","en","es","fr","hi","it","ja","ko","pt","zh","zh-TW"
@@ -191,11 +193,11 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
-    "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList")
+    "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
 }
@@ -275,6 +277,7 @@ $COMP_SelectMap = @{
                "Get-COMPPiiEntitiesDetectionJob",
                "Get-COMPResourcePolicy",
                "Get-COMPSentimentDetectionJob",
+               "Get-COMPTargetedSentimentDetectionJob",
                "Get-COMPTopicsDetectionJob",
                "Find-COMPDominantLanguage",
                "Find-COMPEntity",
@@ -296,6 +299,7 @@ $COMP_SelectMap = @{
                "Get-COMPPiiEntitiesDetectionJobList",
                "Get-COMPSentimentDetectionJobList",
                "Get-COMPResourceTag",
+               "Get-COMPTargetedSentimentDetectionJobList",
                "Get-COMPTopicsDetectionJobList",
                "Write-COMPResourcePolicy",
                "Start-COMPDocumentClassificationJob",
@@ -305,6 +309,7 @@ $COMP_SelectMap = @{
                "Start-COMPKeyPhrasesDetectionJob",
                "Start-COMPPiiEntitiesDetectionJob",
                "Start-COMPSentimentDetectionJob",
+               "Start-COMPTargetedSentimentDetectionJob",
                "Start-COMPTopicsDetectionJob",
                "Stop-COMPDominantLanguageDetectionJob",
                "Stop-COMPEntitiesDetectionJob",
@@ -312,6 +317,7 @@ $COMP_SelectMap = @{
                "Stop-COMPKeyPhrasesDetectionJob",
                "Stop-COMPPiiEntitiesDetectionJob",
                "Stop-COMPSentimentDetectionJob",
+               "Stop-COMPTargetedSentimentDetectionJob",
                "Stop-COMPTrainingDocumentClassifier",
                "Stop-COMPTrainingEntityRecognizer",
                "Add-COMPResourceTag",

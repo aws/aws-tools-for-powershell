@@ -119,6 +119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetedSentimentDetectionJob" OutputProperty="TargetedSentimentDetectionJobProperties" Verb="Get" Noun="TargetedSentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTopicsDetectionJob" OutputProperty="TopicsDetectionJobProperties" Verb="Get" Noun="TopicsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +207,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTargetedSentimentDetectionJobs" OutputProperty="TargetedSentimentDetectionJobPropertiesList" Verb="Get" Noun="TargetedSentimentDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -239,6 +247,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartTargetedSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartTopicsDetectionJob" OutputProperty="*" Verb="Start" Noun="TopicsDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -264,6 +276,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="SentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTargetedSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
