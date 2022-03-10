@@ -28,7 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Deletes a vocabulary from Amazon Transcribe.
+    /// Deletes a custom vocabulary. To use this operation, specify the name of the vocabulary
+    /// you want to delete using <code>VocabularyName</code>.
     /// </summary>
     [Cmdlet("Remove", "TRSVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary to delete. </para>
+        /// <para>The name of the vocabulary you want to delete. Vocabulary names are case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

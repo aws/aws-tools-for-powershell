@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;</code></para><para>For example:</para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/example.mp4</code></para><para><code>s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para><code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code></para><para>For example:</para><para><code>s3://DOC-EXAMPLE-BUCKET/example.flac</code></para><para><code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>

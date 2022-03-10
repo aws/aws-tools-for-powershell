@@ -28,9 +28,11 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Creates a new custom language model. Use Amazon S3 prefixes to provide the location
-    /// of your input files. The time it takes to create your model depends on the size of
-    /// your training data.
+    /// Creates a new custom language model. When creating a new language model, you must
+    /// specify if you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio
+    /// sample rates under 16,000 Hz) base model. You then include the S3 URI location of
+    /// your training and tuning files, the language for the model, a unique name, and any
+    /// tags you want associated with your model.
     /// </summary>
     [Cmdlet("New", "TRSLanguageModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CreateLanguageModelResponse")]
@@ -44,10 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter BaseModelName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Transcribe standard language model, or base model used to create your custom
-        /// language model.</para><para>If you want to use your custom language model to transcribe audio with a sample rate
-        /// of 16,000 Hz or greater, choose <code>Wideband</code>.</para><para>If you want to use your custom language model to transcribe audio with a sample rate
-        /// that is less than 16,000 Hz, choose <code>Narrowband</code>.</para>
+        /// <para>The Amazon Transcribe standard language model, or base model, used to create your
+        /// custom language model. Amazon Transcribe offers two options for base models: Wideband
+        /// and Narrowband.</para><para>If the audio you want to transcribe has a sample rate of 16,000 Hz or greater, choose
+        /// <code>WideBand</code>. To transcribe audio with a sample rate less than 16,000 Hz,
+        /// choose <code>NarrowBand</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input text you're using to train your custom language model.</para>
+        /// <para>The language of your custom language model; note that the language code you select
+        /// must match the language of your training and tuning data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name you choose for your custom language model when you create it.</para>
+        /// <para>The name of your new custom language model.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a language model with the same name as
+        /// a previous language model, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new language model
-        /// at the time you create this new model.</para>
+        /// <para>Optionally add tags, each in the form of a key:value pair, to your new language model.
+        /// See also: .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

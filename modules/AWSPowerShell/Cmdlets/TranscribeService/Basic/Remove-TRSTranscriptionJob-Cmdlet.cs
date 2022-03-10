@@ -28,8 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Deletes a previously submitted transcription job along with any other generated results
-    /// such as the transcription, models, and so on.
+    /// Deletes a transcription job, along with any related information. To use this operation,
+    /// specify the name of the job you want to delete using <code>TranscriptionJobName</code>.
     /// </summary>
     [Cmdlet("Remove", "TRSTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the transcription job to be deleted.</para>
+        /// <para>The name of the transcription job you want to delete. Job names are case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

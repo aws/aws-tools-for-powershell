@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CategoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the category you want information about. This value is case sensitive.</para>
+        /// <para>The name of the category you want information about. Category names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

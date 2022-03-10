@@ -221,7 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PostAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// after the user authenticates.</para><note><para>The SFTP protocol does not support post-authentication display banners.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PreAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// before the user authenticates. For example, the following banner displays details
+        /// about using the system.</para><para><code>This system is for the use of authorized users only. Individuals using this
+        /// computer system without authority, or in excess of their authority, are subject to
+        /// having all of their activities on this system monitored and recorded by system personnel.</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

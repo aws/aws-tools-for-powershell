@@ -1,4 +1,7 @@
-﻿### 4.1.40.0 (2022-03-09 23:12Z)
+﻿### 4.1.41 (2022-03-10 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.227.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.40.0 (2022-03-09 23:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.226.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Comprehend
     * Added cmdlet Get-COMPTargetedSentimentDetectionJob leveraging the DescribeTargetedSentimentDetectionJob service API.

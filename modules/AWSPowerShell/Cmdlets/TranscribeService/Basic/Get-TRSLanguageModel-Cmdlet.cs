@@ -28,12 +28,18 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Gets information about a single custom language model. Use this information to see
-    /// details about the language model in your Amazon Web Services account. You can also
-    /// see whether the base language model used to create your custom language model has
-    /// been updated. If Amazon Transcribe has updated the base model, you can create a new
-    /// custom language model using the updated base model. If the language model wasn't created,
-    /// you can use this operation to understand why Amazon Transcribe couldn't create it.
+    /// Provides information about a specific custom language model in your Amazon Web Services
+    /// account.
+    /// 
+    ///  
+    /// <para>
+    /// This operation also shows if the base language model you used to create your custom
+    /// language model has been updated. If Amazon Transcribe has updated the base model,
+    /// you can create a new custom language model using the updated base model.
+    /// </para><para>
+    /// If you tried to create a new custom language model and the request wasn't successful,
+    /// you can use this operation to help identify the reason. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSLanguageModel")]
     [OutputType("Amazon.TranscribeService.Model.LanguageModel")]
@@ -48,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom language model you submit to get more information.</para>
+        /// <para>The name of the custom language model you want described. Model names are case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

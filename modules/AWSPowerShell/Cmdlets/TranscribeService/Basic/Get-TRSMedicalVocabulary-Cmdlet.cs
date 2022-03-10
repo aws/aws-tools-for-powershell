@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary that you want information about. The value is case sensitive.
-        /// </para>
+        /// <para>The name of the medical vocabulary you want information about. This value is case
+        /// sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

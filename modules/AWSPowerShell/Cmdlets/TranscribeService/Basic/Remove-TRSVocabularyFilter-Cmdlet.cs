@@ -28,7 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Removes a vocabulary filter.
+    /// Deletes a vocabulary filter. To use this operation, specify the name of the vocabulary
+    /// filter you want to delete using <code>VocabularyFilterName</code>.
     /// </summary>
     [Cmdlet("Remove", "TRSVocabularyFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary filter to remove.</para>
+        /// <para>The name of the vocabulary filter you want to delete. Vocabulary filter names are
+        /// case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

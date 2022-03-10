@@ -28,7 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Deletes a call analytics category using its name.
+    /// Deletes a call analytics category. To use this operation, specify the name of the
+    /// category you want to delete using <code>CategoryName</code>.
     /// </summary>
     [Cmdlet("Remove", "TRSCallAnalyticsCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CategoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the call analytics category that you're choosing to delete. The value
-        /// is case sensitive. </para>
+        /// <para>The name of the call analytics category you want to delete. Category names are case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,12 +28,16 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Returns information about a call analytics job. To see the status of the job, check
-    /// the <code>CallAnalyticsJobStatus</code> field. If the status is <code>COMPLETED</code>,
-    /// the job is finished and you can find the results at the location specified in the
-    /// <code>TranscriptFileUri</code> field. If you enable personally identifiable information
-    /// (PII) redaction, the redacted transcript appears in the <code>RedactedTranscriptFileUri</code>
-    /// field.
+    /// Retrieves information about a call analytics job.
+    /// 
+    ///  
+    /// <para>
+    /// To view the job's status, refer to the <code>CallAnalyticsJobStatus</code> field.
+    /// If the status is <code>COMPLETED</code>, the job is finished. You can then find your
+    /// transcript at the URI specified in the <code>TranscriptFileUri</code> field. If you
+    /// enabled personally identifiable information (PII) redaction, the redacted transcript
+    /// appears in the <code>RedactedTranscriptFileUri</code> field.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSCallAnalyticsJob")]
     [OutputType("Amazon.TranscribeService.Model.CallAnalyticsJob")]
@@ -48,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CallAnalyticsJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the analytics job you want information about. This value is case sensitive.
-        /// </para>
+        /// <para>The name of the analytics job you want information about. This value is case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
