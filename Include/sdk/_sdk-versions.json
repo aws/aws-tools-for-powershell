@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.227.0",
+    "ProductVersion" : "3.7.228.0",
     "CoreVersion"    : "3.7.8.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -242,7 +242,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.9.7",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.9"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.14.3",
+            "Version" : "3.7.15.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.9"
@@ -1074,7 +1074,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.2.16",
+            "Version" : "3.7.2.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.9"
@@ -1170,7 +1170,7 @@
             "InPreview"               : false
         },
         "Chime"                           : {
-            "Version" : "3.7.14.34",
+            "Version" : "3.7.15.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.9"
@@ -1714,7 +1714,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.6.29",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.8.9"
