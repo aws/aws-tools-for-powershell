@@ -28,7 +28,15 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Lists the sites for your Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Create a list of the Outpost sites for your Amazon Web Services account. Add operating
+    /// address filters to your request to return a more specific list of results. Use filters
+    /// to match site city, country code, or state/region of the operating address. 
+    /// 
+    ///  
+    /// <para>
+    /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
+    /// and the request returns only results that match all of the specified filters.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OUTPSiteList")]
     [OutputType("Amazon.Outposts.Model.Site")]
@@ -39,6 +47,42 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     )]
     public partial class GetOUTPSiteListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
+        
+        #region Parameter OperatingAddressCityFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the city of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OperatingAddressCityFilter { get; set; }
+        #endregion
+        
+        #region Parameter OperatingAddressCountryCodeFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the country code of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OperatingAddressCountryCodeFilter { get; set; }
+        #endregion
+        
+        #region Parameter OperatingAddressStateOrRegionFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the state/region of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OperatingAddressStateOrRegionFilter { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -102,6 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.OperatingAddressCityFilter != null)
+            {
+                context.OperatingAddressCityFilter = new List<System.String>(this.OperatingAddressCityFilter);
+            }
+            if (this.OperatingAddressCountryCodeFilter != null)
+            {
+                context.OperatingAddressCountryCodeFilter = new List<System.String>(this.OperatingAddressCountryCodeFilter);
+            }
+            if (this.OperatingAddressStateOrRegionFilter != null)
+            {
+                context.OperatingAddressStateOrRegionFilter = new List<System.String>(this.OperatingAddressStateOrRegionFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -123,6 +179,18 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OperatingAddressCityFilter != null)
+            {
+                request.OperatingAddressCityFilter = cmdletContext.OperatingAddressCityFilter;
+            }
+            if (cmdletContext.OperatingAddressCountryCodeFilter != null)
+            {
+                request.OperatingAddressCountryCodeFilter = cmdletContext.OperatingAddressCountryCodeFilter;
+            }
+            if (cmdletContext.OperatingAddressStateOrRegionFilter != null)
+            {
+                request.OperatingAddressStateOrRegionFilter = cmdletContext.OperatingAddressStateOrRegionFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -211,6 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> OperatingAddressCityFilter { get; set; }
+            public List<System.String> OperatingAddressCountryCodeFilter { get; set; }
+            public List<System.String> OperatingAddressStateOrRegionFilter { get; set; }
             public System.Func<Amazon.Outposts.Model.ListSitesResponse, GetOUTPSiteListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Sites;
         }

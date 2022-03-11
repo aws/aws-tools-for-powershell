@@ -28,7 +28,17 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Ends the specified contact.
+    /// Ends the specified contact. This call does not work for the following initiation methods:
+    /// 
+    ///  <ul><li><para>
+    /// CALLBACK
+    /// </para></li><li><para>
+    /// DISCONNECT
+    /// </para></li><li><para>
+    /// TRANSFER
+    /// </para></li><li><para>
+    /// QUEUE_TRANSFER
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstanceUser</code>.</para>
+        /// <para>Tags assigned to the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

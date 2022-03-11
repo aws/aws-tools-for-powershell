@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitialMessage_ContentType
         /// <summary>
         /// <para>
-        /// <para>The type of the content. Supported types are text and plain.</para>
+        /// <para>The type of the content. Supported types are <code>text/plain</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,6 +164,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter SupportedMessagingContentType
+        /// <summary>
+        /// <para>
+        /// <para>The supported chat message content types. Content types can be text/plain or both
+        /// text/plain and text/markdown.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedMessagingContentTypes")]
+        public System.String[] SupportedMessagingContentType { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -271,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ParticipantDetails_DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SupportedMessagingContentType != null)
+            {
+                context.SupportedMessagingContentType = new List<System.String>(this.SupportedMessagingContentType);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -355,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.ParticipantDetails = null;
             }
+            if (cmdletContext.SupportedMessagingContentType != null)
+            {
+                request.SupportedMessagingContentTypes = cmdletContext.SupportedMessagingContentType;
+            }
             
             CmdletOutput output;
             
@@ -424,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InitialMessage_ContentType { get; set; }
             public System.String InstanceId { get; set; }
             public System.String ParticipantDetails_DisplayName { get; set; }
+            public List<System.String> SupportedMessagingContentType { get; set; }
             public System.Func<Amazon.Connect.Model.StartChatContactResponse, StartCONNChatContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

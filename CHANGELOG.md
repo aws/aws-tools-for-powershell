@@ -1,4 +1,15 @@
-﻿### 4.1.41 (2022-03-10 21:41Z)
+﻿### 4.1.42 (2022-03-11 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.228.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime
+    * Modified cmdlet Write-CHMVoiceConnectorLoggingConfiguration: added parameter LoggingConfiguration_EnableMediaMetricLog.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameter SupportedMessagingContentType.
+  * Amazon Lambda
+    * Modified cmdlet Add-LMPermission: added parameter PrincipalOrgID.
+  * Amazon Outposts
+    * Modified cmdlet Get-OUTPSiteList: added parameters OperatingAddressCityFilter, OperatingAddressCountryCodeFilter and OperatingAddressStateOrRegionFilter.
+
+### 4.1.41 (2022-03-10 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.227.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.40.0 (2022-03-09 23:12Z)

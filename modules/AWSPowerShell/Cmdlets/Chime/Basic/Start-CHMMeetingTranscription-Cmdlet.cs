@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter EngineTranscribeSettings_ContentIdentificationType
         /// <summary>
         /// <para>
-        /// <para>Set this field to <code>PII</code> to identify personal health information in the
-        /// transcription output.</para>
+        /// <para>Set this field to <code>PII</code> to identify personally identifiable information
+        /// in the transcription output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
