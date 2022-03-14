@@ -1,4 +1,7 @@
-﻿### 4.1.42 (2022-03-11 21:21Z)
+﻿### 4.1.43 (2022-03-14 22:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.229.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.42 (2022-03-11 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.228.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime
     * Modified cmdlet Write-CHMVoiceConnectorLoggingConfiguration: added parameter LoggingConfiguration_EnableMediaMetricLog.
