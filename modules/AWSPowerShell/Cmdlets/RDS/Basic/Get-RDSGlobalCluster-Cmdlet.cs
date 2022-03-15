@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Returns information about Aurora global database clusters. This API supports pagination.
     /// 
-    /// 
     ///  
     /// <para>
-    ///  For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
+    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><note><para>
     /// This action only applies to Aurora DB clusters.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -62,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The user-supplied DB cluster identifier. If this parameter is specified, information
-        /// from only the specific DB cluster is returned. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBClusterIdentifier.</para></li></ul>
+        /// <para>The user-supplied DB cluster identifier. If this parameter is specified, information
+        /// from only the specific DB cluster is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBClusterIdentifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <code>DescribeGlobalClusters</code>
+        /// <para>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
+        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so that you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

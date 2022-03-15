@@ -28,17 +28,17 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains
-    /// the DB instance's metadata, including its endpoint, DB parameter group, and option
-    /// group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time
-    /// restore if necessary. 
+    /// Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the
+    /// DB instance's metadata, including its endpoint, DB parameter group, and option group
+    /// membership. Amazon RDS also retains the transaction logs so you can do a point-in-time
+    /// restore if necessary.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
     /// Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User Guide.</i></para><note><para>
-    ///  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
-    /// Aurora clusters, use <code>StopDBCluster</code> instead. 
+    /// This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
+    /// Aurora clusters, use <code>StopDBCluster</code> instead.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The user-supplied instance identifier. </para>
+        /// <para>The user-supplied instance identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The user-supplied instance identifier of the DB Snapshot created immediately before
-        /// the DB instance is stopped. </para>
+        /// <para>The user-supplied instance identifier of the DB Snapshot created immediately before
+        /// the DB instance is stopped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

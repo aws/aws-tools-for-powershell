@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the feature for the DB instance that the IAM role is to be associated
-        /// with. For information about supported feature names, see <a>DBEngineVersion</a>. </para>
+        /// with. For information about supported feature names, see <a>DBEngineVersion</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance,
-        /// for example <code>arn:aws:iam::123456789012:role/AccessRole</code>. </para>
+        /// for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

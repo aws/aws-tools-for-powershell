@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Starts an export of a snapshot to Amazon S3. The provided IAM role must have access
-    /// to the S3 bucket. 
+    /// to the S3 bucket.
     /// 
     ///  
     /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the snapshot export task. This ID isn't an identifier for
-        /// the Amazon S3 bucket where the snapshot is to be exported to. </para>
+        /// the Amazon S3 bucket where the snapshot is to be exported to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the IAM role to use for writing to the Amazon S3 bucket when exporting
-        /// a snapshot. </para>
+        /// a snapshot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// to Amazon S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
         /// ARN, or alias name for the KMS key. The caller of this operation must be authorized
         /// to execute the following operations. These can be set in the Amazon Web Services KMS
-        /// key policy: </para><ul><li><para>GrantOperation.Encrypt</para></li><li><para>GrantOperation.Decrypt</para></li><li><para>GrantOperation.GenerateDataKey</para></li><li><para>GrantOperation.GenerateDataKeyWithoutPlaintext</para></li><li><para>GrantOperation.ReEncryptFrom</para></li><li><para>GrantOperation.ReEncryptTo</para></li><li><para>GrantOperation.CreateGrant</para></li><li><para>GrantOperation.DescribeKey</para></li><li><para>GrantOperation.RetireGrant</para></li></ul>
+        /// key policy:</para><ul><li><para>GrantOperation.Encrypt</para></li><li><para>GrantOperation.Decrypt</para></li><li><para>GrantOperation.GenerateDataKey</para></li><li><para>GrantOperation.GenerateDataKeyWithoutPlaintext</para></li><li><para>GrantOperation.ReEncryptFrom</para></li><li><para>GrantOperation.ReEncryptTo</para></li><li><para>GrantOperation.CreateGrant</para></li><li><para>GrantOperation.DescribeKey</para></li><li><para>GrantOperation.RetireGrant</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

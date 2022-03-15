@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates a new DB instance that acts as a read replica for an existing source DB instance.
     /// You can create a read replica for a DB instance running MySQL, MariaDB, Oracle, PostgreSQL,
     /// or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-    /// with Read Replicas</a> in the <i>Amazon RDS User Guide</i>. 
+    /// with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// attributes (including DB security groups and DB parameter groups) are inherited from
     /// the source DB instance, except as specified.
     /// </para><important><para>
-    /// Your source DB instance must have backup retention enabled. 
+    /// Your source DB instance must have backup retention enabled.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "RDSDBInstanceReadReplica", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone (AZ) where the read replica will be created.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region.</para><para> Example: <code>us-east-1d</code></para>
+        /// Region.</para><para>Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
         /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
         /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
-        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
+        /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// all DB instance classes are available in all Amazon Web Services Regions, or for all
         /// database engines. For the full list of DB instance classes, and availability for your
         /// engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: Inherits from the source DB instance.</para>
+        /// Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para><para>Default: Inherits from the source DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
         /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>. </para>
+        /// Deleting a DB Instance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
         /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
-        /// Guide.</i></para><para>This setting doesn't apply to RDS Custom.</para>
+        /// Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable Performance Insights for the read replica.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para><para>This setting doesn't apply to RDS Custom.</para>
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the read replica is in a Multi-AZ deployment. </para><para>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
+        /// <para>A value that indicates whether the read replica is in a Multi-AZ deployment.</para><para>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
         /// your replica in another Availability Zone for failover support for the replica. Creating
         /// your read replica as a Multi-AZ DB instance is independent of whether the source database
         /// is a Multi-AZ DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
@@ -354,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years). </para><para>This setting doesn't apply to RDS Custom.</para>
+        /// 7 or 731 (2 years).</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,13 +375,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code>
-        /// API action in the source Amazon Web Services Region that contains the source DB instance.
-        /// </para><para>You must specify this parameter when you create an encrypted read replica from another
+        /// API action in the source Amazon Web Services Region that contains the source DB instance.</para><para>You must specify this parameter when you create an encrypted read replica from another
         /// Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code>
         /// when you are creating an encrypted read replica in the same Amazon Web Services Region.</para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
         /// API action that can be executed in the source Amazon Web Services Region that contains
         /// the encrypted source DB instance. The presigned URL request must contain the following
-        /// parameter values: </para><ul><li><para><code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted
+        /// parameter values:</para><ul><li><para><code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted
         /// read replica is created in. This Amazon Web Services Region is the same one where
         /// the <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned
         /// URL.</para><para>For example, if you create an encrypted DB instance in the us-west-1 Amazon Web Services
@@ -389,20 +388,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// you call the <code>CreateDBInstanceReadReplica</code> action in the us-east-1 Amazon
         /// Web Services Region and provide a presigned URL that contains a call to the <code>CreateDBInstanceReadReplica</code>
         /// action in the us-west-2 Amazon Web Services Region. For this example, the <code>DestinationRegion</code>
-        /// in the presigned URL must be set to the us-east-1 Amazon Web Services Region. </para></li><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to
+        /// in the presigned URL must be set to the us-east-1 Amazon Web Services Region.</para></li><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to
         /// use to encrypt the read replica in the destination Amazon Web Services Region. This
         /// is the same identifier for both the <code>CreateDBInstanceReadReplica</code> action
         /// that is called in the destination Amazon Web Services Region, and the action contained
-        /// in the presigned URL. </para></li><li><para><code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted
+        /// in the presigned URL.</para></li><li><para><code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted
         /// DB instance to be replicated. This identifier must be in the Amazon Resource Name
         /// (ARN) format for the source Amazon Web Services Region. For example, if you are creating
         /// an encrypted read replica from a DB instance in the us-west-2 Amazon Web Services
         /// Region, then your <code>SourceDBInstanceIdentifier</code> looks like the following
-        /// example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.
-        /// </para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+        /// example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
         /// Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
         /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-        /// Version 4 Signing Process</a>. </para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code>
+        /// Version 4 Signing Process</a>.</para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code>
         /// (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code>
         /// manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that
         /// is a valid request for the operation that can be executed in the source Amazon Web
@@ -504,8 +502,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the read replica.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// <para>Specifies the storage type to be associated with the read replica.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
+        /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>
@@ -539,7 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A list of Amazon EC2 VPC security groups to associate with the read replica. </para><para>This setting doesn't apply to RDS Custom.</para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
+        /// <para>A list of Amazon EC2 VPC security groups to associate with the read replica.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: The default EC2 VPC security group for the DB subnet group's VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

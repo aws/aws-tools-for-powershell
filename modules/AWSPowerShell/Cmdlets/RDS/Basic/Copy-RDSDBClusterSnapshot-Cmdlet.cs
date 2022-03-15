@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
     /// for the encrypted DB cluster snapshot to be copied. This identifier must be in the
     /// ARN format for the source Amazon Web Services Region and is the same value as the
-    /// <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. 
+    /// <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL.
     /// </para></li></ul><para>
     /// To cancel the copy operation once it is in progress, delete the target DB cluster
     /// snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB
@@ -88,12 +88,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// For more information on copying encrypted Amazon Aurora DB cluster snapshots from
     /// one Amazon Web Services Region to another, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html">
-    /// Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// Copying a Snapshot</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><para>
     /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide.</i></para>
+    /// User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterSnapshot")]
@@ -125,9 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// name for the Amazon Web Services KMS key.</para><para>If you copy an encrypted DB cluster snapshot from your Amazon Web Services account,
         /// you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS
         /// key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the
-        /// DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
-        /// </para><para>If you copy an encrypted DB cluster snapshot that is shared from another Amazon Web
-        /// Services account, then you must specify a value for <code>KmsKeyId</code>. </para><para>To copy an encrypted DB cluster snapshot to another Amazon Web Services Region, you
+        /// DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.</para><para>If you copy an encrypted DB cluster snapshot that is shared from another Amazon Web
+        /// Services account, then you must specify a value for <code>KmsKeyId</code>.</para><para>To copy an encrypted DB cluster snapshot to another Amazon Web Services Region, you
         /// must set <code>KmsKeyId</code> to the Amazon Web Services KMS key identifier you want
         /// to use to encrypt the copy of the DB cluster snapshot in the destination Amazon Web
         /// Services Region. KMS keys are specific to the Amazon Web Services Region that they
@@ -183,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a valid DB snapshot identifier.</para></li><li><para>If the source snapshot is in a different Amazon Web Services Region than the copy,
         /// specify a valid DB cluster snapshot ARN. For more information, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
         /// Copying Snapshots Across Amazon Web Services Regions</a> in the <i>Amazon Aurora User
-        /// Guide.</i></para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// Guide</i>.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

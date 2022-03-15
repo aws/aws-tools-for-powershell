@@ -157,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Determines whether to use the execute command functionality for the containers in
         /// this task. If <code>true</code>, this enables execute command functionality on all
-        /// containers in the task.</para>
+        /// containers in the task.</para><para>If <code>true</code>, then the task definition must have a task role, or you must
+        /// provide one as an override.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,10 +369,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
         /// full ARN of the task definition to run. If a <code>revision</code> isn't specified,
-        /// the latest <code>ACTIVE</code> revision is used.</para><para>The full ARN value must match the value that you specified as the <code>Resource</code>
-        /// of the IAM principal's permissions policy. For example, if the <code>Resource</code>
-        /// is arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*, the <code>taskDefinition</code>
-        /// ARN value must be <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</para>
+        /// the latest <code>ACTIVE</code> revision is used.</para><para>When you create an IAM policy for run-task, you can set the resource to be the latest
+        /// task definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <code>Resource</code>
+        /// of the IAM principal's permissions policy.</para><para>When you specify the policy resource as the latest task definition version (by setting
+        /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
+        /// then set this value to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</para><para>When you specify the policy resource as a specific task definition version (by setting
+        /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>
+        /// or <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</code>),
+        /// then set this value to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy
+        /// Resources for Amazon ECS</a> in the Amazon Elastic Container Service developer Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

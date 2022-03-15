@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter TruckModeOptions_AvoidToll
         /// <summary>
         /// <para>
-        /// <para>Avoids ferries when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// <para>Avoids tolls when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

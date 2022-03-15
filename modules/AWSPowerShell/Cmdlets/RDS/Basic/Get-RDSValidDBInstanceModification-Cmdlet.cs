@@ -31,7 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications
     /// you can make to your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.
     /// 
-    /// 
     ///  
     /// <para>
     /// This command doesn't apply to RDS Custom.
@@ -50,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The customer identifier or the ARN of your DB instance. </para>
+        /// <para>The customer identifier or the ARN of your DB instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

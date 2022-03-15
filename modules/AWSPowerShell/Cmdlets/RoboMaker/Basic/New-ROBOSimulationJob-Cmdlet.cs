@@ -151,17 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public Amazon.RoboMaker.Model.OutputLocation OutputLocation { get; set; }
         #endregion
         
-        #region Parameter LoggingConfig_RecordAllRosTopic
-        /// <summary>
-        /// <para>
-        /// <para>A boolean indicating whether to record all ROS topics.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LoggingConfig_RecordAllRosTopics")]
-        public System.Boolean? LoggingConfig_RecordAllRosTopic { get; set; }
-        #endregion
-        
         #region Parameter RobotApplication
         /// <summary>
         /// <para>
@@ -218,6 +207,19 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.RoboMaker.Model.VPCConfig VpcConfig { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfig_RecordAllRosTopic
+        /// <summary>
+        /// <para>
+        /// <para>A boolean indicating whether to record all ROS topics.</para><important><para>This API is no longer supported and will throw an error if used.</para></important>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.")]
+        [Alias("LoggingConfig_RecordAllRosTopics")]
+        public System.Boolean? LoggingConfig_RecordAllRosTopic { get; set; }
         #endregion
         
         #region Parameter Select
@@ -297,7 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 WriteWarning("You are passing $null as a value for parameter IamRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.LoggingConfig_RecordAllRosTopic = this.LoggingConfig_RecordAllRosTopic;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxJobDurationInSecond = this.MaxJobDurationInSecond;
             #if MODULAR
             if (this.MaxJobDurationInSecond == null && ParameterWasBound(nameof(this.MaxJobDurationInSecond)))
@@ -398,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
              // populate LoggingConfig
             var requestLoggingConfigIsNull = true;
             request.LoggingConfig = new Amazon.RoboMaker.Model.LoggingConfig();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Boolean? requestLoggingConfig_loggingConfig_RecordAllRosTopic = null;
             if (cmdletContext.LoggingConfig_RecordAllRosTopic != null)
             {
@@ -408,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 request.LoggingConfig.RecordAllRosTopics = requestLoggingConfig_loggingConfig_RecordAllRosTopic.Value;
                 requestLoggingConfigIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.LoggingConfig should be set to null
             if (requestLoggingConfigIsNull)
             {
@@ -505,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             public List<Amazon.RoboMaker.Model.DataSourceConfig> DataSource { get; set; }
             public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }
             public System.String IamRole { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? LoggingConfig_RecordAllRosTopic { get; set; }
             public System.Int64? MaxJobDurationInSecond { get; set; }
             public Amazon.RoboMaker.Model.OutputLocation OutputLocation { get; set; }

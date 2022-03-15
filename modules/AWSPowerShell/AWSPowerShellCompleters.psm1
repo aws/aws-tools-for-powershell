@@ -12681,6 +12681,7 @@ $DTEX_SelectMap = @{
                "Get-DTEXJobList",
                "Get-DTEXRevisionAssetList",
                "Get-DTEXResourceTag",
+               "Revoke-DTEXRevision",
                "Send-DTEXApiAsset",
                "Start-DTEXJob",
                "Add-DTEXResourceTag",

@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the feature for the DB instance that the IAM role is to be disassociated
-        /// from. For information about supported feature names, see <code>DBEngineVersion</code>.
-        /// </para>
+        /// from. For information about supported feature names, see <code>DBEngineVersion</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

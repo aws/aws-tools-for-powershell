@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
         /// can't be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
-        /// isn't case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
+        /// isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,9 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> A specific DB snapshot identifier to describe. This parameter can't be used in conjunction
-        /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.
-        /// </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// <para>A specific DB snapshot identifier to describe. This parameter can't be used in conjunction
+        /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>
@@ -139,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <code>DescribeDBSnapshots</code>
+        /// <para>An optional pagination token provided by a previous <code>DescribeDBSnapshots</code>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
+        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -156,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so that you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

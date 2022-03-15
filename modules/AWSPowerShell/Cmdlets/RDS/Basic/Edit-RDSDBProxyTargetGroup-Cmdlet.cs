@@ -72,11 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ConnectionPoolConfig_InitQuery
         /// <summary>
         /// <para>
-        /// <para> One or more SQL statements for the proxy to run when opening each new database connection.
+        /// <para>One or more SQL statements for the proxy to run when opening each new database connection.
         /// Typically used with <code>SET</code> statements to make sure that each connection
         /// has identical settings such as time zone and character set. For multiple statements,
         /// use semicolons as the separator. You can also include multiple variables in a single
-        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>. </para><para>Default: no initialization query</para>
+        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>.</para><para>Default: no initialization query</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,12 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ConnectionPoolConfig_MaxIdleConnectionsPercent
         /// <summary>
         /// <para>
-        /// <para> Controls how actively the proxy closes idle database connections in the connection
+        /// <para>Controls how actively the proxy closes idle database connections in the connection
         /// pool. The value is expressed as a percentage of the <code>max_connections</code> setting
         /// for the RDS DB instance or Aurora DB cluster used by the target group. With a high
         /// value, the proxy leaves a high percentage of idle database connections open. A low
-        /// value causes the proxy to close more idle connections and return them to the database.
-        /// </para><para>Default: 50</para><para>Constraints: between 0 and <code>MaxConnectionsPercent</code></para>
+        /// value causes the proxy to close more idle connections and return them to the database.</para><para>Default: 50</para><para>Constraints: between 0 and <code>MaxConnectionsPercent</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

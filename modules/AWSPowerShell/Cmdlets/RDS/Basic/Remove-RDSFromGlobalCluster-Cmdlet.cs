@@ -28,9 +28,9 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Detaches an Aurora secondary cluster from an Aurora global database cluster. The
-    /// cluster becomes a standalone cluster with read-write capability instead of being read-only
-    /// and receiving data from a primary cluster in a different Region. 
+    /// Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster
+    /// becomes a standalone cluster with read-write capability instead of being read-only
+    /// and receiving data from a primary cluster in a different Region.
     /// 
     ///  <note><para>
     /// This action only applies to Aurora DB clusters.
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DbClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) identifying the cluster that was detached from the
-        /// Aurora global database cluster. </para>
+        /// <para>The Amazon Resource Name (ARN) identifying the cluster that was detached from the
+        /// Aurora global database cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The cluster identifier to detach from the Aurora global database cluster. </para>
+        /// <para>The cluster identifier to detach from the Aurora global database cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

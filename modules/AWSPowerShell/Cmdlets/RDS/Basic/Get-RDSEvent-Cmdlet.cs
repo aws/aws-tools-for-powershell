@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>
-        /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: 2009-07-08T18:00Z</para>
         /// </para>
         /// </summary>
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UtcStartTime
         /// <summary>
         /// <para>
-        /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: 2009-07-08T18:00Z</para>
         /// </para>
         /// </summary>
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para> The end of the time interval for which to retrieve events, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// wrong timestamp being passed to the service.</para><para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: 2009-07-08T18:00Z</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous DescribeEvents request. If this
+        /// <para>An optional pagination token provided by a previous DescribeEvents request. If this
         /// parameter is specified, the response includes only records beyond the marker, up to
-        /// the value specified by <code>MaxRecords</code>. </para>
+        /// the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so that you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -196,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para> The beginning of the time interval to retrieve events for, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// results in the wrong timestamp being passed to the service.</para><para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: 2009-07-08T18:00Z</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>

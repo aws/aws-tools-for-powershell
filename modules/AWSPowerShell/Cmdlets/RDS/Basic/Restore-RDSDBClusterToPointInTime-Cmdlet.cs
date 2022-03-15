@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
     /// days. The target DB cluster is created from the source DB cluster with the same configuration
     /// as the original DB cluster, except that the new DB cluster is created with the default
-    /// DB security group. 
+    /// DB security group.
     /// 
     ///  <note><para>
     /// For Aurora, this action only restores the DB cluster, not the DB instances for that
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// is available.
     /// </para></note><para>
     /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
     /// User Guide.</i></para>
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster in <code>serverless</code> DB engine mode. A DB cluster can be paused only
         /// when it's idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
         /// up with a snapshot. In this case, the DB cluster is restored when there is a request
-        /// to connect to it. </para></note>
+        /// to connect to it.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
-        /// must be created prior to this operation. </para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
+        /// must be created prior to this operation.</para><para>For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
         /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para><para>Valid for: Aurora DB clusters only</para>
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,8 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
         /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database Service
-        /// User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide.</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
         /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,9 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The engine mode of the new cluster. Specify <code>provisioned</code> or <code>serverless</code>,
         /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
-        /// clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
-        /// cluster. To create a clone that is an Aurora Serverless cluster, the original cluster
-        /// must be an Aurora Serverless cluster or an encrypted provisioned cluster.</para><para>Valid for: Aurora DB clusters only</para>
+        /// v1 clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
+        /// v1 cluster. To create a clone that is an Aurora Serverless v1 cluster, the original
+        /// cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,8 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
         /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
         /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
-        /// Guide</i>. </para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
-        /// instance. </para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// Guide</i>.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// instance.</para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: A value from <code>1150-65535</code>. </para><para>Default: The default port for the engine.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: A value from <code>1150-65535</code>.</para><para>Default: The default port for the engine.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,8 +354,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_SecondsBeforeTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
-        /// to perform seamless scaling before enforcing the timeout action. The default is 300.</para><para>Specify a value between 60 and 600 seconds.</para>
+        /// <para>The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling
+        /// point to perform seamless scaling before enforcing the timeout action. The default
+        /// is 300.</para><para>Specify a value between 60 and 600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the storage type to be associated with the each DB instance in the Multi-AZ
-        /// DB cluster.</para><para> Valid values: <code>io1</code></para><para> When specified, a value for the <code>Iops</code> parameter is required. </para><para> Default: <code>io1</code></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// DB cluster.</para><para>Valid values: <code>io1</code></para><para>When specified, a value for the <code>Iops</code> parameter is required.</para><para>Default: <code>io1</code></para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,8 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
         /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
         /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
-        /// Serverless from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
-        /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// Serverless v1 from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+        /// Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -432,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to restore the DB cluster to the latest restorable
         /// backup time. By default, the DB cluster isn't restored to the latest restorable backup
-        /// time. </para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// time.</para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

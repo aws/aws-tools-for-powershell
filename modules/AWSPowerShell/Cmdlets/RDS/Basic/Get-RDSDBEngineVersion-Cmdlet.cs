@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to return.</para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The database engine to return.</para><para>Valid Values:</para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -86,13 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A filter that specifies one or more DB engine versions to describe.</para><para>Supported filters:</para><ul><li><para><code>db-parameter-group-family</code> - Accepts parameter groups family names. The
         /// results list only includes information about the DB engine versions for these parameter
-        /// group families. </para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
-        /// about the DB engine versions for these engines. </para></li><li><para><code>engine-mode</code> - Accepts DB engine modes. The results list only includes
+        /// group families.</para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
+        /// about the DB engine versions for these engines.</para></li><li><para><code>engine-mode</code> - Accepts DB engine modes. The results list only includes
         /// information about the DB engine versions for these engine modes. Valid DB engine modes
-        /// are the following: </para><ul><li><para><code>global</code></para></li><li><para><code>multimaster</code></para></li><li><para><code>parallelquery</code></para></li><li><para><code>provisioned</code></para></li><li><para><code>serverless</code></para></li></ul></li><li><para><code>engine-version</code> - Accepts engine versions. The results list only includes
-        /// information about the DB engine versions for these engine versions. </para></li><li><para><code>status</code> - Accepts engine version statuses. The results list only includes
+        /// are the following:</para><ul><li><para><code>global</code></para></li><li><para><code>multimaster</code></para></li><li><para><code>parallelquery</code></para></li><li><para><code>provisioned</code></para></li><li><para><code>serverless</code></para></li></ul></li><li><para><code>engine-version</code> - Accepts engine versions. The results list only includes
+        /// information about the DB engine versions for these engine versions.</para></li><li><para><code>status</code> - Accepts engine version statuses. The results list only includes
         /// information about the DB engine versions for these statuses. Valid statuses are the
-        /// following: </para><ul><li><para><code>available</code></para></li><li><para><code>deprecated</code></para></li></ul></li></ul>
+        /// following:</para><ul><li><para><code>available</code></para></li><li><para><code>deprecated</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// version.</para><para>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
         /// character sets for each engine version.</para><para>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
-        /// to <code>true</code>, RDS Custom returns no results. </para>
+        /// to <code>true</code>, RDS Custom returns no results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to list the supported time zones for each engine version.</para><para>If this parameter is enabled and the requested engine supports the <code>TimeZone</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// time zones for each engine version. </para><para>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
-        /// to <code>true</code>, RDS Custom returns no results. </para>
+        /// time zones for each engine version.</para><para>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
+        /// to <code>true</code>, RDS Custom returns no results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous request. If this parameter is
+        /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>. </para>
+        /// by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -160,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to include in the response. If more than the <code>MaxRecords</code>
+        /// <para>The maximum number of records to include in the response. If more than the <code>MaxRecords</code>
         /// value is available, a pagination token called a marker is included in the response
-        /// so you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

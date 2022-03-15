@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// 
     ///  
     /// <para>
-    ///  Any number of users can execute up to 4 concurrent restores (any type of restore)
+    /// Any number of users can execute up to 4 concurrent restores (any type of restore)
     /// in a given account.
     /// </para><para>
     /// When you restore using point in time recovery, Amazon Keyspaces restores your source
@@ -50,27 +50,27 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// settings as of the current time or when the table was deleted.
     /// </para><para>
     /// You can also overwrite these settings during restore:
-    /// </para><ul><li><para>
-    /// Read/write capacity mode
-    /// </para></li><li><para>
-    /// Provisioned throughput capacity settings
-    /// </para></li><li><para>
-    /// Point-in-time (PITR) settings
-    /// </para></li><li><para>
-    /// Tags
-    /// </para></li></ul><para>
+    /// </para><para>
+    /// • Read/write capacity mode
+    /// </para><para>
+    /// • Provisioned throughput capacity settings
+    /// </para><para>
+    /// • Point-in-time (PITR) settings
+    /// </para><para>
+    /// • Tags
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings">PITR
     /// restore settings</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// </para><para>
-    /// The following settings are not restored, and you must configure them manually for
-    /// the new table. 
-    /// </para><ul><li><para>
-    /// Automatic scaling policies (for tables that use provisioned capacity mode)
-    /// </para></li><li><para>
-    /// Identity and Access Management (IAM) policies
-    /// </para></li><li><para>
-    /// Amazon CloudWatch metrics and alarms
-    /// </para></li></ul>
+    /// Note that the following settings are not restored, and you must configure them manually
+    /// for the new table:
+    /// </para><para>
+    /// • Automatic scaling policies (for tables that use provisioned capacity mode)
+    /// </para><para>
+    /// • Identity and Access Management (IAM) policies
+    /// </para><para>
+    /// • Amazon CloudWatch metrics and alarms
+    /// </para>
     /// </summary>
     [Cmdlet("Restore", "KSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter EncryptionSpecificationOverride_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter PointInTimeRecoveryOverride_Status
         /// <summary>
         /// <para>
-        /// <para>The options are:</para><ul><li><para><code>ENABLED</code></para></li><li><para><code>DISABLED</code></para></li></ul>
+        /// <para>The options are:</para><para>• <code>ENABLED</code></para><para>• <code>DISABLED</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecificationOverride_ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><code>throughputMode:PAY_PER_REQUEST</code> and </para></li><li><para><code>throughputMode:PROVISIONED</code>. The provisioned capacity mode requires <code>readCapacityUnits</code>
-        /// and <code>writeCapacityUnits</code> as inputs. </para></li></ul><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
+        /// <para>The read/write throughput capacity mode for a table. The options are:</para><para>• <code>throughputMode:PAY_PER_REQUEST</code> and </para><para>• <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code>
+        /// and <code>writeCapacityUnits</code> as input.</para><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
         /// capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -222,10 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter EncryptionSpecificationOverride_Type
         /// <summary>
         /// <para>
-        /// <para> The encryption option specified for the table. You can choose one of the following
-        /// KMS keys (KMS keys):</para><ul><li><para><code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para></li><li><para><code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and
-        /// is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
-        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
+        /// <para>The encryption option specified for the table. You can choose one of the following
+        /// KMS keys (KMS keys):</para><para>• <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para><para>• <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account
+        /// and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
+        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
         /// at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>

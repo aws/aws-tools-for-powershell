@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gigabytes) to allocate initially for the DB instance. Follow
-        /// the allocation rules specified in <code>CreateDBInstance</code>. </para><note><para>Be sure to allocate enough memory for your new DB instance so that the restore operation
-        /// can succeed. You can also allocate additional memory for future growth. </para></note>
+        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough memory for your new DB instance so that the restore operation
+        /// can succeed. You can also allocate additional memory for future growth.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether minor engine upgrades are applied automatically to
         /// the DB instance during the maintenance window. By default, minor engine upgrades are
-        /// not applied automatically. </para>
+        /// not applied automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Availability Zone that the DB instance is created in. For information about Amazon
         /// Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
         /// and Availability Zones</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region. </para><para> Example: <code>us-east-1d</code></para><para>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
+        /// Region.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
-        /// same Amazon Web Services Region as the current endpoint. </para>
+        /// same Amazon Web Services Region as the current endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
-        /// to a positive number enables backups. For more information, see <code>CreateDBInstance</code>.
-        /// </para>
+        /// to a positive number enables backups. For more information, see <code>CreateDBInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the DB instance to snapshots
-        /// of the DB instance. By default, tags are not copied. </para>
+        /// of the DB instance. By default, tags are not copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB instance classes are available in all Amazon Web Services Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Importing from Amazon S3 isn't supported on the db.t2.micro DB instance class. </para>
+        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Importing from Amazon S3 isn't supported on the db.t2.micro DB instance class.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the database to create when the DB instance is created. Follow the naming
-        /// rules specified in <code>CreateDBInstance</code>. </para>
+        /// rules specified in <code>CreateDBInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
         /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>. </para>
+        /// Deleting a DB Instance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,10 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable Performance Insights for the DB instance.
-        /// </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User
-        /// Guide</i>. </para>
+        /// <para>A value that indicates whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide.</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance. </para><para>Valid Values: <code>mysql</code></para>
+        /// <para>The name of the database engine to be used for this instance.</para><para>Valid Values: <code>mysql</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -264,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version number of the database engine to use. Choose the latest minor version
         /// of your database engine. For information about engine versions, see <code>CreateDBInstance</code>,
-        /// or call <code>DescribeDBEngineVersions</code>. </para>
+        /// or call <code>DescribeDBEngineVersions</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,13 +284,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services KMS key identifier for an encrypted DB instance. </para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// <para>The Amazon Web Services KMS key identifier for an encrypted DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
         /// specify the key ARN or alias ARN.</para><para>If the <code>StorageEncrypted</code> parameter is enabled, and you do not specify
         /// a value for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default
         /// KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon
         /// Web Services account has a different default KMS key for each Amazon Web Services
-        /// Region. </para>
+        /// Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model for this DB instance. Use <code>general-public-license</code>. </para>
+        /// <para>The license model for this DB instance. Use <code>general-public-license</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name for the master user. </para><para>Constraints: </para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name for the master user.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master user. The password can include any printable ASCII character
-        /// except "/", """, or "@". </para><para>Constraints: Must contain from 8 to 41 characters.</para>
+        /// except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,9 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
-        /// </para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0. </para><para>Valid Values: 0, 1, 5, 10, 15, 30, 60 </para><para>Default: <code>0</code></para>
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: 0, 1, 5, 10, 15, 30, 60</para><para>Default: <code>0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
         /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
         /// Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value. </para>
+        /// a <code>MonitoringRoleArn</code> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment. If the DB
         /// instance is a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code>
-        /// parameter. </para>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the option group to associate with this DB instance. If this argument
-        /// is omitted, the default option group for the specified engine is used. </para>
+        /// is omitted, the default option group for the specified engine is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years). </para>
+        /// 7 or 731 (2 years).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections. </para><para>Type: Integer </para><para>Valid Values: <code>1150</code>-<code>65535</code></para><para>Default: <code>3306</code></para>
+        /// <para>The port number on which the database accepts connections.</para><para>Type: Integer</para><para>Valid Values: <code>1150</code>-<code>65535</code></para><para>Default: <code>3306</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -486,7 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of your Amazon S3 bucket that contains your database backup file. </para>
+        /// <para>The name of your Amazon S3 bucket that contains your database backup file.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -504,7 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>An Amazon Web Services Identity and Access Management (IAM) role to allow Amazon RDS
-        /// to access your Amazon S3 bucket. </para>
+        /// to access your Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -521,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter S3Prefix
         /// <summary>
         /// <para>
-        /// <para>The prefix of your Amazon S3 bucket. </para>
+        /// <para>The prefix of your Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,7 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine of your source database. </para><para>Valid Values: <code>mysql</code></para>
+        /// <para>The name of the engine of your source database.</para><para>Valid Values: <code>mysql</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -548,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.6 and 5.7 are supported. </para><para>Example: <code>5.6.40</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.6 and 5.7 are supported.</para><para>Example: <code>5.6.40</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -565,7 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the new DB instance is encrypted or not. </para>
+        /// <para>A value that indicates whether the new DB instance is encrypted or not.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -575,8 +571,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance. </para><para>Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
+        /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>
@@ -611,7 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups to associate with this DB instance. </para>
+        /// <para>A list of VPC security groups to associate with this DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

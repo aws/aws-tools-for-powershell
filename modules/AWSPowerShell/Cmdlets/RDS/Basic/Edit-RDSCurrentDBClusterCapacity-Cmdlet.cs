@@ -28,28 +28,28 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Set the capacity of an Aurora Serverless DB cluster to a specific value.
+    /// Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.
     /// 
     ///  
     /// <para>
-    /// Aurora Serverless scales seamlessly based on the workload on the DB cluster. In some
-    /// cases, the capacity might not scale fast enough to meet a sudden change in workload,
+    /// Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In
+    /// some cases, the capacity might not scale fast enough to meet a sudden change in workload,
     /// such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
     /// to set the capacity explicitly.
     /// </para><para>
-    /// After this call sets the DB cluster capacity, Aurora Serverless can automatically
+    /// After this call sets the DB cluster capacity, Aurora Serverless v1 can automatically
     /// scale the DB cluster based on the cooldown period for scaling up and the cooldown
     /// period for scaling down.
     /// </para><para>
-    /// For more information about Aurora Serverless, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
-    /// Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+    /// For more information about Aurora Serverless v1, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
+    /// Amazon Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><important><para>
     /// If you call <code>ModifyCurrentDBClusterCapacity</code> with the default <code>TimeoutAction</code>,
-    /// connections that prevent Aurora Serverless from finding a scaling point might be dropped.
-    /// For more information about scaling points, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
-    /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+    /// connections that prevent Aurora Serverless v1 from finding a scaling point might be
+    /// dropped. For more information about scaling points, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+    /// Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para></important><note><para>
-    /// This action only applies to Aurora Serverless DB clusters.
+    /// This action only applies to Aurora Serverless v1 DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSCurrentDBClusterCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Capacity
         /// <summary>
         /// <para>
-        /// <para>The DB cluster capacity.</para><para>When you change the capacity of a paused Aurora Serverless DB cluster, it automatically
+        /// <para>The DB cluster capacity.</para><para>When you change the capacity of a paused Aurora Serverless v1 DB cluster, it automatically
         /// resumes.</para><para>Constraints:</para><ul><li><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
         /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
         /// and <code>256</code>.</para></li><li><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
@@ -95,8 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SecondsBeforeTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
-        /// to perform seamless scaling before enforcing the timeout action. The default is 300.</para><para>Specify a value between 10 and 600 seconds.</para>
+        /// <para>The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling
+        /// point to perform seamless scaling before enforcing the timeout action. The default
+        /// is 300.</para><para>Specify a value between 10 and 600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

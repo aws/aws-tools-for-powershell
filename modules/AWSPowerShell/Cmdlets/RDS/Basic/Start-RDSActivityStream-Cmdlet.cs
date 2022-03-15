@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies the mode of the database activity stream. Database events such as a change
         /// or access generate an activity stream event. The database session can handle these
-        /// events either synchronously or asynchronously. </para>
+        /// events either synchronously or asynchronously.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

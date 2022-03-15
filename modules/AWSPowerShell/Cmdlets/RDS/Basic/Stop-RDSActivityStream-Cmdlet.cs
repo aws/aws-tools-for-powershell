@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the DB cluster for the database activity stream.
-        /// For example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>. </para>
+        /// For example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

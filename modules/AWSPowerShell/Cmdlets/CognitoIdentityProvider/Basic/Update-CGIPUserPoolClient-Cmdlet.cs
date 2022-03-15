@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
-        /// Pinpoint project for integration with the chosen User Pool Client. Amazon Cognito
-        /// publishes events to the Amazon Pinpointproject declared by the app ARN.</para>
+        /// Pinpoint project to integrate with the chosen user pool Client. Amazon Cognito publishes
+        /// events to the Amazon Pinpointproject declared by the app ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

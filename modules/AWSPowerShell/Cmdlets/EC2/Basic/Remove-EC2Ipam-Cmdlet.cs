@@ -51,6 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2IpamCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Cascade
+        /// <summary>
+        /// <para>
+        /// <para>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and
+        /// any allocations in the pools in private scopes. You cannot delete the IPAM with this
+        /// option if there is a pool in your public scope. If you use this option, IPAM does
+        /// the following:</para><ul><li><para>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private
+        /// scopes.</para><note><para>No VPC resources are deleted as a result of enabling this option. The CIDR associated
+        /// with the resource will no longer be allocated from an IPAM pool, but the CIDR itself
+        /// will remain unchanged.</para></note></li><li><para>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</para></li><li><para>Deletes all IPAM pools in private scopes.</para></li><li><para>Deletes all non-default private scopes in the IPAM.</para></li><li><para>Deletes the default public and private scopes and the IPAM.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Cascade { get; set; }
+        #endregion
+        
         #region Parameter IpamId
         /// <summary>
         /// <para>
@@ -129,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.IpamId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Cascade = this.Cascade;
             context.IpamId = this.IpamId;
             #if MODULAR
             if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
@@ -152,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DeleteIpamRequest();
             
+            if (cmdletContext.Cascade != null)
+            {
+                request.Cascade = cmdletContext.Cascade.Value;
+            }
             if (cmdletContext.IpamId != null)
             {
                 request.IpamId = cmdletContext.IpamId;
@@ -217,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Cascade { get; set; }
             public System.String IpamId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteIpamResponse, RemoveEC2IpamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Ipam;

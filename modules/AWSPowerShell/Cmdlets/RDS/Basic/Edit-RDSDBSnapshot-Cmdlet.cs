@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This
-    /// command doesn't apply to RDS Custom. 
+    /// command doesn't apply to RDS Custom.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version to upgrade the DB snapshot to. </para><para>The following are the database engines and engine versions that are available when
-        /// you upgrade a DB snapshot. </para><para><b>MySQL</b></para><ul><li><para><code>5.5.46</code> (supported for 5.1 DB snapshots)</para></li></ul><para><b>Oracle</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for 12.1.0.1 DB snapshots)</para></li><li><para><code>11.2.0.4.v12</code> (supported for 11.2.0.2 DB snapshots)</para></li><li><para><code>11.2.0.4.v11</code> (supported for 11.2.0.3 DB snapshots)</para></li></ul><para><b>PostgreSQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
+        /// <para>The engine version to upgrade the DB snapshot to.</para><para>The following are the database engines and engine versions that are available when
+        /// you upgrade a DB snapshot.</para><para><b>MySQL</b></para><ul><li><para><code>5.5.46</code> (supported for 5.1 DB snapshots)</para></li></ul><para><b>Oracle</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for 12.1.0.1 DB snapshots)</para></li><li><para><code>11.2.0.4.v12</code> (supported for 11.2.0.2 DB snapshots)</para></li><li><para><code>11.2.0.4.v11</code> (supported for 11.2.0.3 DB snapshots)</para></li></ul><para><b>PostgreSQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion">
-        /// Upgrading the PostgreSQL DB Engine for Amazon RDS</a>. </para>
+        /// Upgrading the PostgreSQL DB Engine for Amazon RDS</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The option group to identify with the upgraded DB snapshot. </para><para>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option
+        /// <para>The option group to identify with the upgraded DB snapshot.</para><para>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option
         /// group considerations apply when upgrading a DB snapshot as when upgrading a DB instance.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG">Option
         /// group considerations</a> in the <i>Amazon RDS User Guide.</i></para>

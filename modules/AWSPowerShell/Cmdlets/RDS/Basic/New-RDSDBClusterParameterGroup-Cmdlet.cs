@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
     /// </para><para>
-    ///  A DB cluster parameter group is initially created with the default parameters for
+    /// A DB cluster parameter group is initially created with the default parameters for
     /// the database engine used by instances in the DB cluster. To provide custom values
     /// for any of the parameters, you must modify the group after creating it using <code>ModifyDBClusterParameterGroup</code>.
     /// Once you've created a DB cluster parameter group, you need to associate it with your
@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// When you associate a new DB cluster parameter group with a running Aurora DB cluster,
     /// reboot the DB instances in the DB cluster without failover for the new DB cluster
-    /// parameter group and associated settings to take effect. 
+    /// parameter group and associated settings to take effect.
     /// </para><para>
     /// When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster,
     /// reboot the DB cluster without failover for the new DB cluster parameter group and
-    /// associated settings to take effect. 
+    /// associated settings to take effect.
     /// </para><important><para>
     /// After you create a DB cluster parameter group, you should wait at least 5 minutes
     /// before creating your first DB cluster that uses that DB cluster parameter group as
@@ -60,10 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// your DB cluster parameter group has been created or modified.
     /// </para></important><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
     /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide.</i></para>
+    /// User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterParameterGroup")]

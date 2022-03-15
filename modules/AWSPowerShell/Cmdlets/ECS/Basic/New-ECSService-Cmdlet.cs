@@ -399,10 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PropagateTag
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to propagate the tags from the task definition or the service to
-        /// the tasks in the service. If no value is specified, the tags aren't propagated. Tags
-        /// can only be propagated to the tasks within the service during service creation. To
-        /// add tags to a task after service creation or task creation, use the <a>TagResource</a>
+        /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
+        /// value is specified, the tags aren't propagated. Tags can only be propagated to the
+        /// task during task creation. To add tags to a task after task creation, use the <a>TagResource</a>
         /// API action.</para>
         /// </para>
         /// </summary>

@@ -56,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// receives as input. In this payload, the <code>clientMetadata</code> attribute provides
         /// the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp
         /// request. In your function code in Lambda, you can process the ClientMetadata value
-        /// to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-        /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+        /// to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
+        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
         /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
         /// are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>

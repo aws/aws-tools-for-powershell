@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceOptionGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source option group. </para><para>Constraints:</para><ul><li><para>Must specify a valid option group.</para></li></ul>
+        /// <para>The identifier for the source option group.</para><para>Constraints:</para><ul><li><para>Must specify a valid option group.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

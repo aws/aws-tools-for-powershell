@@ -28,10 +28,12 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modify a setting for an Amazon Aurora global cluster. You can change one or more
-    /// database configuration parameters by specifying these parameters and the new values
-    /// in the request. For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i><note><para>
+    /// Modify a setting for an Amazon Aurora global cluster. You can change one or more database
+    /// configuration parameters by specifying these parameters and the new values in the
+    /// request. For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
+    /// 
+    ///  <note><para>
     /// This action only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
@@ -62,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para> Indicates if the global database cluster has deletion protection enabled. The global
-        /// database cluster can't be deleted when deletion protection is enabled. </para>
+        /// <para>Indicates if the global database cluster has deletion protection enabled. The global
+        /// database cluster can't be deleted when deletion protection is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB cluster identifier for the global cluster being modified. This parameter isn't
-        /// case-sensitive. </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster.</para></li></ul>
+        /// <para>The DB cluster identifier for the global cluster being modified. This parameter isn't
+        /// case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NewGlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The new cluster identifier for the global database cluster when modifying a global
-        /// database cluster. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// <para>The new cluster identifier for the global database cluster when modifying a global
+        /// database cluster. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

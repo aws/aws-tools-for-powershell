@@ -31,14 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates an Aurora global database spread across multiple Amazon Web Services Regions.
     /// The global database contains a single primary cluster with read-write capability,
     /// and a read-only secondary cluster that receives data from the primary cluster through
-    /// high-speed replication performed by the Aurora storage subsystem. 
+    /// high-speed replication performed by the Aurora storage subsystem.
     /// 
     ///  
     /// <para>
-    ///  You can create a global database that is initially empty, and then add a primary
-    /// cluster and a secondary cluster to it. Or you can specify an existing Aurora cluster
-    /// during the create operation, and this cluster becomes the primary cluster of the global
-    /// database. 
+    /// You can create a global database that is initially empty, and then add a primary cluster
+    /// and a secondary cluster to it. Or you can specify an existing Aurora cluster during
+    /// the create operation, and this cluster becomes the primary cluster of the global database.
     /// </para><note><para>
     /// This action only applies to Aurora DB clusters.
     /// </para></note>
@@ -56,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para> The name for your database of up to 64 alpha-numeric characters. If you do not provide
+        /// <para>The name for your database of up to 64 alpha-numeric characters. If you do not provide
         /// a name, Amazon Aurora will not create a database in the global database cluster you
-        /// are creating. </para>
+        /// are creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para> The deletion protection setting for the new global database. The global database
-        /// can't be deleted when deletion protection is enabled. </para>
+        /// <para>The deletion protection setting for the new global database. The global database can't
+        /// be deleted when deletion protection is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
-        /// This parameter is optional. </para>
+        /// <para>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
+        /// This parameter is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para> The storage encryption setting for the new global database cluster. </para>
+        /// <para>The storage encryption setting for the new global database cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

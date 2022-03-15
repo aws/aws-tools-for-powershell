@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
-        /// Pinpoint project for integration with the chosen User Pool Client. Amazon Cognito
-        /// publishes events to the Amazon Pinpointproject declared by the app ARN.</para>
+        /// Pinpoint project to integrate with the chosen user pool Client. Amazon Cognito publishes
+        /// events to the Amazon Pinpointproject declared by the app ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The authentication flows that are supported by the user pool clients. Flow names without
         /// the <code>ALLOW_</code> prefix are no longer supported, in favor of new names with
-        /// the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix must
-        /// be used only along with the <code>ALLOW_</code> prefix.</para><para>Valid values include:</para><ul><li><para><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication
+        /// the <code>ALLOW_</code> prefix.</para><note><para>Values with <code>ALLOW_</code> prefix must be used only along with the <code>ALLOW_</code>
+        /// prefix.</para></note><para>Valid values include:</para><ul><li><para><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication
         /// flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code>
         /// setting. With this authentication flow, Amazon Cognito receives the password in the
         /// request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</para></li><li><para><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</para></li><li><para><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication.
@@ -369,12 +369,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The user pool attributes that the app client can write to.</para><para>If your app client allows users to sign in through an identity provider, this array
-        /// must include all attributes that are mapped to identity provider attributes. Amazon
-        /// Cognito updates mapped attributes when users sign in to your application through an
-        /// identity provider. If your app client lacks write access to a mapped attribute, Amazon
-        /// Cognito throws an error when it tries to update the attribute. For more information,
+        /// must include all attributes that you have mapped to identity provider attributes.
+        /// Amazon Cognito updates mapped attributes when users sign in to your application through
+        /// an identity provider. If your app client does not have write access to a mapped attribute,
+        /// Amazon Cognito throws an error when it tries to update the attribute. For more information,
         /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying
-        /// Identity Provider Attribute Mappings for Your User Pool</a>.</para>
+        /// Identity Provider Attribute Mappings for Your user pool</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Deletes a global database cluster. The primary and secondary clusters must already
-    /// be detached or destroyed first. 
+    /// be detached or destroyed first.
     /// 
     ///  <note><para>
     /// This action only applies to Aurora DB clusters.
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The cluster identifier of the global database cluster being deleted. </para>
+        /// <para>The cluster identifier of the global database cluster being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

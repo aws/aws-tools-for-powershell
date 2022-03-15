@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// engine and specific AMI. The supported engines are the following:
     /// 
     ///  <ul><li><para>
-    ///  Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR
+    /// Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR
     /// </para></li><li><para>
-    ///  Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR
+    /// Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR
     /// </para></li></ul><para>
     /// Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI)
     /// and database software. The Amazon RDS database software is preinstalled, so you need
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The CEV manifest, which is a JSON document that describes the installation .zip files
         /// stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS
         /// Custom applies the patches in the order in which they are listed.</para><para>The following JSON fields are valid:</para><dl><dt>MediaImportTemplateVersion</dt><dd><para>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</para></dd><dt>databaseInstallationFileNames</dt><dd><para>Ordered list of installation files for the CEV.</para></dd><dt>opatchFileNames</dt><dd><para>Ordered list of OPatch installers used for the Oracle DB engine.</para></dd><dt>psuRuPatchFileNames</dt><dd><para>The PSU and RU patches for this CEV.</para></dd><dt>OtherPatchFileNames</dt><dd><para>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these
-        /// patches after applying the PSU and RU patches. </para></dd></dl><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
+        /// patches after applying the PSU and RU patches.</para></dd></dl><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
         /// Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>

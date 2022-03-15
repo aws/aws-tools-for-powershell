@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console,
-    /// the stop-db-instance CLI command, or the StopDBInstance action. 
+    /// the stop-db-instance CLI command, or the StopDBInstance action.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
     /// Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon
     /// RDS User Guide.</i></para><note><para>
-    ///  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
-    /// Aurora DB clusters, use <code>StartDBCluster</code> instead. 
+    /// This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For
+    /// Aurora DB clusters, use <code>StartDBCluster</code> instead.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The user-supplied instance identifier. </para>
+        /// <para>The user-supplied instance identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

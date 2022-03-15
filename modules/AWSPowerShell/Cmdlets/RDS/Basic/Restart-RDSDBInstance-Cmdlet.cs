@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// if you make certain modifications, or if you change the DB parameter group associated
     /// with the DB instance, you must reboot the instance for the changes to take effect.
     /// 
-    /// 
     ///  
     /// <para>
     /// Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
     /// results in a momentary outage, during which the DB instance status is set to rebooting.
-    /// 
     /// </para><para>
     /// For more information about rebooting, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html">Rebooting
     /// a DB Instance</a> in the <i>Amazon RDS User Guide.</i></para><para>
@@ -74,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para> A value that indicates whether the reboot is conducted through a Multi-AZ failover.
-        /// </para><para>Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.</para>
+        /// <para>A value that indicates whether the reboot is conducted through a Multi-AZ failover.</para><para>Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

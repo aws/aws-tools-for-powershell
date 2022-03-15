@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// if you make certain modifications, or if you change the DB cluster parameter group
     /// associated with the DB cluster, reboot the DB cluster for the changes to take effect.
     /// 
-    /// 
     ///  
     /// <para>
     /// Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster
     /// results in a momentary outage, during which the DB cluster status is set to rebooting.
-    /// 
     /// </para><para>
     /// Use this operation only for a non-Aurora Multi-AZ DB cluster.
     /// </para><para>

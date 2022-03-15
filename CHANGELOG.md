@@ -1,4 +1,14 @@
-﻿### 4.1.43 (2022-03-14 22:06Z)
+﻿### 4.1.44 (2022-03-15 22:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.230.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter SmsConfiguration_SnsRegion.
+    * Modified cmdlet Update-CGIPUserPool: added parameter SmsConfiguration_SnsRegion.
+  * Amazon Data Exchange
+    * Added cmdlet Revoke-DTEXRevision leveraging the RevokeRevision service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Remove-EC2Ipam: added parameter Cascade.
+
+### 4.1.43 (2022-03-14 22:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.229.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.42 (2022-03-11 21:21Z)

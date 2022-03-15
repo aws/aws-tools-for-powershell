@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    ///  If you request a final DB snapshot the status of the Amazon RDS DB instance is <code>deleting</code>
+    /// If you request a final DB snapshot the status of the Amazon RDS DB instance is <code>deleting</code>
     /// until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is
     /// used to monitor the status of this operation. The action can't be canceled or reverted
-    /// once submitted. 
+    /// once submitted.
     /// </para><para>
     /// When a DB instance is in a failure state and has a status of <code>failed</code>,
     /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created
-        /// when the <code>SkipFinalSnapshot</code> parameter is disabled. </para><note><para>If you enable this parameter and also enable SkipFinalShapshot, the command results
+        /// <para>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
+        /// the <code>SkipFinalSnapshot</code> parameter is disabled.</para><note><para>If you enable this parameter and also enable SkipFinalShapshot, the command results
         /// in an error.</para></note><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Can't be specified when deleting a read replica.</para></li></ul>
         /// </para>
         /// </summary>

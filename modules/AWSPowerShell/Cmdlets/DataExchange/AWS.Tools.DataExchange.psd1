@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DTEXEventAction', 
         'Remove-DTEXResourceTag', 
         'Remove-DTEXRevision', 
+        'Revoke-DTEXRevision', 
         'Send-DTEXApiAsset', 
         'Start-DTEXJob', 
         'Stop-DTEXJob', 

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
-    /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2PublicIpv4PoolCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

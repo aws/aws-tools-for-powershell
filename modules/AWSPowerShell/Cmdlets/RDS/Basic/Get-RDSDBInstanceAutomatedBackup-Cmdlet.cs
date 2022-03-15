@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>(Optional) The user-supplied instance identifier. If this parameter is specified,
         /// it must match the identifier of an existing DB instance. It returns information from
-        /// the specific DB instance' automated backup. This parameter isn't case-sensitive. </para>
+        /// the specific DB instance' automated backup. This parameter isn't case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The resource ID of the DB instance that is the source of the automated backup. This
-        /// parameter isn't case-sensitive. </para>
+        /// parameter isn't case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

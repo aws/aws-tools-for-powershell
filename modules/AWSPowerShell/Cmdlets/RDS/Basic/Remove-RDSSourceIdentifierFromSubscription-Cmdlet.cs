@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The source identifier to be removed from the subscription, such as the <b>DB instance
-        /// identifier</b> for a DB instance or the name of a security group. </para>
+        /// <para>The source identifier to be removed from the subscription, such as the <b>DB instance
+        /// identifier</b> for a DB instance or the name of a security group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

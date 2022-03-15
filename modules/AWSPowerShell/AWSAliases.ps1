@@ -5046,6 +5046,7 @@ Set-Alias -Name List-DTEXRevisionAssets -Value Get-DTEXRevisionAssetList
 Set-Alias -Name List-DTEXRevisionAssetList -Value Get-DTEXRevisionAssetList
 Set-Alias -Name DTEX-ListRevisionAssets -Value Get-DTEXRevisionAssetList
 Set-Alias -Name DTEX-ListTagsForResource -Value Get-DTEXResourceTag
+Set-Alias -Name DTEX-RevokeRevision -Value Revoke-DTEXRevision
 Set-Alias -Name DTEX-SendApiAsset -Value Send-DTEXApiAsset
 Set-Alias -Name DTEX-StartJob -Value Start-DTEXJob
 Set-Alias -Name DTEX-TagResource -Value Add-DTEXResourceTag

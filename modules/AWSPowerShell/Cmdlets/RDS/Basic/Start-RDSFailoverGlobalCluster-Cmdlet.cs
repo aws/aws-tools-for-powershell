@@ -40,11 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// For more information about failing over an Amazon Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Managed
     /// planned failover for Amazon Aurora global databases</a> in the <i>Amazon Aurora User
-    /// Guide.</i></para><note><para>
+    /// Guide</i>.
+    /// </para><note><para>
     /// This action applies to <a>GlobalCluster</a> (Aurora global databases) only. Use this
     /// action only on healthy Aurora global databases with running Aurora DB clusters and
     /// no Region-wide outages, to test disaster recovery scenarios or to reconfigure your
-    /// Aurora global database topology. 
+    /// Aurora global database topology.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSFailoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Identifier of the Aurora global database (<a>GlobalCluster</a>) that should be failed
         /// over. The identifier is the unique key assigned by the user when the Aurora global
         /// database was created. In other words, it's the name of the Aurora global database
-        /// that you want to fail over. </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <a>GlobalCluster</a> (Aurora global database).</para></li></ul>
+        /// that you want to fail over.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <a>GlobalCluster</a> (Aurora global database).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Identifier of the secondary Aurora DB cluster that you want to promote to primary
         /// for the Aurora global database (<a>GlobalCluster</a>.) Use the Amazon Resource Name
         /// (ARN) for the identifier so that Aurora can locate the cluster in its Amazon Web Services
-        /// Region. </para>
+        /// Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
