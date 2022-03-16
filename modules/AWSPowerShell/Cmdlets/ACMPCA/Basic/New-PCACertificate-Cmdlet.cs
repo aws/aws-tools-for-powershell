@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// 
     ///  <note><para>
     /// You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs
-    /// of the certificates that you issue by using ACM Private CA.
+    /// of the certificates that you issue by using Amazon Web Services Private CA.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "PCACertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// -out csr/test_cert_.csr</code></para><para>If you have a configuration file, you can then use the following OpenSSL command.
         /// The <code>usr_cert</code> block in the configuration file contains your X509 version
         /// 3 extensions. </para><para><code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048
-        /// -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code></para><para>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative
+        /// -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code></para><para>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative
         /// name</i> or the request will be rejected. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -140,6 +140,34 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] Csr { get; set; }
+        #endregion
+        
+        #region Parameter Subject_CustomAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each
+        /// of which consists of an object identifier (OID) and a value. For more information,
+        /// see NIST’s definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
+        /// Identifier (OID)</a>.</para><note><para>Custom attributes cannot be used in combination with standard attributes.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApiPassthrough_Subject_CustomAttributes")]
+        public Amazon.ACMPCA.Model.CustomAttribute[] Subject_CustomAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Extensions_CustomExtension
+        /// <summary>
+        /// <para>
+        /// <para>Contains a sequence of one or more X.509 extensions, each of which consists of an
+        /// object identifier (OID), a base64-encoded value, and the critical flag. For more information,
+        /// see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a></para><note><para>The OID value of a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CustomExtension.html">CustomExtension</a>
+        /// must not match the OID of a predefined extension.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApiPassthrough_Extensions_CustomExtensions")]
+        public Amazon.ACMPCA.Model.CustomExtension[] Extensions_CustomExtension { get; set; }
         #endregion
         
         #region Parameter KeyUsage_DataEncipherment
@@ -238,9 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b>
         /// action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute.
         /// Therefore, if you call <b>IssueCertificate</b> multiple times with the same idempotency
-        /// token within one minute, ACM Private CA recognizes that you are requesting only one
-        /// certificate and will issue only one. If you change the idempotency token for each
-        /// call, PCA recognizes that you are requesting multiple certificates.</para>
+        /// token within one minute, Amazon Web Services Private CA recognizes that you are requesting
+        /// only one certificate and will issue only one. If you change the idempotency token
+        /// for each call, PCA recognizes that you are requesting multiple certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,7 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>The name of the algorithm that will be used to sign the certificate to be issued.
         /// </para><para>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
-        /// used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</para>
+        /// used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</para><note><para>The specified signing algorithm family (RSA or ECDSA) much match the algorithm family
+        /// of the CA's secret key.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -419,12 +448,13 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Specifies a custom configuration template to use when issuing a certificate. If this
-        /// parameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code>
+        /// parameter is not provided, Amazon Web Services Private CA defaults to the <code>EndEntityCertificate/V1</code>
         /// template. For CA certificates, you should choose the shortest path length that meets
         /// your needs. The path length is indicated by the PathLen<i>N</i> portion of the ARN,
         /// where <i>N</i> is the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth">CA
         /// depth</a>.</para><para>Note: The CA depth configured on a subordinate CA certificate must not exceed the
-        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <code>TemplateArn</code> values supported by ACM Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding
+        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <code>TemplateArn</code> values supported by Amazon Web Services Private
+        /// CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding
         /// Certificate Templates</a>.</para>
         /// </para>
         /// </summary>
@@ -451,8 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// sets the “Not After” date for the certificate.</para><para>Certificate validity is the period of time during which a certificate is valid. Validity
         /// can be expressed as an explicit date and time when the certificate expires, or as
         /// a span of time after issuance, stated in days, months, or years. For more information,
-        /// see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in
-        /// RFC 5280. </para><para>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For
+        /// see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
+        /// in RFC 5280. </para><para>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For
         /// example, if <code>Validity</code> is set to 20 days in the future, the certificate
         /// will expire 20 days from issuance time regardless of the <code>ValidityNotBefore</code>
         /// value.</para><para>The end of the validity period configured on a certificate must not exceed the limit
@@ -473,14 +503,14 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Information describing the start of the validity period of the certificate. This parameter
-        /// sets the “Not Before" date for the certificate.</para><para>By default, when issuing a certificate, ACM Private CA sets the "Not Before" date
-        /// to the issuance time minus 60 minutes. This compensates for clock inconsistencies
+        /// sets the “Not Before" date for the certificate.</para><para>By default, when issuing a certificate, Amazon Web Services Private CA sets the "Not
+        /// Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies
         /// across computer systems. The <code>ValidityNotBefore</code> parameter can be used
         /// to customize the “Not Before” value. </para><para>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter
         /// is optional.</para><para>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,
         /// using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html">Validity</a>
-        /// in this API reference and <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a>
+        /// in this API reference and <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
         /// in RFC 5280.</para>
         /// </para>
         /// </summary>
@@ -553,6 +583,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             {
                 context.Extensions_CertificatePolicy = new List<Amazon.ACMPCA.Model.PolicyInformation>(this.Extensions_CertificatePolicy);
             }
+            if (this.Extensions_CustomExtension != null)
+            {
+                context.Extensions_CustomExtension = new List<Amazon.ACMPCA.Model.CustomExtension>(this.Extensions_CustomExtension);
+            }
             if (this.Extensions_ExtendedKeyUsage != null)
             {
                 context.Extensions_ExtendedKeyUsage = new List<Amazon.ACMPCA.Model.ExtendedKeyUsage>(this.Extensions_ExtendedKeyUsage);
@@ -572,6 +606,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             }
             context.Subject_CommonName = this.Subject_CommonName;
             context.Subject_Country = this.Subject_Country;
+            if (this.Subject_CustomAttribute != null)
+            {
+                context.Subject_CustomAttribute = new List<Amazon.ACMPCA.Model.CustomAttribute>(this.Subject_CustomAttribute);
+            }
             context.Subject_DistinguishedNameQualifier = this.Subject_DistinguishedNameQualifier;
             context.Subject_GenerationQualifier = this.Subject_GenerationQualifier;
             context.Subject_GivenName = this.Subject_GivenName;
@@ -652,6 +690,16 @@ namespace Amazon.PowerShell.Cmdlets.PCA
                 if (requestApiPassthrough_apiPassthrough_Extensions_extensions_CertificatePolicy != null)
                 {
                     requestApiPassthrough_apiPassthrough_Extensions.CertificatePolicies = requestApiPassthrough_apiPassthrough_Extensions_extensions_CertificatePolicy;
+                    requestApiPassthrough_apiPassthrough_ExtensionsIsNull = false;
+                }
+                List<Amazon.ACMPCA.Model.CustomExtension> requestApiPassthrough_apiPassthrough_Extensions_extensions_CustomExtension = null;
+                if (cmdletContext.Extensions_CustomExtension != null)
+                {
+                    requestApiPassthrough_apiPassthrough_Extensions_extensions_CustomExtension = cmdletContext.Extensions_CustomExtension;
+                }
+                if (requestApiPassthrough_apiPassthrough_Extensions_extensions_CustomExtension != null)
+                {
+                    requestApiPassthrough_apiPassthrough_Extensions.CustomExtensions = requestApiPassthrough_apiPassthrough_Extensions_extensions_CustomExtension;
                     requestApiPassthrough_apiPassthrough_ExtensionsIsNull = false;
                 }
                 List<Amazon.ACMPCA.Model.ExtendedKeyUsage> requestApiPassthrough_apiPassthrough_Extensions_extensions_ExtendedKeyUsage = null;
@@ -812,6 +860,16 @@ namespace Amazon.PowerShell.Cmdlets.PCA
                 if (requestApiPassthrough_apiPassthrough_Subject_subject_Country != null)
                 {
                     requestApiPassthrough_apiPassthrough_Subject.Country = requestApiPassthrough_apiPassthrough_Subject_subject_Country;
+                    requestApiPassthrough_apiPassthrough_SubjectIsNull = false;
+                }
+                List<Amazon.ACMPCA.Model.CustomAttribute> requestApiPassthrough_apiPassthrough_Subject_subject_CustomAttribute = null;
+                if (cmdletContext.Subject_CustomAttribute != null)
+                {
+                    requestApiPassthrough_apiPassthrough_Subject_subject_CustomAttribute = cmdletContext.Subject_CustomAttribute;
+                }
+                if (requestApiPassthrough_apiPassthrough_Subject_subject_CustomAttribute != null)
+                {
+                    requestApiPassthrough_apiPassthrough_Subject.CustomAttributes = requestApiPassthrough_apiPassthrough_Subject_subject_CustomAttribute;
                     requestApiPassthrough_apiPassthrough_SubjectIsNull = false;
                 }
                 System.String requestApiPassthrough_apiPassthrough_Subject_subject_DistinguishedNameQualifier = null;
@@ -1048,6 +1106,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ACMPCA.Model.PolicyInformation> Extensions_CertificatePolicy { get; set; }
+            public List<Amazon.ACMPCA.Model.CustomExtension> Extensions_CustomExtension { get; set; }
             public List<Amazon.ACMPCA.Model.ExtendedKeyUsage> Extensions_ExtendedKeyUsage { get; set; }
             public System.Boolean? KeyUsage_CRLSign { get; set; }
             public System.Boolean? KeyUsage_DataEncipherment { get; set; }
@@ -1061,6 +1120,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             public List<Amazon.ACMPCA.Model.GeneralName> Extensions_SubjectAlternativeName { get; set; }
             public System.String Subject_CommonName { get; set; }
             public System.String Subject_Country { get; set; }
+            public List<Amazon.ACMPCA.Model.CustomAttribute> Subject_CustomAttribute { get; set; }
             public System.String Subject_DistinguishedNameQualifier { get; set; }
             public System.String Subject_GenerationQualifier { get; set; }
             public System.String Subject_GivenName { get; set; }

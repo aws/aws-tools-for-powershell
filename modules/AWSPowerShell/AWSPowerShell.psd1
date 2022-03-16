@@ -89,6 +89,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Backup.dll',
         'AWSSDK.BackupGateway.dll',
         'AWSSDK.Batch.dll',
+        'AWSSDK.BillingConductor.dll',
         'AWSSDK.Braket.dll',
         'AWSSDK.Budgets.dll',
         'AWSSDK.CertificateManager.dll',

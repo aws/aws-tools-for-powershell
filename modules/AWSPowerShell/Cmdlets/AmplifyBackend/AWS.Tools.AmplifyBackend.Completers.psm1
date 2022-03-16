@@ -93,7 +93,9 @@ $AMPB_Completers = {
         # Amazon.AmplifyBackend.DeliveryMethod
         {
             ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod")
+            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod") -Or
+            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod") -Or
+            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod")
         }
         {
             $v = "EMAIL","SMS"
@@ -191,6 +193,7 @@ $AMPB_map = @{
     "ResourceConfig_UserPoolConfigs_Mfa_MFAMode"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_UserPoolConfigs_SignInMethod"=@("New-AMPBBackendAuth")
+    "ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ServiceName"=@("Import-AMPBBackendStorage","Remove-AMPBBackendStorage")
 }
 

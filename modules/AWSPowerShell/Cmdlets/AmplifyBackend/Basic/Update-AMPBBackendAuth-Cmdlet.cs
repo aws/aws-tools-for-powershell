@@ -190,14 +190,26 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter ForgotPassword_DeliveryMethod
         /// <summary>
         /// <para>
-        /// <para>Describes which mode to use (either SMS or email) to deliver messages to app users
-        /// that want to recover their password.</para>
+        /// <para><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages
+        /// to app users that want to recover their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod")]
         [AWSConstantClassSource("Amazon.AmplifyBackend.DeliveryMethod")]
         public Amazon.AmplifyBackend.DeliveryMethod ForgotPassword_DeliveryMethod { get; set; }
+        #endregion
+        
+        #region Parameter VerificationMessage_DeliveryMethod
+        /// <summary>
+        /// <para>
+        /// <para>The type of verification message to send.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod")]
+        [AWSConstantClassSource("Amazon.AmplifyBackend.DeliveryMethod")]
+        public Amazon.AmplifyBackend.DeliveryMethod VerificationMessage_DeliveryMethod { get; set; }
         #endregion
         
         #region Parameter OAuth_DomainPrefix
@@ -211,25 +223,45 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         public System.String OAuth_DomainPrefix { get; set; }
         #endregion
         
-        #region Parameter EmailSettings_EmailMessage
+        #region Parameter ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage
         /// <summary>
         /// <para>
-        /// <para>The body of the email.</para>
+        /// <para>The contents of the email message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage")]
+        public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage { get; set; }
+        #endregion
+        
+        #region Parameter EmailSettings_EmailMessage
+        /// <summary>
+        /// <para>
+        /// <para>The contents of the email message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailMessage")]
         public System.String EmailSettings_EmailMessage { get; set; }
+        #endregion
+        
+        #region Parameter ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject
+        /// <summary>
+        /// <para>
+        /// <para>The contents of the subject line of the email message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject { get; set; }
         #endregion
         
         #region Parameter EmailSettings_EmailSubject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email.</para>
+        /// <para>The contents of the subject line of the email message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject")]
+        [Alias("ResourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_EmailSubject")]
         public System.String EmailSettings_EmailSubject { get; set; }
         #endregion
         
@@ -371,15 +403,14 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         public Amazon.AmplifyBackend.Service ResourceConfig_Service { get; set; }
         #endregion
         
-        #region Parameter SmsSettings_SmsMessage
+        #region Parameter ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage
         /// <summary>
         /// <para>
-        /// <para>The body of the SMS message.</para>
+        /// <para>The contents of the SMS message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage")]
-        public System.String SmsSettings_SmsMessage { get; set; }
+        public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage { get; set; }
         #endregion
         
         #region Parameter Settings_SmsMessage
@@ -391,6 +422,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfig_UserPoolConfigs_Mfa_Settings_SmsMessage")]
         public System.String Settings_SmsMessage { get; set; }
+        #endregion
+        
+        #region Parameter SmsSettings_SmsMessage
+        /// <summary>
+        /// <para>
+        /// <para>The contents of the SMS message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_SmsMessage")]
+        public System.String SmsSettings_SmsMessage { get; set; }
         #endregion
         
         #region Parameter SignInWithApple_TeamId
@@ -507,9 +549,9 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             }
             #endif
             context.ForgotPassword_DeliveryMethod = this.ForgotPassword_DeliveryMethod;
-            context.EmailSettings_EmailMessage = this.EmailSettings_EmailMessage;
-            context.EmailSettings_EmailSubject = this.EmailSettings_EmailSubject;
-            context.SmsSettings_SmsMessage = this.SmsSettings_SmsMessage;
+            context.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage = this.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage;
+            context.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject = this.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject;
+            context.ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage = this.ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage;
             context.Mfa_MFAMode = this.Mfa_MFAMode;
             if (this.Settings_MfaType != null)
             {
@@ -545,6 +587,10 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
                 context.PasswordPolicy_AdditionalConstraint = new List<System.String>(this.PasswordPolicy_AdditionalConstraint);
             }
             context.PasswordPolicy_MinimumLength = this.PasswordPolicy_MinimumLength;
+            context.VerificationMessage_DeliveryMethod = this.VerificationMessage_DeliveryMethod;
+            context.EmailSettings_EmailMessage = this.EmailSettings_EmailMessage;
+            context.EmailSettings_EmailSubject = this.EmailSettings_EmailSubject;
+            context.SmsSettings_SmsMessage = this.SmsSettings_SmsMessage;
             context.ResourceName = this.ResourceName;
             #if MODULAR
             if (this.ResourceName == null && ParameterWasBound(nameof(this.ResourceName)))
@@ -745,14 +791,14 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
              // populate SmsSettings
             var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettingsIsNull = true;
             requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings = new Amazon.AmplifyBackend.Model.SmsSettings();
-            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_smsSettings_SmsMessage = null;
-            if (cmdletContext.SmsSettings_SmsMessage != null)
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage = null;
+            if (cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_smsSettings_SmsMessage = cmdletContext.SmsSettings_SmsMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage = cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage;
             }
-            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_smsSettings_SmsMessage != null)
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings.SmsMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_smsSettings_SmsMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings.SmsMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage;
                 requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettingsIsNull = false;
             }
              // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings should be set to null
@@ -770,24 +816,24 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
              // populate EmailSettings
             var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettingsIsNull = true;
             requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings = new Amazon.AmplifyBackend.Model.EmailSettings();
-            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailMessage = null;
-            if (cmdletContext.EmailSettings_EmailMessage != null)
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage = null;
+            if (cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailMessage = cmdletContext.EmailSettings_EmailMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage = cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage;
             }
-            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailMessage != null)
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings.EmailMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings.EmailMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage;
                 requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettingsIsNull = false;
             }
-            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailSubject = null;
-            if (cmdletContext.EmailSettings_EmailSubject != null)
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject = null;
+            if (cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailSubject = cmdletContext.EmailSettings_EmailSubject;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject = cmdletContext.ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject;
             }
-            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailSubject != null)
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject != null)
             {
-                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings.EmailSubject = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_emailSettings_EmailSubject;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings.EmailSubject = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject;
                 requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettingsIsNull = false;
             }
              // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword_resourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings should be set to null
@@ -808,6 +854,91 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.ForgotPassword = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
+            }
+            Amazon.AmplifyBackend.Model.UpdateBackendAuthVerificationMessageConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage = null;
+            
+             // populate VerificationMessage
+            var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessageIsNull = true;
+            requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage = new Amazon.AmplifyBackend.Model.UpdateBackendAuthVerificationMessageConfig();
+            Amazon.AmplifyBackend.DeliveryMethod requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_verificationMessage_DeliveryMethod = null;
+            if (cmdletContext.VerificationMessage_DeliveryMethod != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_verificationMessage_DeliveryMethod = cmdletContext.VerificationMessage_DeliveryMethod;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_verificationMessage_DeliveryMethod != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage.DeliveryMethod = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_verificationMessage_DeliveryMethod;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessageIsNull = false;
+            }
+            Amazon.AmplifyBackend.Model.SmsSettings requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings = null;
+            
+             // populate SmsSettings
+            var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettingsIsNull = true;
+            requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings = new Amazon.AmplifyBackend.Model.SmsSettings();
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_smsSettings_SmsMessage = null;
+            if (cmdletContext.SmsSettings_SmsMessage != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_smsSettings_SmsMessage = cmdletContext.SmsSettings_SmsMessage;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_smsSettings_SmsMessage != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings.SmsMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings_smsSettings_SmsMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettingsIsNull = false;
+            }
+             // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings should be set to null
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettingsIsNull)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings = null;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage.SmsSettings = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_SmsSettings;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessageIsNull = false;
+            }
+            Amazon.AmplifyBackend.Model.EmailSettings requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings = null;
+            
+             // populate EmailSettings
+            var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettingsIsNull = true;
+            requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings = new Amazon.AmplifyBackend.Model.EmailSettings();
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailMessage = null;
+            if (cmdletContext.EmailSettings_EmailMessage != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailMessage = cmdletContext.EmailSettings_EmailMessage;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailMessage != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings.EmailMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettingsIsNull = false;
+            }
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailSubject = null;
+            if (cmdletContext.EmailSettings_EmailSubject != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailSubject = cmdletContext.EmailSettings_EmailSubject;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailSubject != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings.EmailSubject = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings_emailSettings_EmailSubject;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettingsIsNull = false;
+            }
+             // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings should be set to null
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettingsIsNull)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings = null;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage.EmailSettings = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage_resourceConfig_UserPoolConfigs_VerificationMessage_EmailSettings;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessageIsNull = false;
+            }
+             // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage should be set to null
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessageIsNull)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage = null;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs.VerificationMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage;
                 requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
             }
             Amazon.AmplifyBackend.Model.UpdateBackendAuthOAuthConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth = null;
@@ -1136,9 +1267,9 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             public System.Boolean? IdentityPoolConfigs_UnauthenticatedLogin { get; set; }
             public Amazon.AmplifyBackend.Service ResourceConfig_Service { get; set; }
             public Amazon.AmplifyBackend.DeliveryMethod ForgotPassword_DeliveryMethod { get; set; }
-            public System.String EmailSettings_EmailMessage { get; set; }
-            public System.String EmailSettings_EmailSubject { get; set; }
-            public System.String SmsSettings_SmsMessage { get; set; }
+            public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage { get; set; }
+            public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject { get; set; }
+            public System.String ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage { get; set; }
             public Amazon.AmplifyBackend.MFAMode Mfa_MFAMode { get; set; }
             public List<System.String> Settings_MfaType { get; set; }
             public System.String Settings_SmsMessage { get; set; }
@@ -1159,6 +1290,10 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             public System.String SignInWithApple_TeamId { get; set; }
             public List<System.String> PasswordPolicy_AdditionalConstraint { get; set; }
             public System.Double? PasswordPolicy_MinimumLength { get; set; }
+            public Amazon.AmplifyBackend.DeliveryMethod VerificationMessage_DeliveryMethod { get; set; }
+            public System.String EmailSettings_EmailMessage { get; set; }
+            public System.String EmailSettings_EmailSubject { get; set; }
+            public System.String SmsSettings_SmsMessage { get; set; }
             public System.String ResourceName { get; set; }
             public System.Func<Amazon.AmplifyBackend.Model.UpdateBackendAuthResponse, UpdateAMPBBackendAuthCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

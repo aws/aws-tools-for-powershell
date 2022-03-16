@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS service or identity that will have its CA permissions revoked. At this time,
-        /// the only valid service principal is <code>acm.amazonaws.com</code></para>
+        /// <para>The Amazon Web Services service or identity that will have its CA permissions revoked.
+        /// At this time, the only valid service principal is <code>acm.amazonaws.com</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter SourceAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS account that calls this action.</para>
+        /// <para>The Amazon Web Services account that calls this action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

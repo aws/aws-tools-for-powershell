@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     ///  <note><para>
     /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
     /// you specify. If the IAM principal making the call does not have permission to write
-    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-    /// Access to ACM Private CA</a>.
+    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+    /// policies for CRLs in Amazon S3</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "PCACertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

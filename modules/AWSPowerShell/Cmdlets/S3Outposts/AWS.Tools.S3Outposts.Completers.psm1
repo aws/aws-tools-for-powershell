@@ -151,7 +151,8 @@ $S3O_SelectCompleters = {
 $S3O_SelectMap = @{
     "Select"=@("New-S3OEndpoint",
                "Remove-S3OEndpoint",
-               "Get-S3OEndpointList")
+               "Get-S3OEndpointList",
+               "Get-S3OSharedEndpointList")
 }
 
 _awsArgumentCompleterRegistration $S3O_SelectCompleters $S3O_SelectMap

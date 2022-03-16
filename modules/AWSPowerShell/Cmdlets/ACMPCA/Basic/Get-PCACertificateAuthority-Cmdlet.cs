@@ -32,16 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
     /// The output contains the status of your CA. This can be any of the following: 
     /// 
-    ///  <ul><li><para><code>CREATING</code> - ACM Private CA is creating your private certificate authority.
+    ///  <ul><li><para><code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
+    /// authority.
     /// </para></li><li><para><code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use your
-    /// ACM Private CA-hosted or on-premises root or subordinate CA to sign your private CA
-    /// CSR and then import it into PCA. 
+    /// Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign
+    /// your private CA CSR and then import it into PCA. 
     /// </para></li><li><para><code>ACTIVE</code> - Your private CA is active.
     /// </para></li><li><para><code>DISABLED</code> - Your private CA has been disabled.
     /// </para></li><li><para><code>EXPIRED</code> - Your private CA certificate has expired.
     /// </para></li><li><para><code>FAILED</code> - Your private CA has failed. Your CA can fail because of problems
-    /// such a network outage or back-end AWS failure or other errors. A failed CA can never
-    /// return to the pending state. You must create a new CA. 
+    /// such a network outage or back-end Amazon Web Services failure or other errors. A failed
+    /// CA can never return to the pending state. You must create a new CA. 
     /// </para></li><li><para><code>DELETED</code> - Your private CA is within the restoration period, after which
     /// it is permanently deleted. The length of time remaining in the CA's restoration period
     /// is also included in this action's output.

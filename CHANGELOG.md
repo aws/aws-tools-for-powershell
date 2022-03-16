@@ -1,4 +1,15 @@
-﻿### 4.1.44 (2022-03-15 22:36Z)
+﻿### 4.1.45 (2022-03-16 22:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.231.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify Backend
+    * [Breaking Change] Modified cmdlet New-AMPBBackendAuth: removed parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject and SmsSettings_SmsMessage; added parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage, SmsSettings_SmsMessage and VerificationMessage_DeliveryMethod.
+    * [Breaking Change] Modified cmdlet Update-AMPBBackendAuth: removed parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject and SmsSettings_SmsMessage; added parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage, SmsSettings_SmsMessage and VerificationMessage_DeliveryMethod.
+  * Amazon AWSBillingConductor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ABC and can be listed using the command 'Get-AWSCmdletName -Service ABC'.
+  * Amazon Certificate Manager Private Certificate Authority
+    * Modified cmdlet New-PCACertificate: added parameters Extensions_CustomExtension and Subject_CustomAttribute.
+  * Amazon S3 Outposts
+    * Added cmdlet Get-S3OSharedEndpointList leveraging the ListSharedEndpoints service API.
+
+### 4.1.44 (2022-03-15 22:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.230.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameter SmsConfiguration_SnsRegion.

@@ -163,6 +163,9 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BillingConductor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BillingConductor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Braket">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Braket.dll</HintPath>
     </Reference>
@@ -1043,6 +1046,9 @@
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BillingConductor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BillingConductor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Braket">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Braket.dll</HintPath>

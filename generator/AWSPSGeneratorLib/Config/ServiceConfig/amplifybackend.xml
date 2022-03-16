@@ -31,7 +31,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackendAuth" OutputProperty="*" Verb="New" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackendConfig" OutputProperty="*" Verb="New" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
@@ -127,7 +131,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendAuth" OutputProperty="*" Verb="Update" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
+                <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBackendConfig" OutputProperty="*" Verb="Update" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">

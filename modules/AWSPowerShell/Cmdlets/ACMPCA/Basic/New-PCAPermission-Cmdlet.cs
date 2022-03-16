@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The actions that the specified AWS service principal can use. These include <code>IssueCertificate</code>,
-        /// <code>GetCertificate</code>, and <code>ListPermissions</code>.</para>
+        /// <para>The actions that the specified Amazon Web Services service principal can use. These
+        /// include <code>IssueCertificate</code>, <code>GetCertificate</code>, and <code>ListPermissions</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS service or identity that receives the permission. At this time, the only valid
-        /// principal is <code>acm.amazonaws.com</code>.</para>
+        /// <para>The Amazon Web Services service or identity that receives the permission. At this
+        /// time, the only valid principal is <code>acm.amazonaws.com</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
