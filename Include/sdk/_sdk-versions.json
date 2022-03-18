@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.232.0",
+    "ProductVersion" : "3.7.233.0",
     "CoreVersion"    : "3.7.9.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.14.15",
+            "Version" : "3.7.15.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
