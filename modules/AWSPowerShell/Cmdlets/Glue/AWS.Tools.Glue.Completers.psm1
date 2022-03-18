@@ -275,6 +275,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUEDevEndpoint/WorkerType") -Or
             ($_ -eq "New-GLUEJob/WorkerType") -Or
             ($_ -eq "New-GLUEMLTransform/WorkerType") -Or
+            ($_ -eq "New-GLUESession/WorkerType") -Or
             ($_ -eq "Start-GLUEJobRun/WorkerType") -Or
             ($_ -eq "Update-GLUEMLTransform/WorkerType")
         }
@@ -313,7 +314,7 @@ $GLUE_map = @{
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("New-GLUETrigger")
-    "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","Start-GLUEJobRun","Update-GLUEMLTransform")
+    "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
 
 _awsArgumentCompleterRegistration $GLUE_Completers $GLUE_map
@@ -381,6 +382,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEJobRunBatch",
                "Update-GLUEPartitionBatch",
                "Stop-GLUEMLTaskRun",
+               "Stop-GLUEStatement",
                "Get-GLUESchemaVersionValidity",
                "New-GLUEBlueprint",
                "New-GLUEClassifier",
@@ -396,6 +398,7 @@ $GLUE_SelectMap = @{
                "New-GLUESchema",
                "New-GLUEScript",
                "New-GLUESecurityConfiguration",
+               "New-GLUESession",
                "New-GLUETable",
                "New-GLUETrigger",
                "New-GLUEUserDefinedFunction",
@@ -417,6 +420,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUESchema",
                "Remove-GLUESchemaVersion",
                "Remove-GLUESecurityConfiguration",
+               "Remove-GLUESession",
                "Remove-GLUETable",
                "Remove-GLUETableVersion",
                "Remove-GLUETrigger",
@@ -464,6 +468,8 @@ $GLUE_SelectMap = @{
                "Get-GLUESchemaVersionsDiff",
                "Get-GLUESecurityConfiguration",
                "Get-GLUESecurityConfigurationList",
+               "Get-GLUESession",
+               "Get-GLUEStatement",
                "Get-GLUETable",
                "Get-GLUETableList",
                "Get-GLUETableVersion",
@@ -489,6 +495,8 @@ $GLUE_SelectMap = @{
                "Get-GLUERegistryList",
                "Get-GLUESchemaList",
                "Get-GLUESchemaVersionList",
+               "Get-GLUESessionList",
+               "Get-GLUEStatementList",
                "Get-GLUETriggerNameList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
@@ -500,6 +508,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUESchemaVersionMetadata",
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
+               "Invoke-GLUEStatement",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
                "Start-GLUECrawler",
@@ -513,6 +522,7 @@ $GLUE_SelectMap = @{
                "Start-GLUEWorkflowRun",
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
+               "Stop-GLUESession",
                "Stop-GLUETrigger",
                "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",

@@ -227,6 +227,34 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? ImageConfig_IsEntryPointSet { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_IsSecurityGroupIdsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SecurityGroupIds" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_IsSecurityGroupIdsSet { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_IsSubnetIdsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SubnetIds" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_IsSubnetIdsSet { get; set; }
+        #endregion
+        
         #region Parameter Environment_IsVariablesSet
         /// <summary>
         /// <para>
@@ -596,10 +624,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
             }
+            context.VpcConfig_IsSecurityGroupIdsSet = this.VpcConfig_IsSecurityGroupIdsSet;
             if (this.VpcConfig_SubnetId != null)
             {
                 context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
             }
+            context.VpcConfig_IsSubnetIdsSet = this.VpcConfig_IsSubnetIdsSet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -880,6 +910,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
                     requestVpcConfigIsNull = false;
                 }
+                System.Boolean? requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet = null;
+                if (cmdletContext.VpcConfig_IsSecurityGroupIdsSet != null)
+                {
+                    requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet = cmdletContext.VpcConfig_IsSecurityGroupIdsSet.Value;
+                }
+                if (requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet != null)
+                {
+                    request.VpcConfig.IsSecurityGroupIdsSet = requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet.Value;
+                    requestVpcConfigIsNull = false;
+                }
                 List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
                 if (cmdletContext.VpcConfig_SubnetId != null)
                 {
@@ -888,6 +928,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestVpcConfig_vpcConfig_SubnetId != null)
                 {
                     request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
+                    requestVpcConfigIsNull = false;
+                }
+                System.Boolean? requestVpcConfig_vpcConfig_IsSubnetIdsSet = null;
+                if (cmdletContext.VpcConfig_IsSubnetIdsSet != null)
+                {
+                    requestVpcConfig_vpcConfig_IsSubnetIdsSet = cmdletContext.VpcConfig_IsSubnetIdsSet.Value;
+                }
+                if (requestVpcConfig_vpcConfig_IsSubnetIdsSet != null)
+                {
+                    request.VpcConfig.IsSubnetIdsSet = requestVpcConfig_vpcConfig_IsSubnetIdsSet.Value;
                     requestVpcConfigIsNull = false;
                 }
                  // determine if request.VpcConfig should be set to null
@@ -994,7 +1044,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public System.Boolean? VpcConfig_IsSecurityGroupIdsSet { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
+            public System.Boolean? VpcConfig_IsSubnetIdsSet { get; set; }
             public System.Func<Amazon.Lambda.Model.CreateFunctionResponse, PublishLMFunctionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

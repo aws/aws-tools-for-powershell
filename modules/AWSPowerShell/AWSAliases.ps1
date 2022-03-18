@@ -9642,6 +9642,8 @@ Set-Alias -Name Batch-GLUEPartitionBatch -Value Update-GLUEPartitionBatch
 Set-Alias -Name GLUE-BatchUpdatePartition -Value Update-GLUEPartitionBatch
 Set-Alias -Name Cancel-GLUEMLTaskRun -Value Stop-GLUEMLTaskRun
 Set-Alias -Name GLUE-CancelMLTaskRun -Value Stop-GLUEMLTaskRun
+Set-Alias -Name Cancel-GLUEStatement -Value Stop-GLUEStatement
+Set-Alias -Name GLUE-CancelStatement -Value Stop-GLUEStatement
 Set-Alias -Name Check-GLUESchemaVersionValidity -Value Get-GLUESchemaVersionValidity
 Set-Alias -Name GLUE-CheckSchemaVersionValidity -Value Get-GLUESchemaVersionValidity
 Set-Alias -Name Create-GLUEBlueprint -Value New-GLUEBlueprint
@@ -9672,6 +9674,8 @@ Set-Alias -Name Create-GLUEScript -Value New-GLUEScript
 Set-Alias -Name GLUE-CreateScript -Value New-GLUEScript
 Set-Alias -Name Create-GLUESecurityConfiguration -Value New-GLUESecurityConfiguration
 Set-Alias -Name GLUE-CreateSecurityConfiguration -Value New-GLUESecurityConfiguration
+Set-Alias -Name Create-GLUESession -Value New-GLUESession
+Set-Alias -Name GLUE-CreateSession -Value New-GLUESession
 Set-Alias -Name Create-GLUETable -Value New-GLUETable
 Set-Alias -Name GLUE-CreateTable -Value New-GLUETable
 Set-Alias -Name Create-GLUETrigger -Value New-GLUETrigger
@@ -9715,6 +9719,8 @@ Set-Alias -Name Delete-GLUESchemaVersion -Value Remove-GLUESchemaVersion
 Set-Alias -Name GLUE-DeleteSchemaVersions -Value Remove-GLUESchemaVersion
 Set-Alias -Name Delete-GLUESecurityConfiguration -Value Remove-GLUESecurityConfiguration
 Set-Alias -Name GLUE-DeleteSecurityConfiguration -Value Remove-GLUESecurityConfiguration
+Set-Alias -Name Delete-GLUESession -Value Remove-GLUESession
+Set-Alias -Name GLUE-DeleteSession -Value Remove-GLUESession
 Set-Alias -Name Delete-GLUETable -Value Remove-GLUETable
 Set-Alias -Name GLUE-DeleteTable -Value Remove-GLUETable
 Set-Alias -Name Delete-GLUETableVersion -Value Remove-GLUETableVersion
@@ -9783,6 +9789,8 @@ Set-Alias -Name GLUE-GetSchemaVersionsDiff -Value Get-GLUESchemaVersionsDiff
 Set-Alias -Name GLUE-GetSecurityConfiguration -Value Get-GLUESecurityConfiguration
 Set-Alias -Name Get-GLUESecurityConfigurations -Value Get-GLUESecurityConfigurationList
 Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurationList
+Set-Alias -Name GLUE-GetSession -Value Get-GLUESession
+Set-Alias -Name GLUE-GetStatement -Value Get-GLUEStatement
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
 Set-Alias -Name Get-GLUETables -Value Get-GLUETableList
 Set-Alias -Name GLUE-GetTables -Value Get-GLUETableList
@@ -9832,6 +9840,12 @@ Set-Alias -Name GLUE-ListSchemas -Value Get-GLUESchemaList
 Set-Alias -Name List-GLUESchemaVersions -Value Get-GLUESchemaVersionList
 Set-Alias -Name List-GLUESchemaVersionList -Value Get-GLUESchemaVersionList
 Set-Alias -Name GLUE-ListSchemaVersions -Value Get-GLUESchemaVersionList
+Set-Alias -Name List-GLUESessions -Value Get-GLUESessionList
+Set-Alias -Name List-GLUESessionList -Value Get-GLUESessionList
+Set-Alias -Name GLUE-ListSessions -Value Get-GLUESessionList
+Set-Alias -Name List-GLUEStatements -Value Get-GLUEStatementList
+Set-Alias -Name List-GLUEStatementList -Value Get-GLUEStatementList
+Set-Alias -Name GLUE-ListStatements -Value Get-GLUEStatementList
 Set-Alias -Name List-GLUETriggers -Value Get-GLUETriggerNameList
 Set-Alias -Name List-GLUETriggerNameList -Value Get-GLUETriggerNameList
 Set-Alias -Name GLUE-ListTriggers -Value Get-GLUETriggerNameList
@@ -9854,6 +9868,8 @@ Set-Alias -Name GLUE-RegisterSchemaVersion -Value Register-GLUESchemaVersion
 Set-Alias -Name GLUE-RemoveSchemaVersionMetadata -Value Remove-GLUESchemaVersionMetadata
 Set-Alias -Name GLUE-ResetJobBookmark -Value Reset-GLUEJobBookmark
 Set-Alias -Name GLUE-ResumeWorkflowRun -Value Resume-GLUEWorkflowRun
+Set-Alias -Name Run-GLUEStatement -Value Invoke-GLUEStatement
+Set-Alias -Name GLUE-RunStatement -Value Invoke-GLUEStatement
 Set-Alias -Name Search-GLUETables -Value Find-GLUETable
 Set-Alias -Name Search-GLUETable -Value Find-GLUETable
 Set-Alias -Name GLUE-SearchTables -Value Find-GLUETable
@@ -9869,6 +9885,7 @@ Set-Alias -Name GLUE-StartTrigger -Value Start-GLUETrigger
 Set-Alias -Name GLUE-StartWorkflowRun -Value Start-GLUEWorkflowRun
 Set-Alias -Name GLUE-StopCrawler -Value Stop-GLUECrawler
 Set-Alias -Name GLUE-StopCrawlerSchedule -Value Stop-GLUECrawlerSchedule
+Set-Alias -Name GLUE-StopSession -Value Stop-GLUESession
 Set-Alias -Name GLUE-StopTrigger -Value Stop-GLUETrigger
 Set-Alias -Name GLUE-StopWorkflowRun -Value Stop-GLUEWorkflowRun
 Set-Alias -Name GLUE-TagResource -Value Add-GLUEResourceTag

@@ -1,4 +1,23 @@
-﻿### 4.1.45 (2022-03-16 22:44Z)
+﻿### 4.1.46 (2022-03-18 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.233.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Glue
+    * Added cmdlet Get-GLUESession leveraging the GetSession service API.
+    * Added cmdlet Get-GLUESessionList leveraging the ListSessions service API.
+    * Added cmdlet Get-GLUEStatement leveraging the GetStatement service API.
+    * Added cmdlet Get-GLUEStatementList leveraging the ListStatements service API.
+    * Added cmdlet Invoke-GLUEStatement leveraging the RunStatement service API.
+    * Added cmdlet New-GLUESession leveraging the CreateSession service API.
+    * Added cmdlet Remove-GLUESession leveraging the DeleteSession service API.
+    * Added cmdlet Stop-GLUESession leveraging the StopSession service API.
+    * Added cmdlet Stop-GLUEStatement leveraging the CancelStatement service API.
+    * Modified cmdlet Get-GLUEUnfilteredPartitionMetadata: added parameters AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUEUnfilteredPartitionsMetadata: added parameters AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUEUnfilteredTableMetadata: added parameters AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameters VpcConfig_IsSecurityGroupIdsSet and VpcConfig_IsSubnetIdsSet.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameters IsFileSystemConfigsSet, VpcConfig_IsSecurityGroupIdsSet and VpcConfig_IsSubnetIdsSet.
+
+### 4.1.45 (2022-03-16 22:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.231.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Amplify Backend
     * [Breaking Change] Modified cmdlet New-AMPBBackendAuth: removed parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject and SmsSettings_SmsMessage; added parameters EmailSettings_EmailMessage, EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage, ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject, ResourceConfig_UserPoolConfigs_ForgotPassword_SmsSettings_SmsMessage, SmsSettings_SmsMessage and VerificationMessage_DeliveryMethod.

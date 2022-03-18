@@ -159,6 +159,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? ImageConfig_IsEntryPointSet { get; set; }
         #endregion
         
+        #region Parameter IsFileSystemConfigsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.UpdateFunctionConfigurationRequest.FileSystemConfigs" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsFileSystemConfigsSet { get; set; }
+        #endregion
+        
         #region Parameter IsLayersSet
         /// <summary>
         /// <para>
@@ -171,6 +185,34 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IsLayersSet { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_IsSecurityGroupIdsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SecurityGroupIds" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_IsSecurityGroupIdsSet { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_IsSubnetIdsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SubnetIds" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_IsSubnetIdsSet { get; set; }
         #endregion
         
         #region Parameter Environment_IsVariablesSet
@@ -412,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.FileSystemConfig = new List<Amazon.Lambda.Model.FileSystemConfig>(this.FileSystemConfig);
             }
+            context.IsFileSystemConfigsSet = this.IsFileSystemConfigsSet;
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -447,10 +490,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
             }
+            context.VpcConfig_IsSecurityGroupIdsSet = this.VpcConfig_IsSecurityGroupIdsSet;
             if (this.VpcConfig_SubnetId != null)
             {
                 context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
             }
+            context.VpcConfig_IsSubnetIdsSet = this.VpcConfig_IsSubnetIdsSet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -522,6 +567,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FileSystemConfig != null)
             {
                 request.FileSystemConfigs = cmdletContext.FileSystemConfig;
+            }
+            if (cmdletContext.IsFileSystemConfigsSet != null)
+            {
+                request.IsFileSystemConfigsSet = cmdletContext.IsFileSystemConfigsSet.Value;
             }
             if (cmdletContext.FunctionName != null)
             {
@@ -655,6 +704,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
                 requestVpcConfigIsNull = false;
             }
+            System.Boolean? requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet = null;
+            if (cmdletContext.VpcConfig_IsSecurityGroupIdsSet != null)
+            {
+                requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet = cmdletContext.VpcConfig_IsSecurityGroupIdsSet.Value;
+            }
+            if (requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet != null)
+            {
+                request.VpcConfig.IsSecurityGroupIdsSet = requestVpcConfig_vpcConfig_IsSecurityGroupIdsSet.Value;
+                requestVpcConfigIsNull = false;
+            }
             List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
             if (cmdletContext.VpcConfig_SubnetId != null)
             {
@@ -663,6 +722,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (requestVpcConfig_vpcConfig_SubnetId != null)
             {
                 request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
+                requestVpcConfigIsNull = false;
+            }
+            System.Boolean? requestVpcConfig_vpcConfig_IsSubnetIdsSet = null;
+            if (cmdletContext.VpcConfig_IsSubnetIdsSet != null)
+            {
+                requestVpcConfig_vpcConfig_IsSubnetIdsSet = cmdletContext.VpcConfig_IsSubnetIdsSet.Value;
+            }
+            if (requestVpcConfig_vpcConfig_IsSubnetIdsSet != null)
+            {
+                request.VpcConfig.IsSubnetIdsSet = requestVpcConfig_vpcConfig_IsSubnetIdsSet.Value;
                 requestVpcConfigIsNull = false;
             }
              // determine if request.VpcConfig should be set to null
@@ -736,6 +805,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.Boolean? Environment_IsVariablesSet { get; set; }
             public List<Amazon.Lambda.Model.FileSystemConfig> FileSystemConfig { get; set; }
+            public System.Boolean? IsFileSystemConfigsSet { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
             public List<System.String> ImageConfig_Command { get; set; }
@@ -753,7 +823,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public System.Boolean? VpcConfig_IsSecurityGroupIdsSet { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
+            public System.Boolean? VpcConfig_IsSubnetIdsSet { get; set; }
             public System.Func<Amazon.Lambda.Model.UpdateFunctionConfigurationResponse, UpdateLMFunctionConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

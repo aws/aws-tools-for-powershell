@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelStatement" Verb="Stop" Noun="Statement" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CheckSchemaVersionValidity" OutputProperty="*" Verb="Get" Noun="SchemaVersionValidity" PipelineParameter="SchemaDefinition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -140,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSession" OutputProperty="Id" Verb="Remove" Noun="Session" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -415,6 +427,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStatement" OutputProperty="Statement" Verb="Get" Noun="Statement" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -515,6 +535,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="*" Verb="Get" Noun="SessionList" PipelineParameter="RequestOrigin" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStatements" OutputProperty="Statements" Verb="Get" Noun="StatementList" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -556,6 +584,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResumeWorkflowRun" OutputProperty="*" Verb="Resume" Noun="WorkflowRun" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunStatement" OutputProperty="Id" Verb="Invoke" Noun="Statement" ShouldProcessTarget="SessionId" PipelineParameter="Code" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -608,6 +640,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCrawlerSchedule" Verb="Stop" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="CrawlerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSession" OutputProperty="Id" Verb="Stop" Noun="Session" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
