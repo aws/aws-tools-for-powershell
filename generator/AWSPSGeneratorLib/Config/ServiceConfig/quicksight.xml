@@ -214,6 +214,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGroupMembership" OutputProperty="GroupMember" Verb="Get" Noun="GroupMembership" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIAMPolicyAssignment" OutputProperty="IAMPolicyAssignment" Verb="Get" Noun="IAMPolicyAssignment" PipelineParameter="AssignmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -379,6 +383,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchFolders" OutputProperty="FolderSummaryList" Verb="Search" Noun="Folder" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

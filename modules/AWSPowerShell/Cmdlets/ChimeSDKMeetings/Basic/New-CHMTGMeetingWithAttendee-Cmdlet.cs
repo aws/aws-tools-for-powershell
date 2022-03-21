@@ -143,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         public System.String MeetingHostId { get; set; }
         #endregion
         
+        #region Parameter PrimaryMeetingId
+        /// <summary>
+        /// <para>
+        /// <para>When specified, replicates the media from the primary meeting to the new meeting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrimaryMeetingId { get; set; }
+        #endregion
+        
         #region Parameter NotificationsConfiguration_SnsTopicArn
         /// <summary>
         /// <para>
@@ -254,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             context.NotificationsConfiguration_LambdaFunctionArn = this.NotificationsConfiguration_LambdaFunctionArn;
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
             context.NotificationsConfiguration_SqsQueueArn = this.NotificationsConfiguration_SqsQueueArn;
+            context.PrimaryMeetingId = this.PrimaryMeetingId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -363,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             {
                 request.NotificationsConfiguration = null;
             }
+            if (cmdletContext.PrimaryMeetingId != null)
+            {
+                request.PrimaryMeetingId = cmdletContext.PrimaryMeetingId;
+            }
             
             CmdletOutput output;
             
@@ -433,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public System.String NotificationsConfiguration_LambdaFunctionArn { get; set; }
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }
             public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
+            public System.String PrimaryMeetingId { get; set; }
             public System.Func<Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse, NewCHMTGMeetingWithAttendeeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to list information for only resource shares that match the
-        /// following:</para><ul><li><para><b><code>SELF</code></b> – resources that you are sharing</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – resources that other accounts share with you</para></li></ul>
+        /// following:</para><ul><li><para><b><code>SELF</code></b> – principals that your account is sharing resources with</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – principals that are sharing resources with
+        /// your account</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

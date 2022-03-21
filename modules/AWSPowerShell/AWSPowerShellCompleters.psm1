@@ -31224,6 +31224,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.MaintenanceDay
+        {
+            ($_ -eq "New-EMCNFlow/Maintenance_MaintenanceDay") -Or
+            ($_ -eq "Update-EMCNFlow/Maintenance_MaintenanceDay")
+        }
+        {
+            $v = "Friday","Monday","Saturday","Sunday","Thursday","Tuesday","Wednesday"
+            break
+        }
+
         # Amazon.MediaConnect.MediaStreamType
         "Update-EMCNFlowMediaStream/MediaStreamType"
         {
@@ -31286,6 +31296,7 @@ $EMCN_map = @{
     "Attributes_Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
     "Attributes_Fmtp_Tcs"=@("Update-EMCNFlowMediaStream")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "Maintenance_MaintenanceDay"=@("New-EMCNFlow","Update-EMCNFlow")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNFlow","Update-EMCNFlow")
@@ -37831,6 +37842,7 @@ $QS_SelectMap = @{
                "Get-QSFolderPermission",
                "Get-QSFolderResolvedPermission",
                "Get-QSGroup",
+               "Get-QSGroupMembership",
                "Get-QSIAMPolicyAssignment",
                "Get-QSIngestion",
                "Get-QSIpRestriction",
@@ -37873,6 +37885,7 @@ $QS_SelectMap = @{
                "Search-QSAnalysis",
                "Search-QSDashboard",
                "Search-QSFolder",
+               "Find-QSGroup",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",

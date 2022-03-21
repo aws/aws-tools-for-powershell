@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-QSResourceTag', 
+        'Find-QSGroup', 
         'Get-QSAccountCustomization', 
         'Get-QSAccountSetting', 
         'Get-QSAnalysis', 
@@ -110,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QSFolderResolvedPermission', 
         'Get-QSGroup', 
         'Get-QSGroupList', 
+        'Get-QSGroupMembership', 
         'Get-QSGroupMembershipList', 
         'Get-QSIAMPolicyAssignment', 
         'Get-QSIAMPolicyAssignmentList', 

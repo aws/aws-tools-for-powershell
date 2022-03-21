@@ -1,4 +1,16 @@
-﻿### 4.1.46 (2022-03-18 20:04Z)
+﻿### 4.1.47 (2022-03-21 22:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.234.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet New-CHMTGMeeting: added parameter PrimaryMeetingId.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameter PrimaryMeetingId.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameters Maintenance_MaintenanceDay and Maintenance_MaintenanceStartHour.
+    * Modified cmdlet Update-EMCNFlow: added parameters Maintenance_MaintenanceDay, Maintenance_MaintenanceScheduledDate and Maintenance_MaintenanceStartHour.
+  * Amazon QuickSight
+    * Added cmdlet Find-QSGroup leveraging the SearchGroups service API.
+    * Added cmdlet Get-QSGroupMembership leveraging the DescribeGroupMembership service API.
+
+### 4.1.46 (2022-03-18 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.233.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Glue
     * Added cmdlet Get-GLUESession leveraging the GetSession service API.

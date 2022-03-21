@@ -70,6 +70,41 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String FlowArn { get; set; }
         #endregion
         
+        #region Parameter Maintenance_MaintenanceDay
+        /// <summary>
+        /// <para>
+        /// A day of a week when the maintenance will
+        /// happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.MaintenanceDay")]
+        public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+        #endregion
+        
+        #region Parameter Maintenance_MaintenanceScheduledDate
+        /// <summary>
+        /// <para>
+        /// A scheduled date in ISO UTC format
+        /// when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Maintenance_MaintenanceScheduledDate { get; set; }
+        #endregion
+        
+        #region Parameter Maintenance_MaintenanceStartHour
+        /// <summary>
+        /// <para>
+        /// UTC time when the maintenance will
+        /// happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default
+        /// value is 02:00.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Maintenance_MaintenanceStartHour { get; set; }
+        #endregion
+        
         #region Parameter SourcePriority_PrimarySource
         /// <summary>
         /// <para>
@@ -172,6 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter FlowArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
+            context.Maintenance_MaintenanceScheduledDate = this.Maintenance_MaintenanceScheduledDate;
+            context.Maintenance_MaintenanceStartHour = this.Maintenance_MaintenanceStartHour;
             context.SourceFailoverConfig_FailoverMode = this.SourceFailoverConfig_FailoverMode;
             context.SourceFailoverConfig_RecoveryWindow = this.SourceFailoverConfig_RecoveryWindow;
             context.SourcePriority_PrimarySource = this.SourcePriority_PrimarySource;
@@ -195,6 +233,45 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.FlowArn != null)
             {
                 request.FlowArn = cmdletContext.FlowArn;
+            }
+            
+             // populate Maintenance
+            var requestMaintenanceIsNull = true;
+            request.Maintenance = new Amazon.MediaConnect.Model.UpdateMaintenance();
+            Amazon.MediaConnect.MaintenanceDay requestMaintenance_maintenance_MaintenanceDay = null;
+            if (cmdletContext.Maintenance_MaintenanceDay != null)
+            {
+                requestMaintenance_maintenance_MaintenanceDay = cmdletContext.Maintenance_MaintenanceDay;
+            }
+            if (requestMaintenance_maintenance_MaintenanceDay != null)
+            {
+                request.Maintenance.MaintenanceDay = requestMaintenance_maintenance_MaintenanceDay;
+                requestMaintenanceIsNull = false;
+            }
+            System.String requestMaintenance_maintenance_MaintenanceScheduledDate = null;
+            if (cmdletContext.Maintenance_MaintenanceScheduledDate != null)
+            {
+                requestMaintenance_maintenance_MaintenanceScheduledDate = cmdletContext.Maintenance_MaintenanceScheduledDate;
+            }
+            if (requestMaintenance_maintenance_MaintenanceScheduledDate != null)
+            {
+                request.Maintenance.MaintenanceScheduledDate = requestMaintenance_maintenance_MaintenanceScheduledDate;
+                requestMaintenanceIsNull = false;
+            }
+            System.String requestMaintenance_maintenance_MaintenanceStartHour = null;
+            if (cmdletContext.Maintenance_MaintenanceStartHour != null)
+            {
+                requestMaintenance_maintenance_MaintenanceStartHour = cmdletContext.Maintenance_MaintenanceStartHour;
+            }
+            if (requestMaintenance_maintenance_MaintenanceStartHour != null)
+            {
+                request.Maintenance.MaintenanceStartHour = requestMaintenance_maintenance_MaintenanceStartHour;
+                requestMaintenanceIsNull = false;
+            }
+             // determine if request.Maintenance should be set to null
+            if (requestMaintenanceIsNull)
+            {
+                request.Maintenance = null;
             }
             
              // populate SourceFailoverConfig
@@ -322,6 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FlowArn { get; set; }
+            public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+            public System.String Maintenance_MaintenanceScheduledDate { get; set; }
+            public System.String Maintenance_MaintenanceStartHour { get; set; }
             public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
             public System.String SourcePriority_PrimarySource { get; set; }

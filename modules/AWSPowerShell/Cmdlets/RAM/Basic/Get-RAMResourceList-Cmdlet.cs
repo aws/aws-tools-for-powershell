@@ -28,8 +28,8 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the resources that you added to a resource shares or the resources that are
-    /// shared with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the resources that you added to a resource share or the resources that are shared
+    /// with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMResourceList")]
     [OutputType("Amazon.RAM.Model.Resource")]
@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to list only the resource shares that match the following:</para><ul><li><para><b><code>SELF</code></b> – resources that you are sharing</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – resources that other accounts share with you</para></li></ul>
+        /// <para>Specifies that you want to list only the resource shares that match the following:</para><ul><li><para><b><code>SELF</code></b> – resources that your account shares with other accounts</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – resources that other accounts share with your
+        /// account</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -16365,6 +16365,8 @@ Set-Alias -Name Describe-QSFolderResolvedPermission -Value Get-QSFolderResolvedP
 Set-Alias -Name QS-DescribeFolderResolvedPermissions -Value Get-QSFolderResolvedPermission
 Set-Alias -Name Describe-QSGroup -Value Get-QSGroup
 Set-Alias -Name QS-DescribeGroup -Value Get-QSGroup
+Set-Alias -Name Describe-QSGroupMembership -Value Get-QSGroupMembership
+Set-Alias -Name QS-DescribeGroupMembership -Value Get-QSGroupMembership
 Set-Alias -Name Describe-QSIAMPolicyAssignment -Value Get-QSIAMPolicyAssignment
 Set-Alias -Name QS-DescribeIAMPolicyAssignment -Value Get-QSIAMPolicyAssignment
 Set-Alias -Name Describe-QSIngestion -Value Get-QSIngestion
@@ -16467,6 +16469,9 @@ Set-Alias -Name Search-QSDashboards -Value Search-QSDashboard
 Set-Alias -Name QS-SearchDashboards -Value Search-QSDashboard
 Set-Alias -Name Search-QSFolders -Value Search-QSFolder
 Set-Alias -Name QS-SearchFolders -Value Search-QSFolder
+Set-Alias -Name Search-QSGroups -Value Find-QSGroup
+Set-Alias -Name Search-QSGroup -Value Find-QSGroup
+Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomization

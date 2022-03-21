@@ -78,6 +78,30 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
         #endregion
         
+        #region Parameter Maintenance_MaintenanceDay
+        /// <summary>
+        /// <para>
+        /// A day of a week when the maintenance will
+        /// happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.MaintenanceDay")]
+        public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+        #endregion
+        
+        #region Parameter Maintenance_MaintenanceStartHour
+        /// <summary>
+        /// <para>
+        /// UTC time when the maintenance will
+        /// happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default
+        /// value is 02:00.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Maintenance_MaintenanceStartHour { get; set; }
+        #endregion
+        
         #region Parameter MediaStream
         /// <summary>
         /// <para>
@@ -239,6 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 context.Entitlement = new List<Amazon.MediaConnect.Model.GrantEntitlementRequest>(this.Entitlement);
             }
+            context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
+            context.Maintenance_MaintenanceStartHour = this.Maintenance_MaintenanceStartHour;
             if (this.MediaStream != null)
             {
                 context.MediaStream = new List<Amazon.MediaConnect.Model.AddMediaStreamRequest>(this.MediaStream);
@@ -289,6 +315,35 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.Entitlement != null)
             {
                 request.Entitlements = cmdletContext.Entitlement;
+            }
+            
+             // populate Maintenance
+            var requestMaintenanceIsNull = true;
+            request.Maintenance = new Amazon.MediaConnect.Model.AddMaintenance();
+            Amazon.MediaConnect.MaintenanceDay requestMaintenance_maintenance_MaintenanceDay = null;
+            if (cmdletContext.Maintenance_MaintenanceDay != null)
+            {
+                requestMaintenance_maintenance_MaintenanceDay = cmdletContext.Maintenance_MaintenanceDay;
+            }
+            if (requestMaintenance_maintenance_MaintenanceDay != null)
+            {
+                request.Maintenance.MaintenanceDay = requestMaintenance_maintenance_MaintenanceDay;
+                requestMaintenanceIsNull = false;
+            }
+            System.String requestMaintenance_maintenance_MaintenanceStartHour = null;
+            if (cmdletContext.Maintenance_MaintenanceStartHour != null)
+            {
+                requestMaintenance_maintenance_MaintenanceStartHour = cmdletContext.Maintenance_MaintenanceStartHour;
+            }
+            if (requestMaintenance_maintenance_MaintenanceStartHour != null)
+            {
+                request.Maintenance.MaintenanceStartHour = requestMaintenance_maintenance_MaintenanceStartHour;
+                requestMaintenanceIsNull = false;
+            }
+             // determine if request.Maintenance should be set to null
+            if (requestMaintenanceIsNull)
+            {
+                request.Maintenance = null;
             }
             if (cmdletContext.MediaStream != null)
             {
@@ -437,6 +492,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         {
             public System.String AvailabilityZone { get; set; }
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
+            public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+            public System.String Maintenance_MaintenanceStartHour { get; set; }
             public List<Amazon.MediaConnect.Model.AddMediaStreamRequest> MediaStream { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.MediaConnect.Model.AddOutputRequest> Output { get; set; }

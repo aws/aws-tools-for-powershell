@@ -28,15 +28,18 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Removes a user group from Amazon QuickSight.
+    /// Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
+    /// member of the specified group. If the user exists and is a member of the specified
+    /// group, an associated <code>GroupMember</code> object is returned.
     /// </summary>
-    [Cmdlet("Remove", "QSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.QuickSight.Model.DeleteGroupResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteGroupResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteGroupResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QSGroupMembership")]
+    [OutputType("Amazon.QuickSight.Model.GroupMember")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeGroupMembership API operation.", Operation = new[] {"DescribeGroupMembership"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeGroupMembershipResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.GroupMember or Amazon.QuickSight.Model.DescribeGroupMembershipResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.GroupMember object.",
+        "The service call response (type Amazon.QuickSight.Model.DescribeGroupMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveQSGroupCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class GetQSGroupMembershipCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         #region Parameter AwsAccountId
@@ -47,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -60,13 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group that you want to delete.</para>
+        /// <para>The name of the group that you want to search.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -74,10 +77,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String GroupName { get; set; }
         #endregion
         
+        #region Parameter MemberName
+        /// <summary>
+        /// <para>
+        /// <para>The user name of the user that you want to search for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MemberName { get; set; }
+        #endregion
+        
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the group that you want to delete.</para>
+        /// <para>The namespace that includes the group you are searching within.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,44 +113,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DeleteGroupResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.DeleteGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GroupMember'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeGroupMembershipResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeGroupMembershipResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GroupMember";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QSGroup (DeleteGroup)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -140,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DeleteGroupResponse, RemoveQSGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeGroupMembershipResponse, GetQSGroupMembershipCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupName;
+                context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AwsAccountId = this.AwsAccountId;
@@ -164,6 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
             {
                 WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MemberName = this.MemberName;
+            #if MODULAR
+            if (this.MemberName == null && ParameterWasBound(nameof(this.MemberName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MemberName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Namespace = this.Namespace;
@@ -187,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.DeleteGroupRequest();
+            var request = new Amazon.QuickSight.Model.DescribeGroupMembershipRequest();
             
             if (cmdletContext.AwsAccountId != null)
             {
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.MemberName != null)
+            {
+                request.MemberName = cmdletContext.MemberName;
             }
             if (cmdletContext.Namespace != null)
             {
@@ -234,15 +249,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.DeleteGroupResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DeleteGroupRequest request)
+        private Amazon.QuickSight.Model.DescribeGroupMembershipResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeGroupMembershipRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DeleteGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeGroupMembership");
             try
             {
                 #if DESKTOP
-                return client.DeleteGroup(request);
+                return client.DescribeGroupMembership(request);
                 #elif CORECLR
-                return client.DeleteGroupAsync(request).GetAwaiter().GetResult();
+                return client.DescribeGroupMembershipAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -264,9 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public System.String GroupName { get; set; }
+            public System.String MemberName { get; set; }
             public System.String Namespace { get; set; }
-            public System.Func<Amazon.QuickSight.Model.DeleteGroupResponse, RemoveQSGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.QuickSight.Model.DescribeGroupMembershipResponse, GetQSGroupMembershipCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GroupMember;
         }
         
     }

@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace. Currently, you should set this to <code>default</code>.</para>
+        /// <para>The namespace that you want the user to be a part of.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

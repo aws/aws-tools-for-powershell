@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.233.0",
+    "ProductVersion" : "3.7.234.0",
     "CoreVersion"    : "3.7.9.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -490,7 +490,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.3.7",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -1202,7 +1202,7 @@
             "InPreview"               : false
         },
         "RAM"                             : {
-            "Version" : "3.7.3.22",
+            "Version" : "3.7.3.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -1226,7 +1226,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.9.35",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -1290,7 +1290,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "3.7.4.29",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -2290,7 +2290,7 @@
             "InPreview"               : false
         },
         "ChimeSDKMeetings"                : {
-            "Version" : "3.7.4.6",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"

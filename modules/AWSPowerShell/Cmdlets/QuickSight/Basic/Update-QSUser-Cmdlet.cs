@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>A set of custom permissions includes any combination of these restrictions. Currently,
         /// you need to create the profile names for custom permission sets by using the Amazon
         /// QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign
-        /// the named set of permissions to a QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
+        /// the named set of permissions to a Amazon QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
         /// they override the permissions typically granted by assigning Amazon QuickSight users
         /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
         /// </para>

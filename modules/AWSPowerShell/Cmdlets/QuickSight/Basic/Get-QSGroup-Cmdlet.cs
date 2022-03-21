@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace. Currently, you should set this to <code>default</code>.</para>
+        /// <para>The namespace of the group that you want described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
