@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.234.0",
+    "ProductVersion" : "3.7.235.0",
     "CoreVersion"    : "3.7.9.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -160,7 +160,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.5.7",
+            "Version" : "3.7.5.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -626,7 +626,7 @@
             "InPreview"               : false
         },
         "Polly"                           : {
-            "Version" : "3.7.3.81",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -858,7 +858,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.4.15",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -1490,7 +1490,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.4.17",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
@@ -2042,7 +2042,7 @@
             "InPreview"               : false
         },
         "LocationService"                 : {
-            "Version" : "3.7.8.22",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.0"
