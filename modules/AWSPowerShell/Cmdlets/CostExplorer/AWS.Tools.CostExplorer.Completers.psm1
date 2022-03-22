@@ -351,7 +351,10 @@ $CE_SelectMap = @{
                "Get-CETag",
                "Get-CEUsageForecast",
                "Get-CECostCategoryDefinitionList",
+               "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",
+               "Add-CEResourceTag",
+               "Remove-CEResourceTag",
                "Update-CEAnomalyMonitor",
                "Update-CEAnomalySubscription",
                "Update-CECostCategoryDefinition")

@@ -28,23 +28,24 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Updates an existing cost anomaly monitor. The changes made are applied going forward,
-    /// and doesn't change anomalies detected in the past.
+    /// Returns a list of resource tags associated with the resource specified by the Amazon
+    /// Resource Name (ARN).
     /// </summary>
-    [Cmdlet("Update", "CEAnomalyMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Cost Explorer UpdateAnomalyMonitor API operation.", Operation = new[] {"UpdateAnomalyMonitor"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CEResourceTag")]
+    [OutputType("Amazon.CostExplorer.Model.ResourceTag")]
+    [AWSCmdlet("Calls the AWS Cost Explorer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.CostExplorer.Model.ResourceTag or Amazon.CostExplorer.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.CostExplorer.Model.ResourceTag objects.",
+        "The service call response (type Amazon.CostExplorer.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCEAnomalyMonitorCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetCEResourceTagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
-        #region Parameter MonitorArn
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Cost anomaly monitor Amazon Resource Names (ARNs). </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource. For a list of supported resources,
+        /// see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,59 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.CE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MonitorArn { get; set; }
-        #endregion
-        
-        #region Parameter MonitorName
-        /// <summary>
-        /// <para>
-        /// <para>The new name for the cost anomaly monitor. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MonitorName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MonitorArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse).
-        /// Specifying the name of a property of type Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceTags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.CostExplorer.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MonitorArn";
+        public string Select { get; set; } = "ResourceTags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MonitorArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CEAnomalyMonitor (UpdateAnomalyMonitor)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -117,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse, UpdateCEAnomalyMonitorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.ListTagsForResourceResponse, GetCEResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,17 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MonitorArn;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MonitorArn = this.MonitorArn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.MonitorArn == null && ParameterWasBound(nameof(this.MonitorArn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter MonitorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MonitorName = this.MonitorName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,15 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.UpdateAnomalyMonitorRequest();
+            var request = new Amazon.CostExplorer.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.MonitorArn != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.MonitorArn = cmdletContext.MonitorArn;
-            }
-            if (cmdletContext.MonitorName != null)
-            {
-                request.MonitorName = cmdletContext.MonitorName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -194,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.UpdateAnomalyMonitorRequest request)
+        private Amazon.CostExplorer.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "UpdateAnomalyMonitor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.UpdateAnomalyMonitor(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.UpdateAnomalyMonitorAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MonitorArn { get; set; }
-            public System.String MonitorName { get; set; }
-            public System.Func<Amazon.CostExplorer.Model.UpdateAnomalyMonitorResponse, UpdateCEAnomalyMonitorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MonitorArn;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.CostExplorer.Model.ListTagsForResourceResponse, GetCEResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceTags;
         }
         
     }

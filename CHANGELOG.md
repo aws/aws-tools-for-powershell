@@ -1,4 +1,16 @@
-﻿### 4.1.47 (2022-03-21 22:56Z)
+﻿### 4.1.48 (2022-03-22 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.235.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cost Explorer
+    * Added cmdlet Add-CEResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CEResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CEResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CEAnomalyMonitor: added parameter ResourceTag.
+    * Modified cmdlet New-CEAnomalySubscription: added parameter ResourceTag.
+    * Modified cmdlet New-CECostCategoryDefinition: added parameter ResourceTag.
+  * Amazon Location Service
+    * Modified cmdlet Get-LOCDevicePositionHistory: added parameter MaxResult.
+
+### 4.1.47 (2022-03-21 22:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.234.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Meetings
     * Modified cmdlet New-CHMTGMeeting: added parameter PrimaryMeetingId.

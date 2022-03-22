@@ -2107,8 +2107,11 @@ Set-Alias -Name CE-GetUsageForecast -Value Get-CEUsageForecast
 Set-Alias -Name List-CECostCategoryDefinitions -Value Get-CECostCategoryDefinitionList
 Set-Alias -Name List-CECostCategoryDefinitionList -Value Get-CECostCategoryDefinitionList
 Set-Alias -Name CE-ListCostCategoryDefinitions -Value Get-CECostCategoryDefinitionList
+Set-Alias -Name CE-ListTagsForResource -Value Get-CEResourceTag
 Set-Alias -Name Provide-CEAnomalyFeedback -Value Set-CEAnomalyFeedback
 Set-Alias -Name CE-ProvideAnomalyFeedback -Value Set-CEAnomalyFeedback
+Set-Alias -Name CE-TagResource -Value Add-CEResourceTag
+Set-Alias -Name CE-UntagResource -Value Remove-CEResourceTag
 Set-Alias -Name CE-UpdateAnomalyMonitor -Value Update-CEAnomalyMonitor
 Set-Alias -Name CE-UpdateAnomalySubscription -Value Update-CEAnomalySubscription
 Set-Alias -Name CE-UpdateCostCategoryDefinition -Value Update-CECostCategoryDefinition

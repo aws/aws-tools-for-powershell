@@ -102,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String TrackerName { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>An optional limit for the number of device positions returned in a single call.</para><para>Default value: <code>100</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -166,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.EndTimeExclusive = this.EndTimeExclusive;
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.StartTimeInclusive = this.StartTimeInclusive;
             context.TrackerName = this.TrackerName;
@@ -198,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.EndTimeExclusive != null)
             {
                 request.EndTimeExclusive = cmdletContext.EndTimeExclusive.Value;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -274,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String DeviceId { get; set; }
             public System.DateTime? EndTimeExclusive { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTimeInclusive { get; set; }
             public System.String TrackerName { get; set; }

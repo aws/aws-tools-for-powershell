@@ -60,10 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// with that account's usage of that service. You can nest <code>Expression</code> objects
         /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
         /// </para><para>The <code>GetCostAndUsageWithResources</code> operation requires that you either group
-        /// by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
-        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</para><para>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid
-        /// values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code>
-        /// and <code>CASE_SENSITIVE</code>.</para>
+        /// by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</para><para>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code>
+        /// and <code>CASE_SENSITIVE</code>.</para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
+        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default
+        /// values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
