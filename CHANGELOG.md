@@ -1,4 +1,10 @@
-﻿### 4.1.48 (2022-03-22 22:04Z)
+﻿### 4.1.49 (2022-03-23 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon GameSparks. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GMESP and can be listed using the command 'Get-AWSCmdletName -Service GMESP'.
+  * Amazon Redshift
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameter Encrypted.
+
+### 4.1.48 (2022-03-22 22:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.235.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cost Explorer
     * Added cmdlet Add-CEResourceTag leveraging the TagResource service API.

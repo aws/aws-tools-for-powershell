@@ -29,20 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-    /// that you can assign to your documents, managed nodes, maintenance windows, Parameter
-    /// Store parameters, and patch baselines. Tags enable you to categorize your resources
-    /// in different ways, for example, by purpose, owner, or environment. Each tag consists
-    /// of a key and an optional value, both of which you define. For example, you could define
-    /// a set of tags for your account's managed nodes that helps you track each node's owner
-    /// and stack level. For example:
+    /// that you can assign to your automations, documents, managed nodes, maintenance windows,
+    /// Parameter Store parameters, and patch baselines. Tags enable you to categorize your
+    /// resources in different ways, for example, by purpose, owner, or environment. Each
+    /// tag consists of a key and an optional value, both of which you define. For example,
+    /// you could define a set of tags for your account's managed nodes that helps you track
+    /// each node's owner and stack level. For example:
     /// 
     ///  <ul><li><para><code>Key=Owner,Value=DbAdmin</code></para></li><li><para><code>Key=Owner,Value=SysAdmin</code></para></li><li><para><code>Key=Owner,Value=Dev</code></para></li><li><para><code>Key=Stack,Value=Production</code></para></li><li><para><code>Key=Stack,Value=Pre-Production</code></para></li><li><para><code>Key=Stack,Value=Test</code></para></li></ul><para>
-    /// Each resource can have a maximum of 50 tags.
+    /// Most resources can have a maximum of 50 tags. Automations can have a maximum of 5
+    /// tags.
     /// </para><para>
     /// We recommend that you devise a set of tag keys that meets your needs for each resource
     /// type. Using a consistent set of tag keys makes it easier for you to manage your resources.
     /// You can search and filter the resources based on the tags you add. Tags don't have
-    /// any semantic meaning to and are interpreted strictly as a string of characters. 
+    /// any semantic meaning to and are interpreted strictly as a string of characters.
     /// </para><para>
     /// For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2)
     /// instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource ID you want to tag.</para><para>Use the ID of the resource. Here are some examples:</para><para><code>MaintenanceWindow</code>: <code>mw-012345abcde</code></para><para><code>PatchBaseline</code>: <code>pb-012345abcde</code></para><para><code>OpsMetadata</code> object: <code>ResourceID</code> for tagging is created from
+        /// <para>The resource ID you want to tag.</para><para>Use the ID of the resource. Here are some examples:</para><para><code>MaintenanceWindow</code>: <code>mw-012345abcde</code></para><para><code>PatchBaseline</code>: <code>pb-012345abcde</code></para><para><code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code></para><para><code>OpsMetadata</code> object: <code>ResourceID</code> for tagging is created from
         /// the Amazon Resource Name (ARN) for the object. Specifically, <code>ResourceID</code>
         /// is created from the strings that come after the word <code>opsmetadata</code> in the
         /// ARN. For example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code>

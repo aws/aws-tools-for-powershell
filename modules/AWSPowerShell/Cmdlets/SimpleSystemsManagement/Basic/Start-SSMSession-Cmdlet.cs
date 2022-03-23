@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The values you want to specify for the parameters defined in the Session document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

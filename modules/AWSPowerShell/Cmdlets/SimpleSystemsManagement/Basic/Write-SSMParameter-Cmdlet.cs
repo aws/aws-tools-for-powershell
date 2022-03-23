@@ -104,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// (/) when you create or reference a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an Amazon Web Services Region</para></li><li><para>A parameter name can't be prefixed with "<code>aws</code>" or "<code>ssm</code>" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-</code></para><para>In addition, the slash character ( / ) is used to delineate hierarchies in parameter
         /// names. For example: <code>/Dev/Production/East/Project-ABC/MyParameter</code></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html">Creating
         /// Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User
-        /// Guide</i>.</para><note><para>The maximum length constraint listed below includes capacity for additional system
-        /// attributes that aren't part of the name. The maximum length for a parameter name,
-        /// including the full length of the parameter ARN, is 1011 characters. For example, the
-        /// length of the following parameter name is 65 characters, not 20 characters:</para><para><code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code></para></note>
+        /// Guide</i>.</para><note><para>The maximum length constraint of 2048 characters listed below includes 1037 characters
+        /// reserved for internal use by Systems Manager. The maximum length for a parameter name
+        /// that you create is 1011 characters. This includes the characters in the ARN that precede
+        /// the name you specify, such as <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

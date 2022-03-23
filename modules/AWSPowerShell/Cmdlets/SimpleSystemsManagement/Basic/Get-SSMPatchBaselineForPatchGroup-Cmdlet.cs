@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OperatingSystem
         /// <summary>
         /// <para>
-        /// <para>Returns he operating system rule specified for patch groups using the patch baseline.</para>
+        /// <para>Returns the operating system rule specified for patch groups using the patch baseline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -155,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot.</para>
+        /// <para>The ID of the snapshot.</para><important><para>If the specified snapshot is encrypted, you must have permission to use the KMS key
+        /// that was used to encrypt the snapshot. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
+        /// Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>..</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -159,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter WorkflowDetails_OnUpload
         /// <summary>
         /// <para>
-        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para>
+        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code>
+        /// object, as in the following example.</para><para><code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
+        /// '{"OnUpload":[]}'</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

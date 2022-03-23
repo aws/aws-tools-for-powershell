@@ -195,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ElasticIp { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>Enables support for restoring an unencrypted snapshot to a cluster encrypted with
+        /// Key Management Service (KMS) and a CMK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Encrypted { get; set; }
+        #endregion
+        
         #region Parameter EnhancedVpcRouting
         /// <summary>
         /// <para>
@@ -248,8 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key ID of the encryption key that you want to use
-        /// to encrypt data in the cluster that you restore from a shared snapshot.</para>
+        /// <para>The Key Management Service (KMS) key ID of the encryption key to encrypt data in the
+        /// cluster restored from a shared snapshot. You can also provide the key ID when you
+        /// restore from an unencrypted snapshot to an encrypted cluster in the same account.
+        /// Additionally, you can specify a new KMS key ID when you restore from an encrypted
+        /// snapshot in the same account in order to change it. In that case, the restored cluster
+        /// is encrypted with the new KMS key ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -510,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
             context.DefaultIamRoleArn = this.DefaultIamRoleArn;
             context.ElasticIp = this.ElasticIp;
+            context.Encrypted = this.Encrypted;
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
@@ -604,6 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ElasticIp != null)
             {
                 request.ElasticIp = cmdletContext.ElasticIp;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
             }
             if (cmdletContext.EnhancedVpcRouting != null)
             {
@@ -754,6 +774,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ClusterSubnetGroupName { get; set; }
             public System.String DefaultIamRoleArn { get; set; }
             public System.String ElasticIp { get; set; }
+            public System.Boolean? Encrypted { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }

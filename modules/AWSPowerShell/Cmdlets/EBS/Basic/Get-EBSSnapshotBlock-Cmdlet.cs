@@ -42,8 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter BlockIndex
         /// <summary>
         /// <para>
-        /// <para>The block index of the block from which to get data.</para><para>Obtain the <code>BlockIndex</code> by running the <code>ListChangedBlocks</code> or
-        /// <code>ListSnapshotBlocks</code> operations.</para>
+        /// <para>The block index of the block in which to read the data. A block index is a logical
+        /// index in units of <code>512</code> KiB blocks. To identify the block index, divide
+        /// the logical offset of the data in the logical volume by the block size (logical offset
+        /// of data/<code>524288</code>). The logical offset of the data must be <code>512</code>
+        /// KiB aligned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter BlockToken
         /// <summary>
         /// <para>
-        /// <para>The block token of the block from which to get data.</para><para>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or
-        /// <code>ListSnapshotBlocks</code> operations.</para>
+        /// <para>The block token of the block from which to get data. You can obtain the <code>BlockToken</code>
+        /// by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot containing the block from which to get data.</para>
+        /// <para>The ID of the snapshot containing the block from which to get data.</para><important><para>If the specified snapshot is encrypted, you must have permission to use the KMS key
+        /// that was used to encrypt the snapshot. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
+        /// Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
