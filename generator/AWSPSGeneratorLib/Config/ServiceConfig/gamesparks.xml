@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>gamesparks</C2jFilename>
+    <AssemblyName>GameSparks</AssemblyName>
+    <ServiceNounPrefix>GMESP</ServiceNounPrefix>
+    <ServiceName>Amazon GameSparks</ServiceName>
+    <ServiceClientInterface>IAmazonGameSparks</ServiceClientInterface>
+    <ServiceClient>AmazonGameSparksClient</ServiceClient>
+    <ServiceModuleGuid>4882a68c-65df-4f3b-9639-a30678afea87</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateGame" OutputProperty="Game" Verb="New" Noun="Game" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStage" OutputProperty="Stage" Verb="New" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGame" Verb="Remove" Noun="Game" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectPlayer" OutputProperty="*" Verb="Disconnect" Noun="Player" ShouldProcessTarget="PlayerId" PipelineParameter="PlayerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportSnapshot" OutputProperty="S3Url" Verb="Export" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExtension" OutputProperty="Extension" Verb="Get" Noun="Extension" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExtensionVersion" OutputProperty="ExtensionVersion" Verb="Get" Noun="ExtensionVersion" PipelineParameter="ExtensionVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGame" OutputProperty="Game" Verb="Get" Noun="Game" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGameConfiguration" OutputProperty="GameConfiguration" Verb="Get" Noun="GameConfiguration" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGeneratedCodeJob" OutputProperty="GeneratedCodeJob" Verb="Get" Noun="GeneratedCodeJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlayerConnectionStatus" OutputProperty="Connections" Verb="Get" Noun="PlayerConnectionStatus" PipelineParameter="PlayerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="Snapshot" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStage" OutputProperty="Stage" Verb="Get" Noun="Stage" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStageDeployment" OutputProperty="StageDeployment" Verb="Get" Noun="StageDeployment" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportGameConfiguration" OutputProperty="GameConfiguration" Verb="Import" Noun="GameConfiguration" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtensions" OutputProperty="Extensions" Verb="Get" Noun="ExtensionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtensionVersions" OutputProperty="ExtensionVersions" Verb="Get" Noun="ExtensionVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGames" OutputProperty="Games" Verb="Get" Noun="GameList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGeneratedCodeJobs" OutputProperty="GeneratedCodeJobs" Verb="Get" Noun="GeneratedCodeJobList" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotList" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStageDeployments" OutputProperty="StageDeployments" Verb="Get" Noun="StageDeploymentList" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStages" OutputProperty="Stages" Verb="Get" Noun="StageList" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartGeneratedCodeJob" OutputProperty="GeneratedCodeJobId" Verb="Start" Noun="GeneratedCodeJob" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartStageDeployment" OutputProperty="StageDeployment" Verb="Start" Noun="StageDeployment" ShouldProcessTarget="StageName" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGame" OutputProperty="Game" Verb="Update" Noun="Game" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGameConfiguration" OutputProperty="GameConfiguration" Verb="Update" Noun="GameConfiguration" ShouldProcessTarget="GameName" PipelineParameter="GameName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStage" OutputProperty="Stage" Verb="Update" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="StageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
