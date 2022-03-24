@@ -28,15 +28,15 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Provides organization config rule deployment status for an organization.
+    /// Provides organization Config rule deployment status for an organization.
     /// 
     ///  <note><para>
-    /// The status is not considered successful until organization config rule is successfully
+    /// The status is not considered successful until organization Config rule is successfully
     /// deployed in all the member accounts with an exception of excluded accounts.
     /// </para><para>
     /// When you specify the limit and the next token, you receive a paginated response. Limit
-    /// and next token are not applicable if you specify organization config rule names. It
-    /// is only applicable, when you request all the organization config rules.
+    /// and next token are not applicable if you specify organization Config rule names. It
+    /// is only applicable, when you request all the organization Config rules.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConfigRuleStatus")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The names of organization config rules for which you want status details. If you do
+        /// <para>The names of organization Config rules for which you want status details. If you do
         /// not specify any names, Config returns details for all your organization Config rules.</para>
         /// </para>
         /// </summary>

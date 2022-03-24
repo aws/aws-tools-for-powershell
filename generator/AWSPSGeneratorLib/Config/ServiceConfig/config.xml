@@ -238,6 +238,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomRulePolicy" OutputProperty="PolicyText" Verb="Get" Noun="CustomRulePolicy" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDiscoveredResourceCounts" OutputProperty="ResourceCounts" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -247,6 +251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOrganizationConformancePackDetailedStatus" OutputProperty="OrganizationConformancePackDetailedStatuses" Verb="Get" Noun="OrganizationConformancePackDetailedStatus" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationCustomRulePolicy" OutputProperty="PolicyText" Verb="Get" Noun="OrganizationCustomRulePolicy" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -322,6 +322,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter EphemeralStorage_Size
+        /// <summary>
+        /// <para>
+        /// <para>The size of the function’s /tmp directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EphemeralStorage_Size { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
@@ -450,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
+            context.EphemeralStorage_Size = this.EphemeralStorage_Size;
             if (this.FileSystemConfig != null)
             {
                 context.FileSystemConfig = new List<Amazon.Lambda.Model.FileSystemConfig>(this.FileSystemConfig);
@@ -563,6 +574,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (requestEnvironmentIsNull)
             {
                 request.Environment = null;
+            }
+            
+             // populate EphemeralStorage
+            var requestEphemeralStorageIsNull = true;
+            request.EphemeralStorage = new Amazon.Lambda.Model.EphemeralStorage();
+            System.Int32? requestEphemeralStorage_ephemeralStorage_Size = null;
+            if (cmdletContext.EphemeralStorage_Size != null)
+            {
+                requestEphemeralStorage_ephemeralStorage_Size = cmdletContext.EphemeralStorage_Size.Value;
+            }
+            if (requestEphemeralStorage_ephemeralStorage_Size != null)
+            {
+                request.EphemeralStorage.Size = requestEphemeralStorage_ephemeralStorage_Size.Value;
+                requestEphemeralStorageIsNull = false;
+            }
+             // determine if request.EphemeralStorage should be set to null
+            if (requestEphemeralStorageIsNull)
+            {
+                request.EphemeralStorage = null;
             }
             if (cmdletContext.FileSystemConfig != null)
             {
@@ -804,6 +834,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.Boolean? Environment_IsVariablesSet { get; set; }
+            public System.Int32? EphemeralStorage_Size { get; set; }
             public List<Amazon.Lambda.Model.FileSystemConfig> FileSystemConfig { get; set; }
             public System.Boolean? IsFileSystemConfigsSet { get; set; }
             public System.String FunctionName { get; set; }

@@ -4591,10 +4591,12 @@ Set-Alias -Name CFG-GetComplianceSummaryByResourceType -Value Get-CFGComplianceS
 Set-Alias -Name Get-CFGConformancePackComplianceDetails -Value Get-CFGConformancePackComplianceDetail
 Set-Alias -Name CFG-GetConformancePackComplianceDetails -Value Get-CFGConformancePackComplianceDetail
 Set-Alias -Name CFG-GetConformancePackComplianceSummary -Value Get-CFGConformancePackComplianceSummary
+Set-Alias -Name CFG-GetCustomRulePolicy -Value Get-CFGCustomRulePolicy
 Set-Alias -Name Get-CFGDiscoveredResourceCounts -Value Get-CFGDiscoveredResourceCount
 Set-Alias -Name CFG-GetDiscoveredResourceCounts -Value Get-CFGDiscoveredResourceCount
 Set-Alias -Name CFG-GetOrganizationConfigRuleDetailedStatus -Value Get-CFGOrganizationConfigRuleDetailedStatus
 Set-Alias -Name CFG-GetOrganizationConformancePackDetailedStatus -Value Get-CFGOrganizationConformancePackDetailedStatus
+Set-Alias -Name CFG-GetOrganizationCustomRulePolicy -Value Get-CFGOrganizationCustomRulePolicy
 Set-Alias -Name CFG-GetResourceConfigHistory -Value Get-CFGResourceConfigHistory
 Set-Alias -Name CFG-GetStoredQuery -Value Get-CFGStoredQuery
 Set-Alias -Name List-CFGAggregateDiscoveredResources -Value Get-CFGAggregateDiscoveredResourceList

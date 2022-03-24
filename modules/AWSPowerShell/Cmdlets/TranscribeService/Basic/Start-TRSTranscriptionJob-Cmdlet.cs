@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Subtitles_Format
         /// <summary>
         /// <para>
-        /// <para>Specify the output format for your subtitle file.</para>
+        /// <para>Specify the output format for your subtitle file; if you select both <code>srt</code>
+        /// and <code>vtt</code> formats, two output files are generated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Set this field to <code>true</code> to enable automatic language identification. Automatic
         /// language identification is disabled by default. You receive a <code>BadRequestException</code>
-        /// error if you enter a value for a <code>LanguageCode</code>.</para>
+        /// error if you enter a value for a <code>LanguageCode</code>.</para><para>You must include either <code>LanguageCode</code> or <code>IdentifyLanguage</code>
+        /// in your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language used in the input media file.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
+        /// <para>The language code for the language used in the input media file. You must include
+        /// either <code>LanguageCode</code> or <code>IdentifyLanguage</code> in your request.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
         /// be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
@@ -285,6 +288,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputKey { get; set; }
+        #endregion
+        
+        #region Parameter Subtitles_OutputStartIndex
+        /// <summary>
+        /// <para>
+        /// <para>Defines the starting value that is assigned to the first subtitle segment.</para><para>The default start index for Amazon Transcribe is <code>0</code>, which differs from
+        /// the more widely used standard of <code>1</code>. If you're uncertain which value to
+        /// use, we recommend choosing <code>1</code>, as this may improve compatibility with
+        /// other services.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Subtitles_OutputStartIndex { get; set; }
         #endregion
         
         #region Parameter ContentRedaction_PiiEntityType
@@ -543,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 context.Subtitles_Format = new List<System.String>(this.Subtitles_Format);
             }
+            context.Subtitles_OutputStartIndex = this.Subtitles_OutputStartIndex;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
@@ -829,6 +846,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 request.Subtitles.Formats = requestSubtitles_subtitles_Format;
                 requestSubtitlesIsNull = false;
             }
+            System.Int32? requestSubtitles_subtitles_OutputStartIndex = null;
+            if (cmdletContext.Subtitles_OutputStartIndex != null)
+            {
+                requestSubtitles_subtitles_OutputStartIndex = cmdletContext.Subtitles_OutputStartIndex.Value;
+            }
+            if (requestSubtitles_subtitles_OutputStartIndex != null)
+            {
+                request.Subtitles.OutputStartIndex = requestSubtitles_subtitles_OutputStartIndex.Value;
+                requestSubtitlesIsNull = false;
+            }
              // determine if request.Subtitles should be set to null
             if (requestSubtitlesIsNull)
             {
@@ -930,6 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String Settings_VocabularyFilterName { get; set; }
             public System.String Settings_VocabularyName { get; set; }
             public List<System.String> Subtitles_Format { get; set; }
+            public System.Int32? Subtitles_OutputStartIndex { get; set; }
             public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String TranscriptionJobName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartTranscriptionJobResponse, StartTRSTranscriptionJobCmdlet, object> Select { get; set; } =

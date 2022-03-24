@@ -28,13 +28,13 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the specified organization config rule and all of its evaluation results from
+    /// Deletes the specified organization Config rule and all of its evaluation results from
     /// all member accounts in that organization. 
     /// 
     ///  
     /// <para>
     /// Only a master account and a delegated administrator account can delete an organization
-    /// config rule. When calling this API with a delegated administrator, you must ensure
+    /// Config rule. When calling this API with a delegated administrator, you must ensure
     /// Organizations <code>ListDelegatedAdministrator</code> permissions are added.
     /// </para><para>
     /// Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of organization config rule that you want to delete.</para>
+        /// <para>The name of organization Config rule that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

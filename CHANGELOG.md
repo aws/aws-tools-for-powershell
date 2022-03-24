@@ -1,4 +1,17 @@
-﻿### 4.1.49 (2022-03-23 21:37Z)
+﻿### 4.1.50 (2022-03-24 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.237.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Config
+    * Added cmdlet Get-CFGCustomRulePolicy leveraging the GetCustomRulePolicy service API.
+    * Added cmdlet Get-CFGOrganizationCustomRulePolicy leveraging the GetOrganizationCustomRulePolicy service API.
+    * Modified cmdlet Write-CFGConfigRule: added parameters CustomPolicyDetails_EnableDebugLogDelivery, CustomPolicyDetails_PolicyRuntime and CustomPolicyDetails_PolicyText.
+    * Modified cmdlet Write-CFGOrganizationConfigRule: added parameters OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount, OrganizationCustomPolicyRuleMetadata_Description, OrganizationCustomPolicyRuleMetadata_InputParameter, OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency, OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType, OrganizationCustomPolicyRuleMetadata_PolicyRuntime, OrganizationCustomPolicyRuleMetadata_PolicyText, OrganizationCustomPolicyRuleMetadata_ResourceIdScope, OrganizationCustomPolicyRuleMetadata_ResourceTypesScope, OrganizationCustomPolicyRuleMetadata_TagKeyScope and OrganizationCustomPolicyRuleMetadata_TagValueScope.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter EphemeralStorage_Size.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameter EphemeralStorage_Size.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSTranscriptionJob: added parameter Subtitles_OutputStartIndex.
+
+### 4.1.49 (2022-03-23 21:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.236.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon GameSparks. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GMESP and can be listed using the command 'Get-AWSCmdletName -Service GMESP'.
   * Amazon Redshift

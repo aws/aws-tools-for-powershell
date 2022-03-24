@@ -28,33 +28,23 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the specified organization conformance pack and all of the Config rules and
-    /// remediation actions from all member accounts in that organization. 
-    /// 
-    ///  
-    /// <para>
-    ///  Only a master account or a delegated administrator account can delete an organization
-    /// conformance pack. When calling this API with a delegated administrator, you must ensure
-    /// Organizations <code>ListDelegatedAdministrator</code> permissions are added.
-    /// </para><para>
-    /// Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion
-    /// is complete. You cannot update a conformance pack while it is in this state. 
-    /// </para>
+    /// Returns the policy definition containing the logic for your organization Config Custom
+    /// Policy rule.
     /// </summary>
-    [Cmdlet("Remove", "CFGOrganizationConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Config DeleteOrganizationConformancePack API operation.", Operation = new[] {"DeleteOrganizationConformancePack"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse))]
-    [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CFGOrganizationCustomRulePolicy")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Config GetOrganizationCustomRulePolicy API operation.", Operation = new[] {"GetOrganizationCustomRulePolicy"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCFGOrganizationConformancePackCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class GetCFGOrganizationCustomRulePolicyCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter OrganizationConformancePackName
+        #region Parameter OrganizationConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of organization conformance pack that you want to delete.</para>
+        /// <para>The name of your organization Config Custom Policy rule. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,48 +55,33 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OrganizationConformancePackName { get; set; }
+        public System.String OrganizationConfigRuleName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyText'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse).
+        /// Specifying the name of a property of type Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PolicyText";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OrganizationConformancePackName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OrganizationConformancePackName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OrganizationConfigRuleName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OrganizationConfigRuleName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OrganizationConformancePackName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OrganizationConfigRuleName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationConformancePackName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGOrganizationConformancePack (DeleteOrganizationConformancePack)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -116,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse, RemoveCFGOrganizationConformancePackCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse, GetCFGOrganizationCustomRulePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,14 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OrganizationConformancePackName;
+                context.Select = (response, cmdlet) => this.OrganizationConfigRuleName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.OrganizationConformancePackName = this.OrganizationConformancePackName;
+            context.OrganizationConfigRuleName = this.OrganizationConfigRuleName;
             #if MODULAR
-            if (this.OrganizationConformancePackName == null && ParameterWasBound(nameof(this.OrganizationConformancePackName)))
+            if (this.OrganizationConfigRuleName == null && ParameterWasBound(nameof(this.OrganizationConfigRuleName)))
             {
-                WriteWarning("You are passing $null as a value for parameter OrganizationConformancePackName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OrganizationConfigRuleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.DeleteOrganizationConformancePackRequest();
+            var request = new Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyRequest();
             
-            if (cmdletContext.OrganizationConformancePackName != null)
+            if (cmdletContext.OrganizationConfigRuleName != null)
             {
-                request.OrganizationConformancePackName = cmdletContext.OrganizationConformancePackName;
+                request.OrganizationConfigRuleName = cmdletContext.OrganizationConfigRuleName;
             }
             
             CmdletOutput output;
@@ -188,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteOrganizationConformancePackRequest request)
+        private Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteOrganizationConformancePack");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "GetOrganizationCustomRulePolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteOrganizationConformancePack(request);
+                return client.GetOrganizationCustomRulePolicy(request);
                 #elif CORECLR
-                return client.DeleteOrganizationConformancePackAsync(request).GetAwaiter().GetResult();
+                return client.GetOrganizationCustomRulePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OrganizationConformancePackName { get; set; }
-            public System.Func<Amazon.ConfigService.Model.DeleteOrganizationConformancePackResponse, RemoveCFGOrganizationConformancePackCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String OrganizationConfigRuleName { get; set; }
+            public System.Func<Amazon.ConfigService.Model.GetOrganizationCustomRulePolicyResponse, GetCFGOrganizationCustomRulePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PolicyText;
         }
         
     }

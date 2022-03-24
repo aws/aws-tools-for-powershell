@@ -28,13 +28,13 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Adds or updates organization config rule for your entire organization evaluating whether
+    /// Adds or updates organization Config rule for your entire organization evaluating whether
     /// your Amazon Web Services resources comply with your desired configurations.
     /// 
     ///  
     /// <para>
     ///  Only a master account and a delegated administrator can create or update an organization
-    /// config rule. When calling this API with a delegated administrator, you must ensure
+    /// Config rule. When calling this API with a delegated administrator, you must ensure
     /// Organizations <code>ListDelegatedAdministrator</code> permissions are added. 
     /// </para><para>
     /// This API enables organization service access through the <code>EnableAWSServiceAccess</code>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// that Lambda assigns to the function. If you are adding an Config managed rule, specify
     /// the rule's identifier for the <code>RuleIdentifier</code> key.
     /// </para><para>
-    /// The maximum number of organization config rules that Config supports is 150 and 3
+    /// The maximum number of organization Config rules that Config supports is 150 and 3
     /// delegated administrator per organization. 
     /// </para><note><para>
     /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
@@ -75,10 +75,32 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGOrganizationConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount
+        /// <summary>
+        /// <para>
+        /// <para>A list of accounts that you can enable debug logging for your organization Config
+        /// Custom Policy rule. List is null when debug logging is enabled for all accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccounts")]
+        public System.String[] OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_Description
+        /// <summary>
+        /// <para>
+        /// <para>The description that you provide for your organization Config Custom Policy rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_Description { get; set; }
+        #endregion
+        
         #region Parameter OrganizationCustomRuleMetadata_Description
         /// <summary>
         /// <para>
-        /// <para>The description that you provide for organization config rule.</para>
+        /// <para>The description that you provide for your organization Config rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationManagedRuleMetadata_Description
         /// <summary>
         /// <para>
-        /// <para>The description that you provide for organization config rule.</para>
+        /// <para>The description that you provide for your organization Config rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExcludedAccount
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of accounts that you want to exclude from an organization config
+        /// <para>A comma-separated list of accounts that you want to exclude from an organization Config
         /// rule.</para>
         /// </para>
         /// </summary>
@@ -107,10 +129,22 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String[] ExcludedAccount { get; set; }
         #endregion
         
+        #region Parameter OrganizationCustomPolicyRuleMetadata_InputParameter
+        /// <summary>
+        /// <para>
+        /// <para>A string, in JSON format, that is passed to your organization Config Custom Policy
+        /// rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationCustomPolicyRuleMetadata_InputParameters")]
+        public System.String OrganizationCustomPolicyRuleMetadata_InputParameter { get; set; }
+        #endregion
+        
         #region Parameter OrganizationCustomRuleMetadata_InputParameter
         /// <summary>
         /// <para>
-        /// <para>A string, in JSON format, that is passed to organization config rule Lambda function.</para>
+        /// <para>A string, in JSON format, that is passed to your organization Config rule Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationManagedRuleMetadata_InputParameter
         /// <summary>
         /// <para>
-        /// <para>A string, in JSON format, that is passed to organization config rule Lambda function.</para>
+        /// <para>A string, in JSON format, that is passed to your organization Config rule Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,6 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OrganizationCustomRuleMetadata_LambdaFunctionArn { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom
+        /// Policy rule is triggered when Config delivers the configuration snapshot. For more
+        /// information, see <a>ConfigSnapshotDeliveryProperties</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
+        public Amazon.ConfigService.MaximumExecutionFrequency OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency { get; set; }
         #endregion
         
         #region Parameter OrganizationCustomRuleMetadata_MaximumExecutionFrequency
@@ -171,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name that you assign to an organization config rule.</para>
+        /// <para>The name that you assign to an organization Config rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,6 +230,22 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OrganizationConfigRuleName { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType
+        /// <summary>
+        /// <para>
+        /// <para>The type of notification that initiates Config to run an evaluation for a rule. For
+        /// Config Custom Policy rules, Config supports change-initiated notification types:</para><ul><li><para><code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config
+        /// delivers a configuration item as a result of a resource change.</para></li><li><para><code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation
+        /// when Config delivers an oversized configuration item. Config may generate this notification
+        /// type when a resource changes and the notification exceeds the maximum size allowed
+        /// by Amazon SNS.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerTypes")]
+        public System.String[] OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType { get; set; }
         #endregion
         
         #region Parameter OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType
@@ -200,6 +263,40 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerTypes")]
         public System.String[] OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_PolicyRuntime
+        /// <summary>
+        /// <para>
+        /// <para>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code
+        /// language that allows you to write policies that are enforced by Config Custom Policy
+        /// rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
+        /// GitHub Repository</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_PolicyRuntime { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_PolicyText
+        /// <summary>
+        /// <para>
+        /// <para>The policy definition containing the logic for your organization Config Custom Policy
+        /// rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_PolicyText { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_ResourceIdScope
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_ResourceIdScope { get; set; }
         #endregion
         
         #region Parameter OrganizationCustomRuleMetadata_ResourceIdScope
@@ -220,6 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OrganizationManagedRuleMetadata_ResourceIdScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_ResourceTypesScope
+        /// <summary>
+        /// <para>
+        /// <para>The type of the Amazon Web Services resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OrganizationCustomPolicyRuleMetadata_ResourceTypesScope { get; set; }
         #endregion
         
         #region Parameter OrganizationCustomRuleMetadata_ResourceTypesScope
@@ -255,6 +362,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String OrganizationManagedRuleMetadata_RuleIdentifier { get; set; }
         #endregion
         
+        #region Parameter OrganizationCustomPolicyRuleMetadata_TagKeyScope
+        /// <summary>
+        /// <para>
+        /// <para>One part of a key-value pair that make up a tag. A key is a general label that acts
+        /// like a category for more specific tag values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_TagKeyScope { get; set; }
+        #endregion
+        
         #region Parameter OrganizationCustomRuleMetadata_TagKeyScope
         /// <summary>
         /// <para>
@@ -275,6 +393,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OrganizationManagedRuleMetadata_TagKeyScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomPolicyRuleMetadata_TagValueScope
+        /// <summary>
+        /// <para>
+        /// <para>The optional part of a key-value pair that make up a tag. A value acts as a descriptor
+        /// within a tag category (key).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomPolicyRuleMetadata_TagValueScope { get; set; }
         #endregion
         
         #region Parameter OrganizationCustomRuleMetadata_TagValueScope
@@ -371,6 +500,26 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 WriteWarning("You are passing $null as a value for parameter OrganizationConfigRuleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount != null)
+            {
+                context.OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount = new List<System.String>(this.OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount);
+            }
+            context.OrganizationCustomPolicyRuleMetadata_Description = this.OrganizationCustomPolicyRuleMetadata_Description;
+            context.OrganizationCustomPolicyRuleMetadata_InputParameter = this.OrganizationCustomPolicyRuleMetadata_InputParameter;
+            context.OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency = this.OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency;
+            if (this.OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                context.OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType = new List<System.String>(this.OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType);
+            }
+            context.OrganizationCustomPolicyRuleMetadata_PolicyRuntime = this.OrganizationCustomPolicyRuleMetadata_PolicyRuntime;
+            context.OrganizationCustomPolicyRuleMetadata_PolicyText = this.OrganizationCustomPolicyRuleMetadata_PolicyText;
+            context.OrganizationCustomPolicyRuleMetadata_ResourceIdScope = this.OrganizationCustomPolicyRuleMetadata_ResourceIdScope;
+            if (this.OrganizationCustomPolicyRuleMetadata_ResourceTypesScope != null)
+            {
+                context.OrganizationCustomPolicyRuleMetadata_ResourceTypesScope = new List<System.String>(this.OrganizationCustomPolicyRuleMetadata_ResourceTypesScope);
+            }
+            context.OrganizationCustomPolicyRuleMetadata_TagKeyScope = this.OrganizationCustomPolicyRuleMetadata_TagKeyScope;
+            context.OrganizationCustomPolicyRuleMetadata_TagValueScope = this.OrganizationCustomPolicyRuleMetadata_TagValueScope;
             context.OrganizationCustomRuleMetadata_Description = this.OrganizationCustomRuleMetadata_Description;
             context.OrganizationCustomRuleMetadata_InputParameter = this.OrganizationCustomRuleMetadata_InputParameter;
             context.OrganizationCustomRuleMetadata_LambdaFunctionArn = this.OrganizationCustomRuleMetadata_LambdaFunctionArn;
@@ -420,6 +569,125 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.OrganizationConfigRuleName != null)
             {
                 request.OrganizationConfigRuleName = cmdletContext.OrganizationConfigRuleName;
+            }
+            
+             // populate OrganizationCustomPolicyRuleMetadata
+            var requestOrganizationCustomPolicyRuleMetadataIsNull = true;
+            request.OrganizationCustomPolicyRuleMetadata = new Amazon.ConfigService.Model.OrganizationCustomPolicyRuleMetadata();
+            List<System.String> requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount = cmdletContext.OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.DebugLogDeliveryAccounts = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_Description = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_Description != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_Description = cmdletContext.OrganizationCustomPolicyRuleMetadata_Description;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_Description != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.Description = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_Description;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_InputParameter = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_InputParameter != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_InputParameter = cmdletContext.OrganizationCustomPolicyRuleMetadata_InputParameter;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_InputParameter != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.InputParameters = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_InputParameter;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            Amazon.ConfigService.MaximumExecutionFrequency requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_MaximumExecutionFrequency = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_MaximumExecutionFrequency = cmdletContext.OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.MaximumExecutionFrequency = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_MaximumExecutionFrequency;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            List<System.String> requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType = cmdletContext.OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.OrganizationConfigRuleTriggerTypes = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyRuntime = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_PolicyRuntime != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyRuntime = cmdletContext.OrganizationCustomPolicyRuleMetadata_PolicyRuntime;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyRuntime != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.PolicyRuntime = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyRuntime;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyText = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_PolicyText != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyText = cmdletContext.OrganizationCustomPolicyRuleMetadata_PolicyText;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyText != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.PolicyText = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_PolicyText;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceIdScope = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_ResourceIdScope != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceIdScope = cmdletContext.OrganizationCustomPolicyRuleMetadata_ResourceIdScope;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceIdScope != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.ResourceIdScope = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceIdScope;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            List<System.String> requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceTypesScope = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_ResourceTypesScope != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceTypesScope = cmdletContext.OrganizationCustomPolicyRuleMetadata_ResourceTypesScope;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceTypesScope != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.ResourceTypesScope = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_ResourceTypesScope;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagKeyScope = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_TagKeyScope != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagKeyScope = cmdletContext.OrganizationCustomPolicyRuleMetadata_TagKeyScope;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagKeyScope != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.TagKeyScope = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagKeyScope;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagValueScope = null;
+            if (cmdletContext.OrganizationCustomPolicyRuleMetadata_TagValueScope != null)
+            {
+                requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagValueScope = cmdletContext.OrganizationCustomPolicyRuleMetadata_TagValueScope;
+            }
+            if (requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagValueScope != null)
+            {
+                request.OrganizationCustomPolicyRuleMetadata.TagValueScope = requestOrganizationCustomPolicyRuleMetadata_organizationCustomPolicyRuleMetadata_TagValueScope;
+                requestOrganizationCustomPolicyRuleMetadataIsNull = false;
+            }
+             // determine if request.OrganizationCustomPolicyRuleMetadata should be set to null
+            if (requestOrganizationCustomPolicyRuleMetadataIsNull)
+            {
+                request.OrganizationCustomPolicyRuleMetadata = null;
             }
             
              // populate OrganizationCustomRuleMetadata
@@ -672,6 +940,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             public List<System.String> ExcludedAccount { get; set; }
             public System.String OrganizationConfigRuleName { get; set; }
+            public List<System.String> OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_Description { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_InputParameter { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency { get; set; }
+            public List<System.String> OrganizationCustomPolicyRuleMetadata_OrganizationConfigRuleTriggerType { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_PolicyRuntime { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_PolicyText { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_ResourceIdScope { get; set; }
+            public List<System.String> OrganizationCustomPolicyRuleMetadata_ResourceTypesScope { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_TagKeyScope { get; set; }
+            public System.String OrganizationCustomPolicyRuleMetadata_TagValueScope { get; set; }
             public System.String OrganizationCustomRuleMetadata_Description { get; set; }
             public System.String OrganizationCustomRuleMetadata_InputParameter { get; set; }
             public System.String OrganizationCustomRuleMetadata_LambdaFunctionArn { get; set; }

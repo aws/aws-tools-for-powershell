@@ -28,12 +28,12 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns a list of organization config rules. 
+    /// Returns a list of organization Config rules. 
     /// 
     ///  <note><para>
     /// When you specify the limit and the next token, you receive a paginated response. Limit
-    /// and next token are not applicable if you specify organization config rule names. It
-    /// is only applicable, when you request all the organization config rules.
+    /// and next token are not applicable if you specify organization Config rule names. It
+    /// is only applicable, when you request all the organization Config rules.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConfigRule")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The names of organization config rules for which you want details. If you do not specify
-        /// any names, Config returns details for all your organization config rules.</para>
+        /// <para>The names of organization Config rules for which you want details. If you do not specify
+        /// any names, Config returns details for all your organization Config rules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of organization config rules returned on each page. If you do no
+        /// <para>The maximum number of organization Config rules returned on each page. If you do no
         /// specify a number, Config uses the default. The default is 100.</para>
         /// </para>
         /// <para>

@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A string containing full conformance pack template body. Structure containing the
-        /// template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can only use a YAML template with two resource types: config rule (<code>AWS::Config::ConfigRule</code>)
+        /// template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
         /// and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</para></note>
         /// </para>
         /// </summary>

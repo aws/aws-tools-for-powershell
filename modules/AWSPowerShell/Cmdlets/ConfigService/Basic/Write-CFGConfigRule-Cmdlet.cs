@@ -172,6 +172,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String ConfigRule_Description { get; set; }
         #endregion
         
+        #region Parameter CustomPolicyDetails_EnableDebugLogDelivery
+        /// <summary>
+        /// <para>
+        /// <para>The boolean expression for enabling debug logging for your Config Custom Policy rule.
+        /// The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigRule_Source_CustomPolicyDetails_EnableDebugLogDelivery")]
+        public System.Boolean? CustomPolicyDetails_EnableDebugLogDelivery { get; set; }
+        #endregion
+        
         #region Parameter ConfigRule_InputParameter
         /// <summary>
         /// <para>
@@ -202,7 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Indicates whether Amazon Web Services or the customer owns and manages the Config
-        /// rule.</para>
+        /// rule.</para><para>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information,
+        /// see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config
+        /// Managed Rules</a> in the Config developer guide.</para><para>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>)
+        /// or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config
+        /// Custom Rules </a> in the Config developer guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -217,11 +233,39 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public Amazon.ConfigService.Owner Source_Owner { get; set; }
         #endregion
         
+        #region Parameter CustomPolicyDetails_PolicyRuntime
+        /// <summary>
+        /// <para>
+        /// <para>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language
+        /// that allows you to write policies that are enforced by Config Custom Policy rules.
+        /// For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
+        /// GitHub Repository</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigRule_Source_CustomPolicyDetails_PolicyRuntime")]
+        public System.String CustomPolicyDetails_PolicyRuntime { get; set; }
+        #endregion
+        
+        #region Parameter CustomPolicyDetails_PolicyText
+        /// <summary>
+        /// <para>
+        /// <para>The policy definition containing the logic for your Config Custom Policy rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigRule_Source_CustomPolicyDetails_PolicyText")]
+        public System.String CustomPolicyDetails_PolicyText { get; set; }
+        #endregion
+        
         #region Parameter Source_SourceDetail
         /// <summary>
         /// <para>
-        /// <para>Provides the source and type of the event that causes Config to evaluate your Amazon
-        /// Web Services resources.</para>
+        /// <para>Provides the source and the message types that cause Config to evaluate your Amazon
+        /// Web Services resources against a rule. It also provides the frequency with which you
+        /// want Config to run evaluations for the rule if the trigger type is periodic.</para><para>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for
+        /// the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code>
+        /// and <code>OversizedConfigurationItemChangeNotification</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,20 +276,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Source_SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>For Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code>
-        /// is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
-        /// Config managed rules</a>.</para><para>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's Lambda
-        /// function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</para>
+        /// <para>For Config Managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code>
+        /// is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
+        /// of Config Managed Rules</a>.</para><para>For Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of
+        /// the rule's Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</para><para>For Config Custom Policy rules, this field will be ignored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ConfigRule_Source_SourceIdentifier")]
         public System.String Source_SourceIdentifier { get; set; }
         #endregion
@@ -361,6 +398,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             context.Scope_TagKey = this.Scope_TagKey;
             context.Scope_TagValue = this.Scope_TagValue;
+            context.CustomPolicyDetails_EnableDebugLogDelivery = this.CustomPolicyDetails_EnableDebugLogDelivery;
+            context.CustomPolicyDetails_PolicyRuntime = this.CustomPolicyDetails_PolicyRuntime;
+            context.CustomPolicyDetails_PolicyText = this.CustomPolicyDetails_PolicyText;
             context.Source_Owner = this.Source_Owner;
             #if MODULAR
             if (this.Source_Owner == null && ParameterWasBound(nameof(this.Source_Owner)))
@@ -373,12 +413,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.Source_SourceDetail = new List<Amazon.ConfigService.Model.SourceDetail>(this.Source_SourceDetail);
             }
             context.Source_SourceIdentifier = this.Source_SourceIdentifier;
-            #if MODULAR
-            if (this.Source_SourceIdentifier == null && ParameterWasBound(nameof(this.Source_SourceIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Source_SourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ConfigService.Model.Tag>(this.Tag);
@@ -483,51 +517,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.MaximumExecutionFrequency = requestConfigRule_configRule_MaximumExecutionFrequency;
                 requestConfigRuleIsNull = false;
             }
-            Amazon.ConfigService.Model.Source requestConfigRule_configRule_Source = null;
-            
-             // populate Source
-            var requestConfigRule_configRule_SourceIsNull = true;
-            requestConfigRule_configRule_Source = new Amazon.ConfigService.Model.Source();
-            Amazon.ConfigService.Owner requestConfigRule_configRule_Source_source_Owner = null;
-            if (cmdletContext.Source_Owner != null)
-            {
-                requestConfigRule_configRule_Source_source_Owner = cmdletContext.Source_Owner;
-            }
-            if (requestConfigRule_configRule_Source_source_Owner != null)
-            {
-                requestConfigRule_configRule_Source.Owner = requestConfigRule_configRule_Source_source_Owner;
-                requestConfigRule_configRule_SourceIsNull = false;
-            }
-            List<Amazon.ConfigService.Model.SourceDetail> requestConfigRule_configRule_Source_source_SourceDetail = null;
-            if (cmdletContext.Source_SourceDetail != null)
-            {
-                requestConfigRule_configRule_Source_source_SourceDetail = cmdletContext.Source_SourceDetail;
-            }
-            if (requestConfigRule_configRule_Source_source_SourceDetail != null)
-            {
-                requestConfigRule_configRule_Source.SourceDetails = requestConfigRule_configRule_Source_source_SourceDetail;
-                requestConfigRule_configRule_SourceIsNull = false;
-            }
-            System.String requestConfigRule_configRule_Source_source_SourceIdentifier = null;
-            if (cmdletContext.Source_SourceIdentifier != null)
-            {
-                requestConfigRule_configRule_Source_source_SourceIdentifier = cmdletContext.Source_SourceIdentifier;
-            }
-            if (requestConfigRule_configRule_Source_source_SourceIdentifier != null)
-            {
-                requestConfigRule_configRule_Source.SourceIdentifier = requestConfigRule_configRule_Source_source_SourceIdentifier;
-                requestConfigRule_configRule_SourceIsNull = false;
-            }
-             // determine if requestConfigRule_configRule_Source should be set to null
-            if (requestConfigRule_configRule_SourceIsNull)
-            {
-                requestConfigRule_configRule_Source = null;
-            }
-            if (requestConfigRule_configRule_Source != null)
-            {
-                request.ConfigRule.Source = requestConfigRule_configRule_Source;
-                requestConfigRuleIsNull = false;
-            }
             Amazon.ConfigService.Model.Scope requestConfigRule_configRule_Scope = null;
             
              // populate Scope
@@ -581,6 +570,96 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigRule_configRule_Scope != null)
             {
                 request.ConfigRule.Scope = requestConfigRule_configRule_Scope;
+                requestConfigRuleIsNull = false;
+            }
+            Amazon.ConfigService.Model.Source requestConfigRule_configRule_Source = null;
+            
+             // populate Source
+            var requestConfigRule_configRule_SourceIsNull = true;
+            requestConfigRule_configRule_Source = new Amazon.ConfigService.Model.Source();
+            Amazon.ConfigService.Owner requestConfigRule_configRule_Source_source_Owner = null;
+            if (cmdletContext.Source_Owner != null)
+            {
+                requestConfigRule_configRule_Source_source_Owner = cmdletContext.Source_Owner;
+            }
+            if (requestConfigRule_configRule_Source_source_Owner != null)
+            {
+                requestConfigRule_configRule_Source.Owner = requestConfigRule_configRule_Source_source_Owner;
+                requestConfigRule_configRule_SourceIsNull = false;
+            }
+            List<Amazon.ConfigService.Model.SourceDetail> requestConfigRule_configRule_Source_source_SourceDetail = null;
+            if (cmdletContext.Source_SourceDetail != null)
+            {
+                requestConfigRule_configRule_Source_source_SourceDetail = cmdletContext.Source_SourceDetail;
+            }
+            if (requestConfigRule_configRule_Source_source_SourceDetail != null)
+            {
+                requestConfigRule_configRule_Source.SourceDetails = requestConfigRule_configRule_Source_source_SourceDetail;
+                requestConfigRule_configRule_SourceIsNull = false;
+            }
+            System.String requestConfigRule_configRule_Source_source_SourceIdentifier = null;
+            if (cmdletContext.Source_SourceIdentifier != null)
+            {
+                requestConfigRule_configRule_Source_source_SourceIdentifier = cmdletContext.Source_SourceIdentifier;
+            }
+            if (requestConfigRule_configRule_Source_source_SourceIdentifier != null)
+            {
+                requestConfigRule_configRule_Source.SourceIdentifier = requestConfigRule_configRule_Source_source_SourceIdentifier;
+                requestConfigRule_configRule_SourceIsNull = false;
+            }
+            Amazon.ConfigService.Model.CustomPolicyDetails requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails = null;
+            
+             // populate CustomPolicyDetails
+            var requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetailsIsNull = true;
+            requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails = new Amazon.ConfigService.Model.CustomPolicyDetails();
+            System.Boolean? requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_EnableDebugLogDelivery = null;
+            if (cmdletContext.CustomPolicyDetails_EnableDebugLogDelivery != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_EnableDebugLogDelivery = cmdletContext.CustomPolicyDetails_EnableDebugLogDelivery.Value;
+            }
+            if (requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_EnableDebugLogDelivery != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails.EnableDebugLogDelivery = requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_EnableDebugLogDelivery.Value;
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetailsIsNull = false;
+            }
+            System.String requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyRuntime = null;
+            if (cmdletContext.CustomPolicyDetails_PolicyRuntime != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyRuntime = cmdletContext.CustomPolicyDetails_PolicyRuntime;
+            }
+            if (requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyRuntime != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails.PolicyRuntime = requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyRuntime;
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetailsIsNull = false;
+            }
+            System.String requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyText = null;
+            if (cmdletContext.CustomPolicyDetails_PolicyText != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyText = cmdletContext.CustomPolicyDetails_PolicyText;
+            }
+            if (requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyText != null)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails.PolicyText = requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails_customPolicyDetails_PolicyText;
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetailsIsNull = false;
+            }
+             // determine if requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails should be set to null
+            if (requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetailsIsNull)
+            {
+                requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails = null;
+            }
+            if (requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails != null)
+            {
+                requestConfigRule_configRule_Source.CustomPolicyDetails = requestConfigRule_configRule_Source_configRule_Source_CustomPolicyDetails;
+                requestConfigRule_configRule_SourceIsNull = false;
+            }
+             // determine if requestConfigRule_configRule_Source should be set to null
+            if (requestConfigRule_configRule_SourceIsNull)
+            {
+                requestConfigRule_configRule_Source = null;
+            }
+            if (requestConfigRule_configRule_Source != null)
+            {
+                request.ConfigRule.Source = requestConfigRule_configRule_Source;
                 requestConfigRuleIsNull = false;
             }
              // determine if request.ConfigRule should be set to null
@@ -665,6 +744,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public List<System.String> Scope_ComplianceResourceType { get; set; }
             public System.String Scope_TagKey { get; set; }
             public System.String Scope_TagValue { get; set; }
+            public System.Boolean? CustomPolicyDetails_EnableDebugLogDelivery { get; set; }
+            public System.String CustomPolicyDetails_PolicyRuntime { get; set; }
+            public System.String CustomPolicyDetails_PolicyText { get; set; }
             public Amazon.ConfigService.Owner Source_Owner { get; set; }
             public List<Amazon.ConfigService.Model.SourceDetail> Source_SourceDetail { get; set; }
             public System.String Source_SourceIdentifier { get; set; }
