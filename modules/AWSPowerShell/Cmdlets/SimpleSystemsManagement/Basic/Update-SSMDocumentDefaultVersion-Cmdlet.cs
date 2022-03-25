@@ -28,7 +28,13 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Set the default version of a document.
+    /// Set the default version of a document. 
+    /// 
+    ///  <note><para>
+    /// If you change a document version for a State Manager association, Systems Manager
+    /// immediately runs the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+    /// parameter.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMDocumentDefaultVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription")]

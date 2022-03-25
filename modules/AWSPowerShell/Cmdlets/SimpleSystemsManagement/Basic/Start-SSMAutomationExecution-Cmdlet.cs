@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// tags for an automation. Tags enable you to categorize a resource in different ways,
         /// such as by purpose, owner, or environment. For example, you might want to tag an automation
         /// to identify an environment or operating system. In this case, you could specify the
-        /// following key-value pairs:</para><ul><li><para><code>Key=environment,Value=test</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing automation, use the <a>AddTagsToResource</a> operation.</para></note>
+        /// following key-value pairs:</para><ul><li><para><code>Key=environment,Value=test</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> operation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

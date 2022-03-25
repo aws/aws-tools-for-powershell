@@ -152,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Remote API</a> and the <code>IMAGE</code> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>Docker image architecture must match the processor architecture of the compute resources
         /// that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based
-        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
+        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR Public repositories use the full <code>registry/repository[:tag]</code>
+        /// or <code>registry/repository[@digest]</code> naming conventions. For example, <code>public.ecr.aws/<i>registry_alias</i>/<i>my-web-app</i>:<i>latest</i></code>.</para></li><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
         /// <code>012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</code>).</para></li><li><para>Images in official repositories on Docker Hub use a single name (for example, <code>ubuntu</code>
         /// or <code>mongo</code>).</para></li><li><para>Images in other repositories on Docker Hub are qualified with an organization name
         /// (for example, <code>amazon/amazon-ecs-agent</code>).</para></li><li><para>Images in other online repositories are qualified further by a domain name (for example,
@@ -623,12 +624,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
-        /// memory requirements for the job definition. It's not supported for jobs that run on
-        /// Fargate resources. For jobs run on EC2 resources, it specifies the memory hard limit
-        /// (in MiB) for a container. If your container attempts to exceed the specified number,
-        /// it's terminated. You must specify at least 4 MiB of memory for a job using this parameter.
-        /// The memory hard limit can be specified in several places. It must be specified for
-        /// each node at least once.</para>
+        /// memory requirements for the job definition. It's not supported for jobs running on
+        /// Fargate resources. For jobs running on EC2 resources, it specifies the memory hard
+        /// limit (in MiB) for a container. If your container attempts to exceed the specified
+        /// number, it's terminated. You must specify at least 4 MiB of memory for a job using
+        /// this parameter. The memory hard limit can be specified in several places. It must
+        /// be specified for each node at least once.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -641,9 +642,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
-        /// vCPU requirements for the job definition. It's not supported for jobs that run on
-        /// Fargate resources. For jobs run on EC2 resources, it specifies the number of vCPUs
-        /// reserved for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code>
+        /// vCPU requirements for the job definition. It's not supported for jobs running on Fargate
+        /// resources. For jobs running on EC2 resources, it specifies the number of vCPUs reserved
+        /// for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker

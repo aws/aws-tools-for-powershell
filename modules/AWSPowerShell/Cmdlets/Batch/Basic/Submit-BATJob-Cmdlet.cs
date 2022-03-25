@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// are specified in the <code>resourceRequirements</code> objects in the job definition
     /// are the exception. They can't be overridden this way using the <code>memory</code>
     /// and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
-    /// parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
+    /// parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code>
     /// parameter.
     /// 
     ///  <note><para>
@@ -321,8 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
-        /// memory requirements specified in the job definition. It's not supported for jobs that
-        /// run on Fargate resources. For jobs run on EC2 resources, it overrides the <code>memory</code>
+        /// memory requirements specified in the job definition. It's not supported for jobs running
+        /// on Fargate resources. For jobs running on EC2 resources, it overrides the <code>memory</code>
         /// parameter set in the job definition, but doesn't override any memory requirement specified
         /// in the <code>resourceRequirements</code> structure in the job definition. To override
         /// memory requirements that are specified in the <code>resourceRequirements</code> structure
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
         /// <code>vcpus</code> parameter that's set in the job definition. It's not supported
-        /// for jobs that run on Fargate resources. For jobs run on EC2 resources, it overrides
+        /// for jobs running on Fargate resources. For jobs running on EC2 resources, it overrides
         /// the <code>vcpus</code> parameter set in the job definition, but doesn't override any
         /// vCPU requirement specified in the <code>resourceRequirements</code> structure in the
         /// job definition. To override vCPU requirements that are specified in the <code>resourceRequirements</code>

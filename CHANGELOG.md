@@ -1,4 +1,7 @@
-﻿### 4.1.50 (2022-03-24 20:23Z)
+﻿### 4.1.51 (2022-03-25 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.238.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.50 (2022-03-24 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.237.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Config
     * Added cmdlet Get-CFGCustomRulePolicy leveraging the GetCustomRulePolicy service API.

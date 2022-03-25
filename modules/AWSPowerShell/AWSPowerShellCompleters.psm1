@@ -45528,7 +45528,7 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","MACOS","ORACLE_LINUX","RASPBIAN","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","MACOS","ORACLE_LINUX","RASPBIAN","REDHAT_ENTERPRISE_LINUX","ROCKY_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
 

@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.237.0",
+    "ProductVersion" : "3.7.238.0",
     "CoreVersion"    : "3.7.9.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.61.4",
+            "Version" : "3.7.62.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.2"
@@ -370,7 +370,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.13.1",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.2"
@@ -706,7 +706,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.3.47",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.9.2"

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource from which you want to remove tags. For example:</para><para>ManagedInstance: mi-012345abcde</para><para>MaintenanceWindow: mw-012345abcde</para><para><code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code></para><para>PatchBaseline: pb-012345abcde</para><para>OpsMetadata object: <code>ResourceID</code> for tagging is created from the Amazon
+        /// <para>The ID of the resource from which you want to remove tags. For example:</para><para>ManagedInstance: mi-012345abcde</para><para>MaintenanceWindow: mw-012345abcde</para><para>PatchBaseline: pb-012345abcde</para><para>OpsMetadata object: <code>ResourceID</code> for tagging is created from the Amazon
         /// Resource Name (ARN) for the object. Specifically, <code>ResourceID</code> is created
         /// from the strings that come after the word <code>opsmetadata</code> in the ARN. For
         /// example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code>

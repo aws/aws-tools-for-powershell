@@ -28,14 +28,17 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the tasks in a maintenance window.
+    /// Retrieves the details of a maintenance window task.
     /// 
     ///  <note><para>
     /// For maintenance window tasks without a specified target, you can't supply values for
     /// <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
     /// inserts a placeholder value of <code>1</code>, which may be reported in the response
     /// to this command. These values don't affect the running of your task and can be ignored.
-    /// </para></note>
+    /// </para></note><para>
+    /// To retrieve a list of tasks in a maintenance window, instead use the <a>DescribeMaintenanceWindowTasks</a>
+    /// command.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowTask")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse")]
