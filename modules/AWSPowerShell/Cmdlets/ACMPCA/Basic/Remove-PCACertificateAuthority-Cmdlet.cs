@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// </para><para>
     /// Additionally, you can delete a CA if you are waiting for it to be created (that is,
     /// the status of the CA is <code>CREATING</code>). You can also delete it if the CA has
-    /// been created but you haven't yet imported the signed certificate into Amazon Web Services
-    /// Private CA (that is, the status of the CA is <code>PENDING_CERTIFICATE</code>). 
+    /// been created but you haven't yet imported the signed certificate into ACM Private
+    /// CA (that is, the status of the CA is <code>PENDING_CERTIFICATE</code>). 
     /// </para><para>
     /// When you successfully call <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a>,
     /// the CA's status changes to <code>DELETED</code>. However, the CA won't be permanently

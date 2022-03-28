@@ -107,6 +107,29 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.LogLevel LogLevel { get; set; }
         #endregion
         
+        #region Parameter Maintenance_MaintenanceDay
+        /// <summary>
+        /// <para>
+        /// Choose one day of the week for maintenance.
+        /// The chosen day is used for all future maintenance windows.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.MaintenanceDay")]
+        public Amazon.MediaLive.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+        #endregion
+        
+        #region Parameter Maintenance_MaintenanceStartTime
+        /// <summary>
+        /// <para>
+        /// Choose the hour that maintenance
+        /// will start. The chosen time is used for all future maintenance windows.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Maintenance_MaintenanceStartTime { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_MaximumBitrate
         /// <summary>
         /// <para>
@@ -310,6 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
             context.InputSpecification_Resolution = this.InputSpecification_Resolution;
             context.LogLevel = this.LogLevel;
+            context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
+            context.Maintenance_MaintenanceStartTime = this.Maintenance_MaintenanceStartTime;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -429,6 +454,35 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.LogLevel != null)
             {
                 request.LogLevel = cmdletContext.LogLevel;
+            }
+            
+             // populate Maintenance
+            var requestMaintenanceIsNull = true;
+            request.Maintenance = new Amazon.MediaLive.Model.MaintenanceCreateSettings();
+            Amazon.MediaLive.MaintenanceDay requestMaintenance_maintenance_MaintenanceDay = null;
+            if (cmdletContext.Maintenance_MaintenanceDay != null)
+            {
+                requestMaintenance_maintenance_MaintenanceDay = cmdletContext.Maintenance_MaintenanceDay;
+            }
+            if (requestMaintenance_maintenance_MaintenanceDay != null)
+            {
+                request.Maintenance.MaintenanceDay = requestMaintenance_maintenance_MaintenanceDay;
+                requestMaintenanceIsNull = false;
+            }
+            System.String requestMaintenance_maintenance_MaintenanceStartTime = null;
+            if (cmdletContext.Maintenance_MaintenanceStartTime != null)
+            {
+                requestMaintenance_maintenance_MaintenanceStartTime = cmdletContext.Maintenance_MaintenanceStartTime;
+            }
+            if (requestMaintenance_maintenance_MaintenanceStartTime != null)
+            {
+                request.Maintenance.MaintenanceStartTime = requestMaintenance_maintenance_MaintenanceStartTime;
+                requestMaintenanceIsNull = false;
+            }
+             // determine if request.Maintenance should be set to null
+            if (requestMaintenanceIsNull)
+            {
+                request.Maintenance = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -561,6 +615,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
             public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
             public Amazon.MediaLive.LogLevel LogLevel { get; set; }
+            public Amazon.MediaLive.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
+            public System.String Maintenance_MaintenanceStartTime { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             [System.ObsoleteAttribute]

@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
     /// The output contains the status of your CA. This can be any of the following: 
     /// 
-    ///  <ul><li><para><code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
-    /// authority.
+    ///  <ul><li><para><code>CREATING</code> - ACM Private CA is creating your private certificate authority.
     /// </para></li><li><para><code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use your
-    /// Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign
-    /// your private CA CSR and then import it into PCA. 
+    /// ACM Private CA-hosted or on-premises root or subordinate CA to sign your private CA
+    /// CSR and then import it into PCA. 
     /// </para></li><li><para><code>ACTIVE</code> - Your private CA is active.
     /// </para></li><li><para><code>DISABLED</code> - Your private CA has been disabled.
     /// </para></li><li><para><code>EXPIRED</code> - Your private CA certificate has expired.

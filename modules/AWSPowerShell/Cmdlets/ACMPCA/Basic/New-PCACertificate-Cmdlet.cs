@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// 
     ///  <note><para>
     /// You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs
-    /// of the certificates that you issue by using Amazon Web Services Private CA.
+    /// of the certificates that you issue by using ACM Private CA.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "PCACertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -266,9 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b>
         /// action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute.
         /// Therefore, if you call <b>IssueCertificate</b> multiple times with the same idempotency
-        /// token within one minute, Amazon Web Services Private CA recognizes that you are requesting
-        /// only one certificate and will issue only one. If you change the idempotency token
-        /// for each call, PCA recognizes that you are requesting multiple certificates.</para>
+        /// token within one minute, ACM Private CA recognizes that you are requesting only one
+        /// certificate and will issue only one. If you change the idempotency token for each
+        /// call, PCA recognizes that you are requesting multiple certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -448,13 +448,12 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Specifies a custom configuration template to use when issuing a certificate. If this
-        /// parameter is not provided, Amazon Web Services Private CA defaults to the <code>EndEntityCertificate/V1</code>
+        /// parameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code>
         /// template. For CA certificates, you should choose the shortest path length that meets
         /// your needs. The path length is indicated by the PathLen<i>N</i> portion of the ARN,
         /// where <i>N</i> is the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth">CA
         /// depth</a>.</para><para>Note: The CA depth configured on a subordinate CA certificate must not exceed the
-        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <code>TemplateArn</code> values supported by Amazon Web Services Private
-        /// CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding
+        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <code>TemplateArn</code> values supported by ACM Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding
         /// Certificate Templates</a>.</para>
         /// </para>
         /// </summary>
@@ -503,8 +502,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Information describing the start of the validity period of the certificate. This parameter
-        /// sets the “Not Before" date for the certificate.</para><para>By default, when issuing a certificate, Amazon Web Services Private CA sets the "Not
-        /// Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies
+        /// sets the “Not Before" date for the certificate.</para><para>By default, when issuing a certificate, ACM Private CA sets the "Not Before" date
+        /// to the issuance time minus 60 minutes. This compensates for clock inconsistencies
         /// across computer systems. The <code>ValidityNotBefore</code> parameter can be used
         /// to customize the “Not Before” value. </para><para>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter
         /// is optional.</para><para>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,

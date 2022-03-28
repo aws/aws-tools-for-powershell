@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
     /// policies for CRLs in Amazon S3</a>.
     /// </para></note><para>
-    /// Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected
-    /// with encryption. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting
+    /// ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting
     /// Your Audit Reports</a>.
     /// </para><note><para>
     /// You can generate a maximum of one report every 30 minutes.

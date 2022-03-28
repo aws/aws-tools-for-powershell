@@ -31817,6 +31817,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.MaintenanceDay
+        {
+            ($_ -eq "New-EMLChannel/Maintenance_MaintenanceDay") -Or
+            ($_ -eq "Update-EMLChannel/Maintenance_MaintenanceDay")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.MediaLive.PreferredChannelPipeline
         {
             ($_ -eq "New-EMLMultiplexProgram/MultiplexProgramSettings_PreferredChannelPipeline") -Or
@@ -31844,6 +31854,7 @@ $EML_map = @{
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
+    "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "Type"=@("New-EMLInput")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
