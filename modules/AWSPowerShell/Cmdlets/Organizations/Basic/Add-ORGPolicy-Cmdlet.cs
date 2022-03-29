@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Attaches a policy to a root, an organizational unit (OU), or an individual account.
-    /// How the policy affects accounts depends on the type of policy. Refer to the <i>AWS
-    /// Organizations User Guide</i> for information about each policy type:
+    /// How the policy affects accounts depends on the type of policy. Refer to the <i>Organizations
+    /// User Guide</i> for information about each policy type:
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul><para>
     /// This operation can be called only from the organization's management account.

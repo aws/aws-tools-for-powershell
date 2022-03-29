@@ -28,25 +28,26 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Enables the integration of an AWS service (the service that is specified by <code>ServicePrincipal</code>)
-    /// with AWS Organizations. When you enable integration, you allow the specified service
-    /// to create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
+    /// Enables the integration of an Amazon Web Services service (the service that is specified
+    /// by <code>ServicePrincipal</code>) with Organizations. When you enable integration,
+    /// you allow the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
     /// role</a> in all the accounts in your organization. This allows the service to perform
     /// operations on your behalf in your organization and its accounts.
     /// 
     ///  <important><para>
-    /// We recommend that you enable integration between AWS Organizations and the specified
-    /// AWS service by using the console or commands that are provided by the specified service.
-    /// Doing so ensures that the service is aware that it can create the resources that are
-    /// required for the integration. How the service creates those resources in the organization's
-    /// accounts depends on that service. For more information, see the documentation for
-    /// the other AWS service.
+    /// We recommend that you enable integration between Organizations and the specified Amazon
+    /// Web Services service by using the console or commands that are provided by the specified
+    /// service. Doing so ensures that the service is aware that it can create the resources
+    /// that are required for the integration. How the service creates those resources in
+    /// the organization's accounts depends on that service. For more information, see the
+    /// documentation for the other Amazon Web Services service.
     /// </para></important><para>
-    /// For more information about enabling services to integrate with AWS Organizations,
-    /// see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
-    /// AWS Organizations with Other AWS Services</a> in the <i>AWS Organizations User Guide.</i></para><para>
+    /// For more information about enabling services to integrate with Organizations, see
+    /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
+    /// Organizations with Other Amazon Web Services Services</a> in the <i>Organizations
+    /// User Guide.</i></para><para>
     /// This operation can be called only from the organization's management account and only
-    /// if the organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
+    /// if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
     /// all features</a>.
     /// </para>
     /// </summary>
@@ -63,8 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>
-        /// <para>The service principal name of the AWS service for which you want to enable integration
-        /// with your organization. This is typically in the form of a URL, such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
+        /// <para>The service principal name of the Amazon Web Services service for which you want to
+        /// enable integration with your organization. This is typically in the form of a URL,
+        /// such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

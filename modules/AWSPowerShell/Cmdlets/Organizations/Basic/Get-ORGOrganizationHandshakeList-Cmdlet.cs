@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>CANCELED</code>
-    /// appear in the results of this API for only 30 days after changing to that state. After
-    /// that, they're deleted and no longer accessible.
+    /// Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, <code>CANCELED</code>,
+    /// or <code>EXPIRED</code> appear in the results of this API for only 30 days after changing
+    /// to that state. After that, they're deleted and no longer accessible.
     /// </para><note><para>
     /// Always check the <code>NextToken</code> response parameter for a <code>null</code>
     /// value when calling a <code>List*</code> operation. These operations can occasionally
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// to display.
     /// </para></note><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an AWS service.
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGOrganizationHandshakeList")]

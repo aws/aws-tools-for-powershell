@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// You can attach tags to the following resources in AWS Organizations.
+    /// You can attach tags to the following resources in Organizations.
     /// </para><ul><li><para>
-    /// AWS account
+    /// Amazon Web Services account
     /// </para></li><li><para>
     /// Organization root
     /// </para></li><li><para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Policy (any type)
     /// </para></li></ul><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an AWS service.
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGResourceTag")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource with the tags to list.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>AWS account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
+        /// <para>The ID of the resource with the tags to list.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>Amazon Web Services account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
         /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
         /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
         /// <code>p-<i>12abcdefg3</i></code></para></li></ul>

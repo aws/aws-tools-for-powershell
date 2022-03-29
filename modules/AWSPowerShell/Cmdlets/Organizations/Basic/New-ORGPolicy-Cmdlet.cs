@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Creates a policy of a specified type that you can attach to a root, an organizational
-    /// unit (OU), or an individual AWS account.
+    /// unit (OU), or an individual Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// the list, you must specify both a tag key and a value. You can set the value to an
         /// empty string, but you can't set it to <code>null</code>. For more information about
         /// tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
-        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// Organizations resources</a> in the Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
         /// a policy, then the entire request fails and the policy is not created.</para></note>
         /// </para>
         /// </summary>

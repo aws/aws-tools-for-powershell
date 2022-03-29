@@ -213,6 +213,7 @@ $ORG_SelectMap = @{
     "Select"=@("Confirm-ORGHandshake",
                "Add-ORGPolicy",
                "Stop-ORGHandshake",
+               "Close-ORGAccount",
                "New-ORGAccount",
                "New-ORGGovCloudAccount",
                "New-ORGOrganization",

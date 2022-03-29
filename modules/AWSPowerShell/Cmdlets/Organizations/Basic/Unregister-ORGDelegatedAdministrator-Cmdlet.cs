@@ -28,19 +28,20 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Removes the specified member AWS account as a delegated administrator for the specified
-    /// AWS service.
+    /// Removes the specified member Amazon Web Services account as a delegated administrator
+    /// for the specified Amazon Web Services service.
     /// 
     ///  <important><para>
     /// Deregistering a delegated administrator can have unintended impacts on the functionality
-    /// of the enabled AWS service. See the documentation for the enabled service before you
-    /// deregister a delegated administrator so that you understand any potential impacts.
+    /// of the enabled Amazon Web Services service. See the documentation for the enabled
+    /// service before you deregister a delegated administrator so that you understand any
+    /// potential impacts.
     /// </para></important><para>
-    /// You can run this action only for AWS services that support this feature. For a current
-    /// list of services that support it, see the column <i>Supports Delegated Administrator</i>
-    /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
-    /// Services that you can use with AWS Organizations</a> in the <i>AWS Organizations User
-    /// Guide.</i></para><para>
+    /// You can run this action only for Amazon Web Services services that support this feature.
+    /// For a current list of services that support it, see the column <i>Supports Delegated
+    /// Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon
+    /// Web Services Services that you can use with Organizations</a> in the <i>Organizations
+    /// User Guide.</i></para><para>
     /// This operation can be called only from the organization's management account.
     /// </para>
     /// </summary>
@@ -75,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>
-        /// <para>The service principal name of an AWS service for which the account is a delegated
-        /// administrator.</para><para>Delegated administrator privileges are revoked for only the specified AWS service
-        /// from the member account. If the specified service is the only service for which the
-        /// member account is a delegated administrator, the operation also revokes Organizations
-        /// read action permissions.</para>
+        /// <para>The service principal name of an Amazon Web Services service for which the account
+        /// is a delegated administrator.</para><para>Delegated administrator privileges are revoked for only the specified Amazon Web Services
+        /// service from the member account. If the specified service is the only service for
+        /// which the member account is a delegated administrator, the operation also revokes
+        /// Organizations read action permissions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

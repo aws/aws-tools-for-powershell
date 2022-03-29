@@ -28,12 +28,13 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// List the AWS services for which the specified account is a delegated administrator.
+    /// List the Amazon Web Services services for which the specified account is a delegated
+    /// administrator.
     /// 
     ///  
     /// <para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an AWS service.
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGDelegatedServicesForAccountList")]

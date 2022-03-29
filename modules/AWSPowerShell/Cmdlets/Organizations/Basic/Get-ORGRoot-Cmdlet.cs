@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// to display.
     /// </para></note><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an AWS service.
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><note><para>
     /// Policy types can be enabled and disabled in roots. This is distinct from whether they're
     /// available in the organization. When you enable all features, you make policy types

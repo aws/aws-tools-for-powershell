@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Enables all features in an organization. This enables the use of organization policies
     /// that can restrict the services and actions that can be called in each account. Until
     /// you enable all features, you have access only to consolidated billing, and you can't
-    /// use any of the advanced account administration features that AWS Organizations supports.
+    /// use any of the advanced account administration features that Organizations supports.
     /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
-    /// All Features in Your Organization</a> in the <i>AWS Organizations User Guide.</i><important><para>
+    /// All Features in Your Organization</a> in the <i>Organizations User Guide.</i><important><para>
     /// This operation is required only for organizations that were created explicitly with
     /// only the consolidated billing features enabled. Calling this operation sends a handshake
     /// to every invited account in the organization. The feature set change can be finalized

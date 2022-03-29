@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This is an asynchronous request that AWS performs in the background. If you disable
-    /// a policy type for a root, it still appears enabled for the organization if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-    /// features</a> are enabled for the organization. AWS recommends that you first use <a>ListRoots</a>
-    /// to see the status of policy types for a specified root, and then use this operation.
+    /// This is an asynchronous request that Amazon Web Services performs in the background.
+    /// If you disable a policy type for a root, it still appears enabled for the organization
+    /// if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
+    /// features</a> are enabled for the organization. Amazon Web Services recommends that
+    /// you first use <a>ListRoots</a> to see the status of policy types for a specified root,
+    /// and then use this operation.
     /// </para><para>
     /// This operation can be called only from the organization's management account.
     /// </para><para>

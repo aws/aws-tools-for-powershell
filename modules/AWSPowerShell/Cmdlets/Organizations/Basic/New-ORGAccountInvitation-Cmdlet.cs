@@ -29,21 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Sends an invitation to another account to join your organization as a member account.
-    /// AWS Organizations sends email on your behalf to the email address that is associated
-    /// with the other account's owner. The invitation is implemented as a <a>Handshake</a>
-    /// whose details are in the response.
+    /// Organizations sends email on your behalf to the email address that is associated with
+    /// the other account's owner. The invitation is implemented as a <a>Handshake</a> whose
+    /// details are in the response.
     /// 
     ///  <important><ul><li><para>
-    /// You can invite AWS accounts only from the same seller as the management account. For
-    /// example, if your organization's management account was created by Amazon Internet
-    /// Services Pvt. Ltd (AISPL), an AWS seller in India, you can invite only other AISPL
-    /// accounts to your organization. You can't combine accounts from AISPL and AWS or from
-    /// any other AWS seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+    /// You can invite Amazon Web Services accounts only from the same seller as the management
+    /// account. For example, if your organization's management account was created by Amazon
+    /// Internet Services Pvt. Ltd (AISPL), an Amazon Web Services seller in India, you can
+    /// invite only other AISPL accounts to your organization. You can't combine accounts
+    /// from AISPL and Amazon Web Services or from any other Amazon Web Services seller. For
+    /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
     /// Billing in India</a>.
     /// </para></li><li><para>
     /// If you receive an exception that indicates that you exceeded your account limits for
     /// the organization or that the operation failed because your organization is still initializing,
-    /// wait one hour and then try again. If the error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.
+    /// wait one hour and then try again. If the error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.
     /// </para></li></ul></important><para>
     /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
     /// permission.
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// the organization. For each tag in the list, you must specify both a tag key and a
         /// value. You can set the value to an empty string, but you can't set it to <code>null</code>.
         /// For more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
-        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><important><para>Any tags in the request are checked for compliance with any applicable tag policies
+        /// Organizations resources</a> in the Organizations User Guide.</para><important><para>Any tags in the request are checked for compliance with any applicable tag policies
         /// when the request is made. The request is rejected if the tags in the request don't
         /// match the requirements of the policy at that time. Tag policy compliance is <i><b>not</b></i> checked again when the invitation is accepted and the tags are actually attached
         /// to the account. That means that if the tag policy changes between the invitation and

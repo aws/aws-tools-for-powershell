@@ -1,4 +1,9 @@
-﻿### 4.1.52 (2022-03-28 21:27Z)
+﻿### 4.1.53 (2022-03-29 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.241.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Organizations
+    * Added cmdlet Close-ORGAccount leveraging the CloseAccount service API.
+
+### 4.1.52 (2022-03-28 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.240.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elemental MediaLive
     * Modified cmdlet New-EMLChannel: added parameters Maintenance_MaintenanceDay and Maintenance_MaintenanceStartTime.

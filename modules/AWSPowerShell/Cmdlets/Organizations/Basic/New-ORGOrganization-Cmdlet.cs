@@ -28,8 +28,8 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Creates an AWS organization. The account whose user is calling the <code>CreateOrganization</code>
-    /// operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management
+    /// Creates an Amazon Web Services organization. The account whose user is calling the
+    /// <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management
     /// account</a> of the new organization.
     /// 
     ///  
@@ -62,11 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>Specifies the feature set supported by the new organization. Each feature set supports
         /// different levels of functionality.</para><ul><li><para><code>CONSOLIDATED_BILLING</code>: All member accounts have their bills consolidated
         /// to and paid by the management account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated
-        /// billing</a> in the <i>AWS Organizations User Guide.</i></para><para> The consolidated billing feature subset isn't available for organizations in the
-        /// AWS GovCloud (US) Region.</para></li><li><para><code>ALL</code>: In addition to all the features supported by the consolidated billing
+        /// billing</a> in the <i>Organizations User Guide.</i></para><para> The consolidated billing feature subset isn't available for organizations in the
+        /// Amazon Web Services GovCloud (US) Region.</para></li><li><para><code>ALL</code>: In addition to all the features supported by the consolidated billing
         /// feature set, the management account can also apply any policy type to any member account
         /// in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
-        /// features</a> in the <i>AWS Organizations User Guide.</i></para></li></ul>
+        /// features</a> in the <i>Organizations User Guide.</i></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

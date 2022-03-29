@@ -15442,6 +15442,7 @@ Set-Alias -Name Attach-ORGPolicy -Value Add-ORGPolicy
 Set-Alias -Name ORG-AttachPolicy -Value Add-ORGPolicy
 Set-Alias -Name Cancel-ORGHandshake -Value Stop-ORGHandshake
 Set-Alias -Name ORG-CancelHandshake -Value Stop-ORGHandshake
+Set-Alias -Name ORG-CloseAccount -Value Close-ORGAccount
 Set-Alias -Name Create-ORGAccount -Value New-ORGAccount
 Set-Alias -Name ORG-CreateAccount -Value New-ORGAccount
 Set-Alias -Name Create-ORGGovCloudAccount -Value New-ORGGovCloudAccount

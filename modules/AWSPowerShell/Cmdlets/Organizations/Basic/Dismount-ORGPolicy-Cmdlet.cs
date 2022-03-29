@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  <important><para>
     /// If the policy being detached is a service control policy (SCP), the changes to permissions
-    /// for AWS Identity and Access Management (IAM) users and roles in affected accounts
-    /// are immediate.
+    /// for Identity and Access Management (IAM) users and roles in affected accounts are
+    /// immediate.
     /// </para></important><para>
     /// Every root, OU, and account must have at least one SCP attached. If you want to replace
     /// the default <code>FullAWSAccess</code> policy with an SCP that limits the permissions

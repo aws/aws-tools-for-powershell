@@ -28,33 +28,33 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Disables the integration of an AWS service (the service that is specified by <code>ServicePrincipal</code>)
-    /// with AWS Organizations. When you disable integration, the specified service no longer
-    /// can create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
+    /// Disables the integration of an Amazon Web Services service (the service that is specified
+    /// by <code>ServicePrincipal</code>) with Organizations. When you disable integration,
+    /// the specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
     /// role</a> in <i>new</i> accounts in your organization. This means the service can't
     /// perform operations on your behalf on any new accounts in your organization. The service
     /// can still perform operations in older accounts until the service completes its clean-up
-    /// from AWS Organizations.
+    /// from Organizations.
     /// 
     ///  <important><para>
     /// We <b><i>strongly recommend</i></b> that you don't use this command to disable integration
-    /// between AWS Organizations and the specified AWS service. Instead, use the console
-    /// or commands that are provided by the specified service. This lets the trusted service
-    /// perform any required initialization when enabling trusted access, such as creating
-    /// any required resources and any required clean up of resources when disabling trusted
-    /// access. 
+    /// between Organizations and the specified Amazon Web Services service. Instead, use
+    /// the console or commands that are provided by the specified service. This lets the
+    /// trusted service perform any required initialization when enabling trusted access,
+    /// such as creating any required resources and any required clean up of resources when
+    /// disabling trusted access. 
     /// </para><para>
     /// For information about how to disable trusted service access to your organization using
     /// the trusted service, see the <b>Learn more</b> link under the <b>Supports Trusted
-    /// Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
-    /// services that you can use with AWS Organizations</a>. on this page.
+    /// Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon
+    /// Web Services services that you can use with Organizations</a>. on this page.
     /// </para><para>
     /// If you disable access by using this command, it causes the following actions to occur:
     /// </para><ul><li><para>
     /// The service can no longer create a service-linked role in the accounts in your organization.
     /// This means that the service can't perform operations on your behalf on any new accounts
     /// in your organization. The service can still perform operations in older accounts until
-    /// the service completes its clean-up from AWS Organizations. 
+    /// the service completes its clean-up from Organizations. 
     /// </para></li><li><para>
     /// The service can no longer perform tasks in the member accounts in the organization,
     /// unless those operations are explicitly permitted by the IAM policies that are attached
@@ -70,14 +70,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the other service is aware that it can clean up any resources that are required only
     /// for the integration. How the service cleans up its resources in the organization's
     /// accounts depends on that service. For more information, see the documentation for
-    /// the other AWS service. 
+    /// the other Amazon Web Services service. 
     /// </para></important><para>
     /// After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
     /// service can no longer perform operations in your organization's accounts 
     /// </para><para>
-    /// For more information about integrating other services with AWS Organizations, including
-    /// the list of services that work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
-    /// AWS Organizations with Other AWS Services</a> in the <i>AWS Organizations User Guide.</i></para><para>
+    /// For more information about integrating other services with Organizations, including
+    /// the list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
+    /// Organizations with Other Amazon Web Services Services</a> in the <i>Organizations
+    /// User Guide.</i></para><para>
     /// This operation can be called only from the organization's management account.
     /// </para>
     /// </summary>
@@ -94,8 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>
-        /// <para>The service principal name of the AWS service for which you want to disable integration
-        /// with your organization. This is typically in the form of a URL, such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
+        /// <para>The service principal name of the Amazon Web Services service for which you want to
+        /// disable integration with your organization. This is typically in the form of a URL,
+        /// such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

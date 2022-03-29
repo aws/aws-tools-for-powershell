@@ -28,17 +28,18 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Returns a list of the AWS services that you enabled to integrate with your organization.
-    /// After a service on this list creates the resources that it requires for the integration,
-    /// it can perform operations on your organization and its accounts.
+    /// Returns a list of the Amazon Web Services services that you enabled to integrate with
+    /// your organization. After a service on this list creates the resources that it requires
+    /// for the integration, it can perform operations on your organization and its accounts.
     /// 
     ///  
     /// <para>
-    /// For more information about integrating other services with AWS Organizations, including
-    /// the list of services that currently work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
-    /// AWS Organizations with Other AWS Services</a> in the <i>AWS Organizations User Guide.</i></para><para>
+    /// For more information about integrating other services with Organizations, including
+    /// the list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
+    /// Organizations with Other Amazon Web Services Services</a> in the <i>Organizations
+    /// User Guide.</i></para><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an AWS service.
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGAWSServiceAccessForOrganization")]

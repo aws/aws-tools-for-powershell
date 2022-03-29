@@ -28,31 +28,24 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Retrieves Organizations-related information about the specified account.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an Amazon Web Services service.
-    /// </para>
+    /// Closes an Amazon Web Services account that is now a part of an Organizations, either
+    /// created within the organization, or invited to join the organization.
     /// </summary>
-    [Cmdlet("Get", "ORGAccount")]
-    [OutputType("Amazon.Organizations.Model.Account")]
-    [AWSCmdlet("Calls the AWS Organizations DescribeAccount API operation.", Operation = new[] {"DescribeAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.DescribeAccountResponse))]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Account or Amazon.Organizations.Model.DescribeAccountResponse",
-        "This cmdlet returns an Amazon.Organizations.Model.Account object.",
-        "The service call response (type Amazon.Organizations.Model.DescribeAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Close", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Organizations CloseAccount API operation.", Operation = new[] {"CloseAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.CloseAccountResponse))]
+    [AWSCmdletOutput("None or Amazon.Organizations.Model.CloseAccountResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Organizations.Model.CloseAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class CloseORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the Amazon Web Services account that you want information
-        /// about. You can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a>
-        /// operations.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID
-        /// string requires exactly 12 digits.</para>
+        /// <para>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code>
+        /// API request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,13 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Account'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.DescribeAccountResponse).
-        /// Specifying the name of a property of type Amazon.Organizations.Model.DescribeAccountResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.CloseAccountResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Account";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -87,9 +79,25 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Close-ORGAccount (CloseAccount)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -99,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.DescribeAccountResponse, GetORGAccountCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.CloseAccountResponse, CloseORGAccountCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.DescribeAccountRequest();
+            var request = new Amazon.Organizations.Model.CloseAccountRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -171,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.DescribeAccountResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeAccountRequest request)
+        private Amazon.Organizations.Model.CloseAccountResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.CloseAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DescribeAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "CloseAccount");
             try
             {
                 #if DESKTOP
-                return client.DescribeAccount(request);
+                return client.CloseAccount(request);
                 #elif CORECLR
-                return client.DescribeAccountAsync(request).GetAwaiter().GetResult();
+                return client.CloseAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -200,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
-            public System.Func<Amazon.Organizations.Model.DescribeAccountResponse, GetORGAccountCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Account;
+            public System.Func<Amazon.Organizations.Model.CloseAccountResponse, CloseORGAccountCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
