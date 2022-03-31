@@ -1842,6 +1842,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceMaintenanceOptions" OutputProperty="*" Verb="Edit" Noun="InstanceMaintenanceOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceMetadataOptions" OutputProperty="*" Verb="Edit" Noun="InstanceMetadataOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
