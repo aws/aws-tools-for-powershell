@@ -101,7 +101,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FMSProtocolList', 
         'Get-FMSProtocolsListList', 
         'Get-FMSResourceTag', 
+        'Get-FMSThirdPartyFirewallAssociationStatus', 
+        'Get-FMSThirdPartyFirewallFirewallPolicyList', 
         'Get-FMSViolationDetail', 
+        'Register-FMSThirdPartyFirewall', 
         'Remove-FMSAdminAccountAssociation', 
         'Remove-FMSAppList', 
         'Remove-FMSNotificationChannel', 
@@ -109,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-FMSProtocolList', 
         'Remove-FMSResourceTag', 
         'Set-FMSPolicy', 
+        'Unregister-FMSThirdPartyFirewall', 
         'Write-FMSAppList', 
         'Write-FMSNotificationChannel', 
         'Write-FMSProtocolList')

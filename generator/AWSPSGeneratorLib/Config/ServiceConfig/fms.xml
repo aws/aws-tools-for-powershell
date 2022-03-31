@@ -11,7 +11,10 @@
     <ServiceModuleGuid>8ab70494-0b66-4d26-86d3-df94f9c25daf</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Associate" To="Register" />
+        <Map From="Disassociate" To="Unregister" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -20,6 +23,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateAdminAccount" Verb="Add" Noun="AdminAccountAssociation" ShouldProcessTarget="AdminAccount" PipelineParameter="AdminAccount" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateThirdPartyFirewall" OutputProperty="ThirdPartyFirewallStatus" Verb="Register" Noun="ThirdPartyFirewall" ShouldProcessTarget="ThirdPartyFirewall" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAdminAccount" Verb="Remove" Noun="AdminAccountAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateThirdPartyFirewall" OutputProperty="ThirdPartyFirewallStatus" Verb="Unregister" Noun="ThirdPartyFirewall" ShouldProcessTarget="ThirdPartyFirewall" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetThirdPartyFirewallAssociationStatus" OutputProperty="*" Verb="Get" Noun="ThirdPartyFirewallAssociationStatus" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetViolationDetails" OutputProperty="ViolationDetail" Verb="Get" Noun="ViolationDetail" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +111,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThirdPartyFirewallFirewallPolicies" OutputProperty="ThirdPartyFirewallFirewallPolicies" Verb="Get" Noun="ThirdPartyFirewallFirewallPolicyList" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

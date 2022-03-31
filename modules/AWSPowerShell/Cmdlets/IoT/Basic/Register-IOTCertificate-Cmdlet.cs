@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the register certificate request.</para>
+        /// <para>The status of the register certificate request. Valid values that you can use include
+        /// <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter SetAsActive
         /// <summary>
         /// <para>
-        /// <para>A boolean value that specifies if the certificate is set to active.</para>
+        /// <para>A boolean value that specifies if the certificate is set to active.</para><para>Valid values: <code>ACTIVE | INACTIVE</code></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -75,6 +75,37 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Firewall Management Service
 
 
+$FMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FMS.ThirdPartyFirewall
+        {
+            ($_ -eq "Get-FMSThirdPartyFirewallAssociationStatus/ThirdPartyFirewall") -Or
+            ($_ -eq "Get-FMSThirdPartyFirewallFirewallPolicyList/ThirdPartyFirewall") -Or
+            ($_ -eq "Register-FMSThirdPartyFirewall/ThirdPartyFirewall") -Or
+            ($_ -eq "Unregister-FMSThirdPartyFirewall/ThirdPartyFirewall")
+        }
+        {
+            $v = "PALO_ALTO_NETWORKS_CLOUD_NGFW"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FMS_map = @{
+    "ThirdPartyFirewall"=@("Get-FMSThirdPartyFirewallAssociationStatus","Get-FMSThirdPartyFirewallFirewallPolicyList","Register-FMSThirdPartyFirewall","Unregister-FMSThirdPartyFirewall")
+}
+
+_awsArgumentCompleterRegistration $FMS_Completers $FMS_map
+
 $FMS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,11 +155,13 @@ $FMS_SelectCompleters = {
 
 $FMS_SelectMap = @{
     "Select"=@("Add-FMSAdminAccountAssociation",
+               "Register-FMSThirdPartyFirewall",
                "Remove-FMSAppList",
                "Remove-FMSNotificationChannel",
                "Remove-FMSPolicy",
                "Remove-FMSProtocolList",
                "Remove-FMSAdminAccountAssociation",
+               "Unregister-FMSThirdPartyFirewall",
                "Get-FMSAdminAccount",
                "Get-FMSAppList",
                "Get-FMSComplianceDetail",
@@ -136,6 +169,7 @@ $FMS_SelectMap = @{
                "Get-FMSPolicy",
                "Get-FMSProtectionStatus",
                "Get-FMSProtocolList",
+               "Get-FMSThirdPartyFirewallAssociationStatus",
                "Get-FMSViolationDetail",
                "Get-FMSAppsListList",
                "Get-FMSComplianceStatusList",
@@ -143,6 +177,7 @@ $FMS_SelectMap = @{
                "Get-FMSPolicyList",
                "Get-FMSProtocolsListList",
                "Get-FMSResourceTag",
+               "Get-FMSThirdPartyFirewallFirewallPolicyList",
                "Write-FMSAppList",
                "Write-FMSNotificationChannel",
                "Set-FMSPolicy",

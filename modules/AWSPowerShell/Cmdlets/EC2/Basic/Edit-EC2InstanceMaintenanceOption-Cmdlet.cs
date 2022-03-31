@@ -22,73 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Updates a role alias.
-    /// 
-    ///  
-    /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a>
-    /// action.
-    /// </para>
+    /// Modifies the recovery behavior of your instance to disable simplified automatic recovery
+    /// or set the recovery behavior to default. The default configuration will not enable
+    /// simplified automatic recovery for an unsupported instance type. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified
+    /// automatic recovery</a>.
     /// </summary>
-    [Cmdlet("Update", "IOTRoleAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.UpdateRoleAliasResponse")]
-    [AWSCmdlet("Calls the AWS IoT UpdateRoleAlias API operation.", Operation = new[] {"UpdateRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateRoleAliasResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.UpdateRoleAliasResponse",
-        "This cmdlet returns an Amazon.IoT.Model.UpdateRoleAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2InstanceMaintenanceOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMaintenanceOptions API operation.", Operation = new[] {"ModifyInstanceMaintenanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse",
+        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class EditEC2InstanceMaintenanceOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter CredentialDurationSecond
+        #region Parameter AutoRecovery
         /// <summary>
         /// <para>
-        /// <para>The number of seconds the credential will be valid.</para><para>This value must be less than or equal to the maximum session duration of the IAM role
-        /// that the role alias references.</para>
+        /// <para>Disables the automatic recovery behavior of your instance or sets it to default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CredentialDurationSeconds")]
-        public System.Int32? CredentialDurationSecond { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.InstanceAutoRecoveryState")]
+        public Amazon.EC2.InstanceAutoRecoveryState AutoRecovery { get; set; }
         #endregion
         
-        #region Parameter RoleAlias
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The role alias to update.</para>
+        /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleAlias { get; set; }
-        #endregion
-        
-        #region Parameter RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>The role ARN.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RoleArn { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.UpdateRoleAliasResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.UpdateRoleAliasResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RoleArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RoleArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RoleArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RoleArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTRoleAlias (UpdateRoleAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2InstanceMaintenanceOption (ModifyInstanceMaintenanceOptions)"))
             {
                 return;
             }
@@ -133,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.UpdateRoleAliasResponse, UpdateIOTRoleAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse, EditEC2InstanceMaintenanceOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,18 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RoleArn;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CredentialDurationSecond = this.CredentialDurationSecond;
-            context.RoleAlias = this.RoleAlias;
+            context.AutoRecovery = this.AutoRecovery;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.RoleAlias == null && ParameterWasBound(nameof(this.RoleAlias)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,19 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateRoleAliasRequest();
+            var request = new Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsRequest();
             
-            if (cmdletContext.CredentialDurationSecond != null)
+            if (cmdletContext.AutoRecovery != null)
             {
-                request.CredentialDurationSeconds = cmdletContext.CredentialDurationSecond.Value;
+                request.AutoRecovery = cmdletContext.AutoRecovery;
             }
-            if (cmdletContext.RoleAlias != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.RoleAlias = cmdletContext.RoleAlias;
-            }
-            if (cmdletContext.RoleArn != null)
-            {
-                request.RoleArn = cmdletContext.RoleArn;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -215,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateRoleAliasResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateRoleAliasRequest request)
+        private Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateRoleAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceMaintenanceOptions");
             try
             {
                 #if DESKTOP
-                return client.UpdateRoleAlias(request);
+                return client.ModifyInstanceMaintenanceOptions(request);
                 #elif CORECLR
-                return client.UpdateRoleAliasAsync(request).GetAwaiter().GetResult();
+                return client.ModifyInstanceMaintenanceOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,10 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? CredentialDurationSecond { get; set; }
-            public System.String RoleAlias { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.Func<Amazon.IoT.Model.UpdateRoleAliasResponse, UpdateIOTRoleAliasCmdlet, object> Select { get; set; } =
+            public Amazon.EC2.InstanceAutoRecoveryState AutoRecovery { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse, EditEC2InstanceMaintenanceOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

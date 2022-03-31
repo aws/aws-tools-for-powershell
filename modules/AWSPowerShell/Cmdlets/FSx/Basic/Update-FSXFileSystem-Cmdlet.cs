@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For Amazon FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For Amazon FSx for NetApp ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For the Amazon FSx for OpenZFS file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
     /// </summary>
@@ -248,6 +248,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int32? StorageCapacity { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_ThroughputCapacity
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes
+        /// per second (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_ThroughputCapacity
         /// <summary>
         /// <para>
@@ -364,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
             context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
+            context.OntapConfiguration_ThroughputCapacity = this.OntapConfiguration_ThroughputCapacity;
             context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             context.OpenZFSConfiguration_AutomaticBackupRetentionDay = this.OpenZFSConfiguration_AutomaticBackupRetentionDay;
             context.OpenZFSConfiguration_CopyTagsToBackup = this.OpenZFSConfiguration_CopyTagsToBackup;
@@ -435,6 +447,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_FsxAdminPassword != null)
             {
                 request.OntapConfiguration.FsxAdminPassword = requestOntapConfiguration_ontapConfiguration_FsxAdminPassword;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_ThroughputCapacity = null;
+            if (cmdletContext.OntapConfiguration_ThroughputCapacity != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_ThroughputCapacity = cmdletContext.OntapConfiguration_ThroughputCapacity.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_ThroughputCapacity != null)
+            {
+                request.OntapConfiguration.ThroughputCapacity = requestOntapConfiguration_ontapConfiguration_ThroughputCapacity.Value;
                 requestOntapConfigurationIsNull = false;
             }
             System.String requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = null;
@@ -668,6 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+            public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
             public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? OpenZFSConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.Boolean? OpenZFSConfiguration_CopyTagsToBackup { get; set; }

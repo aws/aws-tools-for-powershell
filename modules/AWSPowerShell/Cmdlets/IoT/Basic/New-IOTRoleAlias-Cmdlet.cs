@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter CredentialDurationSecond
         /// <summary>
         /// <para>
-        /// <para>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</para>
+        /// <para>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</para><para>This value must be less than or equal to the maximum session duration of the IAM role
+        /// that the role alias references.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

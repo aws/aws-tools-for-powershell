@@ -142,6 +142,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2InstanceCreditSpecification', 
         'Edit-EC2InstanceEventStartTime', 
         'Edit-EC2InstanceEventWindow', 
+        'Edit-EC2InstanceMaintenanceOption', 
         'Edit-EC2InstanceMetadataOption', 
         'Edit-EC2InstancePlacement', 
         'Edit-EC2Ipam', 

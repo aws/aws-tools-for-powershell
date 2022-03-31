@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter SetAsActive
         /// <summary>
         /// <para>
-        /// <para>A boolean value that specifies if the CA certificate is set to active.</para>
+        /// <para>A boolean value that specifies if the CA certificate is set to active.</para><para>Valid values: <code>ACTIVE | INACTIVE</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

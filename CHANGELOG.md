@@ -1,4 +1,17 @@
-﻿### 4.1.53 (2022-03-29 20:24Z)
+﻿### 4.1.54 (2022-03-31 00:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.242.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2InstanceMaintenanceOption leveraging the ModifyInstanceMaintenanceOptions service API.
+    * Modified cmdlet New-EC2Instance: added parameter MaintenanceOptions_AutoRecovery.
+  * Amazon Firewall Management Service
+    * Added cmdlet Get-FMSThirdPartyFirewallAssociationStatus leveraging the GetThirdPartyFirewallAssociationStatus service API.
+    * Added cmdlet Get-FMSThirdPartyFirewallFirewallPolicyList leveraging the ListThirdPartyFirewallFirewallPolicies service API.
+    * Added cmdlet Register-FMSThirdPartyFirewall leveraging the AssociateThirdPartyFirewall service API.
+    * Added cmdlet Unregister-FMSThirdPartyFirewall leveraging the DisassociateThirdPartyFirewall service API.
+  * Amazon FSx
+    * Modified cmdlet Update-FSXFileSystem: added parameter OntapConfiguration_ThroughputCapacity.
+
+### 4.1.53 (2022-03-29 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.241.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Organizations
     * Added cmdlet Close-ORGAccount leveraging the CloseAccount service API.

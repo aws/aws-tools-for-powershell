@@ -15950,6 +15950,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InstanceAutoRecoveryState
+        {
+            ($_ -eq "Edit-EC2InstanceMaintenanceOption/AutoRecovery") -Or
+            ($_ -eq "New-EC2Instance/MaintenanceOptions_AutoRecovery")
+        }
+        {
+            $v = "default","disabled"
+            break
+        }
+
         # Amazon.EC2.InstanceInterruptionBehavior
         {
             ($_ -eq "Request-EC2SpotInstance/InstanceInterruptionBehavior") -Or
@@ -16416,6 +16426,7 @@ $EC2_map = @{
     "Architecture"=@("Register-EC2Image")
     "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2AddressesAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2AddressAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
+    "AutoRecovery"=@("Edit-EC2InstanceMaintenanceOption")
     "AwsService"=@("New-EC2IpamPool")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
@@ -16455,6 +16466,7 @@ $EC2_map = @{
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LocationType"=@("Get-EC2InstanceTypeOffering")
     "LogDestinationType"=@("New-EC2FlowLog")
+    "MaintenanceOptions_AutoRecovery"=@("New-EC2Instance")
     "MetadataOptions_HttpEndpoint"=@("New-EC2Instance")
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpTokens"=@("New-EC2Instance")
@@ -16981,6 +16993,7 @@ $EC2_SelectMap = @{
                "Edit-EC2InstanceCreditSpecification",
                "Edit-EC2InstanceEventStartTime",
                "Edit-EC2InstanceEventWindow",
+               "Edit-EC2InstanceMaintenanceOption",
                "Edit-EC2InstanceMetadataOption",
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",
@@ -20562,6 +20575,37 @@ _awsArgumentCompleterRegistration $FIS_SelectCompleters $FIS_SelectMap
 # Argument completions for service Firewall Management Service
 
 
+$FMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FMS.ThirdPartyFirewall
+        {
+            ($_ -eq "Get-FMSThirdPartyFirewallAssociationStatus/ThirdPartyFirewall") -Or
+            ($_ -eq "Get-FMSThirdPartyFirewallFirewallPolicyList/ThirdPartyFirewall") -Or
+            ($_ -eq "Register-FMSThirdPartyFirewall/ThirdPartyFirewall") -Or
+            ($_ -eq "Unregister-FMSThirdPartyFirewall/ThirdPartyFirewall")
+        }
+        {
+            $v = "PALO_ALTO_NETWORKS_CLOUD_NGFW"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FMS_map = @{
+    "ThirdPartyFirewall"=@("Get-FMSThirdPartyFirewallAssociationStatus","Get-FMSThirdPartyFirewallFirewallPolicyList","Register-FMSThirdPartyFirewall","Unregister-FMSThirdPartyFirewall")
+}
+
+_awsArgumentCompleterRegistration $FMS_Completers $FMS_map
+
 $FMS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -20611,11 +20655,13 @@ $FMS_SelectCompleters = {
 
 $FMS_SelectMap = @{
     "Select"=@("Add-FMSAdminAccountAssociation",
+               "Register-FMSThirdPartyFirewall",
                "Remove-FMSAppList",
                "Remove-FMSNotificationChannel",
                "Remove-FMSPolicy",
                "Remove-FMSProtocolList",
                "Remove-FMSAdminAccountAssociation",
+               "Unregister-FMSThirdPartyFirewall",
                "Get-FMSAdminAccount",
                "Get-FMSAppList",
                "Get-FMSComplianceDetail",
@@ -20623,6 +20669,7 @@ $FMS_SelectMap = @{
                "Get-FMSPolicy",
                "Get-FMSProtectionStatus",
                "Get-FMSProtocolList",
+               "Get-FMSThirdPartyFirewallAssociationStatus",
                "Get-FMSViolationDetail",
                "Get-FMSAppsListList",
                "Get-FMSComplianceStatusList",
@@ -20630,6 +20677,7 @@ $FMS_SelectMap = @{
                "Get-FMSPolicyList",
                "Get-FMSProtocolsListList",
                "Get-FMSResourceTag",
+               "Get-FMSThirdPartyFirewallFirewallPolicyList",
                "Write-FMSAppList",
                "Write-FMSNotificationChannel",
                "Set-FMSPolicy",

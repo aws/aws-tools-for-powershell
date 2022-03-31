@@ -128,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String IamInstanceProfile_Arn { get; set; }
         #endregion
         
+        #region Parameter MaintenanceOptions_AutoRecovery
+        /// <summary>
+        /// <para>
+        /// <para>Disables the automatic recovery behavior of your instance or sets it to default. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified
+        /// automatic recovery</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceAutoRecoveryState")]
+        public Amazon.EC2.InstanceAutoRecoveryState MaintenanceOptions_AutoRecovery { get; set; }
+        #endregion
+        
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
@@ -846,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.LicenseSpecification = new List<Amazon.EC2.Model.LicenseConfigurationRequest>(this.LicenseSpecification);
             }
+            context.MaintenanceOptions_AutoRecovery = this.MaintenanceOptions_AutoRecovery;
             context.MaxCount = this.MaxCount;
             if (!ParameterWasBound(nameof(this.MaxCount)))
             {
@@ -1134,6 +1148,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LicenseSpecification != null)
             {
                 request.LicenseSpecifications = cmdletContext.LicenseSpecification;
+            }
+            
+             // populate MaintenanceOptions
+            var requestMaintenanceOptionsIsNull = true;
+            request.MaintenanceOptions = new Amazon.EC2.Model.InstanceMaintenanceOptionsRequest();
+            Amazon.EC2.InstanceAutoRecoveryState requestMaintenanceOptions_maintenanceOptions_AutoRecovery = null;
+            if (cmdletContext.MaintenanceOptions_AutoRecovery != null)
+            {
+                requestMaintenanceOptions_maintenanceOptions_AutoRecovery = cmdletContext.MaintenanceOptions_AutoRecovery;
+            }
+            if (requestMaintenanceOptions_maintenanceOptions_AutoRecovery != null)
+            {
+                request.MaintenanceOptions.AutoRecovery = requestMaintenanceOptions_maintenanceOptions_AutoRecovery;
+                requestMaintenanceOptionsIsNull = false;
+            }
+             // determine if request.MaintenanceOptions should be set to null
+            if (requestMaintenanceOptionsIsNull)
+            {
+                request.MaintenanceOptions = null;
             }
             if (cmdletContext.MaxCount != null)
             {
@@ -1453,6 +1486,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String KeyName { get; set; }
             public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
             public List<Amazon.EC2.Model.LicenseConfigurationRequest> LicenseSpecification { get; set; }
+            public Amazon.EC2.InstanceAutoRecoveryState MaintenanceOptions_AutoRecovery { get; set; }
             public System.Int32? MaxCount { get; set; }
             public Amazon.EC2.InstanceMetadataEndpointState MetadataOptions_HttpEndpoint { get; set; }
             public Amazon.EC2.InstanceMetadataProtocolState MetadataOptions_HttpProtocolIpv6 { get; set; }

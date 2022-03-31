@@ -22,85 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.FMS;
+using Amazon.FMS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Updates a role alias.
-    /// 
-    ///  
-    /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a>
-    /// action.
-    /// </para>
+    /// Disassociates a Firewall Manager policy administrator from a third-party firewall
+    /// tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party
+    /// firewall vendor deletes all of the firewalls that are associated with the account.
     /// </summary>
-    [Cmdlet("Update", "IOTRoleAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.UpdateRoleAliasResponse")]
-    [AWSCmdlet("Calls the AWS IoT UpdateRoleAlias API operation.", Operation = new[] {"UpdateRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateRoleAliasResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.UpdateRoleAliasResponse",
-        "This cmdlet returns an Amazon.IoT.Model.UpdateRoleAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "FMSThirdPartyFirewall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.FMS.ThirdPartyFirewallAssociationStatus")]
+    [AWSCmdlet("Calls the Firewall Management Service DisassociateThirdPartyFirewall API operation.", Operation = new[] {"DisassociateThirdPartyFirewall"}, SelectReturnType = typeof(Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse))]
+    [AWSCmdletOutput("Amazon.FMS.ThirdPartyFirewallAssociationStatus or Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse",
+        "This cmdlet returns an Amazon.FMS.ThirdPartyFirewallAssociationStatus object.",
+        "The service call response (type Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class UnregisterFMSThirdPartyFirewallCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
-        #region Parameter CredentialDurationSecond
+        #region Parameter ThirdPartyFirewall
         /// <summary>
         /// <para>
-        /// <para>The number of seconds the credential will be valid.</para><para>This value must be less than or equal to the maximum session duration of the IAM role
-        /// that the role alias references.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CredentialDurationSeconds")]
-        public System.Int32? CredentialDurationSecond { get; set; }
-        #endregion
-        
-        #region Parameter RoleAlias
-        /// <summary>
-        /// <para>
-        /// <para>The role alias to update.</para>
+        /// <para>The name of the third-party firewall vendor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleAlias { get; set; }
-        #endregion
-        
-        #region Parameter RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>The role ARN.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RoleArn { get; set; }
+        [AWSConstantClassSource("Amazon.FMS.ThirdPartyFirewall")]
+        public Amazon.FMS.ThirdPartyFirewall ThirdPartyFirewall { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.UpdateRoleAliasResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.UpdateRoleAliasResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ThirdPartyFirewallStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse).
+        /// Specifying the name of a property of type Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ThirdPartyFirewallStatus";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RoleArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RoleArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ThirdPartyFirewall parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ThirdPartyFirewall' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RoleArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ThirdPartyFirewall' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RoleArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTRoleAlias (UpdateRoleAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ThirdPartyFirewall), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-FMSThirdPartyFirewall (DisassociateThirdPartyFirewall)"))
             {
                 return;
             }
@@ -133,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.UpdateRoleAliasResponse, UpdateIOTRoleAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse, UnregisterFMSThirdPartyFirewallCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,18 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RoleArn;
+                context.Select = (response, cmdlet) => this.ThirdPartyFirewall;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CredentialDurationSecond = this.CredentialDurationSecond;
-            context.RoleAlias = this.RoleAlias;
+            context.ThirdPartyFirewall = this.ThirdPartyFirewall;
             #if MODULAR
-            if (this.RoleAlias == null && ParameterWasBound(nameof(this.RoleAlias)))
+            if (this.ThirdPartyFirewall == null && ParameterWasBound(nameof(this.ThirdPartyFirewall)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ThirdPartyFirewall which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateRoleAliasRequest();
+            var request = new Amazon.FMS.Model.DisassociateThirdPartyFirewallRequest();
             
-            if (cmdletContext.CredentialDurationSecond != null)
+            if (cmdletContext.ThirdPartyFirewall != null)
             {
-                request.CredentialDurationSeconds = cmdletContext.CredentialDurationSecond.Value;
-            }
-            if (cmdletContext.RoleAlias != null)
-            {
-                request.RoleAlias = cmdletContext.RoleAlias;
-            }
-            if (cmdletContext.RoleArn != null)
-            {
-                request.RoleArn = cmdletContext.RoleArn;
+                request.ThirdPartyFirewall = cmdletContext.ThirdPartyFirewall;
             }
             
             CmdletOutput output;
@@ -215,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateRoleAliasResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateRoleAliasRequest request)
+        private Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.DisassociateThirdPartyFirewallRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateRoleAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "DisassociateThirdPartyFirewall");
             try
             {
                 #if DESKTOP
-                return client.UpdateRoleAlias(request);
+                return client.DisassociateThirdPartyFirewall(request);
                 #elif CORECLR
-                return client.UpdateRoleAliasAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateThirdPartyFirewallAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? CredentialDurationSecond { get; set; }
-            public System.String RoleAlias { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.Func<Amazon.IoT.Model.UpdateRoleAliasResponse, UpdateIOTRoleAliasCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.FMS.ThirdPartyFirewall ThirdPartyFirewall { get; set; }
+            public System.Func<Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse, UnregisterFMSThirdPartyFirewallCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ThirdPartyFirewallStatus;
         }
         
     }

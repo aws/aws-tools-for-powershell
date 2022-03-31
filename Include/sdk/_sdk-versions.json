@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.241.0",
+    "ProductVersion" : "3.7.242.0",
     "CoreVersion"    : "3.7.10.1",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.62.1",
+            "Version" : "3.7.63.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.1"
@@ -466,7 +466,7 @@
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.11.22",
+            "Version" : "3.7.11.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.1"
@@ -474,7 +474,7 @@
             "InPreview"               : false
         },
         "IotData"                         : {
-            "Version" : "3.7.1.88",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.1"
@@ -1066,7 +1066,7 @@
             "InPreview"               : false
         },
         "FMS"                             : {
-            "Version" : "3.7.5.13",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.1"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.9.9",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.1"

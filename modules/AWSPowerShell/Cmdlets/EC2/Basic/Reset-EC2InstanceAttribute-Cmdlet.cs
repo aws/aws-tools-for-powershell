@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The attribute to reset.</para><important><para>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code>
-        /// | <code>sourceDestCheck</code>. To change an instance attribute, use <a>ModifyInstanceAttribute</a>.</para></important>
+        /// | <code>sourceDestCheck</code>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

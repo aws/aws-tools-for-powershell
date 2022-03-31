@@ -7171,6 +7171,9 @@ Set-Alias -Name Modify-EC2InstanceEventStartTime -Value Edit-EC2InstanceEventSta
 Set-Alias -Name EC2-ModifyInstanceEventStartTime -Value Edit-EC2InstanceEventStartTime
 Set-Alias -Name Modify-EC2InstanceEventWindow -Value Edit-EC2InstanceEventWindow
 Set-Alias -Name EC2-ModifyInstanceEventWindow -Value Edit-EC2InstanceEventWindow
+Set-Alias -Name Modify-EC2InstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
+Set-Alias -Name Modify-EC2InstanceMaintenanceOption -Value Edit-EC2InstanceMaintenanceOption
+Set-Alias -Name EC2-ModifyInstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
 Set-Alias -Name Modify-EC2InstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name Modify-EC2InstanceMetadataOption -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name EC2-ModifyInstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
@@ -8912,6 +8915,8 @@ Set-Alias -Name FIS-UpdateExperimentTemplate -Value Update-FISExperimentTemplate
 Set-Alias -Name Associate-FMSAdminAccount -Value Add-FMSAdminAccountAssociation
 Set-Alias -Name Associate-FMSAdminAccountAssociation -Value Add-FMSAdminAccountAssociation
 Set-Alias -Name FMS-AssociateAdminAccount -Value Add-FMSAdminAccountAssociation
+Set-Alias -Name Associate-FMSThirdPartyFirewall -Value Register-FMSThirdPartyFirewall
+Set-Alias -Name FMS-AssociateThirdPartyFirewall -Value Register-FMSThirdPartyFirewall
 Set-Alias -Name Delete-FMSAppsList -Value Remove-FMSAppList
 Set-Alias -Name Delete-FMSAppList -Value Remove-FMSAppList
 Set-Alias -Name FMS-DeleteAppsList -Value Remove-FMSAppList
@@ -8925,6 +8930,8 @@ Set-Alias -Name FMS-DeleteProtocolsList -Value Remove-FMSProtocolList
 Set-Alias -Name Disassociate-FMSAdminAccount -Value Remove-FMSAdminAccountAssociation
 Set-Alias -Name Disassociate-FMSAdminAccountAssociation -Value Remove-FMSAdminAccountAssociation
 Set-Alias -Name FMS-DisassociateAdminAccount -Value Remove-FMSAdminAccountAssociation
+Set-Alias -Name Disassociate-FMSThirdPartyFirewall -Value Unregister-FMSThirdPartyFirewall
+Set-Alias -Name FMS-DisassociateThirdPartyFirewall -Value Unregister-FMSThirdPartyFirewall
 Set-Alias -Name FMS-GetAdminAccount -Value Get-FMSAdminAccount
 Set-Alias -Name Get-FMSAppsList -Value Get-FMSAppList
 Set-Alias -Name FMS-GetAppsList -Value Get-FMSAppList
@@ -8934,6 +8941,7 @@ Set-Alias -Name FMS-GetPolicy -Value Get-FMSPolicy
 Set-Alias -Name FMS-GetProtectionStatus -Value Get-FMSProtectionStatus
 Set-Alias -Name Get-FMSProtocolsList -Value Get-FMSProtocolList
 Set-Alias -Name FMS-GetProtocolsList -Value Get-FMSProtocolList
+Set-Alias -Name FMS-GetThirdPartyFirewallAssociationStatus -Value Get-FMSThirdPartyFirewallAssociationStatus
 Set-Alias -Name Get-FMSViolationDetails -Value Get-FMSViolationDetail
 Set-Alias -Name FMS-GetViolationDetails -Value Get-FMSViolationDetail
 Set-Alias -Name List-FMSAppsLists -Value Get-FMSAppsListList
@@ -8952,6 +8960,9 @@ Set-Alias -Name List-FMSProtocolsLists -Value Get-FMSProtocolsListList
 Set-Alias -Name List-FMSProtocolsListList -Value Get-FMSProtocolsListList
 Set-Alias -Name FMS-ListProtocolsLists -Value Get-FMSProtocolsListList
 Set-Alias -Name FMS-ListTagsForResource -Value Get-FMSResourceTag
+Set-Alias -Name List-FMSThirdPartyFirewallFirewallPolicies -Value Get-FMSThirdPartyFirewallFirewallPolicyList
+Set-Alias -Name List-FMSThirdPartyFirewallFirewallPolicyList -Value Get-FMSThirdPartyFirewallFirewallPolicyList
+Set-Alias -Name FMS-ListThirdPartyFirewallFirewallPolicies -Value Get-FMSThirdPartyFirewallFirewallPolicyList
 Set-Alias -Name Put-FMSAppsList -Value Write-FMSAppList
 Set-Alias -Name Put-FMSAppList -Value Write-FMSAppList
 Set-Alias -Name FMS-PutAppsList -Value Write-FMSAppList

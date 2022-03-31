@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// Creates a new, empty Amazon FSx file system with an assigned ID, and an initial lifecycle
     /// state of <code>CREATING</code>.
     /// </para></li><li><para>
-    /// Returns the description of the file system.
+    /// Returns the description of the file system in JSON format.
     /// </para></li></ul><para>
     /// This operation requires a client request token in the request that Amazon FSx uses
     /// to ensure idempotent creation. This means that calling the operation multiple times

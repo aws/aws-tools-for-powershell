@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para> Field represents a friendly name in the console for the custom metric; it doesn't
-        /// have to be unique. Don't use this name as the metric identifier in the device metric
-        /// report. Can be updated once defined.</para>
+        /// <para> The friendly name in the console for the custom metric. This name doesn't have to
+        /// be unique. Don't use this name as the metric identifier in the device metric report.
+        /// You can update the friendly name after you define it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para> The name of the custom metric. This will be used in the metric report submitted from
-        /// the device/thing. Shouldn't begin with <code>aws:</code>. Cannot be updated once defined.</para>
+        /// the device/thing. The name can't begin with <code>aws:</code>. You can't change the
+        /// name after you define it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MetricType
         /// <summary>
         /// <para>
-        /// <para> The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>,
-        /// <code>number-list</code>, and <code>number</code>. </para>
+        /// <para> The type of the custom metric. </para><important><para>The type <code>number</code> only takes a single metric value as an input, but when
+        /// you submit the metrics value in the DeviceMetrics report, you must pass it as an array
+        /// with a single value.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
