@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoutingControlState" Verb="Update" Noun="RoutingControlState" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

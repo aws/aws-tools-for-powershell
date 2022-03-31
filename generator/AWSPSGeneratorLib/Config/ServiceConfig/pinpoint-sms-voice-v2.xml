@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pinpoint-sms-voice-v2</C2jFilename>
+    <AssemblyName>PinpointSMSVoiceV2</AssemblyName>
+    <ServiceNounPrefix>SMSV</ServiceNounPrefix>
+    <ServiceName>Amazon Pinpoint SMS Voice V2</ServiceName>
+    <ServiceClientInterface>IAmazonPinpointSMSVoiceV2</ServiceClientInterface>
+    <ServiceClient>AmazonPinpointSMSVoiceV2Client</ServiceClient>
+    <ServiceModuleGuid>4e9d7c27-64e2-43d9-8d6c-5e0432b99e7b</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateOriginationIdentity" OutputProperty="*" Verb="Register" Noun="OriginationIdentity" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationSet" OutputProperty="*" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventDestination" OutputProperty="*" Verb="New" Noun="EventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOptOutList" OutputProperty="*" Verb="New" Noun="OptOutList" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePool" OutputProperty="*" Verb="New" Noun="Pool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSet" OutputProperty="*" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDefaultMessageType" OutputProperty="*" Verb="Remove" Noun="DefaultMessageType" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDefaultSenderId" OutputProperty="*" Verb="Remove" Noun="DefaultSenderId" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventDestination" OutputProperty="*" Verb="Remove" Noun="EventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeyword" OutputProperty="*" Verb="Remove" Noun="Keyword" ShouldProcessTarget="OriginationIdentity" PipelineParameter="OriginationIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOptedOutNumber" OutputProperty="*" Verb="Remove" Noun="OptedOutNumber" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOptOutList" OutputProperty="*" Verb="Remove" Noun="OptOutList" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePool" OutputProperty="*" Verb="Remove" Noun="Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTextMessageSpendLimitOverride" OutputProperty="*" Verb="Remove" Noun="TextMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceMessageSpendLimitOverride" OutputProperty="*" Verb="Remove" Noun="VoiceMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="*" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="*" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationSets" OutputProperty="*" Verb="Get" Noun="ConfigurationSet" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKeywords" OutputProperty="*" Verb="Get" Noun="Keyword" PipelineParameter="OriginationIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOptedOutNumbers" OutputProperty="*" Verb="Get" Noun="OptedOutNumber" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOptOutLists" OutputProperty="*" Verb="Get" Noun="OptOutList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePhoneNumbers" OutputProperty="*" Verb="Get" Noun="PhoneNumber" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePools" OutputProperty="*" Verb="Get" Noun="Pool" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSenderIds" OutputProperty="*" Verb="Get" Noun="SenderId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpendLimits" OutputProperty="*" Verb="Get" Noun="SpendLimit" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateOriginationIdentity" OutputProperty="*" Verb="Unregister" Noun="OriginationIdentity" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPoolOriginationIdentities" OutputProperty="*" Verb="Get" Noun="PoolOriginationIdentityList" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutKeyword" OutputProperty="*" Verb="Set" Noun="Keyword" ShouldProcessTarget="OriginationIdentity" PipelineParameter="OriginationIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOptedOutNumber" OutputProperty="*" Verb="Set" Noun="OptedOutNumber" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleasePhoneNumber" OutputProperty="*" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestPhoneNumber" OutputProperty="*" Verb="New" Noun="PhoneNumber" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendTextMessage" OutputProperty="*" Verb="Send" Noun="TextMessage" ShouldProcessTarget="DestinationPhoneNumber" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendVoiceMessage" OutputProperty="*" Verb="Send" Noun="VoiceMessage" ShouldProcessTarget="DestinationPhoneNumber" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDefaultMessageType" OutputProperty="*" Verb="Set" Noun="DefaultMessageType" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDefaultSenderId" OutputProperty="*" Verb="Set" Noun="DefaultSenderId" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTextMessageSpendLimitOverride" OutputProperty="*" Verb="Set" Noun="TextMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="MonthlyLimit" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetVoiceMessageSpendLimitOverride" OutputProperty="*" Verb="Set" Noun="VoiceMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="MonthlyLimit" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventDestination" OutputProperty="*" Verb="Update" Noun="EventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePool" OutputProperty="*" Verb="Update" Noun="Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
