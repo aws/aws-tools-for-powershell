@@ -1,4 +1,19 @@
-﻿### 4.1.54 (2022-03-31 00:03Z)
+﻿### 4.1.55 (2022-03-31 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.243.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Managed Grafana
+    * Added cmdlet Add-MGRFResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-MGRFResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-MGRFResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-MGRFWorkspace: added parameter Tag.
+  * Amazon Pinpoint SMS Voice V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMSV and can be listed using the command 'Get-AWSCmdletName -Service SMSV'.
+  * Amazon Route53 Recovery Cluster
+    * Added cmdlet Get-RRCRoutingControlList leveraging the ListRoutingControls service API.
+  * Amazon WorkSpaces
+    * Added cmdlet Get-WKSClientBranding leveraging the DescribeClientBranding service API.
+    * Added cmdlet Import-WKSClientBranding leveraging the ImportClientBranding service API.
+    * Added cmdlet Remove-WKSClientBranding leveraging the DeleteClientBranding service API.
+
+### 4.1.54 (2022-03-31 00:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.242.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Edit-EC2InstanceMaintenanceOption leveraging the ModifyInstanceMaintenanceOptions service API.

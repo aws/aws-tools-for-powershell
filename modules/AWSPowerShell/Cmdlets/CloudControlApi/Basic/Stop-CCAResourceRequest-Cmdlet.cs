@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     ///  
     /// <para>
     /// Only resource operations requests with a status of <code>PENDING</code> or <code>IN_PROGRESS</code>
-    /// can be cancelled.
+    /// can be canceled.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "CCAResourceRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

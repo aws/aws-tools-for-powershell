@@ -34,22 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     /// 
     ///  
     /// <para>
-    /// With Application Recovery Controller, you can add safety rules for routing controls,
-    /// which are safeguards for routing control state updates that help prevent unexpected
-    /// outcomes, like fail open traffic routing. However, there are scenarios when you might
-    /// want to bypass the routing control safeguards that are enforced with safety rules
-    /// that you've configured. For example, you might want to fail over quickly for disaster
-    /// recovery, and one or more safety rules might be unexpectedly preventing you from updating
-    /// a routing control state to reroute traffic. In a "break glass" scenario like this,
-    /// you can override one or more safety rules to change a routing control state and fail
-    /// over your application.
+    /// With Route 53 ARC, you can add safety rules for routing controls, which are safeguards
+    /// for routing control state updates that help prevent unexpected outcomes, like fail
+    /// open traffic routing. However, there are scenarios when you might want to bypass the
+    /// routing control safeguards that are enforced with safety rules that you've configured.
+    /// For example, you might want to fail over quickly for disaster recovery, and one or
+    /// more safety rules might be unexpectedly preventing you from updating a routing control
+    /// state to reroute traffic. In a "break glass" scenario like this, you can override
+    /// one or more safety rules to change a routing control state and fail over your application.
     /// </para><para>
     /// The <code>SafetyRulesToOverride</code> property enables you override one or more safety
     /// rules and update routing control states. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
     /// Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery
     /// Controller Developer Guide.
     /// </para><para><i>You must specify Regional endpoints when you work with API cluster operations
-    /// to get or update routing control states in Application Recovery Controller.</i></para><para>
+    /// to get or update routing control states in Route 53 ARC.</i></para><para>
     /// To see a code example for getting a routing control state, including accessing Regional
     /// cluster endpoints in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API
     /// examples</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         #region Parameter SafetyRulesToOverride
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override
-        /// when you're updating routing control states. You can override one safety rule or multiple
+        /// <para>The Amazon Resource Names (ARNs) for the safety rules that you want to override when
+        /// you're updating routing control states. You can override one safety rule or multiple
         /// safety rules by including one or more ARNs, separated by commas.</para><para>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
         /// Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery
         /// Controller Developer Guide.</para>

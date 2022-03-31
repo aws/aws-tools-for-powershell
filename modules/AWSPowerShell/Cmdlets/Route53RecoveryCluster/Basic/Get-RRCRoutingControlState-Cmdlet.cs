@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.RRC
 {
     /// <summary>
     /// Get the state for a routing control. A routing control is a simple on/off switch that
-    /// you can use to route traffic to cells. When the state is On, traffic flows to a cell.
-    /// When it's Off, traffic does not flow. 
+    /// you can use to route traffic to cells. When a routing control state is On, traffic
+    /// flows to a cell. When the state is Off, traffic does not flow. 
     /// 
     ///  
     /// <para>
-    /// Before you can create a routing control, you must first create a cluster to host the
-    /// control in a control panel. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
+    /// Before you can create a routing control, you must first create a cluster, and then
+    /// host the control in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
     /// Create routing control structures</a> in the Amazon Route 53 Application Recovery
-    /// Controller Developer Guide. Then you access one of the endpoints for the cluster to
-    /// get or update the routing control state to redirect traffic. 
+    /// Controller Developer Guide. You access one of the endpoints for the cluster to get
+    /// or update the routing control state to redirect traffic for your application. 
     /// </para><para><i>You must specify Regional endpoints when you work with API cluster operations
-    /// to get or update routing control states in Application Recovery Controller.</i></para><para>
+    /// to get or update routing control states in Route 53 ARC.</i></para><para>
     /// To see a code example for getting a routing control state, including accessing Regional
     /// cluster endpoints in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API
     /// examples</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     /// Route 53 Application Recovery Controller Developer Guide:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
     /// Viewing and updating routing control states</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working
-    /// with routing controls overall</a></para></li></ul>
+    /// with routing controls in Route 53 ARC</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RRCRoutingControlState")]
     [OutputType("Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         #region Parameter RoutingControlArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) for the routing control that you want to get the
-        /// state for.</para>
+        /// <para>The Amazon Resource Name (ARN) for the routing control that you want to get the state
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

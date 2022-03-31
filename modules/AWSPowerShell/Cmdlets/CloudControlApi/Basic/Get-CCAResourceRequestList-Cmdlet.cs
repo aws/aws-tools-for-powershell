@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     /// API User Guide</i>.
     /// 
     ///  <note><para>
-    /// Resource operation requests expire after seven days.
+    /// Resource operation requests expire after 7 days.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CCAResourceRequestList")]
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter ResourceRequestStatusFilter_OperationStatus
         /// <summary>
         /// <para>
-        /// <para>The operation statuses to include in the filter.</para><ul><li><para><code>PENDING</code>: The operation has been requested, but not yet initiated.</para></li><li><para><code>IN_PROGRESS</code>: The operation is currently in progress.</para></li><li><para><code>SUCCESS</code>: The operation has successfully completed.</para></li><li><para><code>FAILED</code>: The operation has failed.</para></li><li><para><code>CANCEL_IN_PROGRESS</code>: The operation is currently in the process of being
-        /// canceled.</para></li><li><para><code>CANCEL_COMPLETE</code>: The operation has been canceled.</para></li></ul>
+        /// <para>The operation statuses to include in the filter.</para><ul><li><para><code>PENDING</code>: The operation has been requested, but not yet initiated.</para></li><li><para><code>IN_PROGRESS</code>: The operation is in progress.</para></li><li><para><code>SUCCESS</code>: The operation completed.</para></li><li><para><code>FAILED</code>: The operation failed.</para></li><li><para><code>CANCEL_IN_PROGRESS</code>: The operation is in the process of being canceled.</para></li><li><para><code>CANCEL_COMPLETE</code>: The operation has been canceled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

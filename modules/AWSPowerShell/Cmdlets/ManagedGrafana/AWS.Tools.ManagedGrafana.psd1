@@ -87,12 +87,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-MGRFLicense', 
+        'Add-MGRFResourceTag', 
         'Get-MGRFPermissionList', 
+        'Get-MGRFResourceTag', 
         'Get-MGRFWorkspace', 
         'Get-MGRFWorkspaceAuthentication', 
         'Get-MGRFWorkspaceList', 
         'New-MGRFWorkspace', 
         'Remove-MGRFLicense', 
+        'Remove-MGRFResourceTag', 
         'Remove-MGRFWorkspace', 
         'Update-MGRFPermission', 
         'Update-MGRFWorkspace', 

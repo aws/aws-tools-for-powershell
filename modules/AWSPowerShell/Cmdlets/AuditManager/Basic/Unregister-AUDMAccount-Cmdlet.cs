@@ -28,7 +28,34 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deregisters an account in Audit Manager.
+    /// Deregisters an account in Audit Manager. 
+    /// 
+    ///  <note><para>
+    /// When you deregister your account from Audit Manager, your data isn’t deleted. If you
+    /// want to delete your resource data, you must perform that task separately before you
+    /// deregister your account. Either, you can do this in the Audit Manager console. Or,
+    /// you can use one of the delete API operations that are provided by Audit Manager. 
+    /// </para><para>
+    /// To delete your Audit Manager resource data, see the following instructions: 
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html">DeleteAssessment</a>
+    /// (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html">Deleting
+    /// an assessment</a> in the <i>Audit Manager User Guide</i>)
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html">DeleteAssessmentFramework</a>
+    /// (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html">Deleting
+    /// a custom framework</a> in the <i>Audit Manager User Guide</i>)
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html">DeleteAssessmentFrameworkShare</a>
+    /// (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html">Deleting
+    /// a share request</a> in the <i>Audit Manager User Guide</i>)
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a>
+    /// (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting
+    /// an assessment report</a> in the <i>Audit Manager User Guide</i>)
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html">DeleteControl</a>
+    /// (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html">Deleting
+    /// a custom control</a> in the <i>Audit Manager User Guide</i>)
+    /// </para></li></ul><para>
+    /// At this time, Audit Manager doesn't provide an option to delete evidence. All available
+    /// delete operations are listed above.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "AUDMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.AccountStatus")]

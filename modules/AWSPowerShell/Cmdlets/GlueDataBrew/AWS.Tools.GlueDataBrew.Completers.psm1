@@ -105,7 +105,7 @@ $GDB_Completers = {
             ($_ -eq "Update-GDBDataset/Format")
         }
         {
-            $v = "CSV","EXCEL","JSON","PARQUET"
+            $v = "CSV","EXCEL","JSON","ORC","PARQUET"
             break
         }
 

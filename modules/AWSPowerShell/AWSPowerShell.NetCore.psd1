@@ -272,6 +272,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.PI.dll',
         'AWSSDK.Pinpoint.dll',
         'AWSSDK.PinpointEmail.dll',
+        'AWSSDK.PinpointSMSVoiceV2.dll',
         'AWSSDK.Polly.dll',
         'AWSSDK.Pricing.dll',
         'AWSSDK.PrometheusService.dll',

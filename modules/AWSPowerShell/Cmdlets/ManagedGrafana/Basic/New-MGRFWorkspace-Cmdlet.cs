@@ -104,15 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter PermissionType
         /// <summary>
         /// <para>
-        /// <para>If you specify <code>Service Managed</code>, Amazon Managed Grafana automatically
-        /// creates the IAM roles and provisions the permissions that the workspace needs to use
-        /// Amazon Web Services data sources and notification channels.</para><para>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and permissions
+        /// <para>If you specify <code>SERVICE_MANAGED</code> on AWS Grafana console, Amazon Managed
+        /// Grafana automatically creates the IAM roles and provisions the permissions that the
+        /// workspace needs to use Amazon Web Services data sources and notification channels.
+        /// In CLI mode, the permissionType <code>SERVICE_MANAGED</code> will not create the IAM
+        /// role for you.</para><para>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and permissions
         /// yourself. If you are creating this workspace in a member account of an organization
         /// that is not a delegated administrator account, and you want the workspace to access
         /// data sources in other Amazon Web Services accounts in the organization, you must choose
         /// <code>CUSTOMER_MANAGED</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon
         /// Managed Grafana permissions and policies for Amazon Web Services data sources and
-        /// notification channels</a></para>
+        /// notification channels</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public System.String StackSetName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of tags associated with the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceDataSource
         /// <summary>
         /// <para>
@@ -156,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter WorkspaceDescription
         /// <summary>
         /// <para>
-        /// <para>A description for the workspace. This is used only to help you identify this workspace.</para>
+        /// <para>A description for the workspace. This is used only to help you identify this workspace.</para><para>Pattern: <code>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,9 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>The workspace needs an IAM role that grants permissions to the Amazon Web Services
         /// resources that the workspace will view data from. If you already have a role that
-        /// you want to use, specify it here. If you omit this field and you specify some Amazon
-        /// Web Services resources in <code>workspaceDataSources</code> or <code>workspaceNotificationDestinations</code>,
-        /// a new IAM role with the necessary permissions is automatically created.</para>
+        /// you want to use, specify it here. The permission type should be set to <code>CUSTOMER_MANAGED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,6 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             #endif
             context.StackSetName = this.StackSetName;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.WorkspaceDataSource != null)
             {
                 context.WorkspaceDataSource = new List<System.String>(this.WorkspaceDataSource);
@@ -345,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.StackSetName != null)
             {
                 request.StackSetName = cmdletContext.StackSetName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.WorkspaceDataSource != null)
             {
@@ -437,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             public System.String OrganizationRoleName { get; set; }
             public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
             public System.String StackSetName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public List<System.String> WorkspaceDataSource { get; set; }
             public System.String WorkspaceDescription { get; set; }
             public System.String WorkspaceName { get; set; }

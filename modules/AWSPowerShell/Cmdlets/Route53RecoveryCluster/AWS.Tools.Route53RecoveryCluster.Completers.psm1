@@ -150,6 +150,7 @@ $RRC_SelectCompleters = {
 
 $RRC_SelectMap = @{
     "Select"=@("Get-RRCRoutingControlState",
+               "Get-RRCRoutingControlList",
                "Update-RRCRoutingControlState",
                "Update-RRCRoutingControlStateBatch")
 }
