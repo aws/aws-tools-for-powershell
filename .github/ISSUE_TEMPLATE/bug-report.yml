@@ -64,9 +64,10 @@ body:
     id: powershell-tools-version
 
     attributes:
-      label: AWS .NET SDK and/or Package version used
-      description: NuGet Packages used
-      placeholder: AWSSDK.S3 3.7.8.13
+      label: AWS Tools for PowerShell version used
+      description: PowerShell Modules used
+      placeholder: AWS.Tools.S3 4.1.54 
+
     validations:
       required: true
 
