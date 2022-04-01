@@ -61,7 +61,8 @@ body:
       required: false
 
   - type: textarea
-    id: dotnet-sdk-version
+    id: powershell-tools-version
+
     attributes:
       label: AWS .NET SDK and/or Package version used
       description: NuGet Packages used
