@@ -31,8 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Ends the specified contact. This call does not work for the following initiation methods:
     /// 
     ///  <ul><li><para>
-    /// CALLBACK
-    /// </para></li><li><para>
     /// DISCONNECT
     /// </para></li><li><para>
     /// TRANSFER
