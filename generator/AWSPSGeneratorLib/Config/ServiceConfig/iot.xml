@@ -683,6 +683,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMetricValues" OutputProperty="MetricDatumList" Verb="Get" Noun="MetricValueList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMitigationActions" OutputProperty="ActionIdentifiers" Verb="Get" Noun="MitigationActionList" PipelineParameter="ActionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
