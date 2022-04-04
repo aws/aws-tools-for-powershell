@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// Create a service template. The administrator creates a service template to define
-    /// standardized infrastructure and an optional CICD service pipeline. Developers, in
+    /// standardized infrastructure and an optional CI/CD service pipeline. Developers, in
     /// turn, select the service template from Proton. If the selected service template includes
     /// a service pipeline definition, they provide a link to their source code repository.
     /// Proton then deploys and manages the infrastructure defined by the selected service
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter PipelineProvisioning
         /// <summary>
         /// <para>
-        /// <para>Proton includes a service pipeline for your service by default. When included, this
-        /// parameter indicates that an Proton service pipeline <i>won't</i> be included for your
-        /// service. Once specified, this parameter <i>can't</i> be changed. For more information,
+        /// <para>By default, Proton provides a service pipeline for your service. When this parameter
+        /// is included, it indicates that an Proton service pipeline <i>isn't</i> provided for
+        /// your service. After it's included, it <i>can't</i> be changed. For more information,
         /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Service
         /// template bundles</a> in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your service template. For more information, see <i>Proton resources
-        /// and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// <para>An optional list of metadata items that you can associate with the Proton service
+        /// template. A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
         /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
         /// User Guide</a>.</para>
         /// </para>

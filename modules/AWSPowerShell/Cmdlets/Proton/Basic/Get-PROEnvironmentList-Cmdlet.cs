@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next environment in the array of environments,
+        /// <para>A token that indicates the location of the next environment in the array of environments,
         /// after the list of environments that was previously requested.</para>
         /// </para>
         /// </summary>

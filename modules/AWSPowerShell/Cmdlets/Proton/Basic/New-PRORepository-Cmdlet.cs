@@ -28,10 +28,18 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create and register a link to a repository that can be used with pull request provisioning
-    /// or template sync configurations. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template
-    /// bundles</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template
+    /// Create and register a link to a repository that can be used with self-managed provisioning
+    /// (infrastructure or pipelines) or for template sync configurations. When you create
+    /// a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html">service-linked
+    /// role</a> for you.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
+    /// provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template
+    /// bundles</a>, and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template
     /// sync configurations</a> in the <i>Proton Administrator Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "PRORepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Repository")]
@@ -47,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of your Amazon Web Services CodeStar connection. For
-        /// more information, see <a href="https://docs.aws.amazon.com/setting-up-for-service">Setting
+        /// more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html">Setting
         /// up for Proton</a> in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The repository name, for example <code>myrepos/myrepo</code>.</para>
+        /// <para>The repository name (for example, <code>myrepos/myrepo</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,6 +113,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Proton.RepositoryProvider")]
         public Amazon.Proton.RepositoryProvider Provider { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of metadata items that you can associate with the Proton repository.
+        /// A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// User Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Proton.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -190,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 WriteWarning("You are passing $null as a value for parameter Provider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Proton.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.Provider != null)
             {
                 request.Provider = cmdletContext.Provider;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -287,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String EncryptionKey { get; set; }
             public System.String Name { get; set; }
             public Amazon.Proton.RepositoryProvider Provider { get; set; }
+            public List<Amazon.Proton.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Proton.Model.CreateRepositoryResponse, NewPRORepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Repository;
         }

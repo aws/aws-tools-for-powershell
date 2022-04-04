@@ -28,7 +28,18 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get the repository sync status.
+    /// Get the sync status of a repository used for Proton template sync. For more information
+    /// about template sync, see .
+    /// 
+    ///  <note><para>
+    /// A repository sync status isn't tied to the Proton Repository resource (or any other
+    /// Proton resource). Therefore, tags on an Proton Repository resource have no effect
+    /// on this action. Specifically, you can't use these tags to control access to this action
+    /// using Attribute-based access control (ABAC).
+    /// </para><para>
+    /// For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a>
+    /// in the <i>Proton Administrator Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "PRORepositorySyncStatus")]
     [OutputType("Amazon.Proton.Model.RepositorySyncAttempt")]

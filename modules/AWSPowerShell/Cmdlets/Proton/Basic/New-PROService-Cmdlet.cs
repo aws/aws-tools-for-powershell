@@ -112,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>A link to a spec file that provides inputs as defined in the service template bundle
-        /// schema file. The spec file is in YAML format. Don’t include pipeline inputs in the
-        /// spec if your service template <i>doesn’t</i> include a service pipeline. For more
-        /// information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create
+        /// schema file. The spec file is in YAML format. <i>Don’t</i> include pipeline inputs
+        /// in the spec if your service template <i>doesn’t</i> include a service pipeline. For
+        /// more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create
         /// a service</a> in the <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create
         /// a service</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your service. For more information, see <i>Proton resources and tagging</i>
-        /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// <para>An optional list of metadata items that you can associate with the Proton service.
+        /// A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
         /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
         /// User Guide</a>.</para>
         /// </para>

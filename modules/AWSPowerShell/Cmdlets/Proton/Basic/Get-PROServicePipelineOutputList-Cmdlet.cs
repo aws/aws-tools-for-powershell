@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next output in the array of outputs, after
+        /// <para>A token that indicates the location of the next output in the array of outputs, after
         /// the list of outputs that was previously requested.</para>
         /// </para>
         /// </summary>

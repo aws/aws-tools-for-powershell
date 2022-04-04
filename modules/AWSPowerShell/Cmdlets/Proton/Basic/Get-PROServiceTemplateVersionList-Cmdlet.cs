@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next major or minor version in the array of
-        /// major or minor versions of a service template, after the list of major or minor versions
-        /// that was previously requested.</para>
+        /// <para>A token that indicates the location of the next major or minor version in the array
+        /// of major or minor versions of a service template, after the list of major or minor
+        /// versions that was previously requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,11 @@
-﻿### 4.1.56 (2022-04-01 20:29Z)
+﻿### 4.1.57 (2022-04-04 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.245.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT
+    * Added cmdlet Get-IOTMetricValueList leveraging the ListMetricValues service API.
+  * Amazon Proton
+    * Modified cmdlet New-PRORepository: added parameter Tag.
+
+### 4.1.56 (2022-04-01 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.244.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.55 (2022-03-31 20:37Z)

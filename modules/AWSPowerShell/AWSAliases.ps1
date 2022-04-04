@@ -11370,6 +11370,9 @@ Set-Alias -Name IOT-ListJobTemplates -Value Get-IOTJobTemplateList
 Set-Alias -Name List-IOTManagedJobTemplates -Value Get-IOTManagedJobTemplateList
 Set-Alias -Name List-IOTManagedJobTemplateList -Value Get-IOTManagedJobTemplateList
 Set-Alias -Name IOT-ListManagedJobTemplates -Value Get-IOTManagedJobTemplateList
+Set-Alias -Name List-IOTMetricValues -Value Get-IOTMetricValueList
+Set-Alias -Name List-IOTMetricValueList -Value Get-IOTMetricValueList
+Set-Alias -Name IOT-ListMetricValues -Value Get-IOTMetricValueList
 Set-Alias -Name List-IOTMitigationActions -Value Get-IOTMitigationActionList
 Set-Alias -Name List-IOTMitigationActionList -Value Get-IOTMitigationActionList
 Set-Alias -Name IOT-ListMitigationActions -Value Get-IOTMitigationActionList

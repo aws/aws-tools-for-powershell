@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository, for example <code>myrepos/myrepo</code>.</para>
+        /// <para>The name of the repository (for example, <code>myrepos/myrepo</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

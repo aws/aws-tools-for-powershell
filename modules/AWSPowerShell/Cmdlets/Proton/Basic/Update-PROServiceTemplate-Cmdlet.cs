@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The name of the service template to update as displayed in the developer interface.</para>
+        /// <para>The name of the service template to update that's displayed in the developer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// Get detail data for a service instance. A service instance is an instantiation of
-    /// service template, which is running in a specific environment.
+    /// service template and it runs in a specific environment.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstance")]
     [OutputType("Amazon.Proton.Model.ServiceInstance")]

@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your environment template. For more information, see <i>Proton resources
-        /// and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// <para>An optional list of metadata items that you can associate with the Proton environment
+        /// template. A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
         /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
         /// User Guide</a>.</para>
         /// </para>

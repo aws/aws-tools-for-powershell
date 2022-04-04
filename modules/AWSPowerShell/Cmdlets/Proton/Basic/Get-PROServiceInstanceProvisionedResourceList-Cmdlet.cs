@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next provisioned resource in the array of
-        /// provisioned resources, after the list of provisioned resources that was previously
+        /// <para>A token that indicates the location of the next provisioned resource in the array
+        /// of provisioned resources, after the list of provisioned resources that was previously
         /// requested.</para>
         /// </para>
         /// </summary>

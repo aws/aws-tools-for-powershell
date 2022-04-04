@@ -28,15 +28,14 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Notify Proton of status changes to a provisioned resource when you use pull request
-    /// provisioning. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template
-    /// bundles</a>.
+    /// Notify Proton of status changes to a provisioned resource when you use self-managed
+    /// provisioning.
     /// 
-    ///  <important><para>
-    /// Provisioning by pull request is currently in feature preview and is only usable with
-    /// Terraform based Proton Templates. To learn more about <a href="https://aws.amazon.com/service-terms">Amazon
-    /// Web Services Feature Preview terms</a>, see section 2 on Beta and Previews.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
+    /// provisioning</a> in the <i>Proton Administrator Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "PROResourceDeploymentStatusChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

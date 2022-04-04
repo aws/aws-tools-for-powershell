@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// There are four modes for updating a service instance as described in the following.
-    /// The <code>deploymentType</code> field defines the mode.
+    /// There are four modes for updating a service instance. The <code>deploymentType</code>
+    /// field defines the mode.
     /// </para><dl><dt /><dd><para><code>NONE</code></para><para>
     /// In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
     /// are updated.
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>
     /// In this mode, the service instance is deployed and updated with the published, recommended
     /// (latest) major and minor version of the current template, by default. You can also
-    /// specify a different major version that is higher than the major version in use and
-    /// a minor version (optional).
+    /// specify a different major version that's higher than the major version in use and
+    /// a minor version.
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Update", "PROServiceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,16 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// <para>The deployment type.</para><para>There are four modes for updating a service instance as described in the following.
-        /// The <code>deploymentType</code> field defines the mode.</para><dl><dt /><dd><para><code>NONE</code></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
+        /// <para>The deployment type.</para><para>There are four modes for updating a service instance. The <code>deploymentType</code>
+        /// field defines the mode.</para><dl><dt /><dd><para><code>NONE</code></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
         /// are updated.</para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>In this mode, the service instance is deployed and updated with the new spec that
-        /// you provide. Only requested parameters are updated. <i>Don’t</i> include minor or
-        /// major version parameters when you use this <code>deployment-type</code>.</para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>In this mode, the service instance is deployed and updated with the published, recommended
+        /// you provide. Only requested parameters are updated. <i>Don’t</i> include major or
+        /// minor version parameters when you use this <code>deployment-type</code>.</para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>In this mode, the service instance is deployed and updated with the published, recommended
         /// (latest) minor version of the current major version in use, by default. You can also
         /// specify a different minor version of the current major version in use.</para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>In this mode, the service instance is deployed and updated with the published, recommended
-        /// (latest) major and minor version of the current template, by default. You can also
-        /// specify a different major version that is higher than the major version in use and
-        /// a minor version (optional).</para></dd></dl>
+        /// (latest) major and minor version of the current template, by default. You can specify
+        /// a different major version that's higher than the major version in use and a minor
+        /// version.</para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR

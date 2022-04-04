@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter PipelineServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Proton pipeline service role.</para><important><para>Provisioning by pull request is currently in feature preview and is only usable with
-        /// Terraform based Proton Templates. To learn more about <a href="https://aws.amazon.com/service-terms">Amazon
-        /// Web Services Feature Preview terms</a>, see section 2 on Beta and Previews.</para></important>
+        /// <para>The Amazon Resource Name (ARN) of the service role you want to use for provisioning
+        /// pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
+        /// customer-owned automation for self-managed provisioning.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

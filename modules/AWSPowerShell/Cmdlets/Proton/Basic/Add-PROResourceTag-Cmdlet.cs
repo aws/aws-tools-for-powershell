@@ -28,10 +28,15 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Tag a resource. For more information, see <i>Proton resources and tagging</i> in the
-    /// <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+    /// Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton
+    /// resource.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
     /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
     /// User Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "PROResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that the resource tag is applied to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Proton resource to apply customer tags to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of resource tags to apply to a resource.</para>
+        /// <para>A list of customer tags to apply to the Proton resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

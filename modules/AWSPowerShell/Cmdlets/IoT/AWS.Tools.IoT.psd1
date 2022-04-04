@@ -153,6 +153,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTLoggingOption', 
         'Get-IOTManagedJobTemplate', 
         'Get-IOTManagedJobTemplateList', 
+        'Get-IOTMetricValueList', 
         'Get-IOTMitigationAction', 
         'Get-IOTMitigationActionList', 
         'Get-IOTOTAUpdate', 

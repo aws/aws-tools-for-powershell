@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateVersion
         /// <summary>
         /// <para>
-        /// <para>The template version.</para>
+        /// <para>The template major version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

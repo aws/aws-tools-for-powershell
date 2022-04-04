@@ -64,11 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The ID of the environment account connection that you provide if you're provisioning
-        /// your environment infrastructure resources to an environment account. You must include
-        /// either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and value and omit the <code>provisioningRepository</code> parameter and
-        /// values. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>Proton Administrator guide</i>.</para>
+        /// your environment infrastructure resources to an environment account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton Administrator guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
+        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
+        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
-        /// calls to other services on your behalf. You must include either the <code>environmentAccountConnectionId</code>
-        /// or <code>protonServiceRoleArn</code> parameter and value and omit the <code>provisioningRepository</code>
-        /// parameter when you use standard provisioning.</para>
+        /// calls to other services on your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
+        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
+        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Spec
         /// <summary>
         /// <para>
-        /// <para>A link to a YAML formatted spec file that provides inputs as defined in the environment
-        /// template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
+        /// <para>A YAML formatted string that provides inputs as defined in the environment template
+        /// bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
         /// in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for your environment. For more information, see <i>Proton resources and
-        /// tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// <para>An optional list of metadata items that you can associate with the Proton environment.
+        /// A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
         /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
         /// User Guide</a>.</para>
         /// </para>

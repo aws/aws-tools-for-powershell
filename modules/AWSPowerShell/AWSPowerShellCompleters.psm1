@@ -25006,6 +25006,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.DimensionValueOperator
+        "Get-IOTMetricValueList/DimensionValueOperator"
+        {
+            $v = "IN","NOT_IN"
+            break
+        }
+
         # Amazon.IoT.DomainConfigurationStatus
         "Update-IOTDomainConfiguration/DomainConfigurationStatus"
         {
@@ -25210,6 +25217,7 @@ $IOT_map = @{
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
+    "DimensionValueOperator"=@("Get-IOTMetricValueList")
     "DomainConfigurationStatus"=@("Update-IOTDomainConfiguration")
     "Frequency"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
@@ -25445,6 +25453,7 @@ $IOT_SelectMap = @{
                "Get-IOTJobList",
                "Get-IOTJobTemplateList",
                "Get-IOTManagedJobTemplateList",
+               "Get-IOTMetricValueList",
                "Get-IOTMitigationActionList",
                "Get-IOTOTAUpdateList",
                "Get-IOTOutgoingCertificate",

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next service in the array of service instances,
+        /// <para>A token that indicates the location of the next service in the array of service instances,
         /// after the list of service instances that was previously requested.</para>
         /// </para>
         /// </summary>

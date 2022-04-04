@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The ID of the management account that accepts or rejects the environment account connection.
-        /// You create an manage the Proton environment in this account. If the management account
+        /// You create and manage the Proton environment in this account. If the management account
         /// accepts the environment account connection, Proton can use the associated IAM role
         /// to provision environment infrastructure resources in the associated environment account.</para>
         /// </para>
@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags for your environment account connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+        /// <para>An optional list of metadata items that you can associate with the Proton environment
+        /// account connection. A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
         /// resources and tagging</a> in the <i>Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>

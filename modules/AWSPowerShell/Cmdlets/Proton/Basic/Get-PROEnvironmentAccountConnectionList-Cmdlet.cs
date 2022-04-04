@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next environment account connection in the
-        /// array of environment account connections, after the list of environment account connections
-        /// that was previously requested.</para>
+        /// <para>A token that indicates the location of the next environment account connection in
+        /// the array of environment account connections, after the list of environment account
+        /// connections that was previously requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,10 +28,15 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Remove a tag from a resource. For more information, see <i>Proton resources and tagging</i>
-    /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
+    /// Remove a customer tag from a resource. A tag is a key-value pair of metadata associated
+    /// with an Proton resource.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
     /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
     /// User Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "PROResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that the tag is to be removed from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to remove customer tags from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>An array of tag keys indicating the resource tags to be removed from the resource.</para>
+        /// <para>A list of customer tag keys that indicate the customer tags to be removed from the
+        /// resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

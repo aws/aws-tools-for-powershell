@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to indicate the location of the next repository sync definition in the array
-        /// of repository sync definitions, after the list of repository sync definitions previously
-        /// requested.</para>
+        /// <para>A token that indicates the location of the next repository sync definition in the
+        /// array of repository sync definitions, after the list of repository sync definitions
+        /// previously requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
