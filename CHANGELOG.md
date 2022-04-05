@@ -1,4 +1,10 @@
-﻿### 4.1.57 (2022-04-04 20:11Z)
+﻿### 4.1.58 (2022-04-05 20:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.246.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DataSync
+    * Added cmdlet Get-DSYNLocationFsxOpenZf leveraging the DescribeLocationFsxOpenZfs service API.
+    * Added cmdlet New-DSYNLocationFsxOpenZf leveraging the CreateLocationFsxOpenZfs service API.
+
+### 4.1.57 (2022-04-04 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.245.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IoT
     * Added cmdlet Get-IOTMetricValueList leveraging the ListMetricValues service API.

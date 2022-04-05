@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
         /// principal and the encrypted keys. You can load the keytab from a file by providing
-        /// the file's address. If you use the AWS CLI, it performs base64 encoding for you. Otherwise,
+        /// the file's address. If you use the CLI, it performs base64 encoding for you. Otherwise,
         /// provide the base64-encoded text.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>The <code>krb5.conf</code> file that contains the Kerberos configuration information.
         /// You can load the <code>krb5.conf</code> file by providing the file's address. If you're
-        /// using the AWS CLI, it performs the base64 encoding for you. Otherwise, provide the
-        /// base64-encoded text.</para>
+        /// using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
+        /// text.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes
-        /// per second (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</para>
+        /// per second (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

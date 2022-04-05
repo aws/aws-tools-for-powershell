@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Ec2Config_SubnetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the subnet and the security group that DataSync uses to access the target
-        /// EFS file system.</para>
+        /// <para>The ARN of the subnet that DataSync uses to access the target EFS file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

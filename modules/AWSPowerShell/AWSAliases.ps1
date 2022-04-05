@@ -5176,6 +5176,9 @@ Set-Alias -Name Create-DSYNLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name DSYN-CreateLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name Create-DSYNLocationFsxLustre -Value New-DSYNLocationFsxLustre
 Set-Alias -Name DSYN-CreateLocationFsxLustre -Value New-DSYNLocationFsxLustre
+Set-Alias -Name Create-DSYNLocationFsxOpenZfs -Value New-DSYNLocationFsxOpenZf
+Set-Alias -Name Create-DSYNLocationFsxOpenZf -Value New-DSYNLocationFsxOpenZf
+Set-Alias -Name DSYN-CreateLocationFsxOpenZfs -Value New-DSYNLocationFsxOpenZf
 Set-Alias -Name Create-DSYNLocationFsxWindows -Value New-DSYNLocationFsxWindow
 Set-Alias -Name Create-DSYNLocationFsxWindow -Value New-DSYNLocationFsxWindow
 Set-Alias -Name DSYN-CreateLocationFsxWindows -Value New-DSYNLocationFsxWindow
@@ -5204,6 +5207,9 @@ Set-Alias -Name Describe-DSYNLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name DSYN-DescribeLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name Describe-DSYNLocationFsxLustre -Value Get-DSYNLocationFsxLustre
 Set-Alias -Name DSYN-DescribeLocationFsxLustre -Value Get-DSYNLocationFsxLustre
+Set-Alias -Name Describe-DSYNLocationFsxOpenZfs -Value Get-DSYNLocationFsxOpenZf
+Set-Alias -Name Describe-DSYNLocationFsxOpenZf -Value Get-DSYNLocationFsxOpenZf
+Set-Alias -Name DSYN-DescribeLocationFsxOpenZfs -Value Get-DSYNLocationFsxOpenZf
 Set-Alias -Name Describe-DSYNLocationFsxWindows -Value Get-DSYNLocationFsxWindow
 Set-Alias -Name Describe-DSYNLocationFsxWindow -Value Get-DSYNLocationFsxWindow
 Set-Alias -Name DSYN-DescribeLocationFsxWindows -Value Get-DSYNLocationFsxWindow

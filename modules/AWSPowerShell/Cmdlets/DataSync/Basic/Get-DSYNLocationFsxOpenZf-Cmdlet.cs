@@ -28,22 +28,22 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about an Amazon FSx for Lustre location, such as information about
+    /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
     /// its path.
     /// </summary>
-    [Cmdlet("Get", "DSYNLocationFsxLustre")]
-    [OutputType("Amazon.DataSync.Model.DescribeLocationFsxLustreResponse")]
-    [AWSCmdlet("Calls the AWS DataSync DescribeLocationFsxLustre API operation.", Operation = new[] {"DescribeLocationFsxLustre"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationFsxLustreResponse))]
-    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationFsxLustreResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationFsxLustreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSYNLocationFsxOpenZf")]
+    [OutputType("Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse")]
+    [AWSCmdlet("Calls the AWS DataSync DescribeLocationFsxOpenZfs API operation.", Operation = new[] {"DescribeLocationFsxOpenZfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse))]
+    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse",
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDSYNLocationFsxLustreCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class GetDSYNLocationFsxOpenZfCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the FSx for Lustre location to describe. </para>
+        /// <para>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationFsxLustreResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationFsxLustreResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse).
+        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationFsxLustreResponse, GetDSYNLocationFsxLustreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse, GetDSYNLocationFsxOpenZfCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.DescribeLocationFsxLustreRequest();
+            var request = new Amazon.DataSync.Model.DescribeLocationFsxOpenZfsRequest();
             
             if (cmdletContext.LocationArn != null)
             {
@@ -162,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.DescribeLocationFsxLustreResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationFsxLustreRequest request)
+        private Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationFsxOpenZfsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationFsxLustre");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationFsxOpenZfs");
             try
             {
                 #if DESKTOP
-                return client.DescribeLocationFsxLustre(request);
+                return client.DescribeLocationFsxOpenZfs(request);
                 #elif CORECLR
-                return client.DescribeLocationFsxLustreAsync(request).GetAwaiter().GetResult();
+                return client.DescribeLocationFsxOpenZfsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String LocationArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.DescribeLocationFsxLustreResponse, GetDSYNLocationFsxLustreCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse, GetDSYNLocationFsxOpenZfCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

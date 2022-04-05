@@ -12988,7 +12988,8 @@ $DSYN_Completers = {
         # Amazon.DataSync.NfsVersion
         {
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
-            ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version")
+            ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version") -Or
+            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
@@ -13033,6 +13034,7 @@ $DSYN_Completers = {
 $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
+    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "S3StorageClass"=@("New-DSYNLocationS3")
@@ -13093,6 +13095,7 @@ $DSYN_SelectMap = @{
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
+               "New-DSYNLocationFsxOpenZf",
                "New-DSYNLocationFsxWindow",
                "New-DSYNLocationHdf",
                "New-DSYNLocationNfs",
@@ -13106,6 +13109,7 @@ $DSYN_SelectMap = @{
                "Get-DSYNAgent",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
+               "Get-DSYNLocationFsxOpenZf",
                "Get-DSYNLocationFsxWindow",
                "Get-DSYNLocationHdf",
                "Get-DSYNLocationNfs",

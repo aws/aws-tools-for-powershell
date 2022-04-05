@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
-        /// name of the NFS server. An agent that is installed on-premises uses this host name
+        /// name of the NFS server. An agent that is installed on-premises uses this hostname
         /// to mount the NFS server in a network. </para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
         /// Server on Snowcone</a> for more information.</para><note><para>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</para></note>
         /// </para>

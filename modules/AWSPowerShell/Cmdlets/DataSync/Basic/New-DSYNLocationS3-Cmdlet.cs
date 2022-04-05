@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>If you are using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
+        /// <para>If you're using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
         /// Names (ARNs) of the DataSync agents deployed on your Outpost. For more information
         /// about launching a DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
         /// your DataSync agent on Outposts</a>.</para>
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3Config_BucketAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html">CreateLocationS3</a>
-        /// operation. </para>
+        /// <para>The ARN of the IAM role for accessing the S3 bucket. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

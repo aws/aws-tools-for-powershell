@@ -874,8 +874,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the folder prefix into which you would like the objects to be copied. For
-        /// example, to copy objects into a folder named "Folder1" in the destination bucket,
-        /// set the TargetKeyPrefix to "Folder1/".</para>
+        /// example, to copy objects into a folder named <code>Folder1</code> in the destination
+        /// bucket, set the TargetKeyPrefix to <code>Folder1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
