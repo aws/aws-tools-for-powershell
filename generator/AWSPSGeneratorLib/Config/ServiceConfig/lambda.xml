@@ -55,6 +55,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunctionUrlConfig" OutputProperty="*" Verb="New" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFunctionEventInvokeConfig" Verb="Remove" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunctionUrlConfig" Verb="Remove" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFunctionEventInvokeConfig" OutputProperty="*" Verb="Get" Noun="FunctionEventInvokeConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionUrlConfig" OutputProperty="*" Verb="Get" Noun="FunctionUrlConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,6 +194,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFunctionsByCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="FunctionsByCodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctionUrlConfigs" OutputProperty="FunctionUrlConfigs" Verb="Get" Noun="FunctionUrlConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,6 +290,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunctionEventInvokeConfig" OutputProperty="*" Verb="Update" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunctionUrlConfig" OutputProperty="*" Verb="Update" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
