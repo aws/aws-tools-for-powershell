@@ -1,4 +1,14 @@
-﻿### 4.1.58 (2022-04-05 20:10Z)
+﻿### 4.1.59 (2022-04-06 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.247.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Lambda
+    * Added cmdlet Get-LMFunctionUrlConfig leveraging the GetFunctionUrlConfig service API.
+    * Added cmdlet Get-LMFunctionUrlConfigList leveraging the ListFunctionUrlConfigs service API.
+    * Added cmdlet New-LMFunctionUrlConfig leveraging the CreateFunctionUrlConfig service API.
+    * Added cmdlet Remove-LMFunctionUrlConfig leveraging the DeleteFunctionUrlConfig service API.
+    * Added cmdlet Update-LMFunctionUrlConfig leveraging the UpdateFunctionUrlConfig service API.
+    * Modified cmdlet Add-LMPermission: added parameter FunctionUrlAuthType.
+
+### 4.1.58 (2022-04-05 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.246.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DataSync
     * Added cmdlet Get-DSYNLocationFsxOpenZf leveraging the DescribeLocationFsxOpenZfs service API.

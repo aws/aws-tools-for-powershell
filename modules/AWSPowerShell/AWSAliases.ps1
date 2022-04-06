@@ -12687,6 +12687,8 @@ Set-Alias -Name Create-LMEventSourceMapping -Value New-LMEventSourceMapping
 Set-Alias -Name LM-CreateEventSourceMapping -Value New-LMEventSourceMapping
 Set-Alias -Name Create-LMFunction -Value Publish-LMFunction
 Set-Alias -Name LM-CreateFunction -Value Publish-LMFunction
+Set-Alias -Name Create-LMFunctionUrlConfig -Value New-LMFunctionUrlConfig
+Set-Alias -Name LM-CreateFunctionUrlConfig -Value New-LMFunctionUrlConfig
 Set-Alias -Name Delete-LMAlias -Value Remove-LMAlias
 Set-Alias -Name LM-DeleteAlias -Value Remove-LMAlias
 Set-Alias -Name Delete-LMCodeSigningConfig -Value Remove-LMCodeSigningConfig
@@ -12701,6 +12703,8 @@ Set-Alias -Name Delete-LMFunctionConcurrency -Value Remove-LMFunctionConcurrency
 Set-Alias -Name LM-DeleteFunctionConcurrency -Value Remove-LMFunctionConcurrency
 Set-Alias -Name Delete-LMFunctionEventInvokeConfig -Value Remove-LMFunctionEventInvokeConfig
 Set-Alias -Name LM-DeleteFunctionEventInvokeConfig -Value Remove-LMFunctionEventInvokeConfig
+Set-Alias -Name Delete-LMFunctionUrlConfig -Value Remove-LMFunctionUrlConfig
+Set-Alias -Name LM-DeleteFunctionUrlConfig -Value Remove-LMFunctionUrlConfig
 Set-Alias -Name Delete-LMLayerVersion -Value Remove-LMLayerVersion
 Set-Alias -Name LM-DeleteLayerVersion -Value Remove-LMLayerVersion
 Set-Alias -Name Delete-LMProvisionedConcurrencyConfig -Value Remove-LMProvisionedConcurrencyConfig
@@ -12715,6 +12719,7 @@ Set-Alias -Name LM-GetFunctionCodeSigningConfig -Value Get-LMFunctionCodeSigning
 Set-Alias -Name LM-GetFunctionConcurrency -Value Get-LMFunctionConcurrency
 Set-Alias -Name LM-GetFunctionConfiguration -Value Get-LMFunctionConfiguration
 Set-Alias -Name LM-GetFunctionEventInvokeConfig -Value Get-LMFunctionEventInvokeConfig
+Set-Alias -Name LM-GetFunctionUrlConfig -Value Get-LMFunctionUrlConfig
 Set-Alias -Name LM-GetLayerVersion -Value Get-LMLayerVersion
 Set-Alias -Name LM-GetLayerVersionByArn -Value Get-LMLayerVersionByArn
 Set-Alias -Name LM-GetLayerVersionPolicy -Value Get-LMLayerVersionPolicy
@@ -12742,6 +12747,9 @@ Set-Alias -Name LM-ListFunctions -Value Get-LMFunctionList
 Set-Alias -Name List-LMFunctionsByCodeSigningConfig -Value Get-LMFunctionsByCodeSigningConfigList
 Set-Alias -Name List-LMFunctionsByCodeSigningConfigList -Value Get-LMFunctionsByCodeSigningConfigList
 Set-Alias -Name LM-ListFunctionsByCodeSigningConfig -Value Get-LMFunctionsByCodeSigningConfigList
+Set-Alias -Name List-LMFunctionUrlConfigs -Value Get-LMFunctionUrlConfigList
+Set-Alias -Name List-LMFunctionUrlConfigList -Value Get-LMFunctionUrlConfigList
+Set-Alias -Name LM-ListFunctionUrlConfigs -Value Get-LMFunctionUrlConfigList
 Set-Alias -Name List-LMLayers -Value Get-LMLayerList
 Set-Alias -Name List-LMLayerList -Value Get-LMLayerList
 Set-Alias -Name LM-ListLayers -Value Get-LMLayerList
@@ -12775,6 +12783,7 @@ Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LM-UpdateFunctionCode -Value Update-LMFunctionCode
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
 Set-Alias -Name LM-UpdateFunctionEventInvokeConfig -Value Update-LMFunctionEventInvokeConfig
+Set-Alias -Name LM-UpdateFunctionUrlConfig -Value Update-LMFunctionUrlConfig
 Set-Alias -Name Create-LMBBotVersion -Value New-LMBBotVersion
 Set-Alias -Name LMB-CreateBotVersion -Value New-LMBBotVersion
 Set-Alias -Name Create-LMBIntentVersion -Value New-LMBIntentVersion

@@ -105,6 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
+        #region Parameter FunctionUrlAuthType
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code>
+        /// if you want to restrict access to authenticated <code>IAM</code> users only. Set to
+        /// <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint.
+        /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">
+        /// Security and auth model for Lambda function URLs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.FunctionUrlAuthType")]
+        public Amazon.Lambda.FunctionUrlAuthType FunctionUrlAuthType { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -273,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FunctionUrlAuthType = this.FunctionUrlAuthType;
             context.Principal = this.Principal;
             #if MODULAR
             if (this.Principal == null && ParameterWasBound(nameof(this.Principal)))
@@ -319,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.FunctionUrlAuthType != null)
+            {
+                request.FunctionUrlAuthType = cmdletContext.FunctionUrlAuthType;
             }
             if (cmdletContext.Principal != null)
             {
@@ -412,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Action { get; set; }
             public System.String EventSourceToken { get; set; }
             public System.String FunctionName { get; set; }
+            public Amazon.Lambda.FunctionUrlAuthType FunctionUrlAuthType { get; set; }
             public System.String Principal { get; set; }
             public System.String PrincipalOrgID { get; set; }
             public System.String Qualifier { get; set; }

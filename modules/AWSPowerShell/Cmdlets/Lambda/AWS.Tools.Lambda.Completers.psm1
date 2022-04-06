@@ -107,6 +107,17 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.FunctionUrlAuthType
+        {
+            ($_ -eq "New-LMFunctionUrlConfig/AuthType") -Or
+            ($_ -eq "Update-LMFunctionUrlConfig/AuthType") -Or
+            ($_ -eq "Add-LMPermission/FunctionUrlAuthType")
+        }
+        {
+            $v = "AWS_IAM","NONE"
+            break
+        }
+
         # Amazon.Lambda.FunctionVersion
         "Get-LMFunctionList/FunctionVersion"
         {
@@ -166,9 +177,11 @@ $LM_Completers = {
 }
 
 $LM_map = @{
+    "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
+    "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")
     "LogType"=@("Invoke-LMFunction")
@@ -234,6 +247,7 @@ $LM_SelectMap = @{
                "New-LMCodeSigningConfig",
                "New-LMEventSourceMapping",
                "Publish-LMFunction",
+               "New-LMFunctionUrlConfig",
                "Remove-LMAlias",
                "Remove-LMCodeSigningConfig",
                "Remove-LMEventSourceMapping",
@@ -241,6 +255,7 @@ $LM_SelectMap = @{
                "Remove-LMFunctionCodeSigningConfig",
                "Remove-LMFunctionConcurrency",
                "Remove-LMFunctionEventInvokeConfig",
+               "Remove-LMFunctionUrlConfig",
                "Remove-LMLayerVersion",
                "Remove-LMProvisionedConcurrencyConfig",
                "Get-LMAccountSetting",
@@ -252,6 +267,7 @@ $LM_SelectMap = @{
                "Get-LMFunctionConcurrency",
                "Get-LMFunctionConfiguration",
                "Get-LMFunctionEventInvokeConfig",
+               "Get-LMFunctionUrlConfig",
                "Get-LMLayerVersion",
                "Get-LMLayerVersionByArn",
                "Get-LMLayerVersionPolicy",
@@ -265,6 +281,7 @@ $LM_SelectMap = @{
                "Get-LMFunctionEventInvokeConfigList",
                "Get-LMFunctionList",
                "Get-LMFunctionsByCodeSigningConfigList",
+               "Get-LMFunctionUrlConfigList",
                "Get-LMLayerList",
                "Get-LMLayerVersionList",
                "Get-LMProvisionedConcurrencyConfigList",
@@ -285,7 +302,8 @@ $LM_SelectMap = @{
                "Update-LMEventSourceMapping",
                "Update-LMFunctionCode",
                "Update-LMFunctionConfiguration",
-               "Update-LMFunctionEventInvokeConfig")
+               "Update-LMFunctionEventInvokeConfig",
+               "Update-LMFunctionUrlConfig")
 }
 
 _awsArgumentCompleterRegistration $LM_SelectCompleters $LM_SelectMap

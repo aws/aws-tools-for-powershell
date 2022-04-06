@@ -22,27 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kendra;
-using Amazon.Kendra.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KNDR
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Describes an existing Amazon Kendra index.
+    /// Returns details about a Lambda function URL.
     /// </summary>
-    [Cmdlet("Get", "KNDRIndex")]
-    [OutputType("Amazon.Kendra.Model.DescribeIndexResponse")]
-    [AWSCmdlet("Calls the Amazon Kendra DescribeIndex API operation.", Operation = new[] {"DescribeIndex"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribeIndexResponse))]
-    [AWSCmdletOutput("Amazon.Kendra.Model.DescribeIndexResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribeIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMFunctionUrlConfig")]
+    [OutputType("Amazon.Lambda.Model.GetFunctionUrlConfigResponse")]
+    [AWSCmdlet("Calls the AWS Lambda GetFunctionUrlConfig API operation.", Operation = new[] {"GetFunctionUrlConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetFunctionUrlConfigResponse))]
+    [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionUrlConfigResponse",
+        "This cmdlet returns an Amazon.Lambda.Model.GetFunctionUrlConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKNDRIndexCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class GetLMFunctionUrlConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index to describe.</para>
+        /// Amazon.Lambda.Model.GetFunctionUrlConfigRequest.FunctionName
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,14 +53,24 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
+        
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>The alias name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Qualifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.DescribeIndexResponse).
-        /// Specifying the name of a property of type Amazon.Kendra.Model.DescribeIndexResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.GetFunctionUrlConfigResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.GetFunctionUrlConfigResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FunctionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -89,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.DescribeIndexResponse, GetKNDRIndexCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.GetFunctionUrlConfigResponse, GetLMFunctionUrlConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -98,16 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.FunctionName = this.FunctionName;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Qualifier = this.Qualifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,11 +133,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.DescribeIndexRequest();
+            var request = new Amazon.Lambda.Model.GetFunctionUrlConfigRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.FunctionName != null)
             {
-                request.Id = cmdletContext.Id;
+                request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -161,15 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.DescribeIndexResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.DescribeIndexRequest request)
+        private Amazon.Lambda.Model.GetFunctionUrlConfigResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionUrlConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "DescribeIndex");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetFunctionUrlConfig");
             try
             {
                 #if DESKTOP
-                return client.DescribeIndex(request);
+                return client.GetFunctionUrlConfig(request);
                 #elif CORECLR
-                return client.DescribeIndexAsync(request).GetAwaiter().GetResult();
+                return client.GetFunctionUrlConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -189,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.Kendra.Model.DescribeIndexResponse, GetKNDRIndexCmdlet, object> Select { get; set; } =
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.Func<Amazon.Lambda.Model.GetFunctionUrlConfigResponse, GetLMFunctionUrlConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

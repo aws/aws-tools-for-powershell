@@ -105,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An Identity and Access Management(IAM) role that gives Amazon Kendra permissions to
-        /// access your Amazon CloudWatch logs and metrics. This is also the role used when you
-        /// use the <code>BatchPutDocument</code> API to index documents from an Amazon S3 bucket.</para>
+        /// <para>An Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+        /// to access your Amazon CloudWatch logs and metrics. This is also the role you use when
+        /// you call the <code>BatchPutDocument</code> API to index documents from an Amazon S3
+        /// bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

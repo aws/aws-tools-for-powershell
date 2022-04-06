@@ -114,7 +114,7 @@ $PAN_Completers = {
         # Amazon.Panorama.StatusFilter
         "Get-PANApplicationInstanceList/StatusFilter"
         {
-            $v = "DEPLOYMENT_ERROR","DEPLOYMENT_SUCCEEDED","PROCESSING_DEPLOYMENT","PROCESSING_REMOVAL","REMOVAL_FAILED","REMOVAL_SUCCEEDED"
+            $v = "DEPLOYMENT_ERROR","DEPLOYMENT_FAILED","DEPLOYMENT_SUCCEEDED","PROCESSING_DEPLOYMENT","PROCESSING_REMOVAL","REMOVAL_FAILED","REMOVAL_SUCCEEDED"
             break
         }
 
