@@ -40,10 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para><ul><li><para>
     /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
     /// </para></li></ul><para>
-    ///  To get the status of the export job, call <a>DescribeDatasetExportJob</a>, and specify
-    /// the Amazon Resource Name (ARN) of the dataset export job. The dataset export is complete
-    /// when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
-    /// includes a <code>failureReason</code> key, which describes why the job failed. 
+    ///  To get the status of the export job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a>,
+    /// and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset
+    /// export is complete when the status shows as ACTIVE. If the status shows as CREATE
+    /// FAILED, the response includes a <code>failureReason</code> key, which describes why
+    /// the job failed. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "PERSDatasetExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -153,6 +154,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the dataset export job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetExportJobArn'.
@@ -244,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -320,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -387,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String S3DataDestination_KmsKeyArn { get; set; }
             public System.String S3DataDestination_Path { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateDatasetExportJobResponse, NewPERSDatasetExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetExportJobArn;
         }

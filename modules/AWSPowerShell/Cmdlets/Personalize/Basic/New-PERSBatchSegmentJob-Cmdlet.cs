@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// Creates a batch segment job. The operation can handle up to 50 million records and
-    /// the input file must be in JSON format. For more information, see <a>recommendations-batch</a>.
+    /// the input file must be in JSON format. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting
+    /// batch recommendations and user segments</a>.
     /// </summary>
     [Cmdlet("New", "PERSBatchSegmentJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The ARN of the filter to apply to the batch segment job. For more information on using
-        /// filters, see <a>filter-batch</a>.</para>
+        /// filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering
+        /// batch recommendations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,6 +179,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String SolutionVersionArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the batch segment job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'BatchSegmentJobArn'.
@@ -277,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter SolutionVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -401,6 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.SolutionVersionArn = cmdletContext.SolutionVersionArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -471,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.Int32? NumResult { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SolutionVersionArn { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateBatchSegmentJobResponse, NewPERSBatchSegmentJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BatchSegmentJobArn;
         }

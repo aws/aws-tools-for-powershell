@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Returns a list of solutions that use the given dataset group. When a dataset group
     /// is not specified, all the solutions associated with the account are listed. The response
     /// provides the properties for each solution, including the Amazon Resource Name (ARN).
-    /// For more information on solutions, see <a>CreateSolution</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PERSSolutionList")]
     [OutputType("Amazon.Personalize.Model.SolutionSummary")]

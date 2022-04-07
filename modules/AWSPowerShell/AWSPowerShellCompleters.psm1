@@ -19625,6 +19625,16 @@ $EVB_Completers = {
             break
         }
 
+        # Amazon.EventBridge.ReplicationState
+        {
+            ($_ -eq "New-EVBEndpoint/ReplicationConfig_State") -Or
+            ($_ -eq "Update-EVBEndpoint/ReplicationConfig_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.EventBridge.RuleState
         "Write-EVBRule/State"
         {
@@ -19645,6 +19655,7 @@ $EVB_map = @{
     "AuthParameters_OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ConnectionState"=@("Get-EVBConnectionList")
     "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
+    "ReplicationConfig_State"=@("New-EVBEndpoint","Update-EVBEndpoint")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
 }
 
@@ -19703,6 +19714,7 @@ $EVB_SelectMap = @{
                "New-EVBApiDestination",
                "New-EVBArchive",
                "New-EVBConnection",
+               "New-EVBEndpoint",
                "New-EVBEventBus",
                "New-EVBPartnerEventSource",
                "Disable-EVBEventSource",
@@ -19710,12 +19722,14 @@ $EVB_SelectMap = @{
                "Remove-EVBApiDestination",
                "Remove-EVBArchive",
                "Remove-EVBConnection",
+               "Remove-EVBEndpoint",
                "Remove-EVBEventBus",
                "Remove-EVBPartnerEventSource",
                "Remove-EVBRule",
                "Get-EVBApiDestination",
                "Get-EVBArchive",
                "Get-EVBConnection",
+               "Get-EVBEndpoint",
                "Get-EVBEventBus",
                "Get-EVBEventSource",
                "Get-EVBPartnerEventSource",
@@ -19726,6 +19740,7 @@ $EVB_SelectMap = @{
                "Get-EVBApiDestinationList",
                "Get-EVBArchiveList",
                "Get-EVBConnectionList",
+               "Get-EVBEndpointList",
                "Get-EVBEventBusList",
                "Get-EVBEventSourceList",
                "Get-EVBPartnerEventSourceAccountList",
@@ -19748,7 +19763,8 @@ $EVB_SelectMap = @{
                "Remove-EVBResourceTag",
                "Update-EVBApiDestination",
                "Update-EVBArchive",
-               "Update-EVBConnection")
+               "Update-EVBConnection",
+               "Update-EVBEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap
@@ -36294,7 +36310,10 @@ $PERS_SelectMap = @{
                "Get-PERSSchemaList",
                "Get-PERSSolutionList",
                "Get-PERSSolutionVersionList",
+               "Get-PERSResourceTag",
                "Stop-PERSSolutionVersionCreation",
+               "Add-PERSResourceTag",
+               "Remove-PERSResourceTag",
                "Update-PERSCampaign",
                "Update-PERSRecommender")
 }
@@ -42252,7 +42271,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMNotebookInstance/InstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
             break
         }
 

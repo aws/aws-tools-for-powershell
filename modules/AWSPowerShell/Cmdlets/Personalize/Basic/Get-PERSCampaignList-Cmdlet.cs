@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Returns a list of campaigns that use the given solution. When a solution is not specified,
     /// all the campaigns associated with the account are listed. The response provides the
     /// properties for each campaign, including the Amazon Resource Name (ARN). For more information
-    /// on campaigns, see <a>CreateCampaign</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PERSCampaignList")]
     [OutputType("Amazon.Personalize.Model.CampaignSummary")]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from the previous call to <code>ListCampaigns</code> for getting
-        /// the next set of campaigns (if they exist).</para>
+        /// <para>A token returned from the previous call to <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a>
+        /// for getting the next set of campaigns (if they exist).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// When the <code>status</code> is <code>CREATE FAILED</code>, the response includes
     /// the <code>failureReason</code> key, which describes why.
     /// </para><para>
-    /// For more information on campaigns, see <a>CreateCampaign</a>.
+    /// For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PERSCampaign")]

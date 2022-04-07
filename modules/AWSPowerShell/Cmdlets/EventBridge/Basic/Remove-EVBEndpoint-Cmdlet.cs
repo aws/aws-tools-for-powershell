@@ -22,29 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Personalize;
-using Amazon.Personalize.Model;
+using Amazon.EventBridge;
+using Amazon.EventBridge.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PERS
+namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>,
-    /// including the export job status.
+    /// Delete an existing global endpoint. For more information about global endpoints, see
+    /// <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making
+    /// applications Regional-fault tolerant with global endpoints and event replication</a>
+    /// in the Amazon EventBridge User Guide.
     /// </summary>
-    [Cmdlet("Get", "PERSDatasetExportJob")]
-    [OutputType("Amazon.Personalize.Model.DatasetExportJob")]
-    [AWSCmdlet("Calls the AWS Personalize DescribeDatasetExportJob API operation.", Operation = new[] {"DescribeDatasetExportJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeDatasetExportJobResponse))]
-    [AWSCmdletOutput("Amazon.Personalize.Model.DatasetExportJob or Amazon.Personalize.Model.DescribeDatasetExportJobResponse",
-        "This cmdlet returns an Amazon.Personalize.Model.DatasetExportJob object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeDatasetExportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EVBEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon EventBridge DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"}, SelectReturnType = typeof(Amazon.EventBridge.Model.DeleteEndpointResponse))]
+    [AWSCmdletOutput("None or Amazon.EventBridge.Model.DeleteEndpointResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.EventBridge.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPERSDatasetExportJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class RemoveEVBEndpointCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
-        #region Parameter DatasetExportJobArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the dataset export job to describe.</para>
+        /// <para>The name of the endpoint you want to delete. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>..</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,33 +57,48 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatasetExportJobArn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetExportJob'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.DescribeDatasetExportJobResponse).
-        /// Specifying the name of a property of type Amazon.Personalize.Model.DescribeDatasetExportJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EventBridge.Model.DeleteEndpointResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DatasetExportJob";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatasetExportJobArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatasetExportJobArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetExportJobArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVBEndpoint (DeleteEndpoint)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -91,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.DescribeDatasetExportJobResponse, GetPERSDatasetExportJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EventBridge.Model.DeleteEndpointResponse, RemoveEVBEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -100,14 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatasetExportJobArn;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatasetExportJobArn = this.DatasetExportJobArn;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.DatasetExportJobArn == null && ParameterWasBound(nameof(this.DatasetExportJobArn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetExportJobArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -124,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Personalize.Model.DescribeDatasetExportJobRequest();
+            var request = new Amazon.EventBridge.Model.DeleteEndpointRequest();
             
-            if (cmdletContext.DatasetExportJobArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.DatasetExportJobArn = cmdletContext.DatasetExportJobArn;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -163,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.DescribeDatasetExportJobResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.DescribeDatasetExportJobRequest request)
+        private Amazon.EventBridge.Model.DeleteEndpointResponse CallAWSServiceOperation(IAmazonEventBridge client, Amazon.EventBridge.Model.DeleteEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "DescribeDatasetExportJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EventBridge", "DeleteEndpoint");
             try
             {
                 #if DESKTOP
-                return client.DescribeDatasetExportJob(request);
+                return client.DeleteEndpoint(request);
                 #elif CORECLR
-                return client.DescribeDatasetExportJobAsync(request).GetAwaiter().GetResult();
+                return client.DeleteEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetExportJobArn { get; set; }
-            public System.Func<Amazon.Personalize.Model.DescribeDatasetExportJobResponse, GetPERSDatasetExportJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DatasetExportJob;
+            public System.String Name { get; set; }
+            public System.Func<Amazon.EventBridge.Model.DeleteEndpointResponse, RemoveEVBEndpointCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

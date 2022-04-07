@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// Describes a specific version of a solution. For more information on solutions, see
-    /// <a>CreateSolution</a>.
+    /// <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
     /// </summary>
     [Cmdlet("Get", "PERSSolutionVersion")]
     [OutputType("Amazon.Personalize.Model.SolutionVersion")]

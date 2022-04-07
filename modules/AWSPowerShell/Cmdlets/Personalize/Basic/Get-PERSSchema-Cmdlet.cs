@@ -28,7 +28,7 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Describes a schema. For more information on schemas, see <a>CreateSchema</a>.
+    /// Describes a schema. For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.
     /// </summary>
     [Cmdlet("Get", "PERSSchema")]
     [OutputType("Amazon.Personalize.Model.DatasetSchema")]

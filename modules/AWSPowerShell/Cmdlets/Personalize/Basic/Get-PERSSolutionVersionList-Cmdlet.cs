@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Returns a list of solution versions for the given solution. When a solution is not
     /// specified, all the solution versions associated with the account are listed. The response
     /// provides the properties for each solution version, including the Amazon Resource Name
-    /// (ARN). For more information on solutions, see <a>CreateSolution</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// (ARN).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PERSSolutionVersionList")]
     [OutputType("Amazon.Personalize.Model.SolutionVersionSummary")]

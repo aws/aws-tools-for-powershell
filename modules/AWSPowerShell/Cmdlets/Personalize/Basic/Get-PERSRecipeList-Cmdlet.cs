@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para> Filters returned recipes by domain for a Domain dataset group. Only recipes (Domain
         /// dataset group use cases) for this domain are included in the response. If you don't
-        /// specify a domain, only non-domain recipes are returned. </para>
+        /// specify a domain, all recipes are returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

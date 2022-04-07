@@ -28,7 +28,8 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Creates a recommendation filter. For more information, see <a>filter</a>.
+    /// Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
+    /// recommendations and user segments</a>.
     /// </summary>
     [Cmdlet("New", "PERSFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -62,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>The filter expression defines which items are included or excluded from recommendations.
         /// Filter expression must follow specific format rules. For information about filter
-        /// expression structure and syntax, see <a>filter-expressions</a>.</para>
+        /// expression structure and syntax, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter
+        /// expressions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -175,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -267,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String DatasetGroupArn { get; set; }
             public System.String FilterExpression { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateFilterResponse, NewPERSFilterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FilterArn;
         }

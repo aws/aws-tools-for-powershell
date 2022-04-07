@@ -34,12 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     ///  
     /// <para>
     /// To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check the
-    /// campaign status using the <a>DescribeCampaign</a> API.
+    /// campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>
+    /// operation.
     /// </para><note><para>
     /// You must wait until the <code>status</code> of the updated campaign is <code>ACTIVE</code>
     /// before asking the campaign for recommendations.
     /// </para></note><para>
-    /// For more information on campaigns, see <a>CreateCampaign</a>.
+    /// For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "PERSCampaign", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

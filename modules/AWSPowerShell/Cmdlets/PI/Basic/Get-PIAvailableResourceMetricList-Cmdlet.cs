@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The types of metrics to return in the response. Valid values in the array include
-        /// the following:</para><ul><li><para><code>os</code> (OS counter metrics)</para></li><li><para><code>db</code> (DB load metrics)</para></li><li><para><code>db.sql.stats</code> (per-SQL metrics)</para></li><li><para><code>db.sql_tokenized.stats</code> (per-SQL digest metrics)</para></li></ul>
+        /// the following:</para><ul><li><para><code>os</code> (OS counter metrics) - All engines</para></li><li><para><code>db</code> (DB load metrics) - All engines except for Amazon DocumentDB</para></li><li><para><code>db.sql.stats</code> (per-SQL metrics) - All engines except for Amazon DocumentDB</para></li><li><para><code>db.sql_tokenized.stats</code> (per-SQL digest metrics) - All engines except
+        /// for Amazon DocumentDB</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>.
-        /// Not all instance classes are available in all Regions. </para><para>If you modify the instance class, an outage occurs during the change. The change is
+        /// Not all instance classes are available in all Amazon Web Services Regions. </para><para>If you modify the instance class, an outage occurs during the change. The change is
         /// applied during the next maintenance window, unless <code>ApplyImmediately</code> is
         /// specified as <code>true</code> for this request. </para><para>Default: Uses existing setting.</para>
         /// </para>
@@ -106,6 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable Performance Insights for the DB Instance.
+        /// For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using
+        /// Amazon Performance Insights</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter NewDBInstanceIdentifier
         /// <summary>
         /// <para>
@@ -118,6 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NewDBInstanceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier for encryption of Performance Insights data.</para><para>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS
+        /// key.</para><para>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB
+        /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
         #region Parameter PreferredMaintenanceWindow
@@ -220,7 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 WriteWarning("You are passing $null as a value for parameter DBInstanceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.NewDBInstanceIdentifier = this.NewDBInstanceIdentifier;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PromotionTier = this.PromotionTier;
             
@@ -259,9 +288,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
             }
+            if (cmdletContext.EnablePerformanceInsight != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
             if (cmdletContext.NewDBInstanceIdentifier != null)
             {
                 request.NewDBInstanceIdentifier = cmdletContext.NewDBInstanceIdentifier;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -337,7 +374,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String CACertificateIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
+            public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String NewDBInstanceIdentifier { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? PromotionTier { get; set; }
             public System.Func<Amazon.DocDB.Model.ModifyDBInstanceResponse, EditDOCDBInstanceCmdlet, object> Select { get; set; } =

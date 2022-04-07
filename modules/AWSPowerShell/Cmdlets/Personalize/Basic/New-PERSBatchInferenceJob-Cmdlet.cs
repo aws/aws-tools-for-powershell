@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// Creates a batch inference job. The operation can handle up to 50 million records and
-    /// the input file must be in JSON format. For more information, see <a>recommendations-batch</a>.
+    /// the input file must be in JSON format. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating
+    /// a batch inference job</a>.
     /// </summary>
     [Cmdlet("New", "PERSBatchInferenceJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>The ARN of the filter to apply to the batch inference job. For more information on
         /// using filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering
-        /// Batch Recommendations</a>..</para>
+        /// batch recommendations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NumResult
         /// <summary>
         /// <para>
-        /// <para>The number of recommendations to retreive.</para>
+        /// <para>The number of recommendations to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,6 +189,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SolutionVersionArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the batch inference job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -298,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter SolutionVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -441,6 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.SolutionVersionArn = cmdletContext.SolutionVersionArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -512,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.Int32? NumResult { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SolutionVersionArn { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateBatchInferenceJobResponse, NewPERSBatchInferenceJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BatchInferenceJobArn;
         }

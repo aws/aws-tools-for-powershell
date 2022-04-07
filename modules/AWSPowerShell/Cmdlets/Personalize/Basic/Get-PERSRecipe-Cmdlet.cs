@@ -41,9 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Feature transformation information for modifying the input data before training.
     /// </para></li></ul><para>
     /// Amazon Personalize provides a set of predefined recipes. You specify a recipe when
-    /// you create a solution with the <a>CreateSolution</a> API. <code>CreateSolution</code>
-    /// trains a model by using the algorithm in the specified recipe and a training dataset.
-    /// The solution, when deployed as a campaign, can provide recommendations using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
+    /// you create a solution with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+    /// API. <code>CreateSolution</code> trains a model by using the algorithm in the specified
+    /// recipe and a training dataset. The solution, when deployed as a campaign, can provide
+    /// recommendations using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
     /// API.
     /// </para>
     /// </summary>

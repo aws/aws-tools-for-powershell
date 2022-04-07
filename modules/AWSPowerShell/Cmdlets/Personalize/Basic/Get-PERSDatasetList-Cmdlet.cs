@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// <summary>
     /// Returns the list of datasets contained in the given dataset group. The response provides
     /// the properties for each dataset, including the Amazon Resource Name (ARN). For more
-    /// information on datasets, see <a>CreateDataset</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PERSDatasetList")]
     [OutputType("Amazon.Personalize.Model.DatasetSummary")]

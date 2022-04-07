@@ -131,6 +131,16 @@ $EVB_Completers = {
             break
         }
 
+        # Amazon.EventBridge.ReplicationState
+        {
+            ($_ -eq "New-EVBEndpoint/ReplicationConfig_State") -Or
+            ($_ -eq "Update-EVBEndpoint/ReplicationConfig_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.EventBridge.RuleState
         "Write-EVBRule/State"
         {
@@ -151,6 +161,7 @@ $EVB_map = @{
     "AuthParameters_OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ConnectionState"=@("Get-EVBConnectionList")
     "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
+    "ReplicationConfig_State"=@("New-EVBEndpoint","Update-EVBEndpoint")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
 }
 
@@ -209,6 +220,7 @@ $EVB_SelectMap = @{
                "New-EVBApiDestination",
                "New-EVBArchive",
                "New-EVBConnection",
+               "New-EVBEndpoint",
                "New-EVBEventBus",
                "New-EVBPartnerEventSource",
                "Disable-EVBEventSource",
@@ -216,12 +228,14 @@ $EVB_SelectMap = @{
                "Remove-EVBApiDestination",
                "Remove-EVBArchive",
                "Remove-EVBConnection",
+               "Remove-EVBEndpoint",
                "Remove-EVBEventBus",
                "Remove-EVBPartnerEventSource",
                "Remove-EVBRule",
                "Get-EVBApiDestination",
                "Get-EVBArchive",
                "Get-EVBConnection",
+               "Get-EVBEndpoint",
                "Get-EVBEventBus",
                "Get-EVBEventSource",
                "Get-EVBPartnerEventSource",
@@ -232,6 +246,7 @@ $EVB_SelectMap = @{
                "Get-EVBApiDestinationList",
                "Get-EVBArchiveList",
                "Get-EVBConnectionList",
+               "Get-EVBEndpointList",
                "Get-EVBEventBusList",
                "Get-EVBEventSourceList",
                "Get-EVBPartnerEventSourceAccountList",
@@ -254,7 +269,8 @@ $EVB_SelectMap = @{
                "Remove-EVBResourceTag",
                "Update-EVBApiDestination",
                "Update-EVBArchive",
-               "Update-EVBConnection")
+               "Update-EVBConnection",
+               "Update-EVBEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap

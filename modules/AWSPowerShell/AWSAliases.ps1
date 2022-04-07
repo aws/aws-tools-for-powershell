@@ -8560,6 +8560,8 @@ Set-Alias -Name Create-EVBArchive -Value New-EVBArchive
 Set-Alias -Name EVB-CreateArchive -Value New-EVBArchive
 Set-Alias -Name Create-EVBConnection -Value New-EVBConnection
 Set-Alias -Name EVB-CreateConnection -Value New-EVBConnection
+Set-Alias -Name Create-EVBEndpoint -Value New-EVBEndpoint
+Set-Alias -Name EVB-CreateEndpoint -Value New-EVBEndpoint
 Set-Alias -Name Create-EVBEventBus -Value New-EVBEventBus
 Set-Alias -Name EVB-CreateEventBus -Value New-EVBEventBus
 Set-Alias -Name Create-EVBPartnerEventSource -Value New-EVBPartnerEventSource
@@ -8574,6 +8576,8 @@ Set-Alias -Name Delete-EVBArchive -Value Remove-EVBArchive
 Set-Alias -Name EVB-DeleteArchive -Value Remove-EVBArchive
 Set-Alias -Name Delete-EVBConnection -Value Remove-EVBConnection
 Set-Alias -Name EVB-DeleteConnection -Value Remove-EVBConnection
+Set-Alias -Name Delete-EVBEndpoint -Value Remove-EVBEndpoint
+Set-Alias -Name EVB-DeleteEndpoint -Value Remove-EVBEndpoint
 Set-Alias -Name Delete-EVBEventBus -Value Remove-EVBEventBus
 Set-Alias -Name EVB-DeleteEventBus -Value Remove-EVBEventBus
 Set-Alias -Name Delete-EVBPartnerEventSource -Value Remove-EVBPartnerEventSource
@@ -8586,6 +8590,8 @@ Set-Alias -Name Describe-EVBArchive -Value Get-EVBArchive
 Set-Alias -Name EVB-DescribeArchive -Value Get-EVBArchive
 Set-Alias -Name Describe-EVBConnection -Value Get-EVBConnection
 Set-Alias -Name EVB-DescribeConnection -Value Get-EVBConnection
+Set-Alias -Name Describe-EVBEndpoint -Value Get-EVBEndpoint
+Set-Alias -Name EVB-DescribeEndpoint -Value Get-EVBEndpoint
 Set-Alias -Name Describe-EVBEventBus -Value Get-EVBEventBus
 Set-Alias -Name EVB-DescribeEventBus -Value Get-EVBEventBus
 Set-Alias -Name Describe-EVBEventSource -Value Get-EVBEventSource
@@ -8608,6 +8614,9 @@ Set-Alias -Name EVB-ListArchives -Value Get-EVBArchiveList
 Set-Alias -Name List-EVBConnections -Value Get-EVBConnectionList
 Set-Alias -Name List-EVBConnectionList -Value Get-EVBConnectionList
 Set-Alias -Name EVB-ListConnections -Value Get-EVBConnectionList
+Set-Alias -Name List-EVBEndpoints -Value Get-EVBEndpointList
+Set-Alias -Name List-EVBEndpointList -Value Get-EVBEndpointList
+Set-Alias -Name EVB-ListEndpoints -Value Get-EVBEndpointList
 Set-Alias -Name List-EVBEventBuses -Value Get-EVBEventBusList
 Set-Alias -Name List-EVBEventBusList -Value Get-EVBEventBusList
 Set-Alias -Name EVB-ListEventBuses -Value Get-EVBEventBusList
@@ -8654,6 +8663,7 @@ Set-Alias -Name EVB-UntagResource -Value Remove-EVBResourceTag
 Set-Alias -Name EVB-UpdateApiDestination -Value Update-EVBApiDestination
 Set-Alias -Name EVB-UpdateArchive -Value Update-EVBArchive
 Set-Alias -Name EVB-UpdateConnection -Value Update-EVBConnection
+Set-Alias -Name EVB-UpdateEndpoint -Value Update-EVBEndpoint
 Set-Alias -Name Activate-CWEEventSource -Value Enable-CWEEventSource
 Set-Alias -Name CWE-ActivateEventSource -Value Enable-CWEEventSource
 Set-Alias -Name Cancel-CWEReplay -Value Stop-CWEReplay
@@ -15804,7 +15814,10 @@ Set-Alias -Name PERS-ListSolutions -Value Get-PERSSolutionList
 Set-Alias -Name List-PERSSolutionVersions -Value Get-PERSSolutionVersionList
 Set-Alias -Name List-PERSSolutionVersionList -Value Get-PERSSolutionVersionList
 Set-Alias -Name PERS-ListSolutionVersions -Value Get-PERSSolutionVersionList
+Set-Alias -Name PERS-ListTagsForResource -Value Get-PERSResourceTag
 Set-Alias -Name PERS-StopSolutionVersionCreation -Value Stop-PERSSolutionVersionCreation
+Set-Alias -Name PERS-TagResource -Value Add-PERSResourceTag
+Set-Alias -Name PERS-UntagResource -Value Remove-PERSResourceTag
 Set-Alias -Name PERS-UpdateCampaign -Value Update-PERSCampaign
 Set-Alias -Name PERS-UpdateRecommender -Value Update-PERSRecommender
 Set-Alias -Name Put-PERSEEvents -Value Write-PERSEEvent

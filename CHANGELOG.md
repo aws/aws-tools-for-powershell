@@ -1,4 +1,33 @@
-﻿### 4.1.59 (2022-04-06 20:21Z)
+﻿### 4.1.60 (2022-04-07 23:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.248.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBInstance: added parameters EnablePerformanceInsight and PerformanceInsightsKMSKeyId.
+    * Modified cmdlet New-DOCDBInstance: added parameters EnablePerformanceInsight and PerformanceInsightsKMSKeyId.
+  * Amazon EventBridge
+    * Added cmdlet Get-EVBEndpoint leveraging the DescribeEndpoint service API.
+    * Added cmdlet Get-EVBEndpointList leveraging the ListEndpoints service API.
+    * Added cmdlet New-EVBEndpoint leveraging the CreateEndpoint service API.
+    * Added cmdlet Remove-EVBEndpoint leveraging the DeleteEndpoint service API.
+    * Added cmdlet Update-EVBEndpoint leveraging the UpdateEndpoint service API.
+    * Modified cmdlet Write-EVBEvent: added parameter EndpointId.
+  * Amazon Personalize
+    * Added cmdlet Add-PERSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-PERSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-PERSResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-PERSBatchInferenceJob: added parameter Tag.
+    * Modified cmdlet New-PERSBatchSegmentJob: added parameter Tag.
+    * Modified cmdlet New-PERSCampaign: added parameter Tag.
+    * Modified cmdlet New-PERSDataset: added parameter Tag.
+    * Modified cmdlet New-PERSDatasetExportJob: added parameter Tag.
+    * Modified cmdlet New-PERSDatasetGroup: added parameter Tag.
+    * Modified cmdlet New-PERSDatasetImportJob: added parameter Tag.
+    * Modified cmdlet New-PERSEventTracker: added parameter Tag.
+    * Modified cmdlet New-PERSFilter: added parameter Tag.
+    * Modified cmdlet New-PERSRecommender: added parameter Tag.
+    * Modified cmdlet New-PERSSolution: added parameter Tag.
+    * Modified cmdlet New-PERSSolutionVersion: added parameter Tag.
+
+### 4.1.59 (2022-04-06 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.247.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lambda
     * Added cmdlet Get-LMFunctionUrlConfig leveraging the GetFunctionUrlConfig service API.

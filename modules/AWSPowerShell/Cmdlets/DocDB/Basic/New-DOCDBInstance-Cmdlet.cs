@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Region.</para><para>Example: <code>us-east-1d</code></para>
+        /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
+        /// Region.</para><para>Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable Performance Insights for the DB Instance.
+        /// For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using
+        /// Amazon Performance Insights</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
@@ -130,12 +144,26 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String Engine { get; set; }
         #endregion
         
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier for encryption of Performance Insights data.</para><para>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS
+        /// key.</para><para>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB
+        /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
+        #endregion
+        
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Amazon Web Services Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 WriteWarning("You are passing $null as a value for parameter DBInstanceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Engine = this.Engine;
             #if MODULAR
             if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
@@ -255,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PromotionTier = this.PromotionTier;
             if (this.Tag != null)
@@ -297,9 +327,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
             }
+            if (cmdletContext.EnablePerformanceInsight != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -379,7 +417,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
+            public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String Engine { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? PromotionTier { get; set; }
             public List<Amazon.DocDB.Model.Tag> Tag { get; set; }

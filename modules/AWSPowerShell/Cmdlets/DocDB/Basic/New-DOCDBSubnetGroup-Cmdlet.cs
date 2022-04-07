@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
     /// Creates a new subnet group. subnet groups must contain at least one subnet in at least
-    /// two Availability Zones in the Region.
+    /// two Availability Zones in the Amazon Web Services Region.
     /// </summary>
     [Cmdlet("New", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]

@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceDBClusterParameterGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must specify a valid cluster parameter group.</para></li><li><para>If the source cluster parameter group is in the same Region as the copy, specify a
-        /// valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>,
-        /// or a valid ARN.</para></li><li><para>If the source parameter group is in a different Region than the copy, specify a valid
-        /// cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</para></li></ul>
+        /// <para>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must specify a valid cluster parameter group.</para></li><li><para>If the source cluster parameter group is in the same Amazon Web Services Region as
+        /// the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>,
+        /// or a valid ARN.</para></li><li><para>If the source parameter group is in a different Amazon Web Services Region than the
+        /// copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events
-        /// and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html">EventBridge
+        /// event patterns</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

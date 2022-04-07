@@ -284,6 +284,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String[] AutoMLConfig_RecipeList { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the solution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter HpoObjective_Type
         /// <summary>
         /// <para>
@@ -415,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             context.HpoResourceConfig_MaxParallelTrainingJob = this.HpoResourceConfig_MaxParallelTrainingJob;
             context.OptimizationObjective_ItemAttribute = this.OptimizationObjective_ItemAttribute;
             context.OptimizationObjective_ObjectiveSensitivity = this.OptimizationObjective_ObjectiveSensitivity;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -704,6 +720,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.SolutionConfig = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -786,6 +806,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String HpoResourceConfig_MaxParallelTrainingJob { get; set; }
             public System.String OptimizationObjective_ItemAttribute { get; set; }
             public Amazon.Personalize.ObjectiveSensitivity OptimizationObjective_ObjectiveSensitivity { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSolutionResponse, NewPERSSolutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionArn;
         }

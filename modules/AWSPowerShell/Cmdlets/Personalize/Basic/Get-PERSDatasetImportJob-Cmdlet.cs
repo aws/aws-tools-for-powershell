@@ -28,8 +28,8 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Describes the dataset import job created by <a>CreateDatasetImportJob</a>, including
-    /// the import job status.
+    /// Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>,
+    /// including the import job status.
     /// </summary>
     [Cmdlet("Get", "PERSDatasetImportJob")]
     [OutputType("Amazon.Personalize.Model.DatasetImportJob")]

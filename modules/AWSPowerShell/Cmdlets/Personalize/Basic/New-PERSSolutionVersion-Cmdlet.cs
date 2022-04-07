@@ -58,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String SolutionArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the solution version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TrainingMode
         /// <summary>
         /// <para>
@@ -145,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter SolutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             context.TrainingMode = this.TrainingMode;
             
             // allow further manipulation of loaded context prior to processing
@@ -165,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.SolutionArn != null)
             {
                 request.SolutionArn = cmdletContext.SolutionArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TrainingMode != null)
             {
@@ -232,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SolutionArn { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public Amazon.Personalize.TrainingMode TrainingMode { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSolutionVersionResponse, NewPERSSolutionVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionVersionArn;

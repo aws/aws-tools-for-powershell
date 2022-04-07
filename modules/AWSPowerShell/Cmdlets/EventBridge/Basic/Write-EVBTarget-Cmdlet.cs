@@ -39,57 +39,56 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// </para></note><para>
     /// You can configure the following as targets for Events:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API
-    /// destination</a></para></li><li><para>
-    /// Amazon API Gateway REST API endpoints
-    /// </para></li><li><para>
-    /// API Gateway
-    /// </para></li><li><para>
+    /// destination</a></para></li><li><para><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html">API
+    /// Gateway</a></para></li><li><para>
     /// Batch job queue
     /// </para></li><li><para>
-    /// CloudWatch Logs group
+    /// CloudWatch group
     /// </para></li><li><para>
     /// CodeBuild project
     /// </para></li><li><para>
     /// CodePipeline
     /// </para></li><li><para>
-    /// Amazon EC2 <code>CreateSnapshot</code> API call
+    /// EC2 <code>CreateSnapshot</code> API call
     /// </para></li><li><para>
     /// EC2 Image Builder
     /// </para></li><li><para>
-    /// Amazon EC2 <code>RebootInstances</code> API call
+    /// EC2 <code>RebootInstances</code> API call
     /// </para></li><li><para>
-    /// Amazon EC2 <code>StopInstances</code> API call
+    /// EC2 <code>StopInstances</code> API call
     /// </para></li><li><para>
-    /// Amazon EC2 <code>TerminateInstances</code> API call
+    /// EC2 <code>TerminateInstances</code> API call
     /// </para></li><li><para>
-    /// Amazon ECS tasks
+    /// ECS task
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html">Event
+    /// bus in a different account or Region</a></para></li><li><para><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html">Event
+    /// bus in the same account and Region</a></para></li><li><para>
+    /// Firehose delivery stream
     /// </para></li><li><para>
-    /// Event bus in a different Amazon Web Services account or Region.
-    /// </para><para>
-    /// You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
-    /// us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.
+    /// Glue workflow
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge">Incident
+    /// Manager response plan</a></para></li><li><para>
+    /// Inspector assessment template
     /// </para></li><li><para>
-    /// Firehose delivery stream (Kinesis Data Firehose)
-    /// </para></li><li><para>
-    /// Inspector assessment template (Amazon Inspector)
-    /// </para></li><li><para>
-    /// Kinesis stream (Kinesis Data Stream)
+    /// Kinesis stream
     /// </para></li><li><para>
     /// Lambda function
     /// </para></li><li><para>
-    /// Redshift clusters (Data API statement execution)
+    /// Redshift cluster
     /// </para></li><li><para>
-    /// Amazon SNS topic
+    /// SageMaker Pipeline
     /// </para></li><li><para>
-    /// Amazon SQS queues (includes FIFO queues)
+    /// SNS topic
     /// </para></li><li><para>
-    /// SSM Automation
+    /// SQS queue
     /// </para></li><li><para>
-    /// SSM OpsItem
+    /// Step Functions state machine
     /// </para></li><li><para>
-    /// SSM Run Command
+    /// Systems Manager Automation
     /// </para></li><li><para>
-    /// Step Functions state machines
+    /// Systems Manager OpsItem
+    /// </para></li><li><para>
+    /// Systems Manager Run Command
     /// </para></li></ul><para>
     /// Creating rules with built-in targets is supported only in the Amazon Web Services
     /// Management Console. The built-in targets are <code>EC2 CreateSnapshot API call</code>,

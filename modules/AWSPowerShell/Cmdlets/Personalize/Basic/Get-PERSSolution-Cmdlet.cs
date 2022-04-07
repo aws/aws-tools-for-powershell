@@ -28,7 +28,7 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Describes a solution. For more information on solutions, see <a>CreateSolution</a>.
+    /// Describes a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.
     /// </summary>
     [Cmdlet("Get", "PERSSolution")]
     [OutputType("Amazon.Personalize.Model.Solution")]

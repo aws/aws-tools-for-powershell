@@ -22,42 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Personalize;
-using Amazon.Personalize.Model;
+using Amazon.EventBridge;
+using Amazon.EventBridge.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PERS
+namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Returns a list of dataset export jobs that use the given dataset. When a dataset is
-    /// not specified, all the dataset export jobs associated with the account are listed.
-    /// The response provides the properties for each dataset export job, including the Amazon
-    /// Resource Name (ARN). For more information on dataset export jobs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.
-    /// For more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the global endpoints associated with this account. For more information about
+    /// global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making
+    /// applications Regional-fault tolerant with global endpoints and event replication</a>
+    /// in the Amazon EventBridge User Guide..<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "PERSDatasetExportJobList")]
-    [OutputType("Amazon.Personalize.Model.DatasetExportJobSummary")]
-    [AWSCmdlet("Calls the AWS Personalize ListDatasetExportJobs API operation.", Operation = new[] {"ListDatasetExportJobs"}, SelectReturnType = typeof(Amazon.Personalize.Model.ListDatasetExportJobsResponse))]
-    [AWSCmdletOutput("Amazon.Personalize.Model.DatasetExportJobSummary or Amazon.Personalize.Model.ListDatasetExportJobsResponse",
-        "This cmdlet returns a collection of Amazon.Personalize.Model.DatasetExportJobSummary objects.",
-        "The service call response (type Amazon.Personalize.Model.ListDatasetExportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EVBEndpointList")]
+    [OutputType("Amazon.EventBridge.Model.Endpoint")]
+    [AWSCmdlet("Calls the Amazon EventBridge ListEndpoints API operation.", Operation = new[] {"ListEndpoints"}, SelectReturnType = typeof(Amazon.EventBridge.Model.ListEndpointsResponse))]
+    [AWSCmdletOutput("Amazon.EventBridge.Model.Endpoint or Amazon.EventBridge.Model.ListEndpointsResponse",
+        "This cmdlet returns a collection of Amazon.EventBridge.Model.Endpoint objects.",
+        "The service call response (type Amazon.EventBridge.Model.ListEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPERSDatasetExportJobListCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class GetEVBEndpointListCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
-        #region Parameter DatasetArn
+        #region Parameter HomeRegion
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the dataset to list the dataset export jobs for.</para>
+        /// <para>The primary Region of the endpoints associated with this account. For example <code>"HomeRegion":
+        /// "us-east-1"</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DatasetArn { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HomeRegion { get; set; }
+        #endregion
+        
+        #region Parameter NamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>A value that will return a subset of the endpoints associated with this account. For
+        /// example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in
+        /// the name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamePrefix { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of dataset export jobs to return.</para>
+        /// <para>The maximum number of results returned by the call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from the previous call to <code>ListDatasetExportJobs</code> for
-        /// getting the next set of dataset export jobs (if they exist).</para>
+        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
+        /// of nextToken is a unique pagination token for each page. Make the call again using
+        /// the returned token to retrieve the next page. Keep all other arguments unchanged.
+        /// Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// return an HTTP 400 InvalidToken error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -82,23 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetExportJobs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.ListDatasetExportJobsResponse).
-        /// Specifying the name of a property of type Amazon.Personalize.Model.ListDatasetExportJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoints'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EventBridge.Model.ListEndpointsResponse).
+        /// Specifying the name of a property of type Amazon.EventBridge.Model.ListEndpointsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DatasetExportJobs";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatasetArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatasetArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "Endpoints";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,23 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.ListDatasetExportJobsResponse, GetPERSDatasetExportJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EventBridge.Model.ListEndpointsResponse, GetEVBEndpointListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.DatasetArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatasetArn = this.DatasetArn;
+            context.HomeRegion = this.HomeRegion;
             context.MaxResult = this.MaxResult;
+            context.NamePrefix = this.NamePrefix;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -151,20 +147,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Personalize.Model.ListDatasetExportJobsRequest();
+            var request = new Amazon.EventBridge.Model.ListEndpointsRequest();
             
-            if (cmdletContext.DatasetArn != null)
+            if (cmdletContext.HomeRegion != null)
             {
-                request.DatasetArn = cmdletContext.DatasetArn;
+                request.HomeRegion = cmdletContext.HomeRegion;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NamePrefix != null)
+            {
+                request.NamePrefix = cmdletContext.NamePrefix;
             }
             
             // Initialize loop variant and commence piping
@@ -223,15 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.ListDatasetExportJobsResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.ListDatasetExportJobsRequest request)
+        private Amazon.EventBridge.Model.ListEndpointsResponse CallAWSServiceOperation(IAmazonEventBridge client, Amazon.EventBridge.Model.ListEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "ListDatasetExportJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EventBridge", "ListEndpoints");
             try
             {
                 #if DESKTOP
-                return client.ListDatasetExportJobs(request);
+                return client.ListEndpoints(request);
                 #elif CORECLR
-                return client.ListDatasetExportJobsAsync(request).GetAwaiter().GetResult();
+                return client.ListEndpointsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetArn { get; set; }
+            public System.String HomeRegion { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String NamePrefix { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Personalize.Model.ListDatasetExportJobsResponse, GetPERSDatasetExportJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DatasetExportJobs;
+            public System.Func<Amazon.EventBridge.Model.ListEndpointsResponse, GetEVBEndpointListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Endpoints;
         }
         
     }

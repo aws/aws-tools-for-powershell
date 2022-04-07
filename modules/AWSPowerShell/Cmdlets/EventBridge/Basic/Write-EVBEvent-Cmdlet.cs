@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// Sends custom events to Amazon EventBridge so that they can be matched to rules.
+    /// 
+    ///  <note><para>
+    /// PutEvents will only process nested JSON up to 1100 levels deep.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "EVBEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridge.Model.PutEventsResponse")]
@@ -38,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     )]
     public partial class WriteEVBEventCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com,
+        /// then the EndpointId is <code>abcde.veo</code>.</para><important><para>When using Java, you must include <code>auth-crt</code> on the class path.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointId { get; set; }
+        #endregion
         
         #region Parameter Entry
         /// <summary>
@@ -120,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
                 context.Select = (response, cmdlet) => this.Entry;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EndpointId = this.EndpointId;
             if (this.Entry != null)
             {
                 context.Entry = new List<Amazon.EventBridge.Model.PutEventsRequestEntry>(this.Entry);
@@ -146,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             // create request
             var request = new Amazon.EventBridge.Model.PutEventsRequest();
             
+            if (cmdletContext.EndpointId != null)
+            {
+                request.EndpointId = cmdletContext.EndpointId;
+            }
             if (cmdletContext.Entry != null)
             {
                 request.Entries = cmdletContext.Entry;
@@ -211,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EndpointId { get; set; }
             public List<Amazon.EventBridge.Model.PutEventsRequestEntry> Entry { get; set; }
             public System.Func<Amazon.EventBridge.Model.PutEventsResponse, WriteEVBEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

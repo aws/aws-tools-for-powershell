@@ -109,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String SchemaArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetArn'.
@@ -198,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter SchemaArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.SchemaArn != null)
             {
                 request.SchemaArn = cmdletContext.SchemaArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -295,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String DatasetType { get; set; }
             public System.String Name { get; set; }
             public System.String SchemaArn { get; set; }
+            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateDatasetResponse, NewPERSDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetArn;
         }

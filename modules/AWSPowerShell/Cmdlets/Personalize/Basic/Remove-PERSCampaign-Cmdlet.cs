@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Removes a campaign by deleting the solution deployment. The solution that the campaign
     /// is based on is not deleted and can be redeployed when needed. A deleted campaign can
     /// no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
-    /// request. For more information on campaigns, see <a>CreateCampaign</a>.
+    /// request. For information on creating campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// </summary>
     [Cmdlet("Remove", "PERSCampaign", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

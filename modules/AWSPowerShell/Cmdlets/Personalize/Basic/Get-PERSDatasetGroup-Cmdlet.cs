@@ -28,7 +28,7 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Describes the given dataset group. For more information on dataset groups, see <a>CreateDatasetGroup</a>.
+    /// Describes the given dataset group. For more information on dataset groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.
     /// </summary>
     [Cmdlet("Get", "PERSDatasetGroup")]
     [OutputType("Amazon.Personalize.Model.DatasetGroup")]

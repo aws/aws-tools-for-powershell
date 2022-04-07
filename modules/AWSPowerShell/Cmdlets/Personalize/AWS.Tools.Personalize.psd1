@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-PERSResourceTag', 
         'Get-PERSAlgorithm', 
         'Get-PERSBatchInferenceJob', 
         'Get-PERSBatchInferenceJobList', 
@@ -110,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PERSRecipeList', 
         'Get-PERSRecommender', 
         'Get-PERSRecommenderList', 
+        'Get-PERSResourceTag', 
         'Get-PERSSchema', 
         'Get-PERSSchemaList', 
         'Get-PERSSolution', 
@@ -136,6 +138,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PERSEventTracker', 
         'Remove-PERSFilter', 
         'Remove-PERSRecommender', 
+        'Remove-PERSResourceTag', 
         'Remove-PERSSchema', 
         'Remove-PERSSolution', 
         'Stop-PERSSolutionVersionCreation', 

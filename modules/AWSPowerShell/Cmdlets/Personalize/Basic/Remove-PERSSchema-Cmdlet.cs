@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// Deletes a schema. Before deleting a schema, you must delete all datasets referencing
-    /// the schema. For more information on schemas, see <a>CreateSchema</a>.
+    /// the schema. For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.
     /// </summary>
     [Cmdlet("Remove", "PERSSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
