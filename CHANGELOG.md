@@ -1,4 +1,7 @@
-﻿### 4.1.60 (2022-04-07 23:48Z)
+﻿### 4.1.61 (2022-04-08 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.249.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.60 (2022-04-07 23:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.248.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DocumentDB (with MongoDB compatibility)
     * Modified cmdlet Edit-DOCDBInstance: added parameters EnablePerformanceInsight and PerformanceInsightsKMSKeyId.
