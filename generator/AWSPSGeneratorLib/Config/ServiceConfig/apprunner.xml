@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="New" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationName" PipelineParameter="ObservabilityConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Remove" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationArn" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCustomDomains" OutputProperty="*" Verb="Get" Noun="CustomDomain" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Get" Noun="ObservabilityConfiguration" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListConnections" OutputProperty="ConnectionSummaryList" Verb="Get" Noun="ConnectionList" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObservabilityConfigurations" OutputProperty="ObservabilityConfigurationSummaryList" Verb="Get" Noun="ObservabilityConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
