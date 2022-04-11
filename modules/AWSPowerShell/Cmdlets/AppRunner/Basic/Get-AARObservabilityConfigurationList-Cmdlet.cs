@@ -28,38 +28,26 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Returns a list of active App Runner automatic scaling configurations in your Amazon
-    /// Web Services account. You can query the revisions for a specific configuration name
-    /// or the revisions for all active configurations in your account. You can optionally
-    /// query only the latest revision of each requested name.
+    /// Returns a list of active App Runner observability configurations in your Amazon Web
+    /// Services account. You can query the revisions for a specific configuration name or
+    /// the revisions for all active configurations in your account. You can optionally query
+    /// only the latest revision of each requested name.
     /// 
     ///  
     /// <para>
     /// To retrieve a full description of a particular configuration revision, call and provide
-    /// one of the ARNs returned by <code>ListAutoScalingConfigurations</code>.
+    /// one of the ARNs returned by <code>ListObservabilityConfigurations</code>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "AARAutoScalingConfigurationList")]
-    [OutputType("Amazon.AppRunner.Model.AutoScalingConfigurationSummary")]
-    [AWSCmdlet("Calls the AWS App Runner ListAutoScalingConfigurations API operation.", Operation = new[] {"ListAutoScalingConfigurations"}, SelectReturnType = typeof(Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.AppRunner.Model.AutoScalingConfigurationSummary or Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.AppRunner.Model.AutoScalingConfigurationSummary objects.",
-        "The service call response (type Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AARObservabilityConfigurationList")]
+    [OutputType("Amazon.AppRunner.Model.ObservabilityConfigurationSummary")]
+    [AWSCmdlet("Calls the AWS App Runner ListObservabilityConfigurations API operation.", Operation = new[] {"ListObservabilityConfigurations"}, SelectReturnType = typeof(Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse))]
+    [AWSCmdletOutput("Amazon.AppRunner.Model.ObservabilityConfigurationSummary or Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse",
+        "This cmdlet returns a collection of Amazon.AppRunner.Model.ObservabilityConfigurationSummary objects.",
+        "The service call response (type Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAARAutoScalingConfigurationListCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
+    public partial class GetAARObservabilityConfigurationListCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
-        
-        #region Parameter AutoScalingConfigurationName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the App Runner auto scaling configuration that you want to list. If specified,
-        /// App Runner lists revisions that share this name. If not specified, App Runner returns
-        /// revisions of all active configurations.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingConfigurationName { get; set; }
-        #endregion
         
         #region Parameter LatestOnly
         /// <summary>
@@ -70,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? LatestOnly { get; set; }
+        #endregion
+        
+        #region Parameter ObservabilityConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the App Runner observability configuration that you want to list. If specified,
+        /// App Runner lists revisions that share this name. If not specified, App Runner returns
+        /// revisions of all active configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ObservabilityConfigurationName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -104,13 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoScalingConfigurationSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ObservabilityConfigurationSummaryList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse).
+        /// Specifying the name of a property of type Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AutoScalingConfigurationSummaryList";
+        public string Select { get; set; } = "ObservabilityConfigurationSummaryList";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -134,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse, GetAARAutoScalingConfigurationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse, GetAARObservabilityConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AutoScalingConfigurationName = this.AutoScalingConfigurationName;
             context.LatestOnly = this.LatestOnly;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ObservabilityConfigurationName = this.ObservabilityConfigurationName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,12 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.AppRunner.Model.ListAutoScalingConfigurationsRequest();
+            var request = new Amazon.AppRunner.Model.ListObservabilityConfigurationsRequest();
             
-            if (cmdletContext.AutoScalingConfigurationName != null)
-            {
-                request.AutoScalingConfigurationName = cmdletContext.AutoScalingConfigurationName;
-            }
             if (cmdletContext.LatestOnly != null)
             {
                 request.LatestOnly = cmdletContext.LatestOnly.Value;
@@ -170,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ObservabilityConfigurationName != null)
+            {
+                request.ObservabilityConfigurationName = cmdletContext.ObservabilityConfigurationName;
             }
             
             // Initialize loop variant and commence piping
@@ -228,15 +228,15 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.ListAutoScalingConfigurationsRequest request)
+        private Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.ListObservabilityConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "ListAutoScalingConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "ListObservabilityConfigurations");
             try
             {
                 #if DESKTOP
-                return client.ListAutoScalingConfigurations(request);
+                return client.ListObservabilityConfigurations(request);
                 #elif CORECLR
-                return client.ListAutoScalingConfigurationsAsync(request).GetAwaiter().GetResult();
+                return client.ListObservabilityConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -256,12 +256,12 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingConfigurationName { get; set; }
             public System.Boolean? LatestOnly { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.AppRunner.Model.ListAutoScalingConfigurationsResponse, GetAARAutoScalingConfigurationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AutoScalingConfigurationSummaryList;
+            public System.String ObservabilityConfigurationName { get; set; }
+            public System.Func<Amazon.AppRunner.Model.ListObservabilityConfigurationsResponse, GetAARObservabilityConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ObservabilityConfigurationSummaryList;
         }
         
     }

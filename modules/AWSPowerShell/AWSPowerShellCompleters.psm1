@@ -3030,6 +3030,13 @@ $AAR_Completers = {
             break
         }
 
+        # Amazon.AppRunner.TracingVendor
+        "New-AARObservabilityConfiguration/TraceConfiguration_Vendor"
+        {
+            $v = "AWSXRAY"
+            break
+        }
+
 
     }
 
@@ -3046,6 +3053,7 @@ $AAR_map = @{
     "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
     "SourceConfiguration_CodeRepository_SourceCodeVersion_Type"=@("New-AARService","Update-AARService")
     "SourceConfiguration_ImageRepository_ImageRepositoryType"=@("New-AARService","Update-AARService")
+    "TraceConfiguration_Vendor"=@("New-AARObservabilityConfiguration")
 }
 
 _awsArgumentCompleterRegistration $AAR_Completers $AAR_map
@@ -3101,19 +3109,23 @@ $AAR_SelectMap = @{
     "Select"=@("Add-AARCustomDomain",
                "New-AARAutoScalingConfiguration",
                "New-AARConnection",
+               "New-AARObservabilityConfiguration",
                "New-AARService",
                "New-AARVpcConnector",
                "Remove-AARAutoScalingConfiguration",
                "Remove-AARConnection",
+               "Remove-AARObservabilityConfiguration",
                "Remove-AARService",
                "Remove-AARVpcConnector",
                "Get-AARAutoScalingConfiguration",
                "Get-AARCustomDomain",
+               "Get-AARObservabilityConfiguration",
                "Get-AARService",
                "Get-AARVpcConnector",
                "Remove-AARCustomDomain",
                "Get-AARAutoScalingConfigurationList",
                "Get-AARConnectionList",
+               "Get-AARObservabilityConfigurationList",
                "Get-AAROperationList",
                "Get-AARServiceList",
                "Get-AARResourceTag",
@@ -49852,7 +49864,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
         }
         {
-            $v = "GRAPHICS","GRAPHICSPRO","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
+            $v = "GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
 
@@ -49908,7 +49920,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
-            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_REGULAR","BYOL_REGULAR_WSP"
+            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_REGULAR","BYOL_REGULAR_WSP"
             break
         }
 

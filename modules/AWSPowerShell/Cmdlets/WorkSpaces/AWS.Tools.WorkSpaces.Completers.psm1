@@ -102,7 +102,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
         }
         {
-            $v = "GRAPHICS","GRAPHICSPRO","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
+            $v = "GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
 
@@ -158,7 +158,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
-            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_REGULAR","BYOL_REGULAR_WSP"
+            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_REGULAR","BYOL_REGULAR_WSP"
             break
         }
 

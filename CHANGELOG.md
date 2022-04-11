@@ -1,4 +1,14 @@
-﻿### 4.1.61 (2022-04-08 20:08Z)
+﻿### 4.1.62 (2022-04-11 20:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.250.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Runner
+    * Added cmdlet Get-AARObservabilityConfiguration leveraging the DescribeObservabilityConfiguration service API.
+    * Added cmdlet Get-AARObservabilityConfigurationList leveraging the ListObservabilityConfigurations service API.
+    * Added cmdlet New-AARObservabilityConfiguration leveraging the CreateObservabilityConfiguration service API.
+    * Added cmdlet Remove-AARObservabilityConfiguration leveraging the DeleteObservabilityConfiguration service API.
+    * Modified cmdlet New-AARService: added parameters ObservabilityConfiguration_ObservabilityConfigurationArn and ObservabilityConfiguration_ObservabilityEnabled.
+    * Modified cmdlet Update-AARService: added parameters ObservabilityConfiguration_ObservabilityConfigurationArn and ObservabilityConfiguration_ObservabilityEnabled.
+
+### 4.1.61 (2022-04-08 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.249.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.60 (2022-04-07 23:48Z)

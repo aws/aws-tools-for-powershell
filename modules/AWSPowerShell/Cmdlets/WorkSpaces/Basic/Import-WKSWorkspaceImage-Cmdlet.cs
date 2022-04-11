@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows
         /// 10 BYOL images. For more information about subscribing to Office for BYOL images,
         /// see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
-        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><para>Although this parameter is an array, only one item is allowed at this time.</para></note>
+        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><ul><li><para>Although this parameter is an array, only one item is allowed at this time</para></li><li><para>Microsoft Office 2016 application subscription through AWS is currently not supported
+        /// for Graphics.g4dn Bring Your Own License (BYOL) images</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The ingestion process to be used when importing the image, depending on which protocol
         /// you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
         /// Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use
-        /// PCoIP, specify a value that does not end in <code>_WSP</code>. </para><para>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-        /// <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the protocol.</para>
+        /// PCoIP, specify a value that does not end in <code>_WSP</code>. </para><para>For non-GPU-enabled images (bundles other than Graphics.g4dn, GraphicsPro.g4dn, Graphics,
+        /// or GraphicsPro), specify <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>,
+        /// depending on the protocol.</para><note><para>Use <code>BYOL_GRAPHICS_G4DN</code> ingestion for both Graphics.g4dn and GraphicsPro.g4dn.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

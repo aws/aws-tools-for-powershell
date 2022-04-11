@@ -221,6 +221,29 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public System.String InstanceConfiguration_Memory { get; set; }
         #endregion
         
+        #region Parameter ObservabilityConfiguration_ObservabilityConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the observability configuration that is associated
+        /// with the service. Specified only when <code>ObservabilityEnabled</code> is <code>true</code>.</para><para>Specify an ARN with a name and a revision number to associate that revision. For example:
+        /// <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code></para><para>Specify just the name to associate the latest revision. For example: <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ObservabilityConfiguration_ObservabilityConfigurationArn { get; set; }
+        #endregion
+        
+        #region Parameter ObservabilityConfiguration_ObservabilityEnabled
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, an observability configuration resource is associated with
+        /// the service, and an <code>ObservabilityConfigurationArn</code> is specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ObservabilityConfiguration_ObservabilityEnabled { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckConfiguration_Path
         /// <summary>
         /// <para>
@@ -485,6 +508,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.InstanceConfiguration_Memory = this.InstanceConfiguration_Memory;
             context.EgressConfiguration_EgressType = this.EgressConfiguration_EgressType;
             context.EgressConfiguration_VpcConnectorArn = this.EgressConfiguration_VpcConnectorArn;
+            context.ObservabilityConfiguration_ObservabilityConfigurationArn = this.ObservabilityConfiguration_ObservabilityConfigurationArn;
+            context.ObservabilityConfiguration_ObservabilityEnabled = this.ObservabilityConfiguration_ObservabilityEnabled;
             context.ServiceArn = this.ServiceArn;
             #if MODULAR
             if (this.ServiceArn == null && ParameterWasBound(nameof(this.ServiceArn)))
@@ -694,6 +719,35 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestNetworkConfigurationIsNull)
             {
                 request.NetworkConfiguration = null;
+            }
+            
+             // populate ObservabilityConfiguration
+            var requestObservabilityConfigurationIsNull = true;
+            request.ObservabilityConfiguration = new Amazon.AppRunner.Model.ServiceObservabilityConfiguration();
+            System.String requestObservabilityConfiguration_observabilityConfiguration_ObservabilityConfigurationArn = null;
+            if (cmdletContext.ObservabilityConfiguration_ObservabilityConfigurationArn != null)
+            {
+                requestObservabilityConfiguration_observabilityConfiguration_ObservabilityConfigurationArn = cmdletContext.ObservabilityConfiguration_ObservabilityConfigurationArn;
+            }
+            if (requestObservabilityConfiguration_observabilityConfiguration_ObservabilityConfigurationArn != null)
+            {
+                request.ObservabilityConfiguration.ObservabilityConfigurationArn = requestObservabilityConfiguration_observabilityConfiguration_ObservabilityConfigurationArn;
+                requestObservabilityConfigurationIsNull = false;
+            }
+            System.Boolean? requestObservabilityConfiguration_observabilityConfiguration_ObservabilityEnabled = null;
+            if (cmdletContext.ObservabilityConfiguration_ObservabilityEnabled != null)
+            {
+                requestObservabilityConfiguration_observabilityConfiguration_ObservabilityEnabled = cmdletContext.ObservabilityConfiguration_ObservabilityEnabled.Value;
+            }
+            if (requestObservabilityConfiguration_observabilityConfiguration_ObservabilityEnabled != null)
+            {
+                request.ObservabilityConfiguration.ObservabilityEnabled = requestObservabilityConfiguration_observabilityConfiguration_ObservabilityEnabled.Value;
+                requestObservabilityConfigurationIsNull = false;
+            }
+             // determine if request.ObservabilityConfiguration should be set to null
+            if (requestObservabilityConfigurationIsNull)
+            {
+                request.ObservabilityConfiguration = null;
             }
             if (cmdletContext.ServiceArn != null)
             {
@@ -1056,6 +1110,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public System.String InstanceConfiguration_Memory { get; set; }
             public Amazon.AppRunner.EgressType EgressConfiguration_EgressType { get; set; }
             public System.String EgressConfiguration_VpcConnectorArn { get; set; }
+            public System.String ObservabilityConfiguration_ObservabilityConfigurationArn { get; set; }
+            public System.Boolean? ObservabilityConfiguration_ObservabilityEnabled { get; set; }
             public System.String ServiceArn { get; set; }
             public System.String AuthenticationConfiguration_AccessRoleArn { get; set; }
             public System.String AuthenticationConfiguration_ConnectionArn { get; set; }

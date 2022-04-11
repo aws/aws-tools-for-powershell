@@ -1046,6 +1046,8 @@ Set-Alias -Name Create-AARAutoScalingConfiguration -Value New-AARAutoScalingConf
 Set-Alias -Name AAR-CreateAutoScalingConfiguration -Value New-AARAutoScalingConfiguration
 Set-Alias -Name Create-AARConnection -Value New-AARConnection
 Set-Alias -Name AAR-CreateConnection -Value New-AARConnection
+Set-Alias -Name Create-AARObservabilityConfiguration -Value New-AARObservabilityConfiguration
+Set-Alias -Name AAR-CreateObservabilityConfiguration -Value New-AARObservabilityConfiguration
 Set-Alias -Name Create-AARService -Value New-AARService
 Set-Alias -Name AAR-CreateService -Value New-AARService
 Set-Alias -Name Create-AARVpcConnector -Value New-AARVpcConnector
@@ -1054,6 +1056,8 @@ Set-Alias -Name Delete-AARAutoScalingConfiguration -Value Remove-AARAutoScalingC
 Set-Alias -Name AAR-DeleteAutoScalingConfiguration -Value Remove-AARAutoScalingConfiguration
 Set-Alias -Name Delete-AARConnection -Value Remove-AARConnection
 Set-Alias -Name AAR-DeleteConnection -Value Remove-AARConnection
+Set-Alias -Name Delete-AARObservabilityConfiguration -Value Remove-AARObservabilityConfiguration
+Set-Alias -Name AAR-DeleteObservabilityConfiguration -Value Remove-AARObservabilityConfiguration
 Set-Alias -Name Delete-AARService -Value Remove-AARService
 Set-Alias -Name AAR-DeleteService -Value Remove-AARService
 Set-Alias -Name Delete-AARVpcConnector -Value Remove-AARVpcConnector
@@ -1063,6 +1067,8 @@ Set-Alias -Name AAR-DescribeAutoScalingConfiguration -Value Get-AARAutoScalingCo
 Set-Alias -Name Describe-AARCustomDomains -Value Get-AARCustomDomain
 Set-Alias -Name Describe-AARCustomDomain -Value Get-AARCustomDomain
 Set-Alias -Name AAR-DescribeCustomDomains -Value Get-AARCustomDomain
+Set-Alias -Name Describe-AARObservabilityConfiguration -Value Get-AARObservabilityConfiguration
+Set-Alias -Name AAR-DescribeObservabilityConfiguration -Value Get-AARObservabilityConfiguration
 Set-Alias -Name Describe-AARService -Value Get-AARService
 Set-Alias -Name AAR-DescribeService -Value Get-AARService
 Set-Alias -Name Describe-AARVpcConnector -Value Get-AARVpcConnector
@@ -1075,6 +1081,9 @@ Set-Alias -Name AAR-ListAutoScalingConfigurations -Value Get-AARAutoScalingConfi
 Set-Alias -Name List-AARConnections -Value Get-AARConnectionList
 Set-Alias -Name List-AARConnectionList -Value Get-AARConnectionList
 Set-Alias -Name AAR-ListConnections -Value Get-AARConnectionList
+Set-Alias -Name List-AARObservabilityConfigurations -Value Get-AARObservabilityConfigurationList
+Set-Alias -Name List-AARObservabilityConfigurationList -Value Get-AARObservabilityConfigurationList
+Set-Alias -Name AAR-ListObservabilityConfigurations -Value Get-AARObservabilityConfigurationList
 Set-Alias -Name List-AAROperations -Value Get-AAROperationList
 Set-Alias -Name List-AAROperationList -Value Get-AAROperationList
 Set-Alias -Name AAR-ListOperations -Value Get-AAROperationList
