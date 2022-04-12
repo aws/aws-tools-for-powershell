@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     ///  <note><para>
     /// Starting in October, 2021, you will receive an error if you try to set the account
     /// preference to use the short 8 character format resource ID. Contact Amazon Web Services
-    /// support if you receive an error and need to use short IDs for file system and mount
-    /// target resources.
+    /// support if you receive an error and must use short IDs for file system and mount target
+    /// resources.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "EFSAccountPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// account, in the current Amazon Web Services Region, either <code>LONG_ID</code> (17
         /// characters), or <code>SHORT_ID</code> (8 characters).</para><note><para>Starting in October, 2021, you will receive an error when setting the account preference
         /// to <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an error
-        /// and need to use short IDs for file system and mount target resources.</para></note>
+        /// and must use short IDs for file system and mount target resources.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,11 @@
-﻿### 4.1.62 (2022-04-11 20:18Z)
+﻿### 4.1.63 (2022-04-12 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DevOps Guru
+    * Added cmdlet Remove-DGURUInsight leveraging the DeleteInsight service API.
+  * Amazon IoT TwinMaker
+    * Modified cmdlet Get-IOTTMPropertyValueHistory: added parameters EndTime and StartTime.
+
+### 4.1.62 (2022-04-11 20:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.250.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon App Runner
     * Added cmdlet Get-AARObservabilityConfiguration leveraging the DescribeObservabilityConfiguration service API.

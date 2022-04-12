@@ -5495,6 +5495,8 @@ Set-Alias -Name DF-UpdateTestGridProject -Value Update-DFTestGridProject
 Set-Alias -Name DF-UpdateUpload -Value Update-DFUpload
 Set-Alias -Name DF-UpdateVPCEConfiguration -Value Update-DFVPCEConfiguration
 Set-Alias -Name DGURU-AddNotificationChannel -Value Add-DGURUNotificationChannel
+Set-Alias -Name Delete-DGURUInsight -Value Remove-DGURUInsight
+Set-Alias -Name DGURU-DeleteInsight -Value Remove-DGURUInsight
 Set-Alias -Name Describe-DGURUAccountHealth -Value Get-DGURUAccountHealth
 Set-Alias -Name DGURU-DescribeAccountHealth -Value Get-DGURUAccountHealth
 Set-Alias -Name Describe-DGURUAccountOverview -Value Get-DGURUAccountOverview

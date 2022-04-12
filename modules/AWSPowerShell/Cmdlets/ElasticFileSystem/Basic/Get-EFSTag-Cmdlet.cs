@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// <note><para>
-    /// DEPRECATED - The DeleteTags action is deprecated and not maintained. Please use the
-    /// API action to remove tags from EFS resources.
+    /// DEPRECATED - The <code>DescribeTags</code> action is deprecated and not maintained.
+    /// To view tags associated with EFS resources, use the <code>ListTagsForResource</code>
+    /// API action.
     /// </para></note><para>
     /// Returns the tags associated with a file system. The order of tags returned in the
     /// response of one <code>DescribeTags</code> call and the order of tags returned across

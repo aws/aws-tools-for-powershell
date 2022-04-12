@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// path, to any file system request made through the access point. The operating system
     /// user and group override any identity information provided by the NFS client. The file
     /// system path is exposed as the access point's root directory. Applications using the
-    /// access point can only access data in its own directory and below. To learn more, see
-    /// <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting
+    /// access point can only access data in the application's own directory and any subdirectories.
+    /// To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting
     /// a file system using EFS access points</a>.
     /// 
     ///  

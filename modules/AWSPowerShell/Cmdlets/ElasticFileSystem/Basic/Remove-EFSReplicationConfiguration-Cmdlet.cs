@@ -31,7 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// Deletes an existing replication configuration. To delete a replication configuration,
     /// you must make the request from the Amazon Web Services Region in which the destination
     /// file system is located. Deleting a replication configuration ends the replication
-    /// process. You can write to the destination file system once it's status becomes <code>Writeable</code>.
+    /// process. After a replication configuration is deleted, the destination file system
+    /// is no longer read-only. You can write to the destination file system after its status
+    /// becomes <code>Writeable</code>.
     /// </summary>
     [Cmdlet("Remove", "EFSReplicationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

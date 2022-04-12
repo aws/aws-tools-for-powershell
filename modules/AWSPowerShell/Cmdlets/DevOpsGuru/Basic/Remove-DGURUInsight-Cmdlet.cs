@@ -22,40 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticFileSystem;
-using Amazon.ElasticFileSystem.Model;
+using Amazon.DevOpsGuru;
+using Amazon.DevOpsGuru.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EFS
+namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// <note><para>
-    /// DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags
-    /// from EFS resources, use the API action.
-    /// </para></note><para>
-    /// Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
-    /// includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
-    /// error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
-    /// restrictions</a> in the <i>Billing and Cost Management User Guide</i>.
-    /// </para><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
-    /// action.
-    /// </para><br/><br/>This operation is deprecated.
+    /// Deletes the insight along with the associated anomalies, events and recommendations.
     /// </summary>
-    [Cmdlet("Remove", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "DGURUInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic File System DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DeleteTagsResponse))]
-    [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.DeleteTagsResponse",
+    [AWSCmdlet("Calls the Amazon DevOps Guru DeleteInsight API operation.", Operation = new[] {"DeleteInsight"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DeleteInsightResponse))]
+    [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.DeleteInsightResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.DeleteInsightResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Use UntagResource.")]
-    public partial class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class RemoveDGURUInsightCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
-        #region Parameter FileSystemId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system whose tags you want to delete (String).</para>
+        /// <para>The ID of the insight.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,31 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileSystemId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A list of tag keys to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticFileSystem.Model.DeleteTagsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DevOpsGuru.Model.DeleteInsightResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileSystemId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileSystemId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EFSTag (DeleteTags)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DGURUInsight (DeleteInsight)"))
             {
                 return;
             }
@@ -135,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticFileSystem.Model.DeleteTagsResponse, RemoveEFSTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DevOpsGuru.Model.DeleteInsightResponse, RemoveDGURUInsightCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,24 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileSystemId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FileSystemId = this.FileSystemId;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,15 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticFileSystem.Model.DeleteTagsRequest();
+            var request = new Amazon.DevOpsGuru.Model.DeleteInsightRequest();
             
-            if (cmdletContext.FileSystemId != null)
+            if (cmdletContext.Id != null)
             {
-                request.FileSystemId = cmdletContext.FileSystemId;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -221,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticFileSystem.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DeleteTagsRequest request)
+        private Amazon.DevOpsGuru.Model.DeleteInsightResponse CallAWSServiceOperation(IAmazonDevOpsGuru client, Amazon.DevOpsGuru.Model.DeleteInsightRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DevOps Guru", "DeleteInsight");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.DeleteInsight(request);
                 #elif CORECLR
-                return client.DeleteTagsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteInsightAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,9 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileSystemId { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.ElasticFileSystem.Model.DeleteTagsResponse, RemoveEFSTagCmdlet, object> Select { get; set; } =
+            public System.String Id { get; set; }
+            public System.Func<Amazon.DevOpsGuru.Model.DeleteInsightResponse, RemoveDGURUInsightCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

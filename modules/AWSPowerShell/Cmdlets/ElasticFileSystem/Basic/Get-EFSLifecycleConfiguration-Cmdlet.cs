@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// When EFS Intelligent Tiering is enabled, <code>TransitionToPrimaryStorageClass</code>
+    /// When EFS Intelligent-Tiering is enabled, <code>TransitionToPrimaryStorageClass</code>
     /// has a value of <code>AFTER_1_ACCESS</code>.
     /// </para><para>
     /// This operation requires permissions for the <code>elasticfilesystem:DescribeLifecycleConfiguration</code>

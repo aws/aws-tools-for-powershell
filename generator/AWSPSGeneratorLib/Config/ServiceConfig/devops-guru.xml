@@ -25,6 +25,10 @@
                 <Type>Amazon.DevOpsGuru.Model.SnsChannelConfig</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInsight" Verb="Remove" Noun="Insight" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountHealth" OutputProperty="*" Verb="Get" Noun="AccountHealth" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

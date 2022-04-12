@@ -28,40 +28,51 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
-    /// object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon
-    /// EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access
-    /// (IA) storage class. To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
-    /// to <code>AFTER_1_ACCESS</code>. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS
-    /// Lifecycle Management</a>.
+    /// Use this action to manage EFS lifecycle management and intelligent tiering. A <code>LifecycleConfiguration</code>
+    /// consists of one or more <code>LifecyclePolicy</code> objects that define the following:
     /// 
-    ///  
-    /// <para>
+    ///  <ul><li><para><b>EFS Lifecycle management</b> - When Amazon EFS automatically transitions files
+    /// in a file system into the lower-cost Infrequent Access (IA) storage class.
+    /// </para><para>
+    /// To enable EFS Lifecycle management, set the value of <code>TransitionToIA</code> to
+    /// one of the available options.
+    /// </para></li><li><para><b>EFS Intelligent tiering</b> - When Amazon EFS automatically transitions files
+    /// from IA back into the file system's primary storage class (Standard or One Zone Standard.
+    /// </para><para>
+    /// To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
+    /// to <code>AFTER_1_ACCESS</code>.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS
+    /// Lifecycle Management</a>.
+    /// </para><para>
     /// Each Amazon EFS file system supports one lifecycle configuration, which applies to
     /// all files in the file system. If a <code>LifecycleConfiguration</code> object already
     /// exists for the specified file system, a <code>PutLifecycleConfiguration</code> call
     /// modifies the existing configuration. A <code>PutLifecycleConfiguration</code> call
     /// with an empty <code>LifecyclePolicies</code> array in the request body deletes any
-    /// existing <code>LifecycleConfiguration</code> and turns off lifecycle management for
-    /// the file system.
+    /// existing <code>LifecycleConfiguration</code> and turns off lifecycle management and
+    /// intelligent tiering for the file system.
     /// </para><para>
     /// In the request, specify the following: 
     /// </para><ul><li><para>
     /// The ID for the file system for which you are enabling, disabling, or modifying lifecycle
-    /// management.
+    /// management and intelligent tiering.
     /// </para></li><li><para>
     /// A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
-    /// define when files are moved to the IA storage class. Amazon EFS requires that each
-    /// <code>LifecyclePolicy</code> object have only have a single transition, so the <code>LifecyclePolicies</code>
-    /// array needs to be structured with separate <code>LifecyclePolicy</code> objects. See
-    /// the example requests in the following section for more information.
-    /// </para></li></ul><para>
+    /// define when files are moved into IA storage, and when they are moved back to Standard
+    /// storage.
+    /// </para><note><para>
+    /// Amazon EFS requires that each <code>LifecyclePolicy</code> object have only have a
+    /// single transition, so the <code>LifecyclePolicies</code> array needs to be structured
+    /// with separate <code>LifecyclePolicy</code> objects. See the example requests in the
+    /// following section for more information.
+    /// </para></note></li></ul><para>
     /// This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code>
     /// operation.
     /// </para><para>
     /// To apply a <code>LifecycleConfiguration</code> object to an encrypted file system,
     /// you need the same Key Management Service permissions as when you created the encrypted
-    /// file system. 
+    /// file system.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "EFSLifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -97,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>
         /// <para>An array of <code>LifecyclePolicy</code> objects that define the file system's <code>LifecycleConfiguration</code>
         /// object. A <code>LifecycleConfiguration</code> object informs EFS lifecycle management
-        /// and intelligent tiering of the following:</para><ul><li><para>When to move files in the file system from primary storage to the IA storage class.</para></li><li><para>When to move files that are in IA storage to primary storage.</para></li></ul><note><para>When using the <code>put-lifecycle-configuration</code> CLI command or the <code>PutLifecycleConfiguration</code>
+        /// and EFS Intelligent-Tiering of the following:</para><ul><li><para>When to move files in the file system from primary storage to the IA storage class.</para></li><li><para>When to move files that are in IA storage to primary storage.</para></li></ul><note><para>When using the <code>put-lifecycle-configuration</code> CLI command or the <code>PutLifecycleConfiguration</code>
         /// API action, Amazon EFS requires that each <code>LifecyclePolicy</code> object have
         /// only a single transition. This means that in a request body, <code>LifecyclePolicies</code>
-        /// needs to be structured as an array of <code>LifecyclePolicy</code> objects, one object
+        /// must be structured as an array of <code>LifecyclePolicy</code> objects, one object
         /// for each transition, <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>.
         /// See the example requests in the following section for more information.</para></note>
         /// </para>

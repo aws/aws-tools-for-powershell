@@ -106,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DGURUResourceCollection', 
         'Get-DGURUResourceCollectionHealth', 
         'Get-DGURUServiceIntegration', 
+        'Remove-DGURUInsight', 
         'Remove-DGURUNotificationChannel', 
         'Search-DGURUInsight', 
         'Search-DGURUOrganizationInsight', 

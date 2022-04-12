@@ -28,7 +28,10 @@ using Amazon.DevOpsGuru.Model;
 namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
-    /// Updates the event source configuration.
+    /// Enables or disables integration with a service that can be integrated with DevOps
+    /// Guru. The one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler,
+    /// which can produce proactive recommendations which can be stored and viewed in DevOps
+    /// Guru.
     /// </summary>
     [Cmdlet("Update", "DGURUEventSourcesConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter AmazonCodeGuruProfiler_Status
         /// <summary>
         /// <para>
-        /// <para>The status of the CodeGuru Profiler integration.</para>
+        /// <para>The status of the CodeGuru Profiler integration. Specifies if DevOps Guru is enabled
+        /// to consume recommendations that are generated from Amazon CodeGuru Profiler.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

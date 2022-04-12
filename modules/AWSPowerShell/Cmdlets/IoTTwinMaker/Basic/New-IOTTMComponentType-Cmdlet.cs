@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
     /// Creates a component type.
-    /// 
-    ///  <important><para>
-    ///  TwinMaker is in public preview and is subject to change. 
-    /// </para></important>
     /// </summary>
     [Cmdlet("New", "IOTTMComponentType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse")]

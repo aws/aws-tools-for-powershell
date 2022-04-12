@@ -218,6 +218,7 @@ $DGURU_SelectCompleters = {
 
 $DGURU_SelectMap = @{
     "Select"=@("Add-DGURUNotificationChannel",
+               "Remove-DGURUInsight",
                "Get-DGURUAccountHealth",
                "Get-DGURUAccountOverview",
                "Get-DGURUAnomaly",

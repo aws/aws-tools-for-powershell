@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>The ID of the KMS key that you want to use to protect the encrypted file system. This
-        /// parameter is only required if you want to use a non-default KMS key. If this parameter
+        /// parameter is required only if you want to use a non-default KMS key. If this parameter
         /// is not specified, the default KMS key for Amazon EFS is used. You can specify a KMS
         /// key ID using the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If you use <code>KmsKeyId</code>, you must set the <a>CreateFileSystemRequest$Encrypted</a>
         /// parameter to true.</para><important><para>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with Amazon

@@ -28,9 +28,9 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Retrieves the replication configurations for either a specific file system, or all
-    /// configurations for the Amazon Web Services account in an Amazon Web Services Region
-    /// if a file system is not specified.
+    /// Retrieves the replication configuration for a specific file system. If a file system
+    /// is not specified, all of the replication configurations for the Amazon Web Services
+    /// account in an Amazon Web Services Region are retrieved.
     /// </summary>
     [Cmdlet("Get", "EFSReplicationConfiguration")]
     [OutputType("Amazon.ElasticFileSystem.Model.ReplicationConfigurationDescription")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>You can retrieve replication configurations for a specific file system by providing
-        /// a file system ID.</para>
+        /// <para>You can retrieve the replication configuration for a specific file system by providing
+        /// its file system ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) You can optionally specify the <code>MaxItems</code> parameter to limit
-        /// the number of objects returned in a response. The default value is 100. </para>
+        /// <para>(Optional) To limit the number of objects returned in a response, you can specify
+        /// the <code>MaxItems</code> parameter. The default value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para><code>NextToken</code> is present if the response is paginated. You can use <code>NextMarker</code>
+        /// <para><code>NextToken</code> is present if the response is paginated. You can use <code>NextToken</code>
         /// in a subsequent request to fetch the next page of output.</para>
         /// </para>
         /// </summary>

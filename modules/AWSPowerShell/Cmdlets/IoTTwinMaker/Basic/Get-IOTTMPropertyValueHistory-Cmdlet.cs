@@ -68,20 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String ComponentTypeId { get; set; }
         #endregion
         
-        #region Parameter EndDateTime
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time of the latest property value to return.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? EndDateTime { get; set; }
+        public System.String EndTime { get; set; }
         #endregion
         
         #region Parameter EntityId
@@ -156,20 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String[] SelectedProperty { get; set; }
         #endregion
         
-        #region Parameter StartDateTime
+        #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The date and time of the earliest property value to return.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? StartDateTime { get; set; }
+        public System.String StartTime { get; set; }
         #endregion
         
         #region Parameter WorkspaceId
@@ -187,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String WorkspaceId { get; set; }
+        #endregion
+        
+        #region Parameter EndDateTime
+        /// <summary>
+        /// <para>
+        /// <para>The date and time of the latest property value to return.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated and will throw an error in the future. Use endTime instead.")]
+        public System.DateTime? EndDateTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -212,6 +212,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter StartDateTime
+        /// <summary>
+        /// <para>
+        /// <para>The date and time of the earliest property value to return.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated and will throw an error in the future. Use startTime instead.")]
+        public System.DateTime? StartDateTime { get; set; }
         #endregion
         
         #region Parameter Select
@@ -271,13 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComponentName = this.ComponentName;
             context.ComponentTypeId = this.ComponentTypeId;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndDateTime = this.EndDateTime;
-            #if MODULAR
-            if (this.EndDateTime == null && ParameterWasBound(nameof(this.EndDateTime)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EndDateTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EndTime = this.EndTime;
             context.EntityId = this.EntityId;
             context.Interpolation_InterpolationType = this.Interpolation_InterpolationType;
             context.Interpolation_IntervalInSecond = this.Interpolation_IntervalInSecond;
@@ -298,13 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 WriteWarning("You are passing $null as a value for parameter SelectedProperty which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.StartDateTime = this.StartDateTime;
-            #if MODULAR
-            if (this.StartDateTime == null && ParameterWasBound(nameof(this.StartDateTime)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StartDateTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.StartTime = this.StartTime;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -340,9 +346,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             {
                 request.ComponentTypeId = cmdletContext.ComponentTypeId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndDateTime != null)
             {
                 request.EndDateTime = cmdletContext.EndDateTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndTime != null)
+            {
+                request.EndTime = cmdletContext.EndTime;
             }
             if (cmdletContext.EntityId != null)
             {
@@ -393,9 +405,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             {
                 request.SelectedProperties = cmdletContext.SelectedProperty;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartDateTime != null)
             {
                 request.StartDateTime = cmdletContext.StartDateTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.StartTime != null)
+            {
+                request.StartTime = cmdletContext.StartTime;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -488,7 +506,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         {
             public System.String ComponentName { get; set; }
             public System.String ComponentTypeId { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? EndDateTime { get; set; }
+            public System.String EndTime { get; set; }
             public System.String EntityId { get; set; }
             public Amazon.IoTTwinMaker.InterpolationType Interpolation_InterpolationType { get; set; }
             public System.Int64? Interpolation_IntervalInSecond { get; set; }
@@ -497,7 +517,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             public Amazon.IoTTwinMaker.OrderByTime OrderByTime { get; set; }
             public List<Amazon.IoTTwinMaker.Model.PropertyFilter> PropertyFilter { get; set; }
             public List<System.String> SelectedProperty { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartDateTime { get; set; }
+            public System.String StartTime { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.GetPropertyValueHistoryResponse, GetIOTTMPropertyValueHistoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PropertyValues;
