@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.251.0",
+    "ProductVersion" : "3.7.252.0",
     "CoreVersion"    : "3.7.10.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -78,7 +78,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.3.46",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.7"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.11.4",
+            "Version" : "3.7.12.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.7"

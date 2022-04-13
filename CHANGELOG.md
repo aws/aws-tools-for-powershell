@@ -1,4 +1,9 @@
-﻿### 4.1.63 (2022-04-12 21:08Z)
+﻿### 4.1.64 (2022-04-13 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWMetricStream: added parameter StatisticsConfiguration.
+
+### 4.1.63 (2022-04-12 21:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.251.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DevOps Guru
     * Added cmdlet Remove-DGURUInsight leveraging the DeleteInsight service API.

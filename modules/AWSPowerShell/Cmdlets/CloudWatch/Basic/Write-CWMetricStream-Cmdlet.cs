@@ -50,6 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para></li><li><para>
     /// Stream metrics from only the metric namespaces that you list in <code>IncludeFilters</code>.
     /// </para></li></ul><para>
+    /// By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+    /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
+    /// use the <code>StatisticsConfigurations</code> parameter to have the metric stream
+    /// also send extended statistics in the stream. Streaming extended statistics incurs
+    /// additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+    /// CloudWatch Pricing</a>. 
+    /// </para><para>
     /// When you use <code>PutMetricStream</code> to create a new metric stream, the stream
     /// is created in the <code>running</code> state. If you use it to update an existing
     /// stream, the state of the stream is not changed.
@@ -167,6 +174,26 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter StatisticsConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+        /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
+        /// use this parameter to have the metric stream also send extended statistics in the
+        /// stream. This array can have up to 100 members.</para><para>For each entry in this array, you specify one or more metrics and the list of extended
+        /// statistics to stream for those metrics. The extended statistics that you can stream
+        /// depend on the stream's <code>OutputFormat</code>. If the <code>OutputFormat</code>
+        /// is <code>json</code>, you can stream any extended statistic that is supported by CloudWatch,
+        /// listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+        /// CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is <code>opentelemetry0.7</code>,
+        /// you can stream percentile statistics (p<i>??</i>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StatisticsConfigurations")]
+        public Amazon.CloudWatch.Model.MetricStreamStatisticsConfiguration[] StatisticsConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -282,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StatisticsConfiguration != null)
+            {
+                context.StatisticsConfiguration = new List<Amazon.CloudWatch.Model.MetricStreamStatisticsConfiguration>(this.StatisticsConfiguration);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.CloudWatch.Model.Tag>(this.Tag);
@@ -325,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.StatisticsConfiguration != null)
+            {
+                request.StatisticsConfigurations = cmdletContext.StatisticsConfiguration;
             }
             if (cmdletContext.Tag != null)
             {
@@ -397,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String Name { get; set; }
             public Amazon.CloudWatch.MetricStreamOutputFormat OutputFormat { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.CloudWatch.Model.MetricStreamStatisticsConfiguration> StatisticsConfiguration { get; set; }
             public List<Amazon.CloudWatch.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CloudWatch.Model.PutMetricStreamResponse, WriteCWMetricStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;

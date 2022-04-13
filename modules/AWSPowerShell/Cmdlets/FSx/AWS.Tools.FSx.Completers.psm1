@@ -110,7 +110,7 @@ $FSX_Completers = {
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
-            $v = "MULTI_AZ_1"
+            $v = "MULTI_AZ_1","SINGLE_AZ_1"
             break
         }
 
