@@ -81,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// volume, in GiB.</para></li><li><para><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS
         /// volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code>
         /// | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</para></li><li><para><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the
-        /// Amazon EBS volume is encrypted.</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
+        /// Amazon EBS volume is encrypted.</para></li><li><para><code>creation-date</code> - The time when the image was created, in the ISO 8601
+        /// format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>.
+        /// You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+        /// matches an entire day.</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
         /// ENA is enabled.</para></li><li><para><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</para></li><li><para><code>image-id</code> - The ID of the image.</para></li><li><para><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code>
         /// | <code>ramdisk</code>).</para></li><li><para><code>is-public</code> - A Boolean that indicates whether the image is public.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>manifest-location</code> - The location of the image manifest.</para></li><li><para><code>name</code> - The name of the AMI (provided during image creation).</para></li><li><para><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
         /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon

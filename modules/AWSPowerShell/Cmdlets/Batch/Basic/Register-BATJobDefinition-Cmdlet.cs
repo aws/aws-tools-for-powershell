@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon
         /// Web Services permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
-        /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// roles for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
         /// and <code>splunk</code>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <code>awslogs</code>
         /// and <code>splunk</code> log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
-        /// the awslogs Log Driver</a> in the <i>Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
+        /// the awslogs log driver</a> in the <i>Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
         /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information, including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
         /// driver</a> in the Docker documentation.</para></dd><dt>gelf</dt><dd><para>Specifies the Graylog Extended Format (GELF) logging driver. For more information,
@@ -454,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying
-        /// Sensitive Data</a> in the <i>Batch User Guide</i>.</para>
+        /// sensitive data</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -502,7 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// run</a>.</para><para>Consider the following when you use a per-container swap configuration.</para><ul><li><para>Swap space must be enabled and allocated on the container instance for the containers
         /// to use.</para><note><para>The Amazon ECS optimized AMIs don't have swap enabled by default. You must enable
         /// swap on the instance to use this feature. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html">Instance
-        /// Store Swap Volumes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> or
+        /// store swap volumes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> or
         /// <a href="http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/">How
         /// do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap
         /// file?</a></para></note></li><li><para>The swap space parameters are only supported for job definitions using EC2 resources.</para></li><li><para>If the <code>maxSwap</code> and <code>swappiness</code> parameters are omitted from

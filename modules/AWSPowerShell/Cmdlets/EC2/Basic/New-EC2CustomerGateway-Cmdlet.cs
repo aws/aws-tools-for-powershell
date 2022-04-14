@@ -39,28 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// For devices that use Border Gateway Protocol (BGP), you can also provide the device's
     /// BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
-    /// If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534
-    /// range).
-    /// </para><note><para>
-    /// Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the
-    /// exception of the following:
-    /// </para><ul><li><para>
-    /// 7224 - reserved in the <code>us-east-1</code> Region
-    /// </para></li><li><para>
-    /// 9059 - reserved in the <code>eu-west-1</code> Region
-    /// </para></li><li><para>
-    /// 17943 - reserved in the <code>ap-southeast-1</code> Region
-    /// </para></li><li><para>
-    /// 10124 - reserved in the <code>ap-northeast-1</code> Region
-    /// </para></li></ul></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
-    /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
-    /// Guide</i>.
-    /// </para><important><para>
+    /// If you don't have an ASN already, you can use a private ASN. For more information,
+    /// see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer
+    /// gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services
+    /// Site-to-Site VPN User Guide</i>.
+    /// </para><para>
     /// To create more than one customer gateway with the same VPN type, IP address, and BGP
-    /// ASN, specify a unique device name for each customer gateway. Identical requests return
-    /// information about the existing customer gateway and do not create new customer gateways.
-    /// </para></important>
+    /// ASN, specify a unique device name for each customer gateway. An identical request
+    /// returns information about the existing customer gateway; it doesn't create a new customer
+    /// gateway.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2CustomerGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CustomerGateway")]

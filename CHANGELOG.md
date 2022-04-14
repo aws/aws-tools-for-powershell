@@ -1,4 +1,12 @@
-﻿### 4.1.64 (2022-04-13 20:04Z)
+﻿### 4.1.65 (2022-04-14 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.253.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSFleet: added parameters SessionScriptS3Location_S3Bucket and SessionScriptS3Location_S3Key.
+    * Modified cmdlet Update-APSFleet: added parameters SessionScriptS3Location_S3Bucket and SessionScriptS3Location_S3Key.
+  * Amazon Batch
+    * Modified cmdlet Update-BATComputeEnvironment: added parameters ComputeResources_AllocationStrategy, ComputeResources_BidPercentage, ComputeResources_Ec2Configuration, ComputeResources_Ec2KeyPair, ComputeResources_ImageId, ComputeResources_InstanceRole, ComputeResources_InstanceType, ComputeResources_PlacementGroup, ComputeResources_Tag, ComputeResources_Type, ComputeResources_UpdateToLatestImageVersion, LaunchTemplate_LaunchTemplateId, LaunchTemplate_LaunchTemplateName, LaunchTemplate_Version, UpdatePolicy_JobExecutionTimeoutMinute and UpdatePolicy_TerminateJobsOnUpdate.
+
+### 4.1.64 (2022-04-13 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.252.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch
     * Modified cmdlet Write-CWMetricStream: added parameter StatisticsConfiguration.

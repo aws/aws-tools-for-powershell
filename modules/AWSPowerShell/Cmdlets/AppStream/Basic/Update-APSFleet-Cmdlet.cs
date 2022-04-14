@@ -270,6 +270,26 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.PlatformType Platform { get; set; }
         #endregion
         
+        #region Parameter SessionScriptS3Location_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The S3 bucket of the S3 object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionScriptS3Location_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter SessionScriptS3Location_S3Key
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key of the S3 object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionScriptS3Location_S3Key { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
@@ -417,6 +437,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.MaxUserDurationInSecond = this.MaxUserDurationInSecond;
             context.Name = this.Name;
             context.Platform = this.Platform;
+            context.SessionScriptS3Location_S3Bucket = this.SessionScriptS3Location_S3Bucket;
+            context.SessionScriptS3Location_S3Key = this.SessionScriptS3Location_S3Key;
             context.StreamView = this.StreamView;
             if (this.UsbDeviceFilterString != null)
             {
@@ -556,6 +578,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Platform = cmdletContext.Platform;
             }
+            
+             // populate SessionScriptS3Location
+            var requestSessionScriptS3LocationIsNull = true;
+            request.SessionScriptS3Location = new Amazon.AppStream.Model.S3Location();
+            System.String requestSessionScriptS3Location_sessionScriptS3Location_S3Bucket = null;
+            if (cmdletContext.SessionScriptS3Location_S3Bucket != null)
+            {
+                requestSessionScriptS3Location_sessionScriptS3Location_S3Bucket = cmdletContext.SessionScriptS3Location_S3Bucket;
+            }
+            if (requestSessionScriptS3Location_sessionScriptS3Location_S3Bucket != null)
+            {
+                request.SessionScriptS3Location.S3Bucket = requestSessionScriptS3Location_sessionScriptS3Location_S3Bucket;
+                requestSessionScriptS3LocationIsNull = false;
+            }
+            System.String requestSessionScriptS3Location_sessionScriptS3Location_S3Key = null;
+            if (cmdletContext.SessionScriptS3Location_S3Key != null)
+            {
+                requestSessionScriptS3Location_sessionScriptS3Location_S3Key = cmdletContext.SessionScriptS3Location_S3Key;
+            }
+            if (requestSessionScriptS3Location_sessionScriptS3Location_S3Key != null)
+            {
+                request.SessionScriptS3Location.S3Key = requestSessionScriptS3Location_sessionScriptS3Location_S3Key;
+                requestSessionScriptS3LocationIsNull = false;
+            }
+             // determine if request.SessionScriptS3Location should be set to null
+            if (requestSessionScriptS3LocationIsNull)
+            {
+                request.SessionScriptS3Location = null;
+            }
             if (cmdletContext.StreamView != null)
             {
                 request.StreamView = cmdletContext.StreamView;
@@ -673,6 +724,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
             public Amazon.AppStream.PlatformType Platform { get; set; }
+            public System.String SessionScriptS3Location_S3Bucket { get; set; }
+            public System.String SessionScriptS3Location_S3Key { get; set; }
             public Amazon.AppStream.StreamView StreamView { get; set; }
             public List<System.String> UsbDeviceFilterString { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }

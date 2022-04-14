@@ -396,7 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code>
         /// is omitted, the default behavior of <code>missing</code> is used. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
-        /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <code>breaching | notBreaching | ignore | missing</code></para>
+        /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <code>breaching | notBreaching | ignore | missing</code></para><note><para>Alarms that evaluate metrics in the <code>AWS/DynamoDB</code> namespace always <code>ignore</code>
+        /// missing data even if you choose a different option for <code>TreatMissingData</code>.
+        /// When an <code>AWS/DynamoDB</code> metric has missing data, alarms that evaluate that
+        /// metric remain in their current state.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

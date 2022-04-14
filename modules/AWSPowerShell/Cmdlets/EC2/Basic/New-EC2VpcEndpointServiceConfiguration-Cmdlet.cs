@@ -28,28 +28,26 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC endpoint service configuration to which service consumers (Amazon Web
-    /// Services accounts, IAM users, and IAM roles) can connect.
+    /// Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
+    /// IAM users, and IAM roles) can connect.
     /// 
     ///  
     /// <para>
-    /// To create an endpoint service configuration, you must first create one of the following
-    /// for your service:
+    /// Before you create an endpoint service, you must create one of the following for your
+    /// service:
     /// </para><ul><li><para>
-    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network
+    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network
     /// Load Balancer</a>. Service consumers connect to your service using an interface endpoint.
     /// </para></li><li><para>
-    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway
+    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway
     /// Load Balancer</a>. Service consumers connect to your service using a Gateway Load
     /// Balancer endpoint.
     /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
-    /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
-    /// </para><para>
     /// If you set the private DNS name, you must prove that you own the private DNS domain
-    /// name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
-    /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
-    /// Cloud User Guide</i>.
+    /// name.
+    /// </para><para>
+    /// For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
+    /// Web Services PrivateLink Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpointServiceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether requests from service consumers to create an endpoint to your service
-        /// must be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</para>
+        /// must be accepted manually.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

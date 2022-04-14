@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// the best fitting instance type can be allocated. This might be because of availability
         /// of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
         /// EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation
-        /// Strategies</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// strategies</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note><dl><dt>BEST_FIT (default)</dt><dd><para>Batch selects an instance type that best fits the needs of the jobs with a preference
         /// for the lowest-cost instance type. If additional instances of the selected instance
         /// type aren't available, Batch waits for the additional instances to be available. If
@@ -97,7 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// EC2 service limits</a> then additional jobs aren't run until the currently running
         /// jobs have completed. This allocation strategy keeps costs lower but can limit scaling.
         /// If you are using Spot Fleets with <code>BEST_FIT</code> then the Spot Fleet IAM Role
-        /// must be specified.</para></dd><dt>BEST_FIT_PROGRESSIVE</dt><dd><para>Batch will select additional instance types that are large enough to meet the requirements
+        /// must be specified. Compute resources that use a <code>BEST_FIT</code> allocation strategy
+        /// don't support infrastructure updates and can't update some parameters. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para></dd><dt>BEST_FIT_PROGRESSIVE</dt><dd><para>Batch will select additional instance types that are large enough to meet the requirements
         /// of the jobs in the queue, with a preference for instance types with a lower cost per
         /// unit vCPU. If additional instances of the previously selected instance types aren't
         /// available, Batch will select new instance types.</para></dd><dt>SPOT_CAPACITY_OPTIMIZED</dt><dd><para>Batch will select one or more instance types that are large enough to meet the requirements
@@ -192,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
         /// You can specify the short name or full Amazon Resource Name (ARN) of an instance profile.
         /// For example, <code><i>ecsInstanceRole</i></code> or <code>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
-        /// ECS Instance Role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// ECS instance role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note>
         /// </para>
         /// </summary>
@@ -278,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// creating a cluster placement group and associate it with your compute resources. This
         /// keeps your multi-node parallel job on a logical grouping of instances within a single
         /// Availability Zone with high network flow potential. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
-        /// Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note>
         /// </para>
         /// </summary>
@@ -334,12 +337,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <code>SPOT</code> compute environment. This role is required if the allocation strategy
         /// set to <code>BEST_FIT</code> or if the allocation strategy isn't specified. For more
         /// information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
-        /// EC2 Spot Fleet Role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
         /// shouldn't be specified.</para></note><important><para>To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must
         /// use the newer <b>AmazonEC2SpotFleetTaggingRole</b> managed policy. The previously
         /// recommended <b>AmazonEC2SpotFleetRole</b> managed policy doesn't have the required
         /// permissions to tag Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag">Spot
-        /// Instances not tagged on creation</a> in the <i>Batch User Guide</i>.</para></important>
+        /// instances not tagged on creation</a> in the <i>Batch User Guide</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The VPC subnets where the compute resources are launched. These subnets must be within
         /// the same VPC. Fargate compute resources can contain up to 16 subnets. For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
-        /// and Subnets</a> in the <i>Amazon VPC User Guide</i>.</para>
+        /// and subnets</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,9 +423,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The type of compute environment: <code>EC2</code>, <code>SPOT</code>, <code>FARGATE</code>,
         /// or <code>FARGATE_SPOT</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
-        /// Environments</a> in the <i>Batch User Guide</i>.</para><para> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role
+        /// environments</a> in the <i>Batch User Guide</i>.</para><para> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role
         /// with the <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
-        /// EC2 Spot Fleet role</a> in the <i>Batch User Guide</i>.</para>
+        /// EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -467,11 +470,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The version number of the launch template, <code>$Latest</code>, or <code>$Default</code>.</para><para>If the value is <code>$Latest</code>, the latest version of the launch template is
         /// used. If the value is <code>$Default</code>, the default version of the launch template
-        /// is used.</para><important><para>After the compute environment is created, the launch template version that's used
-        /// isn't changed, even if the <code>$Default</code> or <code>$Latest</code> version for
-        /// the launch template is updated. To use a new launch template version, create a new
-        /// compute environment, add the new compute environment to the existing job queue, remove
-        /// the old compute environment from the job queue, and delete the old compute environment.</para></important><para>Default: <code>$Default</code>.</para>
+        /// is used.</para><important><para>If the AMI ID that's used in a compute environment is from the launch template, the
+        /// AMI isn't changed when the compute environment is updated. It's only changed if the
+        /// <code>updateToLatestImageVersion</code> parameter for the compute environment is set
+        /// to <code>true</code>. During an infrastructure update, if either <code>$Latest</code>
+        /// or <code>$Default</code> is specified, Batch re-evaluates the launch template version,
+        /// and it might use a different version of the launch template. This is the case even
+        /// if the launch template isn't specified in the update. When updating a compute environment,
+        /// changing the launch template requires an infrastructure update of the compute environment.
+        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para></important><para>Default: <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

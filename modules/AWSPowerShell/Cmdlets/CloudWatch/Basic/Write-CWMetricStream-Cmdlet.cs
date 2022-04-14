@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
     /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
     /// use the <code>StatisticsConfigurations</code> parameter to have the metric stream
-    /// also send extended statistics in the stream. Streaming extended statistics incurs
+    /// also send additional statistics in the stream. Streaming additional statistics incurs
     /// additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
     /// CloudWatch Pricing</a>. 
     /// </para><para>
@@ -179,14 +179,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
         /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
-        /// use this parameter to have the metric stream also send extended statistics in the
-        /// stream. This array can have up to 100 members.</para><para>For each entry in this array, you specify one or more metrics and the list of extended
-        /// statistics to stream for those metrics. The extended statistics that you can stream
+        /// use this parameter to have the metric stream also send additional statistics in the
+        /// stream. This array can have up to 100 members.</para><para>For each entry in this array, you specify one or more metrics and the list of additional
+        /// statistics to stream for those metrics. The additional statistics that you can stream
         /// depend on the stream's <code>OutputFormat</code>. If the <code>OutputFormat</code>
-        /// is <code>json</code>, you can stream any extended statistic that is supported by CloudWatch,
-        /// listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+        /// is <code>json</code>, you can stream any additional statistic that is supported by
+        /// CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
         /// CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is <code>opentelemetry0.7</code>,
-        /// you can stream percentile statistics (p<i>??</i>).</para>
+        /// you can stream percentile statistics such as p95, p99.9 and so on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

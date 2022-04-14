@@ -37,8 +37,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// can use the name to access the service.
     /// </para><para>
     /// Before the service provider runs this command, they must add a record to the DNS server.
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding
-    /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "EC2VpcEndpointServicePrivateDnsVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

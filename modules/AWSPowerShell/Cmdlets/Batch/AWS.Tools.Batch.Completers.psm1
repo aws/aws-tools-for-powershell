@@ -112,9 +112,19 @@ $BAT_Completers = {
         }
 
         # Amazon.Batch.CRType
-        "New-BATComputeEnvironment/ComputeResources_Type"
+        {
+            ($_ -eq "New-BATComputeEnvironment/ComputeResources_Type") -Or
+            ($_ -eq "Update-BATComputeEnvironment/ComputeResources_Type")
+        }
         {
             $v = "EC2","FARGATE","FARGATE_SPOT","SPOT"
+            break
+        }
+
+        # Amazon.Batch.CRUpdateAllocationStrategy
+        "Update-BATComputeEnvironment/ComputeResources_AllocationStrategy"
+        {
+            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -158,8 +168,8 @@ $BAT_Completers = {
 }
 
 $BAT_map = @{
-    "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment")
-    "ComputeResources_Type"=@("New-BATComputeEnvironment")
+    "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ContainerProperties_LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "ContainerProperties_NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "JobStatus"=@("Get-BATJobList")

@@ -75,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KeyType
         /// <summary>
         /// <para>
-        /// <para>The type of key pair. Note that ED25519 keys are not supported for Windows instances,
-        /// EC2 Instance Connect, and EC2 Serial Console.</para><para>Default: <code>rsa</code></para>
+        /// <para>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</para><para>Default: <code>rsa</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

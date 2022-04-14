@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can
+    /// Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can
     /// use to automate your IP address management workflows including assigning, tracking,
     /// troubleshooting, and auditing IP addresses across Amazon Web Services Regions and
     /// accounts throughout your Amazon Web Services Organization.

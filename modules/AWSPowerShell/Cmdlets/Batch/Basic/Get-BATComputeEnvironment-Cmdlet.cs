@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     ///  
     /// <para>
     /// If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
-    /// operation to determine the <code>ecsClusterArn</code> that you should launch your
-    /// Amazon ECS container instances into.
+    /// operation to determine the <code>ecsClusterArn</code> that you launch your Amazon
+    /// ECS container instances into.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BATComputeEnvironment")]

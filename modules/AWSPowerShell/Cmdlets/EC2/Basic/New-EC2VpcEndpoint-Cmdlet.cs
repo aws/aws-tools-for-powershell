@@ -31,27 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
     /// a private connection between your VPC and the service. The service may be provided
     /// by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
-    /// Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
-    /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-    /// 
-    ///  
-    /// <para>
-    /// A <code>gateway</code> endpoint serves as a target for a route in your route table
-    /// for traffic destined for the Amazon Web Service. You can specify an endpoint policy
-    /// to attach to the endpoint, which will control access to the service from your VPC.
-    /// You can also specify the VPC route tables that use the endpoint.
-    /// </para><para>
-    /// An <code>interface</code> endpoint is a network interface in your subnet that serves
-    /// as an endpoint for communicating with the specified service. You can specify the subnets
-    /// in which to create an endpoint, and the security groups to associate with the endpoint
-    /// network interface.
-    /// </para><para>
-    /// A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet
-    /// that serves an endpoint for communicating with a Gateway Load Balancer that you've
-    /// configured as a VPC endpoint service.
-    /// </para><para>
-    /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
-    /// </para>
+    /// Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
+    /// Web Services PrivateLink Guide</a>.
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
