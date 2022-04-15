@@ -1,4 +1,9 @@
-﻿### 4.1.65 (2022-04-14 20:21Z)
+﻿### 4.1.66 (2022-04-15 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.254.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * RDS
+    * [Breaking Change] Removed cmdlets Get-RDSCustomAvailabilityZone, Get-RDSInstallationMedia, Import-RDSInstallationMedia, New-RDSCustomAvailabilityZone, Remove-RDSCustomAvailabilityZone and Remove-RDSInstallationMedia.
+
+### 4.1.65 (2022-04-14 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.253.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppStream
     * Modified cmdlet New-APSFleet: added parameters SessionScriptS3Location_S3Bucket and SessionScriptS3Location_S3Key.

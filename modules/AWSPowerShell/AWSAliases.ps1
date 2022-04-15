@@ -16789,8 +16789,6 @@ Set-Alias -Name RDS-CopyDBClusterSnapshot -Value Copy-RDSDBClusterSnapshot
 Set-Alias -Name RDS-CopyDBParameterGroup -Value Copy-RDSDBParameterGroup
 Set-Alias -Name RDS-CopyDBSnapshot -Value Copy-RDSDBSnapshot
 Set-Alias -Name RDS-CopyOptionGroup -Value Copy-RDSOptionGroup
-Set-Alias -Name Create-RDSCustomAvailabilityZone -Value New-RDSCustomAvailabilityZone
-Set-Alias -Name RDS-CreateCustomAvailabilityZone -Value New-RDSCustomAvailabilityZone
 Set-Alias -Name Create-RDSCustomDBEngineVersion -Value New-RDSCustomDBEngineVersion
 Set-Alias -Name RDS-CreateCustomDBEngineVersion -Value New-RDSCustomDBEngineVersion
 Set-Alias -Name Create-RDSDBCluster -Value New-RDSDBCluster
@@ -16823,8 +16821,6 @@ Set-Alias -Name Create-RDSGlobalCluster -Value New-RDSGlobalCluster
 Set-Alias -Name RDS-CreateGlobalCluster -Value New-RDSGlobalCluster
 Set-Alias -Name Create-RDSOptionGroup -Value New-RDSOptionGroup
 Set-Alias -Name RDS-CreateOptionGroup -Value New-RDSOptionGroup
-Set-Alias -Name Delete-RDSCustomAvailabilityZone -Value Remove-RDSCustomAvailabilityZone
-Set-Alias -Name RDS-DeleteCustomAvailabilityZone -Value Remove-RDSCustomAvailabilityZone
 Set-Alias -Name Delete-RDSCustomDBEngineVersion -Value Remove-RDSCustomDBEngineVersion
 Set-Alias -Name RDS-DeleteCustomDBEngineVersion -Value Remove-RDSCustomDBEngineVersion
 Set-Alias -Name Delete-RDSDBCluster -Value Remove-RDSDBCluster
@@ -16855,8 +16851,6 @@ Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name Delete-RDSGlobalCluster -Value Remove-RDSGlobalCluster
 Set-Alias -Name RDS-DeleteGlobalCluster -Value Remove-RDSGlobalCluster
-Set-Alias -Name Delete-RDSInstallationMedia -Value Remove-RDSInstallationMedia
-Set-Alias -Name RDS-DeleteInstallationMedia -Value Remove-RDSInstallationMedia
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Deregister-RDSDBProxyTargets -Value Unregister-RDSDBProxyTarget
@@ -16868,9 +16862,6 @@ Set-Alias -Name RDS-DescribeAccountAttributes -Value Get-RDSAccountAttribute
 Set-Alias -Name Describe-RDSCertificates -Value Get-RDSCertificate
 Set-Alias -Name Describe-RDSCertificate -Value Get-RDSCertificate
 Set-Alias -Name RDS-DescribeCertificates -Value Get-RDSCertificate
-Set-Alias -Name Describe-RDSCustomAvailabilityZones -Value Get-RDSCustomAvailabilityZone
-Set-Alias -Name Describe-RDSCustomAvailabilityZone -Value Get-RDSCustomAvailabilityZone
-Set-Alias -Name RDS-DescribeCustomAvailabilityZones -Value Get-RDSCustomAvailabilityZone
 Set-Alias -Name Describe-RDSDBClusterBacktracks -Value Get-RDSDBClusterBacktrackList
 Set-Alias -Name Describe-RDSDBClusterBacktrackList -Value Get-RDSDBClusterBacktrackList
 Set-Alias -Name RDS-DescribeDBClusterBacktracks -Value Get-RDSDBClusterBacktrackList
@@ -16955,8 +16946,6 @@ Set-Alias -Name RDS-DescribeExportTasks -Value Get-RDSExportTask
 Set-Alias -Name Describe-RDSGlobalClusters -Value Get-RDSGlobalCluster
 Set-Alias -Name Describe-RDSGlobalCluster -Value Get-RDSGlobalCluster
 Set-Alias -Name RDS-DescribeGlobalClusters -Value Get-RDSGlobalCluster
-Set-Alias -Name Describe-RDSInstallationMedia -Value Get-RDSInstallationMedia
-Set-Alias -Name RDS-DescribeInstallationMedia -Value Get-RDSInstallationMedia
 Set-Alias -Name Describe-RDSOptionGroupOptions -Value Get-RDSOptionGroupOption
 Set-Alias -Name Describe-RDSOptionGroupOption -Value Get-RDSOptionGroupOption
 Set-Alias -Name RDS-DescribeOptionGroupOptions -Value Get-RDSOptionGroupOption
@@ -16989,7 +16978,6 @@ Set-Alias -Name RDS-FailoverDBCluster -Value Start-RDSDBClusterFailover
 Set-Alias -Name Failover-RDSGlobalCluster -Value Start-RDSFailoverGlobalCluster
 Set-Alias -Name Failover-RDSFailoverGlobalCluster -Value Start-RDSFailoverGlobalCluster
 Set-Alias -Name RDS-FailoverGlobalCluster -Value Start-RDSFailoverGlobalCluster
-Set-Alias -Name RDS-ImportInstallationMedia -Value Import-RDSInstallationMedia
 Set-Alias -Name Get-RDSResourceTag -Value Get-RDSTagForResource
 Set-Alias -Name RDS-ListTagsForResource -Value Get-RDSTagForResource
 Set-Alias -Name Modify-RDSCertificates -Value Edit-RDSCertificate

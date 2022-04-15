@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// port to use, and the health check configuration.
     /// </para><para>
     /// You can deploy containers to your container service using container images from a
-    /// public registry like Docker Hub, or from your local machine. For more information,
+    /// public registry such as Amazon ECR Public, or from your local machine. For more information,
     /// see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating
     /// container images for your Amazon Lightsail container services</a> in the <i>Amazon
     /// Lightsail Developer Guide</i>.

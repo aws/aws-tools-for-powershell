@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AccessLogConfig_Destination
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket where the access is saved. The destination can be a Lightsail
+        /// <para>The name of the bucket where the access logs are saved. The destination can be a Lightsail
         /// bucket in the same account, and in the same AWS Region as the source bucket.</para><note><para>This parameter is required when enabling the access log for a bucket, and should be
         /// omitted when disabling the access log.</para></note>
         /// </para>

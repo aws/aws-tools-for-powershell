@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.253.0",
+    "ProductVersion" : "3.7.254.0",
     "CoreVersion"    : "3.7.10.8",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.10.26",
+            "Version" : "3.7.11.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.8"
@@ -618,7 +618,7 @@
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "3.7.5.20",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.8"
@@ -794,7 +794,7 @@
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "3.7.5.17",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.8"

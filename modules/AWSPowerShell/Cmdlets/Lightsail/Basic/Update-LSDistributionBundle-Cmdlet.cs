@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// A distribution bundle specifies the monthly network transfer quota and monthly cost
-    /// of your dsitribution.
+    /// of your distribution.
     /// </para><para>
     /// Update your distribution's bundle if your distribution is going over its monthly network
     /// transfer quota and is incurring an overage fee.

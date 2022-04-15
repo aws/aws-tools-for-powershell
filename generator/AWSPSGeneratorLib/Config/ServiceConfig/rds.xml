@@ -104,10 +104,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomAvailabilityZone" OutputProperty="CustomAvailabilityZone" Verb="New" Noun="CustomAvailabilityZone" ShouldProcessTarget="CustomAvailabilityZoneName" PipelineParameter="CustomAvailabilityZoneName" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -172,10 +168,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomAvailabilityZone" OutputProperty="CustomAvailabilityZone" Verb="Remove" Noun="CustomAvailabilityZone" ShouldProcessTarget="CustomAvailabilityZoneId" PipelineParameter="CustomAvailabilityZoneId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomDBEngineVersion" OutputProperty="*" Verb="Remove" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -236,10 +228,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstallationMedia" OutputProperty="*" Verb="Remove" Noun="InstallationMedia" ShouldProcessTarget="InstallationMediaId" PipelineParameter="InstallationMediaId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOptionGroup" Verb="Remove" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -253,10 +241,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSCertificates">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomAvailabilityZones" OutputProperty="CustomAvailabilityZones" Verb="Get" Noun="CustomAvailabilityZone" PipelineParameter="CustomAvailabilityZoneId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -379,10 +363,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstallationMedia" OutputProperty="InstallationMedia" Verb="Get" Noun="InstallationMedia" PipelineParameter="InstallationMediaId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOptionGroupOptions" OutputProperty="OptionGroupOptions" Verb="Get" Noun="OptionGroupOption" PositionalParameters="MajorEngineVersion" PipelineParameter="EngineName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -426,10 +406,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="FailoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Start" Noun="FailoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ImportInstallationMedia" OutputProperty="*" Verb="Import" Noun="InstallationMedia" ShouldProcessTarget="CustomAvailabilityZoneId" PipelineParameter="CustomAvailabilityZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

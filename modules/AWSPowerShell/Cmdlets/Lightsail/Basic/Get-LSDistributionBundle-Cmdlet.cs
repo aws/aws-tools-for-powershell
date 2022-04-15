@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// A distribution bundle specifies the monthly network transfer quota and monthly cost
-    /// of your dsitribution.
+    /// of your distribution.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LSDistributionBundle")]

@@ -72,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Availability Zone (AZ) where the database will be created. For information on
         /// Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>.</para><para><b>Amazon Aurora</b></para><para>Not applicable. Availability Zones are managed by the DB cluster.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
+        /// and Availability Zones</a>.</para><para><b>Amazon Aurora</b></para><para>Each Aurora DB cluster hosts copies of its storage in three separate Availability
+        /// Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate
+        /// Availability Zone if you don't specify one.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
         /// Region.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
         /// same Amazon Web Services Region as the current endpoint.</para><note><para>If you're creating a DB instance in an RDS on VMware environment, specify the identifier

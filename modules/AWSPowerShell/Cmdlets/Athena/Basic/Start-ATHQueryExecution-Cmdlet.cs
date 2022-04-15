@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>),
-        /// server-side encryption with KMS-managed keys (<code>SSE-KMS</code>), or client-side
-        /// encryption with KMS-managed keys (CSE-KMS) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>),
+        /// server-side encryption with KMS-managed keys (<code>SSE_KMS</code>), or client-side
+        /// encryption with KMS-managed keys (<code>CSE_KMS</code>) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
         /// the workgroup's setting for encryption is used. It specifies whether query results
         /// must be encrypted, for all queries that run in this workgroup. </para>
         /// </para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or ID.</para>
+        /// <para>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
