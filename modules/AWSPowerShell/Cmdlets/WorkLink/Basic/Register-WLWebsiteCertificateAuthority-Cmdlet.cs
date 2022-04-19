@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates
-    /// used by associated websites within the company network.
+    /// used by associated websites within the company network.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Register", "WLWebsiteCertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WorkLink.Model.AssociateWebsiteCertificateAuthorityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class RegisterWLWebsiteCertificateAuthorityCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

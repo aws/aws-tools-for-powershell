@@ -28,10 +28,12 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Generates a unique asymmetric data key pair. The <code>GenerateDataKeyPairWithoutPlaintext</code>
-    /// operation returns a plaintext public key and a copy of the private key that is encrypted
-    /// under the symmetric KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
-    /// does not return a plaintext private key. 
+    /// Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
+    /// a plaintext public key and a copy of the private key that is encrypted under the symmetric
+    /// encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
+    /// does not return a plaintext private key. The bytes in the keys are random; they are
+    /// not related to the caller or to the KMS key that is used to encrypt the private key.
+    /// 
     /// 
     ///  
     /// <para>
@@ -40,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key with the data. When you are ready to decrypt data or sign a message, you can use
     /// the <a>Decrypt</a> operation to decrypt the encrypted private key.
     /// </para><para>
-    /// To generate a data key pair, you must specify a symmetric KMS key to encrypt the private
-    /// key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a custom
-    /// key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a>
+    /// To generate a data key pair, you must specify a symmetric encryption KMS key to encrypt
+    /// the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS
+    /// key in a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a>
     /// operation. 
     /// </para><para>
     /// Use the <code>KeyPairSpec</code> parameter to choose an RSA or Elliptic Curve (ECC)
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// used to encrypt the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo,
     /// as specified in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.
     /// </para><para>
-    /// You can use the optional encryption context to add additional security to the encryption
+    /// You can use an optional encryption context to add additional security to the encryption
     /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
     /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
     /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
     /// <code>KeyId</code> parameter.
@@ -84,12 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the encryption context that will be used when encrypting the private key
-        /// in the data key pair.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// in the data key pair.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
-        /// the data. An encryption context is optional when encrypting with a symmetric KMS key,
-        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// the data. An encryption context is supported only on operations with symmetric encryption
+        /// KMS keys. On operations with symmetric encryption KMS keys, an encryption context
+        /// is optional, but it is strongly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// context</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,10 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Specifies the KMS key that encrypts the private key in the data key pair. You must
-        /// specify a symmetric KMS key. You cannot use an asymmetric KMS key or a KMS key in
-        /// a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a>
-        /// operation. </para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// <para>Specifies the symmetric encryption KMS key that encrypts the private key in the data
+        /// key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store.
+        /// To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>

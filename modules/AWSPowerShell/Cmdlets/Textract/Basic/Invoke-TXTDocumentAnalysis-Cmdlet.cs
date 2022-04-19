@@ -48,6 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// <code>Block</code> objects. All lines and words that are detected in the document
     /// are returned (including text that doesn't have a relationship with the value of <code>FeatureTypes</code>).
     /// 
+    /// </para></li><li><para>
+    /// Queries.A QUERIES_RESULT Block object contains the answer to the query, the alias
+    /// associated and an ID that connect it to the query asked. This Block also contains
+    /// a location and attached confidence score.
     /// </para></li></ul><para>
     /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
     /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
@@ -168,6 +172,17 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         public System.String S3Object_Name { get; set; }
         #endregion
         
+        #region Parameter QueriesConfig_Query
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueriesConfig_Queries")]
+        public Amazon.Textract.Model.Query[] QueriesConfig_Query { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Version
         /// <summary>
         /// <para>
@@ -240,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             }
             context.HumanLoopConfig_FlowDefinitionArn = this.HumanLoopConfig_FlowDefinitionArn;
             context.HumanLoopConfig_HumanLoopName = this.HumanLoopConfig_HumanLoopName;
+            if (this.QueriesConfig_Query != null)
+            {
+                context.QueriesConfig_Query = new List<Amazon.Textract.Model.Query>(this.QueriesConfig_Query);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -384,6 +403,25 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                     request.HumanLoopConfig = null;
                 }
                 
+                 // populate QueriesConfig
+                var requestQueriesConfigIsNull = true;
+                request.QueriesConfig = new Amazon.Textract.Model.QueriesConfig();
+                List<Amazon.Textract.Model.Query> requestQueriesConfig_queriesConfig_Query = null;
+                if (cmdletContext.QueriesConfig_Query != null)
+                {
+                    requestQueriesConfig_queriesConfig_Query = cmdletContext.QueriesConfig_Query;
+                }
+                if (requestQueriesConfig_queriesConfig_Query != null)
+                {
+                    request.QueriesConfig.Queries = requestQueriesConfig_queriesConfig_Query;
+                    requestQueriesConfigIsNull = false;
+                }
+                 // determine if request.QueriesConfig should be set to null
+                if (requestQueriesConfigIsNull)
+                {
+                    request.QueriesConfig = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -460,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             public List<System.String> DataAttributes_ContentClassifier { get; set; }
             public System.String HumanLoopConfig_FlowDefinitionArn { get; set; }
             public System.String HumanLoopConfig_HumanLoopName { get; set; }
+            public List<Amazon.Textract.Model.Query> QueriesConfig_Query { get; set; }
             public System.Func<Amazon.Textract.Model.AnalyzeDocumentResponse, InvokeTXTDocumentAnalysisCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Blocks;
         }

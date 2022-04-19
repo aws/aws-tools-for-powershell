@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Describes the device policy configuration for the specified fleet.
+    /// Describes the device policy configuration for the specified fleet.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLDevicePolicyConfiguration")]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WorkLink.Model.DescribeDevicePolicyConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLDevicePolicyConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

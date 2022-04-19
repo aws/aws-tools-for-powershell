@@ -27309,7 +27309,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
+            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GOOGLEDRIVE","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -28322,7 +28322,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.CustomerMasterKeySpec
         "New-KMSKey/CustomerMasterKeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -28368,14 +28368,24 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
             break
         }
 
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","SIGN_VERIFY"
+            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","SIGN_VERIFY"
+            break
+        }
+
+        # Amazon.KeyManagementService.MacAlgorithmSpec
+        {
+            ($_ -eq "New-KMSMac/MacAlgorithm") -Or
+            ($_ -eq "Test-KMSMac/MacAlgorithm")
+        }
+        {
+            $v = "HMAC_SHA_224","HMAC_SHA_256","HMAC_SHA_384","HMAC_SHA_512"
             break
         }
 
@@ -28429,6 +28439,7 @@ $KMS_map = @{
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
+    "MacAlgorithm"=@("New-KMSMac","Test-KMSMac")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
     "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
@@ -28509,6 +28520,7 @@ $KMS_SelectMap = @{
                "New-KMSDataKeyPair",
                "New-KMSDataKeyPairWithoutPlaintext",
                "New-KMSDataKeyWithoutPlaintext",
+               "New-KMSMac",
                "New-KMSRandom",
                "Get-KMSKeyPolicy",
                "Get-KMSKeyRotationStatus",
@@ -28534,7 +28546,8 @@ $KMS_SelectMap = @{
                "Update-KMSCustomKeyStore",
                "Update-KMSKeyDescription",
                "Update-KMSPrimaryRegion",
-               "Test-KMSSignature")
+               "Test-KMSSignature",
+               "Test-KMSMac")
 }
 
 _awsArgumentCompleterRegistration $KMS_SelectCompleters $KMS_SelectMap
@@ -36334,6 +36347,8 @@ $PERS_SelectMap = @{
                "Get-PERSSolutionList",
                "Get-PERSSolutionVersionList",
                "Get-PERSResourceTag",
+               "Start-PERSRecommender",
+               "Stop-PERSRecommender",
                "Stop-PERSSolutionVersionCreation",
                "Add-PERSResourceTag",
                "Remove-PERSResourceTag",
@@ -37281,7 +37296,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "arb","ca-ES","cmn-CN","cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            $v = "arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
             break
         }
 
@@ -37318,7 +37333,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -38944,6 +38959,13 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.LogDestinationType
+        "Enable-RSLogging/LogDestinationType"
+        {
+            $v = "cloudwatch","s3"
+            break
+        }
+
         # Amazon.Redshift.PartnerIntegrationStatus
         "Update-RSPartnerStatus/Status"
         {
@@ -39020,6 +39042,7 @@ $RS_map = @{
     "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
     "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
     "LimitType"=@("New-RSUsageLimit")
+    "LogDestinationType"=@("Enable-RSLogging")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
     "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")

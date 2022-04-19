@@ -283,6 +283,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String ScheduleExpression { get; set; }
         #endregion
         
+        #region Parameter ScheduleOffset
+        /// <summary>
+        /// <para>
+        /// <para>Number of days to wait after the scheduled day to run an association. For example,
+        /// if you specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could
+        /// specify an offset of 3 to run the association each Sunday after the second Thursday
+        /// of the month. For more information about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference:
+        /// Cron and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems
+        /// Manager User Guide</i>. </para><note><para>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter.
+        /// This option tells the system not to run an association immediately after you create
+        /// it. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScheduleOffset { get; set; }
+        #endregion
+        
         #region Parameter SyncCompliance
         /// <summary>
         /// <para>
@@ -430,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 }
             }
             context.ScheduleExpression = this.ScheduleExpression;
+            context.ScheduleOffset = this.ScheduleOffset;
             context.SyncCompliance = this.SyncCompliance;
             if (this.TargetLocation != null)
             {
@@ -561,6 +579,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ScheduleExpression = cmdletContext.ScheduleExpression;
             }
+            if (cmdletContext.ScheduleOffset != null)
+            {
+                request.ScheduleOffset = cmdletContext.ScheduleOffset.Value;
+            }
             if (cmdletContext.SyncCompliance != null)
             {
                 request.SyncCompliance = cmdletContext.SyncCompliance;
@@ -650,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String S3Location_OutputS3Region { get; set; }
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
             public System.String ScheduleExpression { get; set; }
+            public System.Int32? ScheduleOffset { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }

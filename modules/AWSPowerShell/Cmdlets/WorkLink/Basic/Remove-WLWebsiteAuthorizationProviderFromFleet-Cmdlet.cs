@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Disassociates a website authorization provider from a specified fleet. After the disassociation,
-    /// users can't load any associated websites that require this authorization provider.
+    /// users can't load any associated websites that require this authorization provider.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "WLWebsiteAuthorizationProviderFromFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.DisassociateWebsiteAuthorizationProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class RemoveWLWebsiteAuthorizationProviderFromFleetCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

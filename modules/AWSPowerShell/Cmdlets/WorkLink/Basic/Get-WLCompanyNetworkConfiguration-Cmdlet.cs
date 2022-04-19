@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Describes the networking configuration to access the internal websites associated
-    /// with the specified fleet.
+    /// with the specified fleet.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLCompanyNetworkConfiguration")]
     [OutputType("Amazon.WorkLink.Model.DescribeCompanyNetworkConfigurationResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeCompanyNetworkConfigurationResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeCompanyNetworkConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLCompanyNetworkConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

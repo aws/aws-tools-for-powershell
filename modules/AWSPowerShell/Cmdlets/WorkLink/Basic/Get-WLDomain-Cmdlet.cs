@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Provides information about the domain.
+    /// Provides information about the domain.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLDomain")]
     [OutputType("Amazon.WorkLink.Model.DescribeDomainResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeDomainResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLDomainCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

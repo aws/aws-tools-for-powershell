@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     /// <summary>
     /// Adds or overwrites one or more tags for the specified resource, such as a fleet. Each
     /// tag consists of a key and an optional value. If a resource already has a tag with
-    /// the same key, this operation updates its value.
+    /// the same key, this operation updates its value.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "WLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class AddWLResourceTagCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

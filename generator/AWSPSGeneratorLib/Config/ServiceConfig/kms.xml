@@ -117,6 +117,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyId" PipelineParameter="Message" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GenerateRandom" OutputProperty="Plaintext" Verb="New" Noun="Random" AnonymousShouldProcessTarget="true" PipelineParameter="NumberOfBytes" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfBytes" AutoRename="false" />
@@ -220,6 +224,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Verify" OutputProperty="SignatureValid" Verb="Test" Noun="Signature" PipelineParameter="Message" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

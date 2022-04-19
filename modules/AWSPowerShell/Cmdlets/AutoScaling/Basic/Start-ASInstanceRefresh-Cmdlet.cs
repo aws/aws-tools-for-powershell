@@ -107,10 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_InstanceWarmup
         /// <summary>
         /// <para>
-        /// <para>The number of seconds until a newly launched instance is configured and ready to use.
-        /// During this time, Amazon EC2 Auto Scaling does not immediately move on to the next
-        /// replacement. The default is to use the value for the health check grace period defined
-        /// for the group.</para>
+        /// <para><i>Not needed if the default instance warmup is defined for the group.</i></para><para>The duration of the instance warmup, in seconds.</para><note><para>The default is to use the value for the default instance warmup defined for the group.
+        /// If default instance warmup is null, then <code>InstanceWarmup</code> falls back to
+        /// the value of the health check grace period.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_MinHealthyPercentage
         /// <summary>
         /// <para>
-        /// <para>The amount of capacity in the Auto Scaling group that must remain healthy during an
-        /// instance refresh to allow the operation to continue. The value is expressed as a percentage
+        /// <para>The amount of capacity in the Auto Scaling group that must pass your group's health
+        /// checks to allow the operation to continue. The value is expressed as a percentage
         /// of the desired capacity of the Auto Scaling group (rounded up to the nearest integer).
         /// The default is <code>90</code>.</para><para>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
         /// to one instance at a time. In contrast, setting it to 0 percent has the effect of

@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Removes one or more tags from the specified resource.
+    /// Removes one or more tags from the specified resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "WLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class RemoveWLResourceTagCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

@@ -89,11 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Cooldown
         /// <summary>
         /// <para>
-        /// <para>The duration of the policy's cooldown period, in seconds. When a cooldown period is
-        /// specified here, it overrides the default cooldown period defined for the Auto Scaling
-        /// group.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
+        /// <para>A cooldown period, in seconds, that applies to a specific simple scaling policy. When
+        /// a cooldown period is specified here, it overrides the default cooldown.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,9 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter EstimatedInstanceWarmup
         /// <summary>
         /// <para>
-        /// <para>The estimated time, in seconds, until a newly launched instance can contribute to
-        /// the CloudWatch metrics. If not provided, the default is to use the value from the
-        /// default cooldown period for the Auto Scaling group.</para><para>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</para>
+        /// <para><i>Not needed if the default instance warmup is defined for the group.</i></para><para>The estimated time, in seconds, until a newly launched instance can contribute to
+        /// the CloudWatch metrics. This warm-up period applies to instances launched due to a
+        /// specific target tracking or step scaling policy. When a warm-up period is specified
+        /// here, it overrides the default instance warmup.</para><para>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</para><note><para>The default is to use the value for the default instance warmup defined for the group.
+        /// If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls
+        /// back to the value of default cooldown.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,10 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The metric type. The following predefined metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
-        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received (per instance
-        /// per minute) for the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out (per instance
-        /// per minute) for the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request
-        /// count (per target per minute) for your Auto Scaling group.</para></li></ul>
+        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request
+        /// count per target for your Auto Scaling group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

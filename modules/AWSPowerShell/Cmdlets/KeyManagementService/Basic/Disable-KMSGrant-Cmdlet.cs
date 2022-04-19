@@ -37,13 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <para>
     /// This operation can be called by the <i>retiring principal</i> for a grant, by the
     /// <i>grantee principal</i> if the grant allows the <code>RetireGrant</code> operation,
-    /// and by the Amazon Web Services account (root user) in which the grant is created.
-    /// It can also be called by principals to whom permission for retiring a grant is delegated.
-    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring
+    /// and by the Amazon Web Services account in which the grant is created. It can also
+    /// be called by principals to whom permission for retiring a grant is delegated. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring
     /// and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
-    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
+    /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><para><b>Cross-account use</b>: Yes. You can retire a grant on a KMS key in a different

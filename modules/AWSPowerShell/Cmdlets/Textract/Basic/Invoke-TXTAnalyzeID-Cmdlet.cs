@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// <summary>
     /// Analyzes identity documents for relevant information. This information is extracted
     /// and returned as <code>IdentityDocumentFields</code>, which records both the normalized
-    /// field and value of the extracted text.
+    /// field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code>
+    /// doesn't return any Geometry data.
     /// </summary>
     [Cmdlet("Invoke", "TXTAnalyzeID", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Textract.Model.AnalyzeIDResponse")]

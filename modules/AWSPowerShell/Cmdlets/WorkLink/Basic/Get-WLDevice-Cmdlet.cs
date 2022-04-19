@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Provides information about a user's device.
+    /// Provides information about a user's device.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLDevice")]
     [OutputType("Amazon.WorkLink.Model.DescribeDeviceResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeDeviceResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeDeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLDeviceCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

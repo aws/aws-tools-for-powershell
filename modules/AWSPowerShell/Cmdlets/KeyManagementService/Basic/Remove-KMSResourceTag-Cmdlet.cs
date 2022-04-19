@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  <note><para>
     /// Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
-    /// ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
+    /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
     /// When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
     /// Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UntagResource</a>

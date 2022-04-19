@@ -22,44 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KeyManagementService;
-using Amazon.KeyManagementService.Model;
+using Amazon.Personalize;
+using Amazon.Personalize.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KMS
+namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Sets the state of a KMS key to disabled. This change temporarily prevents use of the
-    /// KMS key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-    /// operations</a>. 
-    /// 
-    ///  
-    /// <para>
-    /// For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// states of KMS keys</a> in the <i><i>Key Management Service Developer Guide</i></i>.
-    /// </para><para>
-    /// The KMS key that you use for this operation must be in a compatible key state. For
-    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
-    /// different Amazon Web Services account.
-    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisableKey</a>
-    /// (key policy)
-    /// </para><para><b>Related operations</b>: <a>EnableKey</a></para>
+    /// Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic
+    /// retraining for the recommender.
     /// </summary>
-    [Cmdlet("Disable", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Key Management Service DisableKey API operation.", Operation = new[] {"DisableKey"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DisableKeyResponse))]
-    [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DisableKeyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DisableKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "PERSRecommender", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Personalize StopRecommender API operation.", Operation = new[] {"StopRecommender"}, SelectReturnType = typeof(Amazon.Personalize.Model.StopRecommenderResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Personalize.Model.StopRecommenderResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Personalize.Model.StopRecommenderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class StopPERSRecommenderCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
-        #region Parameter KeyId
+        #region Parameter RecommenderArn
         /// <summary>
         /// <para>
-        /// <para>Identifies the KMS key to disable.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the recommender to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,25 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyId { get; set; }
+        public System.String RecommenderArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.DisableKeyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecommenderArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.StopRecommenderResponse).
+        /// Specifying the name of a property of type Amazon.Personalize.Model.StopRecommenderResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "RecommenderArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RecommenderArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RecommenderArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RecommenderArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-KMSKey (DisableKey)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommenderArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-PERSRecommender (StopRecommender)"))
             {
                 return;
             }
@@ -121,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.DisableKeyResponse, DisableKMSKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.StopRecommenderResponse, StopPERSRecommenderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,14 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyId;
+                context.Select = (response, cmdlet) => this.RecommenderArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyId = this.KeyId;
+            context.RecommenderArn = this.RecommenderArn;
             #if MODULAR
-            if (this.KeyId == null && ParameterWasBound(nameof(this.KeyId)))
+            if (this.RecommenderArn == null && ParameterWasBound(nameof(this.RecommenderArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecommenderArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KeyManagementService.Model.DisableKeyRequest();
+            var request = new Amazon.Personalize.Model.StopRecommenderRequest();
             
-            if (cmdletContext.KeyId != null)
+            if (cmdletContext.RecommenderArn != null)
             {
-                request.KeyId = cmdletContext.KeyId;
+                request.RecommenderArn = cmdletContext.RecommenderArn;
             }
             
             CmdletOutput output;
@@ -193,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private Amazon.KeyManagementService.Model.DisableKeyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.DisableKeyRequest request)
+        private Amazon.Personalize.Model.StopRecommenderResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.StopRecommenderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "DisableKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "StopRecommender");
             try
             {
                 #if DESKTOP
-                return client.DisableKey(request);
+                return client.StopRecommender(request);
                 #elif CORECLR
-                return client.DisableKeyAsync(request).GetAwaiter().GetResult();
+                return client.StopRecommenderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyId { get; set; }
-            public System.Func<Amazon.KeyManagementService.Model.DisableKeyResponse, DisableKMSKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String RecommenderArn { get; set; }
+            public System.Func<Amazon.Personalize.Model.StopRecommenderResponse, StopPERSRecommenderCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RecommenderArn;
         }
         
     }

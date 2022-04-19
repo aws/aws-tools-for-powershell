@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// is set to <i>LOGICAL</i>.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example.</para><para><code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code></para><para>In most cases, you can use this value instead of the session policy to lock your user
         /// down to the designated home directory ("<code>chroot</code>"). To do this, you can
         /// set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
-        /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para>
+        /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

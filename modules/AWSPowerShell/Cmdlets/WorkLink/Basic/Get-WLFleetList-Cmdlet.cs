@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Retrieves a list of fleets for the current account and Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of fleets for the current account and Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLFleetList")]
     [OutputType("Amazon.WorkLink.Model.FleetSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a collection of Amazon.WorkLink.Model.FleetSummary objects.",
         "The service call response (type Amazon.WorkLink.Model.ListFleetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLFleetListCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

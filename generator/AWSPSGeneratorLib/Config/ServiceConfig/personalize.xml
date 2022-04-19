@@ -231,6 +231,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartRecommender" OutputProperty="RecommenderArn" Verb="Start" Noun="Recommender" ShouldProcessTarget="RecommenderArn" PipelineParameter="RecommenderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRecommender" OutputProperty="RecommenderArn" Verb="Stop" Noun="Recommender" ShouldProcessTarget="RecommenderArn" PipelineParameter="RecommenderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopSolutionVersionCreation" Verb="Stop" Noun="SolutionVersionCreation" ShouldProcessTarget="SolutionVersionArn" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

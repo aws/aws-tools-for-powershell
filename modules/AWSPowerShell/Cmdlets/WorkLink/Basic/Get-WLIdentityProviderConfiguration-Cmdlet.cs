@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Describes the identity provider configuration of the specified fleet.
+    /// Describes the identity provider configuration of the specified fleet.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLIdentityProviderConfiguration")]
     [OutputType("Amazon.WorkLink.Model.DescribeIdentityProviderConfigurationResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeIdentityProviderConfigurationResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeIdentityProviderConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLIdentityProviderConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

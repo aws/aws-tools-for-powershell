@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Provides basic information for the specified fleet, excluding identity provider, networking,
-    /// and device configuration details.
+    /// and device configuration details.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLFleetMetadata")]
     [OutputType("Amazon.WorkLink.Model.DescribeFleetMetadataResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeFleetMetadataResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeFleetMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLFleetMetadataCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

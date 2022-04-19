@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Moves a domain to INACTIVE status if it was in the ACTIVE status.
+    /// Moves a domain to INACTIVE status if it was in the ACTIVE status.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Revoke", "WLDomainAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.RevokeDomainAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class RevokeWLDomainAccessCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

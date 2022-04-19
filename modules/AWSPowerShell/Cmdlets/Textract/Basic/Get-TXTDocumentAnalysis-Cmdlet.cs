@@ -57,6 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// <code>Block</code> objects. All lines and words that are detected in the document
     /// are returned (including text that doesn't have a relationship with the value of the
     /// <code>StartDocumentAnalysis</code><code>FeatureTypes</code> input parameter). 
+    /// </para></li><li><para>
+    /// Queries. A QUERIES_RESULT Block object contains the answer to the query, the alias
+    /// associated and an ID that connect it to the query asked. This Block also contains
+    /// a location and attached confidence score
     /// </para></li></ul><para>
     /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
     /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains

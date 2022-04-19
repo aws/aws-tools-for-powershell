@@ -1,4 +1,24 @@
-﻿### 4.1.66 (2022-04-15 20:12Z)
+﻿### 4.1.67 (2022-04-19 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.255.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter DefaultInstanceWarmup.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter DefaultInstanceWarmup.
+  * Amazon Key Management Service
+    * Added cmdlet New-KMSMac leveraging the GenerateMac service API.
+    * Added cmdlet Test-KMSMac leveraging the VerifyMac service API.
+  * Amazon Personalize
+    * Added cmdlet Start-PERSRecommender leveraging the StartRecommender service API.
+    * Added cmdlet Stop-PERSRecommender leveraging the StopRecommender service API.
+  * Amazon Redshift
+    * Modified cmdlet Enable-RSLogging: added parameters LogDestinationType and LogExport.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter ScheduleOffset.
+    * Modified cmdlet Update-SSMAssociation: added parameter ScheduleOffset.
+  * Amazon Textract
+    * Modified cmdlet Invoke-TXTDocumentAnalysis: added parameter QueriesConfig_Query.
+    * Modified cmdlet Start-TXTDocumentAnalysis: added parameter QueriesConfig_Query.
+
+### 4.1.66 (2022-04-15 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.254.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * RDS
     * [Breaking Change] Removed cmdlets Get-RDSCustomAvailabilityZone, Get-RDSInstallationMedia, Import-RDSInstallationMedia, New-RDSCustomAvailabilityZone, Remove-RDSCustomAvailabilityZone and Remove-RDSInstallationMedia.

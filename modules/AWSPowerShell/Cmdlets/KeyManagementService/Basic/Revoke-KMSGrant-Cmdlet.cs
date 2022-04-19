@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual
     /// consistency</a> in the <i><i>Key Management Service Developer Guide</i></i>. 
     /// </para><para>
-    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
-    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
+    /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different

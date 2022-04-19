@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Signs the user out from all of their devices. The user can sign in again if they have
-    /// valid credentials.
+    /// valid credentials.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Disconnect", "WLUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.SignOutUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class DisconnectWLUserCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

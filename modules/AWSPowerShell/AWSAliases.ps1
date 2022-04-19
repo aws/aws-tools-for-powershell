@@ -12562,6 +12562,8 @@ Set-Alias -Name Generate-KMSDataKeyPairWithoutPlaintext -Value New-KMSDataKeyPai
 Set-Alias -Name KMS-GenerateDataKeyPairWithoutPlaintext -Value New-KMSDataKeyPairWithoutPlaintext
 Set-Alias -Name Generate-KMSDataKeyWithoutPlaintext -Value New-KMSDataKeyWithoutPlaintext
 Set-Alias -Name KMS-GenerateDataKeyWithoutPlaintext -Value New-KMSDataKeyWithoutPlaintext
+Set-Alias -Name Generate-KMSMac -Value New-KMSMac
+Set-Alias -Name KMS-GenerateMac -Value New-KMSMac
 Set-Alias -Name Generate-KMSRandom -Value New-KMSRandom
 Set-Alias -Name KMS-GenerateRandom -Value New-KMSRandom
 Set-Alias -Name KMS-GetKeyPolicy -Value Get-KMSKeyPolicy
@@ -12612,6 +12614,8 @@ Set-Alias -Name KMS-UpdatePrimaryRegion -Value Update-KMSPrimaryRegion
 Set-Alias -Name Verify-KMS -Value Test-KMSSignature
 Set-Alias -Name Verify-KMSSignature -Value Test-KMSSignature
 Set-Alias -Name KMS-Verify -Value Test-KMSSignature
+Set-Alias -Name Verify-KMSMac -Value Test-KMSMac
+Set-Alias -Name KMS-VerifyMac -Value Test-KMSMac
 Set-Alias -Name LKF-AddLFTagsToResource -Value Add-LKFLFTagsToResource
 Set-Alias -Name Batch-LKFGrantPermissions -Value Grant-LKFPermissionBatch
 Set-Alias -Name Batch-LKFPermissionBatch -Value Grant-LKFPermissionBatch
@@ -15826,6 +15830,8 @@ Set-Alias -Name List-PERSSolutionVersions -Value Get-PERSSolutionVersionList
 Set-Alias -Name List-PERSSolutionVersionList -Value Get-PERSSolutionVersionList
 Set-Alias -Name PERS-ListSolutionVersions -Value Get-PERSSolutionVersionList
 Set-Alias -Name PERS-ListTagsForResource -Value Get-PERSResourceTag
+Set-Alias -Name PERS-StartRecommender -Value Start-PERSRecommender
+Set-Alias -Name PERS-StopRecommender -Value Stop-PERSRecommender
 Set-Alias -Name PERS-StopSolutionVersionCreation -Value Stop-PERSSolutionVersionCreation
 Set-Alias -Name PERS-TagResource -Value Add-PERSResourceTag
 Set-Alias -Name PERS-UntagResource -Value Remove-PERSResourceTag

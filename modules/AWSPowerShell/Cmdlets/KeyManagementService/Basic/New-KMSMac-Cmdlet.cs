@@ -28,61 +28,37 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital signature</a>
-    /// for a message or message digest by using the private key in an asymmetric signing
-    /// KMS key. To verify the signature, use the <a>Verify</a> operation, or use the public
-    /// key in the same asymmetric KMS key outside of KMS. For information about asymmetric
-    /// KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
-    /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
+    /// Generates a hash-based message authentication code (HMAC) for a message using an HMAC
+    /// KMS key and a MAC algorithm that the key supports. The MAC algorithm computes the
+    /// HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC
+    /// 2104</a>.
     /// 
     ///  
     /// <para>
-    /// Digital signatures are generated and verified by using asymmetric key pair, such as
-    /// an RSA or ECC pair that is represented by an asymmetric KMS key. The key owner (or
-    /// an authorized user) uses their private key to sign a message. Anyone with the public
-    /// key can verify that the message was signed with that particular private key and that
-    /// the message hasn't changed since it was signed. 
-    /// </para><para>
-    /// To use the <code>Sign</code> operation, provide the following information:
-    /// </para><ul><li><para>
-    /// Use the <code>KeyId</code> parameter to identify an asymmetric KMS key with a <code>KeyUsage</code>
-    /// value of <code>SIGN_VERIFY</code>. To get the <code>KeyUsage</code> value of a KMS
-    /// key, use the <a>DescribeKey</a> operation. The caller must have <code>kms:Sign</code>
-    /// permission on the KMS key.
-    /// </para></li><li><para>
-    /// Use the <code>Message</code> parameter to specify the message or message digest to
-    /// sign. You can submit messages of up to 4096 bytes. To sign a larger message, generate
-    /// a hash digest of the message, and then provide the hash digest in the <code>Message</code>
-    /// parameter. To indicate whether the message is a full message or a digest, use the
-    /// <code>MessageType</code> parameter.
-    /// </para></li><li><para>
-    /// Choose a signing algorithm that is compatible with the KMS key. 
-    /// </para></li></ul><important><para>
-    /// When signing a message, be sure to record the KMS key and the signing algorithm. This
-    /// information is required to verify the signature.
-    /// </para></important><para>
-    /// To verify the signature that this operation generates, use the <a>Verify</a> operation.
-    /// Or use the <a>GetPublicKey</a> operation to download the public key and then use the
-    /// public key to verify the signature outside of KMS. 
+    /// You can use the HMAC that this operation generates with the <a>VerifyMac</a> operation
+    /// to demonstrate that the original message has not changed. Also, because a secret key
+    /// is used to create the hash, you can verify that the party that generated the hash
+    /// has the required secret key. This operation is part of KMS support for HMAC KMS keys.
+    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
+    /// keys in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>.
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter.
-    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Sign</a>
+    /// <code>KeyId</code> parameter. 
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateMac</a>
     /// (key policy)
-    /// </para><para><b>Related operations</b>: <a>Verify</a></para>
+    /// </para><para><b>Related operations</b>: <a>VerifyMac</a></para>
     /// </summary>
-    [Cmdlet("Invoke", "KMSSigning", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.IO.MemoryStream")]
-    [AWSCmdlet("Calls the AWS Key Management Service Sign API operation.", Operation = new[] {"Sign"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.SignResponse))]
-    [AWSCmdletOutput("System.IO.MemoryStream or Amazon.KeyManagementService.Model.SignResponse",
-        "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.KeyManagementService.Model.SignResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "KMSMac", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.KeyManagementService.Model.GenerateMacResponse")]
+    [AWSCmdlet("Calls the AWS Key Management Service GenerateMac API operation.", Operation = new[] {"GenerateMac"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.GenerateMacResponse))]
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateMacResponse",
+        "This cmdlet returns an Amazon.KeyManagementService.Model.GenerateMacResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class InvokeKMSSigningCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class NewKMSMacCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter GrantToken
@@ -102,12 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key
-        /// to sign the message. The <code>KeyUsage</code> type of the KMS key must be <code>SIGN_VERIFY</code>.
-        /// To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
-        /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
-        /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
+        /// <para>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for
+        /// the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC
+        /// 2104</a>.</para><para>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <code>KeySpec</code>
+        /// field in the response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,12 +95,31 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.String KeyId { get; set; }
         #endregion
         
+        #region Parameter MacAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The MAC algorithm used in the operation.</para><para> The algorithm must be compatible with the HMAC KMS key that you specify. To find
+        /// the MAC algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
+        /// and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.KeyManagementService.MacAlgorithmSpec")]
+        public Amazon.KeyManagementService.MacAlgorithmSpec MacAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To
-        /// sign a larger message, provide the message digest.</para><para>If you provide a message, KMS generates a hash digest of the message and then signs
-        /// it.</para>
+        /// <para>The message to be hashed. Specify a message of up to 4,096 bytes. </para><para><code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling for
+        /// message digests. If you generate an HMAC for a hash digest of a message, you must
+        /// verify the HMAC of the same hash digest.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -141,46 +134,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public byte[] Message { get; set; }
         #endregion
         
-        #region Parameter MessageType
-        /// <summary>
-        /// <para>
-        /// <para>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-        /// message digest. The default value, RAW, indicates a message. To indicate a message
-        /// digest, enter <code>DIGEST</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.KeyManagementService.MessageType")]
-        public Amazon.KeyManagementService.MessageType MessageType { get; set; }
-        #endregion
-        
-        #region Parameter SigningAlgorithm
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the signing algorithm to use when signing the message. </para><para>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-        /// KMS key.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.KeyManagementService.SigningAlgorithmSpec")]
-        public Amazon.KeyManagementService.SigningAlgorithmSpec SigningAlgorithm { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Signature'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.SignResponse).
-        /// Specifying the name of a property of type Amazon.KeyManagementService.Model.SignResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.GenerateMacResponse).
+        /// Specifying the name of a property of type Amazon.KeyManagementService.Model.GenerateMacResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Signature";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -207,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-KMSSigning (Sign)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-KMSMac (GenerateMac)"))
             {
                 return;
             }
@@ -221,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.SignResponse, InvokeKMSSigningCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.GenerateMacResponse, NewKMSMacCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -244,19 +206,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 WriteWarning("You are passing $null as a value for parameter KeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MacAlgorithm = this.MacAlgorithm;
+            #if MODULAR
+            if (this.MacAlgorithm == null && ParameterWasBound(nameof(this.MacAlgorithm)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MacAlgorithm which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Message = this.Message;
             #if MODULAR
             if (this.Message == null && ParameterWasBound(nameof(this.Message)))
             {
                 WriteWarning("You are passing $null as a value for parameter Message which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.MessageType = this.MessageType;
-            context.SigningAlgorithm = this.SigningAlgorithm;
-            #if MODULAR
-            if (this.SigningAlgorithm == null && ParameterWasBound(nameof(this.SigningAlgorithm)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SigningAlgorithm which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -277,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
-                var request = new Amazon.KeyManagementService.Model.SignRequest();
+                var request = new Amazon.KeyManagementService.Model.GenerateMacRequest();
                 
                 if (cmdletContext.GrantToken != null)
                 {
@@ -287,18 +248,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 {
                     request.KeyId = cmdletContext.KeyId;
                 }
+                if (cmdletContext.MacAlgorithm != null)
+                {
+                    request.MacAlgorithm = cmdletContext.MacAlgorithm;
+                }
                 if (cmdletContext.Message != null)
                 {
                     _MessageStream = new System.IO.MemoryStream(cmdletContext.Message);
                     request.Message = _MessageStream;
-                }
-                if (cmdletContext.MessageType != null)
-                {
-                    request.MessageType = cmdletContext.MessageType;
-                }
-                if (cmdletContext.SigningAlgorithm != null)
-                {
-                    request.SigningAlgorithm = cmdletContext.SigningAlgorithm;
                 }
                 
                 CmdletOutput output;
@@ -341,15 +298,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private Amazon.KeyManagementService.Model.SignResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.SignRequest request)
+        private Amazon.KeyManagementService.Model.GenerateMacResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateMacRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "Sign");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GenerateMac");
             try
             {
                 #if DESKTOP
-                return client.Sign(request);
+                return client.GenerateMac(request);
                 #elif CORECLR
-                return client.SignAsync(request).GetAwaiter().GetResult();
+                return client.GenerateMacAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -371,11 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }
+            public Amazon.KeyManagementService.MacAlgorithmSpec MacAlgorithm { get; set; }
             public byte[] Message { get; set; }
-            public Amazon.KeyManagementService.MessageType MessageType { get; set; }
-            public Amazon.KeyManagementService.SigningAlgorithmSpec SigningAlgorithm { get; set; }
-            public System.Func<Amazon.KeyManagementService.Model.SignResponse, InvokeKMSSigningCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Signature;
+            public System.Func<Amazon.KeyManagementService.Model.GenerateMacResponse, NewKMSMacCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

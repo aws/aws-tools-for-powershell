@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Provides information about the certificate authority.
+    /// Provides information about the certificate authority.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLWebsiteCertificateAuthority")]
     [OutputType("Amazon.WorkLink.Model.DescribeWebsiteCertificateAuthorityResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     [AWSCmdletOutput("Amazon.WorkLink.Model.DescribeWebsiteCertificateAuthorityResponse",
         "This cmdlet returns an Amazon.WorkLink.Model.DescribeWebsiteCertificateAuthorityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLWebsiteCertificateAuthorityCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

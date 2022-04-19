@@ -112,6 +112,13 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.LogDestinationType
+        "Enable-RSLogging/LogDestinationType"
+        {
+            $v = "cloudwatch","s3"
+            break
+        }
+
         # Amazon.Redshift.PartnerIntegrationStatus
         "Update-RSPartnerStatus/Status"
         {
@@ -188,6 +195,7 @@ $RS_map = @{
     "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
     "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
     "LimitType"=@("New-RSUsageLimit")
+    "LogDestinationType"=@("Enable-RSLogging")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
     "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")

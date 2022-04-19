@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Retrieves a list of tags for the specified resource.
+    /// Retrieves a list of tags for the specified resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "WLResourceTag")]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.WorkLink.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class GetWLResourceTagCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// used for temporary permissions because you can create one, use its permissions, and
     /// delete it without changing your key policies or IAM policies. 
     /// </para><para>
-    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
-    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
+    /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li></ul><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
     /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
     /// parameter. 
@@ -183,8 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>A list of operations that the grant permits. </para><para>The operation must be supported on the KMS key. For example, you cannot create a grant
-        /// for a symmetric KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric
+        /// <para>A list of operations that the grant permits. </para><para>This list must include only operations that are permitted in a grant. Also, the operation
+        /// must be supported on the KMS key. For example, you cannot create a grant for a symmetric
+        /// encryption KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric
         /// KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns
         /// a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
         /// operations</a> in the <i>Key Management Service Developer Guide</i>.</para>

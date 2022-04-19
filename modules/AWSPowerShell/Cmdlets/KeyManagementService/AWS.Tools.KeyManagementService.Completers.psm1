@@ -90,7 +90,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.CustomerMasterKeySpec
         "New-KMSKey/CustomerMasterKeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -136,14 +136,24 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
             break
         }
 
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","SIGN_VERIFY"
+            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","SIGN_VERIFY"
+            break
+        }
+
+        # Amazon.KeyManagementService.MacAlgorithmSpec
+        {
+            ($_ -eq "New-KMSMac/MacAlgorithm") -Or
+            ($_ -eq "Test-KMSMac/MacAlgorithm")
+        }
+        {
+            $v = "HMAC_SHA_224","HMAC_SHA_256","HMAC_SHA_384","HMAC_SHA_512"
             break
         }
 
@@ -197,6 +207,7 @@ $KMS_map = @{
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
+    "MacAlgorithm"=@("New-KMSMac","Test-KMSMac")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
     "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
@@ -277,6 +288,7 @@ $KMS_SelectMap = @{
                "New-KMSDataKeyPair",
                "New-KMSDataKeyPairWithoutPlaintext",
                "New-KMSDataKeyWithoutPlaintext",
+               "New-KMSMac",
                "New-KMSRandom",
                "Get-KMSKeyPolicy",
                "Get-KMSKeyRotationStatus",
@@ -302,7 +314,8 @@ $KMS_SelectMap = @{
                "Update-KMSCustomKeyStore",
                "Update-KMSKeyDescription",
                "Update-KMSPrimaryRegion",
-               "Test-KMSSignature")
+               "Test-KMSSignature",
+               "Test-KMSMac")
 }
 
 _awsArgumentCompleterRegistration $KMS_SelectCompleters $KMS_SelectMap

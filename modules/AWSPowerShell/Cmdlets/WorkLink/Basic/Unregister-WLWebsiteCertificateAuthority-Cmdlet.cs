@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Removes a certificate authority (CA).
+    /// Removes a certificate authority (CA).<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Unregister", "WLWebsiteCertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.DisassociateWebsiteCertificateAuthorityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class UnregisterWLWebsiteCertificateAuthorityCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

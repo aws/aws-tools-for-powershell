@@ -238,6 +238,8 @@ $PERS_SelectMap = @{
                "Get-PERSSolutionList",
                "Get-PERSSolutionVersionList",
                "Get-PERSResourceTag",
+               "Start-PERSRecommender",
+               "Stop-PERSRecommender",
                "Stop-PERSSolutionVersionCreation",
                "Add-PERSResourceTag",
                "Remove-PERSResourceTag",

@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>Enables support for restoring an unencrypted snapshot to a cluster encrypted with
-        /// Key Management Service (KMS) and a CMK.</para>
+        /// Key Management Service (KMS) and a customer managed key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,9 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key ID of the encryption key to encrypt data in the
-        /// cluster restored from a shared snapshot. You can also provide the key ID when you
-        /// restore from an unencrypted snapshot to an encrypted cluster in the same account.
+        /// <para>The Key Management Service (KMS) key ID of the encryption key that encrypts data in
+        /// the cluster restored from a shared snapshot. You can also provide the key ID when
+        /// you restore from an unencrypted snapshot to an encrypted cluster in the same account.
         /// Additionally, you can specify a new KMS key ID when you restore from an encrypted
         /// snapshot in the same account in order to change it. In that case, the restored cluster
         /// is encrypted with the new KMS key ID.</para>

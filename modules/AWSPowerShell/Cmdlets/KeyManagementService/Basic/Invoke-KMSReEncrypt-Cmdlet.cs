@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  
     /// <para>
     /// The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by
-    /// using an KMS KMS key in an KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>.
+    /// using a KMS key in an KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>.
     /// It can also decrypt ciphertext that was encrypted by using the public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric
     /// KMS key</a> outside of KMS. However, it cannot decrypt ciphertext produced by other
     /// libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the encryption algorithm that was used. This information is required to decrypt the
     /// data.
     /// </para></li><li><para>
-    /// If your ciphertext was encrypted under a symmetric KMS key, the <code>SourceKeyId</code>
+    /// If your ciphertext was encrypted under a symmetric encryption KMS key, the <code>SourceKeyId</code>
     /// parameter is optional. KMS can get this information from metadata that it adds to
     /// the symmetric ciphertext blob. This feature adds durability to your implementation
     /// by ensuring that authorized users can decrypt ciphertext decades after it was encrypted,
@@ -64,10 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// practice ensures that you use the KMS key that you intend.
     /// </para></li><li><para>
     /// To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter specify
-    /// the KMS key that re-encrypts the data after it is decrypted. You can select a symmetric
-    /// or asymmetric KMS key. If the destination KMS key is an asymmetric KMS key, you must
-    /// also provide the encryption algorithm. The algorithm that you choose must be compatible
-    /// with the KMS key.
+    /// the KMS key that re-encrypts the data after it is decrypted. If the destination KMS
+    /// key is an asymmetric KMS key, you must also provide the encryption algorithm. The
+    /// algorithm that you choose must be compatible with the KMS key.
     /// </para><important><para>
     /// When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record
     /// the KMS key and encryption algorithm that you choose. You will be required to provide
@@ -76,13 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// fails.
     /// </para><para>
     /// You are not required to supply the key ID and encryption algorithm when you decrypt
-    /// with symmetric KMS keys because KMS stores this information in the ciphertext blob.
-    /// KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard
-    /// format for asymmetric key ciphertext does not include configurable fields.
+    /// with symmetric encryption KMS keys because KMS stores this information in the ciphertext
+    /// blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The
+    /// standard format for asymmetric key ciphertext does not include configurable fields.
     /// </para></important></li></ul><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. The source KMS key and destination KMS key can be
     /// in different Amazon Web Services accounts. Either or both KMS keys can be in a different
     /// account than the caller. To specify a KMS key in a different account, you must use
@@ -133,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the encryption algorithm that KMS will use to reecrypt the data after it
         /// has decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the
-        /// encryption algorithm used for symmetric KMS keys.</para><para>This parameter is required only when the destination KMS key is an asymmetric KMS
+        /// encryption algorithm used for symmetric encryption KMS keys.</para><para>This parameter is required only when the destination KMS key is an asymmetric KMS
         /// key.</para>
         /// </para>
         /// </summary>
@@ -146,13 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies that encryption context to use when the reencrypting the data.</para><para>A destination encryption context is valid only when the destination KMS key is a symmetric
-        /// KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields
-        /// for metadata.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not
+        /// include fields for metadata.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
-        /// the data. An encryption context is optional when encrypting with a symmetric KMS key,
-        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// the data. An encryption context is supported only on operations with symmetric encryption
+        /// KMS keys. On operations with symmetric encryption KMS keys, an encryption context
+        /// is optional, but it is strongly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// context</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the KMS key that is used to reencrypt the data. Specify a
-        /// symmetric or asymmetric KMS key with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>.
-        /// To find the <code>KeyUsage</code> value of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code>
+        /// value of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of
+        /// a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
@@ -200,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before
         /// it is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the
-        /// algorithm used for symmetric KMS keys.</para><para>Specify the same algorithm that was used to encrypt the ciphertext. If you specify
+        /// algorithm used for symmetric encryption KMS keys.</para><para>Specify the same algorithm that was used to encrypt the ciphertext. If you specify
         /// a different algorithm, the decrypt attempt fails.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
         /// KMS key.</para>
         /// </para>
@@ -214,12 +215,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the encryption context to use to decrypt the ciphertext. Enter the same
-        /// encryption context that was used to encrypt the ciphertext.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// encryption context that was used to encrypt the ciphertext.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
-        /// the data. An encryption context is optional when encrypting with a symmetric KMS key,
-        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// the data. An encryption context is supported only on operations with symmetric encryption
+        /// KMS keys. On operations with symmetric encryption KMS keys, an encryption context
+        /// is optional, but it is strongly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// context</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,11 +231,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter SourceKeyId
         /// <summary>
         /// <para>
-        /// <para>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.
-        /// Enter a key ID of the KMS key that was used to encrypt the ciphertext.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
-        /// KMS key. If you used a symmetric KMS key, KMS can get the KMS key from metadata that
-        /// it adds to the symmetric ciphertext blob. However, it is always recommended as a best
-        /// practice. This practice ensures that you use the KMS key that you intend.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// <para>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</para><para>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify
+        /// a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
+        /// KMS key. If you used a symmetric encryption KMS key, KMS can get the KMS key from
+        /// metadata that it adds to the symmetric ciphertext blob. However, it is always recommended
+        /// as a best practice. This practice ensures that you use the KMS key that you intend.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>

@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         public System.String S3Object_Name { get; set; }
         #endregion
         
+        #region Parameter QueriesConfig_Query
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueriesConfig_Queries")]
+        public Amazon.Textract.Model.Query[] QueriesConfig_Query { get; set; }
+        #endregion
+        
         #region Parameter NotificationChannel_RoleArn
         /// <summary>
         /// <para>
@@ -277,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             context.NotificationChannel_SNSTopicArn = this.NotificationChannel_SNSTopicArn;
             context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
             context.OutputConfig_S3Prefix = this.OutputConfig_S3Prefix;
+            if (this.QueriesConfig_Query != null)
+            {
+                context.QueriesConfig_Query = new List<Amazon.Textract.Model.Query>(this.QueriesConfig_Query);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -422,6 +437,25 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 request.OutputConfig = null;
             }
             
+             // populate QueriesConfig
+            var requestQueriesConfigIsNull = true;
+            request.QueriesConfig = new Amazon.Textract.Model.QueriesConfig();
+            List<Amazon.Textract.Model.Query> requestQueriesConfig_queriesConfig_Query = null;
+            if (cmdletContext.QueriesConfig_Query != null)
+            {
+                requestQueriesConfig_queriesConfig_Query = cmdletContext.QueriesConfig_Query;
+            }
+            if (requestQueriesConfig_queriesConfig_Query != null)
+            {
+                request.QueriesConfig.Queries = requestQueriesConfig_queriesConfig_Query;
+                requestQueriesConfigIsNull = false;
+            }
+             // determine if request.QueriesConfig should be set to null
+            if (requestQueriesConfigIsNull)
+            {
+                request.QueriesConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -493,6 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             public System.String NotificationChannel_SNSTopicArn { get; set; }
             public System.String OutputConfig_S3Bucket { get; set; }
             public System.String OutputConfig_S3Prefix { get; set; }
+            public List<Amazon.Textract.Model.Query> QueriesConfig_Query { get; set; }
             public System.Func<Amazon.Textract.Model.StartDocumentAnalysisResponse, StartTXTDocumentAnalysisCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;
         }

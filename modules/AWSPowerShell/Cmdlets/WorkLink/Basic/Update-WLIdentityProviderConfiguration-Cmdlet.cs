@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Updates the identity provider configuration for the fleet.
+    /// Updates the identity provider configuration for the fleet.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "WLIdentityProviderConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.UpdateIdentityProviderConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class UpdateWLIdentityProviderConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

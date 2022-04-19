@@ -28,36 +28,37 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Generates a unique symmetric data key. This operation returns a data key that is encrypted
-    /// under a KMS key that you specify. To request an asymmetric data key pair, use the
-    /// <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operations.
+    /// Returns a unique symmetric data key for use outside of KMS. This operation returns
+    /// a data key that is encrypted under a symmetric encryption KMS key that you specify.
+    /// The bytes in the key are random; they are not related to the caller or to the KMS
+    /// key.
     /// 
     ///  
     /// <para><code>GenerateDataKeyWithoutPlaintext</code> is identical to the <a>GenerateDataKey</a>
-    /// operation except that returns only the encrypted copy of the data key. This operation
-    /// is useful for systems that need to encrypt data at some point, but not immediately.
-    /// When you need to encrypt the data, you call the <a>Decrypt</a> operation on the encrypted
-    /// copy of the key. 
+    /// operation except that it does not return a plaintext copy of the data key. 
     /// </para><para>
-    /// It's also useful in distributed systems with different levels of trust. For example,
-    /// you might store encrypted data in containers. One component of your system creates
-    /// new containers and stores an encrypted data key with each container. Then, a different
-    /// component puts the data into the containers. That component first decrypts the data
-    /// key, uses the plaintext data key to encrypt data, puts the encrypted data into the
-    /// container, and then destroys the plaintext data key. In this system, the component
-    /// that creates the containers never sees the plaintext data key.
-    /// </para><para><code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each request.
-    /// The bytes in the keys are not related to the caller or KMS key that is used to encrypt
-    /// the private key.
+    /// This operation is useful for systems that need to encrypt data at some point, but
+    /// not immediately. When you need to encrypt the data, you call the <a>Decrypt</a> operation
+    /// on the encrypted copy of the key. It's also useful in distributed systems with different
+    /// levels of trust. For example, you might store encrypted data in containers. One component
+    /// of your system creates new containers and stores an encrypted data key with each container.
+    /// Then, a different component puts the data into the containers. That component first
+    /// decrypts the data key, uses the plaintext data key to encrypt data, puts the encrypted
+    /// data into the container, and then destroys the plaintext data key. In this system,
+    /// the component that creates the containers never sees the plaintext data key.
     /// </para><para>
-    /// To generate a data key, you must specify the symmetric KMS key that is used to encrypt
-    /// the data key. You cannot use an asymmetric KMS key to generate a data key. To get
-    /// the type of your KMS key, use the <a>DescribeKey</a> operation.
+    /// To request an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a>
+    /// operations.
+    /// </para><para>
+    /// To generate a data key, you must specify the symmetric encryption KMS key that is
+    /// used to encrypt the data key. You cannot use an asymmetric KMS key or a key in a custom
+    /// key store to generate a data key. To get the type of your KMS key, use the <a>DescribeKey</a>
+    /// operation.
     /// </para><para>
     /// If the operation succeeds, you will find the encrypted copy of the data key in the
     /// <code>CiphertextBlob</code> field.
     /// </para><para>
-    /// You can use the optional encryption context to add additional security to the encryption
+    /// You can use an optional encryption context to add additional security to the encryption
     /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
     /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
     /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
     /// <code>KeyId</code> parameter.
@@ -86,12 +87,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
-        /// the data. An encryption context is optional when encrypting with a symmetric KMS key,
-        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// the data. An encryption context is supported only on operations with symmetric encryption
+        /// KMS keys. On operations with symmetric encryption KMS keys, an encryption context
+        /// is optional, but it is strongly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// context</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the symmetric KMS key that encrypts the data key.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// <para>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot
+        /// specify an asymmetric KMS key or a KMS key in a custom key store. To get the type
+        /// and origin of your KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>

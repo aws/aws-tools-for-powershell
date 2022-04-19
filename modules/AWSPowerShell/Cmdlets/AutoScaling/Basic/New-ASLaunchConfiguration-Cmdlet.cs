@@ -86,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCId
         /// <summary>
         /// <para>
-        /// <para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
+        /// <para><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+        /// that date.</i></para><para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
-        /// EC2-Classic instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>This parameter can only be used if you are launching EC2-Classic instances.</para>
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
+        /// <para><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+        /// that date.</i></para><para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
-        /// EC2-Classic instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
         /// parameter.</para>
         /// </para>
         /// </summary>

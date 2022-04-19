@@ -141,6 +141,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PERSResourceTag', 
         'Remove-PERSSchema', 
         'Remove-PERSSolution', 
+        'Start-PERSRecommender', 
+        'Stop-PERSRecommender', 
         'Stop-PERSSolutionVersionCreation', 
         'Update-PERSCampaign', 
         'Update-PERSRecommender')

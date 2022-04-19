@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
     /// <summary>
     /// Creates a fleet. A fleet consists of resources and the configuration that delivers
     /// associated websites to authorized users who download and set up the Amazon WorkLink
-    /// app.
+    /// app.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "WLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WorkLink.Model.CreateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class NewWLFleetCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

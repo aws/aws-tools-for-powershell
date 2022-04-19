@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Disassociates a domain from Amazon WorkLink. End users lose the ability to access
-    /// the domain with Amazon WorkLink.
+    /// the domain with Amazon WorkLink.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Unregister", "WLDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.DisassociateDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class UnregisterWLDomainCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

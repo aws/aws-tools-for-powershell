@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
     /// Associates a website authorization provider with a specified fleet. This is used to
-    /// authorize users against associated websites in the company network.
+    /// authorize users against associated websites in the company network.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "WLWebsiteAuthorizationProviderToFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WorkLink.Model.AssociateWebsiteAuthorizationProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class AddWLWebsiteAuthorizationProviderToFleetCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

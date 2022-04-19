@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You must specify the KMS key in all requests. You can filter the grant list by grant
     /// ID or grantee principal.
     /// </para><para>
-    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
-    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
+    /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><note><para>

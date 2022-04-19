@@ -28,7 +28,7 @@ using Amazon.WorkLink.Model;
 namespace Amazon.PowerShell.Cmdlets.WL
 {
     /// <summary>
-    /// Deletes a fleet. Prevents users from accessing previously associated websites.
+    /// Deletes a fleet. Prevents users from accessing previously associated websites.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "WLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WorkLink.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.")]
     public partial class RemoveWLFleetCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         

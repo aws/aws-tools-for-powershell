@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
     /// permission can download the public key of an asymmetric KMS key. You can share the
     /// public key to allow others to encrypt messages and verify signatures outside of KMS.
-    /// For information about symmetric and asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-    /// Symmetric and Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
+    /// For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
+    /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
     /// <code>KeyId</code> parameter.

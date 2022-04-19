@@ -46,14 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The name of an existing S3 bucket where the log files are to be stored.</para><para>Constraints:</para><ul><li><para>Must be in the same region as the cluster</para></li><li><para>The cluster must have read bucket and put object permissions</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -72,6 +65,29 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter LogDestinationType
+        /// <summary>
+        /// <para>
+        /// <para>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Redshift.LogDestinationType")]
+        public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
+        #endregion
+        
+        #region Parameter LogExport
+        /// <summary>
+        /// <para>
+        /// <para>The collection of exported log types. Log types include the connection log, user log
+        /// and user activity log.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogExports")]
+        public System.String[] LogExport { get; set; }
         #endregion
         
         #region Parameter S3KeyPrefix
@@ -147,12 +163,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
-            #if MODULAR
-            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
             if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
@@ -160,6 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogDestinationType = this.LogDestinationType;
+            if (this.LogExport != null)
+            {
+                context.LogExport = new List<System.String>(this.LogExport);
+            }
             context.S3KeyPrefix = this.S3KeyPrefix;
             
             // allow further manipulation of loaded context prior to processing
@@ -184,6 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.LogDestinationType != null)
+            {
+                request.LogDestinationType = cmdletContext.LogDestinationType;
+            }
+            if (cmdletContext.LogExport != null)
+            {
+                request.LogExports = cmdletContext.LogExport;
             }
             if (cmdletContext.S3KeyPrefix != null)
             {
@@ -252,6 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.String BucketName { get; set; }
             public System.String ClusterIdentifier { get; set; }
+            public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
+            public List<System.String> LogExport { get; set; }
             public System.String S3KeyPrefix { get; set; }
             public System.Func<Amazon.Redshift.Model.EnableLoggingResponse, EnableRSLoggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
