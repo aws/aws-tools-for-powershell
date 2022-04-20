@@ -46,14 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// <para>Request to describe Replication Configuration template by template IDs.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String[] ReplicationConfigurationTemplateIDs { get; set; }
         #endregion
         
@@ -109,12 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.ReplicationConfigurationTemplateIDs = new List<System.String>(this.ReplicationConfigurationTemplateIDs);
             }
-            #if MODULAR
-            if (this.ReplicationConfigurationTemplateIDs == null && ParameterWasBound(nameof(this.ReplicationConfigurationTemplateIDs)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicationConfigurationTemplateIDs which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

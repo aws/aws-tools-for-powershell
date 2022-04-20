@@ -48,6 +48,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePhoneNumberContactFlow" Verb="Add" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateQueueQuickConnects" Verb="Add" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -57,6 +61,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateSecurityKey" OutputProperty="AssociationId" Verb="Add" Noun="SecurityKey" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -192,6 +200,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePhoneNumber" OutputProperty="ClaimedPhoneNumberSummary" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeQueue" OutputProperty="Queue" Verb="Get" Noun="Queue" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -241,6 +253,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateLexBot" Verb="Remove" Noun="LexBot" ShouldProcessTarget="BotName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePhoneNumberContactFlow" Verb="Remove" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -332,6 +348,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumbersV2" OutputProperty="ListPhoneNumbersSummaryList" Verb="Get" Noun="PhoneNumbersV2List" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaryList" Verb="Get" Noun="PromptList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -384,7 +404,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReleasePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResumeContactRecording" Verb="Resume" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="AvailableNumbersList" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -487,6 +515,10 @@
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQueueHoursOfOperation" Verb="Update" Noun="QueueHoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">

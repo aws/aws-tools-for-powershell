@@ -306,6 +306,30 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String MasterUserPassword { get; set; }
         #endregion
         
+        #region Parameter ServerlessV2ScalingConfiguration_MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
+        /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
+        /// 40, 40.5, 41, and so on. The largest value that you can use is 128.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessV2ScalingConfiguration_MinCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
+        /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
+        /// 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -599,6 +623,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.S3Prefix = this.S3Prefix;
+            context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
+            context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.SourceEngine = this.SourceEngine;
             #if MODULAR
             if (this.SourceEngine == null && ParameterWasBound(nameof(this.SourceEngine)))
@@ -742,6 +768,35 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.S3Prefix = cmdletContext.S3Prefix;
             }
+            
+             // populate ServerlessV2ScalingConfiguration
+            var requestServerlessV2ScalingConfigurationIsNull = true;
+            request.ServerlessV2ScalingConfiguration = new Amazon.RDS.Model.ServerlessV2ScalingConfiguration();
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MaxCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MinCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+             // determine if request.ServerlessV2ScalingConfiguration should be set to null
+            if (requestServerlessV2ScalingConfigurationIsNull)
+            {
+                request.ServerlessV2ScalingConfiguration = null;
+            }
             if (cmdletContext.SourceEngine != null)
             {
                 request.SourceEngine = cmdletContext.SourceEngine;
@@ -849,6 +904,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String S3BucketName { get; set; }
             public System.String S3IngestionRoleArn { get; set; }
             public System.String S3Prefix { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.String SourceEngine { get; set; }
             public System.String SourceEngineVersion { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }

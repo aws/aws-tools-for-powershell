@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Macie2;
-using Amazon.Macie2.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MAC2
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes one or more tags (keys and values) from a classification job, custom data
-    /// identifier, findings filter, or member account.
+    /// Updates your claimed phone number from its current Amazon Connect instance to another
+    /// Amazon Connect instance in the same Region.
     /// </summary>
-    [Cmdlet("Remove", "MAC2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Macie 2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Macie2.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Macie2.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CONNPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.UpdatePhoneNumberResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service UpdatePhoneNumber API operation.", Operation = new[] {"UpdatePhoneNumber"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdatePhoneNumberResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.UpdatePhoneNumberResponse",
+        "This cmdlet returns an Amazon.Connect.Model.UpdatePhoneNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveMAC2ResourceTagCmdlet : AmazonMacie2ClientCmdlet, IExecutor
+    public partial class UpdateCONNPhoneNumberCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the classification job, custom data identifier,
-        /// findings filter, or member account.</para>
+        /// <para>The identifier of the phone number.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,33 +54,43 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String PhoneNumberId { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>One or more tags (keys) to remove from the resource. In an HTTP request to remove
-        /// multiple tags, append the tagKeys parameter and argument for each tag to remove, and
-        /// separate them with an ampersand (&amp;).</para>
+        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are
+        /// claimed to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String TargetArn { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Macie2.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdatePhoneNumberResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.UpdatePhoneNumberResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PhoneNumberId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MAC2ResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumberId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNPhoneNumber (UpdatePhoneNumber)"))
             {
                 return;
             }
@@ -127,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Macie2.Model.UntagResourceResponse, RemoveMAC2ResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdatePhoneNumberResponse, UpdateCONNPhoneNumberCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,24 +144,22 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.PhoneNumberId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ClientToken = this.ClientToken;
+            context.PhoneNumberId = this.PhoneNumberId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.PhoneNumberId == null && ParameterWasBound(nameof(this.PhoneNumberId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PhoneNumberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.TargetArn = this.TargetArn;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.TargetArn == null && ParameterWasBound(nameof(this.TargetArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Macie2.Model.UntagResourceRequest();
+            var request = new Amazon.Connect.Model.UpdatePhoneNumberRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.PhoneNumberId != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.PhoneNumberId = cmdletContext.PhoneNumberId;
+            }
+            if (cmdletContext.TargetArn != null)
+            {
+                request.TargetArn = cmdletContext.TargetArn;
             }
             
             CmdletOutput output;
@@ -213,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         #region AWS Service Operation Call
         
-        private Amazon.Macie2.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonMacie2 client, Amazon.Macie2.Model.UntagResourceRequest request)
+        private Amazon.Connect.Model.UpdatePhoneNumberResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdatePhoneNumberRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Macie 2", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdatePhoneNumber");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.UpdatePhoneNumber(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePhoneNumberAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Macie2.Model.UntagResourceResponse, RemoveMAC2ResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClientToken { get; set; }
+            public System.String PhoneNumberId { get; set; }
+            public System.String TargetArn { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdatePhoneNumberResponse, UpdateCONNPhoneNumberCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

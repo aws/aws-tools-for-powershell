@@ -1,4 +1,22 @@
-﻿### 4.1.67 (2022-04-19 20:25Z)
+﻿### 4.1.68 (2022-04-20 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.256.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNPhoneNumberContactFlow leveraging the AssociatePhoneNumberContactFlow service API.
+    * Added cmdlet Get-CONNPhoneNumber leveraging the DescribePhoneNumber service API.
+    * Added cmdlet Get-CONNPhoneNumbersV2List leveraging the ListPhoneNumbersV2 service API.
+    * Added cmdlet Remove-CONNPhoneNumber leveraging the ReleasePhoneNumber service API.
+    * Added cmdlet Remove-CONNPhoneNumberContactFlow leveraging the DisassociatePhoneNumberContactFlow service API.
+    * Added cmdlet Request-CONNPhoneNumber leveraging the ClaimPhoneNumber service API.
+    * Added cmdlet Search-CONNAvailablePhoneNumber leveraging the SearchAvailablePhoneNumbers service API.
+    * Added cmdlet Update-CONNPhoneNumber leveraging the UpdatePhoneNumber service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet New-RDSDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+
+### 4.1.67 (2022-04-19 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.255.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Auto Scaling
     * Modified cmdlet New-ASAutoScalingGroup: added parameter DefaultInstanceWarmup.

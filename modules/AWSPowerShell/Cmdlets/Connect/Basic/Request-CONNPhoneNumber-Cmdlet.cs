@@ -28,32 +28,22 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Adds the specified tags to the specified resource.
-    /// 
-    ///  
-    /// <para>
-    /// The supported resource types are users, routing profiles, queues, quick connects,
-    /// contact flows, agent status, hours of operation, and phone number.
-    /// </para><para>
-    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon
-    /// Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
-    /// Guide</i>.
-    /// </para>
+    /// Claims an available phone number to your Amazon Connect instance.
     /// </summary>
-    [Cmdlet("Add", "CONNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Connect.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Request", "CONNPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.ClaimPhoneNumberResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service ClaimPhoneNumber API operation.", Operation = new[] {"ClaimPhoneNumber"}, SelectReturnType = typeof(Amazon.Connect.Model.ClaimPhoneNumberResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.ClaimPhoneNumberResponse",
+        "This cmdlet returns an Amazon.Connect.Model.ClaimPhoneNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddCONNResourceTagCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RequestCONNPhoneNumberCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The phone number you want to claim. Phone numbers are formatted <code>[+] [country
+        /// code] [subscriber number including area code]</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,31 +54,64 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String PhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter PhoneNumberDescription
+        /// <summary>
+        /// <para>
+        /// <para>The description of the phone number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PhoneNumberDescription { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are
+        /// claimed to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String TargetArn { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ClaimPhoneNumberResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ClaimPhoneNumberResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PhoneNumber parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CONNResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-CONNPhoneNumber (ClaimPhoneNumber)"))
             {
                 return;
             }
@@ -133,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.TagResourceResponse, AddCONNResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ClaimPhoneNumberResponse, RequestCONNPhoneNumberCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,16 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.PhoneNumber;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ClientToken = this.ClientToken;
+            context.PhoneNumber = this.PhoneNumber;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.PhoneNumber == null && ParameterWasBound(nameof(this.PhoneNumber)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PhoneNumberDescription = this.PhoneNumberDescription;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -160,10 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.TargetArn = this.TargetArn;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.TargetArn == null && ParameterWasBound(nameof(this.TargetArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,15 +206,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.TagResourceRequest();
+            var request = new Amazon.Connect.Model.ClaimPhoneNumberRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.PhoneNumber != null)
+            {
+                request.PhoneNumber = cmdletContext.PhoneNumber;
+            }
+            if (cmdletContext.PhoneNumberDescription != null)
+            {
+                request.PhoneNumberDescription = cmdletContext.PhoneNumberDescription;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TargetArn != null)
+            {
+                request.TargetArn = cmdletContext.TargetArn;
             }
             
             CmdletOutput output;
@@ -223,15 +261,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.TagResourceResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.TagResourceRequest request)
+        private Amazon.Connect.Model.ClaimPhoneNumberResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ClaimPhoneNumberRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ClaimPhoneNumber");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.ClaimPhoneNumber(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.ClaimPhoneNumberAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,10 +289,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String PhoneNumber { get; set; }
+            public System.String PhoneNumberDescription { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Connect.Model.TagResourceResponse, AddCONNResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String TargetArn { get; set; }
+            public System.Func<Amazon.Connect.Model.ClaimPhoneNumberResponse, RequestCONNPhoneNumberCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -4671,6 +4671,8 @@ Set-Alias -Name Associate-CONNLambdaFunction -Value Add-CONNLambdaFunction
 Set-Alias -Name CONN-AssociateLambdaFunction -Value Add-CONNLambdaFunction
 Set-Alias -Name Associate-CONNLexBot -Value Add-CONNLexBot
 Set-Alias -Name CONN-AssociateLexBot -Value Add-CONNLexBot
+Set-Alias -Name Associate-CONNPhoneNumberContactFlow -Value Add-CONNPhoneNumberContactFlow
+Set-Alias -Name CONN-AssociatePhoneNumberContactFlow -Value Add-CONNPhoneNumberContactFlow
 Set-Alias -Name Associate-CONNQueueQuickConnects -Value Add-CONNQueueQuickConnect
 Set-Alias -Name Associate-CONNQueueQuickConnect -Value Add-CONNQueueQuickConnect
 Set-Alias -Name CONN-AssociateQueueQuickConnects -Value Add-CONNQueueQuickConnect
@@ -4679,6 +4681,8 @@ Set-Alias -Name Associate-CONNRoutingProfileQueue -Value Join-CONNRoutingProfile
 Set-Alias -Name CONN-AssociateRoutingProfileQueues -Value Join-CONNRoutingProfileQueue
 Set-Alias -Name Associate-CONNSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name CONN-AssociateSecurityKey -Value Add-CONNSecurityKey
+Set-Alias -Name Claim-CONNPhoneNumber -Value Request-CONNPhoneNumber
+Set-Alias -Name CONN-ClaimPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name CONN-CreateAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name Create-CONNContactFlow -Value New-CONNContactFlow
@@ -4745,6 +4749,8 @@ Set-Alias -Name Describe-CONNInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name CONN-DescribeInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name Describe-CONNInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
 Set-Alias -Name CONN-DescribeInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
+Set-Alias -Name Describe-CONNPhoneNumber -Value Get-CONNPhoneNumber
+Set-Alias -Name CONN-DescribePhoneNumber -Value Get-CONNPhoneNumber
 Set-Alias -Name Describe-CONNQueue -Value Get-CONNQueue
 Set-Alias -Name CONN-DescribeQueue -Value Get-CONNQueue
 Set-Alias -Name Describe-CONNQuickConnect -Value Get-CONNQuickConnect
@@ -4771,6 +4777,8 @@ Set-Alias -Name Disassociate-CONNLambdaFunction -Value Remove-CONNLambdaFunction
 Set-Alias -Name CONN-DisassociateLambdaFunction -Value Remove-CONNLambdaFunction
 Set-Alias -Name Disassociate-CONNLexBot -Value Remove-CONNLexBot
 Set-Alias -Name CONN-DisassociateLexBot -Value Remove-CONNLexBot
+Set-Alias -Name Disassociate-CONNPhoneNumberContactFlow -Value Remove-CONNPhoneNumberContactFlow
+Set-Alias -Name CONN-DisassociatePhoneNumberContactFlow -Value Remove-CONNPhoneNumberContactFlow
 Set-Alias -Name Disassociate-CONNQueueQuickConnects -Value Remove-CONNQueueQuickConnect
 Set-Alias -Name Disassociate-CONNQueueQuickConnect -Value Remove-CONNQueueQuickConnect
 Set-Alias -Name CONN-DisassociateQueueQuickConnects -Value Remove-CONNQueueQuickConnect
@@ -4829,6 +4837,9 @@ Set-Alias -Name CONN-ListLexBots -Value Get-CONNLexBotList
 Set-Alias -Name List-CONNPhoneNumbers -Value Get-CONNPhoneNumberList
 Set-Alias -Name List-CONNPhoneNumberList -Value Get-CONNPhoneNumberList
 Set-Alias -Name CONN-ListPhoneNumbers -Value Get-CONNPhoneNumberList
+Set-Alias -Name List-CONNPhoneNumbersV2 -Value Get-CONNPhoneNumbersV2List
+Set-Alias -Name List-CONNPhoneNumbersV2List -Value Get-CONNPhoneNumbersV2List
+Set-Alias -Name CONN-ListPhoneNumbersV2 -Value Get-CONNPhoneNumbersV2List
 Set-Alias -Name List-CONNPrompts -Value Get-CONNPromptList
 Set-Alias -Name List-CONNPromptList -Value Get-CONNPromptList
 Set-Alias -Name CONN-ListPrompts -Value Get-CONNPromptList
@@ -4866,7 +4877,11 @@ Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupLi
 Set-Alias -Name List-CONNUsers -Value Get-CONNUserList
 Set-Alias -Name List-CONNUserList -Value Get-CONNUserList
 Set-Alias -Name CONN-ListUsers -Value Get-CONNUserList
+Set-Alias -Name Release-CONNPhoneNumber -Value Remove-CONNPhoneNumber
+Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
+Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name Search-CONNVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-SearchVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-StartChatContact -Value Start-CONNChatContact
@@ -4893,6 +4908,7 @@ Set-Alias -Name CONN-UpdateContactSchedule -Value Update-CONNContactSchedule
 Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
+Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
 Set-Alias -Name CONN-UpdateQueueHoursOfOperation -Value Update-CONNQueueHoursOfOperation
 Set-Alias -Name Update-CONNQueueMaxContacts -Value Update-CONNQueueMaxContact
 Set-Alias -Name CONN-UpdateQueueMaxContacts -Value Update-CONNQueueMaxContact

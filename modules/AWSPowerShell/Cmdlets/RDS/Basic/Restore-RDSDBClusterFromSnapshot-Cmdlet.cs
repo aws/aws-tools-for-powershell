@@ -326,6 +326,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
         #endregion
         
+        #region Parameter ServerlessV2ScalingConfiguration_MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
+        /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
+        /// 40, 40.5, 41, and so on. The largest value that you can use is 128.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_MinCapacity
         /// <summary>
         /// <para>
@@ -338,6 +350,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessV2ScalingConfiguration_MinCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
+        /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
+        /// 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
         #region Parameter OptionGroupName
@@ -578,6 +602,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ScalingConfiguration_SecondsBeforeTimeout = this.ScalingConfiguration_SecondsBeforeTimeout;
             context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
             context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
+            context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
+            context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             #if MODULAR
             if (this.SnapshotIdentifier == null && ParameterWasBound(nameof(this.SnapshotIdentifier)))
@@ -763,6 +789,35 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ScalingConfiguration = null;
             }
+            
+             // populate ServerlessV2ScalingConfiguration
+            var requestServerlessV2ScalingConfigurationIsNull = true;
+            request.ServerlessV2ScalingConfiguration = new Amazon.RDS.Model.ServerlessV2ScalingConfiguration();
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MaxCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MinCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+             // determine if request.ServerlessV2ScalingConfiguration should be set to null
+            if (requestServerlessV2ScalingConfigurationIsNull)
+            {
+                request.ServerlessV2ScalingConfiguration = null;
+            }
             if (cmdletContext.SnapshotIdentifier != null)
             {
                 request.SnapshotIdentifier = cmdletContext.SnapshotIdentifier;
@@ -867,6 +922,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? ScalingConfiguration_SecondsBeforeTimeout { get; set; }
             public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String ScalingConfiguration_TimeoutAction { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }

@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that lists the unique identifiers for the findings to retrieve.</para>
+        /// <para>An array of strings that lists the unique identifiers for the findings to retrieve.
+        /// You can specify as many as 50 unique identifiers in this array.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
