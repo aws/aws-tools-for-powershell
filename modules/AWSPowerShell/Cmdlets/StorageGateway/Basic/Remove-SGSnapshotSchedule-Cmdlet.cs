@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing
     /// up your volumes</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify
     /// the volume by providing its Amazon Resource Name (ARN). This operation is only supported
-    /// in stored and cached volume gateway types.
+    /// for cached volume gateway types.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
     /// go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>

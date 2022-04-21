@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
         /// pool is archived in the S3 storage class that is associated with the pool. When you
         /// use your backup application to eject the tape, the tape is archived directly into
-        /// the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.</para><para>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code></para>
+        /// the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

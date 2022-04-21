@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by the S3 File
-        /// Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
+        /// Gateway. The default value is <code>S3_STANDARD</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
         /// | <code>S3_ONEZONE_IA</code></para>
         /// </para>
         /// </summary>

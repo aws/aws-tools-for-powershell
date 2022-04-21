@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter Tier
+        /// <summary>
+        /// <para>
+        /// <para>The tier of the channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.Tier")]
+        public Amazon.MediaTailor.Tier Tier { get; set; }
+        #endregion
+        
         #region Parameter FillerSlate_VodSourceName
         /// <summary>
         /// <para>
@@ -200,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.Tier = this.Tier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -260,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Tier != null)
+            {
+                request.Tier = cmdletContext.Tier;
             }
             
             CmdletOutput output;
@@ -328,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public List<Amazon.MediaTailor.Model.RequestOutputItem> Output { get; set; }
             public Amazon.MediaTailor.PlaybackMode PlaybackMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.MediaTailor.Tier Tier { get; set; }
             public System.Func<Amazon.MediaTailor.Model.CreateChannelResponse, NewEMTChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><para><b>Required permissions: </b><code>secretsmanager:GetSecretValue</code>. If the
     /// secret is encrypted using a customer-managed key instead of the Amazon Web Services
     /// managed key <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>
-    /// permissions for that key. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// permissions for that key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>
@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The ARN or name of the secret to retrieve.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.</para>
+        /// <para>The ARN or name of the secret to retrieve.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
+        /// See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding
+        /// a secret from a partial ARN</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

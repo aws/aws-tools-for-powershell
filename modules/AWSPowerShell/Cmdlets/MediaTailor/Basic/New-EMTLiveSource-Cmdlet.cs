@@ -1,0 +1,280 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.MediaTailor;
+using Amazon.MediaTailor.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EMT
+{
+    /// <summary>
+    /// Creates name for a specific live source in a source location.
+    /// </summary>
+    [Cmdlet("New", "EMTLiveSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaTailor.Model.CreateLiveSourceResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaTailor CreateLiveSource API operation.", Operation = new[] {"CreateLiveSource"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.CreateLiveSourceResponse))]
+    [AWSCmdletOutput("Amazon.MediaTailor.Model.CreateLiveSourceResponse",
+        "This cmdlet returns an Amazon.MediaTailor.Model.CreateLiveSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewEMTLiveSourceCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
+    {
+        
+        #region Parameter HttpPackageConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A list of HTTP package configuration parameters for this live source.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("HttpPackageConfigurations")]
+        public Amazon.MediaTailor.Model.HttpPackageConfiguration[] HttpPackageConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter LiveSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the live source you are working on.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String LiveSourceName { get; set; }
+        #endregion
+        
+        #region Parameter SourceLocationName
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the source location you are working on.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SourceLocationName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the live source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaTailor.Model.CreateLiveSourceResponse).
+        /// Specifying the name of a property of type Amazon.MediaTailor.Model.CreateLiveSourceResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMTLiveSource (CreateLiveSource)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.CreateLiveSourceResponse, NewEMTLiveSourceCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.HttpPackageConfiguration != null)
+            {
+                context.HttpPackageConfiguration = new List<Amazon.MediaTailor.Model.HttpPackageConfiguration>(this.HttpPackageConfiguration);
+            }
+            #if MODULAR
+            if (this.HttpPackageConfiguration == null && ParameterWasBound(nameof(this.HttpPackageConfiguration)))
+            {
+                WriteWarning("You are passing $null as a value for parameter HttpPackageConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.LiveSourceName = this.LiveSourceName;
+            #if MODULAR
+            if (this.LiveSourceName == null && ParameterWasBound(nameof(this.LiveSourceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LiveSourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SourceLocationName = this.SourceLocationName;
+            #if MODULAR
+            if (this.SourceLocationName == null && ParameterWasBound(nameof(this.SourceLocationName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceLocationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.MediaTailor.Model.CreateLiveSourceRequest();
+            
+            if (cmdletContext.HttpPackageConfiguration != null)
+            {
+                request.HttpPackageConfigurations = cmdletContext.HttpPackageConfiguration;
+            }
+            if (cmdletContext.LiveSourceName != null)
+            {
+                request.LiveSourceName = cmdletContext.LiveSourceName;
+            }
+            if (cmdletContext.SourceLocationName != null)
+            {
+                request.SourceLocationName = cmdletContext.SourceLocationName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.MediaTailor.Model.CreateLiveSourceResponse CallAWSServiceOperation(IAmazonMediaTailor client, Amazon.MediaTailor.Model.CreateLiveSourceRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaTailor", "CreateLiveSource");
+            try
+            {
+                #if DESKTOP
+                return client.CreateLiveSource(request);
+                #elif CORECLR
+                return client.CreateLiveSourceAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<Amazon.MediaTailor.Model.HttpPackageConfiguration> HttpPackageConfiguration { get; set; }
+            public System.String LiveSourceName { get; set; }
+            public System.String SourceLocationName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.MediaTailor.Model.CreateLiveSourceResponse, NewEMTLiveSourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter Association_KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The the identifier of the knowledge base.</para>
+        /// <para>The identifier of the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

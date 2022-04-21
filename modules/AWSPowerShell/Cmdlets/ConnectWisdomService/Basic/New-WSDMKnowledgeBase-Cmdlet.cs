@@ -66,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
-        /// identifiers (KeyId)</a> in the <i>AWS Key Management Service Developer Guide</i>.
-        /// </para>
+        /// identifiers (KeyId)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// </para></li><li><para>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
         /// ServiceNow</a>, you must include at least <code>number</code>, <code>short_description</code>,
         /// <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code>.
-        /// </para></li></ul><para>Make sure to include additional field(s); these are indexed and used to source recommendations.
-        /// </para>
+        /// </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
+        /// recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

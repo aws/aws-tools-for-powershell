@@ -111,6 +111,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.Tier
+        "New-EMTChannel/Tier"
+        {
+            $v = "BASIC","STANDARD"
+            break
+        }
+
 
     }
 
@@ -124,6 +131,7 @@ $EMT_map = @{
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "ScheduleConfiguration_Transition_RelativePosition"=@("New-EMTProgram")
+    "Tier"=@("New-EMTChannel")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map
@@ -178,18 +186,21 @@ $EMT_SelectCompleters = {
 $EMT_SelectMap = @{
     "Select"=@("Add-EMTLogsForPlaybackConfiguration",
                "New-EMTChannel",
+               "New-EMTLiveSource",
                "New-EMTPrefetchSchedule",
                "New-EMTProgram",
                "New-EMTSourceLocation",
                "New-EMTVodSource",
                "Remove-EMTChannel",
                "Remove-EMTChannelPolicy",
+               "Remove-EMTLiveSource",
                "Remove-EMTPlaybackConfiguration",
                "Remove-EMTPrefetchSchedule",
                "Remove-EMTProgram",
                "Remove-EMTSourceLocation",
                "Remove-EMTVodSource",
                "Get-EMTChannel",
+               "Get-EMTLiveSource",
                "Get-EMTProgram",
                "Get-EMTSourceLocation",
                "Get-EMTVodSource",
@@ -199,6 +210,7 @@ $EMT_SelectMap = @{
                "Get-EMTPrefetchSchedule",
                "Get-EMTAlertList",
                "Get-EMTChannelList",
+               "Get-EMTLiveSourceList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTPrefetchScheduleList",
                "Get-EMTSourceLocationList",
@@ -211,6 +223,7 @@ $EMT_SelectMap = @{
                "Add-EMTResourceTag",
                "Remove-EMTResourceTag",
                "Update-EMTChannel",
+               "Update-EMTLiveSource",
                "Update-EMTSourceLocation",
                "Update-EMTVodSource")
 }

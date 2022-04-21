@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
+        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
         /// contain the ARN.</para>
         /// </para>
         /// </summary>

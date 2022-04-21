@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Sends you notification through CloudWatch Events when all files written to your file
-    /// share have been uploaded to Amazon S3.
+    /// share have been uploaded to S3. Amazon S3.
     /// 
     ///  
     /// <para>

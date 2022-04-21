@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
-        /// identifiers (KeyId)</a> in the <i>AWS Key Management Service Developer Guide</i>.
-        /// </para>
+        /// identifiers (KeyId)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

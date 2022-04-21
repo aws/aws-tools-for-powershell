@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.256.0",
+    "ProductVersion" : "3.7.257.0",
     "CoreVersion"    : "3.7.10.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -168,7 +168,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.5.36",
+            "Version" : "3.7.5.37",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -378,7 +378,7 @@
             "InPreview"               : false
         },
         "StorageGateway"            : {
-            "Version" : "3.7.4.47",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.16.2",
+            "Version" : "3.7.17.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -1074,7 +1074,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.2.32",
+            "Version" : "3.7.2.33",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -1130,7 +1130,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.8.33",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -1770,7 +1770,7 @@
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "3.7.9.47",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2082,7 +2082,7 @@
             "InPreview"               : false
         },
         "LookoutMetrics"                  : {
-            "Version" : "3.7.7.34",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2242,7 +2242,7 @@
             "InPreview"               : false
         },
         "ConnectWisdomService"            : {
-            "Version" : "3.7.0.78",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2370,7 +2370,7 @@
             "InPreview"               : false
         },
         "IoTTwinMaker"                        : {
-            "Version" : "3.7.1.3",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"

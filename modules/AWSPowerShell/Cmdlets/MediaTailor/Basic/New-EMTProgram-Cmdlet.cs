@@ -67,6 +67,27 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String ChannelName { get; set; }
         #endregion
         
+        #region Parameter Transition_DurationMilli
+        /// <summary>
+        /// <para>
+        /// <para>The duration of the live program in seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScheduleConfiguration_Transition_DurationMillis")]
+        public System.Int64? Transition_DurationMilli { get; set; }
+        #endregion
+        
+        #region Parameter LiveSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the LiveSource for this Program.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LiveSourceName { get; set; }
+        #endregion
+        
         #region Parameter ProgramName
         /// <summary>
         /// <para>
@@ -171,14 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The name that's used to refer to a VOD source.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VodSourceName { get; set; }
         #endregion
         
@@ -234,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LiveSourceName = this.LiveSourceName;
             context.ProgramName = this.ProgramName;
             #if MODULAR
             if (this.ProgramName == null && ParameterWasBound(nameof(this.ProgramName)))
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter ProgramName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Transition_DurationMilli = this.Transition_DurationMilli;
             context.Transition_RelativePosition = this.Transition_RelativePosition;
             #if MODULAR
             if (this.Transition_RelativePosition == null && ParameterWasBound(nameof(this.Transition_RelativePosition)))
@@ -265,12 +281,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #endif
             context.VodSourceName = this.VodSourceName;
-            #if MODULAR
-            if (this.VodSourceName == null && ParameterWasBound(nameof(this.VodSourceName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VodSourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -295,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.ChannelName = cmdletContext.ChannelName;
             }
+            if (cmdletContext.LiveSourceName != null)
+            {
+                request.LiveSourceName = cmdletContext.LiveSourceName;
+            }
             if (cmdletContext.ProgramName != null)
             {
                 request.ProgramName = cmdletContext.ProgramName;
@@ -308,6 +322,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
              // populate Transition
             var requestScheduleConfiguration_scheduleConfiguration_TransitionIsNull = true;
             requestScheduleConfiguration_scheduleConfiguration_Transition = new Amazon.MediaTailor.Model.Transition();
+            System.Int64? requestScheduleConfiguration_scheduleConfiguration_Transition_transition_DurationMilli = null;
+            if (cmdletContext.Transition_DurationMilli != null)
+            {
+                requestScheduleConfiguration_scheduleConfiguration_Transition_transition_DurationMilli = cmdletContext.Transition_DurationMilli.Value;
+            }
+            if (requestScheduleConfiguration_scheduleConfiguration_Transition_transition_DurationMilli != null)
+            {
+                requestScheduleConfiguration_scheduleConfiguration_Transition.DurationMillis = requestScheduleConfiguration_scheduleConfiguration_Transition_transition_DurationMilli.Value;
+                requestScheduleConfiguration_scheduleConfiguration_TransitionIsNull = false;
+            }
             Amazon.MediaTailor.RelativePosition requestScheduleConfiguration_scheduleConfiguration_Transition_transition_RelativePosition = null;
             if (cmdletContext.Transition_RelativePosition != null)
             {
@@ -434,7 +458,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         {
             public List<Amazon.MediaTailor.Model.AdBreak> AdBreak { get; set; }
             public System.String ChannelName { get; set; }
+            public System.String LiveSourceName { get; set; }
             public System.String ProgramName { get; set; }
+            public System.Int64? Transition_DurationMilli { get; set; }
             public Amazon.MediaTailor.RelativePosition Transition_RelativePosition { get; set; }
             public System.String Transition_RelativeProgram { get; set; }
             public System.Int64? Transition_ScheduledStartTimeMilli { get; set; }

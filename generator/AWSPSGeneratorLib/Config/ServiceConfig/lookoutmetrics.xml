@@ -71,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DetectMetricSetConfig" OutputProperty="DetectedMetricSetConfig" Verb="Get" Noun="MetricSetConfig" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAnomalyGroup" OutputProperty="AnomalyGroup" Verb="Get" Noun="AnomalyGroup" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

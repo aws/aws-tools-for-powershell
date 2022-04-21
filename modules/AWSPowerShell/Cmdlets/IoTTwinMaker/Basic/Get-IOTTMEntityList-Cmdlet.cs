@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of objects that filter the request.</para>
+        /// <para>A list of objects that filter the request.</para><note><para>Only one object is accepted as a valid input.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,27 @@
-﻿### 4.1.68 (2022-04-20 20:20Z)
+﻿### 4.1.69 (2022-04-21 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.257.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Get-EMTLiveSource leveraging the DescribeLiveSource service API.
+    * Added cmdlet Get-EMTLiveSourceList leveraging the ListLiveSources service API.
+    * Added cmdlet New-EMTLiveSource leveraging the CreateLiveSource service API.
+    * Added cmdlet Remove-EMTLiveSource leveraging the DeleteLiveSource service API.
+    * Added cmdlet Update-EMTLiveSource leveraging the UpdateLiveSource service API.
+    * Modified cmdlet New-EMTChannel: added parameter Tier.
+    * Modified cmdlet New-EMTProgram: added parameters LiveSourceName and Transition_DurationMilli.
+  * Amazon Glue
+    * Added cmdlet Get-GLUECustomEntityType leveraging the GetCustomEntityType service API.
+    * Added cmdlet Get-GLUECustomEntityTypeList leveraging the ListCustomEntityTypes service API.
+    * Added cmdlet Get-GLUEGetCustomEntityType leveraging the BatchGetCustomEntityTypes service API.
+    * Added cmdlet New-GLUECustomEntityType leveraging the CreateCustomEntityType service API.
+    * Added cmdlet Remove-GLUECustomEntityType leveraging the DeleteCustomEntityType service API.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWBatchAssetPropertyAggregate leveraging the BatchGetAssetPropertyAggregates service API.
+    * Added cmdlet Get-IOTSWBatchAssetPropertyValue leveraging the BatchGetAssetPropertyValue service API.
+    * Added cmdlet Get-IOTSWBatchAssetPropertyValueHistory leveraging the BatchGetAssetPropertyValueHistory service API.
+  * Amazon Lookout for Metrics
+    * Added cmdlet Get-LOMMetricSetConfig leveraging the DetectMetricSetConfig service API.
+
+### 4.1.68 (2022-04-20 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.256.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Service
     * Added cmdlet Add-CONNPhoneNumberContactFlow leveraging the AssociatePhoneNumberContactFlow service API.

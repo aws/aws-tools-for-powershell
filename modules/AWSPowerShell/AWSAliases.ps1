@@ -9730,6 +9730,9 @@ Set-Alias -Name GLUE-BatchGetBlueprints -Value Get-GLUEBlueprintBatch
 Set-Alias -Name Batch-GLUEGetCrawlers -Value Get-GLUECrawlerBatch
 Set-Alias -Name Batch-GLUECrawlerBatch -Value Get-GLUECrawlerBatch
 Set-Alias -Name GLUE-BatchGetCrawlers -Value Get-GLUECrawlerBatch
+Set-Alias -Name Batch-GLUEGetCustomEntityTypes -Value Get-GLUEGetCustomEntityType
+Set-Alias -Name Batch-GLUEGetCustomEntityType -Value Get-GLUEGetCustomEntityType
+Set-Alias -Name GLUE-BatchGetCustomEntityTypes -Value Get-GLUEGetCustomEntityType
 Set-Alias -Name Batch-GLUEGetDevEndpoints -Value Get-GLUEDevEndpointBatch
 Set-Alias -Name Batch-GLUEDevEndpointBatch -Value Get-GLUEDevEndpointBatch
 Set-Alias -Name GLUE-BatchGetDevEndpoints -Value Get-GLUEDevEndpointBatch
@@ -9765,6 +9768,8 @@ Set-Alias -Name Create-GLUEConnection -Value New-GLUEConnection
 Set-Alias -Name GLUE-CreateConnection -Value New-GLUEConnection
 Set-Alias -Name Create-GLUECrawler -Value New-GLUECrawler
 Set-Alias -Name GLUE-CreateCrawler -Value New-GLUECrawler
+Set-Alias -Name Create-GLUECustomEntityType -Value New-GLUECustomEntityType
+Set-Alias -Name GLUE-CreateCustomEntityType -Value New-GLUECustomEntityType
 Set-Alias -Name Create-GLUEDatabase -Value New-GLUEDatabase
 Set-Alias -Name GLUE-CreateDatabase -Value New-GLUEDatabase
 Set-Alias -Name Create-GLUEDevEndpoint -Value New-GLUEDevEndpoint
@@ -9807,6 +9812,8 @@ Set-Alias -Name Delete-GLUEConnection -Value Remove-GLUEConnection
 Set-Alias -Name GLUE-DeleteConnection -Value Remove-GLUEConnection
 Set-Alias -Name Delete-GLUECrawler -Value Remove-GLUECrawler
 Set-Alias -Name GLUE-DeleteCrawler -Value Remove-GLUECrawler
+Set-Alias -Name Delete-GLUECustomEntityType -Value Remove-GLUECustomEntityType
+Set-Alias -Name GLUE-DeleteCustomEntityType -Value Remove-GLUECustomEntityType
 Set-Alias -Name Delete-GLUEDatabase -Value Remove-GLUEDatabase
 Set-Alias -Name GLUE-DeleteDatabase -Value Remove-GLUEDatabase
 Set-Alias -Name Delete-GLUEDevEndpoint -Value Remove-GLUEDevEndpoint
@@ -9860,6 +9867,7 @@ Set-Alias -Name Get-GLUECrawlerMetrics -Value Get-GLUECrawlerMetricList
 Set-Alias -Name GLUE-GetCrawlerMetrics -Value Get-GLUECrawlerMetricList
 Set-Alias -Name Get-GLUECrawlers -Value Get-GLUECrawlerList
 Set-Alias -Name GLUE-GetCrawlers -Value Get-GLUECrawlerList
+Set-Alias -Name GLUE-GetCustomEntityType -Value Get-GLUECustomEntityType
 Set-Alias -Name GLUE-GetDatabase -Value Get-GLUEDatabase
 Set-Alias -Name Get-GLUEDatabases -Value Get-GLUEDatabaseList
 Set-Alias -Name GLUE-GetDatabases -Value Get-GLUEDatabaseList
@@ -9933,6 +9941,9 @@ Set-Alias -Name GLUE-ListBlueprints -Value Get-GLUEBlueprintList
 Set-Alias -Name List-GLUECrawlers -Value Get-GLUECrawlerNameList
 Set-Alias -Name List-GLUECrawlerNameList -Value Get-GLUECrawlerNameList
 Set-Alias -Name GLUE-ListCrawlers -Value Get-GLUECrawlerNameList
+Set-Alias -Name List-GLUECustomEntityTypes -Value Get-GLUECustomEntityTypeList
+Set-Alias -Name List-GLUECustomEntityTypeList -Value Get-GLUECustomEntityTypeList
+Set-Alias -Name GLUE-ListCustomEntityTypes -Value Get-GLUECustomEntityTypeList
 Set-Alias -Name List-GLUEDevEndpoints -Value Get-GLUEDevEndpointNameList
 Set-Alias -Name List-GLUEDevEndpointNameList -Value Get-GLUEDevEndpointNameList
 Set-Alias -Name GLUE-ListDevEndpoints -Value Get-GLUEDevEndpointNameList
@@ -11707,6 +11718,15 @@ Set-Alias -Name IOTSW-BatchAssociateProjectAssets -Value Connect-IOTSWAssociateP
 Set-Alias -Name Batch-IOTSWDisassociateProjectAssets -Value Disconnect-IOTSWDisassociateProjectAsset
 Set-Alias -Name Batch-IOTSWDisassociateProjectAsset -Value Disconnect-IOTSWDisassociateProjectAsset
 Set-Alias -Name IOTSW-BatchDisassociateProjectAssets -Value Disconnect-IOTSWDisassociateProjectAsset
+Set-Alias -Name Batch-IOTSWGetAssetPropertyAggregates -Value Get-IOTSWBatchAssetPropertyAggregate
+Set-Alias -Name Batch-IOTSWBatchAssetPropertyAggregate -Value Get-IOTSWBatchAssetPropertyAggregate
+Set-Alias -Name IOTSW-BatchGetAssetPropertyAggregates -Value Get-IOTSWBatchAssetPropertyAggregate
+Set-Alias -Name Batch-IOTSWGetAssetPropertyValue -Value Get-IOTSWBatchAssetPropertyValue
+Set-Alias -Name Batch-IOTSWBatchAssetPropertyValue -Value Get-IOTSWBatchAssetPropertyValue
+Set-Alias -Name IOTSW-BatchGetAssetPropertyValue -Value Get-IOTSWBatchAssetPropertyValue
+Set-Alias -Name Batch-IOTSWGetAssetPropertyValueHistory -Value Get-IOTSWBatchAssetPropertyValueHistory
+Set-Alias -Name Batch-IOTSWBatchAssetPropertyValueHistory -Value Get-IOTSWBatchAssetPropertyValueHistory
+Set-Alias -Name IOTSW-BatchGetAssetPropertyValueHistory -Value Get-IOTSWBatchAssetPropertyValueHistory
 Set-Alias -Name Batch-IOTSWPutAssetPropertyValue -Value Import-IOTSWPutAssetPropertyValue
 Set-Alias -Name IOTSW-BatchPutAssetPropertyValue -Value Import-IOTSWPutAssetPropertyValue
 Set-Alias -Name Create-IOTSWAccessPolicy -Value New-IOTSWAccessPolicy
@@ -13535,6 +13555,8 @@ Set-Alias -Name Describe-LOMAnomalyDetector -Value Get-LOMAnomalyDetector
 Set-Alias -Name LOM-DescribeAnomalyDetector -Value Get-LOMAnomalyDetector
 Set-Alias -Name Describe-LOMMetricSet -Value Get-LOMMetricSet
 Set-Alias -Name LOM-DescribeMetricSet -Value Get-LOMMetricSet
+Set-Alias -Name Detect-LOMMetricSetConfig -Value Get-LOMMetricSetConfig
+Set-Alias -Name LOM-DetectMetricSetConfig -Value Get-LOMMetricSetConfig
 Set-Alias -Name LOM-GetAnomalyGroup -Value Get-LOMAnomalyGroup
 Set-Alias -Name LOM-GetFeedback -Value Get-LOMFeedback
 Set-Alias -Name LOM-GetSampleData -Value Get-LOMSampleData
@@ -14186,6 +14208,8 @@ Set-Alias -Name Configure-EMTLogsForPlaybackConfiguration -Value Add-EMTLogsForP
 Set-Alias -Name EMT-ConfigureLogsForPlaybackConfiguration -Value Add-EMTLogsForPlaybackConfiguration
 Set-Alias -Name Create-EMTChannel -Value New-EMTChannel
 Set-Alias -Name EMT-CreateChannel -Value New-EMTChannel
+Set-Alias -Name Create-EMTLiveSource -Value New-EMTLiveSource
+Set-Alias -Name EMT-CreateLiveSource -Value New-EMTLiveSource
 Set-Alias -Name Create-EMTPrefetchSchedule -Value New-EMTPrefetchSchedule
 Set-Alias -Name EMT-CreatePrefetchSchedule -Value New-EMTPrefetchSchedule
 Set-Alias -Name Create-EMTProgram -Value New-EMTProgram
@@ -14198,6 +14222,8 @@ Set-Alias -Name Delete-EMTChannel -Value Remove-EMTChannel
 Set-Alias -Name EMT-DeleteChannel -Value Remove-EMTChannel
 Set-Alias -Name Delete-EMTChannelPolicy -Value Remove-EMTChannelPolicy
 Set-Alias -Name EMT-DeleteChannelPolicy -Value Remove-EMTChannelPolicy
+Set-Alias -Name Delete-EMTLiveSource -Value Remove-EMTLiveSource
+Set-Alias -Name EMT-DeleteLiveSource -Value Remove-EMTLiveSource
 Set-Alias -Name Delete-EMTPlaybackConfiguration -Value Remove-EMTPlaybackConfiguration
 Set-Alias -Name EMT-DeletePlaybackConfiguration -Value Remove-EMTPlaybackConfiguration
 Set-Alias -Name Delete-EMTPrefetchSchedule -Value Remove-EMTPrefetchSchedule
@@ -14210,6 +14236,8 @@ Set-Alias -Name Delete-EMTVodSource -Value Remove-EMTVodSource
 Set-Alias -Name EMT-DeleteVodSource -Value Remove-EMTVodSource
 Set-Alias -Name Describe-EMTChannel -Value Get-EMTChannel
 Set-Alias -Name EMT-DescribeChannel -Value Get-EMTChannel
+Set-Alias -Name Describe-EMTLiveSource -Value Get-EMTLiveSource
+Set-Alias -Name EMT-DescribeLiveSource -Value Get-EMTLiveSource
 Set-Alias -Name Describe-EMTProgram -Value Get-EMTProgram
 Set-Alias -Name EMT-DescribeProgram -Value Get-EMTProgram
 Set-Alias -Name Describe-EMTSourceLocation -Value Get-EMTSourceLocation
@@ -14226,6 +14254,9 @@ Set-Alias -Name EMT-ListAlerts -Value Get-EMTAlertList
 Set-Alias -Name List-EMTChannels -Value Get-EMTChannelList
 Set-Alias -Name List-EMTChannelList -Value Get-EMTChannelList
 Set-Alias -Name EMT-ListChannels -Value Get-EMTChannelList
+Set-Alias -Name List-EMTLiveSources -Value Get-EMTLiveSourceList
+Set-Alias -Name List-EMTLiveSourceList -Value Get-EMTLiveSourceList
+Set-Alias -Name EMT-ListLiveSources -Value Get-EMTLiveSourceList
 Set-Alias -Name List-EMTPlaybackConfigurations -Value Get-EMTPlaybackConfigurationList
 Set-Alias -Name List-EMTPlaybackConfigurationList -Value Get-EMTPlaybackConfigurationList
 Set-Alias -Name EMT-ListPlaybackConfigurations -Value Get-EMTPlaybackConfigurationList
@@ -14248,6 +14279,7 @@ Set-Alias -Name EMT-StopChannel -Value Stop-EMTChannel
 Set-Alias -Name EMT-TagResource -Value Add-EMTResourceTag
 Set-Alias -Name EMT-UntagResource -Value Remove-EMTResourceTag
 Set-Alias -Name EMT-UpdateChannel -Value Update-EMTChannel
+Set-Alias -Name EMT-UpdateLiveSource -Value Update-EMTLiveSource
 Set-Alias -Name EMT-UpdateSourceLocation -Value Update-EMTSourceLocation
 Set-Alias -Name EMT-UpdateVodSource -Value Update-EMTVodSource
 Set-Alias -Name Batch-MDBUpdateCluster -Value Update-MDBUpdateClusterBatch

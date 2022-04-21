@@ -22500,6 +22500,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUETableVersionBatch",
                "Get-GLUEBlueprintBatch",
                "Get-GLUECrawlerBatch",
+               "Get-GLUEGetCustomEntityType",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEJobBatch",
                "Get-GLUEPartitionBatch",
@@ -22514,6 +22515,7 @@ $GLUE_SelectMap = @{
                "New-GLUEClassifier",
                "New-GLUEConnection",
                "New-GLUECrawler",
+               "New-GLUECustomEntityType",
                "New-GLUEDatabase",
                "New-GLUEDevEndpoint",
                "New-GLUEJob",
@@ -22535,6 +22537,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEColumnStatisticsForTable",
                "Remove-GLUEConnection",
                "Remove-GLUECrawler",
+               "Remove-GLUECustomEntityType",
                "Remove-GLUEDatabase",
                "Remove-GLUEDevEndpoint",
                "Remove-GLUEJob",
@@ -22565,6 +22568,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawler",
                "Get-GLUECrawlerMetricList",
                "Get-GLUECrawlerList",
+               "Get-GLUECustomEntityType",
                "Get-GLUEDatabase",
                "Get-GLUEDatabaseList",
                "Get-GLUEDataCatalogEncryptionSetting",
@@ -22615,6 +22619,7 @@ $GLUE_SelectMap = @{
                "Import-GLUECatalog",
                "Get-GLUEBlueprintList",
                "Get-GLUECrawlerNameList",
+               "Get-GLUECustomEntityTypeList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
@@ -26284,6 +26289,9 @@ $IOTSW_SelectMap = @{
                "Add-IOTSWTimeSeriesToAssetProperty",
                "Connect-IOTSWAssociateProjectAsset",
                "Disconnect-IOTSWDisassociateProjectAsset",
+               "Get-IOTSWBatchAssetPropertyAggregate",
+               "Get-IOTSWBatchAssetPropertyValue",
+               "Get-IOTSWBatchAssetPropertyValueHistory",
                "Import-IOTSWPutAssetPropertyValue",
                "New-IOTSWAccessPolicy",
                "New-IOTSWAsset",
@@ -30481,6 +30489,7 @@ $LOM_SelectMap = @{
                "Get-LOMAnomalyDetectionExecution",
                "Get-LOMAnomalyDetector",
                "Get-LOMMetricSet",
+               "Get-LOMMetricSetConfig",
                "Get-LOMAnomalyGroup",
                "Get-LOMFeedback",
                "Get-LOMSampleData",
@@ -32567,6 +32576,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.Tier
+        "New-EMTChannel/Tier"
+        {
+            $v = "BASIC","STANDARD"
+            break
+        }
+
 
     }
 
@@ -32580,6 +32596,7 @@ $EMT_map = @{
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "ScheduleConfiguration_Transition_RelativePosition"=@("New-EMTProgram")
+    "Tier"=@("New-EMTChannel")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map
@@ -32634,18 +32651,21 @@ $EMT_SelectCompleters = {
 $EMT_SelectMap = @{
     "Select"=@("Add-EMTLogsForPlaybackConfiguration",
                "New-EMTChannel",
+               "New-EMTLiveSource",
                "New-EMTPrefetchSchedule",
                "New-EMTProgram",
                "New-EMTSourceLocation",
                "New-EMTVodSource",
                "Remove-EMTChannel",
                "Remove-EMTChannelPolicy",
+               "Remove-EMTLiveSource",
                "Remove-EMTPlaybackConfiguration",
                "Remove-EMTPrefetchSchedule",
                "Remove-EMTProgram",
                "Remove-EMTSourceLocation",
                "Remove-EMTVodSource",
                "Get-EMTChannel",
+               "Get-EMTLiveSource",
                "Get-EMTProgram",
                "Get-EMTSourceLocation",
                "Get-EMTVodSource",
@@ -32655,6 +32675,7 @@ $EMT_SelectMap = @{
                "Get-EMTPrefetchSchedule",
                "Get-EMTAlertList",
                "Get-EMTChannelList",
+               "Get-EMTLiveSourceList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTPrefetchScheduleList",
                "Get-EMTSourceLocationList",
@@ -32667,6 +32688,7 @@ $EMT_SelectMap = @{
                "Add-EMTResourceTag",
                "Remove-EMTResourceTag",
                "Update-EMTChannel",
+               "Update-EMTLiveSource",
                "Update-EMTSourceLocation",
                "Update-EMTVodSource")
 }

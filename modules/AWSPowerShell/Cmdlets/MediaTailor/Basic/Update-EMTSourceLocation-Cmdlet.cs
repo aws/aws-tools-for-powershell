@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SegmentDeliveryConfiguration
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of the segment delivery configurations associated with this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

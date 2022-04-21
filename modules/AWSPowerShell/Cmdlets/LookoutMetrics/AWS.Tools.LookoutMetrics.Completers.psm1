@@ -201,6 +201,7 @@ $LOM_SelectMap = @{
                "Get-LOMAnomalyDetectionExecution",
                "Get-LOMAnomalyDetector",
                "Get-LOMMetricSet",
+               "Get-LOMMetricSetConfig",
                "Get-LOMAnomalyGroup",
                "Get-LOMFeedback",
                "Get-LOMSampleData",

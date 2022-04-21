@@ -28,11 +28,12 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Creates a new secret. A <i>secret</i> is a set of credentials, such as a user name
-    /// and password, that you store in an encrypted form in Secrets Manager. The secret also
-    /// includes the connection information to access a database or other service, which Secrets
-    /// Manager doesn't encrypt. A secret in Secrets Manager consists of both the protected
-    /// secret data and the important information needed to manage the secret.
+    /// Creates a new secret. A <i>secret</i> can be a password, a set of credentials such
+    /// as a user name and password, an OAuth token, or other secret information that you
+    /// store in an encrypted form in Secrets Manager. The secret also includes the connection
+    /// information to access a database or other service, which Secrets Manager doesn't encrypt.
+    /// A secret in Secrets Manager consists of both the protected secret data and the important
+    /// information needed to manage the secret.
     /// 
     ///  
     /// <para>
@@ -45,6 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// Secrets Manager creates an initial secret version and automatically attaches the staging
     /// label <code>AWSCURRENT</code> to it.
     /// </para><para>
+    /// For database credentials you want to rotate, for Secrets Manager to be able to rotate
+    /// the secret, you must make sure the JSON you store in the <code>SecretString</code>
+    /// matches the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">JSON
+    /// structure of a database secret</a>.
+    /// </para><para>
     /// If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services
     /// managed key <code>aws/secretsmanager</code>. If this key doesn't already exist in
     /// your account, then Secrets Manager creates it for you automatically. All users and
@@ -55,10 +61,15 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If the secret is in a different Amazon Web Services account from the credentials calling
     /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
     /// and you must create and use a customer managed KMS key. 
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:CreateSecret</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+    /// </para><para><b>Required permissions: </b><code>secretsmanager:CreateSecret</code>. If you include
+    /// tags in the secret, you also need <code>secretsmanager:TagResource</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
+    /// </para><para>
+    /// To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you
+    /// need <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permission to the
+    /// key. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "SECSecret", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

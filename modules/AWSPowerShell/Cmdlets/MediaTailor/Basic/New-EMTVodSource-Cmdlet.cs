@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter HttpPackageConfiguration
         /// <summary>
         /// <para>
-        /// <para>An array of HTTP package configuration parameters for this VOD source.</para>
+        /// <para>A list of HTTP package configuration parameters for this VOD source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

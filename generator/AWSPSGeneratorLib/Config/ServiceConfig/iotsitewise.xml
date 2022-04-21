@@ -35,6 +35,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAssetPropertyAggregates" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyAggregate" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAssetPropertyValue" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValue" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAssetPropertyValueHistory" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValueHistory" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
