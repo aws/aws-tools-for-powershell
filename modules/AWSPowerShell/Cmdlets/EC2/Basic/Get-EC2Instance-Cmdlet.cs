@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// mapped to the instance, for example, <code>2010-09-15T17:15:20.000Z</code>.</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates
         /// whether the EBS volume is deleted on instance termination.</para></li><li><para><code>block-device-mapping.device-name</code> - The device name specified in the
         /// block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code>
-        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
+        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</para></li><li><para><code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which
+        /// the instance was launched.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
         /// the instance.</para></li><li><para><code>dns-name</code> - The public DNS name of the instance.</para></li><li><para><code>group-id</code> - The ID of the security group for the instance. EC2-Classic
         /// only.</para></li><li><para><code>group-name</code> - The name of the security group for the instance. EC2-Classic
         /// only.</para></li><li><para><code>hibernation-options.configured</code> - A Boolean that indicates whether the

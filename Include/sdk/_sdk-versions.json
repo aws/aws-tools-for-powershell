@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.257.0",
+    "ProductVersion" : "3.7.258.0",
     "CoreVersion"    : "3.7.10.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.64.3",
+            "Version" : "3.7.65.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2290,7 +2290,7 @@
             "InPreview"               : false
         },
         "ChimeSDKMeetings"                : {
-            "Version" : "3.7.5.12",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"

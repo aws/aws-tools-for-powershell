@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to fulfill the request.</para></li><li><para><code>state</code> - The state of the Spot Instance request (<code>open</code> |
         /// <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>).
         /// Spot request status information can help you track your Amazon EC2 Spot Instance requests.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot
         /// request status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
         /// your Spot Instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot Instance
         /// request.</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the

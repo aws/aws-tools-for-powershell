@@ -1,4 +1,7 @@
-﻿### 4.1.69 (2022-04-21 20:14Z)
+﻿### 4.1.70 (2022-04-22 20:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.258.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.69 (2022-04-21 20:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.257.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elemental MediaTailor
     * Added cmdlet Get-EMTLiveSource leveraging the DescribeLiveSource service API.
