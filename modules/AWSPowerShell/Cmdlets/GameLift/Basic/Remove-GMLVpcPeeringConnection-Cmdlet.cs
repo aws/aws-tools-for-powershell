@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Once a valid authorization exists, call this operation from the Amazon Web Services
-    /// account that is used to manage the Amazon Web Services fleets. Identify the connection
+    /// account that is used to manage the Amazon GameLift fleets. Identify the connection
     /// to delete by the connection ID and fleet ID. If successful, the connection is removed.
     /// 
     /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |

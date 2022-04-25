@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the phone number.</para>
+        /// <para>A unique identifier for the phone number.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

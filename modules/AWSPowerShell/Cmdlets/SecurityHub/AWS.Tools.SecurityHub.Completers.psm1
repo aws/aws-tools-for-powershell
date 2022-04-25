@@ -80,6 +80,13 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.AutoEnableStandards
+        "Update-SHUBOrganizationConfiguration/AutoEnableStandards"
+        {
+            $v = "DEFAULT","NONE"
+            break
+        }
+
         # Amazon.SecurityHub.ControlStatus
         "Update-SHUBStandardsControl/ControlStatus"
         {
@@ -124,6 +131,7 @@ $SHUB_Completers = {
 }
 
 $SHUB_map = @{
+    "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
     "Severity_Label"=@("Update-SHUBFindingsBatch")

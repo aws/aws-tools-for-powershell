@@ -87,6 +87,20 @@ $RDSD_Completers = {
             break
         }
 
+        # Amazon.RDSDataService.LongReturnType
+        "Invoke-RDSDStatement/ResultSetOptions_LongReturnType"
+        {
+            $v = "LONG","STRING"
+            break
+        }
+
+        # Amazon.RDSDataService.RecordsFormatType
+        "Invoke-RDSDStatement/FormatRecordsAs"
+        {
+            $v = "JSON","NONE"
+            break
+        }
+
 
     }
 
@@ -96,7 +110,9 @@ $RDSD_Completers = {
 }
 
 $RDSD_map = @{
+    "FormatRecordsAs"=@("Invoke-RDSDStatement")
     "ResultSetOptions_DecimalReturnType"=@("Invoke-RDSDStatement")
+    "ResultSetOptions_LongReturnType"=@("Invoke-RDSDStatement")
 }
 
 _awsArgumentCompleterRegistration $RDSD_Completers $RDSD_map

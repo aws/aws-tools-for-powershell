@@ -4882,6 +4882,8 @@ Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNUsers -Value Search-CONNUser
+Set-Alias -Name CONN-SearchUsers -Value Search-CONNUser
 Set-Alias -Name Search-CONNVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-SearchVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-StartChatContact -Value Start-CONNChatContact

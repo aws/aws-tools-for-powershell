@@ -28,9 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new Amazon Web Services build resource for your game server binary files.
-    /// Game server binaries must be combined into a zip file for use with Amazon Web Services.
-    /// 
+    /// Creates a new Amazon GameLift build resource for your game server binary files. Game
+    /// server binaries must be combined into a zip file for use with Amazon GameLift. 
     /// 
     ///  <important><para>
     /// When setting up a new game build for GameLift, we recommend using the Amazon Web Services
@@ -42,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><ul><li><para>
     /// To create a new game build with build files that are in an Amazon S3 location under
     /// an Amazon Web Services account that you control. To use this option, you must first
-    /// give Amazon Web Services access to the Amazon S3 bucket. With permissions in place,
-    /// call <code>CreateBuild</code> and specify a build name, operating system, and the
-    /// Amazon S3 storage location of your game build.
+    /// give Amazon GameLift access to the Amazon S3 bucket. With permissions in place, call
+    /// <code>CreateBuild</code> and specify a build name, operating system, and the Amazon
+    /// S3 storage location of your game build.
     /// </para></li><li><para>
     /// To directly upload your build files to a GameLift Amazon S3 location. To use this
     /// option, first call <code>CreateBuild</code> and specify a build name and operating
@@ -108,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// Web Services uses this information when retrieving files from an S3 bucket that you
-        /// own. Use this parameter to specify a specific version of the file. If not set, the
-        /// latest version of the file is retrieved. </para>
+        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
+        /// Use this parameter to specify a specific version of the file. If not set, the latest
+        /// version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon Web Services to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// cannot be updated.
     /// </para><para>
     /// The maximum number of players per game session is 200. It is not adjustable. 
-    /// </para><para><i>Available in Amazon Web Services Local.</i></para><para><b>Related actions</b></para><para><a>CreatePlayerSession</a> | <a>CreatePlayerSessions</a> | <a>DescribePlayerSessions</a>
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Related actions</b></para><para><a>CreatePlayerSession</a> | <a>CreatePlayerSessions</a> | <a>DescribePlayerSessions</a>
     /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Map of string pairs, each specifying a player ID and a set of developer-defined information
-        /// related to the player. Amazon Web Services does not use this data, so it can be formatted
+        /// related to the player. Amazon GameLift does not use this data, so it can be formatted
         /// as needed for use in the game. Any player data strings for player IDs that are not
         /// included in the <code>PlayerIds</code> parameter are ignored. </para>
         /// </para>

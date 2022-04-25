@@ -57,6 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.Boolean? AutoEnable { get; set; }
         #endregion
         
+        #region Parameter AutoEnableStandard
+        /// <summary>
+        /// <para>
+        /// <para>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default
+        /// standards</a> for new member accounts in the organization.</para><para>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts
+        /// are automatically enabled with default Security Hub standards.</para><para>To opt out of enabling default standards for new member accounts, set this parameter
+        /// equal to <code>NONE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoEnableStandards")]
+        [AWSConstantClassSource("Amazon.SecurityHub.AutoEnableStandards")]
+        public Amazon.SecurityHub.AutoEnableStandards AutoEnableStandard { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -124,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 WriteWarning("You are passing $null as a value for parameter AutoEnable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoEnableStandard = this.AutoEnableStandard;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.AutoEnable != null)
             {
                 request.AutoEnable = cmdletContext.AutoEnable.Value;
+            }
+            if (cmdletContext.AutoEnableStandard != null)
+            {
+                request.AutoEnableStandards = cmdletContext.AutoEnableStandard;
             }
             
             CmdletOutput output;
@@ -206,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AutoEnable { get; set; }
+            public Amazon.SecurityHub.AutoEnableStandards AutoEnableStandard { get; set; }
             public System.Func<Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse, UpdateSHUBOrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

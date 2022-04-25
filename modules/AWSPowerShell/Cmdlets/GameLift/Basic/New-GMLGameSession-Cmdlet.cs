@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// Game session logs are retained for all active game sessions for 14 days. To access
     /// the logs, call <a>GetGameSessionLogUrl</a> to download the log files.
-    /// </para><para><i>Available in Amazon Web Services Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
     /// a game session</a></para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
     /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
     /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>

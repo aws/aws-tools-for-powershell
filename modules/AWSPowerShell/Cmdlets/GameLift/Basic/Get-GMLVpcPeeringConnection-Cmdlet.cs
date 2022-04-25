@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To retrieve connection information, call this operation from the Amazon Web Services
-    /// account that is used to manage the Amazon Web Services fleets. Specify a fleet ID
-    /// or leave the parameter empty to retrieve all connection records. If successful, the
-    /// retrieved information includes both active and pending connections. Active connections
-    /// identify the IpV4 CIDR block that the VPC uses to connect. 
+    /// account that is used to manage the Amazon GameLift fleets. Specify a fleet ID or leave
+    /// the parameter empty to retrieve all connection records. If successful, the retrieved
+    /// information includes both active and pending connections. Active connections identify
+    /// the IpV4 CIDR block that the VPC uses to connect. 
     /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
     /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
     /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

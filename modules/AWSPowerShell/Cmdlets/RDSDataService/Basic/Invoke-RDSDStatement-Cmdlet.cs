@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
     /// </para></important><para>
-    /// The response size limit is 1 MB. If the call returns more than 1 MB of response data,
-    /// the call is terminated.
+    /// If the binary response data from the database is more than 1 MB, the call is terminated.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "RDSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,6 +84,22 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         public Amazon.RDSDataService.DecimalReturnType ResultSetOptions_DecimalReturnType { get; set; }
         #endregion
         
+        #region Parameter FormatRecordsAs
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to format the result set as a single JSON string. This
+        /// parameter only applies to <code>SELECT</code> statements and is ignored for other
+        /// types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>. The
+        /// default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code>
+        /// field.</para><para>For usage information about the JSON format for result sets, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+        /// the Data API</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDSDataService.RecordsFormatType")]
+        public Amazon.RDSDataService.RecordsFormatType FormatRecordsAs { get; set; }
+        #endregion
+        
         #region Parameter IncludeResultMetadata
         /// <summary>
         /// <para>
@@ -93,6 +108,20 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IncludeResultMetadata { get; set; }
+        #endregion
+        
+        #region Parameter ResultSetOptions_LongReturnType
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates how a field of <code>LONG</code> type is represented. Allowed
+        /// values are <code>LONG</code> and <code>STRING</code>. The default is <code>LONG</code>.
+        /// Specify <code>STRING</code> if the length or precision of numeric values might cause
+        /// truncation or rounding errors. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDSDataService.LongReturnType")]
+        public Amazon.RDSDataService.LongReturnType ResultSetOptions_LongReturnType { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -242,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContinueAfterTimeout = this.ContinueAfterTimeout;
             context.Database = this.Database;
+            context.FormatRecordsAs = this.FormatRecordsAs;
             context.IncludeResultMetadata = this.IncludeResultMetadata;
             if (this.Parameter != null)
             {
@@ -255,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
             }
             #endif
             context.ResultSetOptions_DecimalReturnType = this.ResultSetOptions_DecimalReturnType;
+            context.ResultSetOptions_LongReturnType = this.ResultSetOptions_LongReturnType;
             context.Schema = this.Schema;
             context.SecretArn = this.SecretArn;
             #if MODULAR
@@ -295,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
             {
                 request.Database = cmdletContext.Database;
             }
+            if (cmdletContext.FormatRecordsAs != null)
+            {
+                request.FormatRecordsAs = cmdletContext.FormatRecordsAs;
+            }
             if (cmdletContext.IncludeResultMetadata != null)
             {
                 request.IncludeResultMetadata = cmdletContext.IncludeResultMetadata.Value;
@@ -319,6 +354,16 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
             if (requestResultSetOptions_resultSetOptions_DecimalReturnType != null)
             {
                 request.ResultSetOptions.DecimalReturnType = requestResultSetOptions_resultSetOptions_DecimalReturnType;
+                requestResultSetOptionsIsNull = false;
+            }
+            Amazon.RDSDataService.LongReturnType requestResultSetOptions_resultSetOptions_LongReturnType = null;
+            if (cmdletContext.ResultSetOptions_LongReturnType != null)
+            {
+                requestResultSetOptions_resultSetOptions_LongReturnType = cmdletContext.ResultSetOptions_LongReturnType;
+            }
+            if (requestResultSetOptions_resultSetOptions_LongReturnType != null)
+            {
+                request.ResultSetOptions.LongReturnType = requestResultSetOptions_resultSetOptions_LongReturnType;
                 requestResultSetOptionsIsNull = false;
             }
              // determine if request.ResultSetOptions should be set to null
@@ -405,10 +450,12 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         {
             public System.Boolean? ContinueAfterTimeout { get; set; }
             public System.String Database { get; set; }
+            public Amazon.RDSDataService.RecordsFormatType FormatRecordsAs { get; set; }
             public System.Boolean? IncludeResultMetadata { get; set; }
             public List<Amazon.RDSDataService.Model.SqlParameter> Parameter { get; set; }
             public System.String ResourceArn { get; set; }
             public Amazon.RDSDataService.DecimalReturnType ResultSetOptions_DecimalReturnType { get; set; }
+            public Amazon.RDSDataService.LongReturnType ResultSetOptions_LongReturnType { get; set; }
             public System.String Schema { get; set; }
             public System.String SecretArn { get; set; }
             public System.String Sql { get; set; }

@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling
+        /// for an IAM role that allows Amazon GameLift to access your Amazon EC2 Auto Scaling
         /// groups.</para>
         /// </para>
         /// </summary>
@@ -285,9 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the Amazon EC2 launch template to use. If no version is specified,
-        /// the default version will be used. With Amazon Elastic Compute Cloud, you can specify
-        /// a default version for a launch template. If none is set, the default is the first
-        /// version created.</para>
+        /// the default version will be used. With Amazon EC2, you can specify a default version
+        /// for a launch template. If none is set, the default is the first version created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

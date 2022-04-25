@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If any player rejects the match, or if acceptances are not received before a specified
     /// timeout, the proposed match is dropped. The matchmaking tickets are then handled in
-    /// one of two ways: For tickets where one or more players rejected the match, the ticket
-    /// status is returned to <code>SEARCHING</code> to find a new match. For tickets where
-    /// one or more players failed to respond, the ticket status is set to <code>CANCELLED</code>,
-    /// and processing is terminated. A new matchmaking request for these players can be submitted
-    /// as needed. 
+    /// one of two ways: For tickets where one or more players rejected the match or failed
+    /// to respond, the ticket status is set to <code>CANCELLED</code>, and processing is
+    /// terminated. For tickets where players have accepted or not yet responded, the ticket
+    /// status is returned to <code>SEARCHING</code> to find a new match. A new matchmaking
+    /// request for these players can be submitted as needed. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
     /// FlexMatch events</a> (reference)

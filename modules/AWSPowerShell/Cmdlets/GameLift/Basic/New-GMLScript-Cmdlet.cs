@@ -43,17 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services
     /// account. Use the <i>StorageLocation</i> parameter for this option. You'll need to
-    /// have an Identity Access Management (IAM) role that allows the Amazon Web Services
-    /// service to access your S3 bucket. 
+    /// have an Identity Access Management (IAM) role that allows the Amazon GameLift service
+    /// to access your S3 bucket. 
     /// </para></li></ul><para>
     /// If the call is successful, a new script record is created with a unique script ID.
     /// If the script file is provided as a local file, the file is uploaded to an Amazon
-    /// Web Services-owned S3 bucket and the script record's storage location reflects this
-    /// location. If the script file is provided as an S3 bucket, Amazon Web Services accesses
-    /// the file at this storage location as needed for deployment.
+    /// GameLift-owned S3 bucket and the script record's storage location reflects this location.
+    /// If the script file is provided as an S3 bucket, Amazon GameLift accesses the file
+    /// at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// Web Services Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
-    /// Up a Role for Amazon Web Services Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
+    /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
+    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
     /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// Web Services uses this information when retrieving files from an S3 bucket that you
-        /// own. Use this parameter to specify a specific version of the file. If not set, the
-        /// latest version of the file is retrieved. </para>
+        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
+        /// Use this parameter to specify a specific version of the file. If not set, the latest
+        /// version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon Web Services to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -186,6 +186,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Request-CONNPhoneNumber', 
         'Resume-CONNContactRecording', 
         'Search-CONNAvailablePhoneNumber', 
+        'Search-CONNUser', 
         'Search-CONNVocabulary', 
         'Start-CONNChatContact', 
         'Start-CONNContactRecording', 

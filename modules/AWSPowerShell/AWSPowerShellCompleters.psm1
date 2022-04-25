@@ -11701,6 +11701,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.HierarchyGroupMatchType
+        "Search-CONNUser/SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"
+        {
+            $v = "EXACT","WITH_CHILD_GROUPS"
+            break
+        }
+
         # Amazon.Connect.InstanceAttributeType
         {
             ($_ -eq "Get-CONNInstanceAttribute/AttributeType") -Or
@@ -11789,6 +11796,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.StringComparisonType
+        "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType"
+        {
+            $v = "CONTAINS","EXACT","STARTS_WITH"
+            break
+        }
+
         # Amazon.Connect.TrafficType
         "Start-CONNOutboundVoiceContact/TrafficType"
         {
@@ -11849,6 +11863,8 @@ $CONN_map = @{
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Update-CONNQueueStatus")
@@ -12009,6 +12025,7 @@ $CONN_SelectMap = @{
                "Remove-CONNPhoneNumber",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNUser",
                "Search-CONNVocabulary",
                "Start-CONNChatContact",
                "Start-CONNContactRecording",
@@ -38894,6 +38911,20 @@ $RDSD_Completers = {
             break
         }
 
+        # Amazon.RDSDataService.LongReturnType
+        "Invoke-RDSDStatement/ResultSetOptions_LongReturnType"
+        {
+            $v = "LONG","STRING"
+            break
+        }
+
+        # Amazon.RDSDataService.RecordsFormatType
+        "Invoke-RDSDStatement/FormatRecordsAs"
+        {
+            $v = "JSON","NONE"
+            break
+        }
+
 
     }
 
@@ -38903,7 +38934,9 @@ $RDSD_Completers = {
 }
 
 $RDSD_map = @{
+    "FormatRecordsAs"=@("Invoke-RDSDStatement")
     "ResultSetOptions_DecimalReturnType"=@("Invoke-RDSDStatement")
+    "ResultSetOptions_LongReturnType"=@("Invoke-RDSDStatement")
 }
 
 _awsArgumentCompleterRegistration $RDSD_Completers $RDSD_map
@@ -43840,6 +43873,13 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.AutoEnableStandards
+        "Update-SHUBOrganizationConfiguration/AutoEnableStandards"
+        {
+            $v = "DEFAULT","NONE"
+            break
+        }
+
         # Amazon.SecurityHub.ControlStatus
         "Update-SHUBStandardsControl/ControlStatus"
         {
@@ -43884,6 +43924,7 @@ $SHUB_Completers = {
 }
 
 $SHUB_map = @{
+    "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
     "Severity_Label"=@("Update-SHUBFindingsBatch")

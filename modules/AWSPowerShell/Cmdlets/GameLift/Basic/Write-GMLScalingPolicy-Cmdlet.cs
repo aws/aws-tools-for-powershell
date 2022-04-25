@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Creates or updates a scaling policy for a fleet. Scaling policies are used to automatically
     /// scale a fleet's hosting capacity to meet player demand. An active scaling policy instructs
-    /// Amazon Web Services to track a fleet metric and automatically change the fleet's capacity
+    /// Amazon GameLift to track a fleet metric and automatically change the fleet's capacity
     /// when a certain threshold is reached. There are two types of scaling policies: target-based
     /// and rule-based. Use a target-based policy to quickly and efficiently manage fleet
     /// scaling; this option is the most commonly used. Use rule-based policies when you need
@@ -55,14 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// tells us how much of a fleet's hosting capacity is ready to host game sessions but
     /// is not currently in use. This is the fleet's buffer; it measures the additional player
     /// demand that the fleet could handle at current capacity. With a target-based policy,
-    /// you set your ideal buffer size and leave it to Amazon Web Services to take whatever
-    /// action is needed to maintain that target. 
+    /// you set your ideal buffer size and leave it to Amazon GameLift to take whatever action
+    /// is needed to maintain that target. 
     /// </para><para>
     /// For example, you might choose to maintain a 10% buffer for a fleet that has the capacity
-    /// to host 100 simultaneous game sessions. This policy tells Amazon Web Services to take
+    /// to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take
     /// action whenever the fleet's available capacity falls below or rises above 10 game
-    /// sessions. Amazon Web Services will start new instances or stop unused instances in
-    /// order to return to the 10% buffer. 
+    /// sessions. Amazon GameLift will start new instances or stop unused instances in order
+    /// to return to the 10% buffer. 
     /// </para><para>
     /// To create or update a target-based policy, specify a fleet ID and name, and set the
     /// policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)
@@ -158,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>Name of the Amazon Web Services-defined metric that is used to trigger a scaling adjustment.
+        /// <para>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
         /// For detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor
-        /// Amazon Web Services with Amazon CloudWatch</a>. </para><ul><li><para><b>ActivatingGameSessions</b> -- Game sessions in the process of being created.</para></li><li><para><b>ActiveGameSessions</b> -- Game sessions that are currently running.</para></li><li><para><b>ActiveInstances</b> -- Fleet instances that are currently running at least one
+        /// Amazon GameLift with Amazon CloudWatch</a>. </para><ul><li><para><b>ActivatingGameSessions</b> -- Game sessions in the process of being created.</para></li><li><para><b>ActiveGameSessions</b> -- Game sessions that are currently running.</para></li><li><para><b>ActiveInstances</b> -- Fleet instances that are currently running at least one
         /// game session.</para></li><li><para><b>AvailableGameSessions</b> -- Additional game sessions that fleet could host simultaneously,
         /// given current capacity.</para></li><li><para><b>AvailablePlayerSessions</b> -- Empty player slots in currently active game sessions.
         /// This includes game sessions that are not currently accepting players. Reserved player
