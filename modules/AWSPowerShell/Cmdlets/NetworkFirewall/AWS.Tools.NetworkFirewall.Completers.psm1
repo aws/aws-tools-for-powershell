@@ -80,6 +80,20 @@ $NWFW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NetworkFirewall.EncryptionType
+        {
+            ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type")
+        }
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_KMS"
+            break
+        }
+
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
             ($_ -eq "New-NWFWRuleGroup/RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
@@ -131,6 +145,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
@@ -213,6 +228,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWResourceTag",
                "Update-NWFWFirewallDeleteProtection",
                "Update-NWFWFirewallDescription",
+               "Update-NWFWFirewallEncryptionConfiguration",
                "Update-NWFWFirewallPolicy",
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWLoggingConfiguration",

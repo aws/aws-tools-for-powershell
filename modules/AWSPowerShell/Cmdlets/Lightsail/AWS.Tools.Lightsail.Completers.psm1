@@ -211,7 +211,7 @@ $LS_Completers = {
         # Amazon.Lightsail.LoadBalancerAttributeName
         "Update-LSLoadBalancerAttribute/AttributeName"
         {
-            $v = "HealthCheckPath","SessionStickinessEnabled","SessionStickiness_LB_CookieDurationSeconds"
+            $v = "HealthCheckPath","HttpsRedirectionEnabled","SessionStickinessEnabled","SessionStickiness_LB_CookieDurationSeconds","TlsPolicyName"
             break
         }
 
@@ -495,6 +495,7 @@ $LS_SelectMap = @{
                "Get-LSLoadBalancerMetricData",
                "Get-LSLoadBalancerList",
                "Get-LSLoadBalancerTlsCertificate",
+               "Get-LSLoadBalancerTlsPolicy",
                "Get-LSOperation",
                "Get-LSOperationList",
                "Get-LSOperationListForResource",

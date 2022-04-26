@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>The contact protocols to use for the alarm, such as <code>Email</code>, <code>SMS</code>
         /// (text messaging), or both.</para><para>A notification is sent via the specified contact protocol if notifications are enabled
         /// for the alarm, and when the alarm is triggered.</para><para>A notification is not sent if a contact protocol is not specified, if the specified
-        /// contact protocol is not configured in the AWS Region, or if notifications are not
-        /// enabled for the alarm using the <code>notificationEnabled</code> paramater.</para><para>Use the <code>CreateContactMethod</code> action to configure a contact protocol in
-        /// an AWS Region.</para>
+        /// contact protocol is not configured in the Amazon Web Services Region, or if notifications
+        /// are not enabled for the alarm using the <code>notificationEnabled</code> paramater.</para><para>Use the <code>CreateContactMethod</code> action to configure a contact protocol in
+        /// an Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

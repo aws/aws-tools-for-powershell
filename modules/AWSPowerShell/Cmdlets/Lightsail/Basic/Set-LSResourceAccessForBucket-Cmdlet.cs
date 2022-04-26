@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// Lightsail buckets currently support setting access for Lightsail instances in the
-    /// same AWS Region.
+    /// same Amazon Web Services Region.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "LSResourceAccessForBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

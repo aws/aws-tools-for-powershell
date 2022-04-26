@@ -517,6 +517,9 @@
     <Reference Include="AWSSDK.IVS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IVS.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Ivschat">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Ivschat.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Kafka">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Kafka.dll</HintPath>
     </Reference>
@@ -1406,6 +1409,9 @@
     </Reference>
     <Reference Include="AWSSDK.IVS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IVS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Ivschat">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Ivschat.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kafka">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Kafka.dll</HintPath>

@@ -28,7 +28,7 @@ using Amazon.Pricing.Model;
 namespace Amazon.PowerShell.Cmdlets.PLS
 {
     /// <summary>
-    /// Returns a list of attribute values. Attibutes are similar to the details in a Price
+    /// Returns a list of attribute values. Attributes are similar to the details in a Price
     /// List API offer file. For a list of available attributes, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer
     /// File Definitions</a> in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Amazon
     /// Web Services Billing and Cost Management User Guide</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

@@ -145,6 +145,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LSLoadBalancerList', 
         'Get-LSLoadBalancerMetricData', 
         'Get-LSLoadBalancerTlsCertificate', 
+        'Get-LSLoadBalancerTlsPolicy', 
         'Get-LSOperation', 
         'Get-LSOperationList', 
         'Get-LSOperationListForResource', 

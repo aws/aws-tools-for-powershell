@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// 
     ///  
     /// <para>
-    /// An AWS Network Firewall firewall policy defines the behavior of a firewall, in a collection
+    /// An Network Firewall firewall policy defines the behavior of a firewall, in a collection
     /// of stateless and stateful rule groups and other settings. You can use one firewall
     /// policy for multiple firewalls. 
     /// </para>
@@ -91,6 +91,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String FirewallPolicyName { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        /// You can use any of the key identifiers that KMS supports, unless you're using a key
+        /// that's managed by another account. If you're using a key managed by another account,
+        /// then specify the key ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
+        /// ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KeyId { get; set; }
+        #endregion
+        
         #region Parameter StatefulEngineOptions_RuleOrder
         /// <summary>
         /// <para>
@@ -98,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// is the default behavior. Stateful rules are provided to the rule engine as Suricata
         /// compatible strings, and Suricata evaluates them based on certain settings. For more
         /// information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
-        /// order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>. </para>
+        /// order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>The default actions to take on a packet that doesn't match any stateful rules. The
         /// stateful default action is optional, and is only valid when using the strict rule
-        /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-strict-rule-evaluation-order.html">Strict
-        /// evaluation order</a> in the <i>AWS Network Firewall Developer Guide</i>. </para>
+        /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html">Strict
+        /// evaluation order</a> in the <i>Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,6 +233,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall
+        /// resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.EncryptionType")]
+        public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -282,6 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.DryRun = this.DryRun;
+            context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
+            context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             if (this.FirewallPolicy_StatefulDefaultAction != null)
             {
                 context.FirewallPolicy_StatefulDefaultAction = new List<System.String>(this.FirewallPolicy_StatefulDefaultAction);
@@ -353,6 +381,35 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.NetworkFirewall.Model.EncryptionConfiguration();
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KeyId = null;
+            if (cmdletContext.EncryptionConfiguration_KeyId != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KeyId = cmdletContext.EncryptionConfiguration_KeyId;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KeyId != null)
+            {
+                request.EncryptionConfiguration.KeyId = requestEncryptionConfiguration_encryptionConfiguration_KeyId;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.NetworkFirewall.EncryptionType requestEncryptionConfiguration_encryptionConfiguration_Type = null;
+            if (cmdletContext.EncryptionConfiguration_Type != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_Type = cmdletContext.EncryptionConfiguration_Type;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_Type != null)
+            {
+                request.EncryptionConfiguration.Type = requestEncryptionConfiguration_encryptionConfiguration_Type;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             
              // populate FirewallPolicy
@@ -519,6 +576,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public System.String EncryptionConfiguration_KeyId { get; set; }
+            public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference> FirewallPolicy_StatefulRuleGroupReference { get; set; }

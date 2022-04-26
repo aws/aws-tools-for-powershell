@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// Use this action to update the configuration of an existing bucket, such as versioning,
-    /// public accessibility, and the AWS accounts that can access the bucket.
+    /// public accessibility, and the Amazon Web Services accounts that can access the bucket.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LSBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name of the bucket where the access logs are saved. The destination can be a Lightsail
-        /// bucket in the same account, and in the same AWS Region as the source bucket.</para><note><para>This parameter is required when enabling the access log for a bucket, and should be
+        /// bucket in the same account, and in the same Amazon Web Services Region as the source
+        /// bucket.</para><note><para>This parameter is required when enabling the access log for a bucket, and should be
         /// omitted when disabling the access log.</para></note>
         /// </para>
         /// </summary>
@@ -134,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ReadonlyAccessAccount
         /// <summary>
         /// <para>
-        /// <para>An array of strings to specify the AWS account IDs that can access the bucket.</para><para>You can give a maximum of 10 AWS accounts access to a bucket.</para>
+        /// <para>An array of strings to specify the Amazon Web Services account IDs that can access
+        /// the bucket.</para><para>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution for which to return information.</para><para>When omitted, the response includes all of your distributions in the AWS Region where
-        /// the request is made.</para>
+        /// <para>The name of the distribution for which to return information.</para><para>When omitted, the response includes all of your distributions in the Amazon Web Services
+        /// Region where the request is made.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

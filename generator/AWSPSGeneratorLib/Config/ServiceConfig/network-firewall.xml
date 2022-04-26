@@ -118,6 +118,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallEncryptionConfiguration" OutputProperty="*" Verb="Update" Noun="FirewallEncryptionConfiguration" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFirewallPolicy" OutputProperty="*" Verb="Update" Noun="FirewallPolicy" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

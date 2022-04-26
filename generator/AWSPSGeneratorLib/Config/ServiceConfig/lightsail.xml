@@ -439,6 +439,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLoadBalancerTlsPolicies" OutputProperty="TlsPolicies" Verb="Get" Noun="LoadBalancerTlsPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOperation" OutputProperty="Operation" Verb="Get" Noun="Operation" PipelineParameter="OperationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

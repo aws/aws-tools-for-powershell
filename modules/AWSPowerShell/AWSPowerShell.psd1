@@ -207,6 +207,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.IoTTwinMaker.dll',
         'AWSSDK.IoTWireless.dll',
         'AWSSDK.IVS.dll',
+        'AWSSDK.Ivschat.dll',
         'AWSSDK.Kafka.dll',
         'AWSSDK.KafkaConnect.dll',
         'AWSSDK.Kendra.dll',

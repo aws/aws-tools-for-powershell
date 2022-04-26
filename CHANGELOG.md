@@ -1,4 +1,23 @@
-﻿### 4.1.71 (2022-04-25 20:10Z)
+﻿### 4.1.72 (2022-04-26 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.260.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFResponseHeadersPolicy: added parameters ServerTimingHeadersConfig_Enabled and ServerTimingHeadersConfig_SamplingRate.
+    * Modified cmdlet Update-CFResponseHeadersPolicy: added parameters ServerTimingHeadersConfig_Enabled and ServerTimingHeadersConfig_SamplingRate.
+  * Amazon Interactive Video Service Chat. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IVSC and can be listed using the command 'Get-AWSCmdletName -Service IVSC'.
+  * Amazon Lightsail
+    * Added cmdlet Get-LSLoadBalancerTlsPolicy leveraging the GetLoadBalancerTlsPolicies service API.
+    * Modified cmdlet New-LSLoadBalancer: added parameter TlsPolicyName.
+  * Amazon Network Firewall
+    * Added cmdlet Update-NWFWFirewallEncryptionConfiguration leveraging the UpdateFirewallEncryptionConfiguration service API.
+    * Modified cmdlet New-NWFWFirewall: added parameters EncryptionConfiguration_KeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameters EncryptionConfiguration_KeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet New-NWFWRuleGroup: added parameters EncryptionConfiguration_KeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameters EncryptionConfiguration_KeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameters EncryptionConfiguration_KeyId and EncryptionConfiguration_Type.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters CompiledOutputConfig_S3OutputUri, InputConfig_VolumeKmsKeyId and OutputConfig_KmsKeyId.
+
+### 4.1.71 (2022-04-25 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.259.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNUser leveraging the SearchUsers service API.

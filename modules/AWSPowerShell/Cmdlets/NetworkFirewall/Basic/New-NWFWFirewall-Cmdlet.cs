@@ -28,15 +28,15 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Creates an AWS Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a>
+    /// Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a>
     /// for a VPC. 
     /// 
     ///  
     /// <para>
-    /// The firewall defines the configuration settings for an AWS Network Firewall firewall.
+    /// The firewall defines the configuration settings for an Network Firewall firewall.
     /// The settings that you can define at creation include the firewall policy, the subnets
     /// in your VPC to use for the firewall endpoints, and any tags that are attached to the
-    /// firewall AWS resource. 
+    /// firewall Amazon Web Services resource. 
     /// </para><para>
     /// After you create a firewall, you can provide additional settings, like the logging
     /// configuration. 
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>,
     /// and <a>UpdateFirewallDeleteProtection</a>. 
     /// </para><para>
-    /// To manage a firewall's tags, use the standard AWS resource tagging operations, <a>ListTagsForResource</a>,
-    /// <a>TagResource</a>, and <a>UntagResource</a>.
+    /// To manage a firewall's tags, use the standard Amazon Web Services resource tagging
+    /// operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.
     /// </para><para>
     /// To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.
     /// </para>
@@ -132,6 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.Boolean? FirewallPolicyChangeProtection { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        /// You can use any of the key identifiers that KMS supports, unless you're using a key
+        /// that's managed by another account. If you're using a key managed by another account,
+        /// then specify the key ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
+        /// ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KeyId { get; set; }
+        #endregion
+        
         #region Parameter SubnetChangeProtection
         /// <summary>
         /// <para>
@@ -174,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.NetworkFirewall.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall
+        /// resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.EncryptionType")]
+        public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -257,6 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeleteProtection = this.DeleteProtection;
             context.Description = this.Description;
+            context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
+            context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.FirewallName = this.FirewallName;
             #if MODULAR
             if (this.FirewallName == null && ParameterWasBound(nameof(this.FirewallName)))
@@ -317,6 +345,35 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.NetworkFirewall.Model.EncryptionConfiguration();
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KeyId = null;
+            if (cmdletContext.EncryptionConfiguration_KeyId != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KeyId = cmdletContext.EncryptionConfiguration_KeyId;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KeyId != null)
+            {
+                request.EncryptionConfiguration.KeyId = requestEncryptionConfiguration_encryptionConfiguration_KeyId;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.NetworkFirewall.EncryptionType requestEncryptionConfiguration_encryptionConfiguration_Type = null;
+            if (cmdletContext.EncryptionConfiguration_Type != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_Type = cmdletContext.EncryptionConfiguration_Type;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_Type != null)
+            {
+                request.EncryptionConfiguration.Type = requestEncryptionConfiguration_encryptionConfiguration_Type;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             if (cmdletContext.FirewallName != null)
             {
@@ -409,6 +466,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public System.Boolean? DeleteProtection { get; set; }
             public System.String Description { get; set; }
+            public System.String EncryptionConfiguration_KeyId { get; set; }
+            public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public System.String FirewallName { get; set; }
             public System.String FirewallPolicyArn { get; set; }
             public System.Boolean? FirewallPolicyChangeProtection { get; set; }

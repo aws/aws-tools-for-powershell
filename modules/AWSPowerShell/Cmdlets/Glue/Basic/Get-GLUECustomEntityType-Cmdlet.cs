@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    
+    /// Retrieves the details of a custom pattern by specifying its name.
     /// </summary>
     [Cmdlet("Get", "GLUECustomEntityType")]
     [OutputType("Amazon.Glue.Model.GetCustomEntityTypeResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the custom pattern that you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

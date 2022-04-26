@@ -113,6 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String ContentSecurityPolicy_ContentSecurityPolicy { get; set; }
         #endregion
         
+        #region Parameter ServerTimingHeadersConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header
+        /// to HTTP responses that it sends in response to requests that match a cache behavior
+        /// that's associated with this response headers policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_Enabled")]
+        public System.Boolean? ServerTimingHeadersConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter FrameOptions_FrameOption
         /// <summary>
         /// <para>
@@ -423,6 +436,23 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String XSSProtection_ReportUri { get; set; }
         #endregion
         
+        #region Parameter ServerTimingHeadersConfig_SamplingRate
+        /// <summary>
+        /// <para>
+        /// <para>A number 0–100 (inclusive) that specifies the percentage of responses that you want
+        /// CloudFront to add the <code>Server-Timing</code> header to. When you set the sampling
+        /// rate to 100, CloudFront adds the <code>Server-Timing</code> header to the HTTP response
+        /// for every request that matches the cache behavior that this response headers policy
+        /// is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses
+        /// for requests that match the cache behavior. You can set the sampling rate to any number
+        /// 0–100 with up to four decimal places.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseHeadersPolicyConfig_ServerTimingHeadersConfig_SamplingRate")]
+        public System.Double? ServerTimingHeadersConfig_SamplingRate { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -535,6 +565,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.XSSProtection_Override = this.XSSProtection_Override;
             context.XSSProtection_Protection = this.XSSProtection_Protection;
             context.XSSProtection_ReportUri = this.XSSProtection_ReportUri;
+            context.ServerTimingHeadersConfig_Enabled = this.ServerTimingHeadersConfig_Enabled;
+            context.ServerTimingHeadersConfig_SamplingRate = this.ServerTimingHeadersConfig_SamplingRate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -608,6 +640,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_CustomHeadersConfig != null)
             {
                 request.ResponseHeadersPolicyConfig.CustomHeadersConfig = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_CustomHeadersConfig;
+                requestResponseHeadersPolicyConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.ResponseHeadersPolicyServerTimingHeadersConfig requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig = null;
+            
+             // populate ServerTimingHeadersConfig
+            var requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfigIsNull = true;
+            requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig = new Amazon.CloudFront.Model.ResponseHeadersPolicyServerTimingHeadersConfig();
+            System.Boolean? requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_Enabled = null;
+            if (cmdletContext.ServerTimingHeadersConfig_Enabled != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_Enabled = cmdletContext.ServerTimingHeadersConfig_Enabled.Value;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_Enabled != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig.Enabled = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_Enabled.Value;
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfigIsNull = false;
+            }
+            System.Double? requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_SamplingRate = null;
+            if (cmdletContext.ServerTimingHeadersConfig_SamplingRate != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_SamplingRate = cmdletContext.ServerTimingHeadersConfig_SamplingRate.Value;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_SamplingRate != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig.SamplingRate = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig_serverTimingHeadersConfig_SamplingRate.Value;
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfigIsNull = false;
+            }
+             // determine if requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig should be set to null
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfigIsNull)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig = null;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig != null)
+            {
+                request.ResponseHeadersPolicyConfig.ServerTimingHeadersConfig = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig;
                 requestResponseHeadersPolicyConfigIsNull = false;
             }
             Amazon.CloudFront.Model.ResponseHeadersPolicySecurityHeadersConfig requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_SecurityHeadersConfig = null;
@@ -1146,6 +1213,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Boolean? XSSProtection_Override { get; set; }
             public System.Boolean? XSSProtection_Protection { get; set; }
             public System.String XSSProtection_ReportUri { get; set; }
+            public System.Boolean? ServerTimingHeadersConfig_Enabled { get; set; }
+            public System.Double? ServerTimingHeadersConfig_SamplingRate { get; set; }
             public System.Func<Amazon.CloudFront.Model.CreateResponseHeadersPolicyResponse, NewCFResponseHeadersPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

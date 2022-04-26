@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name for the certificate for which to return information.</para><para>When omitted, the response includes all of your certificates in the AWS Region where
-        /// the request is made.</para>
+        /// <para>The name for the certificate for which to return information.</para><para>When omitted, the response includes all of your certificates in the Amazon Web Services
+        /// Region where the request is made.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The status of the certificates for which to return information.</para><para>For example, specify <code>ISSUED</code> to return only certificates with an <code>ISSUED</code>
-        /// status.</para><para>When omitted, the response includes all of your certificates in the AWS Region where
-        /// the request is made, regardless of their current status.</para>
+        /// status.</para><para>When omitted, the response includes all of your certificates in the Amazon Web Services
+        /// Region where the request is made, regardless of their current status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

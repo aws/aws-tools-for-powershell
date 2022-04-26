@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  <note><para>
     /// When you delete your bucket, the bucket name is released and can be reused for a new
-    /// bucket in your account or another AWS account.
+    /// bucket in your account or another Amazon Web Services account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LSBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

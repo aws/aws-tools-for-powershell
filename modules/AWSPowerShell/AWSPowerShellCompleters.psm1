@@ -27085,6 +27085,101 @@ $IVS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IVS_SelectCompleters $IVS_SelectMap
+# Argument completions for service Amazon Interactive Video Service Chat
+
+
+$IVSC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Ivschat.FallbackResult
+        {
+            ($_ -eq "New-IVSCRoom/MessageReviewHandler_FallbackResult") -Or
+            ($_ -eq "Update-IVSCRoom/MessageReviewHandler_FallbackResult")
+        }
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IVSC_map = @{
+    "MessageReviewHandler_FallbackResult"=@("New-IVSCRoom","Update-IVSCRoom")
+}
+
+_awsArgumentCompleterRegistration $IVSC_Completers $IVSC_map
+
+$IVSC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IVSC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IVSC_SelectMap = @{
+    "Select"=@("New-IVSCChatToken",
+               "New-IVSCRoom",
+               "Remove-IVSCMessage",
+               "Remove-IVSCRoom",
+               "Disconnect-IVSCUser",
+               "Get-IVSCRoom",
+               "Get-IVSCRoomList",
+               "Get-IVSCResourceTag",
+               "Send-IVSCEvent",
+               "Add-IVSCResourceTag",
+               "Remove-IVSCResourceTag",
+               "Update-IVSCRoom")
+}
+
+_awsArgumentCompleterRegistration $IVSC_SelectCompleters $IVSC_SelectMap
 # Argument completions for service Amazon Managed Streaming for Apache Kafka (MSK)
 
 
@@ -29551,7 +29646,7 @@ $LS_Completers = {
         # Amazon.Lightsail.LoadBalancerAttributeName
         "Update-LSLoadBalancerAttribute/AttributeName"
         {
-            $v = "HealthCheckPath","SessionStickinessEnabled","SessionStickiness_LB_CookieDurationSeconds"
+            $v = "HealthCheckPath","HttpsRedirectionEnabled","SessionStickinessEnabled","SessionStickiness_LB_CookieDurationSeconds","TlsPolicyName"
             break
         }
 
@@ -29835,6 +29930,7 @@ $LS_SelectMap = @{
                "Get-LSLoadBalancerMetricData",
                "Get-LSLoadBalancerList",
                "Get-LSLoadBalancerTlsCertificate",
+               "Get-LSLoadBalancerTlsPolicy",
                "Get-LSOperation",
                "Get-LSOperationList",
                "Get-LSOperationListForResource",
@@ -34657,6 +34753,20 @@ $NWFW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NetworkFirewall.EncryptionType
+        {
+            ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type")
+        }
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_KMS"
+            break
+        }
+
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
             ($_ -eq "New-NWFWRuleGroup/RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
@@ -34708,6 +34818,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
@@ -34790,6 +34901,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWResourceTag",
                "Update-NWFWFirewallDeleteProtection",
                "Update-NWFWFirewallDescription",
+               "Update-NWFWFirewallEncryptionConfiguration",
                "Update-NWFWFirewallPolicy",
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWLoggingConfiguration",

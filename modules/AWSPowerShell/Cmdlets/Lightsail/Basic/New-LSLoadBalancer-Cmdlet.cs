@@ -157,6 +157,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TlsPolicyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the TLS policy to apply to the load balancer.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a>
+        /// action to get a list of TLS policy names that you can specify.</para><para>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load
+        /// balancer TLS security policies</a> in the <i>Amazon Lightsail Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TlsPolicyName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
@@ -244,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 context.Tag = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
             }
+            context.TlsPolicyName = this.TlsPolicyName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -291,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TlsPolicyName != null)
+            {
+                request.TlsPolicyName = cmdletContext.TlsPolicyName;
             }
             
             CmdletOutput output;
@@ -361,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String LoadBalancerName { get; set; }
             public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
+            public System.String TlsPolicyName { get; set; }
             public System.Func<Amazon.Lightsail.Model.CreateLoadBalancerResponse, NewLSLoadBalancerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;
         }

@@ -28,9 +28,9 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Creates or updates an AWS Identity and Access Management policy for your rule group
-    /// or firewall policy. Use this to share rule groups and firewall policies between accounts.
-    /// This operation works in conjunction with the AWS Resource Access Manager (RAM) service
+    /// Creates or updates an IAM policy for your rule group or firewall policy. Use this
+    /// to share rule groups and firewall policies between accounts. This operation works
+    /// in conjunction with the Amazon Web Services Resource Access Manager (RAM) service
     /// to manage resource sharing for Network Firewall. 
     /// 
     ///  
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html">AcceptResourceShareInvitation</a>
     /// - Accepts the share invitation for a specified resource share. 
     /// </para></li></ul><para>
-    /// For additional information about resource sharing using RAM, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">AWS
-    /// Resource Access Manager User Guide</a>.
+    /// For additional information about resource sharing using RAM, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">Resource
+    /// Access Manager User Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "NWFWResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The AWS Identity and Access Management policy statement that lists the accounts that
-        /// you want to share your rule group or firewall policy with and the operations that
-        /// you want the accounts to be able to perform. </para><para>For a rule group resource, you can specify the following operations in the Actions
+        /// <para>The IAM policy statement that lists the accounts that you want to share your rule
+        /// group or firewall policy with and the operations that you want the accounts to be
+        /// able to perform. </para><para>For a rule group resource, you can specify the following operations in the Actions
         /// section of the statement:</para><ul><li><para>network-firewall:CreateFirewallPolicy</para></li><li><para>network-firewall:UpdateFirewallPolicy</para></li><li><para>network-firewall:ListRuleGroups</para></li></ul><para>For a firewall policy resource, you can specify the following operations in the Actions
         /// section of the statement:</para><ul><li><para>network-firewall:CreateFirewall</para></li><li><para>network-firewall:UpdateFirewall</para></li><li><para>network-firewall:AssociateFirewallPolicy</para></li><li><para>network-firewall:ListFirewallPolicies</para></li></ul><para>In the Resource section of the statement, you specify the ARNs for the rule groups
         /// and firewall policies that you want to share with the account that you specified in

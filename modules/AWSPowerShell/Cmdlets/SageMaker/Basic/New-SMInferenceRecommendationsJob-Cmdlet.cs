@@ -111,6 +111,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.RecommendationJobType JobType { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts
+        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code>
+        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter StoppingConditions_MaxInvocation
         /// <summary>
         /// <para>
@@ -204,6 +219,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter CompiledOutputConfig_S3OutputUri
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the Amazon S3 bucket where you want SageMaker to store the compiled model
+        /// artifacts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputConfig_CompiledOutputConfig_S3OutputUri")]
+        public System.String CompiledOutputConfig_S3OutputUri { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -228,6 +255,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("InputConfig_TrafficPattern_TrafficType")]
         [AWSConstantClassSource("Amazon.SageMaker.TrafficType")]
         public Amazon.SageMaker.TrafficType TrafficPattern_TrafficType { get; set; }
+        #endregion
+        
+        #region Parameter InputConfig_VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
+        /// attached to the ML compute instance that hosts the endpoint. This key will be passed
+        /// to SageMaker Hosting for endpoint creation. </para><para>The SageMaker execution role must have <code>kms:CreateGrant</code> permission in
+        /// order to encrypt data on the storage volume of the endpoints created for inference
+        /// recommendation. The inference recommendation job will fail asynchronously during endpoint
+        /// configuration creation if the role passed does not have <code>kms:CreateGrant</code>
+        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputConfig_VolumeKmsKeyId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -310,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.TrafficPattern_Phase = new List<Amazon.SageMaker.Model.Phase>(this.TrafficPattern_Phase);
             }
             context.TrafficPattern_TrafficType = this.TrafficPattern_TrafficType;
+            context.InputConfig_VolumeKmsKeyId = this.InputConfig_VolumeKmsKeyId;
             context.JobDescription = this.JobDescription;
             context.JobName = this.JobName;
             #if MODULAR
@@ -325,6 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter JobType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CompiledOutputConfig_S3OutputUri = this.CompiledOutputConfig_S3OutputUri;
+            context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -389,6 +438,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_ModelPackageVersionArn != null)
             {
                 request.InputConfig.ModelPackageVersionArn = requestInputConfig_inputConfig_ModelPackageVersionArn;
+                requestInputConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_VolumeKmsKeyId = null;
+            if (cmdletContext.InputConfig_VolumeKmsKeyId != null)
+            {
+                requestInputConfig_inputConfig_VolumeKmsKeyId = cmdletContext.InputConfig_VolumeKmsKeyId;
+            }
+            if (requestInputConfig_inputConfig_VolumeKmsKeyId != null)
+            {
+                request.InputConfig.VolumeKmsKeyId = requestInputConfig_inputConfig_VolumeKmsKeyId;
                 requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobResourceLimit requestInputConfig_inputConfig_ResourceLimit = null;
@@ -477,6 +536,50 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.JobType != null)
             {
                 request.JobType = cmdletContext.JobType;
+            }
+            
+             // populate OutputConfig
+            var requestOutputConfigIsNull = true;
+            request.OutputConfig = new Amazon.SageMaker.Model.RecommendationJobOutputConfig();
+            System.String requestOutputConfig_outputConfig_KmsKeyId = null;
+            if (cmdletContext.OutputConfig_KmsKeyId != null)
+            {
+                requestOutputConfig_outputConfig_KmsKeyId = cmdletContext.OutputConfig_KmsKeyId;
+            }
+            if (requestOutputConfig_outputConfig_KmsKeyId != null)
+            {
+                request.OutputConfig.KmsKeyId = requestOutputConfig_outputConfig_KmsKeyId;
+                requestOutputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.RecommendationJobCompiledOutputConfig requestOutputConfig_outputConfig_CompiledOutputConfig = null;
+            
+             // populate CompiledOutputConfig
+            var requestOutputConfig_outputConfig_CompiledOutputConfigIsNull = true;
+            requestOutputConfig_outputConfig_CompiledOutputConfig = new Amazon.SageMaker.Model.RecommendationJobCompiledOutputConfig();
+            System.String requestOutputConfig_outputConfig_CompiledOutputConfig_compiledOutputConfig_S3OutputUri = null;
+            if (cmdletContext.CompiledOutputConfig_S3OutputUri != null)
+            {
+                requestOutputConfig_outputConfig_CompiledOutputConfig_compiledOutputConfig_S3OutputUri = cmdletContext.CompiledOutputConfig_S3OutputUri;
+            }
+            if (requestOutputConfig_outputConfig_CompiledOutputConfig_compiledOutputConfig_S3OutputUri != null)
+            {
+                requestOutputConfig_outputConfig_CompiledOutputConfig.S3OutputUri = requestOutputConfig_outputConfig_CompiledOutputConfig_compiledOutputConfig_S3OutputUri;
+                requestOutputConfig_outputConfig_CompiledOutputConfigIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_CompiledOutputConfig should be set to null
+            if (requestOutputConfig_outputConfig_CompiledOutputConfigIsNull)
+            {
+                requestOutputConfig_outputConfig_CompiledOutputConfig = null;
+            }
+            if (requestOutputConfig_outputConfig_CompiledOutputConfig != null)
+            {
+                request.OutputConfig.CompiledOutputConfig = requestOutputConfig_outputConfig_CompiledOutputConfig;
+                requestOutputConfigIsNull = false;
+            }
+             // determine if request.OutputConfig should be set to null
+            if (requestOutputConfigIsNull)
+            {
+                request.OutputConfig = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -583,9 +686,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? ResourceLimit_MaxParallelOfTest { get; set; }
             public List<Amazon.SageMaker.Model.Phase> TrafficPattern_Phase { get; set; }
             public Amazon.SageMaker.TrafficType TrafficPattern_TrafficType { get; set; }
+            public System.String InputConfig_VolumeKmsKeyId { get; set; }
             public System.String JobDescription { get; set; }
             public System.String JobName { get; set; }
             public Amazon.SageMaker.RecommendationJobType JobType { get; set; }
+            public System.String CompiledOutputConfig_S3OutputUri { get; set; }
+            public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingConditions_MaxInvocation { get; set; }
             public List<Amazon.SageMaker.Model.ModelLatencyThreshold> StoppingConditions_ModelLatencyThreshold { get; set; }

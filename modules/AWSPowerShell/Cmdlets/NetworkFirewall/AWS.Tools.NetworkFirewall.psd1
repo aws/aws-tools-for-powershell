@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-NWFWSubnet', 
         'Update-NWFWFirewallDeleteProtection', 
         'Update-NWFWFirewallDescription', 
+        'Update-NWFWFirewallEncryptionConfiguration', 
         'Update-NWFWFirewallPolicy', 
         'Update-NWFWFirewallPolicyChangeProtection', 
         'Update-NWFWLoggingConfiguration', 

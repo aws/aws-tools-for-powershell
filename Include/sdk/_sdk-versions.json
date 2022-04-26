@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.259.0",
+    "ProductVersion" : "3.7.260.0",
     "CoreVersion"    : "3.7.10.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.4.60",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -618,7 +618,7 @@
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "3.7.6.2",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.17.0",
+            "Version" : "3.7.17.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -850,7 +850,7 @@
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "3.7.1.146",
+            "Version" : "3.7.1.147",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.30.5",
+            "Version" : "3.7.31.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -1890,7 +1890,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.2.44",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2427,6 +2427,14 @@
         },
         "PinpointSMSVoiceV2"                  : {
             "Version" : "3.7.0.8",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.10.11"
+            },
+            "InPreview"               : false
+        },
+        "Ivschat"                             : {
+            "Version" : "3.7.0.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"

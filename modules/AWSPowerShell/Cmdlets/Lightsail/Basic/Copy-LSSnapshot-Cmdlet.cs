@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Copies a manual snapshot of an instance or disk as another manual snapshot, or copies
     /// an automatic snapshot of an instance or disk as a manual snapshot. This operation
     /// can also be used to copy a manual or automatic snapshot of an instance or a disk from
-    /// one AWS Region to another in Amazon Lightsail.
+    /// one Amazon Web Services Region to another in Amazon Lightsail.
     /// 
     ///  
     /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region where the source manual or automatic snapshot is located.</para>
+        /// <para>The Amazon Web Services Region where the source manual or automatic snapshot is located.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

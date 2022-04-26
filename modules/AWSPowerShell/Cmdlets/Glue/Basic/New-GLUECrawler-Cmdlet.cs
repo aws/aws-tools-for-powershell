@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter LakeFormationConfiguration_AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Required for cross account crawls. For same account crawls as the target data, this
+        /// can be left as null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter LakeFormationConfiguration_UseLakeFormationCredential
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether to use AWS Lake Formation credentials for the crawler instead of
+        /// the IAM role credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
