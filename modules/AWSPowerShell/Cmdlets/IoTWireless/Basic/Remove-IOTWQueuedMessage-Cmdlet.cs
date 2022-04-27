@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// The operation to delete queued messages.
+    /// Remove queued messages from the downlink queue.
     /// </summary>
     [Cmdlet("Remove", "IOTWQueuedMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Id of a given wireless device which messages will be deleted </para>
+        /// <para>The ID of a given wireless device for which downlink messages will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter MessageId
         /// <summary>
         /// <para>
-        /// <para>if messageID=="*", the queue for a particular wireless deviceId will be purged, otherwise,
-        /// the specific message with messageId will be deleted </para>
+        /// <para>If message ID is <code>"*"</code>, it cleares the entire downlink queue for a given
+        /// device, specified by the wireless device ID. Otherwise, the downlink message with
+        /// the specified message ID will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessDeviceType
         /// <summary>
         /// <para>
-        /// <para>The wireless device type, it is either Sidewalk or LoRaWAN. </para>
+        /// <para>The wireless device type, which can be either Sidewalk or LoRaWAN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

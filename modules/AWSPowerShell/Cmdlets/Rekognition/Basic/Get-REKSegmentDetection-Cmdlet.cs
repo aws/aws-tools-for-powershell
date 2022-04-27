@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and populate the <code>NextToken</code> request parameter with the token value returned
     /// from the previous call to <code>GetSegmentDetection</code>.
     /// </para><para>
-    /// For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition
+    /// For more information, see Detecting video segments in stored video in the Amazon Rekognition
     /// Developer Guide.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

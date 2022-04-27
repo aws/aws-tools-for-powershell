@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>.
     /// 
     /// </para><para>
-    /// For more information, see Recognizing Celebrities in the Amazon Rekognition Developer
+    /// For more information, see Recognizing celebrities in the Amazon Rekognition Developer
     /// Guide.
     /// </para>
     /// </summary>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

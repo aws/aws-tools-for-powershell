@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
     /// returned from the previous call to <code>GetContentModeration</code>.
     /// </para><para>
-    /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
+    /// For more information, see moderating content in the Amazon Rekognition Developer Guide.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKContentModeration")]

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.
     /// </para><para>
-    /// For more information, see DetectText in the Amazon Rekognition Developer Guide.
+    /// For more information, see Detecting text in the Amazon Rekognition Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKText")]
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Sets the confidence of word detection. Words with detection confidence below this
-        /// will be excluded from the result. Values should be between 50 and 100 as Text in Video
-        /// will not return any result below 50.</para>
+        /// will be excluded from the result. Values should be between 0 and 100. The default
+        /// MinConfidence is 80.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

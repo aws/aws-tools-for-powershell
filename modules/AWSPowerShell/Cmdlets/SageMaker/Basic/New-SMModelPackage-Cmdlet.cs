@@ -28,10 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a model package that you can use to create Amazon SageMaker models or list
-    /// on Amazon Web Services Marketplace, or a versioned model that is part of a model group.
-    /// Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to
-    /// create models in Amazon SageMaker.
+    /// Creates a model package that you can use to create SageMaker models or list on Amazon
+    /// Web Services Marketplace, or a versioned model that is part of a model group. Buyers
+    /// can subscribe to model packages listed on Amazon Web Services Marketplace to create
+    /// models in SageMaker.
     /// 
     ///  
     /// <para>
@@ -836,7 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of <code>ModelPackageValidationProfile</code> objects, each of which specifies
-        /// a batch transform job that Amazon SageMaker runs to validate your model package.</para>
+        /// a batch transform job that SageMaker runs to validate your model package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

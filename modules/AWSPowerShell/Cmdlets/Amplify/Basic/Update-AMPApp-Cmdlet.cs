@@ -43,9 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para> The personal access token for a third-party source control system for an Amplify
-        /// app. The token is used to create webhook and a read-only deploy key. The token is
-        /// not stored. </para>
+        /// <para>The personal access token for a GitHub repository for an Amplify app. The personal
+        /// access token is used to authorize access to a GitHub repository using the Amplify
+        /// GitHub App. The token is not stored.</para><para>Use <code>accessToken</code> for GitHub repositories only. To authorize access to
+        /// a repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</para><para>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
+        /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+        /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
+        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
+        /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
+        /// .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,9 +300,15 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter OauthToken
         /// <summary>
         /// <para>
-        /// <para> The OAuth token for a third-party source control system for an Amplify app. The token
-        /// is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        /// </para>
+        /// <para>The OAuth token for a third-party source control system for an Amplify app. The OAuth
+        /// token is used to create a webhook and a read-only deploy key using SSH cloning. The
+        /// OAuth token is not stored.</para><para>Use <code>oauthToken</code> for repository providers other than GitHub, such as Bitbucket
+        /// or CodeCommit.</para><para>To authorize access to GitHub as your repository provider, use <code>accessToken</code>.</para><para>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
+        /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+        /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
+        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
+        /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
+        /// .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

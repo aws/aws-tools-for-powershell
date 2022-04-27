@@ -315,6 +315,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter DataSplitConfig_ValidationFraction
+        /// <summary>
+        /// <para>
+        /// <para>The validation fraction (optional) is a float that specifies the portion of the training
+        /// dataset to be used for validation. The default value is 0.2, and values can range
+        /// from 0 to 1. We recommend setting this value to be less than 0.5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLJobConfig_DataSplitConfig_ValidationFraction")]
+        public System.Single? DataSplitConfig_ValidationFraction { get; set; }
+        #endregion
+        
         #region Parameter SecurityConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
@@ -390,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
             context.CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
+            context.DataSplitConfig_ValidationFraction = this.DataSplitConfig_ValidationFraction;
             context.SecurityConfig_EnableInterContainerTrafficEncryption = this.SecurityConfig_EnableInterContainerTrafficEncryption;
             context.SecurityConfig_VolumeKmsKeyId = this.SecurityConfig_VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -461,6 +475,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate AutoMLJobConfig
             var requestAutoMLJobConfigIsNull = true;
             request.AutoMLJobConfig = new Amazon.SageMaker.Model.AutoMLJobConfig();
+            Amazon.SageMaker.Model.AutoMLDataSplitConfig requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig = null;
+            
+             // populate DataSplitConfig
+            var requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfigIsNull = true;
+            requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig = new Amazon.SageMaker.Model.AutoMLDataSplitConfig();
+            System.Single? requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig_dataSplitConfig_ValidationFraction = null;
+            if (cmdletContext.DataSplitConfig_ValidationFraction != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig_dataSplitConfig_ValidationFraction = cmdletContext.DataSplitConfig_ValidationFraction.Value;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig_dataSplitConfig_ValidationFraction != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig.ValidationFraction = requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig_dataSplitConfig_ValidationFraction.Value;
+                requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfigIsNull = false;
+            }
+             // determine if requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig should be set to null
+            if (requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfigIsNull)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig = null;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig != null)
+            {
+                request.AutoMLJobConfig.DataSplitConfig = requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig;
+                requestAutoMLJobConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLJobConfig_autoMLJobConfig_CompletionCriteria = null;
             
              // populate CompletionCriteria
@@ -746,6 +785,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
+            public System.Single? DataSplitConfig_ValidationFraction { get; set; }
             public System.Boolean? SecurityConfig_EnableInterContainerTrafficEncryption { get; set; }
             public System.String SecurityConfig_VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }

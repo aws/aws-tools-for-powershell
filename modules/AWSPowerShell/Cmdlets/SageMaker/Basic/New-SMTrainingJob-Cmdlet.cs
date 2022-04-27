@@ -28,27 +28,27 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Starts a model training job. After training completes, Amazon SageMaker saves the
-    /// resulting model artifacts to an Amazon S3 location that you specify. 
+    /// Starts a model training job. After training completes, SageMaker saves the resulting
+    /// model artifacts to an Amazon S3 location that you specify. 
     /// 
     ///  
     /// <para>
-    /// If you choose to host your model using Amazon SageMaker hosting services, you can
-    /// use the resulting model artifacts as part of the model. You can also use the artifacts
-    /// in a machine learning service other than Amazon SageMaker, provided that you know
-    /// how to use them for inference. 
+    /// If you choose to host your model using SageMaker hosting services, you can use the
+    /// resulting model artifacts as part of the model. You can also use the artifacts in
+    /// a machine learning service other than SageMaker, provided that you know how to use
+    /// them for inference. 
     /// </para><para>
     /// In the request body, you provide the following: 
     /// </para><ul><li><para><code>AlgorithmSpecification</code> - Identifies the training algorithm to use. 
     /// </para></li><li><para><code>HyperParameters</code> - Specify these algorithm-specific parameters to enable
     /// the estimation of model parameters during training. Hyperparameters can be tuned to
     /// optimize this learning process. For a list of hyperparameters for each training algorithm
-    /// provided by Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+    /// provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
     /// 
     /// </para></li><li><para><code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
     /// EFS, or FSx location where it is stored.
-    /// </para></li><li><para><code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want Amazon
-    /// SageMaker to save the results of model training. 
+    /// </para></li><li><para><code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want SageMaker
+    /// to save the results of model training. 
     /// </para></li><li><para><code>ResourceConfig</code> - Identifies the resources, ML compute instances, and
     /// ML storage volumes to deploy for model training. In distributed training, you specify
     /// more than one instance. 
@@ -56,10 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// models by up to 80% by using Amazon EC2 Spot instances. For more information, see
     /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed
     /// Spot Training</a>. 
-    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Name (ARN) that Amazon SageMaker assumes
-    /// to perform tasks on your behalf during model training. You must grant this role the
-    /// necessary permissions so that Amazon SageMaker can successfully complete model training.
-    /// 
+    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Name (ARN) that SageMaker assumes to perform
+    /// tasks on your behalf during model training. You must grant this role the necessary
+    /// permissions so that SageMaker can successfully complete model training. 
     /// </para></li><li><para><code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
     /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
     /// how long a managed spot training job has to complete. 
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para></li><li><para><code>RetryStrategy</code> - The number of times to retry the job when the job fails
     /// due to an <code>InternalServerError</code>.
     /// </para></li></ul><para>
-    ///  For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
+    ///  For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
     /// </para>
     /// </summary>
@@ -86,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The registry path of the Docker image that contains the training algorithm and algorithm-specific
         /// metadata, including the input mode. For more information about algorithms provided
-        /// by Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// For information about providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
         /// Your Own Algorithms with Amazon SageMaker</a>. </para>
         /// </para>
@@ -163,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Isolates the training container. No inbound or outbound network calls can be made,
         /// except for calls between peers within a training cluster for distributed training.
         /// If you enable network isolation for training jobs that are configured to use a VPC,
-        /// Amazon SageMaker downloads and uploads customer data and model artifacts through the
-        /// specified VPC, but the training container does not have network access.</para>
+        /// SageMaker downloads and uploads customer data and model artifacts through the specified
+        /// VPC, but the training container does not have network access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters
         /// before you start the learning process. For a list of hyperparameters for each training
-        /// algorithm provided by Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para><para>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value
         /// pair. Each key and value is limited to 256 characters, as specified by the <code>Length
         /// Constraint</code>. </para>
@@ -226,10 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// might have two channels of input data, <code>training_data</code> and <code>validation_data</code>.
         /// The configuration for each channel provides the S3, EFS, or FSx location where the
         /// input data is stored. It also provides information about the stored data: the MIME
-        /// type, compression method, and whether the data is wrapped in RecordIO format. </para><para>Depending on the input mode that the algorithm supports, Amazon SageMaker either copies
-        /// input data files from an S3 bucket to a local directory in the Docker container, or
-        /// makes it available as input streams. For example, if you specify an EFS location,
-        /// input data files will be made available as input streams. They do not need to be downloaded.</para>
+        /// type, compression method, and whether the data is wrapped in RecordIO format. </para><para>Depending on the input mode that the algorithm supports, SageMaker either copies input
+        /// data files from an S3 bucket to a local directory in the Docker container, or makes
+        /// it available as input streams. For example, if you specify an EFS location, input
+        /// data files are available as input streams. They do not need to be downloaded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,10 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, you will receive
-        /// a <code>TimeOut</code> error. We recommend starting with 900 seconds and increase
-        /// as necessary based on your model.</para><para>For all other jobs, if the job does not complete during this time, Amazon SageMaker
-        /// ends the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// error is generated. We recommend starting with 900 seconds and increasing as necessary
+        /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
+        /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
         /// The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
@@ -301,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
         /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
         /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// If the job does not complete during this time, SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
@@ -313,8 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputDataConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to the S3 location where you want to store model artifacts. Amazon
-        /// SageMaker creates subfolders for the artifacts. </para>
+        /// <para>Specifies the path to the S3 location where you want to store model artifacts. SageMaker
+        /// creates subfolders for the artifacts. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -373,10 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The resources, including the ML compute instances and ML storage volumes, to use for
         /// model training. </para><para>ML storage volumes store model artifacts and incremental states. Training algorithms
-        /// might also use ML storage volumes for scratch space. If you want Amazon SageMaker
-        /// to use the ML storage volume to store the training data, choose <code>File</code>
-        /// as the <code>TrainingInputMode</code> in the algorithm specification. For distributed
-        /// training algorithms, specify an instance count greater than 1.</para>
+        /// might also use ML storage volumes for scratch space. If you want SageMaker to use
+        /// the ML storage volume to store the training data, choose <code>File</code> as the
+        /// <code>TrainingInputMode</code> in the algorithm specification. For distributed training
+        /// algorithms, specify an instance count greater than 1.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -392,14 +391,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-        /// perform tasks on your behalf. </para><para>During model training, Amazon SageMaker needs your permission to read input data from
-        /// an S3 bucket, download a Docker image that contains training code, write model artifacts
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume to perform
+        /// tasks on your behalf. </para><para>During model training, SageMaker needs your permission to read input data from an
+        /// S3 bucket, download a Docker image that contains training code, write model artifacts
         /// to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon
         /// CloudWatch. You grant permissions for all of these tasks to an IAM role. For more
-        /// information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
-        /// the <code>iam:PassRole</code> permission.</para></note>
+        /// information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code>
+        /// permission.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -446,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CheckpointConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example,
+        /// <para>Identifies the S3 path where you want SageMaker to store checkpoints. For example,
         /// <code>s3://bucket-name/key-name-prefix</code>.</para>
         /// </para>
         /// </summary>

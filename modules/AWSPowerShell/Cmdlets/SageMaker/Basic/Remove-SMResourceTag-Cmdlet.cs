@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes the specified tags from an Amazon SageMaker resource.
+    /// Deletes the specified tags from an SageMaker resource.
     /// 
     ///  
     /// <para>

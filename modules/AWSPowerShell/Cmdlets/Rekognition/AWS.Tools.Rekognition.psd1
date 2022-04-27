@@ -143,7 +143,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-REKTextDetection', 
         'Stop-REKProjectVersion', 
         'Stop-REKStreamProcessor', 
-        'Update-REKDatasetEntry')
+        'Update-REKDatasetEntry', 
+        'Update-REKStreamProcessor')
 
     # Variables to export from this module
     VariablesToExport = '*'

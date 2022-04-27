@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Removes the specified tags from a trail.
+    /// Removes the specified tags from a trail or event data store.
     /// </summary>
     [Cmdlet("Remove", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the trail from which tags should be removed. The format of a
-        /// trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the ARN of the trail or event data store from which tags should be removed.</para><para> Example trail ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

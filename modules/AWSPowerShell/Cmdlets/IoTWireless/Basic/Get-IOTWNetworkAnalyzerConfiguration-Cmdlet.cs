@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Get NetworkAnalyzer configuration.
+    /// Get network analyzer configuration.
     /// </summary>
     [Cmdlet("Get", "IOTWNetworkAnalyzerConfiguration")]
     [OutputType("Amazon.IoTWireless.Model.GetNetworkAnalyzerConfigurationResponse")]

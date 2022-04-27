@@ -262,7 +262,8 @@ $REK_SelectMap = @{
                "Stop-REKStreamProcessor",
                "Add-REKResourceTag",
                "Remove-REKResourceTag",
-               "Update-REKDatasetEntry")
+               "Update-REKDatasetEntry",
+               "Update-REKStreamProcessor")
 }
 
 _awsArgumentCompleterRegistration $REK_SelectCompleters $REK_SelectMap

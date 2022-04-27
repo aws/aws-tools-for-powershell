@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Sets the confidence of word detection. Words with detection confidence below this
-        /// will be excluded from the result. Values should be between 50 and 100 as Text in Video
-        /// will not return any result below 50.</para>
+        /// will be excluded from the result. Values should be between 0 and 100. The default
+        /// MinConfidence is 80.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

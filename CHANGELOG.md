@@ -1,4 +1,28 @@
-﻿### 4.1.72 (2022-04-26 20:14Z)
+﻿### 4.1.73 (2022-04-27 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.261.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Media Pipelines. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CHMMP and can be listed using the command 'Get-AWSCmdletName -Service CHMMP'.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWEventConfigurationByResourceType leveraging the GetEventConfigurationByResourceTypes service API.
+    * Added cmdlet Get-IOTWEventConfigurationList leveraging the ListEventConfigurations service API.
+    * Added cmdlet Get-IOTWNetworkAnalyzerConfigurationList leveraging the ListNetworkAnalyzerConfigurations service API.
+    * Added cmdlet New-IOTWNetworkAnalyzerConfiguration leveraging the CreateNetworkAnalyzerConfiguration service API.
+    * Added cmdlet Remove-IOTWNetworkAnalyzerConfiguration leveraging the DeleteNetworkAnalyzerConfiguration service API.
+    * Added cmdlet Update-IOTWEventConfigurationByResourceType leveraging the UpdateEventConfigurationByResourceTypes service API.
+    * Modified cmdlet New-IOTWWirelessDevice: added parameters LoRaWAN_AbpV1_0_x_FCntStart and LoRaWAN_AbpV1_1_FCntStart.
+    * Modified cmdlet Update-IOTWNetworkAnalyzerConfiguration: added parameter Description.
+    * Modified cmdlet Update-IOTWResourceEventConfiguration: added parameters ConnectionStatus_WirelessGatewayIdEventTopic, DeviceRegistrationState_WirelessDeviceIdEventTopic, Join_WirelessDeviceIdEventTopic, LoRaWAN_DevEuiEventTopic, LoRaWAN_GatewayEuiEventTopic and Proximity_WirelessDeviceIdEventTopic.
+    * Modified cmdlet Update-IOTWWirelessDevice: added parameters LoRaWAN_AbpV1_0_x_FCntStart and LoRaWAN_AbpV1_1_FCntStart.
+  * Amazon Lookout for Equipment
+    * Added cmdlet Get-L4ESensorStatisticList leveraging the ListSensorStatistics service API.
+    * Modified cmdlet Start-L4EDataIngestionJob: added parameter S3InputConfiguration_KeyPattern.
+  * Amazon Rekognition
+    * Added cmdlet Update-REKStreamProcessor leveraging the UpdateStreamProcessor service API.
+    * Modified cmdlet New-REKStreamProcessor: added parameters ConnectedHome_Label, ConnectedHome_MinConfidence, DataSharingPreference_OptIn, KmsKeyId, NotificationChannel_SNSTopicArn, RegionsOfInterest, S3Destination_Bucket and S3Destination_KeyPrefix.
+    * Modified cmdlet Start-REKStreamProcessor: added parameters KVSStreamStartSelector_FragmentNumber, KVSStreamStartSelector_ProducerTimestamp and StopSelector_MaxDurationInSecond.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJob: added parameter DataSplitConfig_ValidationFraction.
+
+### 4.1.72 (2022-04-26 20:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.260.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudFront
     * Modified cmdlet New-CFResponseHeadersPolicy: added parameters ServerTimingHeadersConfig_Enabled and ServerTimingHeadersConfig_SamplingRate.

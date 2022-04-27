@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartSegmentDetection</code>.
     /// 
     /// </para><para>
-    /// For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition
+    /// For more information, see Detecting video segments in stored video in the Amazon Rekognition
     /// Developer Guide.
     /// </para>
     /// </summary>
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

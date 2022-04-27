@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>chime-sdk-media-pipelines</C2jFilename>
+    <AssemblyName>ChimeSDKMediaPipelines</AssemblyName>
+    <ServiceNounPrefix>CHMMP</ServiceNounPrefix>
+    <ServiceName>Amazon Chime SDK Media Pipelines</ServiceName>
+    <ServiceClientInterface>IAmazonChimeSDKMediaPipelines</ServiceClientInterface>
+    <ServiceClient>AmazonChimeSDKMediaPipelinesClient</ServiceClient>
+    <ServiceModuleGuid>e00dae22-2928-4b03-92f7-ee036124ba24</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="New" Noun="MediaCapturePipeline" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="Get" Noun="MediaCapturePipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

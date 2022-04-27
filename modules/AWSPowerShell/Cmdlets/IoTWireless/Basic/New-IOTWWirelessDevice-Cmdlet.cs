@@ -180,6 +180,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_DeviceProfileId { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_AbpV1_0_x_FCntStart
+        /// <summary>
+        /// <para>
+        /// <para>The FCnt init value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_AbpV1_0_x_FCntStart { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_AbpV1_1_FCntStart
+        /// <summary>
+        /// <para>
+        /// <para>The FCnt init value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_AbpV1_1_FCntStart { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey
         /// <summary>
         /// <para>
@@ -393,9 +413,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #endif
             context.LoRaWAN_AbpV1_0_x_DevAddr = this.LoRaWAN_AbpV1_0_x_DevAddr;
+            context.LoRaWAN_AbpV1_0_x_FCntStart = this.LoRaWAN_AbpV1_0_x_FCntStart;
             context.LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey = this.LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey;
             context.LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey = this.LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey;
             context.LoRaWAN_AbpV1_1_DevAddr = this.LoRaWAN_AbpV1_1_DevAddr;
+            context.LoRaWAN_AbpV1_1_FCntStart = this.LoRaWAN_AbpV1_1_FCntStart;
             context.LoRaWAN_AbpV1_1_SessionKeys_AppSKey = this.LoRaWAN_AbpV1_1_SessionKeys_AppSKey;
             context.LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey = this.LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey;
             context.LoRaWAN_AbpV1_1_SessionKeys_NwkSEncKey = this.LoRaWAN_AbpV1_1_SessionKeys_NwkSEncKey;
@@ -501,6 +523,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 requestLoRaWAN_loRaWAN_AbpV1_0_x.DevAddr = requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_DevAddr;
                 requestLoRaWAN_loRaWAN_AbpV1_0_xIsNull = false;
             }
+            System.Int32? requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart = null;
+            if (cmdletContext.LoRaWAN_AbpV1_0_x_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart = cmdletContext.LoRaWAN_AbpV1_0_x_FCntStart.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_0_x.FCntStart = requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart.Value;
+                requestLoRaWAN_loRaWAN_AbpV1_0_xIsNull = false;
+            }
             Amazon.IoTWireless.Model.SessionKeysAbpV1_0_x requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_SessionKeys = null;
             
              // populate SessionKeys
@@ -559,6 +591,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_DevAddr != null)
             {
                 requestLoRaWAN_loRaWAN_AbpV1_1.DevAddr = requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_DevAddr;
+                requestLoRaWAN_loRaWAN_AbpV1_1IsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart = null;
+            if (cmdletContext.LoRaWAN_AbpV1_1_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart = cmdletContext.LoRaWAN_AbpV1_1_FCntStart.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_1.FCntStart = requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart.Value;
                 requestLoRaWAN_loRaWAN_AbpV1_1IsNull = false;
             }
             Amazon.IoTWireless.Model.SessionKeysAbpV1_1 requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_SessionKeys = null;
@@ -843,9 +885,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String Description { get; set; }
             public System.String DestinationName { get; set; }
             public System.String LoRaWAN_AbpV1_0_x_DevAddr { get; set; }
+            public System.Int32? LoRaWAN_AbpV1_0_x_FCntStart { get; set; }
             public System.String LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey { get; set; }
             public System.String LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey { get; set; }
             public System.String LoRaWAN_AbpV1_1_DevAddr { get; set; }
+            public System.Int32? LoRaWAN_AbpV1_1_FCntStart { get; set; }
             public System.String LoRaWAN_AbpV1_1_SessionKeys_AppSKey { get; set; }
             public System.String LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey { get; set; }
             public System.String LoRaWAN_AbpV1_1_SessionKeys_NwkSEncKey { get; set; }

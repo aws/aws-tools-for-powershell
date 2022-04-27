@@ -6363,6 +6363,137 @@ $CHMID_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CHMID_SelectCompleters $CHMID_SelectMap
+# Argument completions for service Amazon Chime SDK Media Pipelines
+
+
+$CHMMP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ChimeSDKMediaPipelines.ArtifactsState
+        {
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State") -Or
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.AudioMuxType
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"
+        {
+            $v = "AudioOnly","AudioWithActiveSpeakerVideo"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.ContentMuxType
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
+        {
+            $v = "ContentOnly"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.MediaPipelineSinkType
+        "New-CHMMPMediaCapturePipeline/SinkType"
+        {
+            $v = "S3Bucket"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.MediaPipelineSourceType
+        "New-CHMMPMediaCapturePipeline/SourceType"
+        {
+            $v = "ChimeSdkMeeting"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.VideoMuxType
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"
+        {
+            $v = "VideoOnly"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMMP_map = @{
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMPMediaCapturePipeline")
+    "SinkType"=@("New-CHMMPMediaCapturePipeline")
+    "SourceType"=@("New-CHMMPMediaCapturePipeline")
+}
+
+_awsArgumentCompleterRegistration $CHMMP_Completers $CHMMP_map
+
+$CHMMP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHMMP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMMP_SelectMap = @{
+    "Select"=@("New-CHMMPMediaCapturePipeline",
+               "Remove-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaCapturePipelineList",
+               "Get-CHMMPResourceTag",
+               "Add-CHMMPResourceTag",
+               "Remove-CHMMPResourceTag")
+}
+
+_awsArgumentCompleterRegistration $CHMMP_SelectCompleters $CHMMP_SelectMap
 # Argument completions for service Amazon Chime SDK Meetings
 
 
@@ -26662,10 +26793,27 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.EventNotificationResourceType
+        "Get-IOTWEventConfigurationList/ResourceType"
+        {
+            $v = "SidewalkAccount","WirelessDevice","WirelessGateway"
+            break
+        }
+
         # Amazon.IoTWireless.EventNotificationTopicStatus
         {
+            ($_ -eq "Update-IOTWResourceEventConfiguration/ConnectionStatus_LoRaWAN_GatewayEuiEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/ConnectionStatus_LoRaWAN_WirelessGatewayEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/ConnectionStatus_WirelessGatewayIdEventTopic") -Or
             ($_ -eq "Update-IOTWResourceEventConfiguration/DeviceRegistrationState_Sidewalk_AmazonIdEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_Sidewalk_AmazonIdEventTopic")
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/DeviceRegistrationState_WirelessDeviceIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Join_LoRaWAN_DevEuiEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/Join_LoRaWAN_WirelessDeviceEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Join_WirelessDeviceIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_Sidewalk_AmazonIdEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/Proximity_Sidewalk_WirelessDeviceEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_WirelessDeviceIdEventTopic")
         }
         {
             $v = "Disabled","Enabled"
@@ -26688,7 +26836,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWResourceEventConfiguration/IdentifierType")
         }
         {
-            $v = "PartnerAccountId"
+            $v = "DevEui","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
             break
         }
 
@@ -26696,6 +26844,7 @@ $IOTW_Completers = {
         {
             ($_ -eq "Update-IOTWLogLevelsByResourceType/DefaultLogLevel") -Or
             ($_ -eq "Write-IOTWResourceLogLevel/LogLevel") -Or
+            ($_ -eq "New-IOTWNetworkAnalyzerConfiguration/TraceContent_LogLevel") -Or
             ($_ -eq "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_LogLevel")
         }
         {
@@ -26734,7 +26883,10 @@ $IOTW_Completers = {
         }
 
         # Amazon.IoTWireless.WirelessDeviceFrameInfo
-        "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_WirelessDeviceFrameInfo"
+        {
+            ($_ -eq "New-IOTWNetworkAnalyzerConfiguration/TraceContent_WirelessDeviceFrameInfo") -Or
+            ($_ -eq "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_WirelessDeviceFrameInfo")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -26789,19 +26941,30 @@ $IOTW_Completers = {
 }
 
 $IOTW_map = @{
+    "ConnectionStatus_LoRaWAN_GatewayEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "ConnectionStatus_LoRaWAN_WirelessGatewayEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "ConnectionStatus_WirelessGatewayIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "DefaultLogLevel"=@("Update-IOTWLogLevelsByResourceType")
     "DeviceRegistrationState_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "DeviceRegistrationState_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ExpressionType"=@("New-IOTWDestination","Update-IOTWDestination")
     "IdentifierType"=@("Get-IOTWResourceEventConfiguration","Get-IOTWWirelessDevice","Get-IOTWWirelessGateway","Update-IOTWResourceEventConfiguration")
+    "Join_LoRaWAN_DevEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "Join_LoRaWAN_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "Join_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "LogLevel"=@("Write-IOTWResourceLogLevel")
     "LoRaWAN_DlClass"=@("New-IOTWMulticastGroup","Update-IOTWMulticastGroup")
     "LoRaWAN_RfRegion"=@("New-IOTWFuotaTask","New-IOTWMulticastGroup","Update-IOTWFuotaTask","Update-IOTWMulticastGroup")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
     "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "ResourceType"=@("Get-IOTWEventConfigurationList")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
-    "TraceContent_LogLevel"=@("Update-IOTWNetworkAnalyzerConfiguration")
-    "TraceContent_WirelessDeviceFrameInfo"=@("Update-IOTWNetworkAnalyzerConfiguration")
+    "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
+    "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
@@ -26869,6 +27032,7 @@ $IOTW_SelectMap = @{
                "New-IOTWDeviceProfile",
                "New-IOTWFuotaTask",
                "New-IOTWMulticastGroup",
+               "New-IOTWNetworkAnalyzerConfiguration",
                "New-IOTWServiceProfile",
                "New-IOTWWirelessDevice",
                "New-IOTWWirelessGateway",
@@ -26878,6 +27042,7 @@ $IOTW_SelectMap = @{
                "Remove-IOTWDeviceProfile",
                "Remove-IOTWFuotaTask",
                "Remove-IOTWMulticastGroup",
+               "Remove-IOTWNetworkAnalyzerConfiguration",
                "Remove-IOTWQueuedMessage",
                "Remove-IOTWServiceProfile",
                "Remove-IOTWWirelessDevice",
@@ -26893,6 +27058,7 @@ $IOTW_SelectMap = @{
                "Split-IOTWWirelessGatewayFromThing",
                "Get-IOTWDestination",
                "Get-IOTWDeviceProfile",
+               "Get-IOTWEventConfigurationByResourceType",
                "Get-IOTWFuotaTask",
                "Get-IOTWLogLevelsByResourceType",
                "Get-IOTWMulticastGroup",
@@ -26913,9 +27079,11 @@ $IOTW_SelectMap = @{
                "Get-IOTWWirelessGatewayTaskDefinition",
                "Get-IOTWDestinationList",
                "Get-IOTWDeviceProfileList",
+               "Get-IOTWEventConfigurationList",
                "Get-IOTWFuotaTaskList",
                "Get-IOTWMulticastGroupList",
                "Get-IOTWMulticastGroupsByFuotaTaskList",
+               "Get-IOTWNetworkAnalyzerConfigurationList",
                "Get-IOTWPartnerAccountList",
                "Get-IOTWQueuedMessageList",
                "Get-IOTWServiceProfileList",
@@ -26936,6 +27104,7 @@ $IOTW_SelectMap = @{
                "Test-IOTWWirelessDevice",
                "Remove-IOTWResourceTag",
                "Update-IOTWDestination",
+               "Update-IOTWEventConfigurationByResourceType",
                "Update-IOTWFuotaTask",
                "Update-IOTWLogLevelsByResourceType",
                "Update-IOTWMulticastGroup",
@@ -30463,6 +30632,7 @@ $L4E_SelectMap = @{
                "Get-L4EInferenceExecutionList",
                "Get-L4EInferenceSchedulerList",
                "Get-L4EModelList",
+               "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
                "Start-L4EDataIngestionJob",
                "Start-L4EInferenceScheduler",
@@ -39691,7 +39861,8 @@ $REK_SelectMap = @{
                "Stop-REKStreamProcessor",
                "Add-REKResourceTag",
                "Remove-REKResourceTag",
-               "Update-REKDatasetEntry")
+               "Update-REKDatasetEntry",
+               "Update-REKStreamProcessor")
 }
 
 _awsArgumentCompleterRegistration $REK_SelectCompleters $REK_SelectMap

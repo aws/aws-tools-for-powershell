@@ -66,6 +66,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkAnalyzerConfiguration" OutputProperty="*" Verb="New" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateServiceProfile" OutputProperty="*" Verb="New" Noun="ServiceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +91,8 @@
                 <Param Name="LoRaWAN_OtaaV1_1_AppKey" NewName="LoRaWAN_OtaaV1_1_AppKey" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_OtaaV1_1_JoinEui" NewName="LoRaWAN_OtaaV1_1_JoinEui" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_OtaaV1_1_NwkKey" NewName="LoRaWAN_OtaaV1_1_NwkKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_0_x_FCntStart" NewName="LoRaWAN_AbpV1_0_x_FCntStart" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_FCntStart" NewName="LoRaWAN_AbpV1_1_FCntStart" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +121,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMulticastGroup" Verb="Remove" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkAnalyzerConfiguration" Verb="Remove" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,6 +185,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeviceProfile" OutputProperty="*" Verb="Get" Noun="DeviceProfile" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventConfigurationByResourceTypes" OutputProperty="*" Verb="Get" Noun="EventConfigurationByResourceType" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -258,6 +272,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEventConfigurations" OutputProperty="EventConfigurationsList" Verb="Get" Noun="EventConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFuotaTasks" OutputProperty="FuotaTaskList" Verb="Get" Noun="FuotaTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -267,6 +285,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMulticastGroupsByFuotaTask" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupsByFuotaTaskList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNetworkAnalyzerConfigurations" OutputProperty="NetworkAnalyzerConfigurationList" Verb="Get" Noun="NetworkAnalyzerConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -350,6 +372,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventConfigurationByResourceTypes" Verb="Update" Noun="EventConfigurationByResourceType" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic" NewName="DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic" Alias="SidewalkDeviceRegistrationState_WirelessDeviceEventTopic" />
+                <Param Name="Proximity_Sidewalk_WirelessDeviceEventTopic" NewName="Proximity_Sidewalk_WirelessDeviceEventTopic" Alias="SidewalkProximity_WirelessDeviceEventTopic" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFuotaTask" Verb="Update" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -378,7 +407,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="LoRaWAN_AbpV1_0_x_FCntStart" NewName="LoRaWAN_AbpV1_0_x_FCntStart" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_FCntStart" NewName="LoRaWAN_AbpV1_1_FCntStart" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWirelessGateway" Verb="Update" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

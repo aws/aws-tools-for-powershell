@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DataInputConfiguration_InputTimeZoneOffset
         /// <summary>
         /// <para>
-        /// <para>Indicates the difference between your time zone and Greenwich Mean Time (GMT). </para>
+        /// <para>Indicates the difference between your time zone and Coordinated Universal Time (UTC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

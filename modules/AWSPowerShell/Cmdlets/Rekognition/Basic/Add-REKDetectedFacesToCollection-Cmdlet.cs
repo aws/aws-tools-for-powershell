@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// database. Amazon Rekognition uses feature vectors when it performs face match and
     /// search operations using the <a>SearchFaces</a> and <a>SearchFacesByImage</a> operations.
     /// </para><para>
-    /// For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer
+    /// For more information, see Adding faces to a collection in the Amazon Rekognition Developer
     /// Guide.
     /// </para><para>
     /// To get the number of faces in a collection, call <a>DescribeCollection</a>. 
@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// If you request all facial attributes (by using the <code>detectionAttributes</code>
     /// parameter), Amazon Rekognition returns detailed facial attributes, such as facial
     /// landmarks (for example, location of eye and mouth) and other facial attributes. If
-    /// you provide the same image, specify the same collection, use the same external ID,
-    /// and use the same model version in the <code>IndexFaces</code> operation, Amazon Rekognition
-    /// doesn't save duplicate face metadata.
+    /// you provide the same image, specify the same collection, and use the same external
+    /// ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
+    /// face metadata.
     /// </para><para>
     /// The input image is passed either as base64-encoded image bytes, or as a reference
     /// to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition

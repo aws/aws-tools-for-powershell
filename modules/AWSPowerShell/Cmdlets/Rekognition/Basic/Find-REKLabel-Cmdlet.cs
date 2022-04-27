@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition
+    /// For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition
     /// Developer Guide.
     /// </para><note><para><code>DetectLabels</code> does not support the detection of activities. However,
     /// activity detection is supported for label detection in videos. For more information,

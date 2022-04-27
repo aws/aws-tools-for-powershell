@@ -144,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Isolates the training container. No inbound or outbound network calls can be made,
         /// except for calls between peers within a training cluster for distributed training.
-        /// If network isolation is used for training jobs that are configured to use a VPC, Amazon
-        /// SageMaker downloads and uploads customer data and model artifacts through the specified
-        /// VPC, but the training container does not have network access.</para>
+        /// If network isolation is used for training jobs that are configured to use a VPC, SageMaker
+        /// downloads and uploads customer data and model artifacts through the specified VPC,
+        /// but the training container does not have network access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,10 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, you will receive
-        /// a <code>TimeOut</code> error. We recommend starting with 900 seconds and increase
-        /// as necessary based on your model.</para><para>For all other jobs, if the job does not complete during this time, Amazon SageMaker
-        /// ends the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// error is generated. We recommend starting with 900 seconds and increasing as necessary
+        /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
+        /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
         /// The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
         /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
         /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// If the job does not complete during this time, SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
@@ -364,10 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The resources, including the compute instances and storage volumes, to use for the
         /// training jobs that the tuning job launches.</para><para>Storage volumes store model artifacts and incremental states. Training algorithms
-        /// might also use storage volumes for scratch space. If you want Amazon SageMaker to
-        /// use the storage volume to store the training data, choose <code>File</code> as the
-        /// <code>TrainingInputMode</code> in the algorithm specification. For distributed training
-        /// algorithms, specify an instance count greater than 1.</para>
+        /// might also use storage volumes for scratch space. If you want SageMaker to use the
+        /// storage volume to store the training data, choose <code>File</code> as the <code>TrainingInputMode</code>
+        /// in the algorithm specification. For distributed training algorithms, specify an instance
+        /// count greater than 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CheckpointConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example,
+        /// <para>Identifies the S3 path where you want SageMaker to store checkpoints. For example,
         /// <code>s3://bucket-name/key-name-prefix</code>.</para>
         /// </para>
         /// </summary>
@@ -485,9 +485,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The registry path of the Docker image that contains the training algorithm. For information
         /// about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
-        /// Provided by Amazon SageMaker: Common Parameters</a>. Amazon SageMaker supports both
-        /// <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-        /// image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
+        /// Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both <code>registry/repository[:tag]</code>
+        /// and <code>registry/repository[@digest]</code> image path formats. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
         /// Your Own Algorithms with Amazon SageMaker</a>.</para>
         /// </para>
         /// </summary>
@@ -524,9 +524,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies whether to use early stopping for training jobs launched by the hyperparameter
-        /// tuning job. This can be one of the following values (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>Amazon SageMaker stops training jobs launched by the hyperparameter tuning job when
-        /// they are unlikely to perform better than previously completed training jobs. For more
-        /// information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
+        /// tuning job. This can be one of the following values (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>SageMaker stops training jobs launched by the hyperparameter tuning job when they
+        /// are unlikely to perform better than previously completed training jobs. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
         /// Training Jobs Early</a>.</para></dd></dl>
         /// </para>
         /// </summary>

@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a>
         /// expression used to select a portion of the input data to pass to the algorithm. Use
         /// the <code>InputFilter</code> parameter to exclude fields, such as an ID column, from
-        /// the input. If you want Amazon SageMaker to pass the entire input dataset to the algorithm,
+        /// the input. If you want SageMaker to pass the entire input dataset to the algorithm,
         /// accept the default value <code>$</code>.</para><para>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code></para>
         /// </para>
         /// </summary>
@@ -204,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelClientConfig_InvocationsMaxRetry
         /// <summary>
         /// <para>
-        /// <para>The maximum number of retries when invocation requests are failing.</para>
+        /// <para>The maximum number of retries when invocation requests are failing. The default value
+        /// is 3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelClientConfig_InvocationsTimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>The timeout value in seconds for an invocation request.</para>
+        /// <para>The timeout value in seconds for an invocation request. The default value is 600.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// than, or equal to, the size of a single record. To estimate the size of a record in
         /// MB, divide the size of your dataset by the number of records. To ensure that the records
         /// fit within the maximum payload size, we recommend using a slightly larger value. The
-        /// default value is <code>6</code> MB. </para><para>For cases where the payload might be arbitrarily large and is transmitted using HTTP
+        /// default value is <code>6</code> MB. </para><para>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
+        /// the <code>MaxConcurrentTransforms</code> parameter, the value of <code>(MaxConcurrentTransforms
+        /// * MaxPayloadInMB)</code> also cannot exceed 100 MB.</para><para>For cases where the payload might be arbitrarily large and is transmitted using HTTP
         /// chunked encoding, set the value to <code>0</code>. This feature works only in supported
         /// algorithms. Currently, Amazon SageMaker built-in algorithms do not support HTTP chunked
         /// encoding.</para>
@@ -325,9 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a>
         /// expression used to select a portion of the joined dataset to save in the output file
-        /// for a batch transform job. If you want Amazon SageMaker to store the entire input
-        /// dataset in the output file, leave the default value, <code>$</code>. If you specify
-        /// indexes that aren't within the dimension size of the joined dataset, you get an error.</para><para>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>, <code>"$['id','SageMakerOutput']"</code></para>
+        /// for a batch transform job. If you want SageMaker to store the entire input dataset
+        /// in the output file, leave the default value, <code>$</code>. If you specify indexes
+        /// that aren't within the dimension size of the joined dataset, you get an error.</para><para>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>, <code>"$['id','SageMakerOutput']"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

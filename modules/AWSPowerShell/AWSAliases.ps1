@@ -2551,6 +2551,17 @@ Set-Alias -Name CHMID-UntagResource -Value Remove-CHMIDResourceTag
 Set-Alias -Name CHMID-UpdateAppInstance -Value Update-CHMIDAppInstance
 Set-Alias -Name CHMID-UpdateAppInstanceUser -Value Update-CHMIDAppInstanceUser
 Set-Alias -Name CHMID-UpdateAppInstanceUserEndpoint -Value Update-CHMIDAppInstanceUserEndpoint
+Set-Alias -Name Create-CHMMPMediaCapturePipeline -Value New-CHMMPMediaCapturePipeline
+Set-Alias -Name CHMMP-CreateMediaCapturePipeline -Value New-CHMMPMediaCapturePipeline
+Set-Alias -Name Delete-CHMMPMediaCapturePipeline -Value Remove-CHMMPMediaCapturePipeline
+Set-Alias -Name CHMMP-DeleteMediaCapturePipeline -Value Remove-CHMMPMediaCapturePipeline
+Set-Alias -Name CHMMP-GetMediaCapturePipeline -Value Get-CHMMPMediaCapturePipeline
+Set-Alias -Name List-CHMMPMediaCapturePipelines -Value Get-CHMMPMediaCapturePipelineList
+Set-Alias -Name List-CHMMPMediaCapturePipelineList -Value Get-CHMMPMediaCapturePipelineList
+Set-Alias -Name CHMMP-ListMediaCapturePipelines -Value Get-CHMMPMediaCapturePipelineList
+Set-Alias -Name CHMMP-ListTagsForResource -Value Get-CHMMPResourceTag
+Set-Alias -Name CHMMP-TagResource -Value Add-CHMMPResourceTag
+Set-Alias -Name CHMMP-UntagResource -Value Remove-CHMMPResourceTag
 Set-Alias -Name Batch-CHMTGCreateAttendee -Value New-CHMTGAttendeeBatch
 Set-Alias -Name Batch-CHMTGAttendeeBatch -Value New-CHMTGAttendeeBatch
 Set-Alias -Name CHMTG-BatchCreateAttendee -Value New-CHMTGAttendeeBatch
@@ -11985,6 +11996,8 @@ Set-Alias -Name Create-IOTWFuotaTask -Value New-IOTWFuotaTask
 Set-Alias -Name IOTW-CreateFuotaTask -Value New-IOTWFuotaTask
 Set-Alias -Name Create-IOTWMulticastGroup -Value New-IOTWMulticastGroup
 Set-Alias -Name IOTW-CreateMulticastGroup -Value New-IOTWMulticastGroup
+Set-Alias -Name Create-IOTWNetworkAnalyzerConfiguration -Value New-IOTWNetworkAnalyzerConfiguration
+Set-Alias -Name IOTW-CreateNetworkAnalyzerConfiguration -Value New-IOTWNetworkAnalyzerConfiguration
 Set-Alias -Name Create-IOTWServiceProfile -Value New-IOTWServiceProfile
 Set-Alias -Name IOTW-CreateServiceProfile -Value New-IOTWServiceProfile
 Set-Alias -Name Create-IOTWWirelessDevice -Value New-IOTWWirelessDevice
@@ -12003,6 +12016,8 @@ Set-Alias -Name Delete-IOTWFuotaTask -Value Remove-IOTWFuotaTask
 Set-Alias -Name IOTW-DeleteFuotaTask -Value Remove-IOTWFuotaTask
 Set-Alias -Name Delete-IOTWMulticastGroup -Value Remove-IOTWMulticastGroup
 Set-Alias -Name IOTW-DeleteMulticastGroup -Value Remove-IOTWMulticastGroup
+Set-Alias -Name Delete-IOTWNetworkAnalyzerConfiguration -Value Remove-IOTWNetworkAnalyzerConfiguration
+Set-Alias -Name IOTW-DeleteNetworkAnalyzerConfiguration -Value Remove-IOTWNetworkAnalyzerConfiguration
 Set-Alias -Name Delete-IOTWQueuedMessages -Value Remove-IOTWQueuedMessage
 Set-Alias -Name Delete-IOTWQueuedMessage -Value Remove-IOTWQueuedMessage
 Set-Alias -Name IOTW-DeleteQueuedMessages -Value Remove-IOTWQueuedMessage
@@ -12032,6 +12047,8 @@ Set-Alias -Name Disassociate-IOTWWirelessGatewayFromThing -Value Split-IOTWWirel
 Set-Alias -Name IOTW-DisassociateWirelessGatewayFromThing -Value Split-IOTWWirelessGatewayFromThing
 Set-Alias -Name IOTW-GetDestination -Value Get-IOTWDestination
 Set-Alias -Name IOTW-GetDeviceProfile -Value Get-IOTWDeviceProfile
+Set-Alias -Name Get-IOTWEventConfigurationByResourceTypes -Value Get-IOTWEventConfigurationByResourceType
+Set-Alias -Name IOTW-GetEventConfigurationByResourceTypes -Value Get-IOTWEventConfigurationByResourceType
 Set-Alias -Name IOTW-GetFuotaTask -Value Get-IOTWFuotaTask
 Set-Alias -Name Get-IOTWLogLevelsByResourceTypes -Value Get-IOTWLogLevelsByResourceType
 Set-Alias -Name IOTW-GetLogLevelsByResourceTypes -Value Get-IOTWLogLevelsByResourceType
@@ -12059,6 +12076,9 @@ Set-Alias -Name IOTW-ListDestinations -Value Get-IOTWDestinationList
 Set-Alias -Name List-IOTWDeviceProfiles -Value Get-IOTWDeviceProfileList
 Set-Alias -Name List-IOTWDeviceProfileList -Value Get-IOTWDeviceProfileList
 Set-Alias -Name IOTW-ListDeviceProfiles -Value Get-IOTWDeviceProfileList
+Set-Alias -Name List-IOTWEventConfigurations -Value Get-IOTWEventConfigurationList
+Set-Alias -Name List-IOTWEventConfigurationList -Value Get-IOTWEventConfigurationList
+Set-Alias -Name IOTW-ListEventConfigurations -Value Get-IOTWEventConfigurationList
 Set-Alias -Name List-IOTWFuotaTasks -Value Get-IOTWFuotaTaskList
 Set-Alias -Name List-IOTWFuotaTaskList -Value Get-IOTWFuotaTaskList
 Set-Alias -Name IOTW-ListFuotaTasks -Value Get-IOTWFuotaTaskList
@@ -12068,6 +12088,9 @@ Set-Alias -Name IOTW-ListMulticastGroups -Value Get-IOTWMulticastGroupList
 Set-Alias -Name List-IOTWMulticastGroupsByFuotaTask -Value Get-IOTWMulticastGroupsByFuotaTaskList
 Set-Alias -Name List-IOTWMulticastGroupsByFuotaTaskList -Value Get-IOTWMulticastGroupsByFuotaTaskList
 Set-Alias -Name IOTW-ListMulticastGroupsByFuotaTask -Value Get-IOTWMulticastGroupsByFuotaTaskList
+Set-Alias -Name List-IOTWNetworkAnalyzerConfigurations -Value Get-IOTWNetworkAnalyzerConfigurationList
+Set-Alias -Name List-IOTWNetworkAnalyzerConfigurationList -Value Get-IOTWNetworkAnalyzerConfigurationList
+Set-Alias -Name IOTW-ListNetworkAnalyzerConfigurations -Value Get-IOTWNetworkAnalyzerConfigurationList
 Set-Alias -Name List-IOTWPartnerAccounts -Value Get-IOTWPartnerAccountList
 Set-Alias -Name List-IOTWPartnerAccountList -Value Get-IOTWPartnerAccountList
 Set-Alias -Name IOTW-ListPartnerAccounts -Value Get-IOTWPartnerAccountList
@@ -12102,6 +12125,8 @@ Set-Alias -Name IOTW-TagResource -Value Add-IOTWResourceTag
 Set-Alias -Name IOTW-TestWirelessDevice -Value Test-IOTWWirelessDevice
 Set-Alias -Name IOTW-UntagResource -Value Remove-IOTWResourceTag
 Set-Alias -Name IOTW-UpdateDestination -Value Update-IOTWDestination
+Set-Alias -Name Update-IOTWEventConfigurationByResourceTypes -Value Update-IOTWEventConfigurationByResourceType
+Set-Alias -Name IOTW-UpdateEventConfigurationByResourceTypes -Value Update-IOTWEventConfigurationByResourceType
 Set-Alias -Name IOTW-UpdateFuotaTask -Value Update-IOTWFuotaTask
 Set-Alias -Name Update-IOTWLogLevelsByResourceTypes -Value Update-IOTWLogLevelsByResourceType
 Set-Alias -Name IOTW-UpdateLogLevelsByResourceTypes -Value Update-IOTWLogLevelsByResourceType
@@ -13544,6 +13569,9 @@ Set-Alias -Name L4E-ListInferenceSchedulers -Value Get-L4EInferenceSchedulerList
 Set-Alias -Name List-L4EModels -Value Get-L4EModelList
 Set-Alias -Name List-L4EModelList -Value Get-L4EModelList
 Set-Alias -Name L4E-ListModels -Value Get-L4EModelList
+Set-Alias -Name List-L4ESensorStatistics -Value Get-L4ESensorStatisticList
+Set-Alias -Name List-L4ESensorStatisticList -Value Get-L4ESensorStatisticList
+Set-Alias -Name L4E-ListSensorStatistics -Value Get-L4ESensorStatisticList
 Set-Alias -Name L4E-ListTagsForResource -Value Get-L4EResourceTag
 Set-Alias -Name L4E-StartDataIngestionJob -Value Start-L4EDataIngestionJob
 Set-Alias -Name L4E-StartInferenceScheduler -Value Start-L4EInferenceScheduler
@@ -17535,6 +17563,7 @@ Set-Alias -Name REK-TagResource -Value Add-REKResourceTag
 Set-Alias -Name REK-UntagResource -Value Remove-REKResourceTag
 Set-Alias -Name Update-REKDatasetEntries -Value Update-REKDatasetEntry
 Set-Alias -Name REK-UpdateDatasetEntries -Value Update-REKDatasetEntry
+Set-Alias -Name REK-UpdateStreamProcessor -Value Update-REKStreamProcessor
 Set-Alias -Name Add-RESHDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
 Set-Alias -Name RESH-AddDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
 Set-Alias -Name Create-RESHApp -Value New-RESHApp

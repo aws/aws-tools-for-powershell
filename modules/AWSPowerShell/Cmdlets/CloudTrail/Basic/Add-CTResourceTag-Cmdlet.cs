@@ -28,12 +28,13 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Adds one or more tags to a trail, up to a limit of 50. Overwrites an existing tag's
-    /// value when a new value is specified for an existing tag key. Tag key names must be
-    /// unique for a trail; you cannot have two keys with the same name but different values.
-    /// If you specify a key without a value, the tag will be created with the specified key
-    /// and a value of null. You can tag a trail that applies to all Amazon Web Services Regions
-    /// only from the Region in which the trail was created (also known as its home region).
+    /// Adds one or more tags to a trail or event data store, up to a limit of 50. Overwrites
+    /// an existing tag's value when a new value is specified for an existing tag key. Tag
+    /// key names must be unique for a trail; you cannot have two keys with the same name
+    /// but different values. If you specify a key without a value, the tag will be created
+    /// with the specified key and a value of null. You can tag a trail or event data store
+    /// that applies to all Amazon Web Services Regions only from the Region in which the
+    /// trail or event data store was created (also known as its home region).
     /// </summary>
     [Cmdlet("Add", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the trail to which one or more tags will be added. The format
-        /// of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the ARN of the trail or event data store to which one or more tags will
+        /// be added. The format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

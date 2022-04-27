@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Direction
         /// <summary>
         /// <para>
-        /// <para>Associations between lineage entities are directed. This parameter determines the
-        /// direction from the StartArn(s) the query will look.</para>
+        /// <para>Associations between lineage entities have a direction. This parameter determines
+        /// the direction from the StartArn(s) that the query traverses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter IncludeEdge
         /// <summary>
         /// <para>
-        /// <para> Setting this value to <code>True</code> will retrieve not only the entities of interest
+        /// <para> Setting this value to <code>True</code> retrieves not only the entities of interest
         /// but also the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a>
         /// and lineage entities on the path. Set to <code>False</code> to only return lineage
         /// entities that match your query.</para>
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxDepth
         /// <summary>
         /// <para>
-        /// <para>The maximum depth in lineage relationships from the <code>StartArns</code> that will
-        /// be traversed. Depth is a measure of the number of <code>Associations</code> from the
+        /// <para>The maximum depth in lineage relationships from the <code>StartArns</code> that are
+        /// traversed. Depth is a measure of the number of <code>Associations</code> from the
         /// <code>StartArn</code> entity to the matched results.</para>
         /// </para>
         /// </summary>
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if
-        /// property key value pairs. If multiple pairs are provided, an entity will be included
-        /// in the results if it matches any of the provided pairs.</para>
+        /// property key value pairs. If multiple pairs are provided, an entity is included in
+        /// the results if it matches any of the provided pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

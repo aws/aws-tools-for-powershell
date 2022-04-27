@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns the tags for the specified Amazon SageMaker resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the tags for the specified SageMaker resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMResourceTagList")]
     [OutputType("Amazon.SageMaker.Model.Tag")]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> If the response to the previous <code>ListTags</code> request is truncated, Amazon
-        /// SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent
-        /// request. </para>
+        /// <para> If the response to the previous <code>ListTags</code> request is truncated, SageMaker
+        /// returns this token. To retrieve the next set of tags, use it in the subsequent request.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

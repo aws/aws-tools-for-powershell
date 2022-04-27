@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Updates variant weight of one or more variants associated with an existing endpoint,
     /// or capacity of one variant associated with an existing endpoint. When it receives
-    /// the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After
-    /// updating the endpoint, it sets the status to <code>InService</code>. To check the
-    /// status of an endpoint, use the <a>DescribeEndpoint</a> API.
+    /// the request, SageMaker sets the endpoint status to <code>Updating</code>. After updating
+    /// the endpoint, it sets the status to <code>InService</code>. To check the status of
+    /// an endpoint, use the <a>DescribeEndpoint</a> API.
     /// </summary>
     [Cmdlet("Update", "SMEndpointWeightAndCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing Amazon SageMaker endpoint.</para>
+        /// <para>The name of an existing SageMaker endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

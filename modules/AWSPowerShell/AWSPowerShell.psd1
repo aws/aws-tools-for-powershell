@@ -95,6 +95,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CertificateManager.dll',
         'AWSSDK.Chime.dll',
         'AWSSDK.ChimeSDKIdentity.dll',
+        'AWSSDK.ChimeSDKMediaPipelines.dll',
         'AWSSDK.ChimeSDKMeetings.dll',
         'AWSSDK.ChimeSDKMessaging.dll',
         'AWSSDK.Cloud9.dll',

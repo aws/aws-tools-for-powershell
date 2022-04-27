@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a>
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
     /// </para><para>
-    /// For more information, see Detecting Faces in a Stored Video in the Amazon Rekognition
+    /// For more information, see Detecting faces in a stored video in the Amazon Rekognition
     /// Developer Guide.
     /// </para>
     /// </summary>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

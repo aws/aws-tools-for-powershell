@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Declares that your content is free of personally identifiable information or adult
-        /// content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can
-        /// view your task based on this information.</para>
+        /// content. SageMaker may restrict the Amazon Mechanical Turk workers that can view your
+        /// task based on this information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

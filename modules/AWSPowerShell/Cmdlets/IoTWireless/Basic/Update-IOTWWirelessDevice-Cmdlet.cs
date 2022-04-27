@@ -70,6 +70,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_DeviceProfileId { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_AbpV1_0_x_FCntStart
+        /// <summary>
+        /// <para>
+        /// <para>The FCnt init value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_AbpV1_0_x_FCntStart { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_AbpV1_1_FCntStart
+        /// <summary>
+        /// <para>
+        /// <para>The FCnt init value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_AbpV1_1_FCntStart { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -176,6 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoRaWAN_AbpV1_0_x_FCntStart = this.LoRaWAN_AbpV1_0_x_FCntStart;
+            context.LoRaWAN_AbpV1_1_FCntStart = this.LoRaWAN_AbpV1_1_FCntStart;
             context.LoRaWAN_DeviceProfileId = this.LoRaWAN_DeviceProfileId;
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
@@ -229,6 +251,56 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_ServiceProfileId != null)
             {
                 request.LoRaWAN.ServiceProfileId = requestLoRaWAN_loRaWAN_ServiceProfileId;
+                requestLoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.UpdateAbpV1_0_x requestLoRaWAN_loRaWAN_AbpV1_0_x = null;
+            
+             // populate AbpV1_0_x
+            var requestLoRaWAN_loRaWAN_AbpV1_0_xIsNull = true;
+            requestLoRaWAN_loRaWAN_AbpV1_0_x = new Amazon.IoTWireless.Model.UpdateAbpV1_0_x();
+            System.Int32? requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart = null;
+            if (cmdletContext.LoRaWAN_AbpV1_0_x_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart = cmdletContext.LoRaWAN_AbpV1_0_x_FCntStart.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_0_x.FCntStart = requestLoRaWAN_loRaWAN_AbpV1_0_x_loRaWAN_AbpV1_0_x_FCntStart.Value;
+                requestLoRaWAN_loRaWAN_AbpV1_0_xIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_AbpV1_0_x should be set to null
+            if (requestLoRaWAN_loRaWAN_AbpV1_0_xIsNull)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_0_x = null;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_0_x != null)
+            {
+                request.LoRaWAN.AbpV1_0_x = requestLoRaWAN_loRaWAN_AbpV1_0_x;
+                requestLoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.UpdateAbpV1_1 requestLoRaWAN_loRaWAN_AbpV1_1 = null;
+            
+             // populate AbpV1_1
+            var requestLoRaWAN_loRaWAN_AbpV1_1IsNull = true;
+            requestLoRaWAN_loRaWAN_AbpV1_1 = new Amazon.IoTWireless.Model.UpdateAbpV1_1();
+            System.Int32? requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart = null;
+            if (cmdletContext.LoRaWAN_AbpV1_1_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart = cmdletContext.LoRaWAN_AbpV1_1_FCntStart.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart != null)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_1.FCntStart = requestLoRaWAN_loRaWAN_AbpV1_1_loRaWAN_AbpV1_1_FCntStart.Value;
+                requestLoRaWAN_loRaWAN_AbpV1_1IsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_AbpV1_1 should be set to null
+            if (requestLoRaWAN_loRaWAN_AbpV1_1IsNull)
+            {
+                requestLoRaWAN_loRaWAN_AbpV1_1 = null;
+            }
+            if (requestLoRaWAN_loRaWAN_AbpV1_1 != null)
+            {
+                request.LoRaWAN.AbpV1_1 = requestLoRaWAN_loRaWAN_AbpV1_1;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -304,6 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String Description { get; set; }
             public System.String DestinationName { get; set; }
             public System.String Id { get; set; }
+            public System.Int32? LoRaWAN_AbpV1_0_x_FCntStart { get; set; }
+            public System.Int32? LoRaWAN_AbpV1_1_FCntStart { get; set; }
             public System.String LoRaWAN_DeviceProfileId { get; set; }
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }

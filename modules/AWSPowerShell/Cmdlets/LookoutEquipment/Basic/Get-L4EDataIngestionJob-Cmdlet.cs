@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Provides information on a specific data ingestion job such as creation time, dataset
-    /// ARN, status, and so on.
+    /// ARN, and status.
     /// </summary>
     [Cmdlet("Get", "L4EDataIngestionJob")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeDataIngestionJobResponse")]

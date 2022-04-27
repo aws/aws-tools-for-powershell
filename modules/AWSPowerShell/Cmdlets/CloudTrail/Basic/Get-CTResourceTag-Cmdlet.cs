@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists the tags for the trail in the current region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the tags for the trail or event data store in the current region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTResourceTag")]
     [OutputType("Amazon.CloudTrail.Model.ResourceTag")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceIdList
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of
-        /// 20 ARNs. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies a list of trail and event data store ARNs whose tags will be listed. The
+        /// list has a limit of 20 ARNs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

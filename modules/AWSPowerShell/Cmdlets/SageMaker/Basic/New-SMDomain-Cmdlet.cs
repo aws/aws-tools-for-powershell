@@ -170,7 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para>
+        /// <para>The instance type that the image version runs on.</para><note><para>JupyterServer Apps only support the <code>system</code> value. KernelGateway Apps
+        /// do not support the <code>system</code> value, but support all other values for available
+        /// instance types.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

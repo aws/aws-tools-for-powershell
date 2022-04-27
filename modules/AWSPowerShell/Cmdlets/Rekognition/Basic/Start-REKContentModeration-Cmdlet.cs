@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
     /// 
     /// </para><para>
-    /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
+    /// For more information, see Moderating content in the Amazon Rekognition Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKContentModeration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

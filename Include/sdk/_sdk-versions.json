@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.260.0",
+    "ProductVersion" : "3.7.261.0",
     "CoreVersion"    : "3.7.10.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -62,7 +62,7 @@
             "InPreview"               : false
         },
         "CloudTrail"        : {
-            "Version" : "3.7.3.19",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -610,7 +610,7 @@
             "InPreview"               : false
         },
         "Rekognition"                     : {
-            "Version" : "3.7.7.40",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.31.0",
+            "Version" : "3.7.32.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -1234,7 +1234,7 @@
             "InPreview"               : false
         },
         "Amplify"                         : {
-            "Version" : "3.7.1.20",
+            "Version" : "3.7.1.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2018,7 +2018,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.9.38",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2098,7 +2098,7 @@
             "InPreview"               : false
         },
         "LookoutEquipment"                : {
-            "Version" : "3.7.1.87",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.10.11"
@@ -2434,6 +2434,14 @@
             "InPreview"               : false
         },
         "Ivschat"                             : {
+            "Version" : "3.7.0.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.10.11"
+            },
+            "InPreview"               : false
+        },
+        "ChimeSDKMediaPipelines"              : {
             "Version" : "3.7.0.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {

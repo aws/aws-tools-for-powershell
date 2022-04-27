@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// The operation to list queued messages.
+    /// List queued messages in the downlink queue.
     /// </summary>
     [Cmdlet("Get", "IOTWQueuedMessageList")]
     [OutputType("Amazon.IoTWireless.Model.DownlinkQueueMessage")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Id of a given wireless device which the downlink packets are targeted </para>
+        /// <para>The ID of a given wireless device which the downlink message packets are being sent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessDeviceType
         /// <summary>
         /// <para>
-        /// <para>The wireless device type, it is either Sidewalk or LoRaWAN.</para>
+        /// <para>The wireless device type, whic can be either Sidewalk or LoRaWAN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

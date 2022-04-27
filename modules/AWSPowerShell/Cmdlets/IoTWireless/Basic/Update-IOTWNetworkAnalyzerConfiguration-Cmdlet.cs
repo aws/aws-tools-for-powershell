@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Update NetworkAnalyzer configuration.
+    /// Update network analyzer configuration.
     /// </summary>
     [Cmdlet("Update", "IOTWNetworkAnalyzerConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String ConfigurationName { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter TraceContent_LogLevel
         /// <summary>
         /// <para>
@@ -82,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessDevicesToAdd
         /// <summary>
         /// <para>
-        /// <para>WirelessDevices to add into NetworkAnalyzerConfiguration.</para>
+        /// <para>Wireless device resources to add to the network analyzer configuration. Provide the
+        /// <code>WirelessDeviceId</code> of the resource to add in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessDevicesToRemove
         /// <summary>
         /// <para>
-        /// <para>WirelessDevices to remove from NetworkAnalyzerConfiguration.</para>
+        /// <para>Wireless device resources to remove from the network analyzer configuration. Provide
+        /// the <code>WirelessDeviceId</code> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessGatewaysToAdd
         /// <summary>
         /// <para>
-        /// <para>WirelessGateways to add into NetworkAnalyzerConfiguration.</para>
+        /// <para>Wireless gateway resources to add to the network analyzer configuration. Provide the
+        /// <code>WirelessGatewayId</code> of the resource to add in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessGatewaysToRemove
         /// <summary>
         /// <para>
-        /// <para>WirelessGateways to remove from NetworkAnalyzerConfiguration.</para>
+        /// <para>Wireless gateway resources to remove from the network analyzer configuration. Provide
+        /// the <code>WirelessGatewayId</code> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 WriteWarning("You are passing $null as a value for parameter ConfigurationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Description = this.Description;
             context.TraceContent_LogLevel = this.TraceContent_LogLevel;
             context.TraceContent_WirelessDeviceFrameInfo = this.TraceContent_WirelessDeviceFrameInfo;
             if (this.WirelessDevicesToAdd != null)
@@ -223,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.ConfigurationName != null)
             {
                 request.ConfigurationName = cmdletContext.ConfigurationName;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             
              // populate TraceContent
@@ -331,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationName { get; set; }
+            public System.String Description { get; set; }
             public Amazon.IoTWireless.LogLevel TraceContent_LogLevel { get; set; }
             public Amazon.IoTWireless.WirelessDeviceFrameInfo TraceContent_WirelessDeviceFrameInfo { get; set; }
             public List<System.String> WirelessDevicesToAdd { get; set; }

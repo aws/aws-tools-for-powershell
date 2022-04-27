@@ -74,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String DatasetName { get; set; }
         #endregion
         
+        #region Parameter S3InputConfiguration_KeyPattern
+        /// <summary>
+        /// <para>
+        /// <para> Pattern for matching the Amazon S3 files which will be used for ingestion. If no
+        /// KeyPattern is provided, we will use the default hierarchy file structure, which is
+        /// same as KeyPattern {prefix}/{component_name}/* </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IngestionInputConfiguration_S3InputConfiguration_KeyPattern")]
+        public System.String S3InputConfiguration_KeyPattern { get; set; }
+        #endregion
+        
         #region Parameter S3InputConfiguration_Prefix
         /// <summary>
         /// <para>
@@ -171,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
                 WriteWarning("You are passing $null as a value for parameter S3InputConfiguration_Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3InputConfiguration_KeyPattern = this.S3InputConfiguration_KeyPattern;
             context.S3InputConfiguration_Prefix = this.S3InputConfiguration_Prefix;
             context.RoleArn = this.RoleArn;
             #if MODULAR
@@ -220,6 +234,16 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_Bucket != null)
             {
                 requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration.Bucket = requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_Bucket;
+                requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfigurationIsNull = false;
+            }
+            System.String requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_KeyPattern = null;
+            if (cmdletContext.S3InputConfiguration_KeyPattern != null)
+            {
+                requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_KeyPattern = cmdletContext.S3InputConfiguration_KeyPattern;
+            }
+            if (requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_KeyPattern != null)
+            {
+                requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration.KeyPattern = requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_KeyPattern;
                 requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfigurationIsNull = false;
             }
             System.String requestIngestionInputConfiguration_ingestionInputConfiguration_S3InputConfiguration_s3InputConfiguration_Prefix = null;
@@ -315,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             public System.String ClientToken { get; set; }
             public System.String DatasetName { get; set; }
             public System.String S3InputConfiguration_Bucket { get; set; }
+            public System.String S3InputConfiguration_KeyPattern { get; set; }
             public System.String S3InputConfiguration_Prefix { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse, StartL4EDataIngestionJobCmdlet, object> Select { get; set; } =

@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Create a machine learning algorithm that you can use in Amazon SageMaker and list
-    /// in the Amazon Web Services Marketplace.
+    /// Create a machine learning algorithm that you can use in SageMaker and list in the
+    /// Amazon Web Services Marketplace.
     /// </summary>
     [Cmdlet("New", "SMAlgorithm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -263,8 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of <code>AlgorithmValidationProfile</code> objects, each of which specifies
-        /// a training job and batch transform job that Amazon SageMaker runs to validate your
-        /// algorithm.</para>
+        /// a training job and batch transform job that SageMaker runs to validate your algorithm.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ValidationSpecification_ValidationRole
         /// <summary>
         /// <para>
-        /// <para>The IAM roles that Amazon SageMaker uses to run the training jobs.</para>
+        /// <para>The IAM roles that SageMaker uses to run the training jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

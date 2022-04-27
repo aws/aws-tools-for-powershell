@@ -181,6 +181,9 @@
     <Reference Include="AWSSDK.ChimeSDKIdentity">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKIdentity.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ChimeSDKMediaPipelines">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMediaPipelines.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ChimeSDKMeetings">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMeetings.dll</HintPath>
     </Reference>
@@ -1073,6 +1076,9 @@
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKIdentity">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ChimeSDKMediaPipelines">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKMediaPipelines.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMeetings">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKMeetings.dll</HintPath>

@@ -197,6 +197,7 @@ $L4E_SelectMap = @{
                "Get-L4EInferenceExecutionList",
                "Get-L4EInferenceSchedulerList",
                "Get-L4EModelList",
+               "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
                "Start-L4EDataIngestionJob",
                "Start-L4EInferenceScheduler",

@@ -28,25 +28,25 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy
-    /// models. In the configuration, you identify one or more models, created using the <code>CreateModel</code>
-    /// API, to deploy and the resources that you want Amazon SageMaker to provision. Then
-    /// you call the <a>CreateEndpoint</a> API.
+    /// Creates an endpoint configuration that SageMaker hosting services uses to deploy models.
+    /// In the configuration, you identify one or more models, created using the <code>CreateModel</code>
+    /// API, to deploy and the resources that you want SageMaker to provision. Then you call
+    /// the <a>CreateEndpoint</a> API.
     /// 
     ///  <note><para>
-    ///  Use this API if you want to use Amazon SageMaker hosting services to deploy models
-    /// into production. 
+    ///  Use this API if you want to use SageMaker hosting services to deploy models into
+    /// production. 
     /// </para></note><para>
     /// In the request, you define a <code>ProductionVariant</code>, for each model that you
     /// want to deploy. Each <code>ProductionVariant</code> parameter also describes the resources
-    /// that you want Amazon SageMaker to provision. This includes the number and type of
-    /// ML compute instances to deploy. 
+    /// that you want SageMaker to provision. This includes the number and type of ML compute
+    /// instances to deploy. 
     /// </para><para>
     /// If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
     /// specify how much traffic you want to allocate to each model. For example, suppose
     /// that you want to host two models, A and B, and you assign traffic weight 2 for model
-    /// A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model
-    /// A, and one-third to model B. 
+    /// A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A, and
+    /// one-third to model B. 
     /// </para><note><para>
     /// When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to verify that
     /// your endpoint configuration exists. When you read data from a DynamoDB table supporting
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
-        /// Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</para>
+        /// SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
-        /// that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML
-        /// compute instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
+        /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
         /// <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more information,
         /// refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
         /// Using Key Policies in Amazon Web Services KMS </a></para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
@@ -211,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum number of concurrent requests sent by the SageMaker client to the model
-        /// container. If no value is provided, Amazon SageMaker will choose an optimal value
-        /// for you.</para>
+        /// container. If no value is provided, SageMaker chooses an optimal value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

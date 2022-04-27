@@ -41,7 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To get the search results, first check that the status value published to the Amazon
     /// SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the
     /// job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
-    /// For more information, see <a>procedure-person-search-videos</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html">Searching
+    /// stored videos for faces</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKFaceSearch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</para>
+        /// <para>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
