@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludePublicKey
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, the public key material is included in the response.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludePublicKey { get; set; }
+        #endregion
+        
         #region Parameter KeyName
         /// <summary>
         /// <para>
@@ -133,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            context.IncludePublicKey = this.IncludePublicKey;
             if (this.KeyName != null)
             {
                 context.KeyName = new List<System.String>(this.KeyName);
@@ -160,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludePublicKey != null)
+            {
+                request.IncludePublicKey = cmdletContext.IncludePublicKey.Value;
             }
             if (cmdletContext.KeyName != null)
             {
@@ -231,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludePublicKey { get; set; }
             public List<System.String> KeyName { get; set; }
             public List<System.String> KeyPairId { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeKeyPairsResponse, GetEC2KeyPairCmdlet, object> Select { get; set; } =

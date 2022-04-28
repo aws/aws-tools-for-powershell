@@ -204,6 +204,29 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String RulesSource_RulesString { get; set; }
         #endregion
         
+        #region Parameter SourceMetadata_SourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the rule group that your own rule group is copied
+        /// from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceMetadata_SourceArn { get; set; }
+        #endregion
+        
+        #region Parameter SourceMetadata_SourceUpdateToken
+        /// <summary>
+        /// <para>
+        /// <para>The update token of the Amazon Web Services managed rule group that your own rule
+        /// group is copied from. To determine the update token for the managed rule group, call
+        /// <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken">DescribeRuleGroup</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceMetadata_SourceUpdateToken { get; set; }
+        #endregion
+        
         #region Parameter RulesSource_StatefulRule
         /// <summary>
         /// <para>
@@ -414,6 +437,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.RuleGroupArn = this.RuleGroupArn;
             context.RuleGroupName = this.RuleGroupName;
             context.Rule = this.Rule;
+            context.SourceMetadata_SourceArn = this.SourceMetadata_SourceArn;
+            context.SourceMetadata_SourceUpdateToken = this.SourceMetadata_SourceUpdateToken;
             context.Type = this.Type;
             context.UpdateToken = this.UpdateToken;
             #if MODULAR
@@ -671,6 +696,35 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 request.Rules = cmdletContext.Rule;
             }
+            
+             // populate SourceMetadata
+            var requestSourceMetadataIsNull = true;
+            request.SourceMetadata = new Amazon.NetworkFirewall.Model.SourceMetadata();
+            System.String requestSourceMetadata_sourceMetadata_SourceArn = null;
+            if (cmdletContext.SourceMetadata_SourceArn != null)
+            {
+                requestSourceMetadata_sourceMetadata_SourceArn = cmdletContext.SourceMetadata_SourceArn;
+            }
+            if (requestSourceMetadata_sourceMetadata_SourceArn != null)
+            {
+                request.SourceMetadata.SourceArn = requestSourceMetadata_sourceMetadata_SourceArn;
+                requestSourceMetadataIsNull = false;
+            }
+            System.String requestSourceMetadata_sourceMetadata_SourceUpdateToken = null;
+            if (cmdletContext.SourceMetadata_SourceUpdateToken != null)
+            {
+                requestSourceMetadata_sourceMetadata_SourceUpdateToken = cmdletContext.SourceMetadata_SourceUpdateToken;
+            }
+            if (requestSourceMetadata_sourceMetadata_SourceUpdateToken != null)
+            {
+                request.SourceMetadata.SourceUpdateToken = requestSourceMetadata_sourceMetadata_SourceUpdateToken;
+                requestSourceMetadataIsNull = false;
+            }
+             // determine if request.SourceMetadata should be set to null
+            if (requestSourceMetadataIsNull)
+            {
+                request.SourceMetadata = null;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -757,6 +811,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String RuleGroupArn { get; set; }
             public System.String RuleGroupName { get; set; }
             public System.String Rule { get; set; }
+            public System.String SourceMetadata_SourceArn { get; set; }
+            public System.String SourceMetadata_SourceUpdateToken { get; set; }
             public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
             public System.String UpdateToken { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse, UpdateNWFWRuleGroupCmdlet, object> Select { get; set; } =

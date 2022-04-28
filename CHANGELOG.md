@@ -1,4 +1,18 @@
-﻿### 4.1.73 (2022-04-27 20:16Z)
+﻿### 4.1.74 (2022-04-28 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.262.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Braket
+    * Modified cmdlet New-BRKTJob: added parameter InstanceConfig_InstanceCount.
+  * Amazon Connect Service
+    * Added cmdlet Write-CONNUserStatus leveraging the PutUserStatus service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Get-EC2KeyPair: added parameter IncludePublicKey.
+    * Modified cmdlet New-EC2KeyPair: added parameter KeyFormat.
+  * Amazon Network Firewall
+    * Modified cmdlet Get-NWFWRuleGroupList: added parameters ManagedType and Type.
+    * Modified cmdlet New-NWFWRuleGroup: added parameters SourceMetadata_SourceArn and SourceMetadata_SourceUpdateToken.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameters SourceMetadata_SourceArn and SourceMetadata_SourceUpdateToken.
+
+### 4.1.73 (2022-04-27 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.261.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Media Pipelines. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CHMMP and can be listed using the command 'Get-AWSCmdletName -Service CHMMP'.
   * Amazon IoT Wireless

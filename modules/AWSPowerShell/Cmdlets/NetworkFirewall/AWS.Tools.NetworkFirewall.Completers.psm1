@@ -111,9 +111,17 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.ResourceManagedType
+        "Get-NWFWRuleGroupList/ManagedType"
+        {
+            $v = "AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
+            break
+        }
+
         # Amazon.NetworkFirewall.RuleGroupType
         {
             ($_ -eq "Get-NWFWRuleGroup/Type") -Or
+            ($_ -eq "Get-NWFWRuleGroupList/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupMetadata/Type") -Or
             ($_ -eq "New-NWFWRuleGroup/Type") -Or
             ($_ -eq "Remove-NWFWRuleGroup/Type") -Or
@@ -147,10 +155,11 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
-    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map

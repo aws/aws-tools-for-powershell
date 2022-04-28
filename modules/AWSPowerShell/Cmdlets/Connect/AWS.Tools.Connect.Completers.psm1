@@ -454,6 +454,7 @@ $CONN_SelectMap = @{
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",

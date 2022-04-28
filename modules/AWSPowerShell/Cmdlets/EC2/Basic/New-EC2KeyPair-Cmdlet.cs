@@ -28,10 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores
-    /// the public key and displays the private key for you to save to a file. The private
-    /// key is returned as an unencrypted PEM encoded PKCS#1 private key. If a key with the
-    /// specified name already exists, Amazon EC2 returns an error.
+    /// Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified
+    /// PEM or PPK format. Amazon EC2 stores the public key and displays the private key for
+    /// you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1
+    /// private key or an unencrypted PPK formatted private key for use with PuTTY. If a key
+    /// with the specified name already exists, Amazon EC2 returns an error.
     /// 
     ///  
     /// <para>
@@ -54,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the key pair.</para><para>Default: <code>pem</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.KeyFormat")]
+        public Amazon.EC2.KeyFormat KeyFormat { get; set; }
+        #endregion
         
         #region Parameter KeyName
         /// <summary>
@@ -155,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.KeyName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.KeyFormat = this.KeyFormat;
             context.KeyName = this.KeyName;
             #if MODULAR
             if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
@@ -183,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateKeyPairRequest();
             
+            if (cmdletContext.KeyFormat != null)
+            {
+                request.KeyFormat = cmdletContext.KeyFormat;
+            }
             if (cmdletContext.KeyName != null)
             {
                 request.KeyName = cmdletContext.KeyName;
@@ -256,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.KeyFormat KeyFormat { get; set; }
             public System.String KeyName { get; set; }
             public Amazon.EC2.KeyType KeyType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

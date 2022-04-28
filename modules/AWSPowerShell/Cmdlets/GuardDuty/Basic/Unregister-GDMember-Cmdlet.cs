@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
-    /// specified by the account IDs.
+    /// specified by the account IDs. Member accounts added through <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html">Invitation</a>
+    /// get deleted from the current GuardDuty administrator account after 30 days of disassociation.
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

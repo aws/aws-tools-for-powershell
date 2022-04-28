@@ -591,6 +591,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.KeyFormat
+        "New-EC2KeyPair/KeyFormat"
+        {
+            $v = "pem","ppk"
+            break
+        }
+
         # Amazon.EC2.KeyType
         "New-EC2KeyPair/KeyType"
         {
@@ -1002,6 +1009,7 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "KeyFormat"=@("New-EC2KeyPair")
     "KeyType"=@("New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")

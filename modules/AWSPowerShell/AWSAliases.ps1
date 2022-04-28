@@ -4888,6 +4888,8 @@ Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupLi
 Set-Alias -Name List-CONNUsers -Value Get-CONNUserList
 Set-Alias -Name List-CONNUserList -Value Get-CONNUserList
 Set-Alias -Name CONN-ListUsers -Value Get-CONNUserList
+Set-Alias -Name Put-CONNUserStatus -Value Write-CONNUserStatus
+Set-Alias -Name CONN-PutUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name Release-CONNPhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording

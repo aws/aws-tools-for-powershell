@@ -106,6 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         public Amazon.Braket.Model.InputFileConfig[] InputDataConfig { get; set; }
         #endregion
         
+        #region Parameter InstanceConfig_InstanceCount
+        /// <summary>
+        /// <para>
+        /// <para>Configures the number of resource instances to use while running an Amazon Braket
+        /// job on Amazon Braket. The default value is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceConfig_InstanceCount { get; set; }
+        #endregion
+        
         #region Parameter InstanceConfig_InstanceType
         /// <summary>
         /// <para>
@@ -350,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             {
                 context.InputDataConfig = new List<Amazon.Braket.Model.InputFileConfig>(this.InputDataConfig);
             }
+            context.InstanceConfig_InstanceCount = this.InstanceConfig_InstanceCount;
             context.InstanceConfig_InstanceType = this.InstanceConfig_InstanceType;
             #if MODULAR
             if (this.InstanceConfig_InstanceType == null && ParameterWasBound(nameof(this.InstanceConfig_InstanceType)))
@@ -554,6 +566,16 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
              // populate InstanceConfig
             var requestInstanceConfigIsNull = true;
             request.InstanceConfig = new Amazon.Braket.Model.InstanceConfig();
+            System.Int32? requestInstanceConfig_instanceConfig_InstanceCount = null;
+            if (cmdletContext.InstanceConfig_InstanceCount != null)
+            {
+                requestInstanceConfig_instanceConfig_InstanceCount = cmdletContext.InstanceConfig_InstanceCount.Value;
+            }
+            if (requestInstanceConfig_instanceConfig_InstanceCount != null)
+            {
+                request.InstanceConfig.InstanceCount = requestInstanceConfig_instanceConfig_InstanceCount.Value;
+                requestInstanceConfigIsNull = false;
+            }
             Amazon.Braket.InstanceType requestInstanceConfig_instanceConfig_InstanceType = null;
             if (cmdletContext.InstanceConfig_InstanceType != null)
             {
@@ -710,6 +732,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             public System.String DeviceConfig_Device { get; set; }
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public List<Amazon.Braket.Model.InputFileConfig> InputDataConfig { get; set; }
+            public System.Int32? InstanceConfig_InstanceCount { get; set; }
             public Amazon.Braket.InstanceType InstanceConfig_InstanceType { get; set; }
             public System.Int32? InstanceConfig_VolumeSizeInGb { get; set; }
             public System.String JobName { get; set; }

@@ -228,7 +228,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNUserIdentityInfo', 
         'Update-CONNUserPhoneConfig', 
         'Update-CONNUserRoutingProfile', 
-        'Update-CONNUserSecurityProfile')
+        'Update-CONNUserSecurityProfile', 
+        'Write-CONNUserStatus')
 
     # Variables to export from this module
     VariablesToExport = '*'

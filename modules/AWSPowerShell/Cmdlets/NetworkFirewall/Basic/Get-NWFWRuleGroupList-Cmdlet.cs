@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class GetNWFWRuleGroupListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        #region Parameter ManagedType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the general category of the Amazon Web Services managed rule group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.ResourceManagedType")]
+        public Amazon.NetworkFirewall.ResourceManagedType ManagedType { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -53,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.NetworkFirewall.ResourceManagedStatus")]
         public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the rule group is stateless or stateful. If the rule group is stateless,
+        /// it contains stateless rules. If it is stateful, it contains stateful rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.RuleGroupType")]
+        public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -107,9 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListRuleGroupsResponse, GetNWFWRuleGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ManagedType = this.ManagedType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Scope = this.Scope;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.ListRuleGroupsRequest();
             
+            if (cmdletContext.ManagedType != null)
+            {
+                request.ManagedType = cmdletContext.ManagedType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -137,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.Scope != null)
             {
                 request.Scope = cmdletContext.Scope;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -199,9 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.NetworkFirewall.ResourceManagedType ManagedType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
+            public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.ListRuleGroupsResponse, GetNWFWRuleGroupListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RuleGroups;
         }

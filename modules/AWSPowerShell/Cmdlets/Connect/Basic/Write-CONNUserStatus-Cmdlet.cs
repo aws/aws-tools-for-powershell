@@ -22,53 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AuditManager;
-using Amazon.AuditManager.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AUDM
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an assessment report in Audit Manager. 
+    /// Changes the current status of a user or agent in Amazon Connect. If the agent is currently
+    /// handling a contact, this sets the agent's next status.
     /// 
     ///  
     /// <para>
-    /// When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts
-    /// to delete the following data:
-    /// </para><ol><li><para>
-    /// The specified assessment report that’s stored in your S3 bucket
-    /// </para></li><li><para>
-    /// The associated metadata that’s stored in Audit Manager
-    /// </para></li></ol><para>
-    /// If Audit Manager can’t access the assessment report in your S3 bucket, the report
-    /// isn’t deleted. In this event, the <code>DeleteAssessmentReport</code> operation doesn’t
-    /// fail. Instead, it proceeds to delete the associated metadata only. You must then delete
-    /// the assessment report from the S3 bucket yourself. 
-    /// </para><para>
-    /// This scenario happens when Audit Manager receives a <code>403 (Forbidden)</code> or
-    /// <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make sure that your
-    /// S3 bucket is available, and that you configured the correct permissions for Audit
-    /// Manager to delete resources in your S3 bucket. For an example permissions policy that
-    /// you can use, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination">Assessment
-    /// report destination permissions</a> in the <i>Audit Manager User Guide</i>. For information
-    /// about the issues that could cause a <code>403 (Forbidden)</code> or <code>404 (Not
-    /// Found</code>) error from Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
-    /// of Error Codes</a> in the <i>Amazon Simple Storage Service API Reference</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent
+    /// status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set
+    /// your next status</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "AUDMAssessmentReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "CONNUserStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Audit Manager DeleteAssessmentReport API operation.", Operation = new[] {"DeleteAssessmentReport"}, SelectReturnType = typeof(Amazon.AuditManager.Model.DeleteAssessmentReportResponse))]
-    [AWSCmdletOutput("None or Amazon.AuditManager.Model.DeleteAssessmentReportResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service PutUserStatus API operation.", Operation = new[] {"PutUserStatus"}, SelectReturnType = typeof(Amazon.Connect.Model.PutUserStatusResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.PutUserStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AuditManager.Model.DeleteAssessmentReportResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.PutUserStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAUDMAssessmentReportCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
+    public partial class WriteCONNUserStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter AssessmentId
+        #region Parameter AgentStatusId
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for the assessment. </para>
+        /// <para>The identifier of the agent status.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,13 +62,31 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssessmentId { get; set; }
+        public System.String AgentStatusId { get; set; }
         #endregion
         
-        #region Parameter AssessmentReportId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for the assessment report. </para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,13 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssessmentReportId { get; set; }
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AuditManager.Model.DeleteAssessmentReportResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.PutUserStatusResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AssessmentReportId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AssessmentReportId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssessmentReportId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssessmentReportId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AUDMAssessmentReport (DeleteAssessmentReport)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CONNUserStatus (PutUserStatus)"))
             {
                 return;
             }
@@ -147,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AuditManager.Model.DeleteAssessmentReportResponse, RemoveAUDMAssessmentReportCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.PutUserStatusResponse, WriteCONNUserStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,21 +157,28 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AssessmentReportId;
+                context.Select = (response, cmdlet) => this.UserId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AssessmentId = this.AssessmentId;
+            context.AgentStatusId = this.AgentStatusId;
             #if MODULAR
-            if (this.AssessmentId == null && ParameterWasBound(nameof(this.AssessmentId)))
+            if (this.AgentStatusId == null && ParameterWasBound(nameof(this.AgentStatusId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssessmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AgentStatusId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AssessmentReportId = this.AssessmentReportId;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.AssessmentReportId == null && ParameterWasBound(nameof(this.AssessmentReportId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssessmentReportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -187,15 +195,19 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AuditManager.Model.DeleteAssessmentReportRequest();
+            var request = new Amazon.Connect.Model.PutUserStatusRequest();
             
-            if (cmdletContext.AssessmentId != null)
+            if (cmdletContext.AgentStatusId != null)
             {
-                request.AssessmentId = cmdletContext.AssessmentId;
+                request.AgentStatusId = cmdletContext.AgentStatusId;
             }
-            if (cmdletContext.AssessmentReportId != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.AssessmentReportId = cmdletContext.AssessmentReportId;
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.UserId != null)
+            {
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -230,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         #region AWS Service Operation Call
         
-        private Amazon.AuditManager.Model.DeleteAssessmentReportResponse CallAWSServiceOperation(IAmazonAuditManager client, Amazon.AuditManager.Model.DeleteAssessmentReportRequest request)
+        private Amazon.Connect.Model.PutUserStatusResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.PutUserStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Audit Manager", "DeleteAssessmentReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "PutUserStatus");
             try
             {
                 #if DESKTOP
-                return client.DeleteAssessmentReport(request);
+                return client.PutUserStatus(request);
                 #elif CORECLR
-                return client.DeleteAssessmentReportAsync(request).GetAwaiter().GetResult();
+                return client.PutUserStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,9 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssessmentId { get; set; }
-            public System.String AssessmentReportId { get; set; }
-            public System.Func<Amazon.AuditManager.Model.DeleteAssessmentReportResponse, RemoveAUDMAssessmentReportCmdlet, object> Select { get; set; } =
+            public System.String AgentStatusId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.Connect.Model.PutUserStatusResponse, WriteCONNUserStatusCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

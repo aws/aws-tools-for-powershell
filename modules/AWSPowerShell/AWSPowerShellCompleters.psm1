@@ -12153,6 +12153,7 @@ $CONN_SelectMap = @{
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
@@ -16248,6 +16249,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.KeyFormat
+        "New-EC2KeyPair/KeyFormat"
+        {
+            $v = "pem","ppk"
+            break
+        }
+
         # Amazon.EC2.KeyType
         "New-EC2KeyPair/KeyType"
         {
@@ -16659,6 +16667,7 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "KeyFormat"=@("New-EC2KeyPair")
     "KeyType"=@("New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
@@ -34954,9 +34963,17 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.ResourceManagedType
+        "Get-NWFWRuleGroupList/ManagedType"
+        {
+            $v = "AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
+            break
+        }
+
         # Amazon.NetworkFirewall.RuleGroupType
         {
             ($_ -eq "Get-NWFWRuleGroup/Type") -Or
+            ($_ -eq "Get-NWFWRuleGroupList/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupMetadata/Type") -Or
             ($_ -eq "New-NWFWRuleGroup/Type") -Or
             ($_ -eq "Remove-NWFWRuleGroup/Type") -Or
@@ -34990,10 +35007,11 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
-    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map
