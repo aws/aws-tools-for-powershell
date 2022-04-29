@@ -324,6 +324,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? MultiAZ { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB instance.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for read
+        /// replica. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4
+        /// and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -636,6 +649,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
+            context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
@@ -763,6 +777,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MultiAZ != null)
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -898,6 +916,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }

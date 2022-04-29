@@ -378,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// is managed by the DB cluster.</para><para><b>Amazon RDS Custom for Oracle</b></para><para>A custom engine version (CEV) that you have previously created. This setting is required
         /// for RDS Custom for Oracle. The CEV name has the following format: <code>19.<i>customized_string</i></code>. An example identifier is <code>19.my_cev1</code>. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
-        /// Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>Amazon RDS Custom for SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS
+        /// Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>Amazon RDS Custom for SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html">RDS
         /// Custom for SQL Server general requirements</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>MariaDB</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
         /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>Microsoft SQL Server</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft
         /// SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
@@ -518,6 +518,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NcharCharacterSetName { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB instance.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// DB instance. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
+        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
         #endregion
         
         #region Parameter OptionGroupName
@@ -844,6 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
             context.NcharCharacterSetName = this.NcharCharacterSetName;
+            context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
@@ -1021,6 +1035,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.NcharCharacterSetName = cmdletContext.NcharCharacterSetName;
             }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
@@ -1180,6 +1198,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String NcharCharacterSetName { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }

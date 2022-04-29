@@ -1,4 +1,14 @@
-﻿### 4.1.74 (2022-04-28 20:12Z)
+﻿### 4.1.75 (2022-04-29 20:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.263.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameter NetworkType.
+    * Modified cmdlet New-RDSDBInstance: added parameter NetworkType.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter NetworkType.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter NetworkType.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter NetworkType.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter NetworkType.
+
+### 4.1.74 (2022-04-28 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.262.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Braket
     * Modified cmdlet New-BRKTJob: added parameter InstanceConfig_InstanceCount.
