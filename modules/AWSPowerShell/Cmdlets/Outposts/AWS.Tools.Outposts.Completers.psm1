@@ -299,6 +299,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
+               "Get-OUTPAssetList",
                "Get-OUTPCatalogItemList",
                "Get-OUTPOrderList",
                "Get-OUTPOutpostList",

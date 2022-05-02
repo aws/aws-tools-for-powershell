@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCatalogItems" OutputProperty="CatalogItems" Verb="Get" Noun="CatalogItemList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

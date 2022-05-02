@@ -28,9 +28,9 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Use to create a list of every item in the catalog. Add filters to your request to
-    /// return a more specific list of results. Use filters to match an item class, storage
-    /// option, or EC2 family. 
+    /// Lists the items in the catalog. Add filters to your request to return a more specific
+    /// list of results. Use filters to match an item class, storage option, or EC2 family.
+    /// 
     /// 
     ///  
     /// <para>

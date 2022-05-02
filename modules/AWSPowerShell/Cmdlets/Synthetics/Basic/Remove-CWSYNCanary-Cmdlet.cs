@@ -32,12 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
-    /// When you delete a canary, resources used and created by the canary are not automatically
-    /// deleted. After you delete a canary that you do not intend to use again, you should
-    /// also delete the following:
+    /// If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics
+    /// also deletes the Lambda functions and layers that are used by the canary.
+    /// </para><para>
+    /// Other esources used and created by the canary are not automatically deleted. After
+    /// you delete a canary that you do not intend to use again, you should also delete the
+    /// following:
     /// </para><ul><li><para>
-    /// The Lambda functions and layers used by this canary. These have the prefix <code>cwsyn-<i>MyCanaryName</i></code>.
-    /// </para></li><li><para>
     /// The CloudWatch alarms created for this canary. These alarms have a name of <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i></code>.
     /// </para></li><li><para>
     /// Amazon S3 objects and buckets, such as the canary's artifact location.
@@ -62,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     )]
     public partial class RemoveCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeleteLambda
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to also delete the Lambda functions and layers used by this canary.
+        /// The default is false.</para><para>Type: Boolean</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteLambda { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
@@ -141,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeleteLambda = this.DeleteLambda;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -164,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             // create request
             var request = new Amazon.Synthetics.Model.DeleteCanaryRequest();
             
+            if (cmdletContext.DeleteLambda != null)
+            {
+                request.DeleteLambda = cmdletContext.DeleteLambda.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -229,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteLambda { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Synthetics.Model.DeleteCanaryResponse, RemoveCWSYNCanaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

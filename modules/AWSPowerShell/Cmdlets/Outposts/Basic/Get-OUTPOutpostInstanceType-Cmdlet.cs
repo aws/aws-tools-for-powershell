@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Lists the instance types for the specified Outpost.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets the instance types for the specified Outpost.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OUTPOutpostInstanceType")]
     [OutputType("Amazon.Outposts.Model.InstanceTypeItem")]

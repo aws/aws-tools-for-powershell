@@ -140,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter AccountName
         /// <summary>
         /// <para>
-        /// <para>The friendly name of the member account.</para>
+        /// <para>The friendly name of the member account. </para><para>The account name can consist of only the characters [a-z],[A-Z],[0-9], hyphen (-),
+        /// or dot (.) You can't separate characters with a dash (–).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,11 @@
-﻿### 4.1.75 (2022-04-29 20:06Z)
+﻿### 4.1.76 (2022-05-02 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.264.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet Remove-CWSYNCanary: added parameter DeleteLambda.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPAssetList leveraging the ListAssets service API.
+
+### 4.1.75 (2022-04-29 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.263.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Modified cmdlet Edit-RDSDBInstance: added parameter NetworkType.

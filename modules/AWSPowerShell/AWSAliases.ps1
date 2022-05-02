@@ -15721,6 +15721,9 @@ Set-Alias -Name Get-OUTPOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name OUTP-GetOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name OUTP-GetSiteAddress -Value Get-OUTPSiteAddress
 Set-Alias -Name OUTP-GetSite -Value Get-OUTPSite
+Set-Alias -Name List-OUTPAssets -Value Get-OUTPAssetList
+Set-Alias -Name List-OUTPAssetList -Value Get-OUTPAssetList
+Set-Alias -Name OUTP-ListAssets -Value Get-OUTPAssetList
 Set-Alias -Name List-OUTPCatalogItems -Value Get-OUTPCatalogItemList
 Set-Alias -Name List-OUTPCatalogItemList -Value Get-OUTPCatalogItemList
 Set-Alias -Name OUTP-ListCatalogItems -Value Get-OUTPCatalogItemList

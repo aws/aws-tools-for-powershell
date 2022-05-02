@@ -28,27 +28,47 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Lists the Outpost orders for your Amazon Web Services account. You can filter your
-    /// request by Outpost to return a more specific list of results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on Amazon
+    /// Web Services Outposts, you can filter your request by host ID to return a list of
+    /// hardware assets that allocate resources for Dedicated Hosts.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OUTPOrderList")]
-    [OutputType("Amazon.Outposts.Model.OrderSummary")]
-    [AWSCmdlet("Calls the AWS Outposts ListOrders API operation.", Operation = new[] {"ListOrders"}, SelectReturnType = typeof(Amazon.Outposts.Model.ListOrdersResponse))]
-    [AWSCmdletOutput("Amazon.Outposts.Model.OrderSummary or Amazon.Outposts.Model.ListOrdersResponse",
-        "This cmdlet returns a collection of Amazon.Outposts.Model.OrderSummary objects.",
-        "The service call response (type Amazon.Outposts.Model.ListOrdersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OUTPAssetList")]
+    [OutputType("Amazon.Outposts.Model.AssetInfo")]
+    [AWSCmdlet("Calls the AWS Outposts ListAssets API operation.", Operation = new[] {"ListAssets"}, SelectReturnType = typeof(Amazon.Outposts.Model.ListAssetsResponse))]
+    [AWSCmdletOutput("Amazon.Outposts.Model.AssetInfo or Amazon.Outposts.Model.ListAssetsResponse",
+        "This cmdlet returns a collection of Amazon.Outposts.Model.AssetInfo objects.",
+        "The service call response (type Amazon.Outposts.Model.ListAssetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetOUTPOrderListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
+    public partial class GetOUTPAssetListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
-        #region Parameter OutpostIdentifierFilter
+        #region Parameter HostIdFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the host ID of Dedicated Hosts on the Outpost. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] HostIdFilter { get; set; }
+        #endregion
+        
+        #region Parameter OutpostIdentifier
         /// <summary>
         /// <para>
         /// <para> The ID or the Amazon Resource Name (ARN) of the Outpost. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String OutpostIdentifierFilter { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OutpostIdentifier { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -78,21 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Orders'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.ListOrdersResponse).
-        /// Specifying the name of a property of type Amazon.Outposts.Model.ListOrdersResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Assets'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.ListAssetsResponse).
+        /// Specifying the name of a property of type Amazon.Outposts.Model.ListAssetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Orders";
+        public string Select { get; set; } = "Assets";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OutpostIdentifierFilter parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OutpostIdentifierFilter' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OutpostIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostIdentifierFilter' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListOrdersResponse, GetOUTPOrderListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListAssetsResponse, GetOUTPAssetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,12 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OutpostIdentifierFilter;
+                context.Select = (response, cmdlet) => this.OutpostIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.HostIdFilter != null)
+            {
+                context.HostIdFilter = new List<System.String>(this.HostIdFilter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.OutpostIdentifierFilter = this.OutpostIdentifierFilter;
+            context.OutpostIdentifier = this.OutpostIdentifier;
+            #if MODULAR
+            if (this.OutpostIdentifier == null && ParameterWasBound(nameof(this.OutpostIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OutpostIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,15 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Outposts.Model.ListOrdersRequest();
+            var request = new Amazon.Outposts.Model.ListAssetsRequest();
             
+            if (cmdletContext.HostIdFilter != null)
+            {
+                request.HostIdFilter = cmdletContext.HostIdFilter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.OutpostIdentifierFilter != null)
+            if (cmdletContext.OutpostIdentifier != null)
             {
-                request.OutpostIdentifierFilter = cmdletContext.OutpostIdentifierFilter;
+                request.OutpostIdentifier = cmdletContext.OutpostIdentifier;
             }
             
             // Initialize loop variant and commence piping
@@ -219,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region AWS Service Operation Call
         
-        private Amazon.Outposts.Model.ListOrdersResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.ListOrdersRequest request)
+        private Amazon.Outposts.Model.ListAssetsResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.ListAssetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "ListOrders");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "ListAssets");
             try
             {
                 #if DESKTOP
-                return client.ListOrders(request);
+                return client.ListAssets(request);
                 #elif CORECLR
-                return client.ListOrdersAsync(request).GetAwaiter().GetResult();
+                return client.ListAssetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> HostIdFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OutpostIdentifierFilter { get; set; }
-            public System.Func<Amazon.Outposts.Model.ListOrdersResponse, GetOUTPOrderListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Orders;
+            public System.String OutpostIdentifier { get; set; }
+            public System.Func<Amazon.Outposts.Model.ListAssetsResponse, GetOUTPAssetListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Assets;
         }
         
     }
