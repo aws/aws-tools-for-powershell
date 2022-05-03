@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceType { get; set; }
         #endregion
         
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
+        /// the Dedicated Host.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
+        #endregion
+        
         #region Parameter Quantity
         /// <summary>
         /// <para>
@@ -226,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.HostRecovery = this.HostRecovery;
             context.InstanceFamily = this.InstanceFamily;
             context.InstanceType = this.InstanceType;
+            context.OutpostArn = this.OutpostArn;
             context.Quantity = this.Quantity;
             #if MODULAR
             if (this.Quantity == null && ParameterWasBound(nameof(this.Quantity)))
@@ -276,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.Quantity != null)
             {
@@ -352,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
             public System.String InstanceFamily { get; set; }
             public System.String InstanceType { get; set; }
+            public System.String OutpostArn { get; set; }
             public System.Int32? Quantity { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.AllocateHostsResponse, NewEC2HostCmdlet, object> Select { get; set; } =

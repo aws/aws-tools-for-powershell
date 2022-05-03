@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-KVResourceTag', 
         'Add-KVStreamTag', 
         'Get-KVDataEndpoint', 
+        'Get-KVImageGenerationConfiguration', 
+        'Get-KVNotificationConfiguration', 
         'Get-KVResourceTag', 
         'Get-KVSignalingChannel', 
         'Get-KVSignalingChannelEndpoint', 
@@ -103,6 +105,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-KVStream', 
         'Remove-KVStreamTag', 
         'Update-KVDataRetention', 
+        'Update-KVImageGenerationConfiguration', 
+        'Update-KVNotificationConfiguration', 
         'Update-KVSignalingChannel', 
         'Update-KVStream')
 

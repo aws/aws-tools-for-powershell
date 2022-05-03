@@ -1,4 +1,14 @@
-﻿### 4.1.76 (2022-05-02 20:17Z)
+﻿### 4.1.77 (2022-05-03 23:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.265.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Host: added parameter OutpostArn.
+  * Amazon Kinesis Video Streams
+    * Added cmdlet Get-KVImageGenerationConfiguration leveraging the DescribeImageGenerationConfiguration service API.
+    * Added cmdlet Get-KVNotificationConfiguration leveraging the DescribeNotificationConfiguration service API.
+    * Added cmdlet Update-KVImageGenerationConfiguration leveraging the UpdateImageGenerationConfiguration service API.
+    * Added cmdlet Update-KVNotificationConfiguration leveraging the UpdateNotificationConfiguration service API.
+
+### 4.1.76 (2022-05-02 20:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.264.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet Remove-CWSYNCanary: added parameter DeleteLambda.

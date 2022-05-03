@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>kinesisvideo</C2jFilename>
     <AssemblyName>KinesisVideo</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -32,6 +32,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageGenerationConfiguration" OutputProperty="ImageGenerationConfiguration" Verb="Get" Noun="ImageGenerationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotificationConfiguration" OutputProperty="NotificationConfiguration" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,6 +96,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImageGenerationConfiguration" Verb="Update" Noun="ImageGenerationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotificationConfiguration" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSignalingChannel" Verb="Update" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -97,8 +113,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.KinesisVideo.Model.StreamNameCondition</Type>
     </TypesNotToFlatten>

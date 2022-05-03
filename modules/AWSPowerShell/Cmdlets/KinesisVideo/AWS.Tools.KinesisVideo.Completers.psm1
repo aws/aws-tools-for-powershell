@@ -83,7 +83,7 @@ $KV_Completers = {
         # Amazon.KinesisVideo.APIName
         "Get-KVDataEndpoint/APIName"
         {
-            $v = "GET_CLIP","GET_DASH_STREAMING_SESSION_URL","GET_HLS_STREAMING_SESSION_URL","GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
+            $v = "GET_CLIP","GET_DASH_STREAMING_SESSION_URL","GET_HLS_STREAMING_SESSION_URL","GET_IMAGES","GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
             break
         }
 
@@ -97,7 +97,7 @@ $KV_Completers = {
         # Amazon.KinesisVideo.ChannelType
         "New-KVSignalingChannel/ChannelType"
         {
-            $v = "SINGLE_MASTER"
+            $v = "FULL_MESH","SINGLE_MASTER"
             break
         }
 
@@ -105,6 +105,30 @@ $KV_Completers = {
         "Get-KVSignalingChannelList/ChannelNameCondition_ComparisonOperator"
         {
             $v = "BEGINS_WITH"
+            break
+        }
+
+        # Amazon.KinesisVideo.ConfigurationStatus
+        {
+            ($_ -eq "Update-KVImageGenerationConfiguration/ImageGenerationConfiguration_Status") -Or
+            ($_ -eq "Update-KVNotificationConfiguration/NotificationConfiguration_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.KinesisVideo.Format
+        "Update-KVImageGenerationConfiguration/ImageGenerationConfiguration_Format"
+        {
+            $v = "JPEG","PNG"
+            break
+        }
+
+        # Amazon.KinesisVideo.ImageSelectorType
+        "Update-KVImageGenerationConfiguration/ImageGenerationConfiguration_ImageSelectorType"
+        {
+            $v = "PRODUCER_TIMESTAMP","SERVER_TIMESTAMP"
             break
         }
 
@@ -127,6 +151,10 @@ $KV_map = @{
     "APIName"=@("Get-KVDataEndpoint")
     "ChannelNameCondition_ComparisonOperator"=@("Get-KVSignalingChannelList")
     "ChannelType"=@("New-KVSignalingChannel")
+    "ImageGenerationConfiguration_Format"=@("Update-KVImageGenerationConfiguration")
+    "ImageGenerationConfiguration_ImageSelectorType"=@("Update-KVImageGenerationConfiguration")
+    "ImageGenerationConfiguration_Status"=@("Update-KVImageGenerationConfiguration")
+    "NotificationConfiguration_Status"=@("Update-KVNotificationConfiguration")
     "Operation"=@("Update-KVDataRetention")
     "SingleMasterChannelEndpointConfiguration_Role"=@("Get-KVSignalingChannelEndpoint")
 }
@@ -185,6 +213,8 @@ $KV_SelectMap = @{
                "New-KVStream",
                "Remove-KVSignalingChannel",
                "Remove-KVStream",
+               "Get-KVImageGenerationConfiguration",
+               "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
                "Get-KVStream",
                "Get-KVDataEndpoint",
@@ -198,6 +228,8 @@ $KV_SelectMap = @{
                "Remove-KVResourceTag",
                "Remove-KVStreamTag",
                "Update-KVDataRetention",
+               "Update-KVImageGenerationConfiguration",
+               "Update-KVNotificationConfiguration",
                "Update-KVSignalingChannel",
                "Update-KVStream")
 }

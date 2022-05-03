@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>A name for the signaling channel that you are creating. It must be unique for each
-        /// AWS account and AWS Region.</para>
+        /// Amazon Web Services account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter SingleMasterConfiguration_MessageTtlSecond
         /// <summary>
         /// <para>
-        /// <para>The period of time a signaling channel retains underlivered messages before they are
+        /// <para>The period of time a signaling channel retains undelivered messages before they are
         /// discarded.</para>
         /// </para>
         /// </summary>

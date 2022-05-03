@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter SingleMasterConfiguration_MessageTtlSecond
         /// <summary>
         /// <para>
-        /// <para>The period of time a signaling channel retains underlivered messages before they are
+        /// <para>The period of time a signaling channel retains undelivered messages before they are
         /// discarded.</para>
         /// </para>
         /// </summary>

@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
     /// </para></note><para><b>Rules</b></para><para>
     /// You specify the lifecycle configuration in your request body. The lifecycle configuration
-    /// is specified as XML consisting of one or more rules. Each rule consists of the following:
+    /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
+    /// can have up to 1,000 rules. This limit is not adjustable. Each rule consists of the
+    /// following:
     /// </para><ul><li><para>
     /// Filter identifying a subset of objects to which the rule applies. The filter can be
     /// based on a key name prefix, object tags, or a combination of both.

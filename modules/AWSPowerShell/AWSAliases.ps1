@@ -12574,6 +12574,10 @@ Set-Alias -Name Delete-KVSignalingChannel -Value Remove-KVSignalingChannel
 Set-Alias -Name KV-DeleteSignalingChannel -Value Remove-KVSignalingChannel
 Set-Alias -Name Delete-KVStream -Value Remove-KVStream
 Set-Alias -Name KV-DeleteStream -Value Remove-KVStream
+Set-Alias -Name Describe-KVImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
+Set-Alias -Name KV-DescribeImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
+Set-Alias -Name Describe-KVNotificationConfiguration -Value Get-KVNotificationConfiguration
+Set-Alias -Name KV-DescribeNotificationConfiguration -Value Get-KVNotificationConfiguration
 Set-Alias -Name Describe-KVSignalingChannel -Value Get-KVSignalingChannel
 Set-Alias -Name KV-DescribeSignalingChannel -Value Get-KVSignalingChannel
 Set-Alias -Name Describe-KVStream -Value Get-KVStream
@@ -12599,6 +12603,8 @@ Set-Alias -Name Untag-KVStream -Value Remove-KVStreamTag
 Set-Alias -Name Untag-KVStreamTag -Value Remove-KVStreamTag
 Set-Alias -Name KV-UntagStream -Value Remove-KVStreamTag
 Set-Alias -Name KV-UpdateDataRetention -Value Update-KVDataRetention
+Set-Alias -Name KV-UpdateImageGenerationConfiguration -Value Update-KVImageGenerationConfiguration
+Set-Alias -Name KV-UpdateNotificationConfiguration -Value Update-KVNotificationConfiguration
 Set-Alias -Name KV-UpdateSignalingChannel -Value Update-KVSignalingChannel
 Set-Alias -Name KV-UpdateStream -Value Update-KVStream
 Set-Alias -Name KVM-GetMedia -Value Get-KVMMedia
