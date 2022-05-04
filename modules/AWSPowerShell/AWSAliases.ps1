@@ -11720,6 +11720,9 @@ Set-Alias -Name List-IOTSTTunnels -Value Get-IOTSTTunnelList
 Set-Alias -Name List-IOTSTTunnelList -Value Get-IOTSTTunnelList
 Set-Alias -Name IOTST-ListTunnels -Value Get-IOTSTTunnelList
 Set-Alias -Name IOTST-OpenTunnel -Value Open-IOTSTTunnel
+Set-Alias -Name Rotate-IOTSTTunnelAccessToken -Value Invoke-IOTSTTunnelAccessTokenRotation
+Set-Alias -Name Rotate-IOTSTTunnelAccessTokenRotation -Value Invoke-IOTSTTunnelAccessTokenRotation
+Set-Alias -Name IOTST-RotateTunnelAccessToken -Value Invoke-IOTSTTunnelAccessTokenRotation
 Set-Alias -Name IOTST-TagResource -Value Add-IOTSTResourceTag
 Set-Alias -Name IOTST-UntagResource -Value Remove-IOTSTResourceTag
 Set-Alias -Name Associate-IOTSWAssets -Value Connect-IOTSWAsset

@@ -26177,6 +26177,32 @@ _awsArgumentCompleterRegistration $IOTJ_SelectCompleters $IOTJ_SelectMap
 # Argument completions for service AWS IoT Secure Tunneling
 
 
+$IOTST_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTSecureTunneling.ClientMode
+        "Invoke-IOTSTTunnelAccessTokenRotation/ClientMode"
+        {
+            $v = "ALL","DESTINATION","SOURCE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTST_map = @{
+    "ClientMode"=@("Invoke-IOTSTTunnelAccessTokenRotation")
+}
+
+_awsArgumentCompleterRegistration $IOTST_Completers $IOTST_map
+
 $IOTST_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -26230,6 +26256,7 @@ $IOTST_SelectMap = @{
                "Get-IOTSTResourceTag",
                "Get-IOTSTTunnelList",
                "Open-IOTSTTunnel",
+               "Invoke-IOTSTTunnelAccessTokenRotation",
                "Add-IOTSTResourceTag",
                "Remove-IOTSTResourceTag")
 }

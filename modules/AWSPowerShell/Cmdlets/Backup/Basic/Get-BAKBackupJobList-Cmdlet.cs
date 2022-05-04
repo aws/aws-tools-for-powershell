@@ -67,6 +67,28 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String ByBackupVaultName { get; set; }
         #endregion
         
+        #region Parameter ByCompleteAfter
+        /// <summary>
+        /// <para>
+        /// <para>Returns only backup jobs completed after a date expressed in Unix format and Coordinated
+        /// Universal Time (UTC).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ByCompleteAfter { get; set; }
+        #endregion
+        
+        #region Parameter ByCompleteBefore
+        /// <summary>
+        /// <para>
+        /// <para>Returns only backup jobs completed before a date expressed in Unix format and Coordinated
+        /// Universal Time (UTC).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ByCompleteBefore { get; set; }
+        #endregion
+        
         #region Parameter ByCreatedAfter
         /// <summary>
         /// <para>
@@ -188,6 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             context.ByAccountId = this.ByAccountId;
             context.ByBackupVaultName = this.ByBackupVaultName;
+            context.ByCompleteAfter = this.ByCompleteAfter;
+            context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
             context.ByResourceArn = this.ByResourceArn;
@@ -230,6 +254,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByBackupVaultName != null)
             {
                 request.ByBackupVaultName = cmdletContext.ByBackupVaultName;
+            }
+            if (cmdletContext.ByCompleteAfter != null)
+            {
+                request.ByCompleteAfter = cmdletContext.ByCompleteAfter.Value;
+            }
+            if (cmdletContext.ByCompleteBefore != null)
+            {
+                request.ByCompleteBefore = cmdletContext.ByCompleteBefore.Value;
             }
             if (cmdletContext.ByCreatedAfter != null)
             {
@@ -317,6 +349,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByBackupVaultName != null)
             {
                 request.ByBackupVaultName = cmdletContext.ByBackupVaultName;
+            }
+            if (cmdletContext.ByCompleteAfter != null)
+            {
+                request.ByCompleteAfter = cmdletContext.ByCompleteAfter.Value;
+            }
+            if (cmdletContext.ByCompleteBefore != null)
+            {
+                request.ByCompleteBefore = cmdletContext.ByCompleteBefore.Value;
             }
             if (cmdletContext.ByCreatedAfter != null)
             {
@@ -459,6 +499,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             public System.String ByAccountId { get; set; }
             public System.String ByBackupVaultName { get; set; }
+            public System.DateTime? ByCompleteAfter { get; set; }
+            public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
             public System.String ByResourceArn { get; set; }

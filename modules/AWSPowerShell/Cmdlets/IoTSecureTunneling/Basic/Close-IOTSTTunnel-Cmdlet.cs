@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     /// Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
     /// request is received, we close the WebSocket connections between the client and proxy
     /// server so no data can be transmitted.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CloseTunnel</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Close", "IOTSTTunnel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         #region Parameter Delete
         /// <summary>
         /// <para>
-        /// <para>When set to true, AWS IoT Secure Tunneling deletes the tunnel data immediately.</para>
+        /// <para>When set to true, IoT Secure Tunneling deletes the tunnel data immediately.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,45 +28,45 @@ using Amazon.IoTSecureTunneling.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTST
 {
     /// <summary>
-    /// Creates a new tunnel, and returns two client access tokens for clients to use to connect
-    /// to the IoT Secure Tunneling proxy server.
+    /// Revokes the current client access token (CAT) and returns new CAT for clients to use
+    /// when reconnecting to secure tunneling to access the same tunnel.
     /// 
     ///  
     /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a>
     /// action.
-    /// </para>
+    /// </para><note><para>
+    /// Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel duration
+    /// is 12 hours and the tunnel has already been open for 4 hours. When you rotate the
+    /// access tokens, the new tokens that are generated can only be used for the remaining
+    /// 8 hours.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Open", "IOTSTTunnel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoTSecureTunneling.Model.OpenTunnelResponse")]
-    [AWSCmdlet("Calls the AWS IoT Secure Tunneling OpenTunnel API operation.", Operation = new[] {"OpenTunnel"}, SelectReturnType = typeof(Amazon.IoTSecureTunneling.Model.OpenTunnelResponse))]
-    [AWSCmdletOutput("Amazon.IoTSecureTunneling.Model.OpenTunnelResponse",
-        "This cmdlet returns an Amazon.IoTSecureTunneling.Model.OpenTunnelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "IOTSTTunnelAccessTokenRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse")]
+    [AWSCmdlet("Calls the AWS IoT Secure Tunneling RotateTunnelAccessToken API operation.", Operation = new[] {"RotateTunnelAccessToken"}, SelectReturnType = typeof(Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse))]
+    [AWSCmdletOutput("Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse",
+        "This cmdlet returns an Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class OpenIOTSTTunnelCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
+    public partial class InvokeIOTSTTunnelAccessTokenRotationCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter ClientMode
         /// <summary>
         /// <para>
-        /// <para>A short text description of the tunnel. </para>
+        /// <para>The mode of the client that will use the client token, which can be either the source
+        /// or destination, or both source and destination.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter TimeoutConfig_MaxLifetimeTimeoutMinute
-        /// <summary>
-        /// <para>
-        /// <para>The maximum amount of time (in minutes) a tunnel can remain open. If not specified,
-        /// maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute
-        /// to 12 hours (720 minutes) </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TimeoutConfig_MaxLifetimeTimeoutMinutes")]
-        public System.Int32? TimeoutConfig_MaxLifetimeTimeoutMinute { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.IoTSecureTunneling.ClientMode")]
+        public Amazon.IoTSecureTunneling.ClientMode ClientMode { get; set; }
         #endregion
         
         #region Parameter DestinationConfig_Service
@@ -83,46 +83,42 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         public System.String[] DestinationConfig_Service { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A collection of tag metadata.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.IoTSecureTunneling.Model.Tag[] Tag { get; set; }
-        #endregion
-        
         #region Parameter DestinationConfig_ThingName
         /// <summary>
         /// <para>
         /// <para>The name of the IoT thing to which you want to connect.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DestinationConfig_ThingName { get; set; }
+        #endregion
+        
+        #region Parameter TunnelId
+        /// <summary>
+        /// <para>
+        /// <para>The tunnel for which you want to rotate the access tokens.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TunnelId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSecureTunneling.Model.OpenTunnelResponse).
-        /// Specifying the name of a property of type Amazon.IoTSecureTunneling.Model.OpenTunnelResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse).
+        /// Specifying the name of a property of type Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DestinationConfig_ThingName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DestinationConfig_ThingName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DestinationConfig_ThingName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -139,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DestinationConfig_ThingName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Open-IOTSTTunnel (OpenTunnel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TunnelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-IOTSTTunnelAccessTokenRotation (RotateTunnelAccessToken)"))
             {
                 return;
             }
@@ -150,32 +146,30 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSecureTunneling.Model.OpenTunnelResponse, OpenIOTSTTunnelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse, InvokeIOTSTTunnelAccessTokenRotationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            context.ClientMode = this.ClientMode;
+            #if MODULAR
+            if (this.ClientMode == null && ParameterWasBound(nameof(this.ClientMode)))
             {
-                context.Select = (response, cmdlet) => this.DestinationConfig_ThingName;
+                WriteWarning("You are passing $null as a value for parameter ClientMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
+            #endif
             if (this.DestinationConfig_Service != null)
             {
                 context.DestinationConfig_Service = new List<System.String>(this.DestinationConfig_Service);
             }
             context.DestinationConfig_ThingName = this.DestinationConfig_ThingName;
-            if (this.Tag != null)
+            context.TunnelId = this.TunnelId;
+            #if MODULAR
+            if (this.TunnelId == null && ParameterWasBound(nameof(this.TunnelId)))
             {
-                context.Tag = new List<Amazon.IoTSecureTunneling.Model.Tag>(this.Tag);
+                WriteWarning("You are passing $null as a value for parameter TunnelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.TimeoutConfig_MaxLifetimeTimeoutMinute = this.TimeoutConfig_MaxLifetimeTimeoutMinute;
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTSecureTunneling.Model.OpenTunnelRequest();
+            var request = new Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ClientMode != null)
             {
-                request.Description = cmdletContext.Description;
+                request.ClientMode = cmdletContext.ClientMode;
             }
             
              // populate DestinationConfig
@@ -225,28 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
             {
                 request.DestinationConfig = null;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.TunnelId != null)
             {
-                request.Tags = cmdletContext.Tag;
-            }
-            
-             // populate TimeoutConfig
-            var requestTimeoutConfigIsNull = true;
-            request.TimeoutConfig = new Amazon.IoTSecureTunneling.Model.TimeoutConfig();
-            System.Int32? requestTimeoutConfig_timeoutConfig_MaxLifetimeTimeoutMinute = null;
-            if (cmdletContext.TimeoutConfig_MaxLifetimeTimeoutMinute != null)
-            {
-                requestTimeoutConfig_timeoutConfig_MaxLifetimeTimeoutMinute = cmdletContext.TimeoutConfig_MaxLifetimeTimeoutMinute.Value;
-            }
-            if (requestTimeoutConfig_timeoutConfig_MaxLifetimeTimeoutMinute != null)
-            {
-                request.TimeoutConfig.MaxLifetimeTimeoutMinutes = requestTimeoutConfig_timeoutConfig_MaxLifetimeTimeoutMinute.Value;
-                requestTimeoutConfigIsNull = false;
-            }
-             // determine if request.TimeoutConfig should be set to null
-            if (requestTimeoutConfigIsNull)
-            {
-                request.TimeoutConfig = null;
+                request.TunnelId = cmdletContext.TunnelId;
             }
             
             CmdletOutput output;
@@ -281,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSecureTunneling.Model.OpenTunnelResponse CallAWSServiceOperation(IAmazonIoTSecureTunneling client, Amazon.IoTSecureTunneling.Model.OpenTunnelRequest request)
+        private Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse CallAWSServiceOperation(IAmazonIoTSecureTunneling client, Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Secure Tunneling", "OpenTunnel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Secure Tunneling", "RotateTunnelAccessToken");
             try
             {
                 #if DESKTOP
-                return client.OpenTunnel(request);
+                return client.RotateTunnelAccessToken(request);
                 #elif CORECLR
-                return client.OpenTunnelAsync(request).GetAwaiter().GetResult();
+                return client.RotateTunnelAccessTokenAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -309,12 +284,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
+            public Amazon.IoTSecureTunneling.ClientMode ClientMode { get; set; }
             public List<System.String> DestinationConfig_Service { get; set; }
             public System.String DestinationConfig_ThingName { get; set; }
-            public List<Amazon.IoTSecureTunneling.Model.Tag> Tag { get; set; }
-            public System.Int32? TimeoutConfig_MaxLifetimeTimeoutMinute { get; set; }
-            public System.Func<Amazon.IoTSecureTunneling.Model.OpenTunnelResponse, OpenIOTSTTunnelCmdlet, object> Select { get; set; } =
+            public System.String TunnelId { get; set; }
+            public System.Func<Amazon.IoTSecureTunneling.Model.RotateTunnelAccessTokenResponse, InvokeIOTSTTunnelAccessTokenRotationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
 {
     /// <summary>
     /// Gets information about a tunnel identified by the unique tunnel id.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTSTTunnel")]
     [OutputType("Amazon.IoTSecureTunneling.Model.Tunnel")]

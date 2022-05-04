@@ -74,13 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// parameter, then the <code>attributeValue</code> request parameter must be the path
         /// to ping on the target (for example, <code>/weather/us/wa/seattle</code>).</para></li><li><para>If you specify <code>SessionStickinessEnabled</code> for the <code>attributeName</code>
         /// request parameter, then the <code>attributeValue</code> request parameter must be
-        /// <code>true</code> or <code>false</code>.</para></li><li><para>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the <code>attributeName</code>
+        /// <code>true</code> to activate session stickiness or <code>false</code> to deactivate
+        /// session stickiness.</para></li><li><para>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the <code>attributeName</code>
         /// request parameter, then the <code>attributeValue</code> request parameter must be
         /// an interger that represents the cookie duration in seconds.</para></li><li><para>If you specify <code>HttpsRedirectionEnabled</code> for the <code>attributeName</code>
         /// request parameter, then the <code>attributeValue</code> request parameter must be
-        /// <code>true</code> or <code>false</code>.</para></li><li><para>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request
-        /// parameter, then the <code>attributeValue</code> request parameter must be <code>TLS
-        /// version 1.0, 1.1, and 1.2</code> or <code>TLS version 1.2</code>.</para></li></ul>
+        /// <code>true</code> to activate HTTP to HTTPS redirection or <code>false</code> to deactivate
+        /// HTTP to HTTPS redirection.</para></li><li><para>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request
+        /// parameter, then the <code>attributeValue</code> request parameter must be the name
+        /// of the TLS policy.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a>
+        /// action to get a list of TLS policy names that you can specify.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

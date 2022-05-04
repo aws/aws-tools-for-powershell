@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name of the TLS policy to apply to the load balancer.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a>
-        /// action to get a list of TLS policy names that you can specify.</para><para>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load
-        /// balancer TLS security policies</a> in the <i>Amazon Lightsail Developer Guide</i>.</para>
+        /// action to get a list of TLS policy names that you can specify.</para><para>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring
+        /// TLS security policies on your Amazon Lightsail load balancers</a> in the <i>Amazon
+        /// Lightsail Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

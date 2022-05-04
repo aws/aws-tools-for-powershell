@@ -1,4 +1,16 @@
-﻿### 4.1.77 (2022-05-03 23:15Z)
+﻿### 4.1.78 (2022-05-04 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.266.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKBackupJobList: added parameters ByCompleteAfter and ByCompleteBefore.
+    * Modified cmdlet Get-BAKCopyJobList: added parameters ByCompleteAfter and ByCompleteBefore.
+    * Modified cmdlet Get-BAKRestoreJobList: added parameters ByCompleteAfter and ByCompleteBefore.
+  * Amazon IoT Secure Tunneling
+    * Added cmdlet Invoke-IOTSTTunnelAccessTokenRotation leveraging the RotateTunnelAccessToken service API.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter TargetMap.
+    * Modified cmdlet Update-SSMAssociation: added parameter TargetMap.
+
+### 4.1.77 (2022-05-03 23:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.265.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2Host: added parameter OutpostArn.

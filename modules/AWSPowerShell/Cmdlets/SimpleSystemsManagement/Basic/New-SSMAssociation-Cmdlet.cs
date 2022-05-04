@@ -304,6 +304,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.Model.TargetLocation[] TargetLocation { get; set; }
         #endregion
         
+        #region Parameter TargetMap
+        /// <summary>
+        /// <para>
+        /// <para>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+        /// can't be specified together.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetMaps")]
+        public System.Collections.Hashtable[] TargetMap { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
@@ -430,6 +442,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (this.TargetLocation != null)
             {
                 context.TargetLocation = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
+            }
+            if (this.TargetMap != null)
+            {
+                context.TargetMap = new List<Dictionary<System.String, List<System.String>>>();
+                foreach (var hashTable in this.TargetMap)
+                {
+                    var d = new Dictionary<System.String, List<System.String>>();
+                    foreach (var hashKey in hashTable.Keys)
+                    {
+                        object hashValue = hashTable[hashKey];
+                        if (hashValue == null)
+                        {
+                            d.Add((String)hashKey, null);
+                            continue;
+                        }
+                        var enumerable = SafeEnumerable(hashValue);
+                        var valueSet = new List<System.String>();
+                        foreach (var s in enumerable)
+                        {
+                            valueSet.Add((System.String)s);
+                        }
+                        d.Add((String)hashKey, valueSet);
+                    }
+                    context.TargetMap.Add(d);
+                }
             }
             if (this.Target != null)
             {
@@ -565,6 +602,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.TargetLocations = cmdletContext.TargetLocation;
             }
+            if (cmdletContext.TargetMap != null)
+            {
+                request.TargetMaps = cmdletContext.TargetMap;
+            }
             if (cmdletContext.Target != null)
             {
                 request.Targets = cmdletContext.Target;
@@ -648,6 +689,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.Int32? ScheduleOffset { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
+            public List<Dictionary<System.String, List<System.String>>> TargetMap { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse, NewSSMAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssociationDescription;

@@ -28,8 +28,14 @@ using Amazon.IoTSecureTunneling.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTST
 {
     /// <summary>
-    /// List all tunnels for an AWS account. Tunnels are listed by creation time in descending
-    /// order, newer tunnels will be listed before older tunnels.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all tunnels for an Amazon Web Services account. Tunnels are listed by creation
+    /// time in descending order, newer tunnels will be listed before older tunnels.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a>
+    /// action.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSTTunnelList")]
     [OutputType("Amazon.IoTSecureTunneling.Model.TunnelSummary")]
@@ -65,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next set of results.</para>
+        /// <para>To retrieve the next set of results, the nextToken value from a previous response;
+        /// otherwise null to receive the first set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
