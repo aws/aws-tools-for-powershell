@@ -1,4 +1,7 @@
-﻿### 4.1.78 (2022-05-04 20:24Z)
+﻿### 4.1.79 (2022-05-05 23:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.267.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.78 (2022-05-04 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.266.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup
     * Modified cmdlet Get-BAKBackupJobList: added parameters ByCompleteAfter and ByCompleteBefore.

@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>An array of documents attributes. Amazon Kendra returns a count for each attribute
-        /// key specified. You can use this information to help narrow the search for your user.</para>
+        /// key specified. This helps your users narrow their search.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RequestedDocumentAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of document attributes to include in the response. No other document attributes
-        /// are included in the response. By default all document attributes are included in the
-        /// response. </para>
+        /// <para>An array of document attributes to include in the response. You can limit the response
+        /// to include certain document attributes. By default all document attributes are included
+        /// in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
