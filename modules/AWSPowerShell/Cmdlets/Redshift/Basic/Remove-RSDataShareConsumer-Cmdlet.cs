@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// From a consumer account, remove association for the specified datashare.
+    /// From a datashare consumer account, remove association for the specified datashare.
     /// </summary>
     [Cmdlet("Remove", "RSDataShareConsumer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Redshift.Model.DisassociateDataShareConsumerResponse")]

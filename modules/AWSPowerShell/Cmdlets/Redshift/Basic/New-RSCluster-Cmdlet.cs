@@ -308,6 +308,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter LoadSampleData
+        /// <summary>
+        /// <para>
+        /// <para>A flag that specifies whether to load sample data once the cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoadSampleData { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceTrackName
         /// <summary>
         /// <para>
@@ -567,6 +577,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.IamRole = new List<System.String>(this.IamRole);
             }
             context.KmsKeyId = this.KmsKeyId;
+            context.LoadSampleData = this.LoadSampleData;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterUsername = this.MasterUsername;
@@ -703,6 +714,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            if (cmdletContext.LoadSampleData != null)
+            {
+                request.LoadSampleData = cmdletContext.LoadSampleData;
+            }
             if (cmdletContext.MaintenanceTrackName != null)
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
@@ -833,6 +848,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRole { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String LoadSampleData { get; set; }
             public System.String MaintenanceTrackName { get; set; }
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterUsername { get; set; }

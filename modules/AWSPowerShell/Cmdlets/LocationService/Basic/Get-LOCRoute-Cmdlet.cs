@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DeparturePosition
         /// <summary>
         /// <para>
-        /// <para>The start position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS
-        /// 84</a> format: <code>[longitude, latitude]</code>.</para><ul><li><para>For example, <code>[-123.115, 49.285]</code></para></li></ul><note><para>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
+        /// <para>The start position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World
+        /// Geodetic System (WGS 84)</a> format: <code>[longitude, latitude]</code>.</para><ul><li><para>For example, <code>[-123.115, 49.285]</code></para></li></ul><note><para>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. If Esri is the provider for your route calculator,
         /// specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code>
         /// error.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DestinationPosition
         /// <summary>
         /// <para>
-        /// <para>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS
-        /// 84</a> format: <code>[longitude, latitude]</code>.</para><ul><li><para> For example, <code>[-122.339, 47.615]</code></para></li></ul><note><para>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
+        /// <para>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World
+        /// Geodetic System (WGS 84)</a> format: <code>[longitude, latitude]</code>.</para><ul><li><para> For example, <code>[-122.339, 47.615]</code></para></li></ul><note><para>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. </para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
         /// </para>
         /// </summary>

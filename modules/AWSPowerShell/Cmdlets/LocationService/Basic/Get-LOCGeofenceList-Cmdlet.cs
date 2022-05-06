@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String CollectionName { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>An optional limit for the number of geofences returned in a single call. </para><para>Default value: <code>100</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -120,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter CollectionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -140,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.CollectionName != null)
             {
                 request.CollectionName = cmdletContext.CollectionName;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -207,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CollectionName { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.LocationService.Model.ListGeofencesResponse, GetLOCGeofenceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Entries;

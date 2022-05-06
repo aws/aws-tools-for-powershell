@@ -1,4 +1,11 @@
-﻿### 4.1.79 (2022-05-05 23:31Z)
+﻿### 4.1.80 (2022-05-06 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.269.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Location Service
+    * Modified cmdlet Get-LOCGeofenceList: added parameter MaxResult.
+  * Amazon Redshift
+    * Modified cmdlet New-RSCluster: added parameter LoadSampleData.
+
+### 4.1.79 (2022-05-05 23:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.267.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.78 (2022-05-04 20:24Z)

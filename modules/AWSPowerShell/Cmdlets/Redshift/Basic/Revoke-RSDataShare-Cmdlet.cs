@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// From the producer account, removes authorization from the specified datashare.
+    /// From a datashare producer account, removes authorization from the specified datashare.
     /// </summary>
     [Cmdlet("Revoke", "RSDataShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.DeauthorizeDataShareResponse")]

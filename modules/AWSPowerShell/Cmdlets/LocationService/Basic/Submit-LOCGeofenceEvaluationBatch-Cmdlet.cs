@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// </para></note><note><para>
     /// Geofence evaluation uses the given device position. It does not account for the optional
     /// <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.
+    /// </para></note><note><para>
+    /// The <code>DeviceID</code> is used as a string to represent the device. You do not
+    /// need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Submit", "LOCGeofenceEvaluationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

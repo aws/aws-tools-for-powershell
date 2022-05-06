@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// From the consumer account, rejects the specified datashare.
+    /// From a datashare consumer account, rejects the specified datashare.
     /// </summary>
     [Cmdlet("Deny", "RSDataShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.RejectDataShareResponse")]

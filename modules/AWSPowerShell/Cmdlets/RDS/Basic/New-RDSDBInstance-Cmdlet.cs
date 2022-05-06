@@ -77,9 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Availability Zone if you don't specify one.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
         /// Region.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
-        /// same Amazon Web Services Region as the current endpoint.</para><note><para>If you're creating a DB instance in an RDS on VMware environment, specify the identifier
-        /// of the custom Availability Zone to create the DB instance in.</para><para>For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-        /// RDS on VMware User Guide.</a></para></note>
+        /// same Amazon Web Services Region as the current endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
