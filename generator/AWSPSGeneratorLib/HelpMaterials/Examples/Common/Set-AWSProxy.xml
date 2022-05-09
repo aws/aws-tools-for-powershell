@@ -14,7 +14,7 @@
   </example>
   <example>
     <code>Set-AWSProxy -Hostname https://proxy.testserver.com -Port 80 -BypassList 169.254.169.250;169.254.169.251;169.254.169.254</code>
-    <description>This command configures a proxy at https://proxy.testserver.com that uses port number 80. The -BypassList parameter is added to show that IP addresses 169.254.169.250, 169.254.169.251, and 169.254.169.254 do not use the proxy. Note that because your bypass list includes only IP addresses and not FQDNs, quotation marks around the IP address values are not needed. You can use semicolons as a delimiter between IP addresses that you want to bypass.</description>
+    <description>This command configures a proxy at https://proxy.testserver.com that uses port number 80. The -BypassList parameter is added to show that IP addresses 169.254.169.250, 169.254.169.251, and 169.254.169.254 do not use the proxy. Note that because your bypass list includes only IP addresses and not FQDNs, quotation marks around the IP address values are not needed. You can use semicolons as a delimiter between IP addresses that you want to bypass. Also, note that if the Windows OS is configured to use IPv4, these IPv4 link-local addresses can be used. If the Windows OS has the IPv4 network protocol stack disabled and uses IPv6 instead, add [fd00:ec2::240] in place of 169.254.169.250 and 169.254.169.251. Then add [fd00:ec2::254] in place of 169.254.169.254.</description>
   </example>
    <example>
     <code>Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList @("127.0.0.1", "ip-ranges.amazonaws.com")</code>
