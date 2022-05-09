@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter AnalysisCompleteTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to end the experiment.</para>
+        /// <para>The date and time to end the experiment. This must be no more than 30 days after the
+        /// experiment starts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

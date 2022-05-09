@@ -28,7 +28,15 @@ using Amazon.CloudWatchEvidently.Model;
 namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Retrieves the results of a running or completed experiment.
+    /// Retrieves the results of a running or completed experiment. No results are available
+    /// until there have been 100 events for each variation and at least 10 minutes have passed
+    /// since the start of the experiment.
+    /// 
+    ///  
+    /// <para>
+    /// Experiment results are available up to 63 days after the start of the experiment.
+    /// They are not available after that because of CloudWatch data retention policies.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWEVDExperimentResult")]
     [OutputType("Amazon.CloudWatchEvidently.Model.GetExperimentResultsResponse")]
@@ -54,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time that the experiment ended, if it is completed.</para>
+        /// <para>The date and time that the experiment ended, if it is completed. This must be no longer
+        /// than 30 days after the experiment start time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
