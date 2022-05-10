@@ -1638,6 +1638,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceUefiData" OutputProperty="*" Verb="Get" Noun="InstanceUefiData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIpamAddressHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="IpamAddressHistory" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

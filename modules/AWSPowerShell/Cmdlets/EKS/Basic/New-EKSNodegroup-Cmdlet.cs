@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// uses a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// size is 20 GiB. If you specify <code>launchTemplate</code>, then don't specify <code>diskSize</code>,
         /// or the node group deployment will fail. For more information about using launch templates
         /// with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,12 +283,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// APIs on your behalf. Nodes receive permissions for these API calls through an IAM
         /// instance profile and associated policies. Before you can launch nodes and register
         /// them into a cluster, you must create an IAM role for those nodes to use when they
-        /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
+        /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon
         /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
         /// <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// AMI, then don't specify <code>releaseVersion</code>, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
         /// If you specify <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"><code>SubnetId</code></a> in your launch template, or the node group deployment will
         /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -373,7 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Taint
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes taints to be applied to the nodes in the node group.</para>
+        /// <para>The Kubernetes taints to be applied to the nodes in the node group. For more information,
+        /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node
+        /// taints on managed node groups</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't
         /// specify <code>version</code>, or the node group deployment will fail. For more information
         /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

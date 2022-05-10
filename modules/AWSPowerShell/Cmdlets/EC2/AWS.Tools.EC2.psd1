@@ -262,6 +262,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2InstanceType', 
         'Get-EC2InstanceTypeOffering', 
         'Get-EC2InstanceTypesFromInstanceRequirement', 
+        'Get-EC2InstanceUefiData', 
         'Get-EC2InternetGateway', 
         'Get-EC2Ipam', 
         'Get-EC2IpamAddressHistory', 

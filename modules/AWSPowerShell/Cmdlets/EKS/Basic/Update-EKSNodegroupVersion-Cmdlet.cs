@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// If you specify <code>launchTemplate</code>, and your launch template uses a custom
         /// AMI, then don't specify <code>releaseVersion</code>, or the node group update will
         /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// uses a custom AMI, then don't specify <code>version</code>, or the node group update
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -235,6 +235,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SriovNetSupport { get; set; }
         #endregion
         
+        #region Parameter TpmSupport
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a>
+        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TpmSupportValues")]
+        public Amazon.EC2.TpmSupportValues TpmSupport { get; set; }
+        #endregion
+        
+        #region Parameter UefiData
+        /// <summary>
+        /// <para>
+        /// <para>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI
+        /// data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a>
+        /// command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars
+        /// tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI
+        /// Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UefiData { get; set; }
+        #endregion
+        
         #region Parameter VirtualizationType
         /// <summary>
         /// <para>
@@ -330,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.RamdiskId = this.RamdiskId;
             context.RootDeviceName = this.RootDeviceName;
             context.SriovNetSupport = this.SriovNetSupport;
+            context.TpmSupport = this.TpmSupport;
+            context.UefiData = this.UefiData;
             context.VirtualizationType = this.VirtualizationType;
             
             // allow further manipulation of loaded context prior to processing
@@ -394,6 +423,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SriovNetSupport != null)
             {
                 request.SriovNetSupport = cmdletContext.SriovNetSupport;
+            }
+            if (cmdletContext.TpmSupport != null)
+            {
+                request.TpmSupport = cmdletContext.TpmSupport;
+            }
+            if (cmdletContext.UefiData != null)
+            {
+                request.UefiData = cmdletContext.UefiData;
             }
             if (cmdletContext.VirtualizationType != null)
             {
@@ -472,6 +509,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String RamdiskId { get; set; }
             public System.String RootDeviceName { get; set; }
             public System.String SriovNetSupport { get; set; }
+            public Amazon.EC2.TpmSupportValues TpmSupport { get; set; }
+            public System.String UefiData { get; set; }
             public System.String VirtualizationType { get; set; }
             public System.Func<Amazon.EC2.Model.RegisterImageResponse, RegisterEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageId;

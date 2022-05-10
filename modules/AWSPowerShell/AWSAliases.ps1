@@ -7137,6 +7137,7 @@ Set-Alias -Name EC2-GetGroupsForCapacityReservation -Value Get-EC2GroupsForCapac
 Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
 Set-Alias -Name Get-EC2InstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
+Set-Alias -Name EC2-GetInstanceUefiData -Value Get-EC2InstanceUefiData
 Set-Alias -Name EC2-GetIpamAddressHistory -Value Get-EC2IpamAddressHistory
 Set-Alias -Name Get-EC2IpamPoolAllocations -Value Get-EC2IpamPoolAllocation
 Set-Alias -Name EC2-GetIpamPoolAllocations -Value Get-EC2IpamPoolAllocation

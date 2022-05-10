@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
     /// Returns descriptive information about an update against your Amazon EKS cluster or
-    /// associated managed node group.
+    /// associated managed node group or Amazon EKS add-on.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AddonName
         /// <summary>
         /// <para>
-        /// <para>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html"><code>ListAddons</code></a>.</para>
+        /// <para>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html"><code>ListAddons</code></a>. This parameter is required if the update is an add-on
+        /// update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NodegroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS node group associated with the update.</para>
+        /// <para>The name of the Amazon EKS node group associated with the update. This parameter is
+        /// required if the update is a node group update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

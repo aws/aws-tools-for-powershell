@@ -477,7 +477,7 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport"
+            $v = "blockDeviceMapping","bootMode","description","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
             break
         }
 
@@ -862,6 +862,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TpmSupportValues
+        "Register-EC2Image/TpmSupport"
+        {
+            $v = "v2.0"
+            break
+        }
+
         # Amazon.EC2.TrafficDirection
         {
             ($_ -eq "Edit-EC2TrafficMirrorFilterRule/TrafficDirection") -Or
@@ -1070,6 +1077,7 @@ $EC2_map = @{
     "TargetCapacityUnitType"=@("Get-EC2SpotPlacementScore")
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Add-EC2CapacityReservation","Edit-EC2InstancePlacement","New-EC2CapacityReservationFleet")
+    "TpmSupport"=@("Register-EC2Image")
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
@@ -1499,6 +1507,7 @@ $EC2_SelectMap = @{
                "Get-EC2GroupsForCapacityReservation",
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2InstanceTypesFromInstanceRequirement",
+               "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",

@@ -526,6 +526,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
         #endregion
         
+        #region Parameter OSReleaseLabel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow
+        /// request. If a release is not specified, Amazon EMR uses the latest validated Amazon
+        /// Linux release for cluster launch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OSReleaseLabel { get; set; }
+        #endregion
+        
         #region Parameter PlacementGroupConfig
         /// <summary>
         /// <para>
@@ -871,6 +883,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.NewSupportedProduct = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
             }
+            context.OSReleaseLabel = this.OSReleaseLabel;
             if (this.PlacementGroupConfig != null)
             {
                 context.PlacementGroupConfig = new List<Amazon.ElasticMapReduce.Model.PlacementGroupConfig>(this.PlacementGroupConfig);
@@ -1318,6 +1331,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.NewSupportedProducts = cmdletContext.NewSupportedProduct;
             }
+            if (cmdletContext.OSReleaseLabel != null)
+            {
+                request.OSReleaseLabel = cmdletContext.OSReleaseLabel;
+            }
             if (cmdletContext.PlacementGroupConfig != null)
             {
                 request.PlacementGroupConfigs = cmdletContext.PlacementGroupConfig;
@@ -1465,6 +1482,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProduct { get; set; }
+            public System.String OSReleaseLabel { get; set; }
             public List<Amazon.ElasticMapReduce.Model.PlacementGroupConfig> PlacementGroupConfig { get; set; }
             public System.String ReleaseLabel { get; set; }
             public Amazon.ElasticMapReduce.RepoUpgradeOnBoot RepoUpgradeOnBoot { get; set; }
