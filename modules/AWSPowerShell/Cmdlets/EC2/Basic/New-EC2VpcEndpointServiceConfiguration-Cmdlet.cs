@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PrivateDnsName { get; set; }
         #endregion
         
+        #region Parameter SupportedIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedIpAddressTypes")]
+        public System.String[] SupportedIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -198,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.NetworkLoadBalancerArn = new List<System.String>(this.NetworkLoadBalancerArn);
             }
             context.PrivateDnsName = this.PrivateDnsName;
+            if (this.SupportedIpAddressType != null)
+            {
+                context.SupportedIpAddressType = new List<System.String>(this.SupportedIpAddressType);
+            }
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -237,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PrivateDnsName != null)
             {
                 request.PrivateDnsName = cmdletContext.PrivateDnsName;
+            }
+            if (cmdletContext.SupportedIpAddressType != null)
+            {
+                request.SupportedIpAddressTypes = cmdletContext.SupportedIpAddressType;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> GatewayLoadBalancerArn { get; set; }
             public List<System.String> NetworkLoadBalancerArn { get; set; }
             public System.String PrivateDnsName { get; set; }
+            public List<System.String> SupportedIpAddressType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcEndpointServiceConfigurationResponse, NewEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

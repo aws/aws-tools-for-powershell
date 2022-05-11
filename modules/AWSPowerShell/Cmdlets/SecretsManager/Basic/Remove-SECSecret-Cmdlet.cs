@@ -36,8 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// For information about deleting a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html</a>.
-    /// 
+    /// You can't delete a primary secret that is replicated to other Regions. You must first
+    /// delete the replicas using <a>RemoveRegionsFromReplication</a>, and then delete the
+    /// primary secret. When you delete a replica, it is deleted immediately.
+    /// </para><para>
+    /// You can't directly delete a version of a secret. Instead, you remove all staging labels
+    /// from the version using <a>UpdateSecretVersionStage</a>. This marks the version as
+    /// deprecated, and then Secrets Manager can automatically delete the version in the background.
+    /// </para><para>
+    /// To determine whether an application still uses a secret, you can create an Amazon
+    /// CloudWatch alarm to alert you to any attempts to access a secret during the recovery
+    /// window. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring_cloudwatch_deleted-secrets.html">
+    /// Monitor secrets scheduled for deletion</a>.
     /// </para><para>
     /// Secrets Manager performs the permanent secret deletion at the end of the waiting period
     /// as a background task with low priority. There is no guarantee of a specific time after
@@ -46,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// At any time before recovery window ends, you can use <a>RestoreSecret</a> to remove
     /// the <code>DeletionDate</code> and cancel the deletion of the secret.
     /// </para><para>
-    /// In a secret scheduled for deletion, you cannot access the encrypted secret value.
-    /// To access that information, first cancel the deletion with <a>RestoreSecret</a> and
-    /// then retrieve the information.
+    /// When a secret is scheduled for deletion, you cannot retrieve the secret value. You
+    /// must first cancel the deletion with <a>RestoreSecret</a> and then you can retrieve
+    /// the secret.
     /// </para><para><b>Required permissions: </b><code>secretsmanager:DeleteSecret</code>. For more
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication

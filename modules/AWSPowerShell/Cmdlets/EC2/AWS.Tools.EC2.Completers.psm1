@@ -287,6 +287,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DnsRecordIpType
+        {
+            ($_ -eq "Edit-EC2VpcEndpoint/DnsOptions_DnsRecordIpType") -Or
+            ($_ -eq "New-EC2VpcEndpoint/DnsOptions_DnsRecordIpType")
+        }
+        {
+            $v = "dualstack","ipv4","ipv6","service-defined"
+            break
+        }
+
         # Amazon.EC2.DnsSupportValue
         {
             ($_ -eq "Edit-EC2TransitGateway/Options_DnsSupport") -Or
@@ -564,6 +574,16 @@ $EC2_Completers = {
         "New-EC2NetworkInterfacePermission/Permission"
         {
             $v = "EIP-ASSOCIATE","INSTANCE-ATTACH"
+            break
+        }
+
+        # Amazon.EC2.IpAddressType
+        {
+            ($_ -eq "Edit-EC2VpcEndpoint/IpAddressType") -Or
+            ($_ -eq "New-EC2VpcEndpoint/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4","ipv6"
             break
         }
 
@@ -991,6 +1011,7 @@ $EC2_map = @{
     "CurrencyCode"=@("New-EC2HostReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
     "DiskImageFormat"=@("Export-EC2Image")
+    "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
     "EventType"=@("Get-EC2FleetHistory","Get-EC2SpotFleetRequestHistory")
@@ -1016,6 +1037,7 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("New-EC2KeyPair")
     "KeyType"=@("New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")

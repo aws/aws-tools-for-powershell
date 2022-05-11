@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.271.0",
+    "ProductVersion" : "3.7.272.0",
     "CoreVersion"    : "3.7.11.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.70.0",
+            "Version" : "3.7.71.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -1074,7 +1074,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.2.41",
+            "Version" : "3.7.2.42",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"

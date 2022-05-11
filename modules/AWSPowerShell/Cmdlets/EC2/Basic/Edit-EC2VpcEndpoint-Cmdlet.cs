@@ -79,6 +79,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddSubnetId { get; set; }
         #endregion
         
+        #region Parameter DnsOptions_DnsRecordIpType
+        /// <summary>
+        /// <para>
+        /// <para>The DNS records created for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.DnsRecordIpType")]
+        public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
+        #endregion
+        
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpAddressType")]
+        public Amazon.EC2.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
@@ -235,6 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddSubnetId = new List<System.String>(this.AddSubnetId);
             }
+            context.DnsOptions_DnsRecordIpType = this.DnsOptions_DnsRecordIpType;
+            context.IpAddressType = this.IpAddressType;
             context.PolicyDocument = this.PolicyDocument;
             context.PrivateDnsEnabled = this.PrivateDnsEnabled;
             if (this.RemoveRouteTableId != null)
@@ -284,6 +308,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AddSubnetId != null)
             {
                 request.AddSubnetIds = cmdletContext.AddSubnetId;
+            }
+            
+             // populate DnsOptions
+            var requestDnsOptionsIsNull = true;
+            request.DnsOptions = new Amazon.EC2.Model.DnsOptionsSpecification();
+            Amazon.EC2.DnsRecordIpType requestDnsOptions_dnsOptions_DnsRecordIpType = null;
+            if (cmdletContext.DnsOptions_DnsRecordIpType != null)
+            {
+                requestDnsOptions_dnsOptions_DnsRecordIpType = cmdletContext.DnsOptions_DnsRecordIpType;
+            }
+            if (requestDnsOptions_dnsOptions_DnsRecordIpType != null)
+            {
+                request.DnsOptions.DnsRecordIpType = requestDnsOptions_dnsOptions_DnsRecordIpType;
+                requestDnsOptionsIsNull = false;
+            }
+             // determine if request.DnsOptions should be set to null
+            if (requestDnsOptionsIsNull)
+            {
+                request.DnsOptions = null;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.PolicyDocument != null)
             {
@@ -377,6 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> AddRouteTableId { get; set; }
             public List<System.String> AddSecurityGroupId { get; set; }
             public List<System.String> AddSubnetId { get; set; }
+            public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
+            public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.Boolean? PrivateDnsEnabled { get; set; }
             public List<System.String> RemoveRouteTableId { get; set; }

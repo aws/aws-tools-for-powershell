@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddNetworkLoadBalancerArn { get; set; }
         #endregion
         
+        #region Parameter AddSupportedIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types to add to your service configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddSupportedIpAddressTypes")]
+        public System.String[] AddSupportedIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter PrivateDnsName
         /// <summary>
         /// <para>
@@ -126,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? RemovePrivateDnsName { get; set; }
+        #endregion
+        
+        #region Parameter RemoveSupportedIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types to remove from your service configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveSupportedIpAddressTypes")]
+        public System.String[] RemoveSupportedIpAddressType { get; set; }
         #endregion
         
         #region Parameter ServiceId
@@ -215,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddNetworkLoadBalancerArn = new List<System.String>(this.AddNetworkLoadBalancerArn);
             }
+            if (this.AddSupportedIpAddressType != null)
+            {
+                context.AddSupportedIpAddressType = new List<System.String>(this.AddSupportedIpAddressType);
+            }
             context.PrivateDnsName = this.PrivateDnsName;
             if (this.RemoveGatewayLoadBalancerArn != null)
             {
@@ -225,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.RemoveNetworkLoadBalancerArn = new List<System.String>(this.RemoveNetworkLoadBalancerArn);
             }
             context.RemovePrivateDnsName = this.RemovePrivateDnsName;
+            if (this.RemoveSupportedIpAddressType != null)
+            {
+                context.RemoveSupportedIpAddressType = new List<System.String>(this.RemoveSupportedIpAddressType);
+            }
             context.ServiceId = this.ServiceId;
             #if MODULAR
             if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
@@ -260,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AddNetworkLoadBalancerArns = cmdletContext.AddNetworkLoadBalancerArn;
             }
+            if (cmdletContext.AddSupportedIpAddressType != null)
+            {
+                request.AddSupportedIpAddressTypes = cmdletContext.AddSupportedIpAddressType;
+            }
             if (cmdletContext.PrivateDnsName != null)
             {
                 request.PrivateDnsName = cmdletContext.PrivateDnsName;
@@ -275,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.RemovePrivateDnsName != null)
             {
                 request.RemovePrivateDnsName = cmdletContext.RemovePrivateDnsName.Value;
+            }
+            if (cmdletContext.RemoveSupportedIpAddressType != null)
+            {
+                request.RemoveSupportedIpAddressTypes = cmdletContext.RemoveSupportedIpAddressType;
             }
             if (cmdletContext.ServiceId != null)
             {
@@ -344,10 +382,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AcceptanceRequired { get; set; }
             public List<System.String> AddGatewayLoadBalancerArn { get; set; }
             public List<System.String> AddNetworkLoadBalancerArn { get; set; }
+            public List<System.String> AddSupportedIpAddressType { get; set; }
             public System.String PrivateDnsName { get; set; }
             public List<System.String> RemoveGatewayLoadBalancerArn { get; set; }
             public List<System.String> RemoveNetworkLoadBalancerArn { get; set; }
             public System.Boolean? RemovePrivateDnsName { get; set; }
+            public List<System.String> RemoveSupportedIpAddressType { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse, EditEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

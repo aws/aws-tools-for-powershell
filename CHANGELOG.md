@@ -1,4 +1,12 @@
-﻿### 4.1.82 (2022-05-10 20:12Z)
+﻿### 4.1.83 (2022-05-11 20:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.272.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpcEndpoint: added parameters DnsOptions_DnsRecordIpType and IpAddressType.
+    * Modified cmdlet Edit-EC2VpcEndpointServiceConfiguration: added parameters AddSupportedIpAddressType and RemoveSupportedIpAddressType.
+    * Modified cmdlet New-EC2VpcEndpoint: added parameters DnsOptions_DnsRecordIpType and IpAddressType.
+    * Modified cmdlet New-EC2VpcEndpointServiceConfiguration: added parameter SupportedIpAddressType.
+
+### 4.1.82 (2022-05-10 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.271.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2InstanceUefiData leveraging the GetInstanceUefiData service API.
