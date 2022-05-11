@@ -10,7 +10,7 @@ phases:
       - Find-PackageProvider -Name 'Nuget' -ForceBootstrap -IncludeDependencies
       - Install-Module -Name Pester -RequiredVersion 5.3.1 -Scope AllUsers -Force -SkipPublisherCheck
       - Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
-      - ./dotnet-install.ps1 -Version '6.0.4'
+      - ./dotnet-install.ps1 -Channel 6.0
       - dotnet --info
   pre_build:
     commands:
