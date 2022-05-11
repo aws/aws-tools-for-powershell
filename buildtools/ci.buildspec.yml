@@ -4,14 +4,13 @@ env:
 phases:
 
   install:
-    runtime-versions:
-      dotnet: 3.1
     commands:
       # Default Windows docker image doesn't come with NuGet provider, it must be added explicitly otherwise Install-Module will fail with below error
       #  Install-Module : NuGet provider is required to interact with NuGet-based repositories. Please ensure that '2.8.5.201' or newer version of NuGet provider is installed.
       - Find-PackageProvider -Name 'Nuget' -ForceBootstrap -IncludeDependencies
       - Install-Module -Name Pester -RequiredVersion 5.3.1 -Scope AllUsers -Force -SkipPublisherCheck
-
+      - Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
+      - ./dotnet-install.ps1 -Version '6.0.5'
   pre_build:
     commands:
       - $role = aws sts assume-role --role-arn $env:TEST_RUNNER_ROLE_ARN --role-session-name test-runner --output json | ConvertFrom-Json
