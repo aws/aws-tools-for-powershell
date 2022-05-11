@@ -12,6 +12,7 @@ phases:
       - Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
       - ./dotnet-install.ps1 -Version 6.0.300 -InstallDir 'C:\Program Files\dotnet'
       - dotnet --info
+      - dotnet nuget list source
   pre_build:
     commands:
       - $role = aws sts assume-role --role-arn $env:TEST_RUNNER_ROLE_ARN --role-session-name test-runner --output json | ConvertFrom-Json
