@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventData
         /// <summary>
         /// <para>
-        /// <para>A short description of the event as a valid JSON string. There is no other schema
-        /// imposed.</para>
+        /// <para>A short description of the event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

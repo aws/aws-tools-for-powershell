@@ -1,4 +1,11 @@
-﻿### 4.1.83 (2022-05-11 20:07Z)
+﻿### 4.1.84 (2022-05-12 20:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.273.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2TrafficMirrorTarget: added parameter GatewayLoadBalancerEndpointId.
+  * Amazon Lightsail
+    * Modified cmdlet Get-LSRelationalDatabaseBundle: added parameters IncludeInactive and PassThru.
+
+### 4.1.83 (2022-05-11 20:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.272.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2VpcEndpoint: added parameters DnsOptions_DnsRecordIpType and IpAddressType.

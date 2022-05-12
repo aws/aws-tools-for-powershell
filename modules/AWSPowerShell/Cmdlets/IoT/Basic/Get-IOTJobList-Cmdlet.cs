@@ -75,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// all those things specified as targets have completed the job (SNAPSHOT). If continuous,
         /// the job may also be run on a thing when a change is detected in a target. For example,
         /// a job will run on a thing when the thing is added to a target group, even after the
-        /// job was completed by all things originally in the group. </para>
+        /// job was completed by all things originally in the group. </para><note><para>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing
+        /// group targets. By using continuous jobs, devices that join the group receive the job
+        /// execution even after the job has been created.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

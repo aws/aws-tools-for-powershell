@@ -28,8 +28,17 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the list of bundles that are available for purchase. A bundle describes the
-    /// specs for your virtual private server (or <i>instance</i>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the bundles that you can apply to an Amazon Lightsail instance when you create
+    /// it.
+    /// 
+    ///  
+    /// <para>
+    /// A bundle describes the specifications of an instance, such as the monthly cost, amount
+    /// of memory, the number of vCPUs, amount of storage space, and monthly network data
+    /// transfer quota.
+    /// </para><note><para>
+    /// Bundles are referred to as <i>instance plans</i> in the Lightsail console.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSBundleList")]
     [OutputType("Amazon.Lightsail.Model.Bundle")]
@@ -44,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IncludeInactive
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that indicates whether to include inactive bundle results in your
-        /// request.</para>
+        /// <para>A Boolean value that indicates whether to include inactive (unavailable) bundles in
+        /// the response of your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

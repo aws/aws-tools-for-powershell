@@ -36,7 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// source and the Traffic Mirror target (monitoring appliances) can be in the same VPC,
     /// or in different VPCs connected via VPC peering or a transit gateway.
     /// </para><para>
-    /// A Traffic Mirror target can be a network interface, or a Network Load Balancer.
+    /// A Traffic Mirror target can be a network interface, a Network Load Balancer, or a
+    /// Gateway Load Balancer endpoint.
     /// </para><para>
     /// To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.
     /// </para>
@@ -59,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter GatewayLoadBalancerEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Gateway Load Balancer endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GatewayLoadBalancerEndpointId { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceId
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.GatewayLoadBalancerEndpointId = this.GatewayLoadBalancerEndpointId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.NetworkLoadBalancerArn = this.NetworkLoadBalancerArn;
             if (this.TagSpecification != null)
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.GatewayLoadBalancerEndpointId != null)
+            {
+                request.GatewayLoadBalancerEndpointId = cmdletContext.GatewayLoadBalancerEndpointId;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -273,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String GatewayLoadBalancerEndpointId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String NetworkLoadBalancerArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

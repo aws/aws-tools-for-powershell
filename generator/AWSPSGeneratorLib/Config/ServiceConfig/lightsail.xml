@@ -467,7 +467,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRelationalDatabaseBundles" OutputProperty="Bundles" Verb="Get" Noun="RelationalDatabaseBundle" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRelationalDatabaseBundles" OutputProperty="Bundles" Verb="Get" Noun="RelationalDatabaseBundle" PipelineParameter="IncludeInactive" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

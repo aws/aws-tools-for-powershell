@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>The maximum number of records in each batch that Lambda pulls from your stream or
         /// queue and sends to your function. Lambda passes all of the records in the batch to
         /// the function in a single call, up to the payload limit for synchronous invocation
-        /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
+        /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
         /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>

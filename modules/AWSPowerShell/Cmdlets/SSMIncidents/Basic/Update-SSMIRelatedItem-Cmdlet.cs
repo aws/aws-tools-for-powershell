@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Identifier_Type
         /// <summary>
         /// <para>
-        /// <para>The type of related item. Incident Manager supports the following types:</para><ul><li><para><code>ANALYSIS</code></para></li><li><para><code>INCIDENT</code></para></li><li><para><code>METRIC</code></para></li><li><para><code>PARENT</code></para></li><li><para><code>ATTACHMENT</code></para></li><li><para><code>OTHER</code></para></li></ul>
+        /// <para>The type of related item. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ItemToRemove_Type
         /// <summary>
         /// <para>
-        /// <para>The type of related item. Incident Manager supports the following types:</para><ul><li><para><code>ANALYSIS</code></para></li><li><para><code>INCIDENT</code></para></li><li><para><code>METRIC</code></para></li><li><para><code>PARENT</code></para></li><li><para><code>ATTACHMENT</code></para></li><li><para><code>OTHER</code></para></li></ul>
+        /// <para>The type of related item. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

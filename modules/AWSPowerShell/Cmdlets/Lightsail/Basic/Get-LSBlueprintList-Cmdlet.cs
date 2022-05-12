@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IncludeInactive
         /// <summary>
         /// <para>
-        /// <para>A Boolean value indicating whether to include inactive results in your request.</para>
+        /// <para>A Boolean value that indicates whether to include inactive (unavailable) blueprints
+        /// in the response of your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

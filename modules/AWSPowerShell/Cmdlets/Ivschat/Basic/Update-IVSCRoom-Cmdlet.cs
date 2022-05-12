@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         #region Parameter MaximumMessageRatePerSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum number of messages per second that a client can send to the room. Default:
-        /// 10.</para>
+        /// <para>Maximum number of messages per second that can be sent to the room (by all clients).
+        /// Default: 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
