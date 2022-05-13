@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.273.0",
+    "ProductVersion" : "3.7.274.0",
     "CoreVersion"    : "3.7.11.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -2274,7 +2274,7 @@
             "InPreview"               : false
         },
         "ManagedGrafana"                  : {
-            "Version" : "3.7.1.16",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"

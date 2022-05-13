@@ -26,7 +26,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceApiKey" OutputProperty="*" Verb="New" Noun="WorkspaceApiKey" ShouldProcessTarget="WorkspaceId" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="Workspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceApiKey" OutputProperty="*" Verb="Remove" Noun="WorkspaceApiKey" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -10048,8 +10048,12 @@ Set-Alias -Name GLUE-UpdateUserDefinedFunction -Value Update-GLUEUserDefinedFunc
 Set-Alias -Name GLUE-UpdateWorkflow -Value Update-GLUEWorkflow
 Set-Alias -Name Associate-MGRFLicense -Value Add-MGRFLicense
 Set-Alias -Name MGRF-AssociateLicense -Value Add-MGRFLicense
+Set-Alias -Name Create-MGRFWorkspaceApiKey -Value New-MGRFWorkspaceApiKey
+Set-Alias -Name MGRF-CreateWorkspaceApiKey -Value New-MGRFWorkspaceApiKey
 Set-Alias -Name Create-MGRFWorkspace -Value New-MGRFWorkspace
 Set-Alias -Name MGRF-CreateWorkspace -Value New-MGRFWorkspace
+Set-Alias -Name Delete-MGRFWorkspaceApiKey -Value Remove-MGRFWorkspaceApiKey
+Set-Alias -Name MGRF-DeleteWorkspaceApiKey -Value Remove-MGRFWorkspaceApiKey
 Set-Alias -Name Delete-MGRFWorkspace -Value Remove-MGRFWorkspace
 Set-Alias -Name MGRF-DeleteWorkspace -Value Remove-MGRFWorkspace
 Set-Alias -Name Describe-MGRFWorkspace -Value Get-MGRFWorkspace

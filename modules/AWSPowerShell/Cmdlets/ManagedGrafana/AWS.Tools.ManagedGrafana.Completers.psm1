@@ -184,7 +184,9 @@ $MGRF_SelectCompleters = {
 $MGRF_SelectMap = @{
     "Select"=@("Add-MGRFLicense",
                "New-MGRFWorkspace",
+               "New-MGRFWorkspaceApiKey",
                "Remove-MGRFWorkspace",
+               "Remove-MGRFWorkspaceApiKey",
                "Get-MGRFWorkspace",
                "Get-MGRFWorkspaceAuthentication",
                "Remove-MGRFLicense",

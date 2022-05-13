@@ -1,4 +1,10 @@
-﻿### 4.1.84 (2022-05-12 20:15Z)
+﻿### 4.1.85 (2022-05-13 20:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.274.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Managed Grafana
+    * Added cmdlet New-MGRFWorkspaceApiKey leveraging the CreateWorkspaceApiKey service API.
+    * Added cmdlet Remove-MGRFWorkspaceApiKey leveraging the DeleteWorkspaceApiKey service API.
+
+### 4.1.84 (2022-05-12 20:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.273.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2TrafficMirrorTarget: added parameter GatewayLoadBalancerEndpointId.
