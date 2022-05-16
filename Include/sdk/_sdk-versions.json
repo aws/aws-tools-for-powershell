@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.274.0",
+    "ProductVersion" : "3.7.275.0",
     "CoreVersion"    : "3.7.11.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.5.8",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -322,7 +322,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.1.150",
+            "Version" : "3.7.1.151",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -546,7 +546,7 @@
             "InPreview"               : false
         },
         "ApplicationDiscoveryService"     : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -562,7 +562,7 @@
             "InPreview"               : false
         },
         "ServiceCatalog"                  : {
-            "Version" : "3.7.2.15",
+            "Version" : "3.7.2.16",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -610,7 +610,7 @@
             "InPreview"               : false
         },
         "Rekognition"                     : {
-            "Version" : "3.7.8.8",
+            "Version" : "3.7.8.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -2298,7 +2298,7 @@
             "InPreview"               : false
         },
         "ResilienceHub"                   : {
-            "Version" : "3.7.0.64",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"
@@ -2378,7 +2378,7 @@
             "InPreview"               : false
         },
         "WorkSpacesWeb"                       : {
-            "Version" : "3.7.0.54",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.2"

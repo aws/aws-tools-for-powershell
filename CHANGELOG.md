@@ -1,4 +1,15 @@
-﻿### 4.1.85 (2022-05-13 20:05Z)
+﻿### 4.1.86 (2022-05-16 20:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.275.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Resilience Hub
+    * Modified cmdlet Import-RESHResourcesToDraftAppVersion: added parameter TerraformSource.
+    * Modified cmdlet New-RESHApp: added parameter AssessmentSchedule.
+    * Modified cmdlet Remove-RESHDraftAppVersionResourceMapping: added parameter TerraformSourceName.
+    * Modified cmdlet Update-RESHApp: added parameter AssessmentSchedule.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWUserSetting: added parameters DisconnectTimeoutInMinute and IdleDisconnectTimeoutInMinute.
+    * Modified cmdlet Update-WSWUserSetting: added parameters DisconnectTimeoutInMinute and IdleDisconnectTimeoutInMinute.
+
+### 4.1.85 (2022-05-13 20:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.274.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Managed Grafana
     * Added cmdlet New-MGRFWorkspaceApiKey leveraging the CreateWorkspaceApiKey service API.

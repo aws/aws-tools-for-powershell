@@ -30,6 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// <summary>
     /// Creates one or more tags for configuration items. Tags are metadata that help you
     /// categorize IT assets. This API accepts a list of multiple configuration items.
+    /// 
+    ///  <important><para>
+    /// Do not store sensitive information (like personal data) in tags.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "ADSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

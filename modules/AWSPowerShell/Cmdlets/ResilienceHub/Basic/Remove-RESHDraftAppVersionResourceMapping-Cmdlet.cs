@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceNames")]
         public System.String[] ResourceName { get; set; }
+        #endregion
+        
+        #region Parameter TerraformSourceName
+        /// <summary>
+        /// <para>
+        /// Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsRequest.TerraformSourceNames
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TerraformSourceNames")]
+        public System.String[] TerraformSourceName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -186,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             {
                 context.ResourceName = new List<System.String>(this.ResourceName);
             }
+            if (this.TerraformSourceName != null)
+            {
+                context.TerraformSourceName = new List<System.String>(this.TerraformSourceName);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.ResourceName != null)
             {
                 request.ResourceNames = cmdletContext.ResourceName;
+            }
+            if (cmdletContext.TerraformSourceName != null)
+            {
+                request.TerraformSourceNames = cmdletContext.TerraformSourceName;
             }
             
             CmdletOutput output;
@@ -288,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             public List<System.String> LogicalStackName { get; set; }
             public List<System.String> ResourceGroupName { get; set; }
             public List<System.String> ResourceName { get; set; }
+            public List<System.String> TerraformSourceName { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse, RemoveRESHDraftAppVersionResourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

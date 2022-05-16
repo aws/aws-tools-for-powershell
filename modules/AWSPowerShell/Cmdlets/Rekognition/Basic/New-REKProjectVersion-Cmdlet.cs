@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// information, see Creating training and test dataset in the <i>Amazon Rekognition Custom
     /// Labels Developer Guide</i>. 
     /// </para><note><para>
-    /// You can train a modelin a project that doesn't have associated datasets by specifying
+    /// You can train a model in a project that doesn't have associated datasets by specifying
     /// manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields.
     /// 
     /// </para><para>

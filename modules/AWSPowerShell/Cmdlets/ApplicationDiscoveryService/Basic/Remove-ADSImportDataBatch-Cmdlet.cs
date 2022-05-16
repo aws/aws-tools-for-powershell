@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// 
     ///  
     /// <para>
-    /// AWS Application Discovery Service has built-in matching logic that will identify when
-    /// discovered servers match existing entries that you've previously discovered, the information
-    /// for the already-existing discovered server is updated. When you delete an import task
-    /// that contains records that were used to match, the information in those matched records
-    /// that comes from the deleted records will also be deleted.
+    /// Amazon Web Services Application Discovery Service has built-in matching logic that
+    /// will identify when discovered servers match existing entries that you've previously
+    /// discovered, the information for the already-existing discovered server is updated.
+    /// When you delete an import task that contains records that were used to match, the
+    /// information in those matched records that comes from the deleted records will also
+    /// be deleted.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ADSImportDataBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

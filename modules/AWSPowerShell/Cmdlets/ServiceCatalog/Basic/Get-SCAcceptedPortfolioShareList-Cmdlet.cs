@@ -28,7 +28,9 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists all portfolios for which sharing was accepted by this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all imported portfolios for which account-to-account shares were accepted by
+    /// this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios
+    /// for which organizational shares were accepted by this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCAcceptedPortfolioShareList")]
     [OutputType("Amazon.ServiceCatalog.Model.PortfolioDetail")]
@@ -53,8 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PortfolioShareType
         /// <summary>
         /// <para>
-        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios shared by the management account
-        /// of your organization</para></li><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
+        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational
+        /// sharing by the management account or delegated administrator of your organization.</para></li><li><para><code>AWS_SERVICECATALOG</code> - Deprecated type.</para></li><li><para><code>IMPORTED</code> - List imported portfolios that have been accepted and shared
+        /// through account-to-account sharing.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

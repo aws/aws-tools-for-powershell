@@ -41,8 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
     /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// 
-    ///  
-    /// <para><b>Session Duration</b></para><para>
+    ///  <note><para>
+    /// No permissions are required for users to perform this operation. The purpose of the
+    /// <code>sts:GetSessionToken</code> operation is to authenticate the user using MFA.
+    /// You cannot use policies to control authentication operations. For more information,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getsessiontoken.html">Permissions
+    /// for GetSessionToken</a> in the <i>IAM User Guide</i>.
+    /// </para></note><para><b>Session Duration</b></para><para>
     /// The <code>GetSessionToken</code> operation must be called by using the long-term Amazon
     /// Web Services security credentials of the Amazon Web Services account root user or
     /// an IAM user. Credentials that are created by IAM users are valid for the duration

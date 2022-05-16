@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
@@ -65,16 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>The Amazon Resource Names (ARNs) for the resources that you want to import.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SourceArns")]
         public System.String[] SourceArn { get; set; }
+        #endregion
+        
+        #region Parameter TerraformSource
+        /// <summary>
+        /// <para>
+        /// <para> A list of terraform file s3 URLs you need to import. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TerraformSources")]
+        public Amazon.ResilienceHub.Model.TerraformSource[] TerraformSource { get; set; }
         #endregion
         
         #region Parameter Select
@@ -149,12 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             {
                 context.SourceArn = new List<System.String>(this.SourceArn);
             }
-            #if MODULAR
-            if (this.SourceArn == null && ParameterWasBound(nameof(this.SourceArn)))
+            if (this.TerraformSource != null)
             {
-                WriteWarning("You are passing $null as a value for parameter SourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TerraformSource = new List<Amazon.ResilienceHub.Model.TerraformSource>(this.TerraformSource);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.SourceArn != null)
             {
                 request.SourceArns = cmdletContext.SourceArn;
+            }
+            if (cmdletContext.TerraformSource != null)
+            {
+                request.TerraformSources = cmdletContext.TerraformSource;
             }
             
             CmdletOutput output;
@@ -242,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             public System.String AppArn { get; set; }
             public List<System.String> SourceArn { get; set; }
+            public List<Amazon.ResilienceHub.Model.TerraformSource> TerraformSource { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.ImportResourcesToDraftAppVersionResponse, ImportRESHResourcesToDraftAppVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

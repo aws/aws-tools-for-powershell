@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class NewRESHAppCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        #region Parameter AssessmentSchedule
+        /// <summary>
+        /// <para>
+        /// <para> Assessment execution schedule with 'Daily' or 'Disabled' values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ResilienceHub.AppAssessmentScheduleType")]
+        public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -81,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-        /// arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
+        /// arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
@@ -175,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssessmentSchedule = this.AssessmentSchedule;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.Name = this.Name;
@@ -209,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             // create request
             var request = new Amazon.ResilienceHub.Model.CreateAppRequest();
             
+            if (cmdletContext.AssessmentSchedule != null)
+            {
+                request.AssessmentSchedule = cmdletContext.AssessmentSchedule;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -290,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }

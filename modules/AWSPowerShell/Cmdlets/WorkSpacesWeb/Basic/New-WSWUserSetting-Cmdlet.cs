@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
         #endregion
         
+        #region Parameter DisconnectTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time that a streaming session remains active after users disconnect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DisconnectTimeoutInMinutes")]
+        public System.Int32? DisconnectTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter DownloadAllowed
         /// <summary>
         /// <para>
@@ -75,6 +86,18 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.WorkSpacesWeb.EnabledType")]
         public Amazon.WorkSpacesWeb.EnabledType DownloadAllowed { get; set; }
+        #endregion
+        
+        #region Parameter IdleDisconnectTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time that users can be idle (inactive) before they are disconnected
+        /// from their streaming session and the disconnect timeout interval begins.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdleDisconnectTimeoutInMinutes")]
+        public System.Int32? IdleDisconnectTimeoutInMinute { get; set; }
         #endregion
         
         #region Parameter PasteAllowed
@@ -203,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 WriteWarning("You are passing $null as a value for parameter CopyAllowed which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DisconnectTimeoutInMinute = this.DisconnectTimeoutInMinute;
             context.DownloadAllowed = this.DownloadAllowed;
             #if MODULAR
             if (this.DownloadAllowed == null && ParameterWasBound(nameof(this.DownloadAllowed)))
@@ -210,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 WriteWarning("You are passing $null as a value for parameter DownloadAllowed which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdleDisconnectTimeoutInMinute = this.IdleDisconnectTimeoutInMinute;
             context.PasteAllowed = this.PasteAllowed;
             #if MODULAR
             if (this.PasteAllowed == null && ParameterWasBound(nameof(this.PasteAllowed)))
@@ -259,9 +284,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             {
                 request.CopyAllowed = cmdletContext.CopyAllowed;
             }
+            if (cmdletContext.DisconnectTimeoutInMinute != null)
+            {
+                request.DisconnectTimeoutInMinutes = cmdletContext.DisconnectTimeoutInMinute.Value;
+            }
             if (cmdletContext.DownloadAllowed != null)
             {
                 request.DownloadAllowed = cmdletContext.DownloadAllowed;
+            }
+            if (cmdletContext.IdleDisconnectTimeoutInMinute != null)
+            {
+                request.IdleDisconnectTimeoutInMinutes = cmdletContext.IdleDisconnectTimeoutInMinute.Value;
             }
             if (cmdletContext.PasteAllowed != null)
             {
@@ -342,7 +375,9 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         {
             public System.String ClientToken { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
+            public System.Int32? DisconnectTimeoutInMinute { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType DownloadAllowed { get; set; }
+            public System.Int32? IdleDisconnectTimeoutInMinute { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType PasteAllowed { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType PrintAllowed { get; set; }
             public List<Amazon.WorkSpacesWeb.Model.Tag> Tag { get; set; }

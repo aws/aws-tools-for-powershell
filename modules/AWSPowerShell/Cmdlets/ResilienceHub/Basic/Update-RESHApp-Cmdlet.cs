@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter AssessmentSchedule
+        /// <summary>
+        /// <para>
+        /// <para> Assessment execution schedule with 'Daily' or 'Disabled' values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ResilienceHub.AppAssessmentScheduleType")]
+        public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
         #endregion
         
         #region Parameter ClearResiliencyPolicyArn
@@ -83,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-        /// arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
+        /// arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
@@ -160,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AssessmentSchedule = this.AssessmentSchedule;
             context.ClearResiliencyPolicyArn = this.ClearResiliencyPolicyArn;
             context.Description = this.Description;
             context.PolicyArn = this.PolicyArn;
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.AssessmentSchedule != null)
+            {
+                request.AssessmentSchedule = cmdletContext.AssessmentSchedule;
             }
             if (cmdletContext.ClearResiliencyPolicyArn != null)
             {
@@ -257,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
             public System.Boolean? ClearResiliencyPolicyArn { get; set; }
             public System.String Description { get; set; }
             public System.String PolicyArn { get; set; }

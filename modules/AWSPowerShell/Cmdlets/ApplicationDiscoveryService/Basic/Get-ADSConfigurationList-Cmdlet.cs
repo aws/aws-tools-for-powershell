@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
         /// format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
         /// see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using
-        /// the ListConfigurations Action</a> in the <i>AWS Application Discovery Service User
-        /// Guide</i>.</para>
+        /// the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
+        /// Service User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>Certain filter criteria return output that can be sorted in ascending or descending
         /// order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using
-        /// the ListConfigurations Action</a> in the <i>AWS Application Discovery Service User
-        /// Guide</i>.</para>
+        /// the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
+        /// Service User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

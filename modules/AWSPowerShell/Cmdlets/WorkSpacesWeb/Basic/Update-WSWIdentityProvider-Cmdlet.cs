@@ -60,7 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         #region Parameter IdentityProviderDetail
         /// <summary>
         /// <para>
-        /// <para>The details of the identity provider.</para>
+        /// <para>The details of the identity provider. The following list describes the provider detail
+        /// keys for each identity provider type. </para><ul><li><para>For Google and Login with Amazon:</para><ul><li><para><code>client_id</code></para></li><li><para><code>client_secret</code></para></li><li><para><code>authorize_scopes</code></para></li></ul></li><li><para>For Facebook:</para><ul><li><para><code>client_id</code></para></li><li><para><code>client_secret</code></para></li><li><para><code>authorize_scopes</code></para></li><li><para><code>api_version</code></para></li></ul></li><li><para>For Sign in with Apple:</para><ul><li><para><code>client_id</code></para></li><li><para><code>team_id</code></para></li><li><para><code>key_id</code></para></li><li><para><code>private_key</code></para></li><li><para><code>authorize_scopes</code></para></li></ul></li><li><para>For OIDC providers:</para><ul><li><para><code>client_id</code></para></li><li><para><code>client_secret</code></para></li><li><para><code>attributes_request_method</code></para></li><li><para><code>oidc_issuer</code></para></li><li><para><code>authorize_scopes</code></para></li><li><para><code>authorize_url</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
+        /// key</i></para></li><li><para><code>token_url</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
+        /// key</i></para></li><li><para><code>attributes_url</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
+        /// key</i></para></li><li><para><code>jwks_uri</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
+        /// key</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para><code>MetadataFile</code> OR <code>MetadataURL</code></para></li><li><para><code>IDPSignout</code> (boolean) <i>optional</i></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -80,6 +80,16 @@ $RESH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ResilienceHub.AppAssessmentScheduleType
+        {
+            ($_ -eq "New-RESHApp/AssessmentSchedule") -Or
+            ($_ -eq "Update-RESHApp/AssessmentSchedule")
+        }
+        {
+            $v = "Daily","Disabled"
+            break
+        }
+
         # Amazon.ResilienceHub.AssessmentInvoker
         "Get-RESHAppAssessmentList/Invoker"
         {
@@ -130,6 +140,7 @@ $RESH_Completers = {
 }
 
 $RESH_map = @{
+    "AssessmentSchedule"=@("New-RESHApp","Update-RESHApp")
     "ComplianceStatus"=@("Get-RESHAppAssessmentList")
     "DataLocationConstraint"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
     "Format"=@("New-RESHRecommendationTemplate")

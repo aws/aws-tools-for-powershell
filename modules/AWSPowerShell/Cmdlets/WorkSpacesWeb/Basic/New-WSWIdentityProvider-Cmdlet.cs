@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// key</i></para></li><li><para><code>token_url</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
         /// key</i></para></li><li><para><code>attributes_url</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
         /// key</i></para></li><li><para><code>jwks_uri</code><i>if not available from discovery URL specified by <code>oidc_issuer</code>
-        /// key</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para><code>MetadataFile</code> OR <code>MetadataURL</code></para></li><li><para><code>IDPSignout</code><i>optional</i></para></li></ul></li></ul>
+        /// key</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para><code>MetadataFile</code> OR <code>MetadataURL</code></para></li><li><para><code>IDPSignout</code> (boolean) <i>optional</i></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

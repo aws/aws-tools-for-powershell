@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>The agent or the Connector IDs for which you want information. If you specify no IDs,
-        /// the system returns information about all agents/Connectors associated with your AWS
-        /// user account.</para>
+        /// the system returns information about all agents/Connectors associated with your Amazon
+        /// Web Services user account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
