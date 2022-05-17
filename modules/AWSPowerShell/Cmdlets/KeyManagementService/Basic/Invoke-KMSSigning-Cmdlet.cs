@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li></ul><important><para>
     /// When signing a message, be sure to record the KMS key and the signing algorithm. This
     /// information is required to verify the signature.
-    /// </para></important><para>
+    /// </para></important><note><para>
+    /// Best practices recommend that you limit the time during which any signature is effective.
+    /// This deters an attack where the actor uses a signed message to establish validity
+    /// repeatedly or long after the message is superseded. Signatures do not include a timestamp,
+    /// but you can include a timestamp in the signed message to help you detect when its
+    /// time to refresh the signature. 
+    /// </para></note><para>
     /// To verify the signature that this operation generates, use the <a>Verify</a> operation.
     /// Or use the <a>GetPublicKey</a> operation to download the public key and then use the
     /// public key to verify the signature outside of KMS. 

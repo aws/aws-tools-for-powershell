@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS
-    /// key</a> in your Amazon Web Services account and Region. 
+    /// key</a> in your Amazon Web Services account and Region.
     /// 
     ///  
     /// <para>
@@ -60,12 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You can't change these properties after the KMS key is created.
     /// </para><para>
     /// Asymmetric KMS keys contain an RSA key pair or an Elliptic Curve (ECC) key pair. The
-    /// private key in an asymmetric KMS key never leaves AWS KMS unencrypted. However, you
-    /// can use the <a>GetPublicKey</a> operation to download the public key so it can be
-    /// used outside of AWS KMS. KMS keys with RSA key pairs can be used to encrypt or decrypt
-    /// data or sign and verify messages (but not both). KMS keys with ECC key pairs can be
-    /// used only to sign and verify messages. For information about asymmetric KMS keys,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
+    /// private key in an asymmetric KMS key never leaves KMS unencrypted. However, you can
+    /// use the <a>GetPublicKey</a> operation to download the public key so it can be used
+    /// outside of KMS. KMS keys with RSA key pairs can be used to encrypt or decrypt data
+    /// or sign and verify messages (but not both). KMS keys with ECC key pairs can be used
+    /// only to sign and verify messages. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
     /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para></para></dd><dt>HMAC KMS key</dt><dd><para>
     /// To create an HMAC KMS key, set the <code>KeySpec</code> parameter to a key spec value
@@ -201,10 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// creates a KMS key with a 256-bit symmetric key for encryption and decryption. For
         /// help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing
         /// a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or
-        /// an asymmetric key pair. It also determines the algorithms that the KMS key supports.
-        /// You can't change the <code>KeySpec</code> after the KMS key is created. To further
-        /// restrict the algorithms that can be used with the KMS key, use a condition key in
-        /// its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>,
+        /// an asymmetric key pair. It also determines the cryptographic algorithms that the KMS
+        /// key supports. You can't change the <code>KeySpec</code> after the KMS key is created.
+        /// To further restrict the algorithms that can be used with the KMS key, use a condition
+        /// key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>,
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a>
         /// or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing
         /// Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><important><para><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web
@@ -247,9 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// it in a different Amazon Web Services Region without re-encrypting the data or making
         /// a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region
         /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</para><para>This value creates a <i>primary key</i>, not a replica. To create a <i>replica key</i>,
-        /// use the <a>ReplicateKey</a> operation. </para><para>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region
-        /// key with imported key material. However, you cannot create a multi-Region key in a
-        /// custom key store.</para>
+        /// use the <a>ReplicateKey</a> operation. </para><para>You can create a multi-Region version of a symmetric encryption KMS key, an HMAC KMS
+        /// key, an asymmetric KMS key, or a KMS key with imported key material. However, you
+        /// cannot create a multi-Region key in a custom key store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,20 +279,23 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The key policy to attach to the KMS key.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-        /// must allow the principal that is making the <code>CreateKey</code> request to make
-        /// a subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk that
-        /// the KMS key becomes unmanageable. For more information, refer to the scenario in the
-        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// <para>The key policy to attach to the KMS key. If you do not specify a key policy, KMS attaches
+        /// a default key policy to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code>,
+        /// the key policy must allow the principal that is making the <code>CreateKey</code>
+        /// request to make a subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces
+        /// the risk that the KMS key becomes unmanageable. For more information, refer to the
+        /// scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
         /// Key Policy</a> section of the <i><i>Key Management Service Developer Guide</i></i>.</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
         /// in the key policy must exist and be visible to KMS. When you create a new Amazon Web
         /// Services principal (for example, an IAM user or role), you might need to enforce a
         /// delay before including the new principal in a key policy because the new principal
         /// might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity
-        /// and Access Management User Guide</i>.</para></li></ul><para>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
-        /// Key Policy</a> in the <i>Key Management Service Developer Guide</i>. </para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+        /// and Access Management User Guide</i>.</para></li></ul><para>A key policy document must conform to the following rules.</para><ul><li><para>Up to 32 kilobytes (32768 bytes)</para></li><li><para>Must be UTF-8 encoded</para></li><li><para>The only Unicode characters that are permitted in a key policy document are the horizontal
+        /// tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range
+        /// U+0020 to U+00FF.</para></li><li><para>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces
+        /// are prohibited in the <code>Sid</code> element of an IAM policy document.)</para></li></ul><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
         /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>
         /// </summary>

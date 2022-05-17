@@ -1,4 +1,9 @@
-﻿### 4.1.86 (2022-05-16 20:10Z)
+﻿### 4.1.87 (2022-05-17 20:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.276.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter CodeGenConfigurationNode.
+
+### 4.1.86 (2022-05-16 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.275.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Resilience Hub
     * Modified cmdlet Import-RESHResourcesToDraftAppVersion: added parameter TerraformSource.

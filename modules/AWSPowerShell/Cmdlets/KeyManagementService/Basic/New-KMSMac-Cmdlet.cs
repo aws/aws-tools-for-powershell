@@ -41,7 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// has the required secret key. This operation is part of KMS support for HMAC KMS keys.
     /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
     /// keys in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>.
-    /// </para><para>
+    /// </para><note><para>
+    /// Best practices recommend that you limit the time during which any signing mechanism,
+    /// including an HMAC, is effective. This deters an attack where the actor uses a signed
+    /// message to establish validity repeatedly or long after the message is superseded.
+    /// HMAC tags do not include a timestamp, but you can include a timestamp in the token
+    /// or message to help you detect when its time to refresh the HMAC. 
+    /// </para></note><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.

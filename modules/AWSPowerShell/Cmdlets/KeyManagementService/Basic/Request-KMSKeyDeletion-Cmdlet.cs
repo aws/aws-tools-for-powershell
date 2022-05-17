@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The waiting period, specified in number of days. After the waiting period ends, KMS
-        /// deletes the KMS key.</para><para>If the KMS key is a multi-Region primary key with replicas, the waiting period begins
-        /// when the last of its replica keys is deleted. Otherwise, the waiting period begins
-        /// immediately.</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
+        /// deletes the KMS key.</para><para>If the KMS key is a multi-Region primary key with replica keys, the waiting period
+        /// begins when the last of its replica keys is deleted. Otherwise, the waiting period
+        /// begins immediately.</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
         /// If you do not include a value, it defaults to 30.</para>
         /// </para>
         /// </summary>

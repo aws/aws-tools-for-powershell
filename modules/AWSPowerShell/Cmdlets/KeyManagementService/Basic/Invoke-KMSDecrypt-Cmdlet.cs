@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// The <code>Decrypt</code> operation also decrypts ciphertext that was encrypted outside
     /// of KMS by the public key in an KMS asymmetric KMS key. However, it cannot decrypt
-    /// symmetric ciphertext produced by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon
+    /// ciphertext produced by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon
     /// Web Services Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon
     /// S3 client-side encryption</a>. These libraries return a ciphertext format that is
     /// incompatible with KMS.

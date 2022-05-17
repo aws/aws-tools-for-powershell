@@ -173,7 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// delay before including the new principal in a key policy because the new principal
         /// might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i><i>Identity and Access
-        /// Management User Guide</i></i>.</para></li><li><para>The key policy size quota is 32 kilobytes (32768 bytes).</para></li></ul>
+        /// Management User Guide</i></i>.</para></li></ul><para>A key policy document must conform to the following rules.</para><ul><li><para>Up to 32 kilobytes (32768 bytes)</para></li><li><para>Must be UTF-8 encoded</para></li><li><para>The only Unicode characters that are permitted in a key policy document are the horizontal
+        /// tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range
+        /// U+0020 to U+00FF.</para></li><li><para>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces
+        /// are prohibited in the <code>Sid</code> element of an IAM policy document.)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter CodeGenConfigurationNode
+        /// <summary>
+        /// <para>
+        /// <para>The representation of a directed acyclic graph on which both the Glue Studio visual
+        /// component and Glue Studio code generation is based.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodeGenConfigurationNodes")]
+        public System.Collections.Hashtable CodeGenConfigurationNode { get; set; }
+        #endregion
+        
         #region Parameter Command
         /// <summary>
         /// <para>
@@ -360,6 +372,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocatedCapacity = this.AllocatedCapacity;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CodeGenConfigurationNode != null)
+            {
+                context.CodeGenConfigurationNode = new Dictionary<System.String, Amazon.Glue.Model.CodeGenConfigurationNode>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CodeGenConfigurationNode.Keys)
+                {
+                    context.CodeGenConfigurationNode.Add((String)hashKey, (CodeGenConfigurationNode)(this.CodeGenConfigurationNode[hashKey]));
+                }
+            }
             context.Command = this.Command;
             #if MODULAR
             if (this.Command == null && ParameterWasBound(nameof(this.Command)))
@@ -442,6 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 request.AllocatedCapacity = cmdletContext.AllocatedCapacity.Value;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.CodeGenConfigurationNode != null)
+            {
+                request.CodeGenConfigurationNodes = cmdletContext.CodeGenConfigurationNode;
+            }
             if (cmdletContext.Command != null)
             {
                 request.Command = cmdletContext.Command;
@@ -622,6 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             [System.ObsoleteAttribute]
             public System.Int32? AllocatedCapacity { get; set; }
+            public Dictionary<System.String, Amazon.Glue.Model.CodeGenConfigurationNode> CodeGenConfigurationNode { get; set; }
             public Amazon.Glue.Model.JobCommand Command { get; set; }
             public List<System.String> Connections_Connection { get; set; }
             public Dictionary<System.String, System.String> DefaultArgument { get; set; }
