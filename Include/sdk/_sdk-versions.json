@@ -1,2451 +1,2451 @@
 
 {
-    "ProductVersion" : "3.7.276.0",
-    "CoreVersion"    : "3.7.11.2",
+    "ProductVersion" : "3.7.277.0",
+    "CoreVersion"    : "3.7.11.3",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "ServiceVersions"     : {
         "CloudHSM" : {
-            "Version" : "3.7.1.154",
+            "Version" : "3.7.1.155",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.10.9",
+            "Version" : "3.7.10.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AWSSupport"  : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.9.36",
+            "Version" : "3.7.9.37",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.6.0",
+            "Version" : "3.7.6.1",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudSearch"    : {
-            "Version" : "3.7.2.78",
+            "Version" : "3.7.2.79",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudSearchDomain" : {
-            "Version" : "3.7.0.160",
+            "Version" : "3.7.0.161",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudTrail"        : {
-            "Version" : "3.7.4.8",
+            "Version" : "3.7.4.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.9.14",
+            "Version" : "3.7.9.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.4.11",
+            "Version" : "3.7.4.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.2.52",
+            "Version" : "3.7.2.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeDeploy"        : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CognitoIdentity"   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2",
-                "SecurityToken" : "3.7.1.150"
+                "Core" : "3.7.11.3",
+                "SecurityToken" : "3.7.1.152"
             },
             "InPreview"               : false
         },
         "CognitoSync"       : {
-            "Version" : "3.7.1.154",
+            "Version" : "3.7.1.155",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2",
-                "CognitoIdentity" : "3.7.0.158"
+                "Core" : "3.7.11.3",
+                "CognitoIdentity" : "3.7.0.159"
             },
             "InPreview"               : false
         },
         "DataPipeline"      : {
-            "Version" : "3.7.1.154",
+            "Version" : "3.7.1.155",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DeviceFarm"        : {
-            "Version" : "3.7.1.130",
+            "Version" : "3.7.1.131",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "3.7.4.53",
+            "Version" : "3.7.4.54",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.3.34",
+            "Version" : "3.7.3.35",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.72.0",
+            "Version" : "3.7.72.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.5.28",
+            "Version" : "3.7.5.29",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.5.45",
+            "Version" : "3.7.5.46",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticBeanstalk"  : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticLoadBalancing" : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "3.7.5.0",
+            "Version" : "3.7.5.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticTranscoder"    : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Glacier"              : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2",
-                "SQS"  : "3.7.2.55",
-                "SimpleNotificationService" : "3.7.3.58"
+                "Core" : "3.7.11.3",
+                "SQS"  : "3.7.2.56",
+                "SimpleNotificationService" : "3.7.3.59"
             },
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.2.138",
+            "Version" : "3.7.2.139",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ImportExport"         : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Kinesis"              : {
-            "Version" : "3.7.1.55",
+            "Version" : "3.7.1.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.13.0",
+            "Version" : "3.7.13.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.3.10",
+            "Version" : "3.7.3.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MachineLearning"      : {
-            "Version" : "3.7.1.154",
+            "Version" : "3.7.1.155",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MobileAnalytics"      : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "OpsWorks"             : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.13.8",
+            "Version" : "3.7.13.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "3.7.15.1",
+            "Version" : "3.7.15.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53"              : {
-            "Version" : "3.7.2.54",
+            "Version" : "3.7.2.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53Domains"       : {
-            "Version" : "3.7.1.52",
+            "Version" : "3.7.1.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.9.2",
+            "Version" : "3.7.9.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.1.151",
+            "Version" : "3.7.1.152",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleDB"             : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleEmail"          : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleNotificationService" : {
-            "Version" : "3.7.3.58",
+            "Version" : "3.7.3.59",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleWorkflow"            : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "3.7.2.55",
+            "Version" : "3.7.2.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.17.4",
+            "Version" : "3.7.17.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "StorageGateway"            : {
-            "Version" : "3.7.5.8",
+            "Version" : "3.7.5.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.6.0",
+            "Version" : "3.7.6.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DirectoryService"          : {
-            "Version" : "3.7.1.106",
+            "Version" : "3.7.1.107",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticFileSystem"         : {
-            "Version" : "3.7.5.11",
+            "Version" : "3.7.5.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeCommit"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodePipeline"              : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Elasticsearch"             : {
-            "Version" : "3.7.5.39",
+            "Version" : "3.7.5.40",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WAF"                       : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisFirehose"           : {
-            "Version" : "3.7.2.80",
+            "Version" : "3.7.2.81",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AWSMarketplaceCommerceAnalytics" : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Inspector"                       : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.13.4",
+            "Version" : "3.7.13.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IotData"                         : {
-            "Version" : "3.7.2.17",
+            "Version" : "3.7.2.18",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "APIGateway"                      : {
-            "Version" : "3.7.3.13",
+            "Version" : "3.7.3.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.4.20",
+            "Version" : "3.7.4.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudWatchEvents"                : {
-            "Version" : "3.7.4.103",
+            "Version" : "3.7.4.104",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CertificateManager"              : {
-            "Version" : "3.7.1.116",
+            "Version" : "3.7.1.117",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.1.74",
+            "Version" : "3.7.1.75",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.6.55",
+            "Version" : "3.7.6.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AWSMarketplaceMetering"          : {
-            "Version" : "3.7.1.38",
+            "Version" : "3.7.1.39",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.2.22",
+            "Version" : "3.7.2.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApplicationDiscoveryService"     : {
-            "Version" : "3.7.1.0",
+            "Version" : "3.7.1.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApplicationAutoScaling"          : {
-            "Version" : "3.7.2.83",
+            "Version" : "3.7.2.84",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ServiceCatalog"                  : {
-            "Version" : "3.7.2.16",
+            "Version" : "3.7.2.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.3.77",
+            "Version" : "3.7.3.78",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisAnalytics"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Snowball"                        : {
-            "Version" : "3.7.4.47",
+            "Version" : "3.7.4.48",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "3.7.2.34",
+            "Version" : "3.7.2.35",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ServerMigrationService"          : {
-            "Version" : "3.7.0.160",
+            "Version" : "3.7.0.161",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Rekognition"                     : {
-            "Version" : "3.7.8.9",
+            "Version" : "3.7.8.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "3.7.8.0",
+            "Version" : "3.7.8.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Polly"                           : {
-            "Version" : "3.7.5.9",
+            "Version" : "3.7.5.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "StepFunctions"                   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "3.7.5.10",
+            "Version" : "3.7.5.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "OpsWorksCM"                      : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.7.83",
+            "Version" : "3.7.7.84",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Pinpoint"                        : {
-            "Version" : "3.7.6.36",
+            "Version" : "3.7.6.37",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Shield"                          : {
-            "Version" : "3.7.2.53",
+            "Version" : "3.7.2.54",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AWSHealth"                       : {
-            "Version" : "3.7.1.115",
+            "Version" : "3.7.1.116",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "XRay"                            : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WAFRegional"                     : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.5.10",
+            "Version" : "3.7.5.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CostAndUsageReport"              : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudDirectory"                  : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Lex"                             : {
-            "Version" : "3.7.1.153",
+            "Version" : "3.7.1.154",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MTurk"                           : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.2.7",
+            "Version" : "3.7.2.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkDocs"                        : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ResourceGroupsTaggingAPI"        : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeStar"                        : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LexModelBuildingService"         : {
-            "Version" : "3.7.4.99",
+            "Version" : "3.7.4.100",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MarketplaceEntitlementService"   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "3.7.6.10",
+            "Version" : "3.7.6.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Greengrass"                      : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DAX"                             : {
-            "Version" : "3.7.1.124",
+            "Version" : "3.7.1.125",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MigrationHub"                    : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.18.0",
+            "Version" : "3.7.18.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudHSMV2"                      : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Mobile"                          : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "3.7.1.155",
+            "Version" : "3.7.1.156",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.5.20",
+            "Version" : "3.7.5.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaPackage"                    : {
-            "Version" : "3.7.6.1",
+            "Version" : "3.7.6.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.9.17",
+            "Version" : "3.7.9.18",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaStoreData"                  : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaStore"                      : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.15.8",
+            "Version" : "3.7.15.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MQ"                              : {
-            "Version" : "3.7.2.8",
+            "Version" : "3.7.2.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.2.41",
+            "Version" : "3.7.2.42",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.4.46",
+            "Version" : "3.7.4.47",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SageMakerRuntime"                : {
-            "Version" : "3.7.2.54",
+            "Version" : "3.7.2.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTJobsDataPlane"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.33.5",
+            "Version" : "3.7.33.6",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Translate"                       : {
-            "Version" : "3.7.4.31",
+            "Version" : "3.7.4.32",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Comprehend"                      : {
-            "Version" : "3.7.6.24",
+            "Version" : "3.7.6.25",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisVideo"                    : {
-            "Version" : "3.7.1.5",
+            "Version" : "3.7.1.6",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisVideoMedia"               : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisVideoArchivedMedia"       : {
-            "Version" : "3.7.1.5",
+            "Version" : "3.7.1.6",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ResourceGroups"                  : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AlexaForBusiness"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ServerlessApplicationRepository" : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Cloud9"                          : {
-            "Version" : "3.7.2.106",
+            "Version" : "3.7.2.107",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ServiceDiscovery"                : {
-            "Version" : "3.7.3.123",
+            "Version" : "3.7.3.124",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkMail"                        : {
-            "Version" : "3.7.5.49",
+            "Version" : "3.7.5.50",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AutoScalingPlans"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "3.7.12.18",
+            "Version" : "3.7.12.19",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.19.8",
+            "Version" : "3.7.19.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "FMS"                             : {
-            "Version" : "3.7.6.17",
+            "Version" : "3.7.6.18",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.2.42",
+            "Version" : "3.7.2.43",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ACMPCA"                          : {
-            "Version" : "3.7.4.21",
+            "Version" : "3.7.4.22",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTAnalytics"                    : {
-            "Version" : "3.7.2.113",
+            "Version" : "3.7.2.114",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoT1ClickDevicesService"         : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoT1ClickProjects"               : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PI"                              : {
-            "Version" : "3.7.2.44",
+            "Version" : "3.7.2.45",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Neptune"                         : {
-            "Version" : "3.7.2.69",
+            "Version" : "3.7.2.70",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.9.8",
+            "Version" : "3.7.9.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.14.0",
+            "Version" : "3.7.14.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Macie"                           : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DLM"                             : {
-            "Version" : "3.7.1.104",
+            "Version" : "3.7.1.105",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Signer"                          : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Chime"                           : {
-            "Version" : "3.7.15.23",
+            "Version" : "3.7.15.24",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PinpointEmail"                   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PinpointSMSVoice"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.6.31",
+            "Version" : "3.7.6.32",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RAM"                             : {
-            "Version" : "3.7.3.43",
+            "Version" : "3.7.3.44",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "3.7.2.73",
+            "Version" : "3.7.2.74",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RDSDataService"                  : {
-            "Version" : "3.7.1.8",
+            "Version" : "3.7.1.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.10.20",
+            "Version" : "3.7.11.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Amplify"                         : {
-            "Version" : "3.7.1.29",
+            "Version" : "3.7.1.30",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RoboMaker"                       : {
-            "Version" : "3.7.7.22",
+            "Version" : "3.7.7.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.6.3",
+            "Version" : "3.7.6.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.10.24",
+            "Version" : "3.7.11.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GlobalAccelerator"               : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ComprehendMedical"               : {
-            "Version" : "3.7.2.52",
+            "Version" : "3.7.2.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisAnalyticsV2"              : {
-            "Version" : "3.7.5.77",
+            "Version" : "3.7.5.78",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "3.7.5.20",
+            "Version" : "3.7.5.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.12.11",
+            "Version" : "3.7.12.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "3.7.11.8",
+            "Version" : "3.7.11.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LicenseManager"                  : {
-            "Version" : "3.7.5.87",
+            "Version" : "3.7.5.88",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppMesh"                         : {
-            "Version" : "3.7.1.129",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.6.40",
+            "Version" : "3.7.6.41",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApiGatewayManagementApi"         : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApiGatewayV2"                    : {
-            "Version" : "3.7.1.107",
+            "Version" : "3.7.1.108",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DocDB"                           : {
-            "Version" : "3.7.3.13",
+            "Version" : "3.7.3.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.7.4",
+            "Version" : "3.7.7.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkLink"                        : {
-            "Version" : "3.7.1.9",
+            "Version" : "3.7.1.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Textract"                        : {
-            "Version" : "3.7.5.9",
+            "Version" : "3.7.5.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ManagedBlockchain"               : {
-            "Version" : "3.7.1.129",
+            "Version" : "3.7.1.130",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MediaPackageVod"                 : {
-            "Version" : "3.7.5.13",
+            "Version" : "3.7.5.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GroundStation"                   : {
-            "Version" : "3.7.1.145",
+            "Version" : "3.7.1.146",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTThingsGraph"                  : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTEvents"                       : {
-            "Version" : "3.7.1.130",
+            "Version" : "3.7.1.131",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTEventsData"                   : {
-            "Version" : "3.7.1.130",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PersonalizeRuntime"              : {
-            "Version" : "3.7.1.55",
+            "Version" : "3.7.1.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Personalize"                     : {
-            "Version" : "3.7.9.9",
+            "Version" : "3.7.9.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PersonalizeEvents"               : {
-            "Version" : "3.7.1.129",
+            "Version" : "3.7.1.130",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ServiceQuotas"                   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApplicationInsights"             : {
-            "Version" : "3.7.2.56",
+            "Version" : "3.7.2.57",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EC2InstanceConnect"              : {
-            "Version" : "3.7.2.41",
+            "Version" : "3.7.2.42",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EventBridge"                     : {
-            "Version" : "3.7.5.13",
+            "Version" : "3.7.5.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.5.20",
+            "Version" : "3.7.5.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ForecastService"                 : {
-            "Version" : "3.7.7.50",
+            "Version" : "3.7.7.51",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ForecastQueryService"            : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "QLDB"                            : {
-            "Version" : "3.7.3.49",
+            "Version" : "3.7.3.50",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "QLDBSession"                     : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkMailMessageFlow"             : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeStarNotifications"           : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SavingsPlans"                    : {
-            "Version" : "3.7.2.113",
+            "Version" : "3.7.2.114",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SSO"                             : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SSOOIDC"                         : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MarketplaceCatalog"              : {
-            "Version" : "3.7.1.142",
+            "Version" : "3.7.1.143",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SimpleEmailV2"                   : {
-            "Version" : "3.7.1.85",
+            "Version" : "3.7.1.86",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "3.7.4.22",
+            "Version" : "3.7.4.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MigrationHubConfig"              : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ConnectParticipant"              : {
-            "Version" : "3.7.2.67",
+            "Version" : "3.7.2.68",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.11.8",
+            "Version" : "3.7.11.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppConfig"                       : {
-            "Version" : "3.7.1.58",
+            "Version" : "3.7.1.59",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTSecureTunneling"              : {
-            "Version" : "3.7.1.4",
+            "Version" : "3.7.1.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ElasticInference"                : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Imagebuilder"                    : {
-            "Version" : "3.7.6.33",
+            "Version" : "3.7.6.34",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Schemas"                         : {
-            "Version" : "3.7.2.80",
+            "Version" : "3.7.2.81",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AccessAnalyzer"                  : {
-            "Version" : "3.7.2.54",
+            "Version" : "3.7.2.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ComputeOptimizer"                : {
-            "Version" : "3.7.5.46",
+            "Version" : "3.7.5.47",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "NetworkManager"                  : {
-            "Version" : "3.7.2.53",
+            "Version" : "3.7.2.54",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Kendra"                          : {
-            "Version" : "3.7.19.0",
+            "Version" : "3.7.19.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "FraudDetector"                   : {
-            "Version" : "3.7.6.40",
+            "Version" : "3.7.6.41",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeGuruReviewer"                : {
-            "Version" : "3.7.6.8",
+            "Version" : "3.7.6.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeGuruProfiler"                : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.8.8",
+            "Version" : "3.7.8.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AugmentedAIRuntime"              : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EBS"                             : {
-            "Version" : "3.7.1.19",
+            "Version" : "3.7.1.20",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KinesisVideoSignalingChannels"   : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Detective"                       : {
-            "Version" : "3.7.3.48",
+            "Version" : "3.7.3.49",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeStarconnections"             : {
-            "Version" : "3.7.1.147",
+            "Version" : "3.7.1.148",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Synthetics"                      : {
-            "Version" : "3.7.5.7",
+            "Version" : "3.7.5.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "3.7.10.8",
+            "Version" : "3.7.10.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Macie2"                          : {
-            "Version" : "3.7.8.8",
+            "Version" : "3.7.8.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CodeArtifact"                    : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Honeycode"                       : {
-            "Version" : "3.7.2.42",
+            "Version" : "3.7.2.43",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.4.41",
+            "Version" : "3.7.4.42",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Braket"                          : {
-            "Version" : "3.7.3.8",
+            "Version" : "3.7.3.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IdentityStore"                   : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Appflow"                         : {
-            "Version" : "3.7.8.10",
+            "Version" : "3.7.8.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RedshiftDataAPIService"          : {
-            "Version" : "3.7.5.54",
+            "Version" : "3.7.5.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SSOAdmin"                        : {
-            "Version" : "3.7.0.159",
+            "Version" : "3.7.0.160",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "TimestreamWrite"                 : {
-            "Version" : "3.7.1.55",
+            "Version" : "3.7.1.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "TimestreamQuery"                 : {
-            "Version" : "3.7.2.22",
+            "Version" : "3.7.2.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "S3Outposts"                      : {
-            "Version" : "3.7.2.21",
+            "Version" : "3.7.2.22",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GlueDataBrew"                    : {
-            "Version" : "3.7.8.16",
+            "Version" : "3.7.8.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppRegistry"                     : {
-            "Version" : "3.7.2.28",
+            "Version" : "3.7.2.29",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.4.8",
+            "Version" : "3.7.4.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MWAA"                            : {
-            "Version" : "3.7.2.46",
+            "Version" : "3.7.2.47",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "DevOpsGuru"                      : {
-            "Version" : "3.7.9.11",
+            "Version" : "3.7.9.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SageMakerFeatureStoreRuntime"    : {
-            "Version" : "3.7.1.129",
+            "Version" : "3.7.1.130",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppIntegrationsService"          : {
-            "Version" : "3.7.1.86",
+            "Version" : "3.7.1.87",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ECRPublic"                       : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AmplifyBackend"                  : {
-            "Version" : "3.7.5.21",
+            "Version" : "3.7.5.22",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ConnectContactLens"              : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LookoutforVision"                : {
-            "Version" : "3.7.2.36",
+            "Version" : "3.7.2.37",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "3.7.6.33",
+            "Version" : "3.7.6.34",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "EMRContainers"                   : {
-            "Version" : "3.7.2.72",
+            "Version" : "3.7.2.73",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SagemakerEdgeManager"            : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "HealthLake"                      : {
-            "Version" : "3.7.1.116",
+            "Version" : "3.7.1.117",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AuditManager"                    : {
-            "Version" : "3.7.9.20",
+            "Version" : "3.7.9.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PrometheusService"               : {
-            "Version" : "3.7.2.85",
+            "Version" : "3.7.2.86",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GreengrassV2"                    : {
-            "Version" : "3.7.4.48",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.10.8",
+            "Version" : "3.7.10.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTFleetHub"                     : {
-            "Version" : "3.7.0.158",
+            "Version" : "3.7.0.159",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTDeviceAdvisor"                : {
-            "Version" : "3.7.2.56",
+            "Version" : "3.7.2.57",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LocationService"                 : {
-            "Version" : "3.7.10.1",
+            "Version" : "3.7.10.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WellArchitected"                 : {
-            "Version" : "3.7.2.55",
+            "Version" : "3.7.2.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LexRuntimeV2"                    : {
-            "Version" : "3.7.4.43",
+            "Version" : "3.7.4.44",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "3.7.12.23",
+            "Version" : "3.7.12.24",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "FIS"                             : {
-            "Version" : "3.7.3.28",
+            "Version" : "3.7.3.29",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LookoutMetrics"                  : {
-            "Version" : "3.7.8.8",
+            "Version" : "3.7.8.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Mgn"                             : {
-            "Version" : "3.7.4.8",
+            "Version" : "3.7.4.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "LookoutEquipment"                : {
-            "Version" : "3.7.2.8",
+            "Version" : "3.7.2.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "NimbleStudio"                    : {
-            "Version" : "3.7.4.43",
+            "Version" : "3.7.4.44",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "FinSpaceData"                    : {
-            "Version" : "3.7.3.29",
+            "Version" : "3.7.3.30",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Finspace"                        : {
-            "Version" : "3.7.1.67",
+            "Version" : "3.7.1.68",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SSMIncidents"                    : {
-            "Version" : "3.7.5.0",
+            "Version" : "3.7.5.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SSMContacts"                     : {
-            "Version" : "3.7.2.111",
+            "Version" : "3.7.2.112",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ApplicationCostProfiler"         : {
-            "Version" : "3.7.0.137",
+            "Version" : "3.7.0.138",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppRunner"                       : {
-            "Version" : "3.7.4.12",
+            "Version" : "3.7.4.13",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Proton"                          : {
-            "Version" : "3.7.3.15",
+            "Version" : "3.7.3.16",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53RecoveryReadiness"        : {
-            "Version" : "3.7.0.114",
+            "Version" : "3.7.0.115",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53RecoveryControlConfig"    : {
-            "Version" : "3.7.1.52",
+            "Version" : "3.7.1.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Route53RecoveryCluster"          : {
-            "Version" : "3.7.2.16",
+            "Version" : "3.7.2.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ChimeSDKMessaging"               : {
-            "Version" : "3.7.3.49",
+            "Version" : "3.7.3.50",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ChimeSDKIdentity"                : {
-            "Version" : "3.7.1.72",
+            "Version" : "3.7.1.73",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "SnowDeviceManagement"            : {
-            "Version" : "3.7.0.108",
+            "Version" : "3.7.0.109",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MemoryDB"                        : {
-            "Version" : "3.7.0.105",
+            "Version" : "3.7.0.106",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.4.40",
+            "Version" : "3.7.4.41",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "3.7.1.27",
+            "Version" : "3.7.1.28",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ConnectWisdomService"            : {
-            "Version" : "3.7.1.8",
+            "Version" : "3.7.1.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "VoiceID"                         : {
-            "Version" : "3.7.0.86",
+            "Version" : "3.7.0.87",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Account"                         : {
-            "Version" : "3.7.0.84",
+            "Version" : "3.7.0.85",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudControlApi"                 : {
-            "Version" : "3.7.2.0",
+            "Version" : "3.7.2.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ManagedGrafana"                  : {
-            "Version" : "3.7.2.0",
+            "Version" : "3.7.2.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Panorama"                        : {
-            "Version" : "3.7.2.14",
+            "Version" : "3.7.2.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ChimeSDKMeetings"                : {
-            "Version" : "3.7.6.8",
+            "Version" : "3.7.6.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ResilienceHub"                   : {
-            "Version" : "3.7.1.0",
+            "Version" : "3.7.1.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MigrationHubStrategyRecommendations" : {
-            "Version" : "3.7.0.60",
+            "Version" : "3.7.0.61",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Drs"                                 : {
-            "Version" : "3.7.0.58",
+            "Version" : "3.7.0.59",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AppConfigData"                       : {
-            "Version" : "3.7.0.58",
+            "Version" : "3.7.0.59",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "MigrationHubRefactorSpaces"          : {
-            "Version" : "3.7.0.57",
+            "Version" : "3.7.0.58",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.0.55",
+            "Version" : "3.7.0.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudWatchEvidently"                 : {
-            "Version" : "3.7.2.0",
+            "Version" : "3.7.2.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "CloudWatchRUM"                       : {
-            "Version" : "3.7.0.55",
+            "Version" : "3.7.0.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "RecycleBin"                          : {
-            "Version" : "3.7.1.38",
+            "Version" : "3.7.1.39",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "IoTTwinMaker"                        : {
-            "Version" : "3.7.2.8",
+            "Version" : "3.7.2.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "WorkSpacesWeb"                       : {
-            "Version" : "3.7.1.0",
+            "Version" : "3.7.1.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "BackupGateway"                       : {
-            "Version" : "3.7.0.54",
+            "Version" : "3.7.0.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "AmplifyUIBuilder"                    : {
-            "Version" : "3.7.2.12",
+            "Version" : "3.7.2.13",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Keyspaces"                           : {
-            "Version" : "3.7.0.28",
+            "Version" : "3.7.0.29",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "BillingConductor"                    : {
-            "Version" : "3.7.0.21",
+            "Version" : "3.7.0.22",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "GameSparks"                          : {
-            "Version" : "3.7.0.19",
+            "Version" : "3.7.0.20",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "3.7.0.16",
+            "Version" : "3.7.0.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "Ivschat"                             : {
-            "Version" : "3.7.0.9",
+            "Version" : "3.7.0.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         },
         "ChimeSDKMediaPipelines"              : {
-            "Version" : "3.7.0.8",
+            "Version" : "3.7.0.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
-                "Core" : "3.7.11.2"
+                "Core" : "3.7.11.3"
             },
             "InPreview"               : false
         }

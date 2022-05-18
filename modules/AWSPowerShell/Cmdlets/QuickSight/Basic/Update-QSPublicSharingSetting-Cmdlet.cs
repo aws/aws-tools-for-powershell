@@ -22,28 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppMesh;
-using Amazon.AppMesh.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMSH
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes an existing service mesh.
+    /// Use the UpdatePublicSharingSettings operation to enable or disable the public sharing
+    /// settings of an Amazon QuickSight dashboard.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, enable session capacity pricing on your Amazon QuickSight account.
+    /// </para><para>
+    /// Before you can enable public sharing on your account, you need to allow public sharing
+    /// permissions to an administrative user in the IAM console. For more information on
+    /// using IAM with Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using
+    /// Amazon QuickSight with IAM</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "AMSHMesh")]
-    [OutputType("Amazon.AppMesh.Model.MeshData")]
-    [AWSCmdlet("Calls the AWS App Mesh DescribeMesh API operation.", Operation = new[] {"DescribeMesh"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DescribeMeshResponse))]
-    [AWSCmdletOutput("Amazon.AppMesh.Model.MeshData or Amazon.AppMesh.Model.DescribeMeshResponse",
-        "This cmdlet returns an Amazon.AppMesh.Model.MeshData object.",
-        "The service call response (type Amazon.AppMesh.Model.DescribeMeshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "QSPublicSharingSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight UpdatePublicSharingSettings API operation.", Operation = new[] {"UpdatePublicSharingSettings"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
+    public partial class UpdateQSPublicSharingSettingCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
-        #region Parameter MeshName
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh to describe.</para>
+        /// <para>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,46 +64,60 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MeshName { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter MeshOwner
+        #region Parameter PublicSharingEnabled
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID
-        /// is not your own, then it's the ID of the account that shared the mesh with your account.
-        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
-        /// with shared meshes</a>.</para>
+        /// <para>A boolean that indicates whether or not public sharing is enabled on a Amazon QuickSight
+        /// account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MeshOwner { get; set; }
+        public System.Boolean? PublicSharingEnabled { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Mesh'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppMesh.Model.DescribeMeshResponse).
-        /// Specifying the name of a property of type Amazon.AppMesh.Model.DescribeMeshResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Mesh";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MeshName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MeshName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MeshName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QSPublicSharingSetting (UpdatePublicSharingSettings)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -103,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppMesh.Model.DescribeMeshResponse, GetAMSHMeshCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse, UpdateQSPublicSharingSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -112,17 +136,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MeshName;
+                context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MeshName = this.MeshName;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.MeshName == null && ParameterWasBound(nameof(this.MeshName)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MeshName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MeshOwner = this.MeshOwner;
+            context.PublicSharingEnabled = this.PublicSharingEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -137,15 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppMesh.Model.DescribeMeshRequest();
+            var request = new Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest();
             
-            if (cmdletContext.MeshName != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.MeshName = cmdletContext.MeshName;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.MeshOwner != null)
+            if (cmdletContext.PublicSharingEnabled != null)
             {
-                request.MeshOwner = cmdletContext.MeshOwner;
+                request.PublicSharingEnabled = cmdletContext.PublicSharingEnabled.Value;
             }
             
             CmdletOutput output;
@@ -180,15 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         
         #region AWS Service Operation Call
         
-        private Amazon.AppMesh.Model.DescribeMeshResponse CallAWSServiceOperation(IAmazonAppMesh client, Amazon.AppMesh.Model.DescribeMeshRequest request)
+        private Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Mesh", "DescribeMesh");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "UpdatePublicSharingSettings");
             try
             {
                 #if DESKTOP
-                return client.DescribeMesh(request);
+                return client.UpdatePublicSharingSettings(request);
                 #elif CORECLR
-                return client.DescribeMeshAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePublicSharingSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,10 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MeshName { get; set; }
-            public System.String MeshOwner { get; set; }
-            public System.Func<Amazon.AppMesh.Model.DescribeMeshResponse, GetAMSHMeshCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Mesh;
+            public System.String AwsAccountId { get; set; }
+            public System.Boolean? PublicSharingEnabled { get; set; }
+            public System.Func<Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse, UpdateQSPublicSharingSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

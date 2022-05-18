@@ -130,6 +130,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.SetStatOption
+        {
+            ($_ -eq "New-TFRServer/ProtocolDetails_SetStatOption") -Or
+            ($_ -eq "Update-TFRServer/ProtocolDetails_SetStatOption")
+        }
+        {
+            $v = "DEFAULT","ENABLE_NO_OP"
+            break
+        }
+
         # Amazon.Transfer.TlsSessionResumptionMode
         {
             ($_ -eq "New-TFRServer/ProtocolDetails_TlsSessionResumptionMode") -Or
@@ -153,6 +163,7 @@ $TFR_map = @{
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
+    "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("Send-TFRWorkflowStepState")

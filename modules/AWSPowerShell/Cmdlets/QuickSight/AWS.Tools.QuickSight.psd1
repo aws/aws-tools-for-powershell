@@ -196,6 +196,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-QSGroup', 
         'Update-QSIAMPolicyAssignment', 
         'Update-QSIpRestriction', 
+        'Update-QSPublicSharingSetting', 
         'Update-QSTemplate', 
         'Update-QSTemplateAlias', 
         'Update-QSTemplatePermission', 

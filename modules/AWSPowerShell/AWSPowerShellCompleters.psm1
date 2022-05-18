@@ -2832,6 +2832,20 @@ $AMSH_Completers = {
             break
         }
 
+        # Amazon.AppMesh.IpPreference
+        {
+            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
+            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
+            ($_ -eq "New-AMSHMesh/Spec_ServiceDiscovery_IpPreference") -Or
+            ($_ -eq "Update-AMSHMesh/Spec_ServiceDiscovery_IpPreference")
+        }
+        {
+            $v = "IPv4_ONLY","IPv4_PREFERRED","IPv6_ONLY","IPv6_PREFERRED"
+            break
+        }
+
 
     }
 
@@ -2860,7 +2874,10 @@ $AMSH_map = @{
     "Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_ServiceDiscovery_AwsCloudMap_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Spec_ServiceDiscovery_Dns_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
     "Spec_ServiceDiscovery_Dns_ResponseType"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Spec_ServiceDiscovery_IpPreference"=@("New-AMSHMesh","Update-AMSHMesh")
     "Spec_TcpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
 }
 
@@ -23361,6 +23378,7 @@ $GGV2_SelectMap = @{
                "New-GGV2Deployment",
                "Remove-GGV2Component",
                "Remove-GGV2CoreDevice",
+               "Remove-GGV2Deployment",
                "Get-GGV2ComponentMetadata",
                "Remove-GGV2ServiceRoleFromAccount",
                "Get-GGV2Component",
@@ -26048,6 +26066,7 @@ $IOTED_SelectCompleters = {
 
 $IOTED_SelectMap = @{
     "Select"=@("Send-IOTEDAcknowledgeAlarm",
+               "Remove-IOTEDDetectorBatch",
                "Send-IOTEDDisableAlarm",
                "Send-IOTEDEnableAlarm",
                "Send-IOTEDMessageBatch",
@@ -38765,6 +38784,7 @@ $QS_SelectMap = @{
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
                "Update-QSIpRestriction",
+               "Update-QSPublicSharingSetting",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",
@@ -48495,6 +48515,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.SetStatOption
+        {
+            ($_ -eq "New-TFRServer/ProtocolDetails_SetStatOption") -Or
+            ($_ -eq "Update-TFRServer/ProtocolDetails_SetStatOption")
+        }
+        {
+            $v = "DEFAULT","ENABLE_NO_OP"
+            break
+        }
+
         # Amazon.Transfer.TlsSessionResumptionMode
         {
             ($_ -eq "New-TFRServer/ProtocolDetails_TlsSessionResumptionMode") -Or
@@ -48518,6 +48548,7 @@ $TFR_map = @{
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
+    "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("Send-TFRWorkflowStepState")

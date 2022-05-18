@@ -174,6 +174,20 @@ $AMSH_Completers = {
             break
         }
 
+        # Amazon.AppMesh.IpPreference
+        {
+            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
+            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
+            ($_ -eq "New-AMSHMesh/Spec_ServiceDiscovery_IpPreference") -Or
+            ($_ -eq "Update-AMSHMesh/Spec_ServiceDiscovery_IpPreference")
+        }
+        {
+            $v = "IPv4_ONLY","IPv4_PREFERRED","IPv6_ONLY","IPv6_PREFERRED"
+            break
+        }
+
 
     }
 
@@ -202,7 +216,10 @@ $AMSH_map = @{
     "Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_ServiceDiscovery_AwsCloudMap_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Spec_ServiceDiscovery_Dns_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
     "Spec_ServiceDiscovery_Dns_ResponseType"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Spec_ServiceDiscovery_IpPreference"=@("New-AMSHMesh","Update-AMSHMesh")
     "Spec_TcpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
 }
 

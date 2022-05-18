@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the component version.</para>
+        /// of the component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

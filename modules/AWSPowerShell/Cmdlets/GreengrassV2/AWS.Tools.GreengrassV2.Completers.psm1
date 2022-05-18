@@ -213,6 +213,7 @@ $GGV2_SelectMap = @{
                "New-GGV2Deployment",
                "Remove-GGV2Component",
                "Remove-GGV2CoreDevice",
+               "Remove-GGV2Deployment",
                "Get-GGV2ComponentMetadata",
                "Remove-GGV2ServiceRoleFromAccount",
                "Get-GGV2Component",

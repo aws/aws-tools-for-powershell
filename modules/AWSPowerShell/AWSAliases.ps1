@@ -10257,6 +10257,8 @@ Set-Alias -Name Delete-GGV2Component -Value Remove-GGV2Component
 Set-Alias -Name GGV2-DeleteComponent -Value Remove-GGV2Component
 Set-Alias -Name Delete-GGV2CoreDevice -Value Remove-GGV2CoreDevice
 Set-Alias -Name GGV2-DeleteCoreDevice -Value Remove-GGV2CoreDevice
+Set-Alias -Name Delete-GGV2Deployment -Value Remove-GGV2Deployment
+Set-Alias -Name GGV2-DeleteDeployment -Value Remove-GGV2Deployment
 Set-Alias -Name Describe-GGV2Component -Value Get-GGV2ComponentMetadata
 Set-Alias -Name Describe-GGV2ComponentMetadata -Value Get-GGV2ComponentMetadata
 Set-Alias -Name GGV2-DescribeComponent -Value Get-GGV2ComponentMetadata
@@ -11674,6 +11676,9 @@ Set-Alias -Name IOTE-UpdateDetectorModel -Value Update-IOTEDetectorModel
 Set-Alias -Name IOTE-UpdateInput -Value Update-IOTEInput
 Set-Alias -Name Batch-IOTEDAcknowledgeAlarm -Value Send-IOTEDAcknowledgeAlarm
 Set-Alias -Name IOTED-BatchAcknowledgeAlarm -Value Send-IOTEDAcknowledgeAlarm
+Set-Alias -Name Batch-IOTEDDeleteDetector -Value Remove-IOTEDDetectorBatch
+Set-Alias -Name Batch-IOTEDDetectorBatch -Value Remove-IOTEDDetectorBatch
+Set-Alias -Name IOTED-BatchDeleteDetector -Value Remove-IOTEDDetectorBatch
 Set-Alias -Name Batch-IOTEDDisableAlarm -Value Send-IOTEDDisableAlarm
 Set-Alias -Name IOTED-BatchDisableAlarm -Value Send-IOTEDDisableAlarm
 Set-Alias -Name Batch-IOTEDEnableAlarm -Value Send-IOTEDEnableAlarm
@@ -16820,6 +16825,8 @@ Set-Alias -Name QS-UpdateFolderPermissions -Value Update-QSFolderPermission
 Set-Alias -Name QS-UpdateGroup -Value Update-QSGroup
 Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
+Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
+Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdateTemplateAlias -Value Update-QSTemplateAlias
 Set-Alias -Name QS-UpdateTemplate -Value Update-QSTemplate
 Set-Alias -Name Update-QSTemplatePermissions -Value Update-QSTemplatePermission

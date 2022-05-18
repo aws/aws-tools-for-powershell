@@ -1,4 +1,21 @@
-﻿### 4.1.87 (2022-05-17 20:07Z)
+﻿### 4.1.88 (2022-05-18 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.277.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Mesh
+    * Modified cmdlet New-AMSHMesh: added parameter ServiceDiscovery_IpPreference.
+    * Modified cmdlet New-AMSHVirtualNode: added parameters AwsCloudMap_IpPreference and Dns_IpPreference.
+    * Modified cmdlet Update-AMSHMesh: added parameter ServiceDiscovery_IpPreference.
+    * Modified cmdlet Update-AMSHVirtualNode: added parameters AwsCloudMap_IpPreference and Dns_IpPreference.
+  * Amazon GreengrassV2
+    * Added cmdlet Remove-GGV2Deployment leveraging the DeleteDeployment service API.
+  * Amazon IoT Events Data
+    * Added cmdlet Remove-IOTEDDetectorBatch leveraging the BatchDeleteDetector service API.
+  * Amazon QuickSight
+    * Added cmdlet Update-QSPublicSharingSetting leveraging the UpdatePublicSharingSettings service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter ProtocolDetails_SetStatOption.
+    * Modified cmdlet Update-TFRServer: added parameter ProtocolDetails_SetStatOption.
+
+### 4.1.87 (2022-05-17 20:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.276.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Glue
     * Modified cmdlet New-GLUEJob: added parameter CodeGenConfigurationNode.

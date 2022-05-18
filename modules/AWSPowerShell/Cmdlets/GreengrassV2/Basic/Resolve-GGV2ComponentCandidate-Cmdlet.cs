@@ -81,14 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>The list of components to resolve.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ComponentCandidates")]
         public Amazon.GreengrassV2.Model.ComponentCandidate[] ComponentCandidate { get; set; }
         #endregion
@@ -149,12 +142,6 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             {
                 context.ComponentCandidate = new List<Amazon.GreengrassV2.Model.ComponentCandidate>(this.ComponentCandidate);
             }
-            #if MODULAR
-            if (this.ComponentCandidate == null && ParameterWasBound(nameof(this.ComponentCandidate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ComponentCandidate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Platform_Attribute != null)
             {
                 context.Platform_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

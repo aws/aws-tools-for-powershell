@@ -412,6 +412,7 @@ $QS_SelectMap = @{
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
                "Update-QSIpRestriction",
+               "Update-QSPublicSharingSetting",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",

@@ -270,7 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ShareIdentifier
         /// <summary>
         /// <para>
-        /// <para>The share identifier for the job.</para>
+        /// <para>The share identifier for the job. If the job queue does not have a scheduling policy,
+        /// then this parameter must not be specified. If the job queue has a scheduling policy,
+        /// then this parameter must be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -55,9 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// Python 2.7 – <code>python2.7</code></para></li><li><para>
     /// Python 3.7 – <code>python3.7</code></para></li><li><para>
     /// Python 3.8 – <code>python3.8</code></para></li><li><para>
+    /// Python 3.9 – <code>python3.9</code></para></li><li><para>
     /// Java 8 – <code>java8</code></para></li><li><para>
+    /// Java 11 – <code>java11</code></para></li><li><para>
     /// Node.js 10 – <code>nodejs10.x</code></para></li><li><para>
-    /// Node.js 12 – <code>nodejs12.x</code></para></li></ul><para>
+    /// Node.js 12 – <code>nodejs12.x</code></para></li><li><para>
+    /// Node.js 14 – <code>nodejs14.x</code></para></li></ul><para>
     /// To create a component from a Lambda function, specify <code>lambdaFunction</code>
     /// when you call this operation.
     /// </para><note><para>

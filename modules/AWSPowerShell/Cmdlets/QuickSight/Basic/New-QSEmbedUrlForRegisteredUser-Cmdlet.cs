@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// The URL validity period should not be confused with the actual session lifetime that
     /// can be customized using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></code> parameter.
     /// </para><para>
-    /// The resulting user session is valid for 15 minutes (default) to 10 hours (maximum).
+    /// The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum).
+    /// The default session duration is 10 hours.
     /// </para></li><li><para>
     /// You are charged only when the URL is used or there is interaction with Amazon QuickSight.
     /// </para></li></ul><para>

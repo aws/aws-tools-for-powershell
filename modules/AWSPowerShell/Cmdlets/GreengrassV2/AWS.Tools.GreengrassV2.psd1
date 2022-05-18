@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GGV2BatchClientDeviceFromCoreDevice', 
         'Remove-GGV2Component', 
         'Remove-GGV2CoreDevice', 
+        'Remove-GGV2Deployment', 
         'Remove-GGV2ResourceTag', 
         'Remove-GGV2ServiceRoleFromAccount', 
         'Resolve-GGV2ComponentCandidate', 

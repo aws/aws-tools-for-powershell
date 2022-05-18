@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual
     /// nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
     /// setting these variables. For more information aboutApp Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a>
-    /// in the AWS App Mesh User Guide.
+    /// in the App Mesh User Guide.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -161,6 +161,30 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String Dns_Hostname { get; set; }
         #endregion
         
+        #region Parameter AwsCloudMap_IpPreference
+        /// <summary>
+        /// <para>
+        /// <para>The IP version to use to control traffic within the mesh.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_ServiceDiscovery_AwsCloudMap_IpPreference")]
+        [AWSConstantClassSource("Amazon.AppMesh.IpPreference")]
+        public Amazon.AppMesh.IpPreference AwsCloudMap_IpPreference { get; set; }
+        #endregion
+        
+        #region Parameter Dns_IpPreference
+        /// <summary>
+        /// <para>
+        /// <para>The IP version to use to control traffic within the mesh.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_ServiceDiscovery_Dns_IpPreference")]
+        [AWSConstantClassSource("Amazon.AppMesh.IpPreference")]
+        public Amazon.AppMesh.IpPreference Dns_IpPreference { get; set; }
+        #endregion
+        
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
@@ -193,10 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshOwner
         /// <summary>
         /// <para>
-        /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then the account that you specify must share the mesh with your account before you
-        /// can create the resource in the service mesh. For more information about mesh sharing,
-        /// see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// <para>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID
+        /// is not your own, then the account that you specify must share the mesh with your account
+        /// before you can create the resource in the service mesh. For more information about
+        /// mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -222,8 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// access logs to standard out and configure your Envoy container to use a log driver,
         /// such as <code>awslogs</code>, to export the access logs to a log storage service such
         /// as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file
-        /// system to write the files to disk.</para><note><para>The Envoy process must have write permissions to the path that you specify here. Otherwise,
-        /// Envoy fails to bootstrap properly.</para></note>
+        /// system to write the files to disk.</para><pre><code> &lt;note&gt; &lt;p&gt;The Envoy process must have write permissions to
+        /// the path that you specify here. Otherwise, Envoy fails to bootstrap properly.&lt;/p&gt;
+        /// &lt;/note&gt; </code></pre>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,9 +469,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.AwsCloudMap_Attribute = new List<Amazon.AppMesh.Model.AwsCloudMapInstanceAttribute>(this.AwsCloudMap_Attribute);
             }
+            context.AwsCloudMap_IpPreference = this.AwsCloudMap_IpPreference;
             context.AwsCloudMap_NamespaceName = this.AwsCloudMap_NamespaceName;
             context.AwsCloudMap_ServiceName = this.AwsCloudMap_ServiceName;
             context.Dns_Hostname = this.Dns_Hostname;
+            context.Dns_IpPreference = this.Dns_IpPreference;
             context.Dns_ResponseType = this.Dns_ResponseType;
             if (this.Tag != null)
             {
@@ -871,6 +898,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.Hostname = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname;
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = false;
             }
+            Amazon.AppMesh.IpPreference requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_IpPreference = null;
+            if (cmdletContext.Dns_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_IpPreference = cmdletContext.Dns_IpPreference;
+            }
+            if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.IpPreference = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_IpPreference;
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = false;
+            }
             Amazon.AppMesh.DnsResponseType requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ResponseType = null;
             if (cmdletContext.Dns_ResponseType != null)
             {
@@ -904,6 +941,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_Attribute != null)
             {
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap.Attributes = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_Attribute;
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMapIsNull = false;
+            }
+            Amazon.AppMesh.IpPreference requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_IpPreference = null;
+            if (cmdletContext.AwsCloudMap_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_IpPreference = cmdletContext.AwsCloudMap_IpPreference;
+            }
+            if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap.IpPreference = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_IpPreference;
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMapIsNull = false;
             }
             System.String requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_AwsCloudMap_awsCloudMap_NamespaceName = null;
@@ -1036,9 +1083,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public List<Amazon.AppMesh.Model.Listener> Spec_Listener { get; set; }
             public System.String File_Path { get; set; }
             public List<Amazon.AppMesh.Model.AwsCloudMapInstanceAttribute> AwsCloudMap_Attribute { get; set; }
+            public Amazon.AppMesh.IpPreference AwsCloudMap_IpPreference { get; set; }
             public System.String AwsCloudMap_NamespaceName { get; set; }
             public System.String AwsCloudMap_ServiceName { get; set; }
             public System.String Dns_Hostname { get; set; }
+            public Amazon.AppMesh.IpPreference Dns_IpPreference { get; set; }
             public Amazon.AppMesh.DnsResponseType Dns_ResponseType { get; set; }
             public List<Amazon.AppMesh.Model.TagRef> Tag { get; set; }
             public System.String VirtualNodeName { get; set; }

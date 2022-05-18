@@ -462,6 +462,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePublicSharingSettings" OutputProperty="*" Verb="Update" Noun="PublicSharingSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest</Type>
+                <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

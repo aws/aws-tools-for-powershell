@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class UpdateAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        #region Parameter ServiceDiscovery_IpPreference
+        /// <summary>
+        /// <para>
+        /// <para>The IP version to use to control traffic within the mesh.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_ServiceDiscovery_IpPreference")]
+        [AWSConstantClassSource("Amazon.AppMesh.IpPreference")]
+        public Amazon.AppMesh.IpPreference ServiceDiscovery_IpPreference { get; set; }
+        #endregion
+        
         #region Parameter MeshName
         /// <summary>
         /// <para>
@@ -154,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             }
             #endif
             context.EgressFilter_Type = this.EgressFilter_Type;
+            context.ServiceDiscovery_IpPreference = this.ServiceDiscovery_IpPreference;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +218,31 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_EgressFilter != null)
             {
                 request.Spec.EgressFilter = requestSpec_spec_EgressFilter;
+                requestSpecIsNull = false;
+            }
+            Amazon.AppMesh.Model.MeshServiceDiscovery requestSpec_spec_ServiceDiscovery = null;
+            
+             // populate ServiceDiscovery
+            var requestSpec_spec_ServiceDiscoveryIsNull = true;
+            requestSpec_spec_ServiceDiscovery = new Amazon.AppMesh.Model.MeshServiceDiscovery();
+            Amazon.AppMesh.IpPreference requestSpec_spec_ServiceDiscovery_serviceDiscovery_IpPreference = null;
+            if (cmdletContext.ServiceDiscovery_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery_serviceDiscovery_IpPreference = cmdletContext.ServiceDiscovery_IpPreference;
+            }
+            if (requestSpec_spec_ServiceDiscovery_serviceDiscovery_IpPreference != null)
+            {
+                requestSpec_spec_ServiceDiscovery.IpPreference = requestSpec_spec_ServiceDiscovery_serviceDiscovery_IpPreference;
+                requestSpec_spec_ServiceDiscoveryIsNull = false;
+            }
+             // determine if requestSpec_spec_ServiceDiscovery should be set to null
+            if (requestSpec_spec_ServiceDiscoveryIsNull)
+            {
+                requestSpec_spec_ServiceDiscovery = null;
+            }
+            if (requestSpec_spec_ServiceDiscovery != null)
+            {
+                request.Spec.ServiceDiscovery = requestSpec_spec_ServiceDiscovery;
                 requestSpecIsNull = false;
             }
              // determine if request.Spec should be set to null
@@ -276,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
             public Amazon.AppMesh.EgressFilterType EgressFilter_Type { get; set; }
+            public Amazon.AppMesh.IpPreference ServiceDiscovery_IpPreference { get; set; }
             public System.Func<Amazon.AppMesh.Model.UpdateMeshResponse, UpdateAMSHMeshCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Mesh;
         }

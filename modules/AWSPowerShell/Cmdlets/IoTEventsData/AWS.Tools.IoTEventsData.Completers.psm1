@@ -124,6 +124,7 @@ $IOTED_SelectCompleters = {
 
 $IOTED_SelectMap = @{
     "Select"=@("Send-IOTEDAcknowledgeAlarm",
+               "Remove-IOTEDDetectorBatch",
                "Send-IOTEDDisableAlarm",
                "Send-IOTEDEnableAlarm",
                "Send-IOTEDMessageBatch",

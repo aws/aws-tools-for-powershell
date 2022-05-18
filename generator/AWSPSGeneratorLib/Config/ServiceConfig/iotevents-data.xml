@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteDetector" OutputProperty="BatchDeleteDetectorErrorEntries" Verb="Remove" Noun="DetectorBatch" ShouldProcessTarget="Detectors" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDisableAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="DisableAlarm" ShouldProcessTarget="DisableActionRequests" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

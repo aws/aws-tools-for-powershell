@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTEDAlarmList', 
         'Get-IOTEDDetector', 
         'Get-IOTEDDetectorList', 
+        'Remove-IOTEDDetectorBatch', 
         'Send-IOTEDAcknowledgeAlarm', 
         'Send-IOTEDDisableAlarm', 
         'Send-IOTEDEnableAlarm', 
