@@ -133,6 +133,18 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String SNSConfiguration_RoleArn { get; set; }
         #endregion
         
+        #region Parameter SNSConfiguration_SnsFormat
+        /// <summary>
+        /// <para>
+        /// <para>The text format for alerts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Action_SNSConfiguration_SnsFormat")]
+        [AWSConstantClassSource("Amazon.LookoutMetrics.SnsFormat")]
+        public Amazon.LookoutMetrics.SnsFormat SNSConfiguration_SnsFormat { get; set; }
+        #endregion
+        
         #region Parameter SNSConfiguration_SnsTopicArn
         /// <summary>
         /// <para>
@@ -220,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             context.LambdaConfiguration_LambdaArn = this.LambdaConfiguration_LambdaArn;
             context.LambdaConfiguration_RoleArn = this.LambdaConfiguration_RoleArn;
             context.SNSConfiguration_RoleArn = this.SNSConfiguration_RoleArn;
+            context.SNSConfiguration_SnsFormat = this.SNSConfiguration_SnsFormat;
             context.SNSConfiguration_SnsTopicArn = this.SNSConfiguration_SnsTopicArn;
             context.AlertDescription = this.AlertDescription;
             context.AlertName = this.AlertName;
@@ -319,6 +332,16 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestAction_action_SNSConfiguration_sNSConfiguration_RoleArn != null)
             {
                 requestAction_action_SNSConfiguration.RoleArn = requestAction_action_SNSConfiguration_sNSConfiguration_RoleArn;
+                requestAction_action_SNSConfigurationIsNull = false;
+            }
+            Amazon.LookoutMetrics.SnsFormat requestAction_action_SNSConfiguration_sNSConfiguration_SnsFormat = null;
+            if (cmdletContext.SNSConfiguration_SnsFormat != null)
+            {
+                requestAction_action_SNSConfiguration_sNSConfiguration_SnsFormat = cmdletContext.SNSConfiguration_SnsFormat;
+            }
+            if (requestAction_action_SNSConfiguration_sNSConfiguration_SnsFormat != null)
+            {
+                requestAction_action_SNSConfiguration.SnsFormat = requestAction_action_SNSConfiguration_sNSConfiguration_SnsFormat;
                 requestAction_action_SNSConfigurationIsNull = false;
             }
             System.String requestAction_action_SNSConfiguration_sNSConfiguration_SnsTopicArn = null;
@@ -430,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             public System.String LambdaConfiguration_LambdaArn { get; set; }
             public System.String LambdaConfiguration_RoleArn { get; set; }
             public System.String SNSConfiguration_RoleArn { get; set; }
+            public Amazon.LookoutMetrics.SnsFormat SNSConfiguration_SnsFormat { get; set; }
             public System.String SNSConfiguration_SnsTopicArn { get; set; }
             public System.String AlertDescription { get; set; }
             public System.String AlertName { get; set; }

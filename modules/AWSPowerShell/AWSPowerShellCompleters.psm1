@@ -30812,6 +30812,13 @@ $LOM_Completers = {
             break
         }
 
+        # Amazon.LookoutMetrics.SnsFormat
+        "New-LOMAlert/Action_SNSConfiguration_SnsFormat"
+        {
+            $v = "JSON","LONG_TEXT","SHORT_TEXT"
+            break
+        }
+
 
     }
 
@@ -30821,6 +30828,7 @@ $LOM_Completers = {
 }
 
 $LOM_map = @{
+    "Action_SNSConfiguration_SnsFormat"=@("New-LOMAlert")
     "AnomalyDetectorConfig_AnomalyDetectorFrequency"=@("New-LOMAnomalyDetector","Update-LOMAnomalyDetector")
     "MetricSetFrequency"=@("New-LOMMetricSet","Update-LOMMetricSet")
     "MetricSource_S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression"=@("New-LOMMetricSet","Update-LOMMetricSet")
