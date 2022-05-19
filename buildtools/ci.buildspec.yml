@@ -22,8 +22,12 @@ phases:
       - aws configure set aws_session_token $role.Credentials.SessionToken --profile test-runner
   build:
     commands:
+      - systeminfo
+      - Get-Process | Sort-Object -Descending WS
       - pwsh -Command {$ErrorActionPreference="Stop"; $ProgressPreference="SilentlyContinue"; $PSVersionTable; msbuild buildtools\build.proj /t:full-build /p:RunTests=true}
-
+      - systeminfo
+      - Get-Process | Sort-Object -Descending WS
+      
 artifacts:
   files:
     - BreakingChangesLookup.xml
