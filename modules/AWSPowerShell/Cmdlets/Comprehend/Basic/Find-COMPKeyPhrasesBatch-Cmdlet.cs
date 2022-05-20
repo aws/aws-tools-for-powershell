@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>A list containing the text of the input documents. The list can contain a maximum
-        /// of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
+        /// of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
         /// characters.</para>
         /// </para>
         /// </summary>

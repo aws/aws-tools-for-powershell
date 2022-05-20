@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// 
     ///  
     /// <para>
-    /// If the job state is <code>IN_PROGRESS</code> the job is marked for termination and
+    /// If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and
     /// put into the <code>STOP_REQUESTED</code> state. If the job completes before it can
     /// be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is
     /// be stopped and put into the <code>STOPPED</code> state.

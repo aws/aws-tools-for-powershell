@@ -28,7 +28,9 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Updates information about the specified endpoint.
+    /// Updates information about the specified endpoint. For information about endpoints,
+    /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing
+    /// endpoints</a>.
     /// </summary>
     [Cmdlet("Update", "COMPEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

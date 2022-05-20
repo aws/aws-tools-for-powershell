@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter EndpointArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the endpoint.</para>
+        /// <para>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints,
+        /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing
+        /// endpoints</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

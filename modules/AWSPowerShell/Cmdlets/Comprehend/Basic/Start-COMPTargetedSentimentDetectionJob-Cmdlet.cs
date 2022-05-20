@@ -100,8 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input documents. You can specify any of the primary languages
-        /// supported by Amazon Comprehend. All documents must be in the same language.</para>
+        /// <para>The language of the input documents. Currently, English is the only valid language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

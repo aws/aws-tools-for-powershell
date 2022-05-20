@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.278.0",
+    "ProductVersion" : "3.7.279.0",
     "CoreVersion"    : "3.7.11.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -86,7 +86,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.2.54",
+            "Version" : "3.7.2.55",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.4"
@@ -962,7 +962,7 @@
             "InPreview"               : false
         },
         "Comprehend"                      : {
-            "Version" : "3.7.6.26",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.4"

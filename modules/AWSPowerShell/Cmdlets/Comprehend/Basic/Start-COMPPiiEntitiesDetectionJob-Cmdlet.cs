@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input documents.</para>
+        /// <para>The language of the input documents. Currently, English is the only valid language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition
         /// model. Provide an endpoint if you want to detect entities by using your own custom
         /// model instead of the default model that is used by Amazon Comprehend.</para><para>If you specify an endpoint, Amazon Comprehend uses the language of your custom model,
-        /// and it ignores any language code that you provide in your request.</para>
+        /// and it ignores any language code that you provide in your request.</para><para>For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing
+        /// endpoints</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

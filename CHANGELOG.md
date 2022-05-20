@@ -1,4 +1,7 @@
-﻿### 4.1.89 (2022-05-19 20:34Z)
+﻿### 4.1.90 (2022-05-20 21:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.279.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.89 (2022-05-19 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.278.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lookout for Metrics
     * Modified cmdlet New-LOMAlert: added parameter SNSConfiguration_SnsFormat.

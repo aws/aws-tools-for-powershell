@@ -28,7 +28,9 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Gets a list of all existing endpoints that you've created.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of all existing endpoints that you've created. For information about endpoints,
+    /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing
+    /// endpoints</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "COMPEndpointList")]
     [OutputType("Amazon.Comprehend.Model.EndpointProperties")]

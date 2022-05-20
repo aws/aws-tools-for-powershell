@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Creates a model-specific endpoint for synchronous inference for a previously trained
-    /// custom model
+    /// custom model For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing
+    /// endpoints</a>.
     /// </summary>
     [Cmdlet("New", "COMPEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
