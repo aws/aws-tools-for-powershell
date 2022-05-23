@@ -28,47 +28,23 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Replaces the datasets in a dataset group with the specified datasets.
-    /// 
-    ///  <note><para>
-    /// The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you
-    /// can use the dataset group to create a predictor. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
-    /// operation to get the status.
-    /// </para></note>
+    /// Deletes a monitor resource. You can only delete a monitor resource with a status of
+    /// <code>ACTIVE</code>, <code>ACTIVE_STOPPED</code>, <code>CREATE_FAILED</code>, or <code>CREATE_STOPPED</code>.
     /// </summary>
-    [Cmdlet("Update", "FRCDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "FRCMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Forecast Service UpdateDatasetGroup API operation.", Operation = new[] {"UpdateDatasetGroup"}, SelectReturnType = typeof(Amazon.ForecastService.Model.UpdateDatasetGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.ForecastService.Model.UpdateDatasetGroupResponse",
+    [AWSCmdlet("Calls the Amazon Forecast Service DeleteMonitor API operation.", Operation = new[] {"DeleteMonitor"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DeleteMonitorResponse))]
+    [AWSCmdletOutput("None or Amazon.ForecastService.Model.DeleteMonitorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.UpdateDatasetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.DeleteMonitorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
+    public partial class RemoveFRCMonitorCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DatasetArn
+        #region Parameter MonitorArn
         /// <summary>
         /// <para>
-        /// <para>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
-        /// group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("DatasetArns")]
-        public System.String[] DatasetArn { get; set; }
-        #endregion
-        
-        #region Parameter DatasetGroupArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the dataset group.</para>
+        /// <para>The Amazon Resource Name (ARN) of the monitor resource to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,13 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatasetGroupArn { get; set; }
+        public System.String MonitorArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.UpdateDatasetGroupResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.DeleteMonitorResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatasetGroupArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatasetGroupArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FRCDatasetGroup (UpdateDatasetGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FRCMonitor (DeleteMonitor)"))
             {
                 return;
             }
@@ -130,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.UpdateDatasetGroupResponse, UpdateFRCDatasetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.DeleteMonitorResponse, RemoveFRCMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,24 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatasetGroupArn;
+                context.Select = (response, cmdlet) => this.MonitorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.DatasetArn != null)
-            {
-                context.DatasetArn = new List<System.String>(this.DatasetArn);
-            }
+            context.MonitorArn = this.MonitorArn;
             #if MODULAR
-            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
+            if (this.MonitorArn == null && ParameterWasBound(nameof(this.MonitorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.DatasetGroupArn = this.DatasetGroupArn;
-            #if MODULAR
-            if (this.DatasetGroupArn == null && ParameterWasBound(nameof(this.DatasetGroupArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatasetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -173,15 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ForecastService.Model.UpdateDatasetGroupRequest();
+            var request = new Amazon.ForecastService.Model.DeleteMonitorRequest();
             
-            if (cmdletContext.DatasetArn != null)
+            if (cmdletContext.MonitorArn != null)
             {
-                request.DatasetArns = cmdletContext.DatasetArn;
-            }
-            if (cmdletContext.DatasetGroupArn != null)
-            {
-                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
+                request.MonitorArn = cmdletContext.MonitorArn;
             }
             
             CmdletOutput output;
@@ -216,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         #region AWS Service Operation Call
         
-        private Amazon.ForecastService.Model.UpdateDatasetGroupResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.UpdateDatasetGroupRequest request)
+        private Amazon.ForecastService.Model.DeleteMonitorResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.DeleteMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "UpdateDatasetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "DeleteMonitor");
             try
             {
                 #if DESKTOP
-                return client.UpdateDatasetGroup(request);
+                return client.DeleteMonitor(request);
                 #elif CORECLR
-                return client.UpdateDatasetGroupAsync(request).GetAwaiter().GetResult();
+                return client.DeleteMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> DatasetArn { get; set; }
-            public System.String DatasetGroupArn { get; set; }
-            public System.Func<Amazon.ForecastService.Model.UpdateDatasetGroupResponse, UpdateFRCDatasetGroupCmdlet, object> Select { get; set; } =
+            public System.String MonitorArn { get; set; }
+            public System.Func<Amazon.ForecastService.Model.DeleteMonitorResponse, RemoveFRCMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

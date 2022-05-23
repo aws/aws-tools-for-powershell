@@ -41,7 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// </para></li><li><para><code>DatasetGroupArn</code> - The ARN of the dataset group used to train the predictor.
     /// </para></li><li><para><code>ForecastFrequency</code> - The granularity of your forecasts (hourly, daily,
     /// weekly, etc).
-    /// </para></li><li><para><code>ForecastHorizon</code> - The number of time steps being forecasted.
+    /// </para></li><li><para><code>ForecastHorizon</code> - The number of time-steps that the model predicts.
+    /// The forecast horizon is also called the prediction length.
     /// </para></li></ul><para>
     /// When creating a new predictor, do not specify a value for <code>ReferencePredictorArn</code>.
     /// </para><para><b>Upgrading and retraining predictors</b></para><para>
@@ -135,7 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The number of time-steps that the model predicts. The forecast horizon is also called
-        /// the prediction length.</para>
+        /// the prediction length.</para><para>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the TARGET_TIME_SERIES
+        /// dataset length. If you are retraining an existing AutoPredictor, then the maximum
+        /// forecast horizon is the lesser of 500 time-steps or 1/3 of the TARGET_TIME_SERIES
+        /// dataset length.</para><para>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor,
+        /// you cannot update the forecast horizon parameter. You can meet this requirement by
+        /// providing longer time-series in the dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,6 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfig_KMSKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter MonitorConfig_MonitorName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the monitor resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MonitorConfig_MonitorName { get; set; }
         #endregion
         
         #region Parameter OptimizationMetric
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 context.ForecastType = new List<System.String>(this.ForecastType);
             }
+            context.MonitorConfig_MonitorName = this.MonitorConfig_MonitorName;
             context.OptimizationMetric = this.OptimizationMetric;
             context.PredictorName = this.PredictorName;
             #if MODULAR
@@ -438,6 +455,25 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.ForecastTypes = cmdletContext.ForecastType;
             }
+            
+             // populate MonitorConfig
+            var requestMonitorConfigIsNull = true;
+            request.MonitorConfig = new Amazon.ForecastService.Model.MonitorConfig();
+            System.String requestMonitorConfig_monitorConfig_MonitorName = null;
+            if (cmdletContext.MonitorConfig_MonitorName != null)
+            {
+                requestMonitorConfig_monitorConfig_MonitorName = cmdletContext.MonitorConfig_MonitorName;
+            }
+            if (requestMonitorConfig_monitorConfig_MonitorName != null)
+            {
+                request.MonitorConfig.MonitorName = requestMonitorConfig_monitorConfig_MonitorName;
+                requestMonitorConfigIsNull = false;
+            }
+             // determine if request.MonitorConfig should be set to null
+            if (requestMonitorConfigIsNull)
+            {
+                request.MonitorConfig = null;
+            }
             if (cmdletContext.OptimizationMetric != null)
             {
                 request.OptimizationMetric = cmdletContext.OptimizationMetric;
@@ -525,6 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String ForecastFrequency { get; set; }
             public System.Int32? ForecastHorizon { get; set; }
             public List<System.String> ForecastType { get; set; }
+            public System.String MonitorConfig_MonitorName { get; set; }
             public Amazon.ForecastService.OptimizationMetric OptimizationMetric { get; set; }
             public System.String PredictorName { get; set; }
             public System.String ReferencePredictorArn { get; set; }

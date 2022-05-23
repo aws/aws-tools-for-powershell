@@ -9050,6 +9050,8 @@ Set-Alias -Name Create-FRCForecast -Value New-FRCForecast
 Set-Alias -Name FRC-CreateForecast -Value New-FRCForecast
 Set-Alias -Name Create-FRCForecastExportJob -Value New-FRCForecastExportJob
 Set-Alias -Name FRC-CreateForecastExportJob -Value New-FRCForecastExportJob
+Set-Alias -Name Create-FRCMonitor -Value New-FRCMonitor
+Set-Alias -Name FRC-CreateMonitor -Value New-FRCMonitor
 Set-Alias -Name Create-FRCPredictor -Value New-FRCPredictor
 Set-Alias -Name FRC-CreatePredictor -Value New-FRCPredictor
 Set-Alias -Name Create-FRCPredictorBacktestExportJob -Value New-FRCPredictorBacktestExportJob
@@ -9068,6 +9070,8 @@ Set-Alias -Name Delete-FRCForecast -Value Remove-FRCForecast
 Set-Alias -Name FRC-DeleteForecast -Value Remove-FRCForecast
 Set-Alias -Name Delete-FRCForecastExportJob -Value Remove-FRCForecastExportJob
 Set-Alias -Name FRC-DeleteForecastExportJob -Value Remove-FRCForecastExportJob
+Set-Alias -Name Delete-FRCMonitor -Value Remove-FRCMonitor
+Set-Alias -Name FRC-DeleteMonitor -Value Remove-FRCMonitor
 Set-Alias -Name Delete-FRCPredictor -Value Remove-FRCPredictor
 Set-Alias -Name FRC-DeletePredictor -Value Remove-FRCPredictor
 Set-Alias -Name Delete-FRCPredictorBacktestExportJob -Value Remove-FRCPredictorBacktestExportJob
@@ -9090,6 +9094,8 @@ Set-Alias -Name Describe-FRCForecast -Value Get-FRCForecast
 Set-Alias -Name FRC-DescribeForecast -Value Get-FRCForecast
 Set-Alias -Name Describe-FRCForecastExportJob -Value Get-FRCForecastExportJob
 Set-Alias -Name FRC-DescribeForecastExportJob -Value Get-FRCForecastExportJob
+Set-Alias -Name Describe-FRCMonitor -Value Get-FRCMonitor
+Set-Alias -Name FRC-DescribeMonitor -Value Get-FRCMonitor
 Set-Alias -Name Describe-FRCPredictor -Value Get-FRCPredictor
 Set-Alias -Name FRC-DescribePredictor -Value Get-FRCPredictor
 Set-Alias -Name Describe-FRCPredictorBacktestExportJob -Value Get-FRCPredictorBacktestExportJob
@@ -9117,6 +9123,12 @@ Set-Alias -Name FRC-ListForecastExportJobs -Value Get-FRCForecastExportJobList
 Set-Alias -Name List-FRCForecasts -Value Get-FRCForecastList
 Set-Alias -Name List-FRCForecastList -Value Get-FRCForecastList
 Set-Alias -Name FRC-ListForecasts -Value Get-FRCForecastList
+Set-Alias -Name List-FRCMonitorEvaluations -Value Get-FRCMonitorEvaluationList
+Set-Alias -Name List-FRCMonitorEvaluationList -Value Get-FRCMonitorEvaluationList
+Set-Alias -Name FRC-ListMonitorEvaluations -Value Get-FRCMonitorEvaluationList
+Set-Alias -Name List-FRCMonitors -Value Get-FRCMonitorList
+Set-Alias -Name List-FRCMonitorList -Value Get-FRCMonitorList
+Set-Alias -Name FRC-ListMonitors -Value Get-FRCMonitorList
 Set-Alias -Name List-FRCPredictorBacktestExportJobs -Value Get-FRCPredictorBacktestExportJobList
 Set-Alias -Name List-FRCPredictorBacktestExportJobList -Value Get-FRCPredictorBacktestExportJobList
 Set-Alias -Name FRC-ListPredictorBacktestExportJobs -Value Get-FRCPredictorBacktestExportJobList
@@ -9124,6 +9136,7 @@ Set-Alias -Name List-FRCPredictors -Value Get-FRCPredictorList
 Set-Alias -Name List-FRCPredictorList -Value Get-FRCPredictorList
 Set-Alias -Name FRC-ListPredictors -Value Get-FRCPredictorList
 Set-Alias -Name FRC-ListTagsForResource -Value Get-FRCResourceTag
+Set-Alias -Name FRC-ResumeResource -Value Resume-FRCResource
 Set-Alias -Name FRC-StopResource -Value Stop-FRCResource
 Set-Alias -Name FRC-TagResource -Value Add-FRCResourceTag
 Set-Alias -Name FRC-UntagResource -Value Remove-FRCResourceTag

@@ -1,4 +1,17 @@
-﻿### 4.1.90 (2022-05-20 21:32Z)
+﻿### 4.1.91 (2022-05-23 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.280.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon ElastiCache
+    * Modified cmdlet New-ECCacheCluster: added parameter TransitEncryptionEnabled.
+  * Amazon Forecast Service
+    * Added cmdlet Get-FRCMonitor leveraging the DescribeMonitor service API.
+    * Added cmdlet Get-FRCMonitorEvaluationList leveraging the ListMonitorEvaluations service API.
+    * Added cmdlet Get-FRCMonitorList leveraging the ListMonitors service API.
+    * Added cmdlet New-FRCMonitor leveraging the CreateMonitor service API.
+    * Added cmdlet Remove-FRCMonitor leveraging the DeleteMonitor service API.
+    * Added cmdlet Resume-FRCResource leveraging the ResumeResource service API.
+    * Modified cmdlet New-FRCAutoPredictor: added parameter MonitorConfig_MonitorName.
+
+### 4.1.90 (2022-05-20 21:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.279.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.89 (2022-05-19 20:34Z)

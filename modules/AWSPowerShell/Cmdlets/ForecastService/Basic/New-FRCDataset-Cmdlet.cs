@@ -44,15 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// </para></li></ul><para>
     /// After creating a dataset, you import your training data into it and add the dataset
     /// to a dataset group. You use the dataset group to create a predictor. For more information,
-    /// see <a>howitworks-datasets-groups</a>.
+    /// see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
+    /// datasets</a>.
     /// </para><para>
-    /// To get a list of all your datasets, use the <a>ListDatasets</a> operation.
+    /// To get a list of all your datasets, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a>
+    /// operation.
     /// </para><para>
     /// For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon
     /// Forecast Sample GitHub repository</a>.
     /// </para><note><para>
     /// The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
-    /// training data. Use the <a>DescribeDataset</a> operation to get the status.
+    /// training data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
+    /// operation to get the status.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "FRCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,13 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The domain associated with the dataset. When you add a dataset to a dataset group,
-        /// this value and the value specified for the <code>Domain</code> parameter of the <a>CreateDatasetGroup</a>
+        /// this value and the value specified for the <code>Domain</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
         /// operation must match.</para><para>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the
         /// fields that must be present in the training data that you import to the dataset. For
         /// example, if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code>
         /// as the <code>DatasetType</code>, Amazon Forecast requires <code>item_id</code>, <code>timestamp</code>,
         /// and <code>demand</code> fields to be present in your data. For more information, see
-        /// <a>howitworks-datasets-groups</a>.</para>
+        /// <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
+        /// datasets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

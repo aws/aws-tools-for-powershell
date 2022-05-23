@@ -28,7 +28,8 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Describes an Amazon Forecast dataset created using the <a>CreateDataset</a> operation.
+    /// Describes an Amazon Forecast dataset created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
+    /// operation.
     /// 
     ///  
     /// <para>

@@ -28,29 +28,24 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Describes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
-    /// operation.
+    /// Describes a monitor resource. In addition to listing the properties provided in the
+    /// <a>CreateMonitor</a> request, this operation lists the following properties:
     /// 
-    ///  
-    /// <para>
-    /// In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
-    /// request, this operation includes the following properties:
-    /// </para><ul><li><para><code>DatasetArns</code> - The datasets belonging to the group.
-    /// </para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li></ul>
+    ///  <ul><li><para><code>Baseline</code></para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastEvaluationTime</code></para></li><li><para><code>LastEvaluationState</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Message</code></para></li><li><para><code>Status</code></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "FRCDatasetGroup")]
-    [OutputType("Amazon.ForecastService.Model.DescribeDatasetGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Forecast Service DescribeDatasetGroup API operation.", Operation = new[] {"DescribeDatasetGroup"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DescribeDatasetGroupResponse))]
-    [AWSCmdletOutput("Amazon.ForecastService.Model.DescribeDatasetGroupResponse",
-        "This cmdlet returns an Amazon.ForecastService.Model.DescribeDatasetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FRCMonitor")]
+    [OutputType("Amazon.ForecastService.Model.DescribeMonitorResponse")]
+    [AWSCmdlet("Calls the Amazon Forecast Service DescribeMonitor API operation.", Operation = new[] {"DescribeMonitor"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DescribeMonitorResponse))]
+    [AWSCmdletOutput("Amazon.ForecastService.Model.DescribeMonitorResponse",
+        "This cmdlet returns an Amazon.ForecastService.Model.DescribeMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
+    public partial class GetFRCMonitorCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DatasetGroupArn
+        #region Parameter MonitorArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the dataset group.</para>
+        /// <para>The Amazon Resource Name (ARN) of the monitor resource to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,14 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatasetGroupArn { get; set; }
+        public System.String MonitorArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.DescribeDatasetGroupResponse).
-        /// Specifying the name of a property of type Amazon.ForecastService.Model.DescribeDatasetGroupResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.DescribeMonitorResponse).
+        /// Specifying the name of a property of type Amazon.ForecastService.Model.DescribeMonitorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatasetGroupArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -97,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.DescribeDatasetGroupResponse, GetFRCDatasetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.DescribeMonitorResponse, GetFRCMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -106,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatasetGroupArn;
+                context.Select = (response, cmdlet) => this.MonitorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatasetGroupArn = this.DatasetGroupArn;
+            context.MonitorArn = this.MonitorArn;
             #if MODULAR
-            if (this.DatasetGroupArn == null && ParameterWasBound(nameof(this.DatasetGroupArn)))
+            if (this.MonitorArn == null && ParameterWasBound(nameof(this.MonitorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -130,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ForecastService.Model.DescribeDatasetGroupRequest();
+            var request = new Amazon.ForecastService.Model.DescribeMonitorRequest();
             
-            if (cmdletContext.DatasetGroupArn != null)
+            if (cmdletContext.MonitorArn != null)
             {
-                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
+                request.MonitorArn = cmdletContext.MonitorArn;
             }
             
             CmdletOutput output;
@@ -169,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         #region AWS Service Operation Call
         
-        private Amazon.ForecastService.Model.DescribeDatasetGroupResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.DescribeDatasetGroupRequest request)
+        private Amazon.ForecastService.Model.DescribeMonitorResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.DescribeMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "DescribeDatasetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "DescribeMonitor");
             try
             {
                 #if DESKTOP
-                return client.DescribeDatasetGroup(request);
+                return client.DescribeMonitor(request);
                 #elif CORECLR
-                return client.DescribeDatasetGroupAsync(request).GetAwaiter().GetResult();
+                return client.DescribeMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -197,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetGroupArn { get; set; }
-            public System.Func<Amazon.ForecastService.Model.DescribeDatasetGroupResponse, GetFRCDatasetGroupCmdlet, object> Select { get; set; } =
+            public System.String MonitorArn { get; set; }
+            public System.Func<Amazon.ForecastService.Model.DescribeMonitorResponse, GetFRCMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

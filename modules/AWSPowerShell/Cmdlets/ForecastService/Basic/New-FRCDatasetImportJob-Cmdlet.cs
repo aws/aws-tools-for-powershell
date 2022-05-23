@@ -34,10 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// You must specify a <a>DataSource</a> object that includes an AWS Identity and Access
-    /// Management (IAM) role that Amazon Forecast can assume to access the data, as Amazon
-    /// Forecast makes a copy of your data and processes it in an internal AWS system. For
-    /// more information, see <a>aws-forecast-iam-roles</a>.
+    /// You must specify a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html">DataSource</a>
+    /// object that includes an AWS Identity and Access Management (IAM) role that Amazon
+    /// Forecast can assume to access the data, as Amazon Forecast makes a copy of your data
+    /// and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set
+    /// up permissions</a>.
     /// </para><para>
     /// The training data must be in CSV format. The delimiter must be a comma (,).
     /// </para><para>
@@ -51,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// and not just the new data collected since the previous import.
     /// </para><para>
     /// To get a list of all your dataset import jobs, filtered by specified criteria, use
-    /// the <a>ListDatasetImportJobs</a> operation.
+    /// the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FRCDatasetImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

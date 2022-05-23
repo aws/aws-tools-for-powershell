@@ -28,47 +28,25 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Replaces the datasets in a dataset group with the specified datasets.
-    /// 
-    ///  <note><para>
-    /// The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you
-    /// can use the dataset group to create a predictor. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
-    /// operation to get the status.
-    /// </para></note>
+    /// Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring
+    /// allows you to see how your predictor's performance changes over time. For more information,
+    /// see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor
+    /// Monitoring</a>.
     /// </summary>
-    [Cmdlet("Update", "FRCDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Forecast Service UpdateDatasetGroup API operation.", Operation = new[] {"UpdateDatasetGroup"}, SelectReturnType = typeof(Amazon.ForecastService.Model.UpdateDatasetGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.ForecastService.Model.UpdateDatasetGroupResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.UpdateDatasetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "FRCMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Forecast Service CreateMonitor API operation.", Operation = new[] {"CreateMonitor"}, SelectReturnType = typeof(Amazon.ForecastService.Model.CreateMonitorResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ForecastService.Model.CreateMonitorResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ForecastService.Model.CreateMonitorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
+    public partial class NewFRCMonitorCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DatasetArn
+        #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
-        /// group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("DatasetArns")]
-        public System.String[] DatasetArn { get; set; }
-        #endregion
-        
-        #region Parameter DatasetGroupArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the dataset group.</para>
+        /// <para>The name of the monitor resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,25 +57,55 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatasetGroupArn { get; set; }
+        public System.String MonitorName { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the predictor to monitor.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a>
+        /// to apply to the monitor resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ForecastService.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.UpdateDatasetGroupResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MonitorArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ForecastService.Model.CreateMonitorResponse).
+        /// Specifying the name of a property of type Amazon.ForecastService.Model.CreateMonitorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MonitorArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatasetGroupArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatasetGroupArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FRCDatasetGroup (UpdateDatasetGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-FRCMonitor (CreateMonitor)"))
             {
                 return;
             }
@@ -130,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.UpdateDatasetGroupResponse, UpdateFRCDatasetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.CreateMonitorResponse, NewFRCMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,26 +147,27 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatasetGroupArn;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.DatasetArn != null)
-            {
-                context.DatasetArn = new List<System.String>(this.DatasetArn);
-            }
+            context.MonitorName = this.MonitorName;
             #if MODULAR
-            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DatasetGroupArn = this.DatasetGroupArn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.DatasetGroupArn == null && ParameterWasBound(nameof(this.DatasetGroupArn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,15 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ForecastService.Model.UpdateDatasetGroupRequest();
+            var request = new Amazon.ForecastService.Model.CreateMonitorRequest();
             
-            if (cmdletContext.DatasetArn != null)
+            if (cmdletContext.MonitorName != null)
             {
-                request.DatasetArns = cmdletContext.DatasetArn;
+                request.MonitorName = cmdletContext.MonitorName;
             }
-            if (cmdletContext.DatasetGroupArn != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -216,15 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         #region AWS Service Operation Call
         
-        private Amazon.ForecastService.Model.UpdateDatasetGroupResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.UpdateDatasetGroupRequest request)
+        private Amazon.ForecastService.Model.CreateMonitorResponse CallAWSServiceOperation(IAmazonForecastService client, Amazon.ForecastService.Model.CreateMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "UpdateDatasetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Service", "CreateMonitor");
             try
             {
                 #if DESKTOP
-                return client.UpdateDatasetGroup(request);
+                return client.CreateMonitor(request);
                 #elif CORECLR
-                return client.UpdateDatasetGroupAsync(request).GetAwaiter().GetResult();
+                return client.CreateMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> DatasetArn { get; set; }
-            public System.String DatasetGroupArn { get; set; }
-            public System.Func<Amazon.ForecastService.Model.UpdateDatasetGroupResponse, UpdateFRCDatasetGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String MonitorName { get; set; }
+            public System.String ResourceArn { get; set; }
+            public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.ForecastService.Model.CreateMonitorResponse, NewFRCMonitorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MonitorArn;
         }
         
     }

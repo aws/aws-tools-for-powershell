@@ -86,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// specify up to 5 quantiles per forecast</b>. Accepted values include <code>0.01 to
         /// 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast is different
         /// from the median (0.50) when the distribution is not symmetric (for example, Beta and
-        /// Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</para>
+        /// Negative Binomial). </para><para>The default quantiles are the quantiles you specified during predictor creation. If
+        /// you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

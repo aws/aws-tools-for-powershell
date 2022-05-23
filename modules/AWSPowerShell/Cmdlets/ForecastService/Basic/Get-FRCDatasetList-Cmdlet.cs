@@ -28,9 +28,10 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Returns a list of datasets created using the <a>CreateDataset</a> operation. For each
-    /// dataset, a summary of its properties, including its Amazon Resource Name (ARN), is
-    /// returned. To retrieve the complete set of properties, use the ARN with the <a>DescribeDataset</a>
+    /// Returns a list of datasets created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
+    /// operation. For each dataset, a summary of its properties, including its Amazon Resource
+    /// Name (ARN), is returned. To retrieve the complete set of properties, use the ARN with
+    /// the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
     /// operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCDatasetList")]

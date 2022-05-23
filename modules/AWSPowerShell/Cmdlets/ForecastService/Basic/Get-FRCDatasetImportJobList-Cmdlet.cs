@@ -28,11 +28,12 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a>
+    /// Returns a list of dataset import jobs created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
     /// operation. For each import job, this operation returns a summary of its properties,
     /// including its Amazon Resource Name (ARN). You can retrieve the complete set of properties
-    /// by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter
-    /// the list by providing an array of <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// by using the ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
+    /// operation. You can filter the list by providing an array of <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html">Filter</a>
+    /// objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCDatasetImportJobList")]
     [OutputType("Amazon.ForecastService.Model.DatasetImportJobSummary")]

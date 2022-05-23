@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter EnableVisualization
         /// <summary>
         /// <para>
-        /// <para>Create an Expainability visualization that is viewable within the AWS console.</para>
+        /// <para>Create an Explainability visualization that is viewable within the AWS console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
