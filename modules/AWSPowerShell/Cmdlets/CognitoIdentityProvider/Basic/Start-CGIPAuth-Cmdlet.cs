@@ -28,7 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Initiates the authentication flow.
+    /// Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign
+    /// in a user with a federated IdP with <code>InitiateAuth</code>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">
+    /// Adding user pool sign-in through a third party</a>.
     /// 
     ///  <note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
@@ -76,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// and returns the SRP variables to be used for next challenge execution.</para></li><li><para><code>USER_PASSWORD_AUTH</code> takes in <code>USERNAME</code> and <code>PASSWORD</code>
         /// and returns the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
         /// protocol.</para></li><li><para><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for
-        /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD
+        /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; user name and password
         /// are passed directly. If a user migration Lambda trigger is set, this flow will invoke
-        /// the user migration Lambda if it doesn't find the USERNAME in the user pool. </para></li></ul><para><code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</para>
+        /// the user migration Lambda if it doesn't find the user name in the user pool. </para></li></ul><para><code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

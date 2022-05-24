@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
     /// Deletes an existing global network. You must first delete all global network objects
-    /// (devices, links, and sites) and deregister all transit gateways.
+    /// (devices, links, and sites), deregister all transit gateways, and delete any core
+    /// networks.
     /// </summary>
     [Cmdlet("Remove", "NMGRGlobalNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.NetworkManager.Model.GlobalNetwork")]

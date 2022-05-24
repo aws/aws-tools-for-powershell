@@ -28,7 +28,8 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Creates a site-to-site VPN attachment on an edge location of a core network.
+    /// Creates an Amazon Web Services site-to-site VPN attachment on an edge location of
+    /// a core network.
     /// </summary>
     [Cmdlet("New", "NMGRSiteToSiteVpnAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkManager.Model.SiteToSiteVpnAttachment")]

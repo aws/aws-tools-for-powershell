@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Prevents the user from signing in with the specified external (SAML or social) identity
-    /// provider. If the user that you want to deactivate is a Amazon Cognito user pools native
-    /// username + password user, they can't use their password to sign in. If the user to
-    /// deactivate is a linked external identity provider (IdP) user, any link between that
-    /// user and an existing user is removed. When the external user signs in again, and the
-    /// user is no longer attached to the previously linked <code>DestinationUser</code>,
-    /// the user must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.
+    /// provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
+    /// native username + password user, they can't use their password to sign in. If the
+    /// user to deactivate is a linked external IdP user, any link between that user and an
+    /// existing user is removed. When the external user signs in again, and the user is no
+    /// longer attached to the previously linked <code>DestinationUser</code>, the user must
+    /// create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.
     /// 
     ///  
     /// <para>
@@ -49,9 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// pool for the user.
     /// </para><para>
     /// The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code>
-    /// for social identity providers. The <code>ProviderAttributeValue</code> must always
-    /// be the exact subject that was used when the user was originally linked as a source
-    /// user.
+    /// for social IdPs. The <code>ProviderAttributeValue</code> must always be the exact
+    /// subject that was used when the user was originally linked as a source user.
     /// </para><para>
     /// For de-linking a SAML identity, there are two scenarios. If the linked identity has
     /// not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code>

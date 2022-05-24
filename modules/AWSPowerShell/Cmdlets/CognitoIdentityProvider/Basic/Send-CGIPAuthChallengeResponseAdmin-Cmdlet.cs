@@ -96,9 +96,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client
         /// is configured with client secret).</para><note><para><code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when signing in with
         /// a remembered device.</para></note></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code>
-        /// (if app client is configured with client secret). </para></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required
-        /// attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
-        /// with client secret). </para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the session
+        /// (if app client is configured with client secret). </para></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, <code>USERNAME</code>,
+        /// <code>SECRET_HASH</code> (if app client is configured with client secret). To set
+        /// any required attributes that Amazon Cognito returned as <code>requiredAttributes</code>
+        /// in the <code>AdminInitiateAuth</code> response, add a <code>userAttributes.<i>attributename</i></code> parameter. This parameter can also set values for writable attributes that
+        /// aren't required by your user pool.</para><note><para>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required
+        /// attribute that already has a value. In <code>AdminRespondToAuthChallenge</code>, set
+        /// a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code>
+        /// parameter, then use the <code>AdminUpdateUserAttributes</code> API operation to modify
+        /// the value of any additional attributes.</para></note></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the session
         /// value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</para></li></ul><para>The value of the <code>USERNAME</code> attribute must be the user's actual username,
         /// not an alias (such as an email address or phone number). To make this simpler, the
         /// <code>AdminInitiateAuth</code> response includes the actual username value in the

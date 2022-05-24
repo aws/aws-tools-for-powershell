@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose software token you
+        /// want to verify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

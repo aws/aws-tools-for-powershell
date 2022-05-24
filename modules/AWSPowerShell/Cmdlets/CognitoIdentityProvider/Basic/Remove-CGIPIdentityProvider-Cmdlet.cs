@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes an identity provider for a user pool.
+    /// Deletes an IdP for a user pool.
     /// </summary>
     [Cmdlet("Remove", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The identity provider name.</para>
+        /// <para>The IdP name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

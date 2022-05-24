@@ -91,9 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>,
         /// for example:</para><note><para><code>SECRET_HASH</code> (if app client is configured with client secret) applies
         /// to all of the inputs that follow (including <code>SOFTWARE_TOKEN_MFA</code>).</para></note><ul><li><para><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>.</para></li><li><para><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>,
-        /// <code>TIMESTAMP</code>, <code>USERNAME</code>.</para><note><para><code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when signing in with
-        /// a remembered device.</para></note></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required
-        /// attributes, <code>USERNAME</code>. </para></li><li><para><code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and <code>SOFTWARE_TOKEN_MFA_CODE</code>
+        /// <code>TIMESTAMP</code>, <code>USERNAME</code>.</para><note><para><code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when you sign in
+        /// with a remembered device.</para></note></li><li><para><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, <code>USERNAME</code>,
+        /// <code>SECRET_HASH</code> (if app client is configured with client secret). To set
+        /// any required attributes that Amazon Cognito returned as <code>requiredAttributes</code>
+        /// in the <code>InitiateAuth</code> response, add a <code>userAttributes.<i>attributename</i></code> parameter. This parameter can also set values for writable attributes that
+        /// aren't required by your user pool.</para><note><para>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required
+        /// attribute that already has a value. In <code>RespondToAuthChallenge</code>, set a
+        /// value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code>
+        /// parameter, then use the <code>UpdateUserAttributes</code> API operation to modify
+        /// the value of any additional attributes.</para></note></li><li><para><code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and <code>SOFTWARE_TOKEN_MFA_CODE</code>
         /// are required attributes.</para></li><li><para><code>DEVICE_SRP_AUTH</code> requires <code>USERNAME</code>, <code>DEVICE_KEY</code>,
         /// <code>SRP_A</code> (and <code>SECRET_HASH</code>).</para></li><li><para><code>DEVICE_PASSWORD_VERIFIER</code> requires everything that <code>PASSWORD_VERIFIER</code>
         /// requires, plus <code>DEVICE_KEY</code>.</para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the session

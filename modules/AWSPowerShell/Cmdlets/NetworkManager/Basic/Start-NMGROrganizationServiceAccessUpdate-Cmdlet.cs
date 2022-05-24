@@ -22,27 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.NetworkManager;
+using Amazon.NetworkManager.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Gets the user attributes and metadata for a user.
+    
     /// </summary>
-    [Cmdlet("Get", "CGIPUser")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.GetUserResponse")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUser API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUserResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetUserResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GetUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "NMGROrganizationServiceAccessUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.NetworkManager.Model.OrganizationStatus")]
+    [AWSCmdlet("Calls the AWS Network Manager StartOrganizationServiceAccessUpdate API operation.", Operation = new[] {"StartOrganizationServiceAccessUpdate"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse))]
+    [AWSCmdletOutput("Amazon.NetworkManager.Model.OrganizationStatus or Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse",
+        "This cmdlet returns an Amazon.NetworkManager.Model.OrganizationStatus object.",
+        "The service call response (type Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGIPUserCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class StartNMGROrganizationServiceAccessUpdateCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
-        #region Parameter AccessToken
+        #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>A non-expired access token for the user whose information you want to query.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,33 +54,49 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccessToken { get; set; }
+        public System.String Action { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GetUserResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.GetUserResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OrganizationStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse).
+        /// Specifying the name of a property of type Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "OrganizationStatus";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Action parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Action' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Action' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Action), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-NMGROrganizationServiceAccessUpdate (StartOrganizationServiceAccessUpdate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -89,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GetUserResponse, GetCGIPUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse, StartNMGROrganizationServiceAccessUpdateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -98,14 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccessToken;
+                context.Select = (response, cmdlet) => this.Action;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccessToken = this.AccessToken;
+            context.Action = this.Action;
             #if MODULAR
-            if (this.AccessToken == null && ParameterWasBound(nameof(this.AccessToken)))
+            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccessToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -122,17 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.GetUserRequest();
+            var request = new Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateRequest();
             
-            if (cmdletContext.AccessToken != null)
+            if (cmdletContext.Action != null)
             {
-                request.AccessToken = cmdletContext.AccessToken;
+                request.Action = cmdletContext.Action;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(_RegionEndpoint);
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -161,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.GetUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUserRequest request)
+        private Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "StartOrganizationServiceAccessUpdate");
             try
             {
                 #if DESKTOP
-                return client.GetUser(request);
+                return client.StartOrganizationServiceAccessUpdate(request);
                 #elif CORECLR
-                return client.GetUserAsync(request).GetAwaiter().GetResult();
+                return client.StartOrganizationServiceAccessUpdateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -189,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccessToken { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.GetUserResponse, GetCGIPUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Action { get; set; }
+            public System.Func<Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse, StartNMGROrganizationServiceAccessUpdateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OrganizationStatus;
         }
         
     }

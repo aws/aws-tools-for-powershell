@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token for the request to update user attributes.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose user attributes
+        /// you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
-        /// name.</para>
+        /// name.</para><para>If you have set an attribute to require verification before Amazon Cognito updates
+        /// its value, this request doesn’t immediately update the value of that attribute. After
+        /// your user receives and responds to a verification message to verify the new value,
+        /// Amazon Cognito updates the attribute value. Your user can sign in and receive messages
+        /// with the original attribute value until they verify the new value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

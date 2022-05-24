@@ -28,9 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Signs out users from all devices. It also invalidates all refresh tokens issued to
-    /// a user. The user's current access and ID tokens remain valid until their expiry. Access
-    /// and Id tokens expire one hour after they're issued.
+    /// Signs out users from all devices. It also invalidates all refresh tokens that Amazon
+    /// Cognito has issued to a user. The user's current access and ID tokens remain valid
+    /// until their expiry. By default, access and ID tokens expire one hour after Amazon
+    /// Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens
+    /// for the duration of the cookie validity period of 1 hour.
     /// </summary>
     [Cmdlet("Disconnect", "CGIPDeviceGlobal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user who you want to sign out.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

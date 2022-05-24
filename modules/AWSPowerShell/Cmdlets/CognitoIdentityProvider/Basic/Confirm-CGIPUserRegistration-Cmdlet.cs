@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Confirms registration of a user and handles the existing alias from a previous user.
+    /// Confirms registration of a new user.
     /// </summary>
     [Cmdlet("Confirm", "CGIPUserRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

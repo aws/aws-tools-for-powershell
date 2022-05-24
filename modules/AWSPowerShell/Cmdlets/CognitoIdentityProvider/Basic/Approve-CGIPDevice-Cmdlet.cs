@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose device you want
+        /// to confirm.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceSecretVerifierConfig_Salt
         /// <summary>
         /// <para>
-        /// <para>The salt.</para>
+        /// <para>The <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

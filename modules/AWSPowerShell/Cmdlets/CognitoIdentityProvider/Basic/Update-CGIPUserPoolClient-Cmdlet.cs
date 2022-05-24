@@ -63,7 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessTokenValidity
         /// <summary>
         /// <para>
-        /// <para>The time limit after which the access token is no longer valid and can't be used.</para>
+        /// <para>The access token time limit. After this limit expires, your user can't use their access
+        /// token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>,
+        /// <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code>
+        /// value in your API request.</para><para>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and
+        /// <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access
+        /// with their access token for 10 hours.</para><para>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+        /// <i>Valid range</i> is displayed below in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,12 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlow
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth flows.</para><para>Set to <code>code</code> to initiate a code grant flow, which provides an authorization
-        /// code as the response. This code can be exchanged for access tokens with the token
-        /// endpoint.</para><para>Set to <code>implicit</code> to specify that the client should get the access token
-        /// (and, optionally, ID token, based on scopes) directly.</para><para>Set to <code>client_credentials</code> to specify that the client should get the access
-        /// token (and, optionally, ID token, based on scopes) from the token endpoint using a
-        /// combination of client and client_secret.</para>
+        /// <para>The allowed OAuth flows.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
+        /// code can be exchanged for access tokens with the <code>/oauth2/token</code> endpoint.</para></dd><dt>implicit</dt><dd><para>Issue the access token (and, optionally, ID token, based on scopes) directly to your
+        /// user.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <code>/oauth2/token</code> endpoint directly to a
+        /// non-person user using a combination of the client ID and client secret.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthScope
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
+        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are <code>phone</code>,
         /// <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
-        /// provided by Amazon Web Services are: <code>aws.cognito.signin.user.admin</code>. Custom
+        /// provided by Amazon Web Services are <code>aws.cognito.signin.user.admin</code>. Custom
         /// scopes created in Resource Servers are also supported.</para>
         /// </para>
         /// </summary>
@@ -116,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
         /// Pinpoint project to integrate with the chosen user pool Client. Amazon Cognito publishes
-        /// events to the Amazon Pinpointproject declared by the app ARN.</para>
+        /// events to the Amazon Pinpoint project that the app ARN declares.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed redirect (callback) URLs for the identity providers.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
         /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
         /// only.</para><para>App callback URLs such as <code>myapp://example</code> are also supported.</para>
         /// </para>
@@ -239,7 +243,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter IdTokenValidity
         /// <summary>
         /// <para>
-        /// <para>The time limit after which the ID token is no longer valid and can't be used.</para>
+        /// <para>The ID token time limit. After this limit expires, your user can't use their ID token.
+        /// To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>,
+        /// <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code>
+        /// value in your API request.</para><para>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code>
+        /// as <code>hours</code>, your user can authenticate their session with their ID token
+        /// for 10 hours.</para><para>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+        /// <i>Valid range</i> is displayed below in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed logout URLs for the identity providers.</para>
+        /// <para>A list of allowed logout URLs for the IdPs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,8 +311,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RefreshTokenValidity
         /// <summary>
         /// <para>
-        /// <para>The time limit, in days, after which the refresh token is no longer valid and can't
-        /// be used.</para>
+        /// <para>The refresh token time limit. After this limit expires, your user can't use their
+        /// refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>,
+        /// <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code>
+        /// value in your API request.</para><para>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and
+        /// <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their
+        /// session and retrieve new access and ID tokens for 10 days.</para><para>The default time unit for <code>RefreshTokenValidity</code> in an API request is days.
+        /// You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides
+        /// the value with the default value of 30 days. <i>Valid range</i> is displayed below
+        /// in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SupportedIdentityProvider
         /// <summary>
         /// <para>
-        /// <para>A list of provider names for the identity providers that are supported on this client.</para>
+        /// <para>A list of provider names for the IdPs that this client supports. The following are
+        /// supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>,
+        /// and the names of your own SAML and OIDC providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,8 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsConfiguration_UserDataShared
         /// <summary>
         /// <para>
-        /// <para>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user
-        /// data in the events it publishes to Amazon Pinpoint analytics.</para>
+        /// <para>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito includes user
+        /// data in the events that it publishes to Amazon Pinpoint analytics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -498,7 +498,7 @@ $EC2_Completers = {
             ($_ -eq "Reset-EC2InstanceAttribute/Attribute")
         }
         {
-            $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","enclaveOptions","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
+            $v = "blockDeviceMapping","disableApiStop","disableApiTermination","ebsOptimized","enaSupport","enclaveOptions","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
             break
         }
 

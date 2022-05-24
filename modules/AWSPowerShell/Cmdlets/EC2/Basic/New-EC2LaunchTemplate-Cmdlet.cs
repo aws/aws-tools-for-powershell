@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// A launch template contains the parameters to launch an instance. When you launch an
     /// instance using <a>RunInstances</a>, you can specify a launch template instead of providing
-    /// the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+    /// the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
     /// an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User
     /// Guide</i>.
     /// </para><para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para><para>Constraint: Maximum 128 ASCII characters.</para>
+        /// idempotency</a>.</para><para>Constraint: Maximum 128 ASCII characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

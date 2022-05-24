@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification[] BlockDeviceMapping { get; set; }
         #endregion
         
+        #region Parameter DisableApiStop
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether an instance is enabled for stop protection. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+        /// Protection</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableApiStop { get; set; }
+        #endregion
+        
         #region Parameter DisableApiTermination
         /// <summary>
         /// <para>
@@ -308,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.BlockDeviceMapping = new List<Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification>(this.BlockDeviceMapping);
             }
+            context.DisableApiStop = this.DisableApiStop;
             context.DisableApiTermination = this.DisableApiTermination;
             context.EbsOptimized = this.EbsOptimized;
             context.EnaSupport = this.EnaSupport;
@@ -353,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
+            }
+            if (cmdletContext.DisableApiStop != null)
+            {
+                request.DisableApiStop = cmdletContext.DisableApiStop.Value;
             }
             if (cmdletContext.DisableApiTermination != null)
             {
@@ -469,6 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
             public List<Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification> BlockDeviceMapping { get; set; }
+            public System.Boolean? DisableApiStop { get; set; }
             public System.Boolean? DisableApiTermination { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
             public System.Boolean? EnaSupport { get; set; }

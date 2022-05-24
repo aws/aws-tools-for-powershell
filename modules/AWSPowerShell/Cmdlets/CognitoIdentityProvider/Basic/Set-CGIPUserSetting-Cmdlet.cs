@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token for the set user settings request.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose user settings you
+        /// want to configure.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

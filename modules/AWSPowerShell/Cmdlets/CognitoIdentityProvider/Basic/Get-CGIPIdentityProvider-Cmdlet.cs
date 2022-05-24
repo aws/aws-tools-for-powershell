@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets information about a specific identity provider.
+    /// Gets information about a specific IdP.
     /// </summary>
     [Cmdlet("Get", "CGIPIdentityProvider")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The identity provider name.</para>
+        /// <para>The IdP name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

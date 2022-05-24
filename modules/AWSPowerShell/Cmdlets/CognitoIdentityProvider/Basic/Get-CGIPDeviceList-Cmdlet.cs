@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the devices.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the sign-in devices that Amazon Cognito has registered to the current user.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPDeviceList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.DeviceType")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access tokens for the request to list devices.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose list of devices
+        /// you want to view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

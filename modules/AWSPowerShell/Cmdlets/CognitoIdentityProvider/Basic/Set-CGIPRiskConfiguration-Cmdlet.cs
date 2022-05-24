@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter HighAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// <para>The action to take in response to the account takeover action. Valid values are as
+        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
         /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
         /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>
@@ -90,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LowAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// <para>The action to take in response to the account takeover action. Valid values are as
+        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
         /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
         /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>
@@ -104,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MediumAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
+        /// <para>The action to take in response to the account takeover action. Valid values are as
+        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
         /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
         /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
         /// </para>

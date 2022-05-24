@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Verifies the specified user attributes in the user pool.
+    /// 
+    ///  
+    /// <para>
+    ///  If your user pool requires verification before Amazon Cognito updates the attribute
+    /// value, VerifyUserAttribute updates the affected attribute to its pending value. For
+    /// more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html">
+    /// UserAttributeUpdateSettingsType</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Test", "CGIPUserAttribute")]
     [OutputType("None")]
@@ -43,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token of the request to verify user attributes.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose user attributes
+        /// you want to verify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

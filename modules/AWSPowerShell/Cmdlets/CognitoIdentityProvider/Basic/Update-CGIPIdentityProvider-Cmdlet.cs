@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates identity provider information for a user pool.
+    /// Updates IdP information for a user pool.
     /// </summary>
     [Cmdlet("Update", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributeMapping
         /// <summary>
         /// <para>
-        /// <para>The identity provider attribute mapping to be changed.</para>
+        /// <para>The IdP attribute mapping to be changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter IdpIdentifier
         /// <summary>
         /// <para>
-        /// <para>A list of identity provider identifiers.</para>
+        /// <para>A list of IdP identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderDetail
         /// <summary>
         /// <para>
-        /// <para>The identity provider details to be updated, such as <code>MetadataURL</code> and
-        /// <code>MetadataFile</code>.</para>
+        /// <para>The IdP details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The identity provider name.</para>
+        /// <para>The IdP name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

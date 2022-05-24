@@ -28,7 +28,7 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Returns information about a core network. By default it returns the LIVE policy.
+    /// Returns information about the LIVE policy for a core network.
     /// </summary>
     [Cmdlet("Get", "NMGRCoreNetwork")]
     [OutputType("Amazon.NetworkManager.Model.CoreNetwork")]

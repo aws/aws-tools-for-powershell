@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token for the forgotten device request.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose registered device
+        /// you want to forget.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

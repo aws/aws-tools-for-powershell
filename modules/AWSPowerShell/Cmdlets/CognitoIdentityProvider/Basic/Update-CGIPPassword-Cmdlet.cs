@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose password you want
+        /// to change.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

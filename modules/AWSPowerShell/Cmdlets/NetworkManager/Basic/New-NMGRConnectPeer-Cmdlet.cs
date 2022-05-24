@@ -28,7 +28,7 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Creates a core network connect peer for a specified core network connect attachment
+    /// Creates a core network Connect peer for a specified core network connect attachment
     /// between a core network and an appliance. The peer address and transit gateway address
     /// must be the same IP address family (IPv4 or IPv6).
     /// </summary>

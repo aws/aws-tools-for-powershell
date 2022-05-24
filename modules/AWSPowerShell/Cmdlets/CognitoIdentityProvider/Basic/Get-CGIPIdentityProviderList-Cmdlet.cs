@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists information about all identity providers for a user pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists information about all IdPs for a user pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPIdentityProviderList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ProviderDescription")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of identity providers to return.</para>
+        /// <para>The maximum number of IdPs to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

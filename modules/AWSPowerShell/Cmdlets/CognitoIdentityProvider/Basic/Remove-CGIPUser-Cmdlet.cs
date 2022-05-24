@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token from a request to delete a user.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose user profile you
+        /// want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

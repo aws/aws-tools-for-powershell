@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates an identity provider for a user pool.
+    /// Creates an IdP for a user pool.
     /// </summary>
     [Cmdlet("New", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributeMapping
         /// <summary>
         /// <para>
-        /// <para>A mapping of identity provider attributes to standard and custom user pool attributes.</para>
+        /// <para>A mapping of IdP attributes to standard and custom user pool attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter IdpIdentifier
         /// <summary>
         /// <para>
-        /// <para>A list of identity provider identifiers.</para>
+        /// <para>A list of IdP identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,8 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderDetail
         /// <summary>
         /// <para>
-        /// <para>The identity provider details. The following list describes the provider detail keys
-        /// for each identity provider type.</para><ul><li><para>For Google and Login with Amazon:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>authorize_scopes</para></li></ul></li><li><para>For Facebook:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>authorize_scopes</para></li><li><para>api_version</para></li></ul></li><li><para>For Sign in with Apple:</para><ul><li><para>client_id</para></li><li><para>team_id</para></li><li><para>key_id</para></li><li><para>private_key</para></li><li><para>authorize_scopes</para></li></ul></li><li><para>For OpenID Connect (OIDC) providers:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>attributes_request_method</para></li><li><para>oidc_issuer</para></li><li><para>authorize_scopes</para></li><li><para>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></para></li><li><para>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></para></li><li><para>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></para></li><li><para>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></para></li><li><para>attributes_url_add_attributes <i>a read-only property that is set automatically</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para>MetadataFile OR MetadataURL</para></li><li><para>IDPSignout (optional)</para></li></ul></li></ul>
+        /// <para>The IdP details. The following list describes the provider detail keys for each IdP
+        /// type.</para><ul><li><para>For Google and Login with Amazon:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>authorize_scopes</para></li></ul></li><li><para>For Facebook:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>authorize_scopes</para></li><li><para>api_version</para></li></ul></li><li><para>For Sign in with Apple:</para><ul><li><para>client_id</para></li><li><para>team_id</para></li><li><para>key_id</para></li><li><para>private_key</para></li><li><para>authorize_scopes</para></li></ul></li><li><para>For OpenID Connect (OIDC) providers:</para><ul><li><para>client_id</para></li><li><para>client_secret</para></li><li><para>attributes_request_method</para></li><li><para>oidc_issuer</para></li><li><para>authorize_scopes</para></li><li><para>The following keys are only present if Amazon Cognito didn't discover them at the
+        /// <code>oidc_issuer</code> URL.</para><ul><li><para>authorize_url </para></li><li><para>token_url </para></li><li><para>attributes_url </para></li><li><para>jwks_uri </para></li></ul></li><li><para>Amazon Cognito sets the value of the following keys automatically. They are read-only.</para><ul><li><para>attributes_url_add_attributes </para></li></ul></li></ul></li><li><para>For SAML providers:</para><ul><li><para>MetadataFile or MetadataURL</para></li><li><para>IDPSignout <i>optional</i></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The identity provider name.</para>
+        /// <para>The IdP name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderType
         /// <summary>
         /// <para>
-        /// <para>The identity provider type.</para>
+        /// <para>The IdP type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

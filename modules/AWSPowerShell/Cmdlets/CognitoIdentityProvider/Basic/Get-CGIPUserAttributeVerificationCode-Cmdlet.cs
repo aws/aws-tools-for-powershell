@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the user attribute verification code for the specified attribute name.
+    /// Generates a user attribute verification code for the specified attribute name. Sends
+    /// a message to a user with a code that they must return in a VerifyUserAttribute request.
     /// 
     ///  <note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token returned by the server response to get the user attribute verification
-        /// code.</para>
+        /// <para>A non-expired access token for the user whose attribute verification code you want
+        /// to generate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

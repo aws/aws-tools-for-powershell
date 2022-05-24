@@ -255,6 +255,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationServiceAccessStatus" OutputProperty="OrganizationStatus" Verb="Get" Noun="OrganizationServiceAccessStatusList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -276,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreCoreNetworkPolicyVersion" OutputProperty="CoreNetworkPolicy" Verb="Restore" Noun="CoreNetworkPolicyVersion" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartOrganizationServiceAccessUpdate" OutputProperty="OrganizationStatus" Verb="Start" Noun="OrganizationServiceAccessUpdate" ShouldProcessTarget="Action" PipelineParameter="Action" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

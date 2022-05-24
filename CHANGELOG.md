@@ -1,4 +1,16 @@
-﻿### 4.1.91 (2022-05-23 21:15Z)
+﻿### 4.1.92 (2022-05-24 20:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.281.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate.
+    * Modified cmdlet Update-CGIPUserPool: added parameter UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Instance: added parameter DisableApiStop.
+    * Modified cmdlet Edit-EC2InstanceAttribute: added parameter DisableApiStop.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGROrganizationServiceAccessStatusList leveraging the ListOrganizationServiceAccessStatus service API.
+    * Added cmdlet Start-NMGROrganizationServiceAccessUpdate leveraging the StartOrganizationServiceAccessUpdate service API.
+
+### 4.1.91 (2022-05-23 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.280.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon ElastiCache
     * Modified cmdlet New-ECCacheCluster: added parameter TransitEncryptionEnabled.

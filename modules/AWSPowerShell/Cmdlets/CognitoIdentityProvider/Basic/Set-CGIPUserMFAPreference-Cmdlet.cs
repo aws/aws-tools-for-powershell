@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token for the user.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose MFA preference you
+        /// want to set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

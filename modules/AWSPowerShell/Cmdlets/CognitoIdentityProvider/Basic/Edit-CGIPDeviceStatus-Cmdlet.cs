@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the user whose device status you
+        /// want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

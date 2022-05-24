@@ -15254,6 +15254,9 @@ Set-Alias -Name NMGR-ListCoreNetworkPolicyVersions -Value Get-NMGRCoreNetworkPol
 Set-Alias -Name List-NMGRCoreNetworks -Value Get-NMGRCoreNetworkList
 Set-Alias -Name List-NMGRCoreNetworkList -Value Get-NMGRCoreNetworkList
 Set-Alias -Name NMGR-ListCoreNetworks -Value Get-NMGRCoreNetworkList
+Set-Alias -Name List-NMGROrganizationServiceAccessStatus -Value Get-NMGROrganizationServiceAccessStatusList
+Set-Alias -Name List-NMGROrganizationServiceAccessStatusList -Value Get-NMGROrganizationServiceAccessStatusList
+Set-Alias -Name NMGR-ListOrganizationServiceAccessStatus -Value Get-NMGROrganizationServiceAccessStatusList
 Set-Alias -Name NMGR-ListTagsForResource -Value Get-NMGRResourceTag
 Set-Alias -Name Put-NMGRCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy
 Set-Alias -Name NMGR-PutCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy
@@ -15263,6 +15266,7 @@ Set-Alias -Name NMGR-RegisterTransitGateway -Value Register-NMGRTransitGateway
 Set-Alias -Name Reject-NMGRAttachment -Value Deny-NMGRAttachment
 Set-Alias -Name NMGR-RejectAttachment -Value Deny-NMGRAttachment
 Set-Alias -Name NMGR-RestoreCoreNetworkPolicyVersion -Value Restore-NMGRCoreNetworkPolicyVersion
+Set-Alias -Name NMGR-StartOrganizationServiceAccessUpdate -Value Start-NMGROrganizationServiceAccessUpdate
 Set-Alias -Name NMGR-StartRouteAnalysis -Value Start-NMGRRouteAnalysis
 Set-Alias -Name NMGR-TagResource -Value Add-NMGRResourceTag
 Set-Alias -Name NMGR-UntagResource -Value Remove-NMGRResourceTag
