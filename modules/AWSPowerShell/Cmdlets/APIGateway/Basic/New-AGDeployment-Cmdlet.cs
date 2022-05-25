@@ -28,8 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable
-    /// over the internet.
+    /// Creates a Deployment resource, which makes a specified RestApi callable over the internet.
     /// </summary>
     [Cmdlet("New", "AGDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateDeploymentResponse")]
@@ -43,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CacheClusterEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables a cache cluster for the <a>Stage</a> resource specified in the input.</para>
+        /// <para>Enables a cache cluster for the Stage resource specified in the input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CacheClusterSize
         /// <summary>
         /// <para>
-        /// <para>Specifies the cache cluster size for the <a>Stage</a> resource specified in the input,
-        /// if a cache cluster is enabled.</para>
+        /// <para>Specifies the cache cluster size for the Stage resource specified in the input, if
+        /// a cache cluster is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for the <a>Deployment</a> resource to create.</para>
+        /// <para>The description for the Deployment resource to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,8 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageDescription
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>Stage</a> resource for the <a>Deployment</a> resource to
-        /// create.</para>
+        /// <para>The description of the Stage resource for the Deployment resource to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</para>
+        /// <para>The name of the Stage resource for the Deployment resource to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TracingEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</para>
+        /// <para>Specifies whether active tracing with X-ray is enabled for the Stage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Variable
         /// <summary>
         /// <para>
-        /// <para>A map that defines the stage variables for the <a>Stage</a> resource that is associated
-        /// with the new deployment. Variable names can have alphanumeric and underscore characters,
+        /// <para>A map that defines the stage variables for the Stage resource that is associated with
+        /// the new deployment. Variable names can have alphanumeric and underscore characters,
         /// and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
         /// </para>
         /// </summary>

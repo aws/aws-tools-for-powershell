@@ -28,8 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a customization of a <a>GatewayResponse</a> of a specified response type and
-    /// status code on the given <a>RestApi</a>.
+    /// Creates a customization of a GatewayResponse of a specified response type and status
+    /// code on the given RestApi.
     /// </summary>
     [Cmdlet("Write", "AGGatewayResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.PutGatewayResponseResponse")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResponseParameter
         /// <summary>
         /// <para>
-        /// <para><para>Response parameters (paths, query strings and headers) of the <a>GatewayResponse</a>
-        /// as a string-to-string map of key-value pairs.</para></para>
+        /// <para>Response parameters (paths, query strings and headers) of the GatewayResponse as a
+        /// string-to-string map of key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResponseTemplate
         /// <summary>
         /// <para>
-        /// <para><para>Response templates of the <a>GatewayResponse</a> as a string-to-string map of key-value
-        /// pairs.</para></para>
+        /// <para>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResponseType
         /// <summary>
         /// <para>
-        /// <para>[Required] 
-        /// <para>The response type of the associated <a>GatewayResponse</a>.</para></para>
+        /// <para>The response type of the associated GatewayResponse</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// The HTTP status code of the <a>GatewayResponse</a>.
+        /// <para>The HTTP status code of the GatewayResponse.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies whether to block resource-based policies that allow broad access to the
-        /// secret. By default, Secrets Manager blocks policies that allow broad access, for example
-        /// those that use a wildcard for the principal.</para>
+        /// secret, for example those that use a wildcard for the principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

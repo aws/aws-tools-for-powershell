@@ -28,10 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Create an <a>ApiKey</a> resource. 
-    /// 
-    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS
-    /// CLI</a></div>
+    /// Create an ApiKey resource.
     /// </summary>
     [Cmdlet("New", "AGApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateApiKeyResponse")]
@@ -55,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>ApiKey</a>.</para>
+        /// <para>The description of the ApiKey.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <a>ApiKey</a> can be used by callers.</para>
+        /// <para>Specifies whether the ApiKey can be used by callers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>ApiKey</a>.</para>
+        /// <para>The name of the ApiKey.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

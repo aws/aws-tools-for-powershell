@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a new <a>RestApi</a> resource.
+    /// Creates a new RestApi resource.
     /// </summary>
     [Cmdlet("New", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateRestApiResponse")]
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The source of the API key for metering requests according to a usage plan. Valid values
-        /// are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code>
-        /// header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the
-        /// <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul></para>
+        /// are: &gt;<code>HEADER</code> to read the API key from the <code>X-API-Key</code> header
+        /// of a request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
+        /// from a custom authorizer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BinaryMediaType
         /// <summary>
         /// <para>
-        /// <para>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a>
-        /// supports only UTF-8-encoded text payloads.</para>
+        /// <para>The list of binary media types supported by the RestApi. By default, the RestApi supports
+        /// only UTF-8-encoded text payloads.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CloneFrom
         /// <summary>
         /// <para>
-        /// <para>The ID of the <a>RestApi</a> that you want to clone from.</para>
+        /// <para>The ID of the RestApi that you want to clone from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>RestApi</a>.</para>
+        /// <para>The description of the RestApi.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies whether clients can invoke your API by using the default <code>execute-api</code>
-        /// endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com
+        /// endpoint. By default, clients can invoke your API with the default <code>https://{api_id}.execute-api.{region}.amazonaws.com</code>
         /// endpoint. To require that clients use a custom domain name to invoke your API, disable
-        /// the default endpoint.</para>
+        /// the default endpoint</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>RestApi</a>.</para>
+        /// <para>The name of the RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// A stringified JSON policy document that applies
-        /// to this RestApi regardless of the caller and <a>Method</a> configuration.
+        /// <para>A stringified JSON policy document that applies to this RestApi regardless of the
+        /// caller and Method configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter EndpointConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>).
+        /// <para>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
         /// For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>.
         /// For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>.
         /// For a private API, the endpoint type is <code>PRIVATE</code>.</para>
@@ -180,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter EndpointConfiguration_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>A list of VpcEndpointIds of an API (<a>RestApi</a>) against which to create Route53
-        /// ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</para>
+        /// <para>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes.
+        /// It is only supported for <code>PRIVATE</code> endpoint type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

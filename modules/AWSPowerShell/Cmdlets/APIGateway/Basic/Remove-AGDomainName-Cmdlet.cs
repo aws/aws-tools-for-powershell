@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the <a>DomainName</a> resource.
+    /// Deletes the DomainName resource.
     /// </summary>
     [Cmdlet("Remove", "AGDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>DomainName</a> resource to be deleted.</para>
+        /// <para>The name of the DomainName resource to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

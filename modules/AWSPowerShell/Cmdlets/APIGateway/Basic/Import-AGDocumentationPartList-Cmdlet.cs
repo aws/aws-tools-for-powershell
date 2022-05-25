@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Imports documentation parts
     /// </summary>
     [Cmdlet("Import", "AGDocumentationPartList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.ImportDocumentationPartsResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>[Required] Raw byte array representing the to-be-imported documentation parts. To
-        /// import from an OpenAPI file, this is a JSON object.</para>
+        /// <para>Raw byte array representing the to-be-imported documentation parts. To import from
+        /// an OpenAPI file, this is a JSON object.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing
-        /// <a>DocumentationParts</a> definition or to merge (<code>MERGE</code>) the new definition
+        /// DocumentationParts definition or to merge (<code>MERGE</code>) the new definition
         /// into the existing one. The default value is <code>MERGE</code>.</para>
         /// </para>
         /// </summary>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

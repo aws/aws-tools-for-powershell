@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </para></li><li><para>
     /// Making the extension available for use in your account.
     /// </para></li></ul><para>
-    /// For more information on how to develop extensions and ready them for registration,
+    /// For more information about how to develop extensions and ready them for registration,
     /// see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating
     /// Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.
     /// </para><para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
         /// the extension.</para><para>For CloudFormation to assume the specified execution role, the role must contain a
         /// trust relationship with the CloudFormation service principle (<code>resources.cloudformation.amazonaws.com</code>).
-        /// For more information on adding trust relationships, see <a href="IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
+        /// For more information about adding trust relationships, see <a href="IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
         /// a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</para><para>If your extension calls Amazon Web Services APIs in any of its handlers, you must
         /// create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
         /// execution role</a></i> that includes the necessary permissions to call those Amazon
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>A URL to the S3 bucket containing the extension project package that contains the
-        /// necessary files for the extension you want to register.</para><para>For information on generating a schema handler package for the extension you want
+        /// necessary files for the extension you want to register.</para><para>For information about generating a schema handler package for the extension you want
         /// to register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a>
         /// in the <i>CloudFormation CLI User Guide</i>.</para><note><para>The user registering the extension must be able to access the package in the S3 bucket.
         /// That's, the user needs to have <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension being registered.</para><para>We recommend that extension names adhere to the following patterns:</para><ul><li><para>For resource types, <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</para></li><li><para>For modules, <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</para></li></ul><note><para>The following organization namespaces are reserved and can't be used in your extension
+        /// <para>The name of the extension being registered.</para><para>We suggest that extension names adhere to the following patterns:</para><ul><li><para>For resource types, <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</para></li><li><para>For modules, <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</para></li><li><para>For hooks, <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</para></li></ul><note><para>The following organization namespaces are reserved and can't be used in your extension
         /// names:</para><ul><li><para><code>Alexa</code></para></li><li><para><code>AMZN</code></para></li><li><para><code>Amazon</code></para></li><li><para><code>AWS</code></para></li><li><para><code>Custom</code></para></li><li><para><code>Dev</code></para></li></ul></note>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes an existing <a>VpcLink</a> of a specified identifier.
+    /// Deletes an existing VpcLink of a specified identifier.
     /// </summary>
     [Cmdlet("Remove", "AGVpcLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter VpcLinkId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>VpcLink</a>. It is used in an <a>Integration</a>
-        /// to reference this <a>VpcLink</a>.</para>
+        /// <para>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

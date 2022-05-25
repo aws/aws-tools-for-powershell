@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Embed
         /// <summary>
         /// <para>
-        /// <para>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a>
+        /// <para>A query parameter to retrieve the specified resources embedded in the returned Resource
         /// representation in the response. This <code>embed</code> parameter value is a list
         /// of comma-separated strings. Currently, the request supports only retrieval of the
-        /// embedded <a>Method</a> resources this way. The query parameter value must be a single-valued
+        /// embedded Method resources this way. The query parameter value must be a single-valued
         /// list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</para>
         /// </para>
         /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier for the <a>Resource</a> resource.</para>
+        /// <para>The identifier for the Resource resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

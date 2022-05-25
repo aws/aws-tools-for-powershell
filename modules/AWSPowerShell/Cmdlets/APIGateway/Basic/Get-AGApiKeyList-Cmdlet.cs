@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ApiKeys</a> resource.<br/><br/>In the AWS.Tools.APIGateway module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets information about the current ApiKeys resource.<br/><br/>In the AWS.Tools.APIGateway module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AGApiKeyList")]
     [OutputType("Amazon.APIGateway.Model.GetApiKeysResponse")]

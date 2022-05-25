@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_CaptureOption
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies data Model Monitor will capture. You can configure whether to collect only
+        /// input, only output, or both</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CaptureContentTypeHeader_CsvContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of all content type headers that SageMaker will treat as CSV and capture
+        /// accordingly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_DestinationS3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon S3 location used to capture the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_EnableCapture
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Whether data capture should be enabled or disabled (defaults to enabled).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_InitialSamplingPercentage
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The percentage of requests SageMaker will capture. A lower value is recommended for
+        /// Endpoints with high traffic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CaptureContentTypeHeader_JsonContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of all content type headers that SageMaker will treat as JSON and capture
+        /// accordingly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
+        /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

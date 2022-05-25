@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>A list of IDs of subnets that App Runner should use when it associates your service
         /// with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner
-        /// determines the Amazon VPC from the subnets you specify.</para>
+        /// determines the Amazon VPC from the subnets you specify.</para><note><para> App Runner currently only provides support for IPv4. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

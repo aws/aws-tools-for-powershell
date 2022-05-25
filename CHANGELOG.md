@@ -1,4 +1,12 @@
-﻿### 4.1.92 (2022-05-24 20:19Z)
+﻿### 4.1.93 (2022-05-25 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.282.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Lookout for Metrics
+    * Modified cmdlet New-LOMMetricSet: added parameters AthenaSourceConfig_DatabaseName, AthenaSourceConfig_DataCatalog, AthenaSourceConfig_RoleArn, AthenaSourceConfig_S3ResultsPath, AthenaSourceConfig_TableName, AthenaSourceConfig_WorkGroupName and BackTestConfiguration_RunBackTestMode.
+    * Modified cmdlet Update-LOMMetricSet: added parameters AthenaSourceConfig_DatabaseName, AthenaSourceConfig_DataCatalog, AthenaSourceConfig_RoleArn, AthenaSourceConfig_S3ResultsPath, AthenaSourceConfig_TableName, AthenaSourceConfig_WorkGroupName and BackTestConfiguration_RunBackTestMode.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJob: added parameter CandidateGenerationConfig_FeatureSpecificationS3Uri.
+
+### 4.1.92 (2022-05-24 20:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.281.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameter UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate.

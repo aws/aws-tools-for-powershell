@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Use <code><a>DescribeStackInstance</a></code> to return detailed information about
     /// a specific stack instance, including its drift status and last drift time checked.
     /// </para></li></ul><para>
-    /// For more information on performing a drift detection operation on a stack set, see
-    /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting
+    /// For more information about performing a drift detection operation on a stack set,
+    /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting
     /// unmanaged changes in stack sets</a>.
     /// </para><para>
     /// You can only run a single drift detection operation on a given stack set at one time.

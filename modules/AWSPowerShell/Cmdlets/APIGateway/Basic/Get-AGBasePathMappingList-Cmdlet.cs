@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Represents a collection of <a>BasePathMapping</a> resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Represents a collection of BasePathMapping resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AGBasePathMappingList")]
     [OutputType("Amazon.APIGateway.Model.BasePathMapping")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The domain name of a <a>BasePathMapping</a> resource.</para>
+        /// <para>The domain name of a BasePathMapping resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: Extensions that are visible and usable within this account
         /// and region. This includes:</para><ul><li><para>Private extensions you have registered in this account and region.</para></li><li><para>Public extensions that you have activated in this account and region.</para></li></ul></li><li><para><code>PUBLIC</code>: Extensions that are publicly visible and available to be activated
-        /// within any Amazon account. This includes extensions from Amazon, as well as third-party
-        /// publishers.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
+        /// within any Amazon Web Services account. This includes extensions from Amazon Web Services,
+        /// in addition to third-party publishers.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous paginated request didn't return all of the remaining results, the
-        /// response object's <code>NextToken</code> parameter value is set to a token. To retrieve
-        /// the next set of results, call this action again and assign that token to the request
-        /// object's <code>NextToken</code> parameter. If there are no remaining results, the
-        /// previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// <para>If the previous paginated request didn't return all the remaining results, the response
+        /// object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+        /// next set of results, call this action again and assign that token to the request object's
+        /// <code>NextToken</code> parameter. If there are no remaining results, the previous
+        /// response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

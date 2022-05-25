@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Publishes the specified extension to the CloudFormation registry as a public extension
     /// in this region. Public extensions are available for use by all CloudFormation users.
-    /// For more information on publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
+    /// For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
     /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
     /// User Guide</i>.
     /// 
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The payload of the POST request to import API keys. For the payload format, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html">API
-        /// Key File Format</a>.</para>
+        /// <para>The payload of the POST request to import API keys. For the payload format, see API
+        /// Key File Format.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>)
+        /// <para>A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>)
         /// or not (<code>false</code>) when error is encountered.</para>
         /// </para>
         /// </summary>

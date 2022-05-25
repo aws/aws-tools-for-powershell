@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Updates an existing <a>MethodResponse</a> resource.
+    /// Updates an existing MethodResponse resource.
     /// </summary>
     [Cmdlet("Update", "AGMethodResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateMethodResponseResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>[Required] The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>The HTTP verb of the Method resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch
+        /// Operations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</para>
+        /// <para>The Resource identifier for the MethodResponse resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>[Required] The status code for the <a>MethodResponse</a> resource.</para>
+        /// <para>The status code for the MethodResponse resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

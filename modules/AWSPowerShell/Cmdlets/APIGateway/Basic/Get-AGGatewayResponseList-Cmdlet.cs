@@ -28,10 +28,9 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API
-    /// developer has not added any definitions for gateway responses, the result will be
-    /// the API Gateway-generated default <a>GatewayResponses</a> collection for the supported
-    /// response types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets the GatewayResponses collection on the given RestApi. If an API developer has
+    /// not added any definitions for gateway responses, the result will be the API Gateway-generated
+    /// default GatewayResponses collection for the supported response types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AGGatewayResponseList")]
     [OutputType("Amazon.APIGateway.Model.GatewayResponse")]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The maximum number of returned results per page. The default value is 25 and the maximum
-        /// value is 500. The <a>GatewayResponses</a> collection does not support pagination and
-        /// the limit does not apply here.</para>
+        /// value is 500. The GatewayResponses collection does not support pagination and the
+        /// limit does not apply here.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>The current pagination position in the paged result set. The <a>GatewayResponse</a>
-        /// collection does not support pagination and the position does not apply here.</para>
+        /// <para>The current pagination position in the paged result set. The GatewayResponse collection
+        /// does not support pagination and the position does not apply here.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

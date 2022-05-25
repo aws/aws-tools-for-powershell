@@ -44,9 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Specifies how to handle response payload content type conversions. Supported values
         /// are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following
-        /// behaviors:</para><ul><li><para><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded
-        /// string to the corresponding binary blob.</para></li><li><para><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a
-        /// Base64-encoded string.</para></li></ul><para>If this property is not defined, the response payload will be passed through from
+        /// behaviors:</para><para>If this property is not defined, the response payload will be passed through from
         /// the integration response to the method response without modification.</para>
         /// </para>
         /// </summary>
@@ -58,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a put integration response request's HTTP method.</para>
+        /// <para>Specifies a put integration response request's HTTP method.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a put integration response request's resource identifier.</para>
+        /// <para>Specifies a put integration response request's resource identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies the status code that is used to map the integration response
-        /// to an existing <a>MethodResponse</a>.</para>
+        /// <para>Specifies the status code that is used to map the integration response to an existing
+        /// MethodResponse.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

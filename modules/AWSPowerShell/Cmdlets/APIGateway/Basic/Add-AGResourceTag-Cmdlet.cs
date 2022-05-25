@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged.</para>
+        /// <para>The ARN of a resource that can be tagged.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/].
-        /// The tag key can be up to 128 characters and must not start with <code>aws:</code>.
-        /// The tag value can be up to 256 characters.</para>
+        /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
+        /// key can be up to 128 characters and must not start with <code>aws:</code>. The tag
+        /// value can be up to 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

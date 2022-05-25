@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Exports a deployed version of a <a>RestApi</a> in a specified format.
+    /// Exports a deployed version of a RestApi in a specified format.
     /// </summary>
     [Cmdlet("Get", "AGExport")]
     [OutputType("Amazon.APIGateway.Model.GetExportResponse")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ExportType
         /// <summary>
         /// <para>
-        /// <para>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and
-        /// 'swagger' for Swagger/OpenAPI 2.0.</para>
+        /// <para>The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger'
+        /// for Swagger/OpenAPI 2.0.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>Stage</a> that will be exported.</para>
+        /// <para>The name of the Stage that will be exported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

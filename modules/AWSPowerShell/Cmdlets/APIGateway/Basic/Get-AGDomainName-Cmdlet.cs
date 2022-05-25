@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>DomainName</a> resource.</para>
+        /// <para>The name of the DomainName resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

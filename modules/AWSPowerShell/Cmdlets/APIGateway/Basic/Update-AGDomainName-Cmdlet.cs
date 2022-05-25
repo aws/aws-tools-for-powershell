@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Changes information about the <a>DomainName</a> resource.
+    /// Changes information about the DomainName resource.
     /// </summary>
     [Cmdlet("Update", "AGDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateDomainNameResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>DomainName</a> resource to be changed.</para>
+        /// <para>The name of the DomainName resource to be changed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch
+        /// Operations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

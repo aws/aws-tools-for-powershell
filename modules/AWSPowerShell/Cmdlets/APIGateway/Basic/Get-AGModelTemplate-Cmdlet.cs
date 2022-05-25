@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the model for which to generate a template.</para>
+        /// <para>The name of the model for which to generate a template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter SNSConfiguration_SnsFormat
         /// <summary>
         /// <para>
-        /// <para>The text format for alerts.</para>
+        /// <para>The format of the SNS topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

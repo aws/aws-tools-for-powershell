@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Creates a documentation part.
     /// </summary>
     [Cmdlet("New", "AGDocumentationPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateDocumentationPartResponse")]
@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Property
         /// <summary>
         /// <para>
-        /// <para>[Required] The new documentation content map of the targeted API entity. Enclosed
-        /// key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be
-        /// exported and, hence, published.</para>
+        /// <para>The new documentation content map of the targeted API entity. Enclosed key-value pairs
+        /// are API-specific, but only OpenAPI-compliant key-value pairs can be exported and,
+        /// hence, published.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Location_Type
         /// <summary>
         /// <para>
-        /// <para>[Required] The type of API entity to which the documentation content applies. Valid
-        /// values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>,
+        /// <para>The type of API entity to which the documentation content applies. Valid values are
+        /// <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>,
         /// <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,
         /// <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and
         /// <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the

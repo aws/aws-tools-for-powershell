@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describes an existing model defined for a <a>RestApi</a> resource.
+    /// Describes an existing model defined for a RestApi resource.
     /// </summary>
     [Cmdlet("Get", "AGModel")]
     [OutputType("Amazon.APIGateway.Model.GetModelResponse")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the model as an identifier.</para>
+        /// <para>The name of the model as an identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</para>
+        /// <para>The RestApi identifier under which the Model exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

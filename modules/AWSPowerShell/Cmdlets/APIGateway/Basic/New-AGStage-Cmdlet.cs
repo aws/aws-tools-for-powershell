@@ -28,8 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a>
-    /// for the API.
+    /// Creates a new Stage resource that references a pre-existing Deployment for the API.
     /// </summary>
     [Cmdlet("New", "AGStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateStageResponse")]
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</para>
+        /// <para>The identifier of the Deployment resource for the Stage resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>Stage</a> resource.</para>
+        /// <para>The description of the Stage resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric
-        /// characters, hyphens, and underscores. Maximum length is 128 characters.</para>
+        /// <para>The name for the Stage resource. Stage names can only contain alphanumeric characters,
+        /// hyphens, and underscores. Maximum length is 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TracingEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</para>
+        /// <para>Specifies whether active tracing with X-ray is enabled for the Stage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Variable
         /// <summary>
         /// <para>
-        /// <para>A map that defines the stage variables for the new <a>Stage</a> resource. Variable
-        /// names can have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
+        /// <para>A map that defines the stage variables for the new Stage resource. Variable names
+        /// can have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

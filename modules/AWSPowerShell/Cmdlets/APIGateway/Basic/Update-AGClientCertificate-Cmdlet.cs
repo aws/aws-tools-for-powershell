@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Changes information about an <a>ClientCertificate</a> resource.
+    /// Changes information about an ClientCertificate resource.
     /// </summary>
     [Cmdlet("Update", "AGClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateClientCertificateResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>ClientCertificate</a> resource to be updated.</para>
+        /// <para>The identifier of the ClientCertificate resource to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch
+        /// Operations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

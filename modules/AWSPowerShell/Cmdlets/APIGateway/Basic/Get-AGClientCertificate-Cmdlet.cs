@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ClientCertificate</a> resource.
+    /// Gets information about the current ClientCertificate resource.
     /// </summary>
     [Cmdlet("Get", "AGClientCertificate")]
     [OutputType("Amazon.APIGateway.Model.GetClientCertificateResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>ClientCertificate</a> resource to be described.</para>
+        /// <para>The identifier of the ClientCertificate resource to be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

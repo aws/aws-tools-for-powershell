@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about a <a>Deployment</a> resource.
+    /// Gets information about a Deployment resource.
     /// </summary>
     [Cmdlet("Get", "AGDeployment")]
     [OutputType("Amazon.APIGateway.Model.GetDeploymentResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>Deployment</a> resource to get information about.</para>
+        /// <para>The identifier of the Deployment resource to get information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Embed
         /// <summary>
         /// <para>
-        /// <para>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a>
+        /// <para>A query parameter to retrieve the specified embedded resources of the returned Deployment
         /// resource in the response. In a REST API call, this <code>embed</code> parameter value
         /// is a list of comma-separated strings, as in <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>.
         /// The SDK and other platform-dependent libraries might use a different format for the
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

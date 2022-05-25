@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.
+    /// Gets a RequestValidator of a given RestApi.
     /// </summary>
     [Cmdlet("Get", "AGRequestValidator")]
     [OutputType("Amazon.APIGateway.Model.GetRequestValidatorResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RequestValidatorId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>RequestValidator</a> to be retrieved.</para>
+        /// <para>The identifier of the RequestValidator to be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

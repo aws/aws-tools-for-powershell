@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describes a <a>MethodResponse</a> resource.
+    /// Describes a MethodResponse resource.
     /// </summary>
     [Cmdlet("Get", "AGMethodResponse")]
     [OutputType("Amazon.APIGateway.Model.GetMethodResponseResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>[Required] The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>The HTTP verb of the Method resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</para>
+        /// <para>The Resource identifier for the MethodResponse resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>[Required] The status code for the <a>MethodResponse</a> resource.</para>
+        /// <para>The status code for the MethodResponse resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

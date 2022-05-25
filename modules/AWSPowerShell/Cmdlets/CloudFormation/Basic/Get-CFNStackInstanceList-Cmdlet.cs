@@ -129,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous request didn't return all of the remaining results, the response's
-        /// <code>NextToken</code> parameter value is set to a token. To retrieve the next set
-        /// of results, call <code>ListStackInstances</code> again and assign that token to the
-        /// request object's <code>NextToken</code> parameter. If there are no remaining results,
-        /// the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// <para>If the previous request didn't return all the remaining results, the response's <code>NextToken</code>
+        /// parameter value is set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
+        /// again and assign that token to the request object's <code>NextToken</code> parameter.
+        /// If there are no remaining results, the previous response object's <code>NextToken</code>
+        /// parameter is set to <code>null</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

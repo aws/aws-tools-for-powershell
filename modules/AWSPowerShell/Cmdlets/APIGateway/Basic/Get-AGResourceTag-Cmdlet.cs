@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets the <a>Tags</a> collection for a given resource.
+    /// Gets the Tags collection for a given resource.
     /// </summary>
     [Cmdlet("Get", "AGResourceTag")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged.</para>
+        /// <para>The ARN of a resource that can be tagged.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged.</para>
+        /// <para>The ARN of a resource that can be tagged.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>[Required] The Tag keys to delete.</para>
+        /// <para>The Tag keys to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

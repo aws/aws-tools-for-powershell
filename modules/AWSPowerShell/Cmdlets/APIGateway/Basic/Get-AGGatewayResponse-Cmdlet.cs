@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.
+    /// Gets a GatewayResponse of a specified response type on the given RestApi.
     /// </summary>
     [Cmdlet("Get", "AGGatewayResponse")]
     [OutputType("Amazon.APIGateway.Model.GetGatewayResponseResponse")]
@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResponseType
         /// <summary>
         /// <para>
-        /// <para>[Required] 
-        /// <para>The response type of the associated <a>GatewayResponse</a>.</para></para>
+        /// <para>The response type of the associated GatewayResponse.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

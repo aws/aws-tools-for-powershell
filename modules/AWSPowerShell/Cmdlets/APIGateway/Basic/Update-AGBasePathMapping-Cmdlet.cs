@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Changes information about the <a>BasePathMapping</a> resource.
+    /// Changes information about the BasePathMapping resource.
     /// </summary>
     [Cmdlet("Update", "AGBasePathMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateBasePathMappingResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>[Required] The base path of the <a>BasePathMapping</a> resource to change.</para><para>To specify an empty base path, set this parameter to <code>'(none)'</code>.</para>
+        /// <para>The base path of the BasePathMapping resource to change.</para><para>To specify an empty base path, set this parameter to <code>'(none)'</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to change.</para>
+        /// <para>The domain name of the BasePathMapping resource to change.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch
+        /// Operations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

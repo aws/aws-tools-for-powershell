@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter PublisherId
         /// <summary>
         /// <para>
-        /// <para>The publisher ID of the extension publisher.</para><para>Extensions provided by Amazon are not assigned a publisher ID.</para>
+        /// <para>The publisher ID of the extension publisher.</para><para>Extensions provided by Amazon Web Services are not assigned a publisher ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

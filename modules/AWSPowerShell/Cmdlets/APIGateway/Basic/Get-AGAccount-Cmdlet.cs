@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>Account</a> resource.
+    /// Gets information about the current Account resource.
     /// </summary>
     [Cmdlet("Get", "AGAccount")]
     [OutputType("Amazon.APIGateway.Model.GetAccountResponse")]

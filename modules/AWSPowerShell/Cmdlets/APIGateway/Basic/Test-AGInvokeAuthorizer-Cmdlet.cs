@@ -28,12 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers,
-    /// parameters, and an incoming request body.
-    /// 
-    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use
-    /// Lambda Function as Authorizer</a><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use
-    /// Cognito User Pool as Authorizer</a></div>
+    /// Simulate the execution of an Authorizer in your RestApi with headers, parameters,
+    /// and an incoming request body.
     /// </summary>
     [Cmdlet("Test", "AGInvokeAuthorizer")]
     [OutputType("Amazon.APIGateway.Model.TestInvokeAuthorizerResponse")]
@@ -47,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AdditionalContext
         /// <summary>
         /// <para>
-        /// <para>[Optional] A key-value map of additional context variables.</para>
+        /// <para>A key-value map of additional context variables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthorizerId
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a test invoke authorizer request's <a>Authorizer</a> ID.</para>
+        /// <para>Specifies a test invoke authorizer request's Authorizer ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>[Optional] The simulated request body of an incoming invocation request.</para>
+        /// <para>The simulated request body of an incoming invocation request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Header
         /// <summary>
         /// <para>
-        /// <para>[Required] A key-value map of headers to simulate an incoming invocation request.
-        /// This is where the incoming authorization token, or identity source, should be specified.</para>
+        /// <para>A key-value map of headers to simulate an incoming invocation request. This is where
+        /// the incoming authorization token, or identity source, should be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter MultiValueHeader
         /// <summary>
         /// <para>
-        /// <para>[Optional] The headers as a map from string to list of values to simulate an incoming
-        /// invocation request. This is where the incoming authorization token, or identity source,
-        /// may be specified.</para>
+        /// <para>The headers as a map from string to list of values to simulate an incoming invocation
+        /// request. This is where the incoming authorization token, or identity source, may be
+        /// specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PathWithQueryString
         /// <summary>
         /// <para>
-        /// <para>[Optional] The URI path, including query string, of the simulated invocation request.
-        /// Use this to specify path parameters and query string parameters.</para>
+        /// <para>The URI path, including query string, of the simulated invocation request. Use this
+        /// to specify path parameters and query string parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageVariable
         /// <summary>
         /// <para>
-        /// <para>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</para>
+        /// <para>A key-value map of stage variables to simulate an invocation on a deployed Stage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

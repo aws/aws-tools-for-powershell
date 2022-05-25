@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Generates a <a>ClientCertificate</a> resource.
+    /// Generates a ClientCertificate resource.
     /// </summary>
     [Cmdlet("New", "AGClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.GenerateClientCertificateResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>ClientCertificate</a>.</para>
+        /// <para>The description of the ClientCertificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>[Required] The PUT request body containing external API definitions. Currently, only
-        /// OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition
-        /// file is 6MB.</para>
+        /// <para>The PUT request body containing external API definitions. Currently, only OpenAPI
+        /// definition JSON/YAML files are supported. The maximum size of the API definition file
+        /// is 6MB.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a>
+        /// <para>Custom header parameters as part of the request. For example, to exclude DocumentationParts
         /// from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code>
         /// value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters
         /// ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

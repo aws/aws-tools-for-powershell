@@ -28,10 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.
-    /// 
-    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS
-    /// CLI</a></div>
+    /// Adds a new Authorizer resource to an existing RestApi resource.
     /// </summary>
     [Cmdlet("New", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateAuthorizerResponse")]
@@ -100,23 +97,23 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IdentitySource
         /// <summary>
         /// <para>
-        /// <para>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code>
+        /// <para>The identity source for which authorization is requested. For a <code>TOKEN</code>
         /// or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the
         /// request header mapping expression for the custom header holding the authorization
         /// token submitted by the client. For example, if the token header name is <code>Auth</code>,
-        /// the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For
-        /// the <code>REQUEST</code> authorizer, this is required when authorization caching is
-        /// enabled. The value is a comma-separated string of one or more mapping expressions
-        /// of the specified request parameters. For example, if an <code>Auth</code> header,
-        /// a <code>Name</code> query string parameter are defined as identity sources, this value
-        /// is <code>method.request.header.Auth, method.request.querystring.Name</code>. These
-        /// parameters will be used to derive the authorization caching key and to perform runtime
-        /// validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related
-        /// request parameters are present, not null and non-empty. Only when this is true does
-        /// the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401
-        /// Unauthorized response without calling the Lambda function. The valid value is a string
-        /// of comma-separated mapping expressions of the specified request parameters. When the
-        /// authorization caching is not enabled, this property is optional.</li></ul></para>
+        /// the header mapping expression is <code>method.request.header.Auth</code>. For the
+        /// <code>REQUEST</code> authorizer, this is required when authorization caching is enabled.
+        /// The value is a comma-separated string of one or more mapping expressions of the specified
+        /// request parameters. For example, if an <code>Auth</code> header, a <code>Name</code>
+        /// query string parameter are defined as identity sources, this value is <code>method.request.header.Auth,
+        /// method.request.querystring.Name</code>. These parameters will be used to derive the
+        /// authorization caching key and to perform runtime validation of the <code>REQUEST</code>
+        /// authorizer by verifying all of the identity-related request parameters are present,
+        /// not null and non-empty. Only when this is true does the authorizer invoke the authorizer
+        /// Lambda function, otherwise, it returns a 401 Unauthorized response without calling
+        /// the Lambda function. The valid value is a string of comma-separated mapping expressions
+        /// of the specified request parameters. When the authorization caching is not enabled,
+        /// this property is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the authorizer.</para>
+        /// <para>The name of the authorizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code>
         /// authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.
-        /// For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined.</para>
+        /// For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -188,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function
-        /// using a single authorization token submitted in a custom header, <code>REQUEST</code>
-        /// for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code>
+        /// <para>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using
+        /// a single authorization token submitted in a custom header, <code>REQUEST</code> for
+        /// a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code>
         /// for using an Amazon Cognito user pool.</para>
         /// </para>
         /// </summary>

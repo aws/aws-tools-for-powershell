@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.
+    /// Adds a new Model resource to an existing RestApi resource.
     /// </summary>
     [Cmdlet("New", "AGModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateModelResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>[Required] The content-type for the model.</para>
+        /// <para>The content-type for the model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the model. Must be alphanumeric.</para>
+        /// <para>The name of the model. Must be alphanumeric.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</para>
+        /// <para>The RestApi identifier under which the Model will be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,8 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The schema for the model. For <code>application/json</code> models, this should be
-        /// <a href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON
-        /// schema draft 4</a> model.</para>
+        /// JSON schema draft 4 model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

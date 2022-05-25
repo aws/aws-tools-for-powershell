@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the <a>BasePathMapping</a> resource.
+    /// Deletes the BasePathMapping resource.
     /// </summary>
     [Cmdlet("Remove", "AGBasePathMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</para><para>To specify an empty base path, set this parameter to <code>'(none)'</code>.</para>
+        /// <para>The base path name of the BasePathMapping resource to delete.</para><para>To specify an empty base path, set this parameter to <code>'(none)'</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</para>
+        /// <para>The domain name of the BasePathMapping resource to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

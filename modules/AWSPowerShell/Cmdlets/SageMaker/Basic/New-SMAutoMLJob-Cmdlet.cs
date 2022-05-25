@@ -101,6 +101,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelDeployConfig_EndpointName { get; set; }
         #endregion
         
+        #region Parameter CandidateGenerationConfig_FeatureSpecificationS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>A URL to the Amazon S3 data source containing selected features from the input data
+        /// source to run an Autopilot job (optional). This file should be in json format as shown
+        /// below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in <code>["col1",
+        /// "col2", ...]</code> is case sensitive and should be a list of strings containing unique
+        /// values that are a subset of the column names in the input data. The list of columns
+        /// provided must not include the target column.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLJobConfig_CandidateGenerationConfig_FeatureSpecificationS3Uri")]
+        public System.String CandidateGenerationConfig_FeatureSpecificationS3Uri { get; set; }
+        #endregion
+        
         #region Parameter GenerateCandidateDefinitionsOnly
         /// <summary>
         /// <para>
@@ -117,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of channel objects that describes the input data and its location. Each channel
         /// is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s)
-        /// supported: CSV. Minimum of 500 rows.</para>
+        /// supported: CSV, Parquet. A minimum of 500 rows is required for the training dataset.
+        /// There is not a minimum number of rows required for the validation dataset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -234,9 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProblemType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of supervised learning available for the candidates. Options include:
-        /// <code>BinaryClassification</code>, <code>MulticlassClassification</code>, and <code>Regression</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+        /// <para>Defines the type of supervised learning available for the candidates. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
         /// Amazon SageMaker Autopilot problem types and algorithm support</a>.</para>
         /// </para>
         /// </summary>
@@ -319,8 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The validation fraction (optional) is a float that specifies the portion of the training
-        /// dataset to be used for validation. The default value is 0.2, and values can range
-        /// from 0 to 1. We recommend setting this value to be less than 0.5.</para>
+        /// dataset to be used for validation. The default value is 0.2, and values must be greater
+        /// than 0 and less than 1. We recommend setting this value to be less than 0.5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.AutoMLJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CandidateGenerationConfig_FeatureSpecificationS3Uri = this.CandidateGenerationConfig_FeatureSpecificationS3Uri;
             context.CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
             context.CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
@@ -475,6 +492,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate AutoMLJobConfig
             var requestAutoMLJobConfigIsNull = true;
             request.AutoMLJobConfig = new Amazon.SageMaker.Model.AutoMLJobConfig();
+            Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
+            
+             // populate CandidateGenerationConfig
+            var requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = true;
+            requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig();
+            System.String requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = null;
+            if (cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig.FeatureSpecificationS3Uri = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri;
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+             // determine if requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig should be set to null
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig != null)
+            {
+                request.AutoMLJobConfig.CandidateGenerationConfig = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig;
+                requestAutoMLJobConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.AutoMLDataSplitConfig requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig = null;
             
              // populate DataSplitConfig
@@ -782,6 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CandidateGenerationConfig_FeatureSpecificationS3Uri { get; set; }
             public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }

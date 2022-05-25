@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String RedshiftSourceConfig_DatabaseHost { get; set; }
         #endregion
         
+        #region Parameter AthenaSourceConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database's name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_DatabaseName")]
+        public System.String AthenaSourceConfig_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter RDSSourceConfig_DatabaseName
         /// <summary>
         /// <para>
@@ -185,6 +196,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MetricSource_RedshiftSourceConfig_DatabasePort")]
         public System.Int32? RedshiftSourceConfig_DatabasePort { get; set; }
+        #endregion
+        
+        #region Parameter AthenaSourceConfig_DataCatalog
+        /// <summary>
+        /// <para>
+        /// <para>The database's data catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_DataCatalog")]
+        public System.String AthenaSourceConfig_DataCatalog { get; set; }
         #endregion
         
         #region Parameter RDSSourceConfig_DBInstanceIdentifier
@@ -364,6 +386,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String AppFlowConfig_RoleArn { get; set; }
         #endregion
         
+        #region Parameter AthenaSourceConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role that gives Amazon Lookout for Metrics permission to access the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_RoleArn")]
+        public System.String AthenaSourceConfig_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchConfig_RoleArn
         /// <summary>
         /// <para>
@@ -408,6 +441,28 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MetricSource_S3SourceConfig_RoleArn")]
         public System.String S3SourceConfig_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter BackTestConfiguration_RunBackTestMode
+        /// <summary>
+        /// <para>
+        /// <para>Run a backtest instead of monitoring new data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_BackTestConfiguration_RunBackTestMode")]
+        public System.Boolean? BackTestConfiguration_RunBackTestMode { get; set; }
+        #endregion
+        
+        #region Parameter AthenaSourceConfig_S3ResultsPath
+        /// <summary>
+        /// <para>
+        /// <para>The database's results path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_S3ResultsPath")]
+        public System.String AthenaSourceConfig_S3ResultsPath { get; set; }
         #endregion
         
         #region Parameter RDSSourceConfig_SecretManagerArn
@@ -474,6 +529,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String[] MetricSource_RedshiftSourceConfig_VpcConfiguration_SubnetIdList { get; set; }
         #endregion
         
+        #region Parameter AthenaSourceConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The database's table name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_TableName")]
+        public System.String AthenaSourceConfig_TableName { get; set; }
+        #endregion
+        
         #region Parameter RDSSourceConfig_TableName
         /// <summary>
         /// <para>
@@ -527,6 +593,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Timezone { get; set; }
+        #endregion
+        
+        #region Parameter AthenaSourceConfig_WorkGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The database's work group name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSource_AthenaSourceConfig_WorkGroupName")]
+        public System.String AthenaSourceConfig_WorkGroupName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -622,6 +699,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             #endif
             context.AppFlowConfig_FlowName = this.AppFlowConfig_FlowName;
             context.AppFlowConfig_RoleArn = this.AppFlowConfig_RoleArn;
+            context.BackTestConfiguration_RunBackTestMode = this.BackTestConfiguration_RunBackTestMode;
+            context.AthenaSourceConfig_DatabaseName = this.AthenaSourceConfig_DatabaseName;
+            context.AthenaSourceConfig_DataCatalog = this.AthenaSourceConfig_DataCatalog;
+            context.AthenaSourceConfig_RoleArn = this.AthenaSourceConfig_RoleArn;
+            context.AthenaSourceConfig_S3ResultsPath = this.AthenaSourceConfig_S3ResultsPath;
+            context.AthenaSourceConfig_TableName = this.AthenaSourceConfig_TableName;
+            context.AthenaSourceConfig_WorkGroupName = this.AthenaSourceConfig_WorkGroupName;
             context.CloudWatchConfig_RoleArn = this.CloudWatchConfig_RoleArn;
             context.RDSSourceConfig_DatabaseHost = this.RDSSourceConfig_DatabaseHost;
             context.RDSSourceConfig_DatabaseName = this.RDSSourceConfig_DatabaseName;
@@ -957,6 +1041,106 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_S3SourceConfig != null)
             {
                 request.MetricSource.S3SourceConfig = requestMetricSource_metricSource_S3SourceConfig;
+                requestMetricSourceIsNull = false;
+            }
+            Amazon.LookoutMetrics.Model.AthenaSourceConfig requestMetricSource_metricSource_AthenaSourceConfig = null;
+            
+             // populate AthenaSourceConfig
+            var requestMetricSource_metricSource_AthenaSourceConfigIsNull = true;
+            requestMetricSource_metricSource_AthenaSourceConfig = new Amazon.LookoutMetrics.Model.AthenaSourceConfig();
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DatabaseName = null;
+            if (cmdletContext.AthenaSourceConfig_DatabaseName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DatabaseName = cmdletContext.AthenaSourceConfig_DatabaseName;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DatabaseName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.DatabaseName = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DatabaseName;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DataCatalog = null;
+            if (cmdletContext.AthenaSourceConfig_DataCatalog != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DataCatalog = cmdletContext.AthenaSourceConfig_DataCatalog;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DataCatalog != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.DataCatalog = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_DataCatalog;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_RoleArn = null;
+            if (cmdletContext.AthenaSourceConfig_RoleArn != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_RoleArn = cmdletContext.AthenaSourceConfig_RoleArn;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_RoleArn != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.RoleArn = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_RoleArn;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_S3ResultsPath = null;
+            if (cmdletContext.AthenaSourceConfig_S3ResultsPath != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_S3ResultsPath = cmdletContext.AthenaSourceConfig_S3ResultsPath;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_S3ResultsPath != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.S3ResultsPath = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_S3ResultsPath;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_TableName = null;
+            if (cmdletContext.AthenaSourceConfig_TableName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_TableName = cmdletContext.AthenaSourceConfig_TableName;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_TableName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.TableName = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_TableName;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            System.String requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_WorkGroupName = null;
+            if (cmdletContext.AthenaSourceConfig_WorkGroupName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_WorkGroupName = cmdletContext.AthenaSourceConfig_WorkGroupName;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_WorkGroupName != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.WorkGroupName = requestMetricSource_metricSource_AthenaSourceConfig_athenaSourceConfig_WorkGroupName;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+            Amazon.LookoutMetrics.Model.BackTestConfiguration requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration = null;
+            
+             // populate BackTestConfiguration
+            var requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfigurationIsNull = true;
+            requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration = new Amazon.LookoutMetrics.Model.BackTestConfiguration();
+            System.Boolean? requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration_backTestConfiguration_RunBackTestMode = null;
+            if (cmdletContext.BackTestConfiguration_RunBackTestMode != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration_backTestConfiguration_RunBackTestMode = cmdletContext.BackTestConfiguration_RunBackTestMode.Value;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration_backTestConfiguration_RunBackTestMode != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration.RunBackTestMode = requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration_backTestConfiguration_RunBackTestMode.Value;
+                requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfigurationIsNull = false;
+            }
+             // determine if requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration should be set to null
+            if (requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfigurationIsNull)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration = null;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration != null)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig.BackTestConfiguration = requestMetricSource_metricSource_AthenaSourceConfig_metricSource_AthenaSourceConfig_BackTestConfiguration;
+                requestMetricSource_metricSource_AthenaSourceConfigIsNull = false;
+            }
+             // determine if requestMetricSource_metricSource_AthenaSourceConfig should be set to null
+            if (requestMetricSource_metricSource_AthenaSourceConfigIsNull)
+            {
+                requestMetricSource_metricSource_AthenaSourceConfig = null;
+            }
+            if (requestMetricSource_metricSource_AthenaSourceConfig != null)
+            {
+                request.MetricSource.AthenaSourceConfig = requestMetricSource_metricSource_AthenaSourceConfig;
                 requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.RDSSourceConfig requestMetricSource_metricSource_RDSSourceConfig = null;
@@ -1314,6 +1498,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             public System.String MetricSetName { get; set; }
             public System.String AppFlowConfig_FlowName { get; set; }
             public System.String AppFlowConfig_RoleArn { get; set; }
+            public System.Boolean? BackTestConfiguration_RunBackTestMode { get; set; }
+            public System.String AthenaSourceConfig_DatabaseName { get; set; }
+            public System.String AthenaSourceConfig_DataCatalog { get; set; }
+            public System.String AthenaSourceConfig_RoleArn { get; set; }
+            public System.String AthenaSourceConfig_S3ResultsPath { get; set; }
+            public System.String AthenaSourceConfig_TableName { get; set; }
+            public System.String AthenaSourceConfig_WorkGroupName { get; set; }
             public System.String CloudWatchConfig_RoleArn { get; set; }
             public System.String RDSSourceConfig_DatabaseHost { get; set; }
             public System.String RDSSourceConfig_DatabaseName { get; set; }

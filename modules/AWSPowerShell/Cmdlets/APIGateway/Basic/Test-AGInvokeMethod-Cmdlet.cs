@@ -28,8 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters,
-    /// and an incoming request body.
+    /// Simulate the invocation of a Method in your RestApi with headers, parameters, and
+    /// an incoming request body.
     /// </summary>
     [Cmdlet("Test", "AGInvokeMethod")]
     [OutputType("Amazon.APIGateway.Model.TestInvokeMethodResponse")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
-        /// <para>A <a>ClientCertificate</a> identifier to use in the test invocation. API Gateway will
-        /// use the certificate when making the HTTPS request to the defined back-end endpoint.</para>
+        /// <para>A ClientCertificate identifier to use in the test invocation. API Gateway will use
+        /// the certificate when making the HTTPS request to the defined back-end endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a test invoke method request's HTTP method.</para>
+        /// <para>Specifies a test invoke method request's HTTP method.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a test invoke method request's resource ID.</para>
+        /// <para>Specifies a test invoke method request's resource ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageVariable
         /// <summary>
         /// <para>
-        /// <para>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</para>
+        /// <para>A key-value map of stage variables to simulate an invocation on a deployed Stage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

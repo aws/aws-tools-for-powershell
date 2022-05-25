@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter AdministrationRoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the IAM role to use to update this stack set.</para><para>Specify an IAM role only if you are using customized administrator roles to control
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</para><para>Specify an IAM role only if you are using customized administrator roles to control
         /// which users or groups can manage specific stack sets within the same administrator
         /// account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting
         /// Permissions for Stack Set Operations</a> in the <i>CloudFormation User Guide</i>.</para><para>If you specified a customized administrator role when you created the stack set, you

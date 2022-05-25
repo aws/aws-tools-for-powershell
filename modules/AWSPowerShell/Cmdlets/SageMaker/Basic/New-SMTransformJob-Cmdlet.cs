@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// within an Amazon Web Services Region in an Amazon Web Services account.
     /// </para></li><li><para><code>ModelName</code> - Identifies the model to use. <code>ModelName</code> must
     /// be the name of an existing Amazon SageMaker model in the same Amazon Web Services
-    /// Region and Amazon Web Services account. For information on creating a model, see <a>CreateModel</a>.
+    /// Region and Amazon Web Services account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.
     /// </para></li><li><para><code>TransformInput</code> - Describes the dataset to be transformed and the Amazon
     /// S3 location where it is stored.
     /// </para></li><li><para><code>TransformOutput</code> - Identifies the Amazon S3 location where you want Amazon
@@ -257,7 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// encryption. The <code>KmsKeyId</code> can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
         /// S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
-        /// <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
         /// Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
         /// Service Developer Guide</i>.</para>
         /// </para>

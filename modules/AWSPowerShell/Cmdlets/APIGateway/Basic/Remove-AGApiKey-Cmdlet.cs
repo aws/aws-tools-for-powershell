@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the <a>ApiKey</a> resource.
+    /// Deletes the ApiKey resource.
     /// </summary>
     [Cmdlet("Remove", "AGApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ApiKey
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</para>
+        /// <para>The identifier of the ApiKey resource to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

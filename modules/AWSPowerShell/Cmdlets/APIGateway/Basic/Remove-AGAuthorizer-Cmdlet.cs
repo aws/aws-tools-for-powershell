@@ -28,10 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes an existing <a>Authorizer</a> resource.
-    /// 
-    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS
-    /// CLI</a></div>
+    /// Deletes an existing Authorizer resource.
     /// </summary>
     [Cmdlet("Remove", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthorizerId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>Authorizer</a> resource.</para>
+        /// <para>The identifier of the Authorizer resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Gets an SDK type.
     /// </summary>
     [Cmdlet("Get", "AGSdkType")]
     [OutputType("Amazon.APIGateway.Model.GetSdkTypeResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the queried <a>SdkType</a> instance.</para>
+        /// <para>The identifier of the queried SdkType instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

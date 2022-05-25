@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing
-        /// the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</para>
+        /// <para>The Id of the UsagePlan resource representing the usage plan containing the to-be-retrieved
+        /// UsagePlanKey resource representing a plan customer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

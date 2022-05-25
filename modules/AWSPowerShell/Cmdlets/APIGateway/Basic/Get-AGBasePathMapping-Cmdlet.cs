@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describe a <a>BasePathMapping</a> resource.
+    /// Describe a BasePathMapping resource.
     /// </summary>
     [Cmdlet("Get", "AGBasePathMapping")]
     [OutputType("Amazon.APIGateway.Model.GetBasePathMappingResponse")]
@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>[Required] The base path name that callers of the API must provide as part of the
-        /// URL after the domain name. This value must be unique for all of the mappings across
-        /// a single API. Specify '(none)' if you do not want callers to specify any base path
-        /// name after the domain name.</para>
+        /// <para>The base path name that callers of the API must provide as part of the URL after the
+        /// domain name. This value must be unique for all of the mappings across a single API.
+        /// Specify '(none)' if you do not want callers to specify any base path name after the
+        /// domain name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to be described.</para>
+        /// <para>The domain name of the BasePathMapping resource to be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

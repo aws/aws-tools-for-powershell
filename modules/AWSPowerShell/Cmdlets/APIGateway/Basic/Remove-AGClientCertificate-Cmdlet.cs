@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the <a>ClientCertificate</a> resource.
+    /// Deletes the ClientCertificate resource.
     /// </summary>
     [Cmdlet("Remove", "AGClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>ClientCertificate</a> resource to be deleted.</para>
+        /// <para>The identifier of the ClientCertificate resource to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

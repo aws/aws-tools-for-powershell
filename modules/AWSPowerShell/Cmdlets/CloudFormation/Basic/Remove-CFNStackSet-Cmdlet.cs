@@ -28,8 +28,8 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Deletes a stack set. Before you can delete a stack set, all of its member stack instances
-    /// must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>.
+    /// Deletes a stack set. Before you can delete a stack set, all its member stack instances
+    /// must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.
     /// </summary>
     [Cmdlet("Remove", "CFNStackSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

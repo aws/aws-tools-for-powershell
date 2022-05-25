@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ApiKey</a> resource.
+    /// Gets information about the current ApiKey resource.
     /// </summary>
     [Cmdlet("Get", "AGApiKey")]
     [OutputType("Amazon.APIGateway.Model.GetApiKeyResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ApiKey
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>ApiKey</a> resource.</para>
+        /// <para>The identifier of the ApiKey resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about one or more <a>Stage</a> resources.
+    /// Gets information about one or more Stage resources.
     /// </summary>
     [Cmdlet("Get", "AGStageList")]
     [OutputType("Amazon.APIGateway.Model.Stage")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

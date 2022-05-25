@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of request parameters whose values API Gateway caches. To be valid values for
-        /// <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a><code>requestParameters</code>.</para>
+        /// <code>cacheKeyParameters</code>, these parameters must also be specified for Method
+        /// <code>requestParameters</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>)
-        /// of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code>
-        /// and undefined, otherwise.</para>
+        /// <para>The ID of the VpcLink used for the integration. Specify this value only if you specify
+        /// <code>VPC_LINK</code> as the connection type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,9 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Specifies how to handle request payload content type conversions. Supported values
         /// are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following
-        /// behaviors:</para><ul><li><para><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string
-        /// to the corresponding binary blob.</para></li><li><para><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded
-        /// string.</para></li></ul><para>If this property is not defined, the request payload will be passed through from the
+        /// behaviors:</para><para>If this property is not defined, the request payload will be passed through from the
         /// method request to integration request without modification, provided that the <code>passthroughBehavior</code>
         /// is configured to support payload pass-through.</para>
         /// </para>
@@ -119,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a put integration request's HTTP method.</para>
+        /// <para>Specifies the HTTP method for the integration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,12 +135,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not API Gateway skips verification that the certificate for an
-        /// integration endpoint is issued by a <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html">supported
-        /// certificate authority</a>. This isn’t recommended, but it enables you to use certificates
-        /// that are signed by private certificate authorities, or certificates that are self-signed.
-        /// If enabled, API Gateway still performs basic certificate validation, which includes
-        /// checking the certificate's expiration date, hostname, and presence of a root certificate
-        /// authority. Supported only for <code>HTTP</code> and <code>HTTP_PROXY</code> integrations.</para>
+        /// integration endpoint is issued by a supported certificate authority. This isn’t recommended,
+        /// but it enables you to use certificates that are signed by private certificate authorities,
+        /// or certificates that are self-signed. If enabled, API Gateway still performs basic
+        /// certificate validation, which includes checking the certificate's expiration date,
+        /// hostname, and presence of a root certificate authority. Supported only for <code>HTTP</code>
+        /// and <code>HTTP_PROXY</code> integrations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IntegrationHttpMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration HTTP method. When the integration type is HTTP or AWS,
-        /// this field is required.</para>
+        /// <para>The HTTP method for the integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,11 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>Specifies the pass-through behavior for incoming requests based on the Content-Type
         /// header in the request, and the available mapping templates specified as the <code>requestTemplates</code>
         /// property on the Integration resource. There are three valid values: <code>WHEN_NO_MATCH</code>,
-        /// <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>. </para><ul><li><para><code>WHEN_NO_MATCH</code> passes the request body for unmapped content types through
-        /// to the integration back end without transformation.</para></li><li><para><code>NEVER</code> rejects unmapped content types with an HTTP 415 'Unsupported Media
-        /// Type' response.</para></li><li><para><code>WHEN_NO_TEMPLATES</code> allows pass-through when the integration has NO content
-        /// types mapped to templates. However if there is at least one content type defined,
-        /// unmapped content types will be rejected with the same 415 response.</para></li></ul>
+        /// <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a put integration request's resource ID.</para>
+        /// <para>Specifies a put integration request's resource ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -227,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -256,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>[Required] Specifies a put integration input's type.</para>
+        /// <para>Specifies a put integration input's type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -273,24 +266,24 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</para><ul><li><para> For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a
-        /// fully formed, encoded HTTP(S) URL according to the <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">RFC-3986 specification</a>, for either standard integration, where
+        /// <para>Specifies Uniform Resource Identifier (URI) of the integration endpoint. For HTTP
+        /// or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S)
+        /// URL according to the RFC-3986 specification, for either standard integration, where
         /// <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration,
         /// where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration,
-        /// the URI is not used for routing. </para></li><li><para> For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form
-        /// <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>.
-        /// Here, <code>{Region}</code> is the API Gateway region (e.g., <code>us-east-1</code>);
-        /// <code>{service}</code> is the name of the integrated AWS service (e.g., <code>s3</code>);
-        /// and <code>{subdomain}</code> is a designated subdomain supported by certain AWS service
-        /// for fast host-name lookup. <code>action</code> can be used for an AWS service action-based
-        /// API, using an <code>Action={name}&amp;{p1}={v1}&amp;p2={v2}...</code> query string.
-        /// The ensuing <code>{service_api}</code> refers to a supported action <code>{name}</code>
-        /// plus any required input parameters. Alternatively, <code>path</code> can be used for
-        /// an AWS service path-based API. The ensuing <code>service_api</code> refers to the
-        /// path to an AWS service resource, including the region of the integrated AWS service,
-        /// if applicable. For example, for integration with the S3 API of <code><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html">GetObject</a></code>,
+        /// the URI is not used for routing. For <code>AWS</code> or <code>AWS_PROXY</code> integrations,
+        /// the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api</code>}.
+        /// Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name
+        /// of the integrated Amazon Web Services service (e.g., s3); and {subdomain} is a designated
+        /// subdomain supported by certain Amazon Web Services service for fast host-name lookup.
+        /// action can be used for an Amazon Web Services service action-based API, using an Action={name}&amp;{p1}={v1}&amp;p2={v2}...
+        /// query string. The ensuing {service_api} refers to a supported action {name} plus any
+        /// required input parameters. Alternatively, path can be used for an Amazon Web Services
+        /// service path-based API. The ensuing service_api refers to the path to an Amazon Web
+        /// Services service resource, including the region of the integrated Amazon Web Services
+        /// service, if applicable. For example, for integration with the S3 API of <code>GetObject</code>,
         /// the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&amp;Bucket={bucket}&amp;Key={key}</code>
-        /// or <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code></para></li></ul>
+        /// or <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

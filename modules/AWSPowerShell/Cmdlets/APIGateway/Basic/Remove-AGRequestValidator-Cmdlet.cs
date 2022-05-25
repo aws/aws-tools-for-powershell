@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.
+    /// Deletes a RequestValidator of a given RestApi.
     /// </summary>
     [Cmdlet("Remove", "AGRequestValidator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RequestValidatorId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</para>
+        /// <para>The identifier of the RequestValidator to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>[Required] The Id of the to-be-deleted usage plan.</para>
+        /// <para>The Id of the to-be-deleted usage plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

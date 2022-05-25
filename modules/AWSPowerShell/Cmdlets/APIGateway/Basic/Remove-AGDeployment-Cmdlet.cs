@@ -28,8 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there
-    /// are no <a>Stage</a> resources associated with it.
+    /// Deletes a Deployment resource. Deleting a deployment will only succeed if there are
+    /// no Stage resources associated with it.
     /// </summary>
     [Cmdlet("Remove", "AGDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>Deployment</a> resource to delete.</para>
+        /// <para>The identifier of the Deployment resource to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

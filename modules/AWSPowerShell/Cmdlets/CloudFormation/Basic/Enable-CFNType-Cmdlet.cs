@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter PublicTypeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the public extension.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
+        /// <para>The Amazon Resource Name (ARN) of the public extension.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
         /// <code>Type</code>, and <code>PublisherId</code>.</para>
         /// </para>
         /// </summary>

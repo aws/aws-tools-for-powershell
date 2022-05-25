@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.
+    /// Generates a client SDK for a RestApi and Stage.
     /// </summary>
     [Cmdlet("Get", "AGSdk")]
     [OutputType("Amazon.APIGateway.Model.GetSdkResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter SdkType
         /// <summary>
         /// <para>
-        /// <para>[Required] The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>,
+        /// <para>The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>,
         /// <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS),
         /// and <code>ruby</code> are supported.</para>
         /// </para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>Stage</a> that the SDK will use.</para>
+        /// <para>The name of the Stage that the SDK will use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

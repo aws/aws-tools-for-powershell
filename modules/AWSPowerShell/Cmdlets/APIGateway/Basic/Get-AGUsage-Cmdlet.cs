@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para>[Required] The ending date (e.g., 2016-12-31) of the usage data.</para>
+        /// <para>The ending date (e.g., 2016-12-31) of the usage data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>[Required] The starting date (e.g., 2016-01-01) of the usage data.</para>
+        /// <para>The starting date (e.g., 2016-01-01) of the usage data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>[Required] The Id of the usage plan associated with the usage data.</para>
+        /// <para>The Id of the usage plan associated with the usage data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

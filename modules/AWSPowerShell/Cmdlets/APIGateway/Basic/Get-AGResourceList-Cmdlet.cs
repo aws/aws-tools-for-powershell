@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Lists information about a collection of <a>Resource</a> resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists information about a collection of Resource resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AGResourceList")]
     [OutputType("Amazon.APIGateway.Model.Resource")]
@@ -44,11 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A query parameter used to retrieve the specified resources embedded in the returned
-        /// <a>Resources</a> resource in the response. This <code>embed</code> parameter value
-        /// is a list of comma-separated strings. Currently, the request supports only retrieval
-        /// of the embedded <a>Method</a> resources this way. The query parameter value must be
-        /// a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET
-        /// /restapis/{restapi_id}/resources?embed=methods</code>.</para>
+        /// Resources resource in the response. This <code>embed</code> parameter value is a list
+        /// of comma-separated strings. Currently, the request supports only retrieval of the
+        /// embedded Method resources this way. The query parameter value must be a single-valued
+        /// list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

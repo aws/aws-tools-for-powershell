@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>[Required] The name of the <a>DomainName</a> resource.</para>
+        /// <para>The name of the DomainName resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter SecurityPolicy
         /// <summary>
         /// <para>
-        /// <para>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>.
-        /// The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</para>
+        /// <para>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The
+        /// valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter MutualTlsAuthentication_TruststoreUri
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 resource ARN that specifies the truststore for mutual TLS authentication,
-        /// for example, <code>s3://bucket-name/key-name</code>. The truststore can contain certificates
+        /// <para>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for
+        /// example <code>s3://bucket-name/key-name</code>. The truststore can contain certificates
         /// from public or private certificate authorities. To update the truststore, upload a
         /// new version to S3, and then update your custom domain name to use the new version.
         /// To update the truststore, you must have permissions to access the S3 object.</para>
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The version of the S3 object that contains your truststore. To specify a version,
-        /// you must have versioning enabled for the S3 bucket.</para>
+        /// you must have versioning enabled for the S3 bucket</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter EndpointConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>).
+        /// <para>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
         /// For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>.
         /// For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>.
         /// For a private API, the endpoint type is <code>PRIVATE</code>.</para>
@@ -215,8 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter EndpointConfiguration_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>A list of VpcEndpointIds of an API (<a>RestApi</a>) against which to create Route53
-        /// ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</para>
+        /// <para>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes.
+        /// It is only supported for <code>PRIVATE</code> endpoint type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

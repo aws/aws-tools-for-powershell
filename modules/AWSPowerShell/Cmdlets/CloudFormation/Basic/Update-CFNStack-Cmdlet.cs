@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// (IAM) users. For those stacks, you must explicitly acknowledge this by specifying
         /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code>
         /// or <code>CAPABILITY_NAMED_IAM</code> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <code>CAPABILITY_NAMED_IAM</code>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <code>InsufficientCapabilities</code>
-        /// error.</para></li></ul><para>If your stack template contains these resources, we recommend that you review all
-        /// permissions associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
+        /// error.</para></li></ul><para>If your stack template contains these resources, we suggest that you review all permissions
+        /// associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
         /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
         /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
         /// AWS::IAM::Policy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
@@ -252,8 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Structure containing the temporary overriding stack policy body. You can specify either
         /// the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code>
         /// parameter, but not both.</para><para>If you want to update protected resources, specify a temporary overriding stack policy
-        /// during this update. If you do not specify a stack policy, the current policy that
-        /// is associated with the stack will be used.</para>
+        /// during this update. If you don't specify a stack policy, the current policy that is
+        /// associated with the stack will be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,8 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// point to a policy (max size: 16KB) located in an S3 bucket in the same Region as the
         /// stack. You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
         /// <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</para><para>If you want to update protected resources, specify a temporary overriding stack policy
-        /// during this update. If you do not specify a stack policy, the current policy that
-        /// is associated with the stack will be used.</para>
+        /// during this update. If you don't specify a stack policy, the current policy that is
+        /// associated with the stack will be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
