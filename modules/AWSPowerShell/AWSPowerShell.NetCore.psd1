@@ -169,6 +169,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Elasticsearch.dll',
         'AWSSDK.ElasticTranscoder.dll',
         'AWSSDK.EMRContainers.dll',
+        'AWSSDK.EMRServerlessWebService.dll',
         'AWSSDK.EventBridge.dll',
         'AWSSDK.Finspace.dll',
         'AWSSDK.FinSpaceData.dll',

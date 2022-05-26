@@ -1,4 +1,13 @@
-﻿### 4.1.93 (2022-05-25 20:28Z)
+﻿### 4.1.94 (2022-05-26 20:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.283.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EMR Serverless Web Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EMRS and can be listed using the command 'Get-AWSCmdletName -Service EMRS'.
+  * Amazon Forecast Service
+    * Modified cmdlet New-FRCAutoPredictor: added parameters TimeAlignmentBoundary_DayOfMonth, TimeAlignmentBoundary_DayOfWeek, TimeAlignmentBoundary_Hour and TimeAlignmentBoundary_Month.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSContainerService: added parameter EcrImagePullerRole_IsActive.
+    * Modified cmdlet Update-LSContainerService: added parameter EcrImagePullerRole_IsActive.
+
+### 4.1.93 (2022-05-25 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.282.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lookout for Metrics
     * Modified cmdlet New-LOMMetricSet: added parameters AthenaSourceConfig_DatabaseName, AthenaSourceConfig_DataCatalog, AthenaSourceConfig_RoleArn, AthenaSourceConfig_S3ResultsPath, AthenaSourceConfig_TableName, AthenaSourceConfig_WorkGroupName and BackTestConfiguration_RunBackTestMode.

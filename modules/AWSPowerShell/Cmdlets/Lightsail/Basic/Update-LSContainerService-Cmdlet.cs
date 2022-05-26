@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class UpdateLSContainerServiceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter EcrImagePullerRole_IsActive
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether to activate the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PrivateRegistryAccess_EcrImagePullerRole_IsActive")]
+        public System.Boolean? EcrImagePullerRole_IsActive { get; set; }
+        #endregion
+        
         #region Parameter IsDisabled
         /// <summary>
         /// <para>
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             context.IsDisabled = this.IsDisabled;
             context.Power = this.Power;
+            context.EcrImagePullerRole_IsActive = this.EcrImagePullerRole_IsActive;
             if (this.PublicDomainName != null)
             {
                 context.PublicDomainName = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -210,6 +222,40 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.Power != null)
             {
                 request.Power = cmdletContext.Power;
+            }
+            
+             // populate PrivateRegistryAccess
+            var requestPrivateRegistryAccessIsNull = true;
+            request.PrivateRegistryAccess = new Amazon.Lightsail.Model.PrivateRegistryAccessRequest();
+            Amazon.Lightsail.Model.ContainerServiceECRImagePullerRoleRequest requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole = null;
+            
+             // populate EcrImagePullerRole
+            var requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRoleIsNull = true;
+            requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole = new Amazon.Lightsail.Model.ContainerServiceECRImagePullerRoleRequest();
+            System.Boolean? requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole_ecrImagePullerRole_IsActive = null;
+            if (cmdletContext.EcrImagePullerRole_IsActive != null)
+            {
+                requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole_ecrImagePullerRole_IsActive = cmdletContext.EcrImagePullerRole_IsActive.Value;
+            }
+            if (requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole_ecrImagePullerRole_IsActive != null)
+            {
+                requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole.IsActive = requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole_ecrImagePullerRole_IsActive.Value;
+                requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRoleIsNull = false;
+            }
+             // determine if requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole should be set to null
+            if (requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRoleIsNull)
+            {
+                requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole = null;
+            }
+            if (requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole != null)
+            {
+                request.PrivateRegistryAccess.EcrImagePullerRole = requestPrivateRegistryAccess_privateRegistryAccess_EcrImagePullerRole;
+                requestPrivateRegistryAccessIsNull = false;
+            }
+             // determine if request.PrivateRegistryAccess should be set to null
+            if (requestPrivateRegistryAccessIsNull)
+            {
+                request.PrivateRegistryAccess = null;
             }
             if (cmdletContext.PublicDomainName != null)
             {
@@ -286,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.Boolean? IsDisabled { get; set; }
             public Amazon.Lightsail.ContainerServicePowerName Power { get; set; }
+            public System.Boolean? EcrImagePullerRole_IsActive { get; set; }
             public Dictionary<System.String, List<System.String>> PublicDomainName { get; set; }
             public System.Int32? Scale { get; set; }
             public System.String ServiceName { get; set; }

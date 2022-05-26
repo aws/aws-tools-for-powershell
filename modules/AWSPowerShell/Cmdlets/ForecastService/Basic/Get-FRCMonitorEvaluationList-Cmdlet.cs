@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing
-    /// Monitoring Results</a>. For more information about retrieving monitoring results see
-    /// <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing
+    /// For information about monitoring see <a>predictor-monitoring</a>. For more information
+    /// about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing
     /// Monitoring Results</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

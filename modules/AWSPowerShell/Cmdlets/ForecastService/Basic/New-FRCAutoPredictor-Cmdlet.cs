@@ -96,6 +96,27 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String DataConfig_DatasetGroupArn { get; set; }
         #endregion
         
+        #region Parameter TimeAlignmentBoundary_DayOfMonth
+        /// <summary>
+        /// <para>
+        /// <para>The day of the month to use for time alignment during aggregation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TimeAlignmentBoundary_DayOfMonth { get; set; }
+        #endregion
+        
+        #region Parameter TimeAlignmentBoundary_DayOfWeek
+        /// <summary>
+        /// <para>
+        /// <para>The day of week to use for time alignment during aggregation. The day must be in uppercase.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ForecastService.DayOfWeek")]
+        public Amazon.ForecastService.DayOfWeek TimeAlignmentBoundary_DayOfWeek { get; set; }
+        #endregion
+        
         #region Parameter ExplainPredictor
         /// <summary>
         /// <para>
@@ -161,6 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String[] ForecastType { get; set; }
         #endregion
         
+        #region Parameter TimeAlignmentBoundary_Hour
+        /// <summary>
+        /// <para>
+        /// <para>The hour of day to use for time alignment during aggregation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TimeAlignmentBoundary_Hour { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfig_KMSKeyArn
         /// <summary>
         /// <para>
@@ -179,6 +210,17 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MonitorConfig_MonitorName { get; set; }
+        #endregion
+        
+        #region Parameter TimeAlignmentBoundary_Month
+        /// <summary>
+        /// <para>
+        /// <para>The month to use for time alignment during aggregation. The month must be in uppercase.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ForecastService.Month")]
+        public Amazon.ForecastService.Month TimeAlignmentBoundary_Month { get; set; }
         #endregion
         
         #region Parameter OptimizationMetric
@@ -351,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
             }
+            context.TimeAlignmentBoundary_DayOfMonth = this.TimeAlignmentBoundary_DayOfMonth;
+            context.TimeAlignmentBoundary_DayOfWeek = this.TimeAlignmentBoundary_DayOfWeek;
+            context.TimeAlignmentBoundary_Hour = this.TimeAlignmentBoundary_Hour;
+            context.TimeAlignmentBoundary_Month = this.TimeAlignmentBoundary_Month;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -491,6 +537,55 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate TimeAlignmentBoundary
+            var requestTimeAlignmentBoundaryIsNull = true;
+            request.TimeAlignmentBoundary = new Amazon.ForecastService.Model.TimeAlignmentBoundary();
+            System.Int32? requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfMonth = null;
+            if (cmdletContext.TimeAlignmentBoundary_DayOfMonth != null)
+            {
+                requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfMonth = cmdletContext.TimeAlignmentBoundary_DayOfMonth.Value;
+            }
+            if (requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfMonth != null)
+            {
+                request.TimeAlignmentBoundary.DayOfMonth = requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfMonth.Value;
+                requestTimeAlignmentBoundaryIsNull = false;
+            }
+            Amazon.ForecastService.DayOfWeek requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfWeek = null;
+            if (cmdletContext.TimeAlignmentBoundary_DayOfWeek != null)
+            {
+                requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfWeek = cmdletContext.TimeAlignmentBoundary_DayOfWeek;
+            }
+            if (requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfWeek != null)
+            {
+                request.TimeAlignmentBoundary.DayOfWeek = requestTimeAlignmentBoundary_timeAlignmentBoundary_DayOfWeek;
+                requestTimeAlignmentBoundaryIsNull = false;
+            }
+            System.Int32? requestTimeAlignmentBoundary_timeAlignmentBoundary_Hour = null;
+            if (cmdletContext.TimeAlignmentBoundary_Hour != null)
+            {
+                requestTimeAlignmentBoundary_timeAlignmentBoundary_Hour = cmdletContext.TimeAlignmentBoundary_Hour.Value;
+            }
+            if (requestTimeAlignmentBoundary_timeAlignmentBoundary_Hour != null)
+            {
+                request.TimeAlignmentBoundary.Hour = requestTimeAlignmentBoundary_timeAlignmentBoundary_Hour.Value;
+                requestTimeAlignmentBoundaryIsNull = false;
+            }
+            Amazon.ForecastService.Month requestTimeAlignmentBoundary_timeAlignmentBoundary_Month = null;
+            if (cmdletContext.TimeAlignmentBoundary_Month != null)
+            {
+                requestTimeAlignmentBoundary_timeAlignmentBoundary_Month = cmdletContext.TimeAlignmentBoundary_Month;
+            }
+            if (requestTimeAlignmentBoundary_timeAlignmentBoundary_Month != null)
+            {
+                request.TimeAlignmentBoundary.Month = requestTimeAlignmentBoundary_timeAlignmentBoundary_Month;
+                requestTimeAlignmentBoundaryIsNull = false;
+            }
+             // determine if request.TimeAlignmentBoundary should be set to null
+            if (requestTimeAlignmentBoundaryIsNull)
+            {
+                request.TimeAlignmentBoundary = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -566,6 +661,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String PredictorName { get; set; }
             public System.String ReferencePredictorArn { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
+            public System.Int32? TimeAlignmentBoundary_DayOfMonth { get; set; }
+            public Amazon.ForecastService.DayOfWeek TimeAlignmentBoundary_DayOfWeek { get; set; }
+            public System.Int32? TimeAlignmentBoundary_Hour { get; set; }
+            public Amazon.ForecastService.Month TimeAlignmentBoundary_Month { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateAutoPredictorResponse, NewFRCAutoPredictorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PredictorArn;
         }

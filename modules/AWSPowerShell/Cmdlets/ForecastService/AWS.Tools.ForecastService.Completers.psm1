@@ -94,6 +94,13 @@ $FRC_Completers = {
             break
         }
 
+        # Amazon.ForecastService.DayOfWeek
+        "New-FRCAutoPredictor/TimeAlignmentBoundary_DayOfWeek"
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.ForecastService.Domain
         {
             ($_ -eq "New-FRCDataset/Domain") -Or
@@ -101,6 +108,13 @@ $FRC_Completers = {
         }
         {
             $v = "CUSTOM","EC2_CAPACITY","INVENTORY_PLANNING","METRICS","RETAIL","WEB_TRAFFIC","WORK_FORCE"
+            break
+        }
+
+        # Amazon.ForecastService.Month
+        "New-FRCAutoPredictor/TimeAlignmentBoundary_Month"
+        {
+            $v = "APRIL","AUGUST","DECEMBER","FEBRUARY","JANUARY","JULY","JUNE","MARCH","MAY","NOVEMBER","OCTOBER","SEPTEMBER"
             break
         }
 
@@ -143,6 +157,8 @@ $FRC_map = @{
     "ExplainabilityConfig_TimePointGranularity"=@("New-FRCExplainability")
     "ExplainabilityConfig_TimeSeriesGranularity"=@("New-FRCExplainability")
     "OptimizationMetric"=@("New-FRCAutoPredictor","New-FRCPredictor")
+    "TimeAlignmentBoundary_DayOfWeek"=@("New-FRCAutoPredictor")
+    "TimeAlignmentBoundary_Month"=@("New-FRCAutoPredictor")
 }
 
 _awsArgumentCompleterRegistration $FRC_Completers $FRC_map
