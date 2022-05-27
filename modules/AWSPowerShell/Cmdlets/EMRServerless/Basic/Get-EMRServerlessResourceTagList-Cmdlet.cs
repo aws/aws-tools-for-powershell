@@ -22,28 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataSync;
-using Amazon.DataSync.Model;
+using Amazon.EMRServerless;
+using Amazon.EMRServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DSYN
+namespace Amazon.PowerShell.Cmdlets.EMRServerless
 {
     /// <summary>
-    /// Returns metadata about your DataSync location for an Amazon EFS file system.
+    /// Lists the tags assigned to the resources.
     /// </summary>
-    [Cmdlet("Get", "DSYNLocationEfs")]
-    [OutputType("Amazon.DataSync.Model.DescribeLocationEfsResponse")]
-    [AWSCmdlet("Calls the AWS DataSync DescribeLocationEfs API operation.", Operation = new[] {"DescribeLocationEfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationEfsResponse))]
-    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationEfsResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationEfsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EMRServerlessResourceTagList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the EMR Serverless ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.EMRServerless.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.EMRServerless.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDSYNLocationEfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class GetEMRServerlessResourceTagListCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {
         
-        #region Parameter LocationArn
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon EFS file system location that you want
-        /// information about.</para>
+        /// <para>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+        /// Currently, the supported resources are Amazon EMR Serverless applications and job
+        /// runs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LocationArn { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationEfsResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationEfsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.EMRServerless.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LocationArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -90,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationEfsResponse, GetDSYNLocationEfsCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.ListTagsForResourceResponse, GetEMRServerlessResourceTagListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -99,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LocationArn;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LocationArn = this.LocationArn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -123,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.DescribeLocationEfsRequest();
+            var request = new Amazon.EMRServerless.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.LocationArn != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.LocationArn = cmdletContext.LocationArn;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -162,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.DescribeLocationEfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationEfsRequest request)
+        private Amazon.EMRServerless.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationEfs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DescribeLocationEfs(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.DescribeLocationEfsAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -190,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LocationArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.DescribeLocationEfsResponse, GetDSYNLocationEfsCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.EMRServerless.Model.ListTagsForResourceResponse, GetEMRServerlessResourceTagListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

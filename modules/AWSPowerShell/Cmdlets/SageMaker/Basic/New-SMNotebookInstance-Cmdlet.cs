@@ -183,6 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String LifecycleConfigName { get; set; }
         #endregion
         
+        #region Parameter InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the minimum IMDS version that the notebook instance supports. When passed
+        /// as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults
+        /// to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part
+        /// of <code>UpdateNotebookInstance</code>, there is no default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion { get; set; }
+        #endregion
+        
         #region Parameter NotebookInstanceName
         /// <summary>
         /// <para>
@@ -366,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.DefaultCodeRepository = this.DefaultCodeRepository;
             context.DirectInternetAccess = this.DirectInternetAccess;
+            context.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion = this.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion;
             context.InstanceType = this.InstanceType;
             #if MODULAR
             if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
@@ -432,6 +446,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DirectInternetAccess != null)
             {
                 request.DirectInternetAccess = cmdletContext.DirectInternetAccess;
+            }
+            
+             // populate InstanceMetadataServiceConfiguration
+            var requestInstanceMetadataServiceConfigurationIsNull = true;
+            request.InstanceMetadataServiceConfiguration = new Amazon.SageMaker.Model.InstanceMetadataServiceConfiguration();
+            System.String requestInstanceMetadataServiceConfiguration_instanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion = null;
+            if (cmdletContext.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion != null)
+            {
+                requestInstanceMetadataServiceConfiguration_instanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion = cmdletContext.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion;
+            }
+            if (requestInstanceMetadataServiceConfiguration_instanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion != null)
+            {
+                request.InstanceMetadataServiceConfiguration.MinimumInstanceMetadataServiceVersion = requestInstanceMetadataServiceConfiguration_instanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion;
+                requestInstanceMetadataServiceConfigurationIsNull = false;
+            }
+             // determine if request.InstanceMetadataServiceConfiguration should be set to null
+            if (requestInstanceMetadataServiceConfigurationIsNull)
+            {
+                request.InstanceMetadataServiceConfiguration = null;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -542,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> AdditionalCodeRepository { get; set; }
             public System.String DefaultCodeRepository { get; set; }
             public Amazon.SageMaker.DirectInternetAccess DirectInternetAccess { get; set; }
+            public System.String InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String LifecycleConfigName { get; set; }

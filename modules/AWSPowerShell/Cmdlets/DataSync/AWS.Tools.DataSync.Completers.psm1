@@ -80,6 +80,13 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.EfsInTransitEncryption
+        "New-DSYNLocationEfs/InTransitEncryption"
+        {
+            $v = "NONE","TLS1_2"
+            break
+        }
+
         # Amazon.DataSync.HdfsAuthenticationType
         {
             ($_ -eq "New-DSYNLocationHdf/AuthenticationType") -Or
@@ -158,6 +165,7 @@ $DSYN_Completers = {
 
 $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "InTransitEncryption"=@("New-DSYNLocationEfs")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
     "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")

@@ -28,7 +28,9 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon EFS file system.
+    /// Creates an endpoint for an Amazon EFS file system that DataSync can access for a transfer.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating
+    /// a location for Amazon EFS</a>.
     /// </summary>
     [Cmdlet("New", "DSYNLocationEfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -40,10 +42,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationEfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        #region Parameter AccessPointArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to
+        /// access the Amazon EFS file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessPointArn { get; set; }
+        #endregion
+        
         #region Parameter EfsFilesystemArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the Amazon EFS file system.</para>
+        /// <para>Specifies the ARN for the Amazon EFS file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,11 +70,35 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String EfsFilesystemArn { get; set; }
         #endregion
         
+        #region Parameter FileSystemAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an Identity and Access Management (IAM) role that DataSync assumes when
+        /// mounting the Amazon EFS file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileSystemAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter InTransitEncryption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want DataSync to use TLS encryption when transferring data to
+        /// or from your Amazon EFS file system.</para><para>If you specify an access point using <code>AccessPointArn</code> or an IAM role using
+        /// <code>FileSystemAccessRoleArn</code>, you must set this parameter to <code>TLS1_2</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.EfsInTransitEncryption")]
+        public Amazon.DataSync.EfsInTransitEncryption InTransitEncryption { get; set; }
+        #endregion
+        
         #region Parameter Ec2Config_SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the security groups that are configured for the
-        /// Amazon EC2 resource.</para>
+        /// <para>Specifies the Amazon Resource Names (ARNs) of the security groups associated with
+        /// an Amazon EFS file system's mount target.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the location’s path. This subdirectory in the EFS file system is
-        /// used to read data from the EFS source location or write data to the EFS destination.
-        /// By default, DataSync uses the root directory.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</para></note>
+        /// <para>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads
+        /// or writes data (depending on if this is a source or destination location). By default,
+        /// DataSync uses the root directory, but you can also include subdirectories.</para><note><para>You must specify a value with forward slashes (for example, <code>/path/to/folder</code>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Ec2Config_SubnetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the subnet that DataSync uses to access the target EFS file system.</para>
+        /// <para>Specifies the ARN of a subnet where DataSync creates the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
+        /// interfaces</a> for managing traffic during your transfer.</para><para>The subnet must be located:</para><ul><li><para>In the same virtual private cloud (VPC) as the Amazon EFS file system.</para></li><li><para>In the same Availability Zone as at least one mount target for the Amazon EFS file
+        /// system.</para></li></ul><note><para>You don't need to specify a subnet that includes a file system mount target.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents a tag that you want to add to the resource. The
-        /// value can be an empty string. This value helps you manage, filter, and search for
-        /// your resources. We recommend that you create a name tag for your location.</para>
+        /// <para>Specifies the key-value pair that represents a tag that you want to add to the resource.
+        /// The value can be an empty string. This value helps you manage, filter, and search
+        /// for your resources. We recommend that you create a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = CreateSelectDelegate<Amazon.DataSync.Model.CreateLocationEfsResponse, NewDSYNLocationEfsCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccessPointArn = this.AccessPointArn;
             if (this.Ec2Config_SecurityGroupArn != null)
             {
                 context.Ec2Config_SecurityGroupArn = new List<System.String>(this.Ec2Config_SecurityGroupArn);
@@ -183,6 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 WriteWarning("You are passing $null as a value for parameter EfsFilesystemArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FileSystemAccessRoleArn = this.FileSystemAccessRoleArn;
+            context.InTransitEncryption = this.InTransitEncryption;
             context.Subdirectory = this.Subdirectory;
             if (this.Tag != null)
             {
@@ -204,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // create request
             var request = new Amazon.DataSync.Model.CreateLocationEfsRequest();
             
+            if (cmdletContext.AccessPointArn != null)
+            {
+                request.AccessPointArn = cmdletContext.AccessPointArn;
+            }
             
              // populate Ec2Config
             var requestEc2ConfigIsNull = true;
@@ -236,6 +282,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.EfsFilesystemArn != null)
             {
                 request.EfsFilesystemArn = cmdletContext.EfsFilesystemArn;
+            }
+            if (cmdletContext.FileSystemAccessRoleArn != null)
+            {
+                request.FileSystemAccessRoleArn = cmdletContext.FileSystemAccessRoleArn;
+            }
+            if (cmdletContext.InTransitEncryption != null)
+            {
+                request.InTransitEncryption = cmdletContext.InTransitEncryption;
             }
             if (cmdletContext.Subdirectory != null)
             {
@@ -306,9 +360,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessPointArn { get; set; }
             public List<System.String> Ec2Config_SecurityGroupArn { get; set; }
             public System.String Ec2Config_SubnetArn { get; set; }
             public System.String EfsFilesystemArn { get; set; }
+            public System.String FileSystemAccessRoleArn { get; set; }
+            public Amazon.DataSync.EfsInTransitEncryption InTransitEncryption { get; set; }
             public System.String Subdirectory { get; set; }
             public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }
             public System.Func<Amazon.DataSync.Model.CreateLocationEfsResponse, NewDSYNLocationEfsCmdlet, object> Select { get; set; } =

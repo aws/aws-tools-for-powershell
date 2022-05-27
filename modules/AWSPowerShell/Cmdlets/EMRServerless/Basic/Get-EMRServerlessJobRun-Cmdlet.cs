@@ -22,39 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Appflow;
-using Amazon.Appflow.Model;
+using Amazon.EMRServerless;
+using Amazon.EMRServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AF
+namespace Amazon.PowerShell.Cmdlets.EMRServerless
 {
     /// <summary>
-    /// Provides details regarding the entity used with the connector, with a description
-    /// of the data model for each field in that entity.
+    /// Displays detailed information about a job run.
     /// </summary>
-    [Cmdlet("Get", "AFConnectorEntity")]
-    [OutputType("Amazon.Appflow.Model.ConnectorEntityField")]
-    [AWSCmdlet("Calls the Amazon Appflow DescribeConnectorEntity API operation.", Operation = new[] {"DescribeConnectorEntity"}, SelectReturnType = typeof(Amazon.Appflow.Model.DescribeConnectorEntityResponse))]
-    [AWSCmdletOutput("Amazon.Appflow.Model.ConnectorEntityField or Amazon.Appflow.Model.DescribeConnectorEntityResponse",
-        "This cmdlet returns a collection of Amazon.Appflow.Model.ConnectorEntityField objects.",
-        "The service call response (type Amazon.Appflow.Model.DescribeConnectorEntityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EMRServerlessJobRun")]
+    [OutputType("Amazon.EMRServerless.Model.JobRun")]
+    [AWSCmdlet("Calls the EMR Serverless GetJobRun API operation.", Operation = new[] {"GetJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.GetJobRunResponse))]
+    [AWSCmdletOutput("Amazon.EMRServerless.Model.JobRun or Amazon.EMRServerless.Model.GetJobRunResponse",
+        "This cmdlet returns an Amazon.EMRServerless.Model.JobRun object.",
+        "The service call response (type Amazon.EMRServerless.Model.GetJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAFConnectorEntityCmdlet : AmazonAppflowClientCmdlet, IExecutor
+    public partial class GetEMRServerlessJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {
         
-        #region Parameter ApiVersion
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The version of the API that's used by the connector.</para>
+        /// <para>The ID of the application on which the job run is submitted.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ApiVersion { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter ConnectorEntityName
+        #region Parameter JobRunId
         /// <summary>
         /// <para>
-        /// <para> The entity name for that connector. </para>
+        /// <para>The ID of the job run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,48 +71,26 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectorEntityName { get; set; }
-        #endregion
-        
-        #region Parameter ConnectorProfileName
-        /// <summary>
-        /// <para>
-        /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
-        /// in the Amazon Web Services account. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectorProfileName { get; set; }
-        #endregion
-        
-        #region Parameter ConnectorType
-        /// <summary>
-        /// <para>
-        /// <para> The type of connector application, such as Salesforce, Amplitude, and so on. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Appflow.ConnectorType")]
-        public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
+        public System.String JobRunId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectorEntityFields'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Appflow.Model.DescribeConnectorEntityResponse).
-        /// Specifying the name of a property of type Amazon.Appflow.Model.DescribeConnectorEntityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobRun'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.GetJobRunResponse).
+        /// Specifying the name of a property of type Amazon.EMRServerless.Model.GetJobRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ConnectorEntityFields";
+        public string Select { get; set; } = "JobRun";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectorEntityName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectorEntityName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobRunId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectorEntityName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Appflow.Model.DescribeConnectorEntityResponse, GetAFConnectorEntityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.GetJobRunResponse, GetEMRServerlessJobRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,19 +116,23 @@ namespace Amazon.PowerShell.Cmdlets.AF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectorEntityName;
+                context.Select = (response, cmdlet) => this.JobRunId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApiVersion = this.ApiVersion;
-            context.ConnectorEntityName = this.ConnectorEntityName;
+            context.ApplicationId = this.ApplicationId;
             #if MODULAR
-            if (this.ConnectorEntityName == null && ParameterWasBound(nameof(this.ConnectorEntityName)))
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectorEntityName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ConnectorProfileName = this.ConnectorProfileName;
-            context.ConnectorType = this.ConnectorType;
+            context.JobRunId = this.JobRunId;
+            #if MODULAR
+            if (this.JobRunId == null && ParameterWasBound(nameof(this.JobRunId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter JobRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,23 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Appflow.Model.DescribeConnectorEntityRequest();
+            var request = new Amazon.EMRServerless.Model.GetJobRunRequest();
             
-            if (cmdletContext.ApiVersion != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.ApiVersion = cmdletContext.ApiVersion;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.ConnectorEntityName != null)
+            if (cmdletContext.JobRunId != null)
             {
-                request.ConnectorEntityName = cmdletContext.ConnectorEntityName;
-            }
-            if (cmdletContext.ConnectorProfileName != null)
-            {
-                request.ConnectorProfileName = cmdletContext.ConnectorProfileName;
-            }
-            if (cmdletContext.ConnectorType != null)
-            {
-                request.ConnectorType = cmdletContext.ConnectorType;
+                request.JobRunId = cmdletContext.JobRunId;
             }
             
             CmdletOutput output;
@@ -210,15 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         #region AWS Service Operation Call
         
-        private Amazon.Appflow.Model.DescribeConnectorEntityResponse CallAWSServiceOperation(IAmazonAppflow client, Amazon.Appflow.Model.DescribeConnectorEntityRequest request)
+        private Amazon.EMRServerless.Model.GetJobRunResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.GetJobRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Appflow", "DescribeConnectorEntity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "GetJobRun");
             try
             {
                 #if DESKTOP
-                return client.DescribeConnectorEntity(request);
+                return client.GetJobRun(request);
                 #elif CORECLR
-                return client.DescribeConnectorEntityAsync(request).GetAwaiter().GetResult();
+                return client.GetJobRunAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,12 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiVersion { get; set; }
-            public System.String ConnectorEntityName { get; set; }
-            public System.String ConnectorProfileName { get; set; }
-            public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
-            public System.Func<Amazon.Appflow.Model.DescribeConnectorEntityResponse, GetAFConnectorEntityCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ConnectorEntityFields;
+            public System.String ApplicationId { get; set; }
+            public System.String JobRunId { get; set; }
+            public System.Func<Amazon.EMRServerless.Model.GetJobRunResponse, GetEMRServerlessJobRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobRun;
         }
         
     }

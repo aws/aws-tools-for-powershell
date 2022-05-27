@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataSync;
-using Amazon.DataSync.Model;
+using Amazon.EMRServerless;
+using Amazon.EMRServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DSYN
+namespace Amazon.PowerShell.Cmdlets.EMRServerless
 {
     /// <summary>
-    /// Returns metadata about your DataSync location for an Amazon EFS file system.
+    /// Starts a specified application and initializes initial capacity if configured.
     /// </summary>
-    [Cmdlet("Get", "DSYNLocationEfs")]
-    [OutputType("Amazon.DataSync.Model.DescribeLocationEfsResponse")]
-    [AWSCmdlet("Calls the AWS DataSync DescribeLocationEfs API operation.", Operation = new[] {"DescribeLocationEfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationEfsResponse))]
-    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationEfsResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationEfsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "EMRServerlessApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the EMR Serverless StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.StartApplicationResponse))]
+    [AWSCmdletOutput("None or Amazon.EMRServerless.Model.StartApplicationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.EMRServerless.Model.StartApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDSYNLocationEfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class StartEMRServerlessApplicationCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {
         
-        #region Parameter LocationArn
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon EFS file system location that you want
-        /// information about.</para>
+        /// <para>The ID of the application to start.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,14 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LocationArn { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationEfsResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationEfsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.StartApplicationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,17 +69,33 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LocationArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-EMRServerlessApplication (StartApplication)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -90,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationEfsResponse, GetDSYNLocationEfsCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.StartApplicationResponse, StartEMRServerlessApplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -99,14 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LocationArn;
+                context.Select = (response, cmdlet) => this.ApplicationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LocationArn = this.LocationArn;
+            context.ApplicationId = this.ApplicationId;
             #if MODULAR
-            if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -123,11 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.DescribeLocationEfsRequest();
+            var request = new Amazon.EMRServerless.Model.StartApplicationRequest();
             
-            if (cmdletContext.LocationArn != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.LocationArn = cmdletContext.LocationArn;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
             
             CmdletOutput output;
@@ -162,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.DescribeLocationEfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationEfsRequest request)
+        private Amazon.EMRServerless.Model.StartApplicationResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.StartApplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationEfs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "StartApplication");
             try
             {
                 #if DESKTOP
-                return client.DescribeLocationEfs(request);
+                return client.StartApplication(request);
                 #elif CORECLR
-                return client.DescribeLocationEfsAsync(request).GetAwaiter().GetResult();
+                return client.StartApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -190,9 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LocationArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.DescribeLocationEfsResponse, GetDSYNLocationEfsCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ApplicationId { get; set; }
+            public System.Func<Amazon.EMRServerless.Model.StartApplicationResponse, StartEMRServerlessApplicationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

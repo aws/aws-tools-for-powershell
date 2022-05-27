@@ -403,6 +403,9 @@
     <Reference Include="AWSSDK.EMRContainers">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRContainers.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EMRServerless">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRServerless.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
@@ -1298,6 +1301,9 @@
     </Reference>
     <Reference Include="AWSSDK.EMRContainers">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRContainers.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.EMRServerless">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>

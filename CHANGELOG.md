@@ -1,4 +1,17 @@
-﻿### 4.1.94 (2022-05-26 20:18Z)
+﻿### 4.1.95 (2022-05-27 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.284.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * [Breaking Change] Removed support for Amazon EMR Serverless Web Service
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameter Scheduled_FlowErrorDeactivationThreshold.
+    * Modified cmdlet Update-AFFlow: added parameter Scheduled_FlowErrorDeactivationThreshold.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationEfs: added parameters AccessPointArn, FileSystemAccessRoleArn and InTransitEncryption.
+  * Amazon EMR Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EMRServerless and can be listed using the command 'Get-AWSCmdletName -Service EMRServerless'.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMNotebookInstance: added parameter InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion.
+    * Modified cmdlet Update-SMNotebookInstance: added parameter InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion.
+
+### 4.1.94 (2022-05-26 20:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.283.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Forecast Service
     * Modified cmdlet New-FRCAutoPredictor: added parameters TimeAlignmentBoundary_DayOfMonth, TimeAlignmentBoundary_DayOfWeek, TimeAlignmentBoundary_Hour and TimeAlignmentBoundary_Month.

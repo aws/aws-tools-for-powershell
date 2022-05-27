@@ -210,6 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.DateTime? Scheduled_FirstExecutionFrom { get; set; }
         #endregion
         
+        #region Parameter Scheduled_FlowErrorDeactivationThreshold
+        /// <summary>
+        /// <para>
+        /// <para>Defines how many times a scheduled flow fails consecutively before Amazon AppFlow
+        /// deactivates it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TriggerConfig_TriggerProperties_Scheduled_FlowErrorDeactivationThreshold")]
+        public System.Int32? Scheduled_FlowErrorDeactivationThreshold { get; set; }
+        #endregion
+        
         #region Parameter FlowName
         /// <summary>
         /// <para>
@@ -441,7 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Scheduled_ScheduleEndTime
         /// <summary>
         /// <para>
-        /// <para> Specifies the scheduled end time for a schedule-triggered flow. </para>
+        /// <para>The time at which the scheduled flow ends. The time is formatted as a timestamp that
+        /// follows the ISO 8601 standard, such as <code>2022-04-27T13:00:00-07:00</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -476,7 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Scheduled_ScheduleStartTime
         /// <summary>
         /// <para>
-        /// <para> Specifies the scheduled start time for a schedule-triggered flow. </para>
+        /// <para>The time at which the scheduled flow starts. The time is formatted as a timestamp
+        /// that follows the ISO 8601 standard, such as <code>2022-04-26T13:00:00-07:00</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,8 +520,13 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Scheduled_Timezone
         /// <summary>
         /// <para>
-        /// <para> Specifies the time zone used when referring to the date and time of a scheduled-triggered
-        /// flow, such as <code>America/New_York</code>. </para>
+        /// <para>Specifies the time zone used when referring to the dates and times of a scheduled
+        /// flow, such as <code>America/New_York</code>. This time zone is only a descriptive
+        /// label. It doesn't affect how Amazon AppFlow interprets the timestamps that you specify
+        /// to schedule the flow.</para><para>If you want to schedule a flow by using times in a particular time zone, indicate
+        /// the time zone as a UTC offset in your timestamps. For example, the UTC offsets for
+        /// the <code>America/New_York</code> timezone are <code>-04:00</code> EDT and <code>-05:00
+        /// EST</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -666,6 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             #endif
             context.Scheduled_DataPullMode = this.Scheduled_DataPullMode;
             context.Scheduled_FirstExecutionFrom = this.Scheduled_FirstExecutionFrom;
+            context.Scheduled_FlowErrorDeactivationThreshold = this.Scheduled_FlowErrorDeactivationThreshold;
             context.Scheduled_ScheduleEndTime = this.Scheduled_ScheduleEndTime;
             context.Scheduled_ScheduleExpression = this.Scheduled_ScheduleExpression;
             context.Scheduled_ScheduleOffset = this.Scheduled_ScheduleOffset;
@@ -1338,6 +1358,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.FirstExecutionFrom = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FirstExecutionFrom.Value;
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
             }
+            System.Int32? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FlowErrorDeactivationThreshold = null;
+            if (cmdletContext.Scheduled_FlowErrorDeactivationThreshold != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FlowErrorDeactivationThreshold = cmdletContext.Scheduled_FlowErrorDeactivationThreshold.Value;
+            }
+            if (requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FlowErrorDeactivationThreshold != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.FlowErrorDeactivationThreshold = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FlowErrorDeactivationThreshold.Value;
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
+            }
             System.DateTime? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleEndTime = null;
             if (cmdletContext.Scheduled_ScheduleEndTime != null)
             {
@@ -1509,6 +1539,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public List<Amazon.Appflow.Model.Task> Task { get; set; }
             public Amazon.Appflow.DataPullMode Scheduled_DataPullMode { get; set; }
             public System.DateTime? Scheduled_FirstExecutionFrom { get; set; }
+            public System.Int32? Scheduled_FlowErrorDeactivationThreshold { get; set; }
             public System.DateTime? Scheduled_ScheduleEndTime { get; set; }
             public System.String Scheduled_ScheduleExpression { get; set; }
             public System.Int64? Scheduled_ScheduleOffset { get; set; }
