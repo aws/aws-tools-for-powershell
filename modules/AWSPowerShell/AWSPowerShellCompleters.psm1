@@ -19566,74 +19566,7 @@ $EMRC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMRC_SelectCompleters $EMRC_SelectMap
-# Argument completions for service EMR Serverless Web Service
 
-
-$EMRS_SelectCompleters = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.EMRS.$($commandName.Replace('-', ''))Cmdlet]"
-    if (-not $cmdletType) {
-        return
-    }
-    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
-    if (-not $awsCmdletAttribute) {
-        return
-    }
-    $type = $awsCmdletAttribute.SelectReturnType
-    if (-not $type) {
-        return
-    }
-
-    $splitSelect = $wordToComplete -Split '\.'
-    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
-        $propertyName = $_
-        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
-        if ($properties.Length -ne 1) {
-            break
-        }
-        $type = $properties.PropertyType
-        $prefix += "$($properties.Name)."
-
-        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
-        if ($asEnumerableType -and $type -ne [System.String]) {
-            $type =  $asEnumerableType.GetGenericArguments()[0]
-        }
-    }
-
-    $v = @( '*' )
-    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
-    if ($properties) {
-        $v += ($properties | ForEach-Object { $prefix + $_ })
-    }
-    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
-    if ($parameters) {
-        $v += ($parameters | ForEach-Object { "^$_" })
-    }
-
-    $v |
-        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$EMRS_SelectMap = @{
-    "Select"=@("Stop-EMRSJobRun",
-               "New-EMRSApplication",
-               "Remove-EMRSApplication",
-               "Get-EMRSApplication",
-               "Get-EMRSJobRun",
-               "Get-EMRSApplicationList",
-               "Get-EMRSJobRunList",
-               "Get-EMRSResourceTagList",
-               "Start-EMRSApplication",
-               "Start-EMRSJobRun",
-               "Stop-EMRSApplication",
-               "Add-EMRSResourceTag",
-               "Remove-EMRSResourceTag",
-               "Update-EMRSApplication")
-}
-
-_awsArgumentCompleterRegistration $EMRS_SelectCompleters $EMRS_SelectMap
 # Argument completions for service AWS Marketplace Entitlement Service
 
 

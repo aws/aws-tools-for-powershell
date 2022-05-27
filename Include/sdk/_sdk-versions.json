@@ -2448,14 +2448,6 @@
                 "Core" : "3.7.11.9"
             },
             "InPreview"               : false
-        },
-        "EMRServerlessWebService"             : {
-            "Version" : "3.7.0.0",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.11.9"
-            },
-            "InPreview"               : false
         }
     }
 }

@@ -1,3 +1,0 @@
-﻿# EMRServerlessWebService
-
-Export-ModuleMember -Alias *
