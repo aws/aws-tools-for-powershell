@@ -28,7 +28,13 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// List call analytics jobs with a specified status or substring that matches their names.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of Call Analytics jobs that match the specified criteria. If no criteria
+    /// are specified, all Call Analytics jobs are returned.
+    /// 
+    ///  
+    /// <para>
+    /// To get detailed information about a specific Call Analytics job, use the operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TRSCallAnalyticsJobList")]
     [OutputType("Amazon.TranscribeService.Model.CallAnalyticsJobSummary")]
@@ -43,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter JobNameContain
         /// <summary>
         /// <para>
-        /// <para>When specified, the jobs returned in the list are limited to jobs whose name contains
-        /// the specified string.</para>
+        /// <para>Returns only the Call Analytics jobs that contain the specified string. The search
+        /// is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of call analytics jobs to return in each page of results. If there
+        /// <para>The maximum number of Call Analytics jobs to return in each page of results. If there
         /// are fewer results than the value you specify, only the actual results are returned.
-        /// If you do not specify a value, the default of 5 is used. </para>
+        /// If you don't specify a value, a default of 5 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you receive a truncated result in the previous request of , include <code>NextToken</code>
-        /// to fetch the next set of jobs.</para>
+        /// <para>If your <code>ListCallAnalyticsJobs</code> request returns more results than can be
+        /// displayed, <code>NextToken</code> is displayed in the response with an associated
+        /// string. To get the next page of results, copy this string and repeat your request,
+        /// including <code>NextToken</code> with the value of the copied string. Repeat as needed
+        /// to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>When specified, returns only call analytics jobs with the specified status. Jobs are
-        /// ordered by creation date, with the most recent jobs returned first. If you don't specify
-        /// a status, Amazon Transcribe returns all analytics jobs ordered by creation date.</para>
+        /// <para>Returns only Call Analytics jobs with the specified status. Jobs are ordered by creation
+        /// date, with the newest job first. If you don't include <code>Status</code>, all Call
+        /// Analytics jobs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

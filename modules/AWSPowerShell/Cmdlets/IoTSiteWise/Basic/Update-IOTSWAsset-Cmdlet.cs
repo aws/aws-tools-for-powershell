@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class UpdateIOTSWAssetCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        #region Parameter AssetDescription
+        /// <summary>
+        /// <para>
+        /// <para>A description for the asset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetDescription { get; set; }
+        #endregion
+        
         #region Parameter AssetId
         /// <summary>
         /// <para>
@@ -147,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.AssetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetDescription = this.AssetDescription;
             context.AssetId = this.AssetId;
             #if MODULAR
             if (this.AssetId == null && ParameterWasBound(nameof(this.AssetId)))
@@ -178,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.UpdateAssetRequest();
             
+            if (cmdletContext.AssetDescription != null)
+            {
+                request.AssetDescription = cmdletContext.AssetDescription;
+            }
             if (cmdletContext.AssetId != null)
             {
                 request.AssetId = cmdletContext.AssetId;
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetDescription { get; set; }
             public System.String AssetId { get; set; }
             public System.String AssetName { get; set; }
             public System.String ClientToken { get; set; }

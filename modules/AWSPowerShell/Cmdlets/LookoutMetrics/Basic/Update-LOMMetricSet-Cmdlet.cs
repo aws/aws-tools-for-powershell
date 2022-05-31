@@ -430,6 +430,17 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.Boolean? BackTestConfiguration_RunBackTestMode { get; set; }
         #endregion
         
+        #region Parameter MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode
+        /// <summary>
+        /// <para>
+        /// <para>Run a backtest instead of monitoring new data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CloudWatch_BackTestConfiguration_RunBackTestMode")]
+        public System.Boolean? MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode { get; set; }
+        #endregion
+        
         #region Parameter AthenaSourceConfig_S3ResultsPath
         /// <summary>
         /// <para>
@@ -647,6 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             context.AthenaSourceConfig_S3ResultsPath = this.AthenaSourceConfig_S3ResultsPath;
             context.AthenaSourceConfig_TableName = this.AthenaSourceConfig_TableName;
             context.AthenaSourceConfig_WorkGroupName = this.AthenaSourceConfig_WorkGroupName;
+            context.MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode = this.MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode;
             context.CloudWatchConfig_RoleArn = this.CloudWatchConfig_RoleArn;
             context.RDSSourceConfig_DatabaseHost = this.RDSSourceConfig_DatabaseHost;
             context.RDSSourceConfig_DatabaseName = this.RDSSourceConfig_DatabaseName;
@@ -741,31 +753,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
              // populate MetricSource
             var requestMetricSourceIsNull = true;
             request.MetricSource = new Amazon.LookoutMetrics.Model.MetricSource();
-            Amazon.LookoutMetrics.Model.CloudWatchConfig requestMetricSource_metricSource_CloudWatchConfig = null;
-            
-             // populate CloudWatchConfig
-            var requestMetricSource_metricSource_CloudWatchConfigIsNull = true;
-            requestMetricSource_metricSource_CloudWatchConfig = new Amazon.LookoutMetrics.Model.CloudWatchConfig();
-            System.String requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn = null;
-            if (cmdletContext.CloudWatchConfig_RoleArn != null)
-            {
-                requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn = cmdletContext.CloudWatchConfig_RoleArn;
-            }
-            if (requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn != null)
-            {
-                requestMetricSource_metricSource_CloudWatchConfig.RoleArn = requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn;
-                requestMetricSource_metricSource_CloudWatchConfigIsNull = false;
-            }
-             // determine if requestMetricSource_metricSource_CloudWatchConfig should be set to null
-            if (requestMetricSource_metricSource_CloudWatchConfigIsNull)
-            {
-                requestMetricSource_metricSource_CloudWatchConfig = null;
-            }
-            if (requestMetricSource_metricSource_CloudWatchConfig != null)
-            {
-                request.MetricSource.CloudWatchConfig = requestMetricSource_metricSource_CloudWatchConfig;
-                requestMetricSourceIsNull = false;
-            }
             Amazon.LookoutMetrics.Model.AppFlowConfig requestMetricSource_metricSource_AppFlowConfig = null;
             
              // populate AppFlowConfig
@@ -799,6 +786,56 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_AppFlowConfig != null)
             {
                 request.MetricSource.AppFlowConfig = requestMetricSource_metricSource_AppFlowConfig;
+                requestMetricSourceIsNull = false;
+            }
+            Amazon.LookoutMetrics.Model.CloudWatchConfig requestMetricSource_metricSource_CloudWatchConfig = null;
+            
+             // populate CloudWatchConfig
+            var requestMetricSource_metricSource_CloudWatchConfigIsNull = true;
+            requestMetricSource_metricSource_CloudWatchConfig = new Amazon.LookoutMetrics.Model.CloudWatchConfig();
+            System.String requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn = null;
+            if (cmdletContext.CloudWatchConfig_RoleArn != null)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn = cmdletContext.CloudWatchConfig_RoleArn;
+            }
+            if (requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn != null)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig.RoleArn = requestMetricSource_metricSource_CloudWatchConfig_cloudWatchConfig_RoleArn;
+                requestMetricSource_metricSource_CloudWatchConfigIsNull = false;
+            }
+            Amazon.LookoutMetrics.Model.BackTestConfiguration requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration = null;
+            
+             // populate BackTestConfiguration
+            var requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfigurationIsNull = true;
+            requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration = new Amazon.LookoutMetrics.Model.BackTestConfiguration();
+            System.Boolean? requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration_metricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode = null;
+            if (cmdletContext.MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode != null)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration_metricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode = cmdletContext.MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode.Value;
+            }
+            if (requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration_metricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode != null)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration.RunBackTestMode = requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration_metricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode.Value;
+                requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfigurationIsNull = false;
+            }
+             // determine if requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration should be set to null
+            if (requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfigurationIsNull)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration = null;
+            }
+            if (requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration != null)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig.BackTestConfiguration = requestMetricSource_metricSource_CloudWatchConfig_metricSource_CloudWatchConfig_BackTestConfiguration;
+                requestMetricSource_metricSource_CloudWatchConfigIsNull = false;
+            }
+             // determine if requestMetricSource_metricSource_CloudWatchConfig should be set to null
+            if (requestMetricSource_metricSource_CloudWatchConfigIsNull)
+            {
+                requestMetricSource_metricSource_CloudWatchConfig = null;
+            }
+            if (requestMetricSource_metricSource_CloudWatchConfig != null)
+            {
+                request.MetricSource.CloudWatchConfig = requestMetricSource_metricSource_CloudWatchConfig;
                 requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.S3SourceConfig requestMetricSource_metricSource_S3SourceConfig = null;
@@ -1424,6 +1461,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             public System.String AthenaSourceConfig_S3ResultsPath { get; set; }
             public System.String AthenaSourceConfig_TableName { get; set; }
             public System.String AthenaSourceConfig_WorkGroupName { get; set; }
+            public System.Boolean? MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode { get; set; }
             public System.String CloudWatchConfig_RoleArn { get; set; }
             public System.String RDSSourceConfig_DatabaseHost { get; set; }
             public System.String RDSSourceConfig_DatabaseName { get; set; }

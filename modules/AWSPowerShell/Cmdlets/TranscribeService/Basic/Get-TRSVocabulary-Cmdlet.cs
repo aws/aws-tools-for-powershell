@@ -28,7 +28,17 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Gets information about a vocabulary.
+    /// Provides information about the specified custom vocabulary.
+    /// 
+    ///  
+    /// <para>
+    /// To view the status of the specified vocabulary, check the <code>VocabularyState</code>
+    /// field. If the status is <code>READY</code>, your vocabulary is available to use. If
+    /// the status is <code>FAILED</code>, <code>FailureReason</code> provides details on
+    /// why your vocabulary failed.
+    /// </para><para>
+    /// To get a list of your custom vocabularies, use the operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSVocabulary")]
     [OutputType("Amazon.TranscribeService.Model.GetVocabularyResponse")]
@@ -42,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary to return information about. The name is case sensitive.</para>
+        /// <para>The name of the custom vocabulary you want information about. Vocabulary names are
+        /// case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

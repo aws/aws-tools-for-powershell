@@ -28,7 +28,13 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Removes specified tags from a specified Amazon Transcribe resource.
+    /// Removes the specified tags from the specified Amazon Transcribe resource.
+    /// 
+    ///  
+    /// <para>
+    /// If you include <code>UntagResource</code> in your request, you must also include <code>ResourceArn</code>
+    /// and <code>TagKeys</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "TRSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,9 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove
-        /// tags from. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>
-        /// (for example, <code>arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name</code>).
-        /// Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>,
+        /// tags from. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</para><para>For example, <code>arn:aws:transcribe:us-west-2:account-id:transcription-job/transcription-job-name</code>.</para><para>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>,
         /// <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>,
         /// and <code>language-model</code>.</para>
         /// </para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys you want to remove from a specified Amazon Transcribe resource.</para>
+        /// <para>Removes the specified tag keys from the specified Amazon Transcribe resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

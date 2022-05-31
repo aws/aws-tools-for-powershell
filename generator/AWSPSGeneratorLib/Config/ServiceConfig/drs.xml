@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateExtendedSourceServer" OutputProperty="SourceServer" Verb="New" Noun="ExtendedSourceServer" ShouldProcessTarget="SourceServerArn" PipelineParameter="SourceServerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="StagingAreaSubnetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +87,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtensibleSourceServers" OutputProperty="Items" Verb="Get" Noun="ExtensibleSourceServerList" PipelineParameter="StagingAccountID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStagingAccounts" OutputProperty="Accounts" Verb="Get" Noun="StagingAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

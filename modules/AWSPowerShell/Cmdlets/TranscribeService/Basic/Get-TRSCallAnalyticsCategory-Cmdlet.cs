@@ -28,7 +28,12 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Retrieves information about a call analytics category.
+    /// Provides information about the specified Call Analytics category.
+    /// 
+    ///  
+    /// <para>
+    /// To get a list of your Call Analytics categories, use the operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSCallAnalyticsCategory")]
     [OutputType("Amazon.TranscribeService.Model.CategoryProperties")]
@@ -43,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CategoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the category you want information about. Category names are case sensitive.</para>
+        /// <para>The name of the Call Analytics category you want information about. Category names
+        /// are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

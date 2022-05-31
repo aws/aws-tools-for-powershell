@@ -28,7 +28,14 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Lists all tags associated with a given transcription job, vocabulary, or resource.
+    /// Lists all tags associated with the specified transcription job, vocabulary, model,
+    /// or resource.
+    /// 
+    ///  
+    /// <para>
+    /// To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+    /// resources</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSResourceTag")]
     [OutputType("Amazon.TranscribeService.Model.ListTagsForResourceResponse")]
@@ -42,10 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Lists all tags associated with a given Amazon Resource Name (ARN). ARNs have the format
-        /// <code>arn:partition:service:region:account-id:resource-type/resource-id</code> (for
-        /// example, <code>arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name</code>).
-        /// Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>,
+        /// <para>Returns a list of all tags associated with the specified Amazon Resource Name (ARN).
+        /// ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</para><para>For example, <code>arn:aws:transcribe:us-west-2:account-id:transcription-job/transcription-job-name</code>.</para><para>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>,
         /// <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>,
         /// and <code>language-model</code>.</para>
         /// </para>

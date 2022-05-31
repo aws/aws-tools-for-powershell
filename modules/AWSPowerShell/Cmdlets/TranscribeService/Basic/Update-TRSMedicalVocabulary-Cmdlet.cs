@@ -28,10 +28,9 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Updates a vocabulary with new values that you provide in a different text file from
-    /// the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code>
-    /// operation overwrites all of the existing information with the values that you provide
-    /// in the request.
+    /// Updates an existing custom medical vocabulary with new values. This operation overwrites
+    /// all existing information with your new values; you cannot append new terms onto an
+    /// existing vocabulary.
     /// </summary>
     [Cmdlet("Update", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateMedicalVocabularyResponse")]
@@ -45,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the language used for the entries in the updated vocabulary.
-        /// U.S. English (en-US) is the only valid language code in Amazon Transcribe Medical.</para>
+        /// <para>The language code that represents the language of the entries in the custom vocabulary
+        /// you want to update. US English (<code>en-US</code>) is the only language supported
+        /// with Amazon Transcribe Medical.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,11 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFileUri
         /// <summary>
         /// <para>
-        /// <para>The location in Amazon S3 of the text file that contains your custom vocabulary. The
-        /// URI must be in the same Amazon Web Services Region as the resource that you are calling.
-        /// The following is the format for a URI:</para><para><code>https://s3.aws-region.amazonaws.com/bucket-name/keyprefix/objectkey</code></para><para>For example:</para><para><code>https://s3.us-east-1.amazonaws.com/DOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies in Amazon Transcribe Medical, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-med.html">Medical
-        /// Custom Vocabularies</a>.</para>
+        /// <para>The Amazon S3 location of the text file that contains your custom medical vocabulary.
+        /// The URI must be located in the same Amazon Web Services Region as the resource you're
+        /// calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary to update. The name is case sensitive. If you try to update
-        /// a vocabulary with the same name as a vocabulary you've already made, you get a <code>ConflictException</code>
-        /// error.</para>
+        /// <para>The name of the custom medical vocabulary you want to update. Vocabulary names are
+        /// case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

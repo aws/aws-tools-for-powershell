@@ -28,7 +28,33 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Starts an asynchronous job to transcribe speech to text.
+    /// Transcribes the audio from a media file and applies any additional Request Parameters
+    /// you choose to include in your request.
+    /// 
+    ///  
+    /// <para>
+    /// To make a <code>StartTranscriptionJob</code> request, you must first upload your media
+    /// file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the
+    /// file using the <code>Media</code> parameter.
+    /// </para><para>
+    /// You must include the following parameters in your <code>StartTranscriptionJob</code>
+    /// request:
+    /// </para><ul><li><para><code>region</code>: The Amazon Web Services Region where you are making your request.
+    /// For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer
+    /// to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon
+    /// Transcribe endpoints and quotas</a>.
+    /// </para></li><li><para><code>TranscriptionJobName</code>: A custom name you create for your transcription
+    /// job that is unique within your Amazon Web Services account.
+    /// </para></li><li><para><code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location of your media
+    /// file.
+    /// </para></li><li><para>
+    /// One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code>:
+    /// If you know the language of your media file, specify it using the <code>LanguageCode</code>
+    /// parameter; you can find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+    /// languages</a> table. If you don't know the languages spoken in your media, use either
+    /// <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> and let Amazon
+    /// Transcribe identify the languages for you.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "TRSTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.TranscriptionJob")]
@@ -43,12 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter JobExecutionSettings_AllowDeferredExecution
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a job should be queued by Amazon Transcribe when the concurrent
-        /// execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is
-        /// true, jobs are queued and executed when the number of executing jobs falls below the
-        /// concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code>
-        /// exception.</para><para>Note that job queuing is enabled by default for call analytics jobs.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
-        /// <code>DataAccessRoleArn</code> field.</para>
+        /// <para>Allows you to enable job queuing when your concurrent request limit is exceeded. When
+        /// <code>AllowDeferredExecution</code> is set to <code>true</code>, transcription job
+        /// requests are placed in a queue until the number of jobs falls below the concurrent
+        /// request limit. If <code>AllowDeferredExecution</code> is set to <code>false</code>
+        /// and the number of transcription job requests exceed the concurrent request limit,
+        /// you get a <code>LimitExceededException</code> error.</para><para>Note that job queuing is enabled by default for Call Analytics jobs.</para><para>If you include <code>AllowDeferredExecution</code> in your request, you must also
+        /// include <code>DataAccessRoleArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,11 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ChannelIdentification
         /// <summary>
         /// <para>
-        /// <para>Instructs Amazon Transcribe to process each audio channel separately and then merge
-        /// the transcription output of each channel into a single transcription.</para><para>Amazon Transcribe also produces a transcription of each item detected on an audio
-        /// channel, including the start time and end time of the item and alternative transcriptions
-        /// of the item including the confidence that Amazon Transcribe has in the transcription.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
+        /// <para>Enables channel identification in multi-channel audio.</para><para>Channel identification transcribes the audio on each channel independently, then appends
+        /// the output for each channel into one transcript.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
+        /// multi-channel audio</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,12 +98,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter JobExecutionSettings_DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN), in the form <code>arn:partition:service:region:account-id:resource-type/resource-id</code>,
-        /// of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe
-        /// assumes this role to read queued media files. If you have specified an output S3 bucket
-        /// for the transcription results, this role should have access to the output bucket as
-        /// well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
-        /// <code>DataAccessRoleArn</code> field.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
+        /// S3 bucket that contains your input files. If the role you specify doesn’t have the
+        /// appropriate permissions to access the specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a>.</para><para>Note that if you include <code>DataAccessRoleArn</code> in your request, you must
+        /// also include <code>AllowDeferredExecution</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Subtitles_Format
         /// <summary>
         /// <para>
-        /// <para>Specify the output format for your subtitle file; if you select both <code>srt</code>
-        /// and <code>vtt</code> formats, two output files are generated.</para>
+        /// <para>Specify the output format for your subtitle file; if you select both WebVTT (<code>vtt</code>)
+        /// and SubRip (<code>srt</code>) formats, two output files are generated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,21 +126,45 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter IdentifyLanguage
         /// <summary>
         /// <para>
-        /// <para>Set this field to <code>true</code> to enable automatic language identification. Automatic
-        /// language identification is disabled by default. You receive a <code>BadRequestException</code>
-        /// error if you enter a value for a <code>LanguageCode</code>.</para><para>You must include either <code>LanguageCode</code> or <code>IdentifyLanguage</code>
-        /// in your request.</para>
+        /// <para>Enables automatic language identification in your transcription job request.</para><para>If you include <code>IdentifyLanguage</code>, you can optionally include a list of
+        /// language codes, using <code>LanguageOptions</code>, that you think may be present
+        /// in your media file. Including language options can improve transcription accuracy.</para><para>If you want to apply a custom language model, a custom vocabulary, or a custom vocabulary
+        /// filter to your automatic language identification request, include <code>LanguageIdSettings</code>
+        /// with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>,
+        /// and <code>VocabularyFilterName</code>).</para><para>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>,
+        /// or <code>IdentifyMultipleLanguages</code> in your request. If you include more than
+        /// one of these parameters, your transcription job fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IdentifyLanguage { get; set; }
         #endregion
         
+        #region Parameter IdentifyMultipleLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Enables automatic multi-language identification in your transcription job request.
+        /// Use this parameter if your media file contains more than one language.</para><para>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include
+        /// a list of language codes, using <code>LanguageOptions</code>, that you think may be
+        /// present in your media file. Including language options can improve transcription accuracy.</para><para>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic
+        /// language identification request, include <code>LanguageIdSettings</code> with the
+        /// relevant sub-parameters (<code>VocabularyName</code> and <code>VocabularyFilterName</code>).</para><para>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>,
+        /// or <code>IdentifyMultipleLanguages</code> in your request. If you include more than
+        /// one of these parameters, your transcription job fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentifyMultipleLanguages")]
+        public System.Boolean? IdentifyMultipleLanguage { get; set; }
+        #endregion
+        
         #region Parameter KMSEncryptionContext
         /// <summary>
         /// <para>
         /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
-        /// that provide an added layer of security for your data.</para>
+        /// that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS
+        /// encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric
+        /// keys in KMS</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +174,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language used in the input media file. You must include
-        /// either <code>LanguageCode</code> or <code>IdentifyLanguage</code> in your request.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
-        /// be encoded at a sample rate of 16,000 Hz or higher.</para>
+        /// <para>The language code that represents the language spoken in the input media file.</para><para>If you're unsure of the language spoken in your media file, consider using <code>IdentifyLanguage</code>
+        /// or <code>IdentifyMultipleLanguages</code> to enable automatic language identification.</para><para>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>,
+        /// or <code>IdentifyMultipleLanguages</code> in your request. If you include more than
+        /// one of these parameters, your transcription job fails.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> table.</para><note><para>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
+        /// must be encoded at a sample rate of 16,000 Hz or higher.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,9 +191,22 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageIdSetting
         /// <summary>
         /// <para>
-        /// <para>The language identification settings associated with your transcription job. These
-        /// settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
-        /// <code>LanguageModelName</code>.</para>
+        /// <para>If using automatic language identification (<code>IdentifyLanguage</code>) in your
+        /// request and you want to apply a custom language model, a custom vocabulary, or a custom
+        /// vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters
+        /// (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</para><para>You can specify two or more language codes that represent the languages you think
+        /// may be present in your media; including more than five is not recommended. Each language
+        /// code you include can have an associated custom language model, custom vocabulary,
+        /// and custom vocabulary filter. The languages you specify must match the languages of
+        /// the specified custom language models, custom vocabularies, and custom vocabulary filters.</para><para>To include language options using <code>IdentifyLanguage</code><b>without</b> including
+        /// a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code>
+        /// instead of <code>LanguageIdSettings</code>. Including language options can improve
+        /// the accuracy of automatic language identification.</para><para>If you want to include a custom language model with your request but <b>do not</b>
+        /// want to use automatic language identification, use instead the <code /> parameter with
+        /// the <code>LanguageModelName</code> sub-parameter.</para><para>If you want to include a custom vocabulary or a custom vocabulary filter (or both)
+        /// with your request but <b>do not</b> want to use automatic language identification,
+        /// use instead the <code /> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code>
+        /// (or both) sub-parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ModelSettings_LanguageModelName
         /// <summary>
         /// <para>
-        /// <para>The name of your custom language model.</para>
+        /// <para>The name of the custom language model you want to use when processing your transcription
+        /// job. Note that language model names are case sensitive.</para><para>The language of the specified language model must match the language code you specify
+        /// in your transcription request. If the languages don't match, the language model isn't
+        /// applied. There are no errors or warnings associated with a language mismatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,10 +230,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageOption
         /// <summary>
         /// <para>
-        /// <para>An object containing a list of languages that might be present in your collection
-        /// of audio files. Automatic language identification chooses a language that best matches
-        /// the source audio from that list.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
-        /// be encoded at a sample rate of 16,000 Hz or higher.</para>
+        /// <para>You can specify two or more language codes that represent the languages you think
+        /// may be present in your media; including more than five is not recommended. If you're
+        /// unsure what languages are present, do not include this parameter.</para><para>If you include <code>LanguageOptions</code> in your request, you must also include
+        /// <code>IdentifyLanguage</code>.</para><para>For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a>.</para><para>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
+        /// must be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_MaxAlternative
         /// <summary>
         /// <para>
-        /// <para>The number of alternative transcriptions that the service should return. If you specify
-        /// the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code>
-        /// field to true.</para>
+        /// <para>Indicate the maximum number of alternative transcriptions you want Amazon Transcribe
+        /// to include in your transcript.</para><para>If you select a number greater than the number of alternative transcriptions generated
+        /// by Amazon Transcribe, only the actual number of alternative transcriptions are included.</para><para>If you include <code>MaxAlternatives</code> in your request, you must also include
+        /// <code>ShowAlternatives</code> with a value of <code>true</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
+        /// transcriptions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,9 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_MaxSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>The maximum number of speakers to identify in the input audio. If there are more speakers
-        /// in the audio than this number, multiple speakers are identified as a single speaker.
-        /// If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
+        /// <para>Specify the maximum number of speakers you want to identify in your media.</para><para>Note that if your media contains more speakers than the specified number, multiple
+        /// speakers will be identified as a single speaker.</para><para>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
         /// field to true.</para>
         /// </para>
         /// </summary>
@@ -200,9 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para><code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code></para><para>For example:</para><para><code>s3://DOC-EXAMPLE-BUCKET/example.flac</code></para><para><code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
+        /// <para>The Amazon S3 location of the media file you want to transcribe. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the input media file.</para>
+        /// <para>Specify the format of your input media file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,10 +296,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaSampleRateHertz
         /// <summary>
         /// <para>
-        /// <para>The sample rate, in Hertz, of the audio track in the input media file. </para><para>If you do not specify the media sample rate, Amazon Transcribe determines the sample
-        /// rate. If you specify the sample rate, it must match the sample rate detected by Amazon
-        /// Transcribe. In most cases, you should leave the <code>MediaSampleRateHertz</code>
-        /// field blank and let Amazon Transcribe determine the sample rate.</para>
+        /// <para>The sample rate, in Hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe determines it for you.
+        /// If you specify the sample rate, it must match the rate detected by Amazon Transcribe;
+        /// if there's a mismatch between the value you specify and the value detected, your job
+        /// fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code>
+        /// and let Amazon Transcribe determine the sample rate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,21 +310,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputBucketName
         /// <summary>
         /// <para>
-        /// <para>The location where the transcription is stored.</para><para>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcript
-        /// in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation,
-        /// the operation returns this location in the <code>TranscriptFileUri</code> field. If
-        /// you enable content redaction, the redacted transcript appears in <code>RedactedTranscriptFileUri</code>.
-        /// If you enable content redaction and choose to output an unredacted transcript, that
-        /// transcript's location still appears in the <code>TranscriptFileUri</code>. The S3
-        /// bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
-        /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
-        /// the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter.
-        /// If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
-        /// server-side encryption of transcripts that are placed in your S3 bucket.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
-        /// pre-signed URL, a shareable URL that provides secure access to your transcription,
-        /// and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download
-        /// the transcription.</para>
+        /// <para>The name of the Amazon S3 bucket where you want your transcription output stored.
+        /// Do not include the <code>S3://</code> prefix of the specified bucket.</para><para>If you want your output to go to a sub-folder of this bucket, specify it using the
+        /// <code>OutputKey</code> parameter; <code>OutputBucketName</code> only accepts the name
+        /// of a bucket.</para><para>For example, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET</code>,
+        /// set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code>. However, if
+        /// you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET/test-files/</code>, set
+        /// <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code> and <code>OutputKey</code>
+        /// to <code>test-files/</code>.</para><para>Note that Amazon Transcribe must have permission to use the specified location. You
+        /// can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon
+        /// Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
+        /// Required for IAM User Roles</a>.</para><para>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a
+        /// service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,12 +331,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
-        /// key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code>
-        /// operation must have permission to use the specified KMS key.</para><para>You can use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
-        /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account-ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the transcription job is encrypted
-        /// with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// in the <code>OutputBucketName</code> parameter.</para>
+        /// <para>The KMS key you want to use to encrypt your transcription output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
+        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
+        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the user making the request must have permission to use the specified KMS
+        /// key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,15 +346,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputKey
         /// <summary>
         /// <para>
-        /// <para>You can specify a location in an Amazon S3 bucket to store the output of your transcription
-        /// job.</para><para>If you don't specify an output key, Amazon Transcribe stores the output of your transcription
-        /// job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".</para><para>You can use output keys to specify the Amazon S3 prefix and file name of the transcription
-        /// output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output
-        /// key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json".
-        /// If you specify "my-other-job-name.json" as the output key, the object key is changed
-        /// to "my-other-job-name.json". You can use an output key to change both the prefix and
-        /// the file name, for example "folder/my-other-job-name.json".</para><para>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code>
-        /// parameter.</para>
+        /// <para>Use in combination with <code>OutputBucketName</code> to specify the output location
+        /// of your transcript and, optionally, a unique name for your output file. The default
+        /// name for your transcription output is the same as the name you specified for your
+        /// transcription job (<code>TranscriptionJobName</code>).</para><para>Here are some examples of how you can use <code>OutputKey</code>:</para><ul><li><para>If you specify 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code> and 'my-transcript.json'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript.json</code>.</para></li><li><para>If you specify 'my-first-transcription' as the <code>TranscriptionJobName</code>,
+        /// 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code>, and 'my-transcript' as
+        /// the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript/my-first-transcription.json</code>.</para></li><li><para>If you specify 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code> and 'test-files/my-transcript.json'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript.json</code>.</para></li><li><para>If you specify 'my-first-transcription' as the <code>TranscriptionJobName</code>,
+        /// 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code>, and 'test-files/my-transcript'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript/my-first-transcription.json</code>.</para></li></ul><para>If you specify the name of an Amazon S3 bucket sub-folder that doesn't exist, one
+        /// is created for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Subtitles_OutputStartIndex
         /// <summary>
         /// <para>
-        /// <para>Defines the starting value that is assigned to the first subtitle segment.</para><para>The default start index for Amazon Transcribe is <code>0</code>, which differs from
+        /// <para>Specify the starting value that is assigned to the first subtitle segment.</para><para>The default start index for Amazon Transcribe is <code>0</code>, which differs from
         /// the more widely used standard of <code>1</code>. If you're uncertain which value to
         /// use, we recommend choosing <code>1</code>, as this may improve compatibility with
         /// other services.</para>
@@ -306,8 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_PiiEntityType
         /// <summary>
         /// <para>
-        /// <para>The types of personally identifiable information (PII) you want to redact in your
-        /// transcript.</para>
+        /// <para>Specify which types of personally identifiable information (PII) you want to redact
+        /// in your transcript. You can include as many types as you'd like, or you can select
+        /// <code>ALL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,8 +392,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location for your redacted output media file. This is only supported
-        /// for call analytics jobs.</para>
+        /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// transcription requests.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,10 +404,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_RedactionOutput
         /// <summary>
         /// <para>
-        /// <para>The output transcript file stored in either the default S3 bucket or in a bucket you
-        /// specify.</para><para>When you choose <code>redacted</code> Amazon Transcribe outputs only the redacted
-        /// transcript.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs both
-        /// the redacted and unredacted transcripts.</para>
+        /// <para>Specify if you want only a redacted transcript, or if you want a redacted and an unredacted
+        /// transcript.</para><para>When you choose <code>redacted</code> Amazon Transcribe creates only a redacted transcript.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe creates a redacted
+        /// and an unredacted transcript (as two separate files).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,8 +417,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_RedactionType
         /// <summary>
         /// <para>
-        /// <para>Request parameter that defines the entities to be redacted. The only accepted value
-        /// is <code>PII</code>.</para>
+        /// <para>Specify the category of information you want to redact; <code>PII</code> (personally
+        /// identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code>
+        /// to choose which types of PII you want to redact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,9 +430,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ShowAlternative
         /// <summary>
         /// <para>
-        /// <para>Determines whether the transcription contains alternative transcriptions. If you set
-        /// the <code>ShowAlternatives</code> field to true, you must also set the maximum number
-        /// of alternatives to return in the <code>MaxAlternatives</code> field.</para>
+        /// <para>To include alternative transcriptions within your transcription output, include <code>ShowAlternatives</code>
+        /// in your transcription request.</para><para>If you have multi-channel audio and do not enable channel identification, your audio
+        /// is transcribed in a continuous manner and your transcript does not separate the speech
+        /// by channel.</para><para>If you include <code>ShowAlternatives</code>, you must also include <code>MaxAlternatives</code>,
+        /// which is the maximum number of alternative transcriptions you want Amazon Transcribe
+        /// to generate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
+        /// transcriptions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,11 +447,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ShowSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>Determines whether the transcription job uses speaker recognition to identify different
-        /// speakers in the input audio. Speaker recognition labels individual speakers in the
-        /// audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must
-        /// also set the maximum number of speaker labels <code>MaxSpeakerLabels</code> field.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
+        /// <para>Enables speaker identification (diarization) in your transcription output. Speaker
+        /// identification labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
+        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Identifying
+        /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +462,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Add tags to an Amazon Transcribe transcription job.</para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new transcription
+        /// job at the time you start this new job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,10 +475,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. You can't use the strings "<code>.</code>" or "<code>..</code>"
-        /// by themselves as the job name. The name must also be unique within an Amazon Web Services
-        /// account. If you try to create a transcription job with the same name as a previous
-        /// transcription job, you get a <code>ConflictException</code> error.</para>
+        /// <para>A unique name, chosen by you, for your transcription job. The name you specify is
+        /// also used as the default name of your transcription output file. If you want to specify
+        /// a different name for your transcription output, use the <code>OutputKey</code> parameter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new job with the same name as an existing
+        /// job, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -414,12 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterMethod
         /// <summary>
         /// <para>
-        /// <para>Set to <code>mask</code> to remove filtered text from the transcript and replace it
-        /// with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove
-        /// filtered text from the transcript without using placeholder text. Set to <code>tag</code>
-        /// to mark the word in the transcription output that matches the vocabulary filter. When
-        /// you set the filter method to <code>tag</code>, the words matching your vocabulary
-        /// filter are not masked or removed.</para>
+        /// <para>Specify how you want your vocabulary filter applied to your transcript.</para><para>To replace words with <code>***</code>, choose <code>mask</code>.</para><para>To delete words, choose <code>remove</code>.</para><para>To flag words without changing them, choose <code>tag</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,8 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary filter to use when transcribing the audio. The filter that
-        /// you specify must have the same language code as the transcription job.</para>
+        /// <para>The name of the custom vocabulary filter you want to use in your transcription job
+        /// request. This name is case sensitive, cannot contain spaces, and must be unique within
+        /// an Amazon Web Services account.</para><para>Note that if you include <code>VocabularyFilterName</code> in your request, you must
+        /// also include <code>VocabularyFilterMethod</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -441,7 +520,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of a vocabulary to use when processing the transcription job.</para>
+        /// <para>The name of the custom vocabulary you want to use in your transcription job request.
+        /// This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
             context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
             context.IdentifyLanguage = this.IdentifyLanguage;
+            context.IdentifyMultipleLanguage = this.IdentifyMultipleLanguage;
             context.JobExecutionSettings_AllowDeferredExecution = this.JobExecutionSettings_AllowDeferredExecution;
             context.JobExecutionSettings_DataAccessRoleArn = this.JobExecutionSettings_DataAccessRoleArn;
             if (this.KMSEncryptionContext != null)
@@ -629,6 +711,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.IdentifyLanguage != null)
             {
                 request.IdentifyLanguage = cmdletContext.IdentifyLanguage.Value;
+            }
+            if (cmdletContext.IdentifyMultipleLanguage != null)
+            {
+                request.IdentifyMultipleLanguages = cmdletContext.IdentifyMultipleLanguage.Value;
             }
             
              // populate JobExecutionSettings
@@ -934,6 +1020,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
             public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
             public System.Boolean? IdentifyLanguage { get; set; }
+            public System.Boolean? IdentifyMultipleLanguage { get; set; }
             public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
             public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
             public Dictionary<System.String, System.String> KMSEncryptionContext { get; set; }

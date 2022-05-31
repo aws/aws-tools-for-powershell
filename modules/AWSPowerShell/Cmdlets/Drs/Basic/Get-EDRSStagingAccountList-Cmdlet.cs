@@ -28,33 +28,22 @@ using Amazon.Drs.Model;
 namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+    /// Returns an array of staging accounts for existing extended source servers.
     /// </summary>
-    [Cmdlet("Get", "EDRSReplicationConfigurationTemplate")]
-    [OutputType("Amazon.Drs.Model.ReplicationConfigurationTemplate")]
-    [AWSCmdlet("Calls the Elastic Disaster Recovery Service DescribeReplicationConfigurationTemplates API operation.", Operation = new[] {"DescribeReplicationConfigurationTemplates"}, SelectReturnType = typeof(Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse))]
-    [AWSCmdletOutput("Amazon.Drs.Model.ReplicationConfigurationTemplate or Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse",
-        "This cmdlet returns a collection of Amazon.Drs.Model.ReplicationConfigurationTemplate objects.",
-        "The service call response (type Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EDRSStagingAccountList")]
+    [OutputType("Amazon.Drs.Model.Account")]
+    [AWSCmdlet("Calls the Elastic Disaster Recovery Service ListStagingAccounts API operation.", Operation = new[] {"ListStagingAccounts"}, SelectReturnType = typeof(Amazon.Drs.Model.ListStagingAccountsResponse))]
+    [AWSCmdletOutput("Amazon.Drs.Model.Account or Amazon.Drs.Model.ListStagingAccountsResponse",
+        "This cmdlet returns a collection of Amazon.Drs.Model.Account objects.",
+        "The service call response (type Amazon.Drs.Model.ListStagingAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEDRSReplicationConfigurationTemplateCmdlet : AmazonDrsClientCmdlet, IExecutor
+    public partial class GetEDRSStagingAccountListCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
-        
-        #region Parameter ReplicationConfigurationTemplateIDs
-        /// <summary>
-        /// <para>
-        /// <para>The IDs of the Replication Configuration Templates to retrieve. An empty list means
-        /// all Replication Configuration Templates.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] ReplicationConfigurationTemplateIDs { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of Replication Configuration Templates to retrieve.</para>
+        /// <para>The maximum number of staging Accounts to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token of the next Replication Configuration Template to retrieve.</para>
+        /// <para>The token of the next staging Account to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,13 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse).
-        /// Specifying the name of a property of type Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Accounts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.ListStagingAccountsResponse).
+        /// Specifying the name of a property of type Amazon.Drs.Model.ListStagingAccountsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Accounts";
         #endregion
         
         protected override void ProcessRecord()
@@ -94,15 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse, GetEDRSReplicationConfigurationTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Drs.Model.ListStagingAccountsResponse, GetEDRSStagingAccountListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.ReplicationConfigurationTemplateIDs != null)
-            {
-                context.ReplicationConfigurationTemplateIDs = new List<System.String>(this.ReplicationConfigurationTemplateIDs);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesRequest();
+            var request = new Amazon.Drs.Model.ListStagingAccountsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -126,10 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.ReplicationConfigurationTemplateIDs != null)
-            {
-                request.ReplicationConfigurationTemplateIDs = cmdletContext.ReplicationConfigurationTemplateIDs;
             }
             
             CmdletOutput output;
@@ -164,15 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         
         #region AWS Service Operation Call
         
-        private Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesRequest request)
+        private Amazon.Drs.Model.ListStagingAccountsResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.ListStagingAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "DescribeReplicationConfigurationTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "ListStagingAccounts");
             try
             {
                 #if DESKTOP
-                return client.DescribeReplicationConfigurationTemplates(request);
+                return client.ListStagingAccounts(request);
                 #elif CORECLR
-                return client.DescribeReplicationConfigurationTemplatesAsync(request).GetAwaiter().GetResult();
+                return client.ListStagingAccountsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ReplicationConfigurationTemplateIDs { get; set; }
-            public System.Func<Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse, GetEDRSReplicationConfigurationTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.Func<Amazon.Drs.Model.ListStagingAccountsResponse, GetEDRSStagingAccountListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Accounts;
         }
         
     }

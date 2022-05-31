@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a custom language model. To use this operation, specify the name of the language
-    /// model you want to delete using <code>ModelName</code>.
+    /// model you want to delete using <code>ModelName</code>. Language model names are case
+    /// sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSLanguageModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the model you want to delete. Model names are case-sensitive.</para>
+        /// <para>The name of the custom language model you want to delete. Model names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -51,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_AccessToken
         /// <summary>
         /// <para>
-        /// <para> A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in AccessTokenValidity,
-        /// defaulting to hours.</para>
+        /// <para> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+        /// <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
+        /// parameter. The default <code>AccessTokenValidity</code> time unit is hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,6 +189,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String DefaultRedirectURI { get; set; }
         #endregion
         
+        #region Parameter EnablePropagateAdditionalUserContextData
+        /// <summary>
+        /// <para>
+        /// <para>Activates the propagation of additional user context data. For more information about
+        /// propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+        /// Adding advanced security to a user pool</a>. If you don’t include this parameter,
+        /// you can't send device fingerprint information, including source IP address, to Amazon
+        /// Cognito advanced security. You can only activate <code>EnablePropagateAdditionalUserContextData</code>
+        /// in an app client that has a client secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePropagateAdditionalUserContextData { get; set; }
+        #endregion
+        
         #region Parameter EnableTokenRevocation
         /// <summary>
         /// <para>
@@ -231,8 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_IdToken
         /// <summary>
         /// <para>
-        /// <para>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in IdTokenValidity,
-        /// defaulting to hours.</para>
+        /// <para>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+        /// <code>days</code> for the value that you set in the <code>IdTokenValidity</code> parameter.
+        /// The default <code>IdTokenValidity</code> time unit is hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,8 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_RefreshToken
         /// <summary>
         /// <para>
-        /// <para>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in RefreshTokenValidity,
-        /// defaulting to days.</para>
+        /// <para>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+        /// <code>days</code> for the value that you set in the <code>RefreshTokenValidity</code>
+        /// parameter. The default <code>RefreshTokenValidity</code> time unit is days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #endif
             context.ClientName = this.ClientName;
             context.DefaultRedirectURI = this.DefaultRedirectURI;
+            context.EnablePropagateAdditionalUserContextData = this.EnablePropagateAdditionalUserContextData;
             context.EnableTokenRevocation = this.EnableTokenRevocation;
             if (this.ExplicitAuthFlow != null)
             {
@@ -618,6 +637,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.DefaultRedirectURI != null)
             {
                 request.DefaultRedirectURI = cmdletContext.DefaultRedirectURI;
+            }
+            if (cmdletContext.EnablePropagateAdditionalUserContextData != null)
+            {
+                request.EnablePropagateAdditionalUserContextData = cmdletContext.EnablePropagateAdditionalUserContextData.Value;
             }
             if (cmdletContext.EnableTokenRevocation != null)
             {
@@ -772,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String ClientId { get; set; }
             public System.String ClientName { get; set; }
             public System.String DefaultRedirectURI { get; set; }
+            public System.Boolean? EnablePropagateAdditionalUserContextData { get; set; }
             public System.Boolean? EnableTokenRevocation { get; set; }
             public List<System.String> ExplicitAuthFlow { get; set; }
             public System.Int32? IdTokenValidity { get; set; }

@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.String[] Filters_SourceServerIDs { get; set; }
         #endregion
         
+        #region Parameter Filters_StagingAccountIDs
+        /// <summary>
+        /// <para>
+        /// <para>An array of staging account IDs that extended source servers belong to. An empty array
+        /// means all source servers will be shown.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Filters_StagingAccountIDs { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -133,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             {
                 context.Filters_SourceServerIDs = new List<System.String>(this.Filters_SourceServerIDs);
             }
+            if (this.Filters_StagingAccountIDs != null)
+            {
+                context.Filters_StagingAccountIDs = new List<System.String>(this.Filters_StagingAccountIDs);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -173,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (requestFilters_filters_SourceServerIDs != null)
             {
                 request.Filters.SourceServerIDs = requestFilters_filters_SourceServerIDs;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_StagingAccountIDs = null;
+            if (cmdletContext.Filters_StagingAccountIDs != null)
+            {
+                requestFilters_filters_StagingAccountIDs = cmdletContext.Filters_StagingAccountIDs;
+            }
+            if (requestFilters_filters_StagingAccountIDs != null)
+            {
+                request.Filters.StagingAccountIDs = requestFilters_filters_StagingAccountIDs;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -251,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             public System.String Filters_HardwareId { get; set; }
             public List<System.String> Filters_SourceServerIDs { get; set; }
+            public List<System.String> Filters_StagingAccountIDs { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Drs.Model.DescribeSourceServersResponse, GetEDRSSourceServerCmdlet, object> Select { get; set; } =

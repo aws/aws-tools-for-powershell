@@ -1,4 +1,30 @@
-﻿### 4.1.95 (2022-05-27 20:21Z)
+﻿### 4.1.96 (2022-05-31 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.285.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet Confirm-CGIPForgotPassword: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Confirm-CGIPUserRegistration: added parameter UserContextData_IpAddress.
+    * Modified cmdlet New-CGIPUserPoolClient: added parameter EnablePropagateAdditionalUserContextData.
+    * Modified cmdlet Register-CGIPUserInPool: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Reset-CGIPForgottenPassword: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Send-CGIPAuthChallengeResponse: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Send-CGIPConfirmationCode: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Start-CGIPAuth: added parameter UserContextData_IpAddress.
+    * Modified cmdlet Update-CGIPUserPoolClient: added parameter EnablePropagateAdditionalUserContextData.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Get-EDRSExtensibleSourceServerList leveraging the ListExtensibleSourceServers service API.
+    * Added cmdlet Get-EDRSStagingAccountList leveraging the ListStagingAccounts service API.
+    * Added cmdlet New-EDRSExtendedSourceServer leveraging the CreateExtendedSourceServer service API.
+    * Modified cmdlet Get-EDRSSourceServer: added parameter Filters_StagingAccountIDs.
+  * Amazon IoT SiteWise
+    * Modified cmdlet New-IOTSWAsset: added parameter AssetDescription.
+    * Modified cmdlet Update-IOTSWAsset: added parameter AssetDescription.
+  * Amazon Lookout for Metrics
+    * Modified cmdlet New-LOMMetricSet: added parameter MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode.
+    * Modified cmdlet Update-LOMMetricSet: added parameter MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSTranscriptionJob: added parameter IdentifyMultipleLanguage.
+
+### 4.1.95 (2022-05-27 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.284.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * [Breaking Change] Removed support for Amazon EMR Serverless Web Service
   * Amazon Appflow

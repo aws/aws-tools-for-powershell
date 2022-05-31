@@ -28,12 +28,47 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Starts an asynchronous analytics job that not only transcribes the audio recording
-    /// of a caller and agent, but also returns additional insights. These insights include
-    /// how quickly or loudly the caller or agent was speaking. To retrieve additional insights
-    /// with your analytics jobs, create categories. A category is a way to classify analytics
-    /// jobs based on attributes, such as a customer's sentiment or a particular phrase being
-    /// used during the call. For more information, see the operation.
+    /// Transcribes the audio from a customer service call and applies any additional Request
+    /// Parameters you choose to include in your request.
+    /// 
+    ///  
+    /// <para>
+    /// In addition to many of the standard transcription features, Call Analytics provides
+    /// you with call characteristics, call summarization, speaker sentiment, and optional
+    /// redaction of your text transcript and your audio file. You can also apply custom categories
+    /// to flag specified conditions. To learn more about these features and insights, refer
+    /// to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing
+    /// call center audio with Call Analytics</a>.
+    /// </para><para>
+    /// If you want to apply categories to your Call Analytics job, you must create them before
+    /// submitting your job request. Categories cannot be retroactively applied to a job.
+    /// To create a new category, use the operation. To learn more about Call Analytics categories,
+    /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating
+    /// categories</a>.
+    /// </para><para>
+    /// To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
+    /// file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the
+    /// file using the <code>Media</code> parameter.
+    /// </para><para>
+    /// You must include the following parameters in your <code>StartCallAnalyticsJob</code>
+    /// request:
+    /// </para><ul><li><para><code>region</code>: The Amazon Web Services Region where you are making your request.
+    /// For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer
+    /// to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon
+    /// Transcribe endpoints and quotas</a>.
+    /// </para></li><li><para><code>CallAnalyticsJobName</code>: A custom name you create for your transcription
+    /// job that is unique within your Amazon Web Services account.
+    /// </para></li><li><para><code>DataAccessRoleArn</code>: The Amazon Resource Name (ARN) of an IAM role that
+    /// has permissions to access the Amazon S3 bucket that contains your input files.
+    /// </para></li><li><para><code>Media</code> (<code>MediaFileUri</code> or <code>RedactedMediaFileUri</code>):
+    /// The Amazon S3 location of your media file.
+    /// </para></li></ul><note><para>
+    /// With Call Analytics, you can redact the audio contained in your media file by including
+    /// <code>RedactedMediaFileUri</code>, instead of <code>MediaFileUri</code>, to specify
+    /// the location of your input audio. If you choose to redact your audio, you can find
+    /// your redacted media at the location specified in the <code>RedactedMediaFileUri</code>
+    /// field of your response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "TRSCallAnalyticsJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CallAnalyticsJob")]
@@ -48,9 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CallAnalyticsJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the call analytics job. You can't use the string "." or ".." by themselves
-        /// as the job name. The name must also be unique within an Amazon Web Services account.
-        /// If you try to create a call analytics job with the same name as a previous call analytics
+        /// <para>A unique name, chosen by you, for your Call Analytics job.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new job with the same name as an existing
         /// job, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
@@ -68,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ChannelDefinition
         /// <summary>
         /// <para>
-        /// <para>When you start a call analytics job, you must pass an array that maps the agent and
-        /// the customer to specific audio channels. The values you can assign to a channel are
-        /// 0 and 1. The agent and the customer must each have their own channel. You can't assign
-        /// more than one channel to an agent or customer. </para>
+        /// <para>Allows you to specify which speaker is on which channel. For example, if your agent
+        /// is the first participant to speak, you would set <code>ChannelId</code> to <code>0</code>
+        /// (to indicate the first channel) and <code>ParticipantRole</code> to <code>AGENT</code>
+        /// (to indicate that it's the agent speaking).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,29 +116,36 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains
-        /// your input files. Amazon Transcribe assumes this role to read queued audio files.
-        /// If you have specified an output S3 bucket for your transcription results, this role
-        /// should have access to the output bucket as well.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
+        /// S3 bucket that contains your input files. If the role you specify doesn’t have the
+        /// appropriate permissions to access the specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DataAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter Settings_LanguageIdSetting
         /// <summary>
         /// <para>
-        /// <para>The language identification settings associated with your call analytics job. These
-        /// settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
-        /// <code>LanguageModelName</code>.</para>
+        /// <para>If using automatic language identification (<code>IdentifyLanguage</code>) in your
+        /// request and you want to apply a custom language model, a custom vocabulary, or a custom
+        /// vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters
+        /// (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</para><para>You can specify two or more language codes that represent the languages you think
+        /// may be present in your media; including more than five is not recommended. Each language
+        /// code you include can have an associated custom language model, custom vocabulary,
+        /// and custom vocabulary filter. The languages you specify must match the languages of
+        /// the specified custom language models, custom vocabularies, and custom vocabulary filters.</para><para>To include language options using <code>IdentifyLanguage</code><b>without</b> including
+        /// a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code>
+        /// instead of <code>LanguageIdSettings</code>. Including language options can improve
+        /// the accuracy of automatic language identification.</para><para>If you want to include a custom language model with your request but <b>do not</b>
+        /// want to use automatic language identification, use instead the <code /> parameter with
+        /// the <code>LanguageModelName</code> sub-parameter.</para><para>If you want to include a custom vocabulary or a custom vocabulary filter (or both)
+        /// with your request but <b>do not</b> want to use automatic language identification,
+        /// use instead the <code /> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code>
+        /// (or both) sub-parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_LanguageModelName
         /// <summary>
         /// <para>
-        /// <para>The structure used to describe a custom language model.</para>
+        /// <para>The name of the custom language model you want to use when processing your Call Analytics
+        /// job. Note that language model names are case sensitive.</para><para>The language of the specified language model must match the language code you specify
+        /// in your transcription request. If the languages don't match, the language model isn't
+        /// applied. There are no errors or warnings associated with a language mismatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,13 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_LanguageOption
         /// <summary>
         /// <para>
-        /// <para>When you run a call analytics job, you can specify the language spoken in the audio,
-        /// or you can have Amazon Transcribe identify the language for you.</para><para>To specify a language, specify an array with one language code. If you don't know
-        /// the language, you can leave this field blank and Amazon Transcribe will use machine
-        /// learning to identify the language for you. To improve the ability of Amazon Transcribe
-        /// to correctly identify the language, you can provide an array of the languages that
-        /// can be present in the audio. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-        /// languages</a> for additional information.</para>
+        /// <para>You can specify two or more language codes that represent the languages you think
+        /// may be present in your media; including more than five is not recommended. If you're
+        /// unsure what languages are present, do not include this parameter.</para><para>Including language options can improve the accuracy of language identification.</para><para>For a list of languages supported with Call Analytics, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,9 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para><code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code></para><para>For example:</para><para><code>s3://DOC-EXAMPLE-BUCKET/example.flac</code></para><para><code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
+        /// <para>The Amazon S3 location of the media file you want to transcribe. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,14 +194,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service key
-        /// used to encrypt the output of the call analytics job. The user calling the operation
-        /// must have permission to use the specified KMS key.</para><para>You use either of the following to identify an Amazon Web Services KMS key in the
-        /// current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para> You can use either of the following to identify a KMS key in the current account
-        /// or another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS key in the current account or another account:
-        /// "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:accountID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the call analytics job is encrypted
-        /// with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// in the <code>OutputLocation</code> parameter. </para>
+        /// <para>The KMS key you want to use to encrypt your Call Analytics output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
+        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
+        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the user making the request must have permission to use the specified KMS
+        /// key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,13 +209,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputLocation
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location where the output of the call analytics job is stored. You can
-        /// provide the following location types to store the output of call analytics job:</para><ul><li><para>s3://DOC-EXAMPLE-BUCKET1</para><para> If you specify a bucket, Amazon Transcribe saves the output of the analytics job
-        /// as a JSON file at the root level of the bucket.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/</para><para>f you specify a path, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLE-BUCKET1/folder/your-transcription-job-name.json.</para><para>If you specify a folder, you must provide a trailing slash.</para></li><li><para>s3://DOC-EXAMPLE-BUCKET1/folder/filename.json.</para><para> If you provide a path that has the filename specified, Amazon Transcribe saves the
-        /// output of the analytics job as s3://DOC-EXAMPLEBUCKET1/folder/filename.json.</para></li></ul><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
-        /// the output of our analytics job using the <code>OutputEncryptionKMSKeyId</code> parameter.
-        /// If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
-        /// server-side encryption of the analytics job output that is placed in your S3 bucket.</para>
+        /// <para>The Amazon S3 location where you want your Call Analytics transcription output stored.
+        /// You can use any of the following formats to specify the output location:</para><ol><li><para>s3://DOC-EXAMPLE-BUCKET</para></li><li><para>s3://DOC-EXAMPLE-BUCKET/my-output-folder/</para></li><li><para>s3://DOC-EXAMPLE-BUCKET/my-output-folder/my-call-analytics-job.json</para></li></ol><para>Unless you specify a file name (option 3), the name of your output file has a default
+        /// value that matches the name you specified for your transcription job using the <code>CallAnalyticsJobName</code>
+        /// parameter.</para><para>You can specify a KMS key to encrypt your output using the <code>OutputEncryptionKMSKeyId</code>
+        /// parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon
+        /// S3 key for server-side encryption.</para><para>If you don't specify <code>OutputLocation</code>, your transcript is placed in a service-managed
+        /// Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,8 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_PiiEntityType
         /// <summary>
         /// <para>
-        /// <para>The types of personally identifiable information (PII) you want to redact in your
-        /// transcript.</para>
+        /// <para>Specify which types of personally identifiable information (PII) you want to redact
+        /// in your transcript. You can include as many types as you'd like, or you can select
+        /// <code>ALL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location for your redacted output media file. This is only supported
-        /// for call analytics jobs.</para>
+        /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// transcription requests.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,10 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_RedactionOutput
         /// <summary>
         /// <para>
-        /// <para>The output transcript file stored in either the default S3 bucket or in a bucket you
-        /// specify.</para><para>When you choose <code>redacted</code> Amazon Transcribe outputs only the redacted
-        /// transcript.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs both
-        /// the redacted and unredacted transcripts.</para>
+        /// <para>Specify if you want only a redacted transcript, or if you want a redacted and an unredacted
+        /// transcript.</para><para>When you choose <code>redacted</code> Amazon Transcribe creates only a redacted transcript.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe creates a redacted
+        /// and an unredacted transcript (as two separate files).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,8 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_RedactionType
         /// <summary>
         /// <para>
-        /// <para>Request parameter that defines the entities to be redacted. The only accepted value
-        /// is <code>PII</code>.</para>
+        /// <para>Specify the category of information you want to redact; <code>PII</code> (personally
+        /// identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code>
+        /// to choose which types of PII you want to redact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,12 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterMethod
         /// <summary>
         /// <para>
-        /// <para>Set to mask to remove filtered text from the transcript and replace it with three
-        /// asterisks ("***") as placeholder text. Set to <code>remove</code> to remove filtered
-        /// text from the transcript without using placeholder text. Set to <code>tag</code> to
-        /// mark the word in the transcription output that matches the vocabulary filter. When
-        /// you set the filter method to <code>tag</code>, the words matching your vocabulary
-        /// filter are not masked or removed.</para>
+        /// <para>Specify how you want your vocabulary filter applied to your transcript.</para><para>To replace words with <code>***</code>, choose <code>mask</code>.</para><para>To delete words, choose <code>remove</code>.</para><para>To flag words without changing them, choose <code>tag</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,8 +289,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary filter to use when running a call analytics job. The filter
-        /// that you specify must have the same language code as the analytics job.</para>
+        /// <para>The name of the custom vocabulary filter you want to include in your Call Analytics
+        /// transcription request. Vocabulary filter names are case sensitive.</para><para>Note that if you include <code>VocabularyFilterName</code> in your request, you must
+        /// also include <code>VocabularyFilterMethod</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of a vocabulary to use when processing the call analytics job.</para>
+        /// <para>The name of the custom vocabulary you want to include in your Call Analytics transcription
+        /// request. Vocabulary names are case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,12 +382,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.ChannelDefinition = new List<Amazon.TranscribeService.Model.ChannelDefinition>(this.ChannelDefinition);
             }
             context.DataAccessRoleArn = this.DataAccessRoleArn;
-            #if MODULAR
-            if (this.DataAccessRoleArn == null && ParameterWasBound(nameof(this.DataAccessRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DataAccessRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Media_MediaFileUri = this.Media_MediaFileUri;
             context.Media_RedactedMediaFileUri = this.Media_RedactedMediaFileUri;
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;

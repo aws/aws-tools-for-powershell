@@ -28,8 +28,9 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Deletes a medical transcription job, along with any related information. To use this
-    /// operation, specify the name of the job you want to delete using <code>MedicalTranscriptionJobName</code>.
+    /// Deletes a medical transcription job. To use this operation, specify the name of the
+    /// job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
+    /// case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSMedicalTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MedicalTranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the medical transcription job you want to delete. Job names are case-sensitive.</para>
+        /// <para>The name of the medical transcription job you want to delete. Job names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

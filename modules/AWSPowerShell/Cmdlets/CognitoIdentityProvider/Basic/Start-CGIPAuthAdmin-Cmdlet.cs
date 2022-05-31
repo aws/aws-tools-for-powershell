@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_EncodedData
         /// <summary>
         /// <para>
-        /// <para>Encoded data containing device fingerprinting details collected using the Amazon Cognito
-        /// context data collection library.</para>
+        /// <para>Encoded device-fingerprint details that your app collected with the Amazon Cognito
+        /// context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding
+        /// user device and session data to API requests</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_IpAddress
         /// <summary>
         /// <para>
-        /// <para>Source IP address of your user.</para>
+        /// <para>The source IP address of your user's device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

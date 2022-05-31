@@ -28,13 +28,17 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Retrieves information about a medical transcription job.
+    /// Provides information about the specified medical transcription job.
     /// 
     ///  
     /// <para>
-    /// To view the job's status, refer to the <code>TranscriptionJobStatus</code> field.
-    /// If the status is <code>COMPLETED</code>, the job is finished. You can then find your
-    /// transcript at the URI specified in the <code>TranscriptFileUri</code> field.
+    /// To view the status of the specified medical transcription job, check the <code>TranscriptionJobStatus</code>
+    /// field. If the status is <code>COMPLETED</code>, the job is finished and you can find
+    /// the results at the location specified in <code>TranscriptFileUri</code>. If the status
+    /// is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription
+    /// job failed.
+    /// </para><para>
+    /// To get a list of your medical transcription jobs, use the operation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSMedicalTranscriptionJob")]
@@ -50,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MedicalTranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the medical transcription job you want information about. This value is
+        /// <para>The name of the medical transcription job you want information about. Job names are
         /// case sensitive.</para>
         /// </para>
         /// </summary>

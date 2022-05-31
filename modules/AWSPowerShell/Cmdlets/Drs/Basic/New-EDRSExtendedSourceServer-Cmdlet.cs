@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.TranscribeService;
-using Amazon.TranscribeService.Model;
+using Amazon.Drs;
+using Amazon.Drs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TRS
+namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Deletes a custom medical vocabulary. To use this operation, specify the name of the
-    /// vocabulary you want to delete using <code>VocabularyName</code>. Vocabulary names
-    /// are case sensitive.
+    /// Create an extended source server in the target Account based on the source server
+    /// in staging account.
     /// </summary>
-    [Cmdlet("Remove", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Transcribe Service DeleteMedicalVocabulary API operation.", Operation = new[] {"DeleteMedicalVocabulary"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse))]
-    [AWSCmdletOutput("None or Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EDRSExtendedSourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Drs.Model.SourceServer")]
+    [AWSCmdlet("Calls the Elastic Disaster Recovery Service CreateExtendedSourceServer API operation.", Operation = new[] {"CreateExtendedSourceServer"}, SelectReturnType = typeof(Amazon.Drs.Model.CreateExtendedSourceServerResponse))]
+    [AWSCmdletOutput("Amazon.Drs.Model.SourceServer or Amazon.Drs.Model.CreateExtendedSourceServerResponse",
+        "This cmdlet returns an Amazon.Drs.Model.SourceServer object.",
+        "The service call response (type Amazon.Drs.Model.CreateExtendedSourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveTRSMedicalVocabularyCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
+    public partial class NewEDRSExtendedSourceServerCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
-        #region Parameter VocabularyName
+        #region Parameter SourceServerArn
         /// <summary>
         /// <para>
-        /// <para>The name of the custom medical vocabulary you want to delete. Vocabulary names are
-        /// case sensitive.</para>
+        /// <para>This defines the ARN of the source server in staging Account based on which you want
+        /// to create an extended source server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,25 +56,37 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VocabularyName { get; set; }
+        public System.String SourceServerArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags associated with the extended source server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SourceServer'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.CreateExtendedSourceServerResponse).
+        /// Specifying the name of a property of type Amazon.Drs.Model.CreateExtendedSourceServerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "SourceServer";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VocabularyName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VocabularyName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SourceServerArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceServerArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VocabularyName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceServerArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VocabularyName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TRSMedicalVocabulary (DeleteMedicalVocabulary)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EDRSExtendedSourceServer (CreateExtendedSourceServer)"))
             {
                 return;
             }
@@ -108,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse, RemoveTRSMedicalVocabularyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Drs.Model.CreateExtendedSourceServerResponse, NewEDRSExtendedSourceServerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,16 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VocabularyName;
+                context.Select = (response, cmdlet) => this.SourceServerArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.VocabularyName = this.VocabularyName;
+            context.SourceServerArn = this.SourceServerArn;
             #if MODULAR
-            if (this.VocabularyName == null && ParameterWasBound(nameof(this.VocabularyName)))
+            if (this.SourceServerArn == null && ParameterWasBound(nameof(this.SourceServerArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter VocabularyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceServerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,11 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.TranscribeService.Model.DeleteMedicalVocabularyRequest();
+            var request = new Amazon.Drs.Model.CreateExtendedSourceServerRequest();
             
-            if (cmdletContext.VocabularyName != null)
+            if (cmdletContext.SourceServerArn != null)
             {
-                request.VocabularyName = cmdletContext.VocabularyName;
+                request.SourceServerArn = cmdletContext.SourceServerArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -180,15 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         #region AWS Service Operation Call
         
-        private Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse CallAWSServiceOperation(IAmazonTranscribeService client, Amazon.TranscribeService.Model.DeleteMedicalVocabularyRequest request)
+        private Amazon.Drs.Model.CreateExtendedSourceServerResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.CreateExtendedSourceServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Transcribe Service", "DeleteMedicalVocabulary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "CreateExtendedSourceServer");
             try
             {
                 #if DESKTOP
-                return client.DeleteMedicalVocabulary(request);
+                return client.CreateExtendedSourceServer(request);
                 #elif CORECLR
-                return client.DeleteMedicalVocabularyAsync(request).GetAwaiter().GetResult();
+                return client.CreateExtendedSourceServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String VocabularyName { get; set; }
-            public System.Func<Amazon.TranscribeService.Model.DeleteMedicalVocabularyResponse, RemoveTRSMedicalVocabularyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String SourceServerArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.Drs.Model.CreateExtendedSourceServerResponse, NewEDRSExtendedSourceServerCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SourceServer;
         }
         
     }

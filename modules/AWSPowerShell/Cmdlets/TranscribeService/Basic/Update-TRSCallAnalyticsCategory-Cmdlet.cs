@@ -28,9 +28,14 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code>
-    /// operation overwrites all of the existing information with the values that you provide
-    /// in the request.
+    /// Updates the specified Call Analytics category with new rules. Note that the <code>UpdateCallAnalyticsCategory</code>
+    /// operation overwrites all existing rules contained in the specified category. You cannot
+    /// append additional rules onto an existing category.
+    /// 
+    ///  
+    /// <para>
+    /// To create a new category, see .
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "TRSCallAnalyticsCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CategoryProperties")]
@@ -45,9 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CategoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the analytics category to update. The name is case sensitive. If you try
-        /// to update a call analytics category with the same name as a previous category you
-        /// will receive a <code>ConflictException</code> error.</para>
+        /// <para>The name of the Call Analytics category you want to update. Category names are case
+        /// sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The rules used for the updated analytics category. The rules that you provide in this
-        /// field replace the ones that are currently being used.</para>
+        /// <para>The rules used for the updated Call Analytics category. The rules you provide in this
+        /// field replace the ones that are currently being used in the specified category.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,13 +28,28 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Creates a call analytics category. Amazon Transcribe applies the conditions specified
-    /// by your call analytics categories to your call analytics jobs. For each analytics
-    /// category, you must create between 1 and 20 rules. For example, you can create a 'greeting'
-    /// category with a rule that flags calls in which your agent does not use a specified
-    /// phrase (for example: "Please note this call may be recorded.") in the first 15 seconds
-    /// of the call. When you start a call analytics job, Amazon Transcribe applies all your
-    /// existing call analytics categories to that job.
+    /// Creates a new Call Analytics category.
+    /// 
+    ///  
+    /// <para>
+    /// All categories are automatically applied to your Call Analytics jobs. Note that in
+    /// order to apply your categories to your jobs, you must create them before submitting
+    /// your job request, as categories cannot be applied retroactively.
+    /// </para><para>
+    /// Call Analytics categories are composed of rules. For each category, you must create
+    /// between 1 and 20 rules. Rules can include these parameters: , , , and .
+    /// </para><para>
+    /// To update an existing category, see .
+    /// </para><para>
+    /// To learn more about:
+    /// </para><ul><li><para>
+    /// Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating
+    /// categories</a></para></li><li><para>
+    /// Using rules, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule
+    /// criteria</a> and refer to the data type
+    /// </para></li><li><para>
+    /// Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing
+    /// call center audio with Call Analytics</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "TRSCallAnalyticsCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CategoryProperties")]
@@ -49,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter CategoryName
         /// <summary>
         /// <para>
-        /// <para>A unique name, chosen by you, for your call analytics category. For example, <code>sentiment-positive-last30seconds</code>.</para>
+        /// <para>A unique name, chosen by you, for your Call Analytics category. It's helpful to use
+        /// a detailed naming system that will make sense to you in the future. For example, it's
+        /// better to use <code>sentiment-positive-last30seconds</code> for a category over a
+        /// generic name like <code>test-category</code>.</para><para>Category names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>Rules make up a call analytics category. When creating a call analytics category,
-        /// you must create between 1 and 20 rules for your category. For each rule, you specify
+        /// <para>Rules define a Call Analytics category. When creating a new Call Analytics category,
+        /// you must create between 1 and 20 rules for that category. For each rule, you specify
         /// a filter you want applied to the attributes of a call. For example, you can choose
         /// a sentiment filter that detects if a customer's sentiment was positive during the
         /// last 30 seconds of the call.</para>

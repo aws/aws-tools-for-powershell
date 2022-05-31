@@ -201,7 +201,8 @@ $EDRS_SelectCompleters = {
 }
 
 $EDRS_SelectMap = @{
-    "Select"=@("New-EDRSReplicationConfigurationTemplate",
+    "Select"=@("New-EDRSExtendedSourceServer",
+               "New-EDRSReplicationConfigurationTemplate",
                "Remove-EDRSJob",
                "Remove-EDRSRecoveryInstance",
                "Remove-EDRSReplicationConfigurationTemplate",
@@ -218,6 +219,8 @@ $EDRS_SelectMap = @{
                "Get-EDRSLaunchConfiguration",
                "Get-EDRSReplicationConfiguration",
                "Initialize-EDRSService",
+               "Get-EDRSExtensibleSourceServerList",
+               "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
                "Restart-EDRSDataReplication",
                "Start-EDRSFailbackLaunch",

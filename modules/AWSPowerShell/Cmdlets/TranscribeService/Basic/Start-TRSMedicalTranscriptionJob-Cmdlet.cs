@@ -28,7 +28,38 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Starts a batch job to transcribe medical speech to text.
+    /// Transcribes the audio from a medical dictation or conversation and applies any additional
+    /// Request Parameters you choose to include in your request.
+    /// 
+    ///  
+    /// <para>
+    /// In addition to many of the standard transcription features, Amazon Transcribe Medical
+    /// provides you with a robust medical vocabulary and, optionally, content identification,
+    /// which adds flags to personal health information (PHI). To learn more about these features,
+    /// refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html">How
+    /// Amazon Transcribe Medical works</a>.
+    /// </para><para>
+    /// To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
+    /// your media file into an Amazon S3 bucket; you can then specify the S3 location of
+    /// the file using the <code>Media</code> parameter.
+    /// </para><para>
+    /// You must include the following parameters in your <code>StartMedicalTranscriptionJob</code>
+    /// request:
+    /// </para><ul><li><para><code>region</code>: The Amazon Web Services Region where you are making your request.
+    /// For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer
+    /// to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon
+    /// Transcribe endpoints and quotas</a>.
+    /// </para></li><li><para><code>MedicalTranscriptionJobName</code>: A custom name you create for your transcription
+    /// job that is unique within your Amazon Web Services account.
+    /// </para></li><li><para><code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location of your media
+    /// file.
+    /// </para></li><li><para><code>LanguageCode</code>: This must be <code>en-US</code>.
+    /// </para></li><li><para><code>OutputBucketName</code>: The Amazon S3 bucket where you want your transcript
+    /// stored. If you want your output stored in a sub-folder of this bucket, you must also
+    /// include <code>OutputKey</code>.
+    /// </para></li><li><para><code>Specialty</code>: This must be <code>PRIMARYCARE</code>.
+    /// </para></li><li><para><code>Type</code>: Choose whether your audio is a conversation or a dictation.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "TRSMedicalTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.MedicalTranscriptionJob")]
@@ -43,12 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ChannelIdentification
         /// <summary>
         /// <para>
-        /// <para>Instructs Amazon Transcribe Medical to process each audio channel separately and then
-        /// merge the transcription output of each channel into a single transcription.</para><para>Amazon Transcribe Medical also produces a transcription of each item detected on an
-        /// audio channel, including the start time and end time of the item and alternative transcriptions
-        /// of item. The alternative transcriptions also come with confidence scores provided
-        /// by Amazon Transcribe Medical.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
+        /// <para>Enables channel identification in multi-channel audio.</para><para>Channel identification transcribes the audio on each channel independently, then appends
+        /// the output for each channel into one transcript.</para><para>If you have multi-channel audio and do not enable channel identification, your audio
+        /// is transcribed in a continuous manner and your transcript does not separate the speech
+        /// by channel.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
+        /// multi-channel audio</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentIdentificationType
         /// <summary>
         /// <para>
-        /// <para>You can configure Amazon Transcribe Medical to label content in the transcription
-        /// output. If you specify <code>PHI</code>, Amazon Transcribe Medical labels the personal
-        /// health information (PHI) that it identifies in the transcription output.</para>
+        /// <para>Labels all personal health information (PHI) identified in your transcript. For more
+        /// information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying
+        /// personal health information (PHI) in a transcription</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
-        /// that provide an added layer of security for your data.</para>
+        /// that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS
+        /// encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric
+        /// keys in KMS</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,9 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language spoken in the input media file. US English (en-US)
-        /// is the valid value for medical transcription jobs. Any other value you enter for language
-        /// code results in a <code>BadRequestException</code> error.</para>
+        /// <para>The language code that represents the language spoken in the input media file. US
+        /// English (<code>en-US</code>) is the only valid value for medical transcription jobs.
+        /// Any other value you enter for language code results in a <code>BadRequestException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,9 +135,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_MaxAlternative
         /// <summary>
         /// <para>
-        /// <para>The maximum number of alternatives that you tell the service to return. If you specify
-        /// the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code>
-        /// field to true.</para>
+        /// <para>Indicate the maximum number of alternative transcriptions you want Amazon Transcribe
+        /// Medical to include in your transcript.</para><para>If you select a number greater than the number of alternative transcriptions generated
+        /// by Amazon Transcribe Medical, only the actual number of alternative transcriptions
+        /// are included.</para><para>If you include <code>MaxAlternatives</code> in your request, you must also include
+        /// <code>ShowAlternatives</code> with a value of <code>true</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
+        /// transcriptions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,9 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_MaxSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>The maximum number of speakers to identify in the input audio. If there are more speakers
-        /// in the audio than this number, multiple speakers are identified as a single speaker.
-        /// If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
+        /// <para>Specify the maximum number of speakers you want to identify in your media.</para><para>Note that if your media contains more speakers than the specified number, multiple
+        /// speakers will be identified as a single speaker.</para><para>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
         /// field to true.</para>
         /// </para>
         /// </summary>
@@ -128,9 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para><code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code></para><para>For example:</para><para><code>s3://DOC-EXAMPLE-BUCKET/example.flac</code></para><para><code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code></para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
+        /// <para>The Amazon S3 location of the media file you want to transcribe. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaFormat
         /// <summary>
         /// <para>
-        /// <para>The audio format of the input media file.</para>
+        /// <para>Specify the format of your input media file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,10 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaSampleRateHertz
         /// <summary>
         /// <para>
-        /// <para>The sample rate, in Hertz, of the audio track in the input media file.</para><para>If you do not specify the media sample rate, Amazon Transcribe Medical determines
-        /// the sample rate. If you specify the sample rate, it must match the rate detected by
-        /// Amazon Transcribe Medical. In most cases, you should leave the <code>MediaSampleRateHertz</code>
-        /// field blank and let Amazon Transcribe Medical determine the sample rate.</para>
+        /// <para>The sample rate, in Hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe Medical determines it
+        /// for you. If you specify the sample rate, it must match the rate detected by Amazon
+        /// Transcribe Medical; if there's a mismatch between the value you specify and the value
+        /// detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code>
+        /// and let Amazon Transcribe Medical determine the sample rate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,11 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MedicalTranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the medical transcription job. You can't use the strings "<code>.</code>"
-        /// or "<code>..</code>" by themselves as the job name. The name must also be unique within
-        /// an Amazon Web Services account. If you try to create a medical transcription job with
-        /// the same name as a previous medical transcription job, you get a <code>ConflictException</code>
-        /// error.</para>
+        /// <para>A unique name, chosen by you, for your medical transcription job. The name you specify
+        /// is also used as the default name of your transcription output file. If you want to
+        /// specify a different name for your transcription output, use the <code>OutputKey</code>
+        /// parameter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new job with the same name as an existing
+        /// job, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -185,16 +222,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputBucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location where the transcription is stored.</para><para>You must set <code>OutputBucketName</code> for Amazon Transcribe Medical to store
-        /// the transcription results. Your transcript appears in the S3 location you specify.
-        /// When you call the <a>GetMedicalTranscriptionJob</a>, the operation returns this location
-        /// in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that
-        /// allow Amazon Transcribe Medical to put files in the bucket. For more information,
-        /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
-        /// the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter.
-        /// If you don't specify a KMS key, Amazon Transcribe Medical uses the default Amazon
-        /// S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</para>
+        /// <para>The name of the Amazon S3 bucket where you want your medical transcription output
+        /// stored. Do not include the <code>S3://</code> prefix of the specified bucket.</para><para>If you want your output to go to a sub-folder of this bucket, specify it using the
+        /// <code>OutputKey</code> parameter; <code>OutputBucketName</code> only accepts the name
+        /// of a bucket.</para><para>For example, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET</code>,
+        /// set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code>. However, if
+        /// you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET/test-files/</code>, set
+        /// <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code> and <code>OutputKey</code>
+        /// to <code>test-files/</code>.</para><para>Note that Amazon Transcribe must have permission to use the specified location. You
+        /// can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon
+        /// Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
+        /// Required for IAM User Roles</a>.</para><para>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a
+        /// service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -211,13 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
-        /// key used to encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
-        /// operation must have permission to use the specified KMS key.</para><para>You use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
-        /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS key in the current account or another account:
-        /// "arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the medical transcription job
-        /// is encrypted with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// in the <code>OutputBucketName</code> parameter.</para>
+        /// <para>The KMS key you want to use to encrypt your medical transcription output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
+        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
+        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the user making the request must have permission to use the specified KMS
+        /// key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,16 +265,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputKey
         /// <summary>
         /// <para>
-        /// <para>You can specify a location in an Amazon S3 bucket to store the output of your medical
-        /// transcription job.</para><para>If you don't specify an output key, Amazon Transcribe Medical stores the output of
-        /// your transcription job in the Amazon S3 bucket you specified. By default, the object
-        /// key is "your-transcription-job-name.json".</para><para>You can use output keys to specify the Amazon S3 prefix and file name of the transcription
-        /// output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output
-        /// key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json".
-        /// If you specify "my-other-job-name.json" as the output key, the object key is changed
-        /// to "my-other-job-name.json". You can use an output key to change both the prefix and
-        /// the file name, for example "folder/my-other-job-name.json".</para><para>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code>
-        /// parameter.</para>
+        /// <para>Use in combination with <code>OutputBucketName</code> to specify the output location
+        /// of your transcript and, optionally, a unique name for your output file. The default
+        /// name for your transcription output is the same as the name you specified for your
+        /// medical transcription job (<code>MedicalTranscriptionJobName</code>).</para><para>Here are some examples of how you can use <code>OutputKey</code>:</para><ul><li><para>If you specify 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code> and 'my-transcript.json'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript.json</code>.</para></li><li><para>If you specify 'my-first-transcription' as the <code>MedicalTranscriptionJobName</code>,
+        /// 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code>, and 'my-transcript' as
+        /// the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript/my-first-transcription.json</code>.</para></li><li><para>If you specify 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code> and 'test-files/my-transcript.json'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript.json</code>.</para></li><li><para>If you specify 'my-first-transcription' as the <code>MedicalTranscriptionJobName</code>,
+        /// 'DOC-EXAMPLE-BUCKET' as the <code>OutputBucketName</code>, and 'test-files/my-transcript'
+        /// as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript/my-first-transcription.json</code>.</para></li></ul><para>If you specify the name of an Amazon S3 bucket sub-folder that doesn't exist, one
+        /// is created for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,8 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 object location for your redacted output media file. This is only supported
-        /// for call analytics jobs.</para>
+        /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// transcription requests.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,10 +297,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ShowAlternative
         /// <summary>
         /// <para>
-        /// <para>Determines whether alternative transcripts are generated along with the transcript
-        /// that has the highest confidence. If you set <code>ShowAlternatives</code> field to
-        /// true, you must also set the maximum number of alternatives to return in the <code>MaxAlternatives</code>
-        /// field.</para>
+        /// <para>To include alternative transcriptions within your transcription output, include <code>ShowAlternatives</code>
+        /// in your transcription request.</para><para>If you include <code>ShowAlternatives</code>, you must also include <code>MaxAlternatives</code>,
+        /// which is the maximum number of alternative transcriptions you want Amazon Transcribe
+        /// Medical to generate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
+        /// transcriptions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,12 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ShowSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>Determines whether the transcription job uses speaker recognition to identify different
-        /// speakers in the input audio. Speaker recognition labels individual speakers in the
-        /// audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must
-        /// also set the maximum number of speaker labels in the <code>MaxSpeakerLabels</code>
-        /// field.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
+        /// <para>Enables speaker identification (diarization) in your transcription output. Speaker
+        /// identification labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
+        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Identifying
+        /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +327,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Specialty
         /// <summary>
         /// <para>
-        /// <para>The medical specialty of any clinician speaking in the input media.</para>
+        /// <para>Specify the predominant medical specialty represented in your media. For batch transcriptions,
+        /// <code>PRIMARYCARE</code> is the only valid value. If you require additional specialties,
+        /// refer to .</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -304,7 +346,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Add tags to an Amazon Transcribe Medical transcription job.</para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new medical
+        /// transcription job at the time you start this new job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,10 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of speech in the input audio. <code>CONVERSATION</code> refers to conversations
-        /// between two or more speakers, e.g., a conversations between doctors and patients.
-        /// <code>DICTATION</code> refers to single-speaker dictated speech, such as clinical
-        /// notes.</para>
+        /// <para>Specify whether your input media contains only one person (<code>DICTATION</code>)
+        /// or contains a conversation between two people (<code>CONVERSATION</code>).</para><para>For example, <code>DICTATION</code> could be used for a medical professional wanting
+        /// to transcribe voice memos; <code>CONVERSATION</code> could be used for transcribing
+        /// the doctor-patient dialogue during the patient's office visit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -335,7 +379,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary to use when processing a medical transcription job.</para>
+        /// <para>The name of the custom vocabulary you want to use when processing your medical transcription
+        /// job. Vocabulary names are case sensitive.</para><para>The language of the specified vocabulary must match the language code you specify
+        /// in your transcription request. If the languages don't match, the vocabulary isn't
+        /// applied. There are no errors or warnings associated with a language mismatch. US English
+        /// (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

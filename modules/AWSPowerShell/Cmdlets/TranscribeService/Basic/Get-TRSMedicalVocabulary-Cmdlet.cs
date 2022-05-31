@@ -28,7 +28,17 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Retrieves information about a medical vocabulary.
+    /// Provides information about the specified custom medical vocabulary.
+    /// 
+    ///  
+    /// <para>
+    /// To view the status of the specified medical vocabulary, check the <code>VocabularyState</code>
+    /// field. If the status is <code>READY</code>, your vocabulary is available to use. If
+    /// the status is <code>FAILED</code>, <code>FailureReason</code> provides details on
+    /// why your vocabulary failed.
+    /// </para><para>
+    /// To get a list of your custom medical vocabularies, use the operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSMedicalVocabulary")]
     [OutputType("Amazon.TranscribeService.Model.GetMedicalVocabularyResponse")]
@@ -42,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the medical vocabulary you want information about. This value is case
-        /// sensitive.</para>
+        /// <para>The name of the custom medical vocabulary you want information about. Vocabulary names
+        /// are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

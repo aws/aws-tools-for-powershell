@@ -32,13 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// When creating a new medical vocabulary, you must upload a text file that contains
-    /// your new entries, phrases, and terms into an S3 bucket. Note that this differs from
-    /// , where you can include a list of terms within your request using the <code>Phrases</code>
-    /// flag, as <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
-    /// flag.
+    /// Prior to creating a new medical vocabulary, you must first upload a text file that
+    /// contains your new entries, phrases, and terms into an Amazon S3 bucket. Note that
+    /// this differs from , where you can include a list of terms within your request using
+    /// the <code>Phrases</code> flag; <code>CreateMedicalVocabulary</code> does not support
+    /// the <code>Phrases</code> flag.
     /// </para><para>
-    /// For more information on creating a custom vocabulary text file, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating
+    /// Each language has a character set that contains all allowed characters for that specific
+    /// language. If you use unsupported characters, your vocabulary request fails. Refer
+    /// to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+    /// Sets for Custom Vocabularies</a> to get the character set for your language.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating
     /// a custom vocabulary</a>.
     /// </para>
     /// </summary>
@@ -55,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code that represents the language of the entries in your custom vocabulary.
-        /// Note that U.S. English (<code>en-US</code>) is the only language supported with Amazon
-        /// Transcribe Medical.</para>
+        /// US English (<code>en-US</code>) is the only language supported with Amazon Transcribe
+        /// Medical.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new medical vocabulary
-        /// at the time you create the new vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new medical
+        /// vocabulary at the time you create this new vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
         /// resources</a>.</para>
         /// </para>
         /// </summary>
@@ -86,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFileUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location (URI) of the text file that contains your custom vocabulary.
-        /// The URI must be in the same Amazon Web Services Region as the resource that you're
-        /// calling.</para><para>Here's an example URI path:</para><para><code>https://s3.us-east-1.amazonaws.com/my-s3-bucket/my-vocab-file.txt</code></para>
+        /// <para>The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// The URI must be in the same Amazon Web Services Region as the resource you're calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of your new vocabulary.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a vocabulary with the same name as a previous
-        /// vocabulary, you get a <code>ConflictException</code> error.</para>
+        /// <para>A unique name, chosen by you, for your new custom medical vocabulary.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new medical vocabulary with the same
+        /// name as an existing medical vocabulary, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

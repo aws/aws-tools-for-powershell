@@ -32,11 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// When creating a new medical vocabulary, you can either upload a text file that contains
-    /// your new entries, phrases, and terms into an S3 bucket or include a list of terms
-    /// directly in your request using the <code>Phrases</code> flag.
+    /// When creating a new vocabulary, you can either upload a text file that contains your
+    /// new entries, phrases, and terms into an Amazon S3 bucket and include the URI in your
+    /// request, or you can include a list of terms directly in your request using the <code>Phrases</code>
+    /// flag.
     /// </para><para>
-    /// For more information on creating a custom vocabulary, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating
+    /// Each language has a character set that contains all allowed characters for that specific
+    /// language. If you use unsupported characters, your vocabulary request fails. Refer
+    /// to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+    /// Sets for Custom Vocabularies</a> to get the character set for your language.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating
     /// a custom vocabulary</a>.
     /// </para>
     /// </summary>
@@ -53,9 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code that represents the language of the entries in your custom vocabulary.
-        /// Each vocabulary must contain terms in only one language. For a list of languages and
-        /// their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-        /// languages</a>.</para>
+        /// Each vocabulary must contain terms in only one language.</para><para>A custom vocabulary can only be used to transcribe files in the same language as the
+        /// vocabulary. For example, if you create a vocabulary using US English (<code>en-US</code>),
+        /// you can only apply this vocabulary to files that contain English audio.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Phrase
         /// <summary>
         /// <para>
-        /// <para>Use this flag to include a list of terms within your request.</para><para>Note that if you include <code>Phrases</code> in your request, you cannot use <code>VocabularyFileUri</code>;
-        /// you must choose one or the other.</para>
+        /// <para>Use this parameter if you want to create your vocabulary by including all desired
+        /// terms, as comma-separated values, within your request. The other option for creating
+        /// your vocabulary is to save your entries in a text file and upload them to an Amazon
+        /// S3 bucket, then specify the location of your file using the <code>VocabularyFileUri</code>
+        /// parameter.</para><para>Note that if you include <code>Phrases</code> in your request, you cannot use <code>VocabularyFileUri</code>;
+        /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
+        /// language. If you use unsupported characters, your vocabulary filter request fails.
+        /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+        /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new custom vocabulary
-        /// at the time you create this new vocabulary.</para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
+        /// vocabulary at the time you create this new vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 location of the text file that contains your custom vocabulary. The URI must
-        /// be located in the same region as the API endpoint you're calling.</para><para>Here's an example URI path:</para><para><code>https://s3.us-east-1.amazonaws.com/my-s3-bucket/my-vocab-file.txt</code></para><para>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot
+        /// <para>The Amazon S3 location of the text file that contains your custom vocabulary. The
+        /// URI must be located in the same Amazon Web Services Region as the resource you're
+        /// calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code></para><para>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot
         /// use the <code>Phrases</code> flag; you must choose one or the other.</para>
         /// </para>
         /// </summary>
@@ -108,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of your new vocabulary.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a vocabulary with the same name as a previous
-        /// vocabulary, you get a <code>ConflictException</code> error.</para>
+        /// <para>A unique name, chosen by you, for your new custom vocabulary.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new vocabulary with the same name as
+        /// an existing vocabulary, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

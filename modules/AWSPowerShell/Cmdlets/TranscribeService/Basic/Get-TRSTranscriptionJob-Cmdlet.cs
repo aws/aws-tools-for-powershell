@@ -28,11 +28,21 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Returns information about a transcription job. To see the status of the job, check
-    /// the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
-    /// the job is finished and you can find the results at the location specified in the
-    /// <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted
-    /// transcript appears in <code>RedactedTranscriptFileUri</code>.
+    /// Provides information about the specified transcription job.
+    /// 
+    ///  
+    /// <para>
+    /// To view the status of the specified transcription job, check the <code>TranscriptionJobStatus</code>
+    /// field. If the status is <code>COMPLETED</code>, the job is finished and you can find
+    /// the results at the location specified in <code>TranscriptFileUri</code>. If the status
+    /// is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription
+    /// job failed.
+    /// </para><para>
+    /// If you enabled content redaction, the redacted transcript can be found at the location
+    /// specified in <code>RedactedTranscriptFileUri</code>.
+    /// </para><para>
+    /// To get a list of your transcription jobs, use the operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSTranscriptionJob")]
     [OutputType("Amazon.TranscribeService.Model.TranscriptionJob")]
@@ -47,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job.</para>
+        /// <para>The name of the transcription job you want information about. Job names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

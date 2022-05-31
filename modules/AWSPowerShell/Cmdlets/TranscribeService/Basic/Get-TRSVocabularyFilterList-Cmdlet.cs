@@ -28,7 +28,13 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Gets information about vocabulary filters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of custom vocabulary filters that match the specified criteria. If
+    /// no criteria are specified, all custom vocabularies are returned.
+    /// 
+    ///  
+    /// <para>
+    /// To get detailed information about a specific custom vocabulary filter, use the operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TRSVocabularyFilterList")]
     [OutputType("Amazon.TranscribeService.Model.VocabularyFilterInfo")]
@@ -43,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>Filters the response so that it only contains vocabulary filters whose name contains
-        /// the specified string.</para>
+        /// <para>Returns only the custom vocabulary filters that contain the specified string. The
+        /// search is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of filters to return in each page of results. If there are fewer
-        /// results than the value you specify, only the actual results are returned. If you do
-        /// not specify a value, the default of 5 is used.</para>
+        /// <para>The maximum number of custom vocabulary filters to return in each page of results.
+        /// If there are fewer results than the value you specify, only the actual results are
+        /// returned. If you don't specify a value, a default of 5 is used.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -74,8 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous request to <code>ListVocabularyFilters</code> was truncated,
-        /// include the <code>NextToken</code> to fetch the next set of collections.</para>
+        /// <para>If your <code>ListVocabularyFilters</code> request returns more results than can be
+        /// displayed, <code>NextToken</code> is displayed in the response with an associated
+        /// string. To get the next page of results, copy this string and repeat your request,
+        /// including <code>NextToken</code> with the value of the copied string. Repeat as needed
+        /// to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

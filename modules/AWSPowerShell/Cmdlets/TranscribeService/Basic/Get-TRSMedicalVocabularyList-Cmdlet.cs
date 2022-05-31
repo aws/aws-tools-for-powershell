@@ -28,8 +28,13 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Returns a list of vocabularies that match the specified criteria. If you don't enter
-    /// a value in any of the request parameters, returns the entire list of vocabularies.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of custom medical vocabularies that match the specified criteria.
+    /// If no criteria are specified, all custom medical vocabularies are returned.
+    /// 
+    ///  
+    /// <para>
+    /// To get detailed information about a specific custom medical vocabulary, use the operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TRSMedicalVocabularyList")]
     [OutputType("Amazon.TranscribeService.Model.VocabularyInfo")]
@@ -44,9 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>Returns vocabularies whose names contain the specified string. The search is not case
-        /// sensitive. <code>ListMedicalVocabularies</code> returns both "<code>vocabularyname</code>"
-        /// and "<code>VocabularyName</code>".</para>
+        /// <para>Returns only the custom medical vocabularies that contain the specified string. The
+        /// search is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter StateEqual
         /// <summary>
         /// <para>
-        /// <para>When specified, returns only vocabularies with the <code>VocabularyState</code> equal
-        /// to the specified vocabulary state. Use this field to see which vocabularies are ready
-        /// for your medical transcription jobs.</para>
+        /// <para>Returns only custom medical vocabularies with the specified state. Vocabularies are
+        /// ordered by creation date, with the newest vocabulary first. If you don't include <code>StateEquals</code>,
+        /// all custom medical vocabularies are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of vocabularies to return in each page of results. If there are
-        /// fewer results than the value you specify, only the actual results are returned. If
-        /// you do not specify a value, the default of 5 is used.</para>
+        /// <para>The maximum number of custom medical vocabularies to return in each page of results.
+        /// If there are fewer results than the value you specify, only the actual results are
+        /// returned. If you don't specify a value, a default of 5 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of your previous request to <code>ListMedicalVocabularies</code> was
-        /// truncated, include the <code>NextToken</code> to fetch the next set of vocabularies.</para>
+        /// <para>If your <code>ListMedicalVocabularies</code> request returns more results than can
+        /// be displayed, <code>NextToken</code> is displayed in the response with an associated
+        /// string. To get the next page of results, copy this string and repeat your request,
+        /// including <code>NextToken</code> with the value of the copied string. Repeat as needed
+        /// to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

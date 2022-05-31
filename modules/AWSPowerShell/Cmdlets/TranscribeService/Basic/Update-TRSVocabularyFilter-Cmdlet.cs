@@ -28,7 +28,9 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Updates a vocabulary filter with a new list of filtered words.
+    /// Updates an existing custom vocabulary filter with a new list of words. The new list
+    /// you provide overwrites all previous entries; you cannot append new terms onto an existing
+    /// vocabulary filter.
     /// </summary>
     [Cmdlet("Update", "TRSVocabularyFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateVocabularyFilterResponse")]
@@ -42,11 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterFileUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location of a text file used as input to create the vocabulary filter.
-        /// Only use characters from the character set defined for custom vocabularies. For a
-        /// list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
-        /// Sets for Custom Vocabularies</a>.</para><para>The specified file must be less than 50 KB of UTF-8 characters.</para><para>If you provide the location of a list of words in the <code>VocabularyFilterFileUri</code>
-        /// parameter, you can't use the <code>Words</code> parameter.</para>
+        /// <para>The Amazon S3 location of the text file that contains your custom vocabulary filter
+        /// terms. The URI must be located in the same Amazon Web Services Region as the resource
+        /// you're calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code></para><para>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
+        /// cannot use <code>Words</code>; you must choose one or the other.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,9 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary filter to update. If you try to update a vocabulary filter
-        /// with the same name as another vocabulary filter, you get a <code>ConflictException</code>
-        /// error.</para>
+        /// <para>The name of the custom vocabulary filter you want to update. Vocabulary filter names
+        /// are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,10 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Word
         /// <summary>
         /// <para>
-        /// <para>The words to use in the vocabulary filter. Only use characters from the character
-        /// set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
-        /// Sets for Custom Vocabularies</a>.</para><para>If you provide a list of words in the <code>Words</code> parameter, you can't use
-        /// the <code>VocabularyFilterFileUri</code> parameter.</para>
+        /// <para>Use this parameter if you want to update your vocabulary filter by including all desired
+        /// terms, as comma-separated values, within your request. The other option for updating
+        /// your vocabulary filter is to save your entries in a text file and upload them to an
+        /// Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code>
+        /// parameter.</para><para>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>;
+        /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
+        /// language. If you use unsupported characters, your vocabulary filter request fails.
+        /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+        /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

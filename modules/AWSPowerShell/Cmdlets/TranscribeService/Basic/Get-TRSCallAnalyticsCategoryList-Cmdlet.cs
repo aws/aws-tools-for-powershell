@@ -28,9 +28,13 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Provides more information about the call analytics categories that you've created.
-    /// You can use the information in this list to find a specific category. You can then
-    /// use the operation to get more information about it.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of Call Analytics categories, including all rules that make up each
+    /// category.
+    /// 
+    ///  
+    /// <para>
+    /// To get detailed information about a specific Call Analytics category, use the operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TRSCallAnalyticsCategoryList")]
     [OutputType("Amazon.TranscribeService.Model.CategoryProperties")]
@@ -45,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of categories to return in each page of results. If there are fewer
-        /// results than the value you specify, only the actual results are returned. If you do
-        /// not specify a value, the default of 5 is used.</para>
+        /// <para>The maximum number of Call Analytics categories to return in each page of results.
+        /// If there are fewer results than the value you specify, only the actual results are
+        /// returned. If you don't specify a value, a default of 5 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When included, <code>NextToken</code>fetches the next set of categories if the result
-        /// of the previous request was truncated.</para>
+        /// <para>If your <code>ListCallAnalyticsCategories</code> request returns more results than
+        /// can be displayed, <code>NextToken</code> is displayed in the response with an associated
+        /// string. To get the next page of results, copy this string and repeat your request,
+        /// including <code>NextToken</code> with the value of the copied string. Repeat as needed
+        /// to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

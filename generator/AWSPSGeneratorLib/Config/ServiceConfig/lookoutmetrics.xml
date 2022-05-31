@@ -36,6 +36,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMetricSet" OutputProperty="MetricSetArn" Verb="New" Noun="MetricSet" ShouldProcessTarget="MetricSetName" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params>
+                <Param Name="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" NewName="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" Alias="CloudWatch_BackTestConfiguration_RunBackTestMode" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" Alias="RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" />
                 <Param Name="MetricSource_RedshiftSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RedshiftSourceConfig_VpcConfiguration_SecurityGroupIdList" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList" Alias="RDSSourceConfig_VpcConfiguration_SubnetIdList" />
@@ -133,6 +134,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMetricSet" OutputProperty="MetricSetArn" Verb="Update" Noun="MetricSet" ShouldProcessTarget="MetricSetArn" PipelineParameter="MetricSetArn" NoPipelineParameter="false">
             <Params>
+                <Param Name="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" NewName="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" Alias="CloudWatch_BackTestConfiguration_RunBackTestMode" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" Alias="RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" />
                 <Param Name="MetricSource_RedshiftSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RedshiftSourceConfig_VpcConfiguration_SecurityGroupIdList" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList" Alias="RDSSourceConfig_VpcConfiguration_SubnetIdList" />

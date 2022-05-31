@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The storage tier that you specified for your data. The <code>storageType</code> parameter
         /// can be one of the following values:</para><ul><li><para><code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot
         /// tier. The hot tier is a service-managed database.</para></li><li><para><code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold
-        /// tier and the cold tier. The cold tier is a customer-managed Amazon S3 bucket.</para></li></ul>
+        /// tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

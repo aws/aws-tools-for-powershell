@@ -28,11 +28,24 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Creates a new custom language model. When creating a new language model, you must
-    /// specify if you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio
-    /// sample rates under 16,000 Hz) base model. You then include the S3 URI location of
-    /// your training and tuning files, the language for the model, a unique name, and any
-    /// tags you want associated with your model.
+    /// Creates a new custom language model.
+    /// 
+    ///  
+    /// <para>
+    /// When creating a new language model, you must specify:
+    /// </para><ul><li><para>
+    /// If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio sample
+    /// rates under 16,000 Hz) base model
+    /// </para></li><li><para>
+    /// The location of your training and tuning files (this must be an Amazon S3 URI)
+    /// </para></li><li><para>
+    /// The language of your model
+    /// </para></li><li><para>
+    /// A unique name for your model
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom
+    /// language models</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "TRSLanguageModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CreateLanguageModelResponse")]
@@ -67,9 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter InputDataConfig_DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given
-        /// Amazon Transcribe to access your Amazon S3 buckets containing your media files or
-        /// text data. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
+        /// S3 bucket that contains your input files. If the role you specify doesn’t have the
+        /// appropriate permissions to access the specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of your custom language model; note that the language code you select
-        /// must match the language of your training and tuning data.</para>
+        /// <para>The language code that represents the language of your model. Each language model
+        /// must contain terms in only one language, and the language you select for your model
+        /// must match the language of your training and tuning data.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> table. Note that U.S. English (<code>en-US</code>) is the only language
+        /// supported with Amazon Transcribe Medical.</para><para>A custom language model can only be used to transcribe files in the same language
+        /// as the model. For example, if you create a language model using US English (<code>en-US</code>),
+        /// you can only apply this model to files that contain English audio.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of your new custom language model.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a language model with the same name as
-        /// a previous language model, you get a <code>ConflictException</code> error.</para>
+        /// <para>A unique name, chosen by you, for your custom language model.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new language model with the same name
+        /// as an existing language model, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 prefix you specify to access the plain text files that you use to train
-        /// your custom language model.</para>
+        /// <para>The Amazon S3 location (URI) of the text files you want to use to train your custom
+        /// language model.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-model-training-data/</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optionally add tags, each in the form of a key:value pair, to your new language model.
-        /// See also: .</para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
+        /// language model at the time you create this new model.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter InputDataConfig_TuningDataS3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 prefix you specify to access the plain text files that you use to tune
-        /// your custom language model.</para>
+        /// <para>The Amazon S3 location (URI) of the text files you want to use to tune your custom
+        /// language model.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-model-tuning-data/</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

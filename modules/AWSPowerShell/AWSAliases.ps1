@@ -6018,6 +6018,8 @@ Set-Alias -Name DOC-RestoreDBClusterFromSnapshot -Value Restore-DOCDBClusterFrom
 Set-Alias -Name DOC-RestoreDBClusterToPointInTime -Value Restore-DOCDBClusterToPointInTime
 Set-Alias -Name DOC-StartDBCluster -Value Start-DOCDBCluster
 Set-Alias -Name DOC-StopDBCluster -Value Stop-DOCDBCluster
+Set-Alias -Name Create-EDRSExtendedSourceServer -Value New-EDRSExtendedSourceServer
+Set-Alias -Name EDRS-CreateExtendedSourceServer -Value New-EDRSExtendedSourceServer
 Set-Alias -Name Create-EDRSReplicationConfigurationTemplate -Value New-EDRSReplicationConfigurationTemplate
 Set-Alias -Name EDRS-CreateReplicationConfigurationTemplate -Value New-EDRSReplicationConfigurationTemplate
 Set-Alias -Name Delete-EDRSJob -Value Remove-EDRSJob
@@ -6052,6 +6054,12 @@ Set-Alias -Name EDRS-GetFailbackReplicationConfiguration -Value Get-EDRSFailback
 Set-Alias -Name EDRS-GetLaunchConfiguration -Value Get-EDRSLaunchConfiguration
 Set-Alias -Name EDRS-GetReplicationConfiguration -Value Get-EDRSReplicationConfiguration
 Set-Alias -Name EDRS-InitializeService -Value Initialize-EDRSService
+Set-Alias -Name List-EDRSExtensibleSourceServers -Value Get-EDRSExtensibleSourceServerList
+Set-Alias -Name List-EDRSExtensibleSourceServerList -Value Get-EDRSExtensibleSourceServerList
+Set-Alias -Name EDRS-ListExtensibleSourceServers -Value Get-EDRSExtensibleSourceServerList
+Set-Alias -Name List-EDRSStagingAccounts -Value Get-EDRSStagingAccountList
+Set-Alias -Name List-EDRSStagingAccountList -Value Get-EDRSStagingAccountList
+Set-Alias -Name EDRS-ListStagingAccounts -Value Get-EDRSStagingAccountList
 Set-Alias -Name EDRS-ListTagsForResource -Value Get-EDRSResourceTag
 Set-Alias -Name Retry-EDRSDataReplication -Value Restart-EDRSDataReplication
 Set-Alias -Name EDRS-RetryDataReplication -Value Restart-EDRSDataReplication

@@ -110,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserContextData_EncodedData
         /// <summary>
         /// <para>
-        /// <para>Contextual data, such as the user's device fingerprint, IP address, or location, used
-        /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
+        /// <para>Encoded device-fingerprint details that your app collected with the Amazon Cognito
+        /// context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding
+        /// user device and session data to API requests</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ForceAliasCreation { get; set; }
+        #endregion
+        
+        #region Parameter UserContextData_IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>The source IP address of your user's device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserContextData_IpAddress { get; set; }
         #endregion
         
         #region Parameter SecretHash
@@ -247,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.ForceAliasCreation = this.ForceAliasCreation;
             context.SecretHash = this.SecretHash;
             context.UserContextData_EncodedData = this.UserContextData_EncodedData;
+            context.UserContextData_IpAddress = this.UserContextData_IpAddress;
             context.Username = this.Username;
             #if MODULAR
             if (this.Username == null && ParameterWasBound(nameof(this.Username)))
@@ -321,6 +333,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestUserContextData_userContextData_EncodedData != null)
             {
                 request.UserContextData.EncodedData = requestUserContextData_userContextData_EncodedData;
+                requestUserContextDataIsNull = false;
+            }
+            System.String requestUserContextData_userContextData_IpAddress = null;
+            if (cmdletContext.UserContextData_IpAddress != null)
+            {
+                requestUserContextData_userContextData_IpAddress = cmdletContext.UserContextData_IpAddress;
+            }
+            if (requestUserContextData_userContextData_IpAddress != null)
+            {
+                request.UserContextData.IpAddress = requestUserContextData_userContextData_IpAddress;
                 requestUserContextDataIsNull = false;
             }
              // determine if request.UserContextData should be set to null
@@ -400,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? ForceAliasCreation { get; set; }
             public System.String SecretHash { get; set; }
             public System.String UserContextData_EncodedData { get; set; }
+            public System.String UserContextData_IpAddress { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse, ConfirmCGIPUserRegistrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

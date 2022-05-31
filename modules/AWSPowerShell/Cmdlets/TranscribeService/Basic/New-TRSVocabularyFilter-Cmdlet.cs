@@ -28,8 +28,21 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Creates a new vocabulary filter that you can use to filter words from your transcription
-    /// output. For example, you can use this operation to remove profanity from your transcript.
+    /// Creates a new custom vocabulary filter.
+    /// 
+    ///  
+    /// <para>
+    /// You can use vocabulary filters to mask, delete, or flag specific words from your transcript.
+    /// Vocabulary filters are commonly used to mask profanity in transcripts.
+    /// </para><para>
+    /// Each language has a character set that contains all allowed characters for that specific
+    /// language. If you use unsupported characters, your vocabulary filter request fails.
+    /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+    /// Sets for Custom Vocabularies</a> to get the character set for your language.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using
+    /// vocabulary filtering with unwanted words</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "TRSVocabularyFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CreateVocabularyFilterResponse")]
@@ -43,9 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the words in the vocabulary filter. All words in the filter must
-        /// be in the same language. The vocabulary filter can only be used with transcription
-        /// jobs in the specified language.</para>
+        /// <para>The language code that represents the language of the entries in your vocabulary filter.
+        /// Each vocabulary filter must contain terms in only one language.</para><para>A vocabulary filter can only be used to transcribe files in the same language as the
+        /// filter. For example, if you create a vocabulary filter using US English (<code>en-US</code>),
+        /// you can only apply this filter to files that contain English audio.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages</a> table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new vocabulary filter
-        /// at the time you create this new vocabulary filter.</para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
+        /// vocabulary filter at the time you create this new filter.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterFileUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location of a text file used as input to create the vocabulary filter.
-        /// Only use characters from the character set defined for custom vocabularies. For a
-        /// list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
-        /// Sets for Custom Vocabularies</a>.</para><para>Your vocabulary filter file must be less than 50 KB in size.</para><para>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
+        /// <para>The Amazon S3 location of the text file that contains your custom vocabulary filter
+        /// terms. The URI must be located in the same Amazon Web Services Region as the resource
+        /// you're calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code></para><para>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
         /// cannot use <code>Words</code>; you must choose one or the other.</para>
         /// </para>
         /// </summary>
@@ -88,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of your new vocabulary filter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a vocabulary filter with the same name
-        /// as a previous vocabulary filter, you get a <code>ConflictException</code> error.</para>
+        /// <para>A unique name, chosen by you, for your new custom vocabulary filter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
+        /// Web Services account. If you try to create a new vocabulary filter with the same name
+        /// as an existing vocabulary filter, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,10 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Word
         /// <summary>
         /// <para>
-        /// <para>The words you want in your vocabulary filter. Only use characters specified in the
-        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
-        /// sets</a> for the language you're transcribing.</para><para>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>;
-        /// you must choose one or the other.</para>
+        /// <para>Use this parameter if you want to create your vocabulary filter by including all desired
+        /// terms, as comma-separated values, within your request. The other option for creating
+        /// your vocabulary filter is to save your entries in a text file and upload them to an
+        /// Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code>
+        /// parameter.</para><para>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>;
+        /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
+        /// language. If you use unsupported characters, your vocabulary filter request fails.
+        /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+        /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
