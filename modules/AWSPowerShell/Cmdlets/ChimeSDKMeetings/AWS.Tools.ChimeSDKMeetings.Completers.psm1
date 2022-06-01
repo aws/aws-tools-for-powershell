@@ -80,6 +80,23 @@ $CHMTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMeetings.MediaCapabilities
+        {
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Audio") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Audio") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Audio") -Or
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Content") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Content") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Content") -Or
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Video") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Video") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Video")
+        }
+        {
+            $v = "None","Receive","Send","SendReceive"
+            break
+        }
+
         # Amazon.ChimeSDKMeetings.MeetingFeatureStatus
         {
             ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Audio_EchoReduction") -Or
@@ -179,6 +196,9 @@ $CHMTG_Completers = {
 }
 
 $CHMTG_map = @{
+    "Capabilities_Audio"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
+    "Capabilities_Content"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
+    "Capabilities_Video"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "MeetingFeatures_Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
@@ -245,6 +265,7 @@ $CHMTG_SelectCompleters = {
 
 $CHMTG_SelectMap = @{
     "Select"=@("New-CHMTGAttendeeBatch",
+               "Update-CHMTGUpdateAttendeeCapabilitiesExcept",
                "New-CHMTGAttendee",
                "New-CHMTGMeeting",
                "New-CHMTGMeetingWithAttendee",
@@ -254,7 +275,8 @@ $CHMTG_SelectMap = @{
                "Get-CHMTGMeeting",
                "Get-CHMTGAttendeeList",
                "Start-CHMTGMeetingTranscription",
-               "Stop-CHMTGMeetingTranscription")
+               "Stop-CHMTGMeetingTranscription",
+               "Update-CHMTGAttendeeCapability")
 }
 
 _awsArgumentCompleterRegistration $CHMTG_SelectCompleters $CHMTG_SelectMap

@@ -250,8 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>To create an Explainability for all time series in your datasets, use <code>ALL</code>.
-        /// To create an Explainability for specific time series in your datasets, use <code>SPECIFIC</code>.</para><para>Specify time series by uploading a CSV file to an Amazon S3 bucket and set the location
-        /// within the <a>DataDestination</a> data type.</para>
+        /// To create an Explainability for specific time series in your datasets, use <code>SPECIFIC</code>.</para><para>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and
+        /// set the location within the <a>DataDestination</a> data type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

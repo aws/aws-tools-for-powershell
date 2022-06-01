@@ -22,42 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.BackupGateway;
-using Amazon.BackupGateway.Model;
+using Amazon.Route53;
+using Amazon.Route53.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BUGW
+namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Updates a hypervisor metadata, including its host, username, and password. Specify
-    /// which hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor
-    /// in your request.
+    /// Creates a CIDR collection in the current Amazon Web Services account.
     /// </summary>
-    [Cmdlet("Update", "BUGWHypervisor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Backup Gateway UpdateHypervisor API operation.", Operation = new[] {"UpdateHypervisor"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.UpdateHypervisorResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.UpdateHypervisorResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BackupGateway.Model.UpdateHypervisorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "R53CidrCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53.Model.CreateCidrCollectionResponse")]
+    [AWSCmdlet("Calls the Amazon Route 53 CreateCidrCollection API operation.", Operation = new[] {"CreateCidrCollection"}, SelectReturnType = typeof(Amazon.Route53.Model.CreateCidrCollectionResponse))]
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateCidrCollectionResponse",
+        "This cmdlet returns an Amazon.Route53.Model.CreateCidrCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateBUGWHypervisorCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
+    public partial class NewR53CidrCollectionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
-        #region Parameter HypervisorHost
+        #region Parameter CallerReference
         /// <summary>
         /// <para>
-        /// <para>The updated host of the hypervisor. This can be either an IP address or a fully-qualified
-        /// domain name (FQDN).</para>
+        /// <para>A client-specific token that allows requests to be securely retried so that the intended
+        /// outcome will only occur once, retries receive a similar response, and there are no
+        /// additional edge cases to handle.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Host")]
-        public System.String HypervisorHost { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CallerReference { get; set; }
         #endregion
         
-        #region Parameter HypervisorArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the hypervisor to update.</para>
+        /// <para>A unique identifier for the account that can be used to reference the collection from
+        /// other API calls.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,56 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HypervisorArn { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The updated name for the hypervisor</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Password
-        /// <summary>
-        /// <para>
-        /// <para>The updated password for the hypervisor.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Password { get; set; }
-        #endregion
-        
-        #region Parameter Username
-        /// <summary>
-        /// <para>
-        /// <para>The updated username for the hypervisor.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Username { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'HypervisorArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BackupGateway.Model.UpdateHypervisorResponse).
-        /// Specifying the name of a property of type Amazon.BackupGateway.Model.UpdateHypervisorResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53.Model.CreateCidrCollectionResponse).
+        /// Specifying the name of a property of type Amazon.Route53.Model.CreateCidrCollectionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "HypervisorArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the HypervisorArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HypervisorArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BUGWHypervisor (UpdateHypervisor)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53CidrCollection (CreateCidrCollection)"))
             {
                 return;
             }
@@ -150,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.UpdateHypervisorResponse, UpdateBUGWHypervisorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53.Model.CreateCidrCollectionResponse, NewR53CidrCollectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,20 +134,23 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.HypervisorArn;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.HypervisorHost = this.HypervisorHost;
-            context.HypervisorArn = this.HypervisorArn;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.HypervisorArn == null && ParameterWasBound(nameof(this.HypervisorArn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter HypervisorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.Password = this.Password;
-            context.Username = this.Username;
+            context.CallerReference = this.CallerReference;
+            #if MODULAR
+            if (this.CallerReference == null && ParameterWasBound(nameof(this.CallerReference)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CallerReference which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,27 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BackupGateway.Model.UpdateHypervisorRequest();
+            var request = new Amazon.Route53.Model.CreateCidrCollectionRequest();
             
-            if (cmdletContext.HypervisorHost != null)
-            {
-                request.Host = cmdletContext.HypervisorHost;
-            }
-            if (cmdletContext.HypervisorArn != null)
-            {
-                request.HypervisorArn = cmdletContext.HypervisorArn;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Password != null)
+            if (cmdletContext.CallerReference != null)
             {
-                request.Password = cmdletContext.Password;
-            }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
+                request.CallerReference = cmdletContext.CallerReference;
             }
             
             CmdletOutput output;
@@ -242,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         
         #region AWS Service Operation Call
         
-        private Amazon.BackupGateway.Model.UpdateHypervisorResponse CallAWSServiceOperation(IAmazonBackupGateway client, Amazon.BackupGateway.Model.UpdateHypervisorRequest request)
+        private Amazon.Route53.Model.CreateCidrCollectionResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateCidrCollectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup Gateway", "UpdateHypervisor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "CreateCidrCollection");
             try
             {
                 #if DESKTOP
-                return client.UpdateHypervisor(request);
+                return client.CreateCidrCollection(request);
                 #elif CORECLR
-                return client.UpdateHypervisorAsync(request).GetAwaiter().GetResult();
+                return client.CreateCidrCollectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -270,13 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String HypervisorHost { get; set; }
-            public System.String HypervisorArn { get; set; }
             public System.String Name { get; set; }
-            public System.String Password { get; set; }
-            public System.String Username { get; set; }
-            public System.Func<Amazon.BackupGateway.Model.UpdateHypervisorResponse, UpdateBUGWHypervisorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.HypervisorArn;
+            public System.String CallerReference { get; set; }
+            public System.Func<Amazon.Route53.Model.CreateCidrCollectionResponse, NewR53CidrCollectionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

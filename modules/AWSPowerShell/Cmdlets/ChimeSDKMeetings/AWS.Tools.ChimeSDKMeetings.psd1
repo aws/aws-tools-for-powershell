@@ -96,7 +96,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CHMTGAttendee', 
         'Remove-CHMTGMeeting', 
         'Start-CHMTGMeetingTranscription', 
-        'Stop-CHMTGMeetingTranscription')
+        'Stop-CHMTGMeetingTranscription', 
+        'Update-CHMTGAttendeeCapability', 
+        'Update-CHMTGUpdateAttendeeCapabilitiesExcept')
 
     # Variables to export from this module
     VariablesToExport = '*'

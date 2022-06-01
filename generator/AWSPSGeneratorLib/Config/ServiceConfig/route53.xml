@@ -40,6 +40,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ChangeCidrCollection" OutputProperty="Id" Verb="Edit" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ChangeResourceRecordSets" OutputProperty="ChangeInfo" Verb="Edit" Noun="ResourceRecordSet" ShouldProcessTarget="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
@@ -47,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ChangeTagsForResource" Verb="Edit" Noun="TagsForResource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCidrCollection" OutputProperty="*" Verb="New" Noun="CidrCollection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -89,6 +97,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeactivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Disable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCidrCollection" Verb="Remove" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,6 +219,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" OutputProperty="TrafficPolicyInstanceCount" Verb="Get" Noun="TrafficPolicyInstanceCount" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCidrBlocks" OutputProperty="CidrBlocks" Verb="Get" Noun="CidrBlockList" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCidrCollections" OutputProperty="CidrCollections" Verb="Get" Noun="CidrCollectionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCidrLocations" OutputProperty="CidrLocations" Verb="Get" Noun="CidrLocationList" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

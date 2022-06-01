@@ -4697,6 +4697,7 @@ $BUGW_SelectMap = @{
                "Remove-BUGWGateway",
                "Remove-BUGWHypervisor",
                "Remove-BUGWGatewayFromServer",
+               "Get-BUGWGateway",
                "Import-BUGWHypervisorConfiguration",
                "Get-BUGWGatewayList",
                "Get-BUGWHypervisorList",
@@ -4707,6 +4708,7 @@ $BUGW_SelectMap = @{
                "Test-BUGWHypervisorConfiguration",
                "Remove-BUGWResourceTag",
                "Update-BUGWGatewayInformation",
+               "Update-BUGWGatewaySoftwareNow",
                "Update-BUGWHypervisor")
 }
 
@@ -6519,6 +6521,23 @@ $CHMTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMeetings.MediaCapabilities
+        {
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Audio") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Audio") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Audio") -Or
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Content") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Content") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Content") -Or
+            ($_ -eq "New-CHMTGAttendee/Capabilities_Video") -Or
+            ($_ -eq "Update-CHMTGAttendeeCapability/Capabilities_Video") -Or
+            ($_ -eq "Update-CHMTGUpdateAttendeeCapabilitiesExcept/Capabilities_Video")
+        }
+        {
+            $v = "None","Receive","Send","SendReceive"
+            break
+        }
+
         # Amazon.ChimeSDKMeetings.MeetingFeatureStatus
         {
             ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Audio_EchoReduction") -Or
@@ -6618,6 +6637,9 @@ $CHMTG_Completers = {
 }
 
 $CHMTG_map = @{
+    "Capabilities_Audio"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
+    "Capabilities_Content"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
+    "Capabilities_Video"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "MeetingFeatures_Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
@@ -6684,6 +6706,7 @@ $CHMTG_SelectCompleters = {
 
 $CHMTG_SelectMap = @{
     "Select"=@("New-CHMTGAttendeeBatch",
+               "Update-CHMTGUpdateAttendeeCapabilitiesExcept",
                "New-CHMTGAttendee",
                "New-CHMTGMeeting",
                "New-CHMTGMeetingWithAttendee",
@@ -6693,7 +6716,8 @@ $CHMTG_SelectMap = @{
                "Get-CHMTGMeeting",
                "Get-CHMTGAttendeeList",
                "Start-CHMTGMeetingTranscription",
-               "Stop-CHMTGMeetingTranscription")
+               "Stop-CHMTGMeetingTranscription",
+               "Update-CHMTGAttendeeCapability")
 }
 
 _awsArgumentCompleterRegistration $CHMTG_SelectCompleters $CHMTG_SelectMap
@@ -40741,8 +40765,10 @@ $R53_SelectCompleters = {
 $R53_SelectMap = @{
     "Select"=@("Enable-R53KeySigningKey",
                "Register-R53VPCWithHostedZone",
+               "Edit-R53CidrCollection",
                "Edit-R53ResourceRecordSet",
                "Edit-R53TagsForResource",
+               "New-R53CidrCollection",
                "New-R53HealthCheck",
                "New-R53HostedZone",
                "New-R53KeySigningKey",
@@ -40753,6 +40779,7 @@ $R53_SelectMap = @{
                "New-R53TrafficPolicyVersion",
                "New-R53VPCAssociationAuthorization",
                "Disable-R53KeySigningKey",
+               "Remove-R53CidrCollection",
                "Remove-R53HealthCheck",
                "Remove-R53HostedZone",
                "Remove-R53KeySigningKey",
@@ -40782,6 +40809,9 @@ $R53_SelectMap = @{
                "Get-R53TrafficPolicy",
                "Get-R53TrafficPolicyInstance",
                "Get-R53TrafficPolicyInstanceCount",
+               "Get-R53CidrBlockList",
+               "Get-R53CidrCollectionList",
+               "Get-R53CidrLocationList",
                "Get-R53GeoLocationList",
                "Get-R53HealthCheckList",
                "Get-R53HostedZoneList",

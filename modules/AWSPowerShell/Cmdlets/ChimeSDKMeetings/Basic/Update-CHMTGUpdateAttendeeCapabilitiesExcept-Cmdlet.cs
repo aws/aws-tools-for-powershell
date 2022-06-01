@@ -28,18 +28,17 @@ using Amazon.ChimeSDKMeetings.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
-    /// Creates a new attendee for an active Amazon Chime SDK meeting. For more information
-    /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+    /// Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code>
+    /// table.
     /// </summary>
-    [Cmdlet("New", "CHMTGAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ChimeSDKMeetings.Model.Attendee")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Meetings CreateAttendee API operation.", Operation = new[] {"CreateAttendee"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMeetings.Model.Attendee or Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMeetings.Model.Attendee object.",
-        "The service call response (type Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CHMTGUpdateAttendeeCapabilitiesExcept", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Meetings BatchUpdateAttendeeCapabilitiesExcept API operation.", Operation = new[] {"BatchUpdateAttendeeCapabilitiesExcept"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse))]
+    [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCHMTGAttendeeCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
+    public partial class UpdateCHMTGUpdateAttendeeCapabilitiesExceptCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
         #region Parameter Capabilities_Audio
@@ -48,7 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <para>The audio capability assigned to an attendee.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ChimeSDKMeetings.MediaCapabilities")]
         public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Audio { get; set; }
         #endregion
@@ -59,39 +64,45 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <para>The content capability assigned to an attendee.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ChimeSDKMeetings.MediaCapabilities")]
         public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Content { get; set; }
         #endregion
         
-        #region Parameter ExternalUserId
+        #region Parameter ExcludedAttendeeId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to
-        /// an identity managed by a builder application.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExternalUserId { get; set; }
-        #endregion
-        
-        #region Parameter MeetingId
-        /// <summary>
-        /// <para>
-        /// <para>The unique ID of the meeting.</para>
+        /// <para>The <code>AttendeeIDs</code> that you want to exclude from one or more capabilities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("ExcludedAttendeeIds")]
+        public Amazon.ChimeSDKMeetings.Model.AttendeeIdItem[] ExcludedAttendeeId { get; set; }
+        #endregion
+        
+        #region Parameter MeetingId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the meeting associated with the update request.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -105,28 +116,33 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <para>The video capability assigned to an attendee.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ChimeSDKMeetings.MediaCapabilities")]
         public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Video { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Attendee'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Attendee";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExternalUserId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExternalUserId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MeetingId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MeetingId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExternalUserId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MeetingId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -145,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalUserId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMTGAttendee (CreateAttendee)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MeetingId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMTGUpdateAttendeeCapabilitiesExcept (BatchUpdateAttendeeCapabilitiesExcept)"))
             {
                 return;
             }
@@ -159,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse, NewCHMTGAttendeeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse, UpdateCHMTGUpdateAttendeeCapabilitiesExceptCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -168,17 +184,38 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExternalUserId;
+                context.Select = (response, cmdlet) => this.MeetingId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Capabilities_Audio = this.Capabilities_Audio;
-            context.Capabilities_Content = this.Capabilities_Content;
-            context.Capabilities_Video = this.Capabilities_Video;
-            context.ExternalUserId = this.ExternalUserId;
             #if MODULAR
-            if (this.ExternalUserId == null && ParameterWasBound(nameof(this.ExternalUserId)))
+            if (this.Capabilities_Audio == null && ParameterWasBound(nameof(this.Capabilities_Audio)))
             {
-                WriteWarning("You are passing $null as a value for parameter ExternalUserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Capabilities_Audio which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Capabilities_Content = this.Capabilities_Content;
+            #if MODULAR
+            if (this.Capabilities_Content == null && ParameterWasBound(nameof(this.Capabilities_Content)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Capabilities_Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Capabilities_Video = this.Capabilities_Video;
+            #if MODULAR
+            if (this.Capabilities_Video == null && ParameterWasBound(nameof(this.Capabilities_Video)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Capabilities_Video which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.ExcludedAttendeeId != null)
+            {
+                context.ExcludedAttendeeId = new List<Amazon.ChimeSDKMeetings.Model.AttendeeIdItem>(this.ExcludedAttendeeId);
+            }
+            #if MODULAR
+            if (this.ExcludedAttendeeId == null && ParameterWasBound(nameof(this.ExcludedAttendeeId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ExcludedAttendeeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MeetingId = this.MeetingId;
@@ -202,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMeetings.Model.CreateAttendeeRequest();
+            var request = new Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptRequest();
             
             
              // populate Capabilities
@@ -243,9 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             {
                 request.Capabilities = null;
             }
-            if (cmdletContext.ExternalUserId != null)
+            if (cmdletContext.ExcludedAttendeeId != null)
             {
-                request.ExternalUserId = cmdletContext.ExternalUserId;
+                request.ExcludedAttendeeIds = cmdletContext.ExcludedAttendeeId;
             }
             if (cmdletContext.MeetingId != null)
             {
@@ -284,15 +321,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse CallAWSServiceOperation(IAmazonChimeSDKMeetings client, Amazon.ChimeSDKMeetings.Model.CreateAttendeeRequest request)
+        private Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse CallAWSServiceOperation(IAmazonChimeSDKMeetings client, Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Meetings", "CreateAttendee");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Meetings", "BatchUpdateAttendeeCapabilitiesExcept");
             try
             {
                 #if DESKTOP
-                return client.CreateAttendee(request);
+                return client.BatchUpdateAttendeeCapabilitiesExcept(request);
                 #elif CORECLR
-                return client.CreateAttendeeAsync(request).GetAwaiter().GetResult();
+                return client.BatchUpdateAttendeeCapabilitiesExceptAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -315,10 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Audio { get; set; }
             public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Content { get; set; }
             public Amazon.ChimeSDKMeetings.MediaCapabilities Capabilities_Video { get; set; }
-            public System.String ExternalUserId { get; set; }
+            public List<Amazon.ChimeSDKMeetings.Model.AttendeeIdItem> ExcludedAttendeeId { get; set; }
             public System.String MeetingId { get; set; }
-            public System.Func<Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse, NewCHMTGAttendeeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Attendee;
+            public System.Func<Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse, UpdateCHMTGUpdateAttendeeCapabilitiesExceptCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

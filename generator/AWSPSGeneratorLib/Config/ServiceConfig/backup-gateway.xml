@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportHypervisorConfiguration" OutputProperty="HypervisorArn" Verb="Import" Noun="HypervisorConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Host" NewName="HypervisorHost" />
@@ -79,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayInformation" OutputProperty="GatewayArn" Verb="Update" Noun="GatewayInformation" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewaySoftwareNow" OutputProperty="GatewayArn" Verb="Update" Noun="GatewaySoftwareNow" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

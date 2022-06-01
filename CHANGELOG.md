@@ -1,4 +1,28 @@
-﻿### 4.1.96 (2022-05-31 20:52Z)
+﻿### 4.1.97 (2022-06-01 22:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.286.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup Gateway
+    * Added cmdlet Get-BUGWGateway leveraging the GetGateway service API.
+    * Added cmdlet Update-BUGWGatewaySoftwareNow leveraging the UpdateGatewaySoftwareNow service API.
+    * Modified cmdlet Update-BUGWHypervisor: added parameter Name.
+  * Amazon Chime SDK Meetings
+    * Added cmdlet Update-CHMTGAttendeeCapability leveraging the UpdateAttendeeCapabilities service API.
+    * Added cmdlet Update-CHMTGUpdateAttendeeCapabilitiesExcept leveraging the BatchUpdateAttendeeCapabilitiesExcept service API.
+    * Modified cmdlet New-CHMTGAttendee: added parameters Capabilities_Audio, Capabilities_Content and Capabilities_Video.
+  * Amazon Forecast Service
+    * Modified cmdlet New-FRCDatasetImportJob: added parameter Format.
+    * Modified cmdlet New-FRCExplainabilityExport: added parameter Format.
+    * Modified cmdlet New-FRCForecast: added parameters S3Config_KMSKeyArn, S3Config_Path, S3Config_RoleArn, Schema_Attribute and TimeSeriesIdentifiers_Format.
+    * Modified cmdlet New-FRCForecastExportJob: added parameter Format.
+    * Modified cmdlet New-FRCPredictorBacktestExportJob: added parameter Format.
+  * Amazon Route 53
+    * Added cmdlet Edit-R53CidrCollection leveraging the ChangeCidrCollection service API.
+    * Added cmdlet Get-R53CidrBlockList leveraging the ListCidrBlocks service API.
+    * Added cmdlet Get-R53CidrCollectionList leveraging the ListCidrCollections service API.
+    * Added cmdlet Get-R53CidrLocationList leveraging the ListCidrLocations service API.
+    * Added cmdlet New-R53CidrCollection leveraging the CreateCidrCollection service API.
+    * Added cmdlet Remove-R53CidrCollection leveraging the DeleteCidrCollection service API.
+
+### 4.1.96 (2022-05-31 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.285.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet Confirm-CGIPForgotPassword: added parameter UserContextData_IpAddress.

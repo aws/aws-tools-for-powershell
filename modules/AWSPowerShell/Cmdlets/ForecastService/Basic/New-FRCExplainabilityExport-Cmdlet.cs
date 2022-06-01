@@ -86,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String ExplainabilityExportName { get; set; }
         #endregion
         
+        #region Parameter Format
+        /// <summary>
+        /// <para>
+        /// <para>The format of the exported data, CSV or PARQUET.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Format { get; set; }
+        #endregion
+        
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
@@ -247,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter ExplainabilityExportName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Format = this.Format;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
@@ -329,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.ExplainabilityExportName = cmdletContext.ExplainabilityExportName;
             }
+            if (cmdletContext.Format != null)
+            {
+                request.Format = cmdletContext.Format;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -399,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String S3Config_RoleArn { get; set; }
             public System.String ExplainabilityArn { get; set; }
             public System.String ExplainabilityExportName { get; set; }
+            public System.String Format { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateExplainabilityExportResponse, NewFRCExplainabilityExportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExplainabilityExportArn;

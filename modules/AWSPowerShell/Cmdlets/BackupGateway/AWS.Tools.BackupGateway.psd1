@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-BUGWGatewayToServer', 
         'Add-BUGWResourceTag', 
+        'Get-BUGWGateway', 
         'Get-BUGWGatewayList', 
         'Get-BUGWHypervisorList', 
         'Get-BUGWResourceTag', 
@@ -100,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BUGWResourceTag', 
         'Test-BUGWHypervisorConfiguration', 
         'Update-BUGWGatewayInformation', 
+        'Update-BUGWGatewaySoftwareNow', 
         'Update-BUGWHypervisor', 
         'Write-BUGWMaintenanceStartTime')
 

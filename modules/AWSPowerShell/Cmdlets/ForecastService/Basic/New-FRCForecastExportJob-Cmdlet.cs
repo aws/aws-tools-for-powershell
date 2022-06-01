@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String ForecastExportJobName { get; set; }
         #endregion
         
+        #region Parameter Format
+        /// <summary>
+        /// <para>
+        /// <para>The format of the exported data, CSV or PARQUET. The default value is CSV.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Format { get; set; }
+        #endregion
+        
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
@@ -259,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter ForecastExportJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Format = this.Format;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
@@ -341,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.ForecastExportJobName = cmdletContext.ForecastExportJobName;
             }
+            if (cmdletContext.Format != null)
+            {
+                request.Format = cmdletContext.Format;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -411,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String S3Config_RoleArn { get; set; }
             public System.String ForecastArn { get; set; }
             public System.String ForecastExportJobName { get; set; }
+            public System.String Format { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateForecastExportJobResponse, NewFRCForecastExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ForecastExportJobArn;

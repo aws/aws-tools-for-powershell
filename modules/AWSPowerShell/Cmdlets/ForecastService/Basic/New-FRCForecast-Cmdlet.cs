@@ -50,7 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// The <code>Status</code> of the forecast must be <code>ACTIVE</code> before you can
     /// query or export the forecast. Use the <a>DescribeForecast</a> operation to get the
     /// status.
-    /// </para></note>
+    /// </para></note><para>
+    /// By default, a forecast includes predictions for every item (<code>item_id</code>)
+    /// in the dataset group that was used to train the predictor. However, you can use the
+    /// <code>TimeSeriesSelector</code> object to generate a forecast on a subset of time
+    /// series. Forecast creation is skipped for any time series that you specify that are
+    /// not in the input dataset. The forecast export file will not contain these time series
+    /// or their forecasted values.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "FRCForecast", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -61,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     )]
     public partial class NewFRCForecastCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Schema_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>An array of attributes specifying the name and type of each field in a dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeSeriesSelector_TimeSeriesIdentifiers_Schema_Attributes")]
+        public Amazon.ForecastService.Model.SchemaAttribute[] Schema_Attribute { get; set; }
+        #endregion
         
         #region Parameter ForecastName
         /// <summary>
@@ -96,6 +114,40 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String[] ForecastType { get; set; }
         #endregion
         
+        #region Parameter TimeSeriesIdentifiers_Format
+        /// <summary>
+        /// <para>
+        /// <para>The format of the data, either CSV or PARQUET.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeSeriesSelector_TimeSeriesIdentifiers_Format")]
+        public System.String TimeSeriesIdentifiers_Format { get; set; }
+        #endregion
+        
+        #region Parameter S3Config_KMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_KMSKeyArn")]
+        public System.String S3Config_KMSKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter S3Config_Path
+        /// <summary>
+        /// <para>
+        /// <para>The path to an Amazon Simple Storage Service (Amazon S3) bucket or file(s) in an Amazon
+        /// S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_Path")]
+        public System.String S3Config_Path { get; set; }
+        #endregion
+        
         #region Parameter PredictorArn
         /// <summary>
         /// <para>
@@ -111,6 +163,20 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PredictorArn { get; set; }
+        #endregion
+        
+        #region Parameter S3Config_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
+        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
+        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
+        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_RoleArn")]
+        public System.String S3Config_RoleArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -217,6 +283,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
             }
+            context.S3Config_KMSKeyArn = this.S3Config_KMSKeyArn;
+            context.S3Config_Path = this.S3Config_Path;
+            context.S3Config_RoleArn = this.S3Config_RoleArn;
+            context.TimeSeriesIdentifiers_Format = this.TimeSeriesIdentifiers_Format;
+            if (this.Schema_Attribute != null)
+            {
+                context.Schema_Attribute = new List<Amazon.ForecastService.Model.SchemaAttribute>(this.Schema_Attribute);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -248,6 +322,125 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TimeSeriesSelector
+            var requestTimeSeriesSelectorIsNull = true;
+            request.TimeSeriesSelector = new Amazon.ForecastService.Model.TimeSeriesSelector();
+            Amazon.ForecastService.Model.TimeSeriesIdentifiers requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers = null;
+            
+             // populate TimeSeriesIdentifiers
+            var requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiersIsNull = true;
+            requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers = new Amazon.ForecastService.Model.TimeSeriesIdentifiers();
+            System.String requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesIdentifiers_Format = null;
+            if (cmdletContext.TimeSeriesIdentifiers_Format != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesIdentifiers_Format = cmdletContext.TimeSeriesIdentifiers_Format;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesIdentifiers_Format != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers.Format = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesIdentifiers_Format;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiersIsNull = false;
+            }
+            Amazon.ForecastService.Model.DataSource requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource = null;
+            
+             // populate DataSource
+            var requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSourceIsNull = true;
+            requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource = new Amazon.ForecastService.Model.DataSource();
+            Amazon.ForecastService.Model.S3Config requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config = null;
+            
+             // populate S3Config
+            var requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3ConfigIsNull = true;
+            requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config = new Amazon.ForecastService.Model.S3Config();
+            System.String requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_KMSKeyArn = null;
+            if (cmdletContext.S3Config_KMSKeyArn != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_KMSKeyArn = cmdletContext.S3Config_KMSKeyArn;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_KMSKeyArn != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config.KMSKeyArn = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_KMSKeyArn;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3ConfigIsNull = false;
+            }
+            System.String requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_Path = null;
+            if (cmdletContext.S3Config_Path != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_Path = cmdletContext.S3Config_Path;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_Path != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config.Path = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_Path;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3ConfigIsNull = false;
+            }
+            System.String requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_RoleArn = null;
+            if (cmdletContext.S3Config_RoleArn != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_RoleArn = cmdletContext.S3Config_RoleArn;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_RoleArn != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config.RoleArn = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config_s3Config_RoleArn;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3ConfigIsNull = false;
+            }
+             // determine if requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config should be set to null
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3ConfigIsNull)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config = null;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource.S3Config = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_timeSeriesSelector_TimeSeriesIdentifiers_DataSource_S3Config;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSourceIsNull = false;
+            }
+             // determine if requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource should be set to null
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSourceIsNull)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource = null;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers.DataSource = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_DataSource;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiersIsNull = false;
+            }
+            Amazon.ForecastService.Model.Schema requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema = null;
+            
+             // populate Schema
+            var requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_SchemaIsNull = true;
+            requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema = new Amazon.ForecastService.Model.Schema();
+            List<Amazon.ForecastService.Model.SchemaAttribute> requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema_schema_Attribute = null;
+            if (cmdletContext.Schema_Attribute != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema_schema_Attribute = cmdletContext.Schema_Attribute;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema_schema_Attribute != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema.Attributes = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema_schema_Attribute;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_SchemaIsNull = false;
+            }
+             // determine if requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema should be set to null
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_SchemaIsNull)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema = null;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema != null)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers.Schema = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers_timeSeriesSelector_TimeSeriesIdentifiers_Schema;
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiersIsNull = false;
+            }
+             // determine if requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers should be set to null
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiersIsNull)
+            {
+                requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers = null;
+            }
+            if (requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers != null)
+            {
+                request.TimeSeriesSelector.TimeSeriesIdentifiers = requestTimeSeriesSelector_timeSeriesSelector_TimeSeriesIdentifiers;
+                requestTimeSeriesSelectorIsNull = false;
+            }
+             // determine if request.TimeSeriesSelector should be set to null
+            if (requestTimeSeriesSelectorIsNull)
+            {
+                request.TimeSeriesSelector = null;
             }
             
             CmdletOutput output;
@@ -314,6 +507,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public List<System.String> ForecastType { get; set; }
             public System.String PredictorArn { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
+            public System.String S3Config_KMSKeyArn { get; set; }
+            public System.String S3Config_Path { get; set; }
+            public System.String S3Config_RoleArn { get; set; }
+            public System.String TimeSeriesIdentifiers_Format { get; set; }
+            public List<Amazon.ForecastService.Model.SchemaAttribute> Schema_Attribute { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateForecastResponse, NewFRCForecastCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ForecastArn;
         }

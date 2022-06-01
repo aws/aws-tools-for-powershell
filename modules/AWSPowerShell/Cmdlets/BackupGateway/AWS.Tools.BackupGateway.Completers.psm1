@@ -154,6 +154,7 @@ $BUGW_SelectMap = @{
                "Remove-BUGWGateway",
                "Remove-BUGWHypervisor",
                "Remove-BUGWGatewayFromServer",
+               "Get-BUGWGateway",
                "Import-BUGWHypervisorConfiguration",
                "Get-BUGWGatewayList",
                "Get-BUGWHypervisorList",
@@ -164,6 +165,7 @@ $BUGW_SelectMap = @{
                "Test-BUGWHypervisorConfiguration",
                "Remove-BUGWResourceTag",
                "Update-BUGWGatewayInformation",
+               "Update-BUGWGatewaySoftwareNow",
                "Update-BUGWHypervisor")
 }
 

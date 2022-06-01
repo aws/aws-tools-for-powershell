@@ -28,65 +28,73 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a hosted zone.
+    /// Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
+    /// IP information mapping blocks to one or multiple locations.
     /// 
     ///  
     /// <para>
-    /// If the hosted zone was created by another service, such as Cloud Map, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
-    /// Public Hosted Zones That Were Created by Another Service</a> in the <i>Amazon Route 53
-    /// Developer Guide</i> for information about how to delete it. (The process is the same
-    /// for public and private hosted zones that were created by another service.)
-    /// </para><para>
-    /// If you want to keep your domain registration but you want to stop routing internet
-    /// traffic to your website or web application, we recommend that you delete resource
-    /// record sets in the hosted zone instead of deleting the hosted zone.
-    /// </para><important><para>
-    /// If you delete a hosted zone, you can't undelete it. You must create a new hosted zone
-    /// and update the name servers for your domain registration, which can require up to
-    /// 48 hours to take effect. (If you delegated responsibility for a subdomain to a hosted
-    /// zone and you delete the child hosted zone, you must update the name servers in the
-    /// parent hosted zone.) In addition, if you delete a hosted zone, someone could hijack
-    /// the domain and route traffic to their own resources using your domain name.
-    /// </para></important><para>
-    /// If you want to avoid the monthly charge for the hosted zone, you can transfer DNS
-    /// service for the domain to a free DNS service. When you transfer DNS service, you have
-    /// to update the name servers for the domain registration. If the domain is registered
-    /// with Route 53, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html">UpdateDomainNameservers</a>
-    /// for information about how to replace Route 53 name servers with name servers for the
-    /// new DNS service. If the domain is registered with another registrar, use the method
-    /// provided by the registrar to update name servers for the domain registration. For
-    /// more information, perform an internet search on "free DNS service."
-    /// </para><para>
-    /// You can delete a hosted zone only if it contains only the default SOA record and NS
-    /// resource record sets. If the hosted zone contains other resource record sets, you
-    /// must delete them before you can delete the hosted zone. If you try to delete a hosted
-    /// zone that contains other resource record sets, the request fails, and Route 53 returns
-    /// a <code>HostedZoneNotEmpty</code> error. For information about deleting records from
-    /// your hosted zone, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>.
-    /// </para><para>
-    /// To verify that the hosted zone has been deleted, do one of the following:
-    /// </para><ul><li><para>
-    /// Use the <code>GetHostedZone</code> action to request information about the hosted
-    /// zone.
-    /// </para></li><li><para>
-    /// Use the <code>ListHostedZones</code> action to get a list of the hosted zones associated
-    /// with the current Amazon Web Services account.
+    /// A change request can update multiple locations in a collection at a time, which is
+    /// helpful if you want to move one or more CIDR blocks from one location to another in
+    /// one transaction, without downtime. 
+    /// </para><para><b>Limits</b></para><para>
+    /// The max number of CIDR blocks included in the request is 1000. As a result, big updates
+    /// require multiple API calls.
+    /// </para><para><b> PUT and DELETE_IF_EXISTS</b></para><para>
+    /// Use <code>ChangeCidrCollection</code> to perform the following actions:
+    /// </para><ul><li><para><code>PUT</code>: Create a CIDR block within the specified collection.
+    /// </para></li><li><para><code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the collection.
     /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Calls the Amazon Route 53 DeleteHostedZone API operation.", Operation = new[] {"DeleteHostedZone"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteHostedZoneResponse))]
-    [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.DeleteHostedZoneResponse",
-        "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.DeleteHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "R53CidrCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Route 53 ChangeCidrCollection API operation.", Operation = new[] {"ChangeCidrCollection"}, SelectReturnType = typeof(Amazon.Route53.Model.ChangeCidrCollectionResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Route53.Model.ChangeCidrCollectionResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Route53.Model.ChangeCidrCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class EditR53CidrCollectionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Change
+        /// <summary>
+        /// <para>
+        /// <para> Information about changes to a CIDR collection.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Changes")]
+        public Amazon.Route53.Model.CidrCollectionChange[] Change { get; set; }
+        #endregion
+        
+        #region Parameter CollectionVersion
+        /// <summary>
+        /// <para>
+        /// <para>A sequential counter that Amazon Route 53 sets to 1 when you create a collection and
+        /// increments it by 1 each time you update the collection.</para><para>We recommend that you use <code>ListCidrCollection</code> to get the current value
+        /// of <code>CollectionVersion</code> for the collection that you want to update, and
+        /// then include that value with the change request. This prevents Route 53 from overwriting
+        /// an intervening update: </para><ul><li><para>If the value in the request matches the value of <code>CollectionVersion</code> in
+        /// the collection, Route 53 updates the collection.</para></li><li><para>If the value of <code>CollectionVersion</code> in the collection is greater than the
+        /// value in the request, the collection was changed after you got the version number.
+        /// Route 53 does not update the collection, and it returns a <code>CidrCollectionVersionMismatch</code>
+        /// error. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? CollectionVersion { get; set; }
+        #endregion
         
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone you want to delete.</para>
+        /// <para>The UUID of the CIDR collection to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,13 +110,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChangeInfo'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53.Model.DeleteHostedZoneResponse).
-        /// Specifying the name of a property of type Amazon.Route53.Model.DeleteHostedZoneResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53.Model.ChangeCidrCollectionResponse).
+        /// Specifying the name of a property of type Amazon.Route53.Model.ChangeCidrCollectionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChangeInfo";
+        public string Select { get; set; } = "Id";
         #endregion
         
         #region Parameter PassThru
@@ -136,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53HostedZone (DeleteHostedZone)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-R53CidrCollection (ChangeCidrCollection)"))
             {
                 return;
             }
@@ -149,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53.Model.DeleteHostedZoneResponse, RemoveR53HostedZoneCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53.Model.ChangeCidrCollectionResponse, EditR53CidrCollectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -168,6 +176,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CollectionVersion = this.CollectionVersion;
+            if (this.Change != null)
+            {
+                context.Change = new List<Amazon.Route53.Model.CidrCollectionChange>(this.Change);
+            }
+            #if MODULAR
+            if (this.Change == null && ParameterWasBound(nameof(this.Change)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Change which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,11 +201,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.DeleteHostedZoneRequest();
+            var request = new Amazon.Route53.Model.ChangeCidrCollectionRequest();
             
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.CollectionVersion != null)
+            {
+                request.CollectionVersion = cmdletContext.CollectionVersion.Value;
+            }
+            if (cmdletContext.Change != null)
+            {
+                request.Changes = cmdletContext.Change;
             }
             
             CmdletOutput output;
@@ -221,15 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53.Model.DeleteHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DeleteHostedZoneRequest request)
+        private Amazon.Route53.Model.ChangeCidrCollectionResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ChangeCidrCollectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "DeleteHostedZone");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "ChangeCidrCollection");
             try
             {
                 #if DESKTOP
-                return client.DeleteHostedZone(request);
+                return client.ChangeCidrCollection(request);
                 #elif CORECLR
-                return client.DeleteHostedZoneAsync(request).GetAwaiter().GetResult();
+                return client.ChangeCidrCollectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,8 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
-            public System.Func<Amazon.Route53.Model.DeleteHostedZoneResponse, RemoveR53HostedZoneCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChangeInfo;
+            public System.Int64? CollectionVersion { get; set; }
+            public List<Amazon.Route53.Model.CidrCollectionChange> Change { get; set; }
+            public System.Func<Amazon.Route53.Model.ChangeCidrCollectionResponse, EditR53CidrCollectionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Id;
         }
         
     }

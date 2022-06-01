@@ -40,11 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set
     /// up permissions</a>.
     /// </para><para>
-    /// The training data must be in CSV format. The delimiter must be a comma (,).
+    /// The training data must be in CSV or Parquet format. The delimiter must be a comma
+    /// (,).
     /// </para><para>
-    /// You can specify the path to a specific CSV file, the S3 bucket, or to a folder in
-    /// the S3 bucket. For the latter two cases, Amazon Forecast imports all files up to the
-    /// limit of 10,000 files.
+    /// You can specify the path to a specific file, the S3 bucket, or to a folder in the
+    /// S3 bucket. For the latter two cases, Amazon Forecast imports all files up to the limit
+    /// of 10,000 files.
     /// </para><para>
     /// Because dataset imports are not aggregated, your most recent dataset import is the
     /// one that is used when training a predictor or generating a forecast. Make sure that
@@ -101,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatasetImportJobName { get; set; }
+        #endregion
+        
+        #region Parameter Format
+        /// <summary>
+        /// <para>
+        /// <para>The format of the imported data, CSV or PARQUET. The default value is CSV.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Format { get; set; }
         #endregion
         
         #region Parameter GeolocationFormat
@@ -317,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter S3Config_RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Format = this.Format;
             context.GeolocationFormat = this.GeolocationFormat;
             if (this.Tag != null)
             {
@@ -402,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (requestDataSourceIsNull)
             {
                 request.DataSource = null;
+            }
+            if (cmdletContext.Format != null)
+            {
+                request.Format = cmdletContext.Format;
             }
             if (cmdletContext.GeolocationFormat != null)
             {
@@ -489,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String S3Config_KMSKeyArn { get; set; }
             public System.String S3Config_Path { get; set; }
             public System.String S3Config_RoleArn { get; set; }
+            public System.String Format { get; set; }
             public System.String GeolocationFormat { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.String TimestampFormat { get; set; }

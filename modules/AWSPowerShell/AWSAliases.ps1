@@ -1876,6 +1876,7 @@ Set-Alias -Name Delete-BUGWHypervisor -Value Remove-BUGWHypervisor
 Set-Alias -Name BUGW-DeleteHypervisor -Value Remove-BUGWHypervisor
 Set-Alias -Name Disassociate-BUGWGatewayFromServer -Value Remove-BUGWGatewayFromServer
 Set-Alias -Name BUGW-DisassociateGatewayFromServer -Value Remove-BUGWGatewayFromServer
+Set-Alias -Name BUGW-GetGateway -Value Get-BUGWGateway
 Set-Alias -Name BUGW-ImportHypervisorConfiguration -Value Import-BUGWHypervisorConfiguration
 Set-Alias -Name List-BUGWGateways -Value Get-BUGWGatewayList
 Set-Alias -Name List-BUGWGatewayList -Value Get-BUGWGatewayList
@@ -1893,6 +1894,7 @@ Set-Alias -Name BUGW-TagResource -Value Add-BUGWResourceTag
 Set-Alias -Name BUGW-TestHypervisorConfiguration -Value Test-BUGWHypervisorConfiguration
 Set-Alias -Name BUGW-UntagResource -Value Remove-BUGWResourceTag
 Set-Alias -Name BUGW-UpdateGatewayInformation -Value Update-BUGWGatewayInformation
+Set-Alias -Name BUGW-UpdateGatewaySoftwareNow -Value Update-BUGWGatewaySoftwareNow
 Set-Alias -Name BUGW-UpdateHypervisor -Value Update-BUGWHypervisor
 Set-Alias -Name Cancel-BATJob -Value Stop-BATJob
 Set-Alias -Name BAT-CancelJob -Value Stop-BATJob
@@ -2565,6 +2567,8 @@ Set-Alias -Name CHMMP-UntagResource -Value Remove-CHMMPResourceTag
 Set-Alias -Name Batch-CHMTGCreateAttendee -Value New-CHMTGAttendeeBatch
 Set-Alias -Name Batch-CHMTGAttendeeBatch -Value New-CHMTGAttendeeBatch
 Set-Alias -Name CHMTG-BatchCreateAttendee -Value New-CHMTGAttendeeBatch
+Set-Alias -Name Batch-CHMTGUpdateAttendeeCapabilitiesExcept -Value Update-CHMTGUpdateAttendeeCapabilitiesExcept
+Set-Alias -Name CHMTG-BatchUpdateAttendeeCapabilitiesExcept -Value Update-CHMTGUpdateAttendeeCapabilitiesExcept
 Set-Alias -Name Create-CHMTGAttendee -Value New-CHMTGAttendee
 Set-Alias -Name CHMTG-CreateAttendee -Value New-CHMTGAttendee
 Set-Alias -Name Create-CHMTGMeeting -Value New-CHMTGMeeting
@@ -2583,6 +2587,8 @@ Set-Alias -Name List-CHMTGAttendeeList -Value Get-CHMTGAttendeeList
 Set-Alias -Name CHMTG-ListAttendees -Value Get-CHMTGAttendeeList
 Set-Alias -Name CHMTG-StartMeetingTranscription -Value Start-CHMTGMeetingTranscription
 Set-Alias -Name CHMTG-StopMeetingTranscription -Value Stop-CHMTGMeetingTranscription
+Set-Alias -Name Update-CHMTGAttendeeCapabilities -Value Update-CHMTGAttendeeCapability
+Set-Alias -Name CHMTG-UpdateAttendeeCapabilities -Value Update-CHMTGAttendeeCapability
 Set-Alias -Name Associate-CHMMGChannelFlow -Value Register-CHMMGChannelFlow
 Set-Alias -Name CHMMG-AssociateChannelFlow -Value Register-CHMMGChannelFlow
 Set-Alias -Name Batch-CHMMGCreateChannelMembership -Value New-CHMMGCreateChannelMembership
@@ -17889,11 +17895,15 @@ Set-Alias -Name Activate-R53KeySigningKey -Value Enable-R53KeySigningKey
 Set-Alias -Name R53-ActivateKeySigningKey -Value Enable-R53KeySigningKey
 Set-Alias -Name Associate-R53VPCWithHostedZone -Value Register-R53VPCWithHostedZone
 Set-Alias -Name R53-AssociateVPCWithHostedZone -Value Register-R53VPCWithHostedZone
+Set-Alias -Name Change-R53CidrCollection -Value Edit-R53CidrCollection
+Set-Alias -Name R53-ChangeCidrCollection -Value Edit-R53CidrCollection
 Set-Alias -Name Change-R53ResourceRecordSets -Value Edit-R53ResourceRecordSet
 Set-Alias -Name Change-R53ResourceRecordSet -Value Edit-R53ResourceRecordSet
 Set-Alias -Name R53-ChangeResourceRecordSets -Value Edit-R53ResourceRecordSet
 Set-Alias -Name Change-R53TagsForResource -Value Edit-R53TagsForResource
 Set-Alias -Name R53-ChangeTagsForResource -Value Edit-R53TagsForResource
+Set-Alias -Name Create-R53CidrCollection -Value New-R53CidrCollection
+Set-Alias -Name R53-CreateCidrCollection -Value New-R53CidrCollection
 Set-Alias -Name Create-R53HealthCheck -Value New-R53HealthCheck
 Set-Alias -Name R53-CreateHealthCheck -Value New-R53HealthCheck
 Set-Alias -Name Create-R53HostedZone -Value New-R53HostedZone
@@ -17914,6 +17924,8 @@ Set-Alias -Name Create-R53VPCAssociationAuthorization -Value New-R53VPCAssociati
 Set-Alias -Name R53-CreateVPCAssociationAuthorization -Value New-R53VPCAssociationAuthorization
 Set-Alias -Name Deactivate-R53KeySigningKey -Value Disable-R53KeySigningKey
 Set-Alias -Name R53-DeactivateKeySigningKey -Value Disable-R53KeySigningKey
+Set-Alias -Name Delete-R53CidrCollection -Value Remove-R53CidrCollection
+Set-Alias -Name R53-DeleteCidrCollection -Value Remove-R53CidrCollection
 Set-Alias -Name Delete-R53HealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name R53-DeleteHealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name Delete-R53HostedZone -Value Remove-R53HostedZone
@@ -17953,6 +17965,15 @@ Set-Alias -Name R53-GetReusableDelegationSetLimit -Value Get-R53ReusableDelegati
 Set-Alias -Name R53-GetTrafficPolicy -Value Get-R53TrafficPolicy
 Set-Alias -Name R53-GetTrafficPolicyInstance -Value Get-R53TrafficPolicyInstance
 Set-Alias -Name R53-GetTrafficPolicyInstanceCount -Value Get-R53TrafficPolicyInstanceCount
+Set-Alias -Name List-R53CidrBlocks -Value Get-R53CidrBlockList
+Set-Alias -Name List-R53CidrBlockList -Value Get-R53CidrBlockList
+Set-Alias -Name R53-ListCidrBlocks -Value Get-R53CidrBlockList
+Set-Alias -Name List-R53CidrCollections -Value Get-R53CidrCollectionList
+Set-Alias -Name List-R53CidrCollectionList -Value Get-R53CidrCollectionList
+Set-Alias -Name R53-ListCidrCollections -Value Get-R53CidrCollectionList
+Set-Alias -Name List-R53CidrLocations -Value Get-R53CidrLocationList
+Set-Alias -Name List-R53CidrLocationList -Value Get-R53CidrLocationList
+Set-Alias -Name R53-ListCidrLocations -Value Get-R53CidrLocationList
 Set-Alias -Name List-R53GeoLocations -Value Get-R53GeoLocationList
 Set-Alias -Name List-R53GeoLocationList -Value Get-R53GeoLocationList
 Set-Alias -Name R53-ListGeoLocations -Value Get-R53GeoLocationList
