@@ -5,7 +5,7 @@
         <InternalBuildTools Condition="'$(InternalBuildTools)'==''">../../AWSDotNetBuildTools/BuildUtilities</InternalBuildTools>
     </PropertyGroup>
 
-    <Import Project="$(InternalBuildTools)/references.targets" Condition="Exists('$(InternalBuildTools)/references.targets')" />
+    <Import Project="$(InternalBuildTools)/references.targets" Condition="Exists('$(InternalBuildTools)/references.targets')" />    
 
     <PropertyGroup>
         <!-- perform a release build by default -->
@@ -61,16 +61,13 @@
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         <RunKeyScan Condition="'$(RunKeyScan)'==''">true</RunKeyScan>
 
-        <SignModules Condition="'$(SignModules)'==''">false</SignModules>
+        <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
-
-    <!-- Import default code signing properties and the task -->
-    <Import Project="$(InternalBuildTools)/CodeSign.proj" Condition="'$(InternalBuildTools)'!='' And '$(SignModules)'=='true' And Exists('$(InternalBuildTools)/CodeSign.proj')" />
-
+        
     <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
-            <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
+        <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
-
+    
     <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp;run-tests">
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
     </Target>
@@ -104,7 +101,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
         <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
-        <Message Text="Generating cmdlets for all services"/>
+        <Message Text="Generating cmdlets for all services"/>        
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
         <Exec Command="pwsh -NoProfile -Command New-Item -Path $(RootPath)/GenerationSucceeded.tag" />
     </Target>
@@ -257,63 +254,19 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/awspowershell_versioninfo.json" DestinationFolder="$(RootPath)/Deployment" />
     </Target>
 
-    <Target Name="sign-script-artifacts" Condition="'$(SignModules)'=='true'" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
-        <!-- Configure project specfic code sign properties -->
-        <ItemGroup>
-            <!-- Desktop Edition -->
-            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1" />
-            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psm1" />
-            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psd1" />
-            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1xml" />
-            <SignableItems Include="$(DesktopDeploymentArtifacts)AWSPowerShell.dll" />
-            <!-- NetCore Edition -->
-            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1" />
-            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psm1" />
-            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psd1" />
-            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1xml" />
-            <SignableItems Include="$(NetCoreDeploymentArtifacts)AWSPowerShell.NetCore.dll" />
-            <!-- Modular Edition -->
-            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1" />
-            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psm1" />
-            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psd1" />
-            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1xml" />
-            <SignableItems Include="$(ModularDeploymentArtifacts)**/AWS.Tools.*.dll" />
-        </ItemGroup>
-
+    <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
         <PropertyGroup>
-            <SignableItemsBasePath>$(Deployment)</SignableItemsBasePath>
-            <ZipPrefix>powershell</ZipPrefix>
-            <ZipFilesPath>$(RootPath)/codesign-zip</ZipFilesPath>
-            <SigningS3KeyPrefix>powershell</SigningS3KeyPrefix>
-            <SignedItemsPath>$(Deployment)</SignedItemsPath>
-            <SigningRoleSessionName>powershell-signer-session</SigningRoleSessionName>
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/../BuildScripts/Set-SignServiceSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
         </PropertyGroup>
 
-        <CodeSignTask
-            SignableItemsBasePath="$(SignableItemsBasePath)"
-            SignableItems="@(SignableItems)"
-            ZipItemsBeforeSigning="$(ZipItemsBeforeSigning)"
-            ZipPrefix="$(ZipPrefix)"
-            NumberOfFilesPerZip="$(NumberOfFilesPerZip)"
-            ZipFilesPath="$(ZipFilesPath)"
-            SigningProfileName="$(SigningProfileName)"
-            SigningRoleArn="$(SigningRoleArn)"
-            SigningRoleSessionName="$(SigningRoleSessionName)"
-            SigningBucketRegion="$(SigningBucketRegion)"
-            SignerServiceRegion="$(SignerServiceRegion)"
-            UnsignedBucketName="$(UnsignedBucketName)"
-            SigningS3Folder="$(SigningS3Folder)"
-            SigningS3KeyPrefix="$(SigningS3KeyPrefix)"
-            SigningInitialQueryStatusDelay="$(SigningInitialQueryStatusDelay)"
-            SignedItemsPath="$(SignedItemsPath)"
-            RetryDelayMilliseconds="$(SigningRetryDelayMilliseconds)"
-            MaxRetryCount="$(SigningMaxRetryCount)">
-            <Output TaskParameter="ZipFiles" ItemName="FileWrites" />
-            <Output TaskParameter="ZipFiles" ItemName="SigningZipFiles" />
-            <Output TaskParameter="SignableArtifacts" ItemName="SignableArtifacts" />
-            <Output TaskParameter="DownloadedSignedItems" ItemName="FileWrites" />
-            <Output TaskParameter="DownloadedSignedItems" ItemName="DownloadedSignedItems" />
-        </CodeSignTask>
+        <Message Text="Authenticode signing module and script artifacts for Desktop edition" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(DesktopDeploymentArtifacts)" />
+
+        <Message Text="Authenticode signing module and script artifacts for NetCore edition" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" />
+
+        <Message Text="Authenticode signing module and script artifacts for modular edition" />
+        <Exec LogStandardErrorAsError="true" Command="pwsh $(SigningScriptArgs) -Path $(ModularDeploymentArtifacts) -Recurse" />
     </Target>
 
     <Target Name="keyscan" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
@@ -347,7 +300,7 @@
 
         <KeyScannerTask Folder="$(MSBuildProjectDirectory)/.." FilePattern="**" PrivateKeyExceptions="@(PrivateKeyException)" FileExceptions="@(FileException)" FolderExceptions="@(FolderException)" ParallelScan="true" />
     </Target>
-
+    
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Command="dotnet build -c Release --no-incremental --no-restore ../solutions/ReleaseNotesGenerator.sln"/>

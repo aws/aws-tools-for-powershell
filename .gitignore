@@ -41,6 +41,3 @@ PSGalleryDownloads
 /AWSPowerShell.NetCore.zip
 /GenerationSucceeded.tag
 /BreakingChangesLookup.xml
-
-codesign-zip
-*.binlog
