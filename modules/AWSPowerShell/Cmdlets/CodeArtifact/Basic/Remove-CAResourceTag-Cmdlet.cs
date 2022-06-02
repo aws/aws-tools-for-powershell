@@ -28,7 +28,7 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Removes tags from a resource in AWS CodeArtifact.
+    /// Removes tags from a resource in CodeArtifact.
     /// </summary>
     [Cmdlet("Remove", "CAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

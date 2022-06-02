@@ -28,7 +28,7 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Adds or updates tags for a resource in AWS CodeArtifact.
+    /// Adds or updates tags for a resource in CodeArtifact.
     /// </summary>
     [Cmdlet("Add", "CAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

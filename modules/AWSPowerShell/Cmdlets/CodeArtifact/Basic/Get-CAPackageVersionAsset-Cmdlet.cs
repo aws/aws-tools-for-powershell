@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A format that specifies the type of the package version with the requested asset
-        /// file. The valid values are: </para><ul><li><para><code>npm</code></para></li><li><para><code>pypi</code></para></li><li><para><code>maven</code></para></li></ul>
+        /// file. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

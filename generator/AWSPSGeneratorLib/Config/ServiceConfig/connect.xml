@@ -108,6 +108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTaskTemplate" OutputProperty="*" Verb="New" Noun="TaskTemplate" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -149,6 +153,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTaskTemplate" Verb="Remove" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -288,6 +296,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgentStatuses" OutputProperty="AgentStatusSummaryList" Verb="Get" Noun="AgentStatusList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -392,6 +404,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTaskTemplates" OutputProperty="TaskTemplates" Verb="Get" Noun="TaskTemplateList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUseCases" OutputProperty="UseCaseSummaryList" Verb="Get" Noun="UseCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -472,6 +488,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransferContact" OutputProperty="*" Verb="Move" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -581,6 +601,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSecurityProfile" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

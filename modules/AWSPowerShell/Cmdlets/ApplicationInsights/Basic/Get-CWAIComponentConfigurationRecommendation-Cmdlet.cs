@@ -77,9 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>,
-        /// <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and
-        /// <code>DEFAULT</code>.</para>
+        /// <para>The tier of the application component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

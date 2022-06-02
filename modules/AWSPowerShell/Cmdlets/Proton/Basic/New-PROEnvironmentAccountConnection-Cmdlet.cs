@@ -50,6 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class NewPROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter ComponentRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
+        /// directly defined components in the associated environment account. It determines the
+        /// scope of infrastructure that a component can provision in the account.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
+        /// to be associated with any environments running in this account.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentRoleArn { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
@@ -172,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.ComponentRoleArn = this.ComponentRoleArn;
             context.EnvironmentName = this.EnvironmentName;
             #if MODULAR
             if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
@@ -216,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ComponentRoleArn != null)
+            {
+                request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
             }
             if (cmdletContext.EnvironmentName != null)
             {
@@ -295,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String ComponentRoleArn { get; set; }
             public System.String EnvironmentName { get; set; }
             public System.String ManagementAccountId { get; set; }
             public System.String RoleArn { get; set; }

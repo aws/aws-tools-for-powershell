@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// In an environment account, view the detail data for an environment account connection.
+    /// In an environment account, get the detailed data for an environment account connection.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment account connection.</para>
+        /// <para>The ID of the environment account connection that you want to get the detailed data
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

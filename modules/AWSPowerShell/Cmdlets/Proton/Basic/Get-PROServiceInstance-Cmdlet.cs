@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for a service instance. A service instance is an instantiation of
+    /// Get detailed data for a service instance. A service instance is an instantiation of
     /// service template and it runs in a specific environment.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstance")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of a service instance that you want to get the detail data for.</para>
+        /// <para>The name of a service instance that you want to get the detailed data for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

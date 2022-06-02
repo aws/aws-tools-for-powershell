@@ -37,7 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Use the <code>description</code> parameter to modify the description.
     /// </para><para>
     /// Edit the <code>spec</code> parameter to add or delete instances.
-    /// </para>
+    /// </para><note><para>
+    /// You can't delete a service instance (remove it from the spec) if it has an attached
+    /// component.
+    /// </para><para>
+    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+    /// components</a> in the <i>Proton Administrator Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Service")]

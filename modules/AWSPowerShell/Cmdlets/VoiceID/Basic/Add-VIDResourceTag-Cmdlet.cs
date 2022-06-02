@@ -28,7 +28,7 @@ using Amazon.VoiceID.Model;
 namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
-    /// Tags an Amazon Connect Voice ID resource with the provided list of tags.
+    /// Tags a Voice ID resource with the provided list of tags.
     /// </summary>
     [Cmdlet("Add", "VIDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -64,14 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// is the last part of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ContactFlowId { get; set; }
         #endregion
         
@@ -130,6 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String PreviousContactId { get; set; }
         #endregion
         
+        #region Parameter QuickConnectId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the quick connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QuickConnectId { get; set; }
+        #endregion
+        
         #region Parameter Reference
         /// <summary>
         /// <para>
@@ -151,6 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ScheduledTime { get; set; }
+        #endregion
+        
+        #region Parameter TaskTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the task template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskTemplateId { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -235,12 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.ClientToken = this.ClientToken;
             context.ContactFlowId = this.ContactFlowId;
-            #if MODULAR
-            if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -257,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.PreviousContactId = this.PreviousContactId;
+            context.QuickConnectId = this.QuickConnectId;
             if (this.Reference != null)
             {
                 context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
@@ -266,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 }
             }
             context.ScheduledTime = this.ScheduledTime;
+            context.TaskTemplateId = this.TaskTemplateId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -310,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.PreviousContactId = cmdletContext.PreviousContactId;
             }
+            if (cmdletContext.QuickConnectId != null)
+            {
+                request.QuickConnectId = cmdletContext.QuickConnectId;
+            }
             if (cmdletContext.Reference != null)
             {
                 request.References = cmdletContext.Reference;
@@ -317,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ScheduledTime != null)
             {
                 request.ScheduledTime = cmdletContext.ScheduledTime.Value;
+            }
+            if (cmdletContext.TaskTemplateId != null)
+            {
+                request.TaskTemplateId = cmdletContext.TaskTemplateId;
             }
             
             CmdletOutput output;
@@ -386,8 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public System.String PreviousContactId { get; set; }
+            public System.String QuickConnectId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.DateTime? ScheduledTime { get; set; }
+            public System.String TaskTemplateId { get; set; }
             public System.Func<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;
         }

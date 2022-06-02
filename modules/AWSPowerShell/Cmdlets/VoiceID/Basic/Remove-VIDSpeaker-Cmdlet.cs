@@ -28,7 +28,7 @@ using Amazon.VoiceID.Model;
 namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
-    /// Deletes the specified speaker from the Amazon Connect Voice ID system.
+    /// Deletes the specified speaker from Voice ID.
     /// </summary>
     [Cmdlet("Remove", "VIDSpeaker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

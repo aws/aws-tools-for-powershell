@@ -50,6 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String ProvisioningRepository_Branch { get; set; }
         #endregion
         
+        #region Parameter ComponentRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
+        /// directly defined components in this environment. It determines the scope of infrastructure
+        /// that a component can provision.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
+        /// to be associated with this environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -265,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ComponentRoleArn = this.ComponentRoleArn;
             context.Description = this.Description;
             context.EnvironmentAccountConnectionId = this.EnvironmentAccountConnectionId;
             context.Name = this.Name;
@@ -320,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.CreateEnvironmentRequest();
             
+            if (cmdletContext.ComponentRoleArn != null)
+            {
+                request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -456,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ComponentRoleArn { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentAccountConnectionId { get; set; }
             public System.String Name { get; set; }

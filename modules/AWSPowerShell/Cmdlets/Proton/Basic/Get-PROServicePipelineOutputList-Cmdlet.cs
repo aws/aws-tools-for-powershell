@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// View a list service pipeline infrastructure as code outputs with detail.
+    /// Get a list of service pipeline Infrastructure as Code (IaC) outputs.
     /// </summary>
     [Cmdlet("Get", "PROServicePipelineOutputList")]
     [OutputType("Amazon.Proton.Model.Output")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The service name.</para>
+        /// <para>The name of the service whose pipeline's outputs you want.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

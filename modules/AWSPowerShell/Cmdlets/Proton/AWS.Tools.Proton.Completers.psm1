@@ -80,6 +80,13 @@ $PRO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Proton.ComponentDeploymentUpdateType
+        "Update-PROComponent/DeploymentType"
+        {
+            $v = "CURRENT_VERSION","NONE"
+            break
+        }
+
         # Amazon.Proton.DeploymentUpdateType
         {
             ($_ -eq "Update-PROEnvironment/DeploymentType") -Or
@@ -175,7 +182,7 @@ $PRO_Completers = {
 }
 
 $PRO_map = @{
-    "DeploymentType"=@("Update-PROEnvironment","Update-PROServiceInstance","Update-PROServicePipeline")
+    "DeploymentType"=@("Update-PROComponent","Update-PROEnvironment","Update-PROServiceInstance","Update-PROServicePipeline")
     "PipelineProvisioning"=@("New-PROServiceTemplate")
     "PipelineProvisioningRepository_Provider"=@("Update-PROAccountSetting")
     "Provider"=@("Get-PRORepository","New-PRORepository","Remove-PRORepository")
@@ -239,9 +246,11 @@ $PRO_SelectCompleters = {
 
 $PRO_SelectMap = @{
     "Select"=@("Approve-PROEnvironmentAccountConnection",
+               "Stop-PROComponentDeployment",
                "Stop-PROEnvironmentDeployment",
                "Stop-PROServiceInstanceDeployment",
                "Stop-PROServicePipelineDeployment",
+               "New-PROComponent",
                "New-PROEnvironment",
                "New-PROEnvironmentAccountConnection",
                "New-PROEnvironmentTemplate",
@@ -251,6 +260,7 @@ $PRO_SelectMap = @{
                "New-PROServiceTemplate",
                "New-PROServiceTemplateVersion",
                "New-PROTemplateSyncConfig",
+               "Remove-PROComponent",
                "Remove-PROEnvironment",
                "Remove-PROEnvironmentAccountConnection",
                "Remove-PROEnvironmentTemplate",
@@ -261,6 +271,7 @@ $PRO_SelectMap = @{
                "Remove-PROServiceTemplateVersion",
                "Remove-PROTemplateSyncConfig",
                "Get-PROAccountSetting",
+               "Get-PROComponent",
                "Get-PROEnvironment",
                "Get-PROEnvironmentAccountConnection",
                "Get-PROEnvironmentTemplate",
@@ -273,6 +284,9 @@ $PRO_SelectMap = @{
                "Get-PROServiceTemplateVersion",
                "Get-PROTemplateSyncConfig",
                "Get-PROTemplateSyncStatus",
+               "Get-PROComponentOutputList",
+               "Get-PROComponentProvisionedResourceList",
+               "Get-PROComponentList",
                "Get-PROEnvironmentAccountConnectionList",
                "Get-PROEnvironmentOutputList",
                "Get-PROEnvironmentProvisionedResourceList",
@@ -295,6 +309,7 @@ $PRO_SelectMap = @{
                "Add-PROResourceTag",
                "Remove-PROResourceTag",
                "Update-PROAccountSetting",
+               "Update-PROComponent",
                "Update-PROEnvironment",
                "Update-PROEnvironmentAccountConnection",
                "Update-PROEnvironmentTemplate",

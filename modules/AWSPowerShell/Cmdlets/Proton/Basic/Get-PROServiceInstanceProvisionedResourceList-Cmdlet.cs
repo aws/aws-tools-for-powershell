@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceInstanceName
         /// <summary>
         /// <para>
-        /// <para>The service instance name.</para>
+        /// <para>The name of the service instance whose provisioned resources you want.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The service name.</para>
+        /// <para>The name of the service that <code>serviceInstanceName</code> is associated to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

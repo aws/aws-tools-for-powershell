@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AutoConfigEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Automatically configures the component by applying the recommended configurations.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,9 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,
-        /// <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and
-        /// <code>DEFAULT</code>.</para>
+        /// <para>The tier of the application component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

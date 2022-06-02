@@ -2627,6 +2627,13 @@ $CWAI_Completers = {
             break
         }
 
+        # Amazon.ApplicationInsights.GroupingType
+        "New-CWAIApplication/GroupingType"
+        {
+            $v = "ACCOUNT_BASED"
+            break
+        }
+
         # Amazon.ApplicationInsights.Tier
         {
             ($_ -eq "Get-CWAIComponentConfigurationRecommendation/Tier") -Or
@@ -2647,6 +2654,7 @@ $CWAI_Completers = {
 
 $CWAI_map = @{
     "EventStatus"=@("Get-CWAIConfigurationHistoryList")
+    "GroupingType"=@("New-CWAIApplication")
     "Tier"=@("Get-CWAIComponentConfigurationRecommendation","Update-CWAIComponentConfiguration")
 }
 
@@ -11975,6 +11983,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.TaskTemplateStatus
+        {
+            ($_ -eq "Get-CONNTaskTemplateList/Status") -Or
+            ($_ -eq "New-CONNTaskTemplate/Status") -Or
+            ($_ -eq "Update-CONNTaskTemplate/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Connect.TrafficType
         "Start-CONNOutboundVoiceContact/TrafficType"
         {
@@ -12039,7 +12058,7 @@ $CONN_map = @{
     "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Update-CONNQueueStatus")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -12120,6 +12139,7 @@ $CONN_SelectMap = @{
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
                "New-CONNSecurityProfile",
+               "New-CONNTaskTemplate",
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
@@ -12131,6 +12151,7 @@ $CONN_SelectMap = @{
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNQuickConnect",
                "Remove-CONNSecurityProfile",
+               "Remove-CONNTaskTemplate",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
@@ -12165,6 +12186,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNTaskTemplate",
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
@@ -12191,6 +12213,7 @@ $CONN_SelectMap = @{
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
+               "Get-CONNTaskTemplateList",
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
@@ -12210,6 +12233,7 @@ $CONN_SelectMap = @{
                "Stop-CONNContactStreaming",
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
+               "Move-CONNContact",
                "Remove-CONNResourceTag",
                "Update-CONNAgentStatus",
                "Update-CONNContact",
@@ -12236,6 +12260,7 @@ $CONN_SelectMap = @{
                "Update-CONNRoutingProfileName",
                "Update-CONNRoutingProfileQueue",
                "Update-CONNSecurityProfile",
+               "Update-CONNTaskTemplate",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",
@@ -27835,7 +27860,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
+            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -38177,6 +38202,13 @@ $PRO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Proton.ComponentDeploymentUpdateType
+        "Update-PROComponent/DeploymentType"
+        {
+            $v = "CURRENT_VERSION","NONE"
+            break
+        }
+
         # Amazon.Proton.DeploymentUpdateType
         {
             ($_ -eq "Update-PROEnvironment/DeploymentType") -Or
@@ -38272,7 +38304,7 @@ $PRO_Completers = {
 }
 
 $PRO_map = @{
-    "DeploymentType"=@("Update-PROEnvironment","Update-PROServiceInstance","Update-PROServicePipeline")
+    "DeploymentType"=@("Update-PROComponent","Update-PROEnvironment","Update-PROServiceInstance","Update-PROServicePipeline")
     "PipelineProvisioning"=@("New-PROServiceTemplate")
     "PipelineProvisioningRepository_Provider"=@("Update-PROAccountSetting")
     "Provider"=@("Get-PRORepository","New-PRORepository","Remove-PRORepository")
@@ -38336,9 +38368,11 @@ $PRO_SelectCompleters = {
 
 $PRO_SelectMap = @{
     "Select"=@("Approve-PROEnvironmentAccountConnection",
+               "Stop-PROComponentDeployment",
                "Stop-PROEnvironmentDeployment",
                "Stop-PROServiceInstanceDeployment",
                "Stop-PROServicePipelineDeployment",
+               "New-PROComponent",
                "New-PROEnvironment",
                "New-PROEnvironmentAccountConnection",
                "New-PROEnvironmentTemplate",
@@ -38348,6 +38382,7 @@ $PRO_SelectMap = @{
                "New-PROServiceTemplate",
                "New-PROServiceTemplateVersion",
                "New-PROTemplateSyncConfig",
+               "Remove-PROComponent",
                "Remove-PROEnvironment",
                "Remove-PROEnvironmentAccountConnection",
                "Remove-PROEnvironmentTemplate",
@@ -38358,6 +38393,7 @@ $PRO_SelectMap = @{
                "Remove-PROServiceTemplateVersion",
                "Remove-PROTemplateSyncConfig",
                "Get-PROAccountSetting",
+               "Get-PROComponent",
                "Get-PROEnvironment",
                "Get-PROEnvironmentAccountConnection",
                "Get-PROEnvironmentTemplate",
@@ -38370,6 +38406,9 @@ $PRO_SelectMap = @{
                "Get-PROServiceTemplateVersion",
                "Get-PROTemplateSyncConfig",
                "Get-PROTemplateSyncStatus",
+               "Get-PROComponentOutputList",
+               "Get-PROComponentProvisionedResourceList",
+               "Get-PROComponentList",
                "Get-PROEnvironmentAccountConnectionList",
                "Get-PROEnvironmentOutputList",
                "Get-PROEnvironmentProvisionedResourceList",
@@ -38392,6 +38431,7 @@ $PRO_SelectMap = @{
                "Add-PROResourceTag",
                "Remove-PROResourceTag",
                "Update-PROAccountSetting",
+               "Update-PROComponent",
                "Update-PROEnvironment",
                "Update-PROEnvironmentAccountConnection",
                "Update-PROEnvironmentTemplate",

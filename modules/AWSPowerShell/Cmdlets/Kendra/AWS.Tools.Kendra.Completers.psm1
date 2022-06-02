@@ -104,7 +104,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
+            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
             break
         }
 

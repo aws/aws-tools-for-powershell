@@ -56,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter CompatibleEnvironmentTemplate
         /// <summary>
         /// <para>
-        /// <para>An array of compatible environment template objects for the new version of a service
-        /// template.</para>
+        /// <para>An array of environment template objects that are compatible with the new service
+        /// template version. A service instance based on this service template version can run
+        /// in environments based on compatible templates.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,6 +103,19 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MajorVersion { get; set; }
+        #endregion
+        
+        #region Parameter SupportedComponentSource
+        /// <summary>
+        /// <para>
+        /// <para>An array of supported component sources. Components with supported sources can be
+        /// attached to service instances based on this service template version.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedComponentSources")]
+        public System.String[] SupportedComponentSource { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -222,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             context.MajorVersion = this.MajorVersion;
             context.S3_Bucket = this.S3_Bucket;
             context.S3_Key = this.S3_Key;
+            if (this.SupportedComponentSource != null)
+            {
+                context.SupportedComponentSource = new List<System.String>(this.SupportedComponentSource);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Proton.Model.Tag>(this.Tag);
@@ -309,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             {
                 request.Source = null;
             }
+            if (cmdletContext.SupportedComponentSource != null)
+            {
+                request.SupportedComponentSources = cmdletContext.SupportedComponentSource;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -384,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String MajorVersion { get; set; }
             public System.String S3_Bucket { get; set; }
             public System.String S3_Key { get; set; }
+            public List<System.String> SupportedComponentSource { get; set; }
             public List<Amazon.Proton.Model.Tag> Tag { get; set; }
             public System.String TemplateName { get; set; }
             public System.Func<Amazon.Proton.Model.CreateServiceTemplateVersionResponse, NewPROServiceTemplateVersionCmdlet, object> Select { get; set; } =

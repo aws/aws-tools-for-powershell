@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -47,6 +47,21 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class UpdatePROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter ComponentRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
+        /// directly defined components in the associated environment account. It determines the
+        /// scope of infrastructure that a component can provision in the account.</para><para>The environment account connection must have a <code>componentRoleArn</code> to allow
+        /// directly defined components to be associated with any environments running in the
+        /// account.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -71,14 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// environment account connection to update.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -143,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ComponentRoleArn = this.ComponentRoleArn;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -151,12 +160,6 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #endif
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateEnvironmentAccountConnectionRequest();
             
+            if (cmdletContext.ComponentRoleArn != null)
+            {
+                request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -242,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ComponentRoleArn { get; set; }
             public System.String Id { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.Proton.Model.UpdateEnvironmentAccountConnectionResponse, UpdatePROEnvironmentAccountConnectionCmdlet, object> Select { get; set; } =

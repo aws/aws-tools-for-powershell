@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// <summary>
     /// Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories
     /// across an organization. You can use a domain to apply permissions across many repositories
-    /// owned by different AWS accounts. An asset is stored only once in a domain, even if
-    /// it's in multiple repositories. 
+    /// owned by different Amazon Web Services accounts. An asset is stored only once in a
+    /// domain, even if it's in multiple repositories. 
     /// 
     ///  
     /// <para>
@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The name of the domain to create. All domain names in an AWS Region that are in the
-        /// same AWS account must be unique. The domain name is used as the prefix in DNS hostnames.
-        /// Do not use sensitive information in a domain name because it is publicly discoverable.
-        /// </para>
+        /// <para> The name of the domain to create. All domain names in an Amazon Web Services Region
+        /// that are in the same Amazon Web Services account must be unique. The domain name is
+        /// used as the prefix in DNS hostnames. Do not use sensitive information in a domain
+        /// name because it is publicly discoverable. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,11 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// or a key alias ARN. To specify an <code>encryptionKey</code>, your IAM role must have
         /// <code>kms:DescribeKey</code> and <code>kms:CreateGrant</code> permissions on the encryption
         /// key that is used. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax">DescribeKey</a>
-        /// in the <i>AWS Key Management Service API Reference</i> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">AWS
-        /// KMS API Permissions Reference</a> in the <i>AWS Key Management Service Developer Guide</i>.
-        /// </para><important><para> CodeArtifact supports only symmetric CMKs. Do not associate an asymmetric CMK with
+        /// in the <i>Key Management Service API Reference</i> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">Key
+        /// Management Service API Permissions Reference</a> in the <i>Key Management Service
+        /// Developer Guide</i>. </para><important><para> CodeArtifact supports only symmetric CMKs. Do not associate an asymmetric CMK with
         /// your domain. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// symmetric and asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
+        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.
         /// </para></important>
         /// </para>
         /// </summary>

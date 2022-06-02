@@ -28,7 +28,10 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Updates the status of one or more versions of a package.
+    /// Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
+    /// you can update the status of package versions to <code>Archived</code>, <code>Published</code>,
+    /// or <code>Unlisted</code>. To set the status of a package version to <code>Disposed</code>,
+    /// use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html">DisposePackageVersions</a>.
     /// </summary>
     [Cmdlet("Update", "CAPackageVersionsStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse")]
@@ -60,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para> A format that specifies the type of the package with the statuses to update. The
-        /// valid values are: </para><ul><li><para><code>npm</code></para></li><li><para><code>pypi</code></para></li><li><para><code>maven</code></para></li></ul>
+        /// <para> A format that specifies the type of the package with the statuses to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

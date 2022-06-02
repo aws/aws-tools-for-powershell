@@ -28,7 +28,15 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Delete a service.
+    /// Delete a service, with its instances and pipeline.
+    /// 
+    ///  <note><para>
+    /// You can't delete a service if it has any service instances that have components attached
+    /// to them.
+    /// </para><para>
+    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+    /// components</a> in the <i>Proton Administrator Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.Service")]

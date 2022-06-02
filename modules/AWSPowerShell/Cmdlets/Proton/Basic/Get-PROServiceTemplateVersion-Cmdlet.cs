@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// View detail data for a major or minor version of a service template.
+    /// Get detailed data for a major or minor version of a service template.
     /// </summary>
     [Cmdlet("Get", "PROServiceTemplateVersion")]
     [OutputType("Amazon.Proton.Model.ServiceTemplateVersion")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To view service template major version detail data, include <code>major Version</code>.</para>
+        /// <para>To get service template major version detail data, include <code>major Version</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MinorVersion
         /// <summary>
         /// <para>
-        /// <para>To view service template minor version detail data, include <code>minorVersion</code>.</para>
+        /// <para>To get service template minor version detail data, include <code>minorVersion</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the service template.</para>
+        /// <para>The name of the service template a version of which you want to get detailed data
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

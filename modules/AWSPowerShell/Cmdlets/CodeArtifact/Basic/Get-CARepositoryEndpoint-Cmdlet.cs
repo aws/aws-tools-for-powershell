@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// Returns the endpoint of a repository for a specific package format. A repository
     /// has one endpoint for each package format: 
     /// 
-    ///  <ul><li><para><code>npm</code></para></li><li><para><code>pypi</code></para></li><li><para><code>maven</code></para></li></ul>
+    ///  <ul><li><para><code>maven</code></para></li><li><para><code>npm</code></para></li><li><para><code>nuget</code></para></li><li><para><code>pypi</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CARepositoryEndpoint")]
     [OutputType("System.String")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain that contains
-        /// the repository. It does not include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain
+        /// that contains the repository. It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> Returns which endpoint of a repository to return. A repository has one endpoint for
-        /// each package format: </para><ul><li><para><code>npm</code></para></li><li><para><code>pypi</code></para></li><li><para><code>maven</code></para></li></ul>
+        /// each package format. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

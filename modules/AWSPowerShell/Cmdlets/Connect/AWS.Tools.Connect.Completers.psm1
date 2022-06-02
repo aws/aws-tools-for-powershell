@@ -235,6 +235,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.TaskTemplateStatus
+        {
+            ($_ -eq "Get-CONNTaskTemplateList/Status") -Or
+            ($_ -eq "New-CONNTaskTemplate/Status") -Or
+            ($_ -eq "Update-CONNTaskTemplate/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Connect.TrafficType
         "Start-CONNOutboundVoiceContact/TrafficType"
         {
@@ -299,7 +310,7 @@ $CONN_map = @{
     "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Update-CONNQueueStatus")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -380,6 +391,7 @@ $CONN_SelectMap = @{
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
                "New-CONNSecurityProfile",
+               "New-CONNTaskTemplate",
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
@@ -391,6 +403,7 @@ $CONN_SelectMap = @{
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNQuickConnect",
                "Remove-CONNSecurityProfile",
+               "Remove-CONNTaskTemplate",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
@@ -425,6 +438,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNTaskTemplate",
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
@@ -451,6 +465,7 @@ $CONN_SelectMap = @{
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
+               "Get-CONNTaskTemplateList",
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
@@ -470,6 +485,7 @@ $CONN_SelectMap = @{
                "Stop-CONNContactStreaming",
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
+               "Move-CONNContact",
                "Remove-CONNResourceTag",
                "Update-CONNAgentStatus",
                "Update-CONNContact",
@@ -496,6 +512,7 @@ $CONN_SelectMap = @{
                "Update-CONNRoutingProfileName",
                "Update-CONNRoutingProfileQueue",
                "Update-CONNSecurityProfile",
+               "Update-CONNTaskTemplate",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",

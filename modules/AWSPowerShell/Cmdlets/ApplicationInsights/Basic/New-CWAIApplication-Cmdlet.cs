@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AutoConfigEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Indicates whether Application Insights automatically configures unmonitored resources
+        /// in the resource group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AutoCreate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Configures all of the resources in the resource group by applying the recommended
+        /// configurations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,6 +72,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? CWEMonitorEnabled { get; set; }
+        #endregion
+        
+        #region Parameter GroupingType
+        /// <summary>
+        /// <para>
+        /// <para>Application Insights can create applications based on a resource group or on an account.
+        /// To create an account-based application using all of the resources in the account,
+        /// set this parameter to <code>ACCOUNT_BASED</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationInsights.GroupingType")]
+        public Amazon.ApplicationInsights.GroupingType GroupingType { get; set; }
         #endregion
         
         #region Parameter OpsCenterEnabled
@@ -181,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             context.AutoConfigEnabled = this.AutoConfigEnabled;
             context.AutoCreate = this.AutoCreate;
             context.CWEMonitorEnabled = this.CWEMonitorEnabled;
+            context.GroupingType = this.GroupingType;
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
             context.ResourceGroupName = this.ResourceGroupName;
@@ -215,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.CWEMonitorEnabled != null)
             {
                 request.CWEMonitorEnabled = cmdletContext.CWEMonitorEnabled.Value;
+            }
+            if (cmdletContext.GroupingType != null)
+            {
+                request.GroupingType = cmdletContext.GroupingType;
             }
             if (cmdletContext.OpsCenterEnabled != null)
             {
@@ -296,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.Boolean? AutoConfigEnabled { get; set; }
             public System.Boolean? AutoCreate { get; set; }
             public System.Boolean? CWEMonitorEnabled { get; set; }
+            public Amazon.ApplicationInsights.GroupingType GroupingType { get; set; }
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.String ResourceGroupName { get; set; }

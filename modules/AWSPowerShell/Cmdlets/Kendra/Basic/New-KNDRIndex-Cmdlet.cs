@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the KMScustomer master key (CMK). Amazon Kendra doesn't support
-        /// asymmetric CMKs.</para>
+        /// <para>The identifier of the KMS key. Amazon Kendra doesn't support asymmetric keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

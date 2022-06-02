@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for an environment template.
+    /// Get detailed data for an environment template.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentTemplate")]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplate")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the environment template that you want to get the detail data for.</para>
+        /// <para>The name of the environment template that you want to get the detailed data for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

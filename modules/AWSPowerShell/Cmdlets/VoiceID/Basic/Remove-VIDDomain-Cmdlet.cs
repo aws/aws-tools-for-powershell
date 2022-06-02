@@ -28,7 +28,7 @@ using Amazon.VoiceID.Model;
 namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
-    /// Deletes the specified domain from the Amazon Connect Voice ID system.
+    /// Deletes the specified domain from Voice ID.
     /// </summary>
     [Cmdlet("Remove", "VIDDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

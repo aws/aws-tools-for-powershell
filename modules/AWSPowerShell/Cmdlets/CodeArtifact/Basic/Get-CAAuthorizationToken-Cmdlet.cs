@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// <summary>
     /// Generates a temporary authorization token for accessing repositories in the domain.
     /// This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code>
-    /// permissions. For more information about authorization tokens, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">AWS
-    /// CodeArtifact authentication and tokens</a>. 
+    /// permissions. For more information about authorization tokens, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">CodeArtifact
+    /// authentication and tokens</a>. 
     /// 
     ///  <note><para>
     /// CodeArtifact authorization tokens are valid for a period of 12 hours when created
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

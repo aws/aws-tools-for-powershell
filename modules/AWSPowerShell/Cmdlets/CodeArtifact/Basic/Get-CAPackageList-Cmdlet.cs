@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para> The format of the packages. The valid package types are: </para><ul><li><para><code>npm</code>: A Node Package Manager (npm) package. </para></li><li><para><code>pypi</code>: A Python Package Index (PyPI) package. </para></li><li><para><code>maven</code>: A Maven package that contains compiled code in a distributable
-        /// format, such as a JAR file. </para></li></ul>
+        /// <para> The format of the packages. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

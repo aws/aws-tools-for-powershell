@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter AdministratorAccount
         /// <summary>
         /// <para>
-        /// <para> Filter the list of repositories to only include those that are managed by the AWS
-        /// account ID. </para>
+        /// <para> Filter the list of repositories to only include those that are managed by the Amazon
+        /// Web Services account ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

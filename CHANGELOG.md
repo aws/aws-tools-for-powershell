@@ -1,4 +1,32 @@
-﻿### 4.1.97 (2022-06-01 22:16Z)
+﻿### 4.1.98 (2022-06-02 20:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.287.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Application Insights
+    * Modified cmdlet New-CWAIApplication: added parameter GroupingType.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNTaskTemplate leveraging the GetTaskTemplate service API.
+    * Added cmdlet Get-CONNTaskTemplateList leveraging the ListTaskTemplates service API.
+    * Added cmdlet Move-CONNContact leveraging the TransferContact service API.
+    * Added cmdlet New-CONNTaskTemplate leveraging the CreateTaskTemplate service API.
+    * Added cmdlet Remove-CONNTaskTemplate leveraging the DeleteTaskTemplate service API.
+    * Added cmdlet Update-CONNTaskTemplate leveraging the UpdateTaskTemplate service API.
+    * Modified cmdlet Start-CONNTaskContact: added parameters QuickConnectId and TaskTemplateId.
+  * Amazon Proton
+    * Added cmdlet Get-PROComponent leveraging the GetComponent service API.
+    * Added cmdlet Get-PROComponentList leveraging the ListComponents service API.
+    * Added cmdlet Get-PROComponentOutputList leveraging the ListComponentOutputs service API.
+    * Added cmdlet Get-PROComponentProvisionedResourceList leveraging the ListComponentProvisionedResources service API.
+    * Added cmdlet New-PROComponent leveraging the CreateComponent service API.
+    * Added cmdlet Remove-PROComponent leveraging the DeleteComponent service API.
+    * Added cmdlet Stop-PROComponentDeployment leveraging the CancelComponentDeployment service API.
+    * Added cmdlet Update-PROComponent leveraging the UpdateComponent service API.
+    * Modified cmdlet New-PROEnvironment: added parameter ComponentRoleArn.
+    * Modified cmdlet New-PROEnvironmentAccountConnection: added parameter ComponentRoleArn.
+    * Modified cmdlet New-PROServiceTemplateVersion: added parameter SupportedComponentSource.
+    * Modified cmdlet Update-PROEnvironment: added parameter ComponentRoleArn.
+    * Modified cmdlet Update-PROEnvironmentAccountConnection: added parameter ComponentRoleArn.
+    * Modified cmdlet Update-PROServiceTemplateVersion: added parameter SupportedComponentSource.
+
+### 4.1.97 (2022-06-01 22:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.286.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup Gateway
     * Added cmdlet Get-BUGWGateway leveraging the GetGateway service API.

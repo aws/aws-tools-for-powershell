@@ -28,10 +28,7 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Gets the readme file or descriptive text for a package version. For packages that
-    /// do not contain a readme file, CodeArtifact extracts a description from a metadata
-    /// file. For example, from the <code>&lt;description&gt;</code> element in the <code>pom.xml</code>
-    /// file of a Maven package. 
+    /// Gets the readme file or descriptive text for a package version. 
     /// 
     ///  
     /// <para>
@@ -69,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the AWS account that owns the domain. It does not
-        /// include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A format that specifies the type of the package version with the requested readme
-        /// file. The valid values are: </para><ul><li><para><code>npm</code></para></li><li><para><code>pypi</code></para></li><li><para><code>maven</code></para></li></ul>
+        /// file. </para><note><para>Although <code>maven</code> is listed as a valid value, CodeArtifact does not support
+        /// displaying readme files for Maven packages.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

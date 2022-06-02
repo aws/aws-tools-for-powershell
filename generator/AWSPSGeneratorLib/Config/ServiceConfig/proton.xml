@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelComponentDeployment" OutputProperty="Component" Verb="Stop" Noun="ComponentDeployment" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelEnvironmentDeployment" OutputProperty="Environment" Verb="Stop" Noun="EnvironmentDeployment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelServicePipelineDeployment" OutputProperty="Pipeline" Verb="Stop" Noun="ServicePipelineDeployment" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComponent" OutputProperty="Component" Verb="New" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplateSyncConfig" OutputProperty="TemplateSyncConfig" Verb="New" Noun="TemplateSyncConfig" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComponent" OutputProperty="Component" Verb="Remove" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +120,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +172,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTemplateSyncStatus" OutputProperty="*" Verb="Get" Noun="TemplateSyncStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponentOutputs" OutputProperty="Outputs" Verb="Get" Noun="ComponentOutputList" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponentProvisionedResources" OutputProperty="ProvisionedResources" Verb="Get" Noun="ComponentProvisionedResourceList" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponents" OutputProperty="Components" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -244,6 +272,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettings" Verb="Update" Noun="AccountSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComponent" OutputProperty="Component" Verb="Update" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

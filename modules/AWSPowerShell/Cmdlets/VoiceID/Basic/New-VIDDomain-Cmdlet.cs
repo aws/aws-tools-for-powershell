@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the KMS Key you want Voice ID to use to encrypt your data.</para>
+        /// <para>The identifier of the KMS key you want Voice ID to use to encrypt your data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

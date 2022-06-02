@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Reference
         /// <summary>
         /// <para>
-        /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</para>
+        /// <para>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

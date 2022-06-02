@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter CompatibleEnvironmentTemplate
         /// <summary>
         /// <para>
-        /// <para>An array of compatible environment names for a service template major or minor version
-        /// to update.</para>
+        /// <para>An array of environment template objects that are compatible with this service template
+        /// version. A service instance based on this service template version can run in environments
+        /// based on compatible templates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,6 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Proton.TemplateVersionStatus")]
         public Amazon.Proton.TemplateVersionStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter SupportedComponentSource
+        /// <summary>
+        /// <para>
+        /// <para>An array of supported component sources. Components with supported sources can be
+        /// attached to service instances based on this service template version.</para><note><para>A change to <code>supportedComponentSources</code> doesn't impact existing component
+        /// attachments to instances based on this template version. A change only affects later
+        /// associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedComponentSources")]
+        public System.String[] SupportedComponentSource { get; set; }
         #endregion
         
         #region Parameter TemplateName
@@ -185,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #endif
             context.Status = this.Status;
+            if (this.SupportedComponentSource != null)
+            {
+                context.SupportedComponentSource = new List<System.String>(this.SupportedComponentSource);
+            }
             context.TemplateName = this.TemplateName;
             #if MODULAR
             if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
@@ -227,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.SupportedComponentSource != null)
+            {
+                request.SupportedComponentSources = cmdletContext.SupportedComponentSource;
             }
             if (cmdletContext.TemplateName != null)
             {
@@ -298,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             public System.String MajorVersion { get; set; }
             public System.String MinorVersion { get; set; }
             public Amazon.Proton.TemplateVersionStatus Status { get; set; }
+            public List<System.String> SupportedComponentSource { get; set; }
             public System.String TemplateName { get; set; }
             public System.Func<Amazon.Proton.Model.UpdateServiceTemplateVersionResponse, UpdatePROServiceTemplateVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServiceTemplateVersion;

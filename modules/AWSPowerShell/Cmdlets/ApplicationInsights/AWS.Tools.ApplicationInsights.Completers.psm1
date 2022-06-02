@@ -87,6 +87,13 @@ $CWAI_Completers = {
             break
         }
 
+        # Amazon.ApplicationInsights.GroupingType
+        "New-CWAIApplication/GroupingType"
+        {
+            $v = "ACCOUNT_BASED"
+            break
+        }
+
         # Amazon.ApplicationInsights.Tier
         {
             ($_ -eq "Get-CWAIComponentConfigurationRecommendation/Tier") -Or
@@ -107,6 +114,7 @@ $CWAI_Completers = {
 
 $CWAI_map = @{
     "EventStatus"=@("Get-CWAIConfigurationHistoryList")
+    "GroupingType"=@("New-CWAIApplication")
     "Tier"=@("Get-CWAIComponentConfigurationRecommendation","Update-CWAIComponentConfiguration")
 }
 

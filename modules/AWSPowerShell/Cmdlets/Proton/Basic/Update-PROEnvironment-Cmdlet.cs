@@ -99,6 +99,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String ProvisioningRepository_Branch { get; set; }
         #endregion
         
+        #region Parameter ComponentRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
+        /// directly defined components in this environment. It determines the scope of infrastructure
+        /// that a component can provision.</para><para>The environment must have a <code>componentRoleArn</code> to allow directly defined
+        /// components to be associated with the environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
@@ -287,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ComponentRoleArn = this.ComponentRoleArn;
             context.DeploymentType = this.DeploymentType;
             #if MODULAR
             if (this.DeploymentType == null && ParameterWasBound(nameof(this.DeploymentType)))
@@ -326,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateEnvironmentRequest();
             
+            if (cmdletContext.ComponentRoleArn != null)
+            {
+                request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
+            }
             if (cmdletContext.DeploymentType != null)
             {
                 request.DeploymentType = cmdletContext.DeploymentType;
@@ -458,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ComponentRoleArn { get; set; }
             public Amazon.Proton.DeploymentUpdateType DeploymentType { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentAccountConnectionId { get; set; }

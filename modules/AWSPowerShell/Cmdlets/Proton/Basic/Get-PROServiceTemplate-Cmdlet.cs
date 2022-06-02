@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for a service template.
+    /// Get detailed data for a service template.
     /// </summary>
     [Cmdlet("Get", "PROServiceTemplate")]
     [OutputType("Amazon.Proton.Model.ServiceTemplate")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the service template that you want to get detail data for.</para>
+        /// <para>The name of the service template that you want to get detailed data for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

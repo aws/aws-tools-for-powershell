@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List service instances with summaries of detail data.
+    /// List service instances with summary data.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstanceList")]
     [OutputType("Amazon.Proton.Model.ServiceInstanceSummary")]

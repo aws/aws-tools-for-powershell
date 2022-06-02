@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The service name.</para>
+        /// <para>The name of the service whose pipeline's provisioned resources you want.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS
-    /// CodeArtifact.
+    /// Gets information about Amazon Web Services tags for a specified Amazon Resource Name
+    /// (ARN) in CodeArtifact.
     /// </summary>
     [Cmdlet("Get", "CAResourceTag")]
     [OutputType("Amazon.CodeArtifact.Model.Tag")]

@@ -146,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter OutputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 path of the folder to which Voice ID writes the job output file, which has
-        /// a <code>*.out</code> extension. For example, if the input file name is <code>input-file.json</code>
-        /// and the output folder path is <code>s3://output-bucket/output-folder</code>, the full
+        /// <para>The S3 path of the folder where Voice ID writes the job output file. It has a <code>*.out</code>
+        /// extension. For example, if the input file name is <code>input-file.json</code> and
+        /// the output folder path is <code>s3://output-bucket/output-folder</code>, the full
         /// output file path is <code>s3://output-bucket/output-folder/job-Id/input-file.json.out</code>.</para>
         /// </para>
         /// </summary>

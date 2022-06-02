@@ -4720,6 +4720,8 @@ Set-Alias -Name Create-CONNRoutingProfile -Value New-CONNRoutingProfile
 Set-Alias -Name CONN-CreateRoutingProfile -Value New-CONNRoutingProfile
 Set-Alias -Name Create-CONNSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name CONN-CreateSecurityProfile -Value New-CONNSecurityProfile
+Set-Alias -Name Create-CONNTaskTemplate -Value New-CONNTaskTemplate
+Set-Alias -Name CONN-CreateTaskTemplate -Value New-CONNTaskTemplate
 Set-Alias -Name Create-CONNUseCase -Value New-CONNUseCase
 Set-Alias -Name CONN-CreateUseCase -Value New-CONNUseCase
 Set-Alias -Name Create-CONNUser -Value New-CONNUser
@@ -4742,6 +4744,8 @@ Set-Alias -Name Delete-CONNQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name CONN-DeleteQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name CONN-DeleteSecurityProfile -Value Remove-CONNSecurityProfile
+Set-Alias -Name Delete-CONNTaskTemplate -Value Remove-CONNTaskTemplate
+Set-Alias -Name CONN-DeleteTaskTemplate -Value Remove-CONNTaskTemplate
 Set-Alias -Name Delete-CONNUseCase -Value Remove-CONNUseCase
 Set-Alias -Name CONN-DeleteUseCase -Value Remove-CONNUseCase
 Set-Alias -Name Delete-CONNUser -Value Remove-CONNUser
@@ -4809,6 +4813,7 @@ Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
+Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate
 Set-Alias -Name List-CONNAgentStatuses -Value Get-CONNAgentStatusList
 Set-Alias -Name List-CONNAgentStatusList -Value Get-CONNAgentStatusList
 Set-Alias -Name CONN-ListAgentStatuses -Value Get-CONNAgentStatusList
@@ -4885,6 +4890,9 @@ Set-Alias -Name List-CONNSecurityProfiles -Value Get-CONNSecurityProfileList
 Set-Alias -Name List-CONNSecurityProfileList -Value Get-CONNSecurityProfileList
 Set-Alias -Name CONN-ListSecurityProfiles -Value Get-CONNSecurityProfileList
 Set-Alias -Name CONN-ListTagsForResource -Value Get-CONNResourceTag
+Set-Alias -Name List-CONNTaskTemplates -Value Get-CONNTaskTemplateList
+Set-Alias -Name List-CONNTaskTemplateList -Value Get-CONNTaskTemplateList
+Set-Alias -Name CONN-ListTaskTemplates -Value Get-CONNTaskTemplateList
 Set-Alias -Name List-CONNUseCases -Value Get-CONNUseCaseList
 Set-Alias -Name List-CONNUseCaseList -Value Get-CONNUseCaseList
 Set-Alias -Name CONN-ListUseCases -Value Get-CONNUseCaseList
@@ -4915,6 +4923,8 @@ Set-Alias -Name CONN-StopContactRecording -Value Stop-CONNContactRecording
 Set-Alias -Name CONN-StopContactStreaming -Value Stop-CONNContactStreaming
 Set-Alias -Name CONN-SuspendContactRecording -Value Suspend-CONNContactRecording
 Set-Alias -Name CONN-TagResource -Value Add-CONNResourceTag
+Set-Alias -Name Transfer-CONNContact -Value Move-CONNContact
+Set-Alias -Name CONN-TransferContact -Value Move-CONNContact
 Set-Alias -Name CONN-UntagResource -Value Remove-CONNResourceTag
 Set-Alias -Name CONN-UpdateAgentStatus -Value Update-CONNAgentStatus
 Set-Alias -Name CONN-UpdateContact -Value Update-CONNContact
@@ -4944,6 +4954,7 @@ Set-Alias -Name CONN-UpdateRoutingProfileName -Value Update-CONNRoutingProfileNa
 Set-Alias -Name Update-CONNRoutingProfileQueues -Value Update-CONNRoutingProfileQueue
 Set-Alias -Name CONN-UpdateRoutingProfileQueues -Value Update-CONNRoutingProfileQueue
 Set-Alias -Name CONN-UpdateSecurityProfile -Value Update-CONNSecurityProfile
+Set-Alias -Name CONN-UpdateTaskTemplate -Value Update-CONNTaskTemplate
 Set-Alias -Name CONN-UpdateUserHierarchy -Value Update-CONNUserHierarchy
 Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarchyGroupName
 Set-Alias -Name CONN-UpdateUserHierarchyStructure -Value Update-CONNUserHierarchyStructure
@@ -16484,12 +16495,16 @@ Set-Alias -Name PD-UpdateRecoveryGroup -Value Update-PDRecoveryGroup
 Set-Alias -Name PD-UpdateResourceSet -Value Update-PDResourceSet
 Set-Alias -Name Accept-PROEnvironmentAccountConnection -Value Approve-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-AcceptEnvironmentAccountConnection -Value Approve-PROEnvironmentAccountConnection
+Set-Alias -Name Cancel-PROComponentDeployment -Value Stop-PROComponentDeployment
+Set-Alias -Name PRO-CancelComponentDeployment -Value Stop-PROComponentDeployment
 Set-Alias -Name Cancel-PROEnvironmentDeployment -Value Stop-PROEnvironmentDeployment
 Set-Alias -Name PRO-CancelEnvironmentDeployment -Value Stop-PROEnvironmentDeployment
 Set-Alias -Name Cancel-PROServiceInstanceDeployment -Value Stop-PROServiceInstanceDeployment
 Set-Alias -Name PRO-CancelServiceInstanceDeployment -Value Stop-PROServiceInstanceDeployment
 Set-Alias -Name Cancel-PROServicePipelineDeployment -Value Stop-PROServicePipelineDeployment
 Set-Alias -Name PRO-CancelServicePipelineDeployment -Value Stop-PROServicePipelineDeployment
+Set-Alias -Name Create-PROComponent -Value New-PROComponent
+Set-Alias -Name PRO-CreateComponent -Value New-PROComponent
 Set-Alias -Name Create-PROEnvironmentAccountConnection -Value New-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-CreateEnvironmentAccountConnection -Value New-PROEnvironmentAccountConnection
 Set-Alias -Name Create-PROEnvironment -Value New-PROEnvironment
@@ -16508,6 +16523,8 @@ Set-Alias -Name Create-PROServiceTemplateVersion -Value New-PROServiceTemplateVe
 Set-Alias -Name PRO-CreateServiceTemplateVersion -Value New-PROServiceTemplateVersion
 Set-Alias -Name Create-PROTemplateSyncConfig -Value New-PROTemplateSyncConfig
 Set-Alias -Name PRO-CreateTemplateSyncConfig -Value New-PROTemplateSyncConfig
+Set-Alias -Name Delete-PROComponent -Value Remove-PROComponent
+Set-Alias -Name PRO-DeleteComponent -Value Remove-PROComponent
 Set-Alias -Name Delete-PROEnvironmentAccountConnection -Value Remove-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-DeleteEnvironmentAccountConnection -Value Remove-PROEnvironmentAccountConnection
 Set-Alias -Name Delete-PROEnvironment -Value Remove-PROEnvironment
@@ -16528,6 +16545,7 @@ Set-Alias -Name Delete-PROTemplateSyncConfig -Value Remove-PROTemplateSyncConfig
 Set-Alias -Name PRO-DeleteTemplateSyncConfig -Value Remove-PROTemplateSyncConfig
 Set-Alias -Name Get-PROAccountSettings -Value Get-PROAccountSetting
 Set-Alias -Name PRO-GetAccountSettings -Value Get-PROAccountSetting
+Set-Alias -Name PRO-GetComponent -Value Get-PROComponent
 Set-Alias -Name PRO-GetEnvironmentAccountConnection -Value Get-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-GetEnvironment -Value Get-PROEnvironment
 Set-Alias -Name PRO-GetEnvironmentTemplate -Value Get-PROEnvironmentTemplate
@@ -16540,6 +16558,15 @@ Set-Alias -Name PRO-GetServiceTemplate -Value Get-PROServiceTemplate
 Set-Alias -Name PRO-GetServiceTemplateVersion -Value Get-PROServiceTemplateVersion
 Set-Alias -Name PRO-GetTemplateSyncConfig -Value Get-PROTemplateSyncConfig
 Set-Alias -Name PRO-GetTemplateSyncStatus -Value Get-PROTemplateSyncStatus
+Set-Alias -Name List-PROComponentOutputs -Value Get-PROComponentOutputList
+Set-Alias -Name List-PROComponentOutputList -Value Get-PROComponentOutputList
+Set-Alias -Name PRO-ListComponentOutputs -Value Get-PROComponentOutputList
+Set-Alias -Name List-PROComponentProvisionedResources -Value Get-PROComponentProvisionedResourceList
+Set-Alias -Name List-PROComponentProvisionedResourceList -Value Get-PROComponentProvisionedResourceList
+Set-Alias -Name PRO-ListComponentProvisionedResources -Value Get-PROComponentProvisionedResourceList
+Set-Alias -Name List-PROComponents -Value Get-PROComponentList
+Set-Alias -Name List-PROComponentList -Value Get-PROComponentList
+Set-Alias -Name PRO-ListComponents -Value Get-PROComponentList
 Set-Alias -Name List-PROEnvironmentAccountConnections -Value Get-PROEnvironmentAccountConnectionList
 Set-Alias -Name List-PROEnvironmentAccountConnectionList -Value Get-PROEnvironmentAccountConnectionList
 Set-Alias -Name PRO-ListEnvironmentAccountConnections -Value Get-PROEnvironmentAccountConnectionList
@@ -16597,6 +16624,7 @@ Set-Alias -Name PRO-TagResource -Value Add-PROResourceTag
 Set-Alias -Name PRO-UntagResource -Value Remove-PROResourceTag
 Set-Alias -Name Update-PROAccountSettings -Value Update-PROAccountSetting
 Set-Alias -Name PRO-UpdateAccountSettings -Value Update-PROAccountSetting
+Set-Alias -Name PRO-UpdateComponent -Value Update-PROComponent
 Set-Alias -Name PRO-UpdateEnvironmentAccountConnection -Value Update-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-UpdateEnvironment -Value Update-PROEnvironment
 Set-Alias -Name PRO-UpdateEnvironmentTemplate -Value Update-PROEnvironmentTemplate
