@@ -256,6 +256,7 @@ $CHMMG_SelectMap = @{
                "Get-CHMMGResourceTag",
                "Write-CHMMGChannelMembershipPreference",
                "Hide-CHMMGChannelMessage",
+               "Search-CHMMGChannel",
                "Send-CHMMGChannelMessage",
                "Add-CHMMGResourceTag",
                "Remove-CHMMGResourceTag",

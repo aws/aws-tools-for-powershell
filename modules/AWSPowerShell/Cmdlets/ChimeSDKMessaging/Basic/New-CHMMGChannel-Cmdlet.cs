@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String AppInstanceArn { get; set; }
         #endregion
         
+        #region Parameter ChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the channel in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelId { get; set; }
+        #endregion
+        
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
@@ -91,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter MemberArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the channel members in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemberArns")]
+        public System.String[] MemberArn { get; set; }
+        #endregion
+        
         #region Parameter Metadata
         /// <summary>
         /// <para>
@@ -112,6 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ChimeSDKMessaging.ChannelMode")]
         public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }
+        #endregion
+        
+        #region Parameter ModeratorArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the channel moderators in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModeratorArns")]
+        public System.String[] ModeratorArn { get; set; }
         #endregion
         
         #region Parameter Name
@@ -223,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter AppInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChannelId = this.ChannelId;
             context.ChimeBearer = this.ChimeBearer;
             #if MODULAR
             if (this.ChimeBearer == null && ParameterWasBound(nameof(this.ChimeBearer)))
@@ -231,8 +264,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.MemberArn != null)
+            {
+                context.MemberArn = new List<System.String>(this.MemberArn);
+            }
             context.Metadata = this.Metadata;
             context.Mode = this.Mode;
+            if (this.ModeratorArn != null)
+            {
+                context.ModeratorArn = new List<System.String>(this.ModeratorArn);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -265,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.AppInstanceArn = cmdletContext.AppInstanceArn;
             }
+            if (cmdletContext.ChannelId != null)
+            {
+                request.ChannelId = cmdletContext.ChannelId;
+            }
             if (cmdletContext.ChimeBearer != null)
             {
                 request.ChimeBearer = cmdletContext.ChimeBearer;
@@ -273,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
+            if (cmdletContext.MemberArn != null)
+            {
+                request.MemberArns = cmdletContext.MemberArn;
+            }
             if (cmdletContext.Metadata != null)
             {
                 request.Metadata = cmdletContext.Metadata;
@@ -280,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.Mode != null)
             {
                 request.Mode = cmdletContext.Mode;
+            }
+            if (cmdletContext.ModeratorArn != null)
+            {
+                request.ModeratorArns = cmdletContext.ModeratorArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -355,10 +408,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppInstanceArn { get; set; }
+            public System.String ChannelId { get; set; }
             public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public List<System.String> MemberArn { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }
+            public List<System.String> ModeratorArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelPrivacy Privacy { get; set; }
             public List<Amazon.ChimeSDKMessaging.Model.Tag> Tag { get; set; }

@@ -123,6 +123,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CHMMGChannelMessage', 
         'Remove-CHMMGChannelModerator', 
         'Remove-CHMMGResourceTag', 
+        'Search-CHMMGChannel', 
         'Send-CHMMGChannelFlowCallback', 
         'Send-CHMMGChannelMessage', 
         'Unregister-CHMMGChannelFlow', 

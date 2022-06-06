@@ -28,107 +28,86 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Update a channel's attributes.
-    /// 
-    ///  
-    /// <para><b>Restriction</b>: You can't change a channel's privacy. 
-    /// </para><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
-    /// </para></note>
+    /// Allows an <code>AppInstanceUser</code> to search the channels that they belong to.
+    /// The <code>AppInstanceUser</code> can search by membership or external ID. An <code>AppInstanceAdmin</code>
+    /// can search across all channels within the <code>AppInstance</code>.
     /// </summary>
-    [Cmdlet("Update", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Messaging UpdateChannel API operation.", Operation = new[] {"UpdateChannel"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Search", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ChimeSDKMessaging.Model.ChannelSummary")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Messaging SearchChannels API operation.", Operation = new[] {"SearchChannels"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ChannelSummary or Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse",
+        "This cmdlet returns a collection of Amazon.ChimeSDKMessaging.Model.ChannelSummary objects.",
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCHMMGChannelCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
+    public partial class SearchCHMMGChannelCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
-        
-        #region Parameter ChannelArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the channel.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
-        #endregion
         
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user making the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ChimeBearer { get; set; }
+        #endregion
+        
+        #region Parameter Field
+        /// <summary>
+        /// <para>
+        /// <para>A list of the <code>Field</code> objects in the channel being searched.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChimeBearer { get; set; }
+        [Alias("Fields")]
+        public Amazon.ChimeSDKMessaging.Model.SearchField[] Field { get; set; }
         #endregion
         
-        #region Parameter Metadata
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The metadata for the update request.</para>
+        /// <para>The maximum number of channels that you want returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Metadata { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter Mode
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The mode of the update request.</para>
+        /// <para>The token returned from previous API requests until the number of channels is reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.ChannelMode")]
-        public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the channel.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Channels'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelArn";
+        public string Select { get; set; } = "Channels";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChimeBearer parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChimeBearer' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChimeBearer' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -147,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMMGChannel (UpdateChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChimeBearer), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CHMMGChannel (SearchChannels)"))
             {
                 return;
             }
@@ -161,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse, UpdateCHMMGChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse, SearchCHMMGChannelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -170,26 +149,22 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelArn;
+                context.Select = (response, cmdlet) => this.ChimeBearer;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChannelArn = this.ChannelArn;
-            #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ChimeBearer = this.ChimeBearer;
-            #if MODULAR
-            if (this.ChimeBearer == null && ParameterWasBound(nameof(this.ChimeBearer)))
+            if (this.Field != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ChimeBearer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Field = new List<Amazon.ChimeSDKMessaging.Model.SearchField>(this.Field);
+            }
+            #if MODULAR
+            if (this.Field == null && ParameterWasBound(nameof(this.Field)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Metadata = this.Metadata;
-            context.Mode = this.Mode;
-            context.Name = this.Name;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,27 +179,23 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMessaging.Model.UpdateChannelRequest();
+            var request = new Amazon.ChimeSDKMessaging.Model.SearchChannelsRequest();
             
-            if (cmdletContext.ChannelArn != null)
-            {
-                request.ChannelArn = cmdletContext.ChannelArn;
-            }
             if (cmdletContext.ChimeBearer != null)
             {
                 request.ChimeBearer = cmdletContext.ChimeBearer;
             }
-            if (cmdletContext.Metadata != null)
+            if (cmdletContext.Field != null)
             {
-                request.Metadata = cmdletContext.Metadata;
+                request.Fields = cmdletContext.Field;
             }
-            if (cmdletContext.Mode != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Mode = cmdletContext.Mode;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -259,15 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.UpdateChannelRequest request)
+        private Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.SearchChannelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "UpdateChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "SearchChannels");
             try
             {
                 #if DESKTOP
-                return client.UpdateChannel(request);
+                return client.SearchChannels(request);
                 #elif CORECLR
-                return client.UpdateChannelAsync(request).GetAwaiter().GetResult();
+                return client.SearchChannelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -287,13 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
             public System.String ChimeBearer { get; set; }
-            public System.String Metadata { get; set; }
-            public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse, UpdateCHMMGChannelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelArn;
+            public List<Amazon.ChimeSDKMessaging.Model.SearchField> Field { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.ChimeSDKMessaging.Model.SearchChannelsResponse, SearchCHMMGChannelCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Channels;
         }
         
     }

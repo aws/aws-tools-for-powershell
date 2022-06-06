@@ -288,6 +288,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCurrentUserData" OutputProperty="UserDataList" Verb="Get" Noun="CurrentUserData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -436,6 +436,7 @@ $CONN_SelectMap = @{
                "Remove-CONNSecurityKey",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
+               "Get-CONNCurrentUserData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
                "Get-CONNTaskTemplate",

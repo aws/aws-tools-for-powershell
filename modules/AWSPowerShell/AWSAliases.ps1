@@ -2672,6 +2672,8 @@ Set-Alias -Name Put-CHMMGChannelMembershipPreference -Value Write-CHMMGChannelMe
 Set-Alias -Name CHMMG-PutChannelMembershipPreferences -Value Write-CHMMGChannelMembershipPreference
 Set-Alias -Name Redact-CHMMGChannelMessage -Value Hide-CHMMGChannelMessage
 Set-Alias -Name CHMMG-RedactChannelMessage -Value Hide-CHMMGChannelMessage
+Set-Alias -Name Search-CHMMGChannels -Value Search-CHMMGChannel
+Set-Alias -Name CHMMG-SearchChannels -Value Search-CHMMGChannel
 Set-Alias -Name CHMMG-SendChannelMessage -Value Send-CHMMGChannelMessage
 Set-Alias -Name CHMMG-TagResource -Value Add-CHMMGResourceTag
 Set-Alias -Name CHMMG-UntagResource -Value Remove-CHMMGResourceTag
@@ -4811,6 +4813,7 @@ Set-Alias -Name CONN-DisassociateSecurityKey -Value Remove-CONNSecurityKey
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
+Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
 Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate

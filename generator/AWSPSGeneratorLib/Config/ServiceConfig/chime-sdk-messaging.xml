@@ -170,6 +170,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchChannels" OutputProperty="Channels" Verb="Search" Noun="Channel" ShouldProcessTarget="ChimeBearer" PipelineParameter="ChimeBearer" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendChannelMessage" OutputProperty="*" Verb="Send" Noun="ChannelMessage" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

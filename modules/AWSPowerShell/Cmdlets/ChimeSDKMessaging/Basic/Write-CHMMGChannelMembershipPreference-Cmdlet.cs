@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter PushNotifications_FilterRule
         /// <summary>
         /// <para>
-        /// <para>The simple JSON object used to send a subset of a push notification to the requsted
+        /// <para>The simple JSON object used to send a subset of a push notification to the requested
         /// member.</para>
         /// </para>
         /// </summary>

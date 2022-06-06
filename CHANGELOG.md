@@ -1,4 +1,12 @@
-﻿### 4.1.98 (2022-06-02 20:18Z)
+﻿### 4.1.99 (2022-06-06 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.288.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Messaging
+    * Added cmdlet Search-CHMMGChannel leveraging the SearchChannels service API.
+    * Modified cmdlet New-CHMMGChannel: added parameters ChannelId, MemberArn and ModeratorArn.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNCurrentUserData leveraging the GetCurrentUserData service API.
+
+### 4.1.98 (2022-06-02 20:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.287.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Application Insights
     * Modified cmdlet New-CWAIApplication: added parameter GroupingType.
