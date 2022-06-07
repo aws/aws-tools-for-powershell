@@ -257,29 +257,29 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/awspowershell_versioninfo.json" DestinationFolder="$(RootPath)/Deployment" />
     </Target>
 
-    <!-- Configure project specfic code sign properties -->
-    <ItemGroup>
-        <!-- Desktop Edition -->
-        <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1" />
-        <SignableItems Include="$(DesktopDeploymentArtifacts)*.psm1" />
-        <SignableItems Include="$(DesktopDeploymentArtifacts)*.psd1" />
-        <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1xml" />
-        <SignableItems Include="$(DesktopDeploymentArtifacts)AWSPowerShell.dll" />
-        <!-- NetCore Edition -->
-        <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1" />
-        <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psm1" />
-        <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psd1" />
-        <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1xml" />
-        <SignableItems Include="$(NetCoreDeploymentArtifacts)AWSPowerShell.NetCore.dll" />
-        <!-- Modular Edition -->
-        <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1" />
-        <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psm1" />
-        <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psd1" />
-        <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1xml" />
-        <SignableItems Include="$(ModularDeploymentArtifacts)**/AWS.Tools.*.dll" />
-    </ItemGroup>
-
     <Target Name="sign-script-artifacts" Condition="'$(SignModules)'=='true'" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
+        <!-- Configure project specfic code sign properties -->
+        <ItemGroup>
+            <!-- Desktop Edition -->
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psm1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psd1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1xml" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)AWSPowerShell.dll" />
+            <!-- NetCore Edition -->
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psm1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psd1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1xml" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)AWSPowerShell.NetCore.dll" />
+            <!-- Modular Edition -->
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psm1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psd1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1xml" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/AWS.Tools.*.dll" />
+        </ItemGroup>
+
         <PropertyGroup>
             <SignableItemsBasePath>$(Deployment)</SignableItemsBasePath>
             <ZipPrefix>powershell</ZipPrefix>
@@ -342,6 +342,27 @@
         </ItemGroup>
 
         <!-- Exclude the text files from KeyScanner until signature block exclusion is implemented in the build task -->
+        <!-- The list of items must be in sync with the items in Signing task above  -->
+        <ItemGroup>
+            <!-- Desktop Edition -->
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psm1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.psd1" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)*.ps1xml" />
+            <SignableItems Include="$(DesktopDeploymentArtifacts)AWSPowerShell.dll" />
+            <!-- NetCore Edition -->
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psm1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psd1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1xml" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)AWSPowerShell.NetCore.dll" />
+            <!-- Modular Edition -->
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psm1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psd1" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1xml" />
+            <SignableItems Include="$(ModularDeploymentArtifacts)**/AWS.Tools.*.dll" />
+        </ItemGroup>
         <ItemGroup>
             <SignableItemsWithRelativePath Include="@(SignableItems)" Exclude="*.dll" >
                 <RelativePath>$([MSBuild]::MakeRelative($(RootPath), %(SignableItems.FullPath)))</RelativePath>
