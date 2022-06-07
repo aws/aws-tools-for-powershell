@@ -5,7 +5,7 @@ param (
 
   [Parameter()]
   [string] $SdkArtifactsUri,
-    
+
   [Parameter()]
   [ValidateNotNullOrEmpty()]
   [string] $Version,
@@ -13,7 +13,7 @@ param (
   [Parameter()]
   [ValidateNotNullOrEmpty()]
   [string] $BuildType,
-  
+
   [Parameter()]
   [string] $Configuration = 'Release',
 
@@ -43,16 +43,16 @@ Write-Host "Repository path: $RepositoryPath"
 Push-Location
 try {
   Set-Location $RepositoryPath
-  
-  #Import S3 
+
+  #Import S3
   if (-not (Get-Module -ListAvailable -Name AWS.Tools.S3 | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
     Write-Host "Installing AWS.Tools.S3 $RequiredAWSPowerShellVersionToUse"
     Install-Module -Name AWS.Tools.S3 -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
   }
   Import-Module -Name AWS.Tools.S3 -RequiredVersion $RequiredAWSPowerShellVersionToUse
-  
+
   $BuildResult = $null
-      
+
   if ($BuildType -eq 'PREVIEW') {
     if ($SdkArtifactsUri) {
       $s3Uri = $null
@@ -63,25 +63,25 @@ try {
       elseif (-Not [Amazon.S3.Util.AmazonS3Uri]::TryParseAmazonS3Uri($SdkArtifactsUri, [ref] $s3Uri)) {
         Write-Host "Downloading $SdkArtifactsUri"
         Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk.zip
-      }      
+      }
       else {
         Write-Host "Downloading $($s3Uri.Bucket) $($s3Uri.Key)"
         Read-S3Object -BucketName $s3Uri.Bucket -Key $s3Uri.Key -File ./Include/sdk.zip
-      }    
+      }
 
       Write-Host "Extracting sdk.zip"
-      Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force      
+      Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
       Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
       Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
       Remove-Item ./Include/sdktmp -Recurse
     }
-    elseif ($Environment -eq "DEV") {      
+    elseif ($Environment -eq "DEV") {
       Write-Host "WARNING: running preview build without specific SDK artifacts."
     }
     else {
       throw "ERROR: Preview build is missing specific SDK artifacts."
     }
-    
+
     dotnet msbuild ./buildtools/build.proj /t:preview-build `
       /p:RunTests=$RunTests `
       /p:CleanSdkReferences=false `
@@ -99,15 +99,15 @@ try {
           break
         }
         catch {
-          if ($i -eq $maxHttpGetAttempts) {            
+          if ($i -eq $maxHttpGetAttempts) {
             throw "Error retrieving versions file. $_"
           }
           Write-Host "Error downloading versions file, waiting for retry. $_"
           Start-Sleep -Seconds 30
         }
       }
-    }    
-    elseif ($Environment -eq "DEV") {      
+    }
+    elseif ($Environment -eq "DEV") {
       Write-Host "WARNING: running release build without specific SDK artifacts."
     }
     else {
@@ -117,32 +117,32 @@ try {
     if ($RunAsStagingBuild -eq 'true') {
       msbuild ./buildtools/build.proj `
         /t:staging-build `
-        /p:Configuration=$Configuration        
+        /p:Configuration=$Configuration
     }
-    else {        
+    else {
       msbuild ./buildtools/build.proj `
         /t:full-build `
         /p:PatchNumber=$Version `
         /p:RunTests=$RunTests `
         /p:RunKeyScan=true `
         /p:Configuration=$Configuration `
-        /p:SignModule=$SignModules `
+        /p:SignModules=$SignModules `
         /p:DraftReleaseNotes=true `
         /p:SkipCmdletGeneration=false
     }
-    $BuildResult = $LASTEXITCODE  
+    $BuildResult = $LASTEXITCODE
   }
   else {
-    #DRY_RUN | PULL_REQUEST    
+    #DRY_RUN | PULL_REQUEST
     throw "DRY_RUN | PULL_REQUEST are not supported. Type: ${BuildType}"
   }
-  
-  if ($BuildResult -ne 0) {    
+
+  if ($BuildResult -ne 0) {
     throw "dotnet msbuild returned error $BuildResult"
   }
   else {
-    Write-Host "Build complete!"    
-  }    
+    Write-Host "Build complete!"
+  }
 }
 finally {
   Pop-Location
