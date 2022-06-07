@@ -121,6 +121,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCostAllocationTags" OutputProperty="CostAllocationTags" Verb="Get" Noun="CostAllocationTagList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCostCategoryDefinitions" OutputProperty="CostCategoryReferences" Verb="Get" Noun="CostCategoryDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
@@ -147,6 +151,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="Update" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCostAllocationTagsStatus" OutputProperty="Errors" Verb="Update" Noun="CostAllocationTagsStatus" ShouldProcessTarget="CostAllocationTagsStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

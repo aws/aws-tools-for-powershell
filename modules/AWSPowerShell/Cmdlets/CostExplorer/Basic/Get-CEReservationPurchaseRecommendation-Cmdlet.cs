@@ -28,9 +28,9 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Gets recommendations for which reservations to purchase. These recommendations could
-    /// help you reduce your costs. Reservations provide a discounted hourly rate (up to 75%)
-    /// compared to On-Demand pricing.
+    /// Gets recommendations for reservation purchases. These recommendations might help you
+    /// to reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared
+    /// to On-Demand pricing.
     /// 
     ///  
     /// <para>
@@ -38,16 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// during a specific time period and collecting your usage into categories that are eligible
     /// for a reservation. After Amazon Web Services has these categories, it simulates every
     /// combination of reservations in each category of usage to identify the best number
-    /// of each type of RI to purchase to maximize your estimated savings. 
+    /// of each type of Reserved Instance (RI) to purchase to maximize your estimated savings.
+    /// 
     /// </para><para>
     /// For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
     /// tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you
     /// buy size-flexible regional reservations to apply to the c4 family usage. Amazon Web
     /// Services recommends the smallest size instance in an instance family. This makes it
-    /// easier to purchase a size-flexible RI. Amazon Web Services also shows the equal number
-    /// of normalized units so that you can purchase any instance size that you want. For
-    /// this example, your RI recommendation would be for <code>c4.large</code> because that
-    /// is the smallest size instance in the c4 instance family.
+    /// easier to purchase a size-flexible Reserved Instance (RI). Amazon Web Services also
+    /// shows the equal number of normalized units. This way, you can purchase any instance
+    /// size that you want. For this example, your RI recommendation is for <code>c4.large</code>
+    /// because that is the smallest size instance in the c4 instance family.
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEReservationPurchaseRecommendation")]
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID that is associated with the recommendation. </para>
+        /// <para>The account ID that's associated with the recommendation. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,10 @@
-﻿### 4.1.99 (2022-06-06 21:01Z)
+﻿### 4.1.100 (2022-06-07 22:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.289.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CECostAllocationTagList leveraging the ListCostAllocationTags service API.
+    * Added cmdlet Update-CECostAllocationTagsStatus leveraging the UpdateCostAllocationTagsStatus service API.
+
+### 4.1.99 (2022-06-06 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.288.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Messaging
     * Added cmdlet Search-CHMMGChannel leveraging the SearchChannels service API.

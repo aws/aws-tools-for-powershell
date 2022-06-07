@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     ///  
     /// <para>
     /// Recommendations are generated to either downsize or terminate instances, along with
-    /// providing savings detail and metrics. For details on calculation and function, see
-    /// <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing
+    /// providing savings detail and metrics. For more information about calculation and function,
+    /// see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing
     /// Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management
     /// User Guide</i>.
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

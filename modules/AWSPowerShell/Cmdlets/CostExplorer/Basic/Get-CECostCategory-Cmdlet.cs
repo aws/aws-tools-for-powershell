@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SearchString
         /// <summary>
         /// <para>
-        /// <para>The value that you want to search the filter values for.</para><para>If you do not specify a <code>CostCategoryName</code>, <code>SearchString</code> will
-        /// be used to filter Cost Category names that match the <code>SearchString</code> pattern.
-        /// If you do specifiy a <code>CostCategoryName</code>, <code>SearchString</code> will
-        /// be used to filter Cost Category values that match the <code>SearchString</code> pattern.</para>
+        /// <para>The value that you want to search the filter values for.</para><para>If you don't specify a <code>CostCategoryName</code>, <code>SearchString</code> is
+        /// used to filter Cost Category names that match the <code>SearchString</code> pattern.
+        /// If you specify a <code>CostCategoryName</code>, <code>SearchString</code> is used
+        /// to filter Cost Category values that match the <code>SearchString</code> pattern.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The value by which you want to sort the data.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or <code>DESCENDING</code>.</para><para>When using <code>SortBy</code>, <code>NextPageToken</code> and <code>SearchString</code>
-        /// are not supported.</para>
+        /// <para>The value that you sort the data by.</para><para>The key represents the cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>The supported key values for the <code>SortOrder</code> value are <code>ASCENDING</code>
+        /// and <code>DESCENDING</code>.</para><para>When you use the <code>SortBy</code> value, the <code>NextPageToken</code> and <code>SearchString</code>
+        /// key values aren't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>This field is only used when <code>SortBy</code> is provided in the request.</para><para>The maximum number of objects that to be returned for this request. If <code>MaxResults</code>
-        /// is not specified with <code>SortBy</code>, the request will return 1000 results as
-        /// the default value for this parameter.</para><para>For <code>GetCostCategories</code>, MaxResults has an upper limit of 1000.</para>
+        /// <para>This field is only used when the <code>SortBy</code> value is provided in the request.</para><para>The maximum number of objects that are returned for this request. If <code>MaxResults</code>
+        /// isn't specified with the <code>SortBy</code> value, the request returns 1000 results
+        /// as the default value for this parameter.</para><para>For <code>GetCostCategories</code>, MaxResults has an upper quota of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>If the number of objects that are still available for retrieval exceeds the limit,
+        /// <para>If the number of objects that are still available for retrieval exceeds the quota,
         /// Amazon Web Services returns a NextPageToken value in the response. To retrieve the
-        /// next batch of objects, provide the NextPageToken from the prior call in your next
+        /// next batch of objects, provide the NextPageToken from the previous call in your next
         /// request.</para>
         /// </para>
         /// <para>

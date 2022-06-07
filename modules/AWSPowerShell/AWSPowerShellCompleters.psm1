@@ -5460,6 +5460,20 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.CostAllocationTagStatus
+        "Get-CECostAllocationTagList/Status"
+        {
+            $v = "Active","Inactive"
+            break
+        }
+
+        # Amazon.CostExplorer.CostAllocationTagType
+        "Get-CECostAllocationTagList/Type"
+        {
+            $v = "AWSGenerated","UserDefined"
+            break
+        }
+
         # Amazon.CostExplorer.CostCategoryRuleVersion
         {
             ($_ -eq "New-CECostCategoryDefinition/RuleVersion") -Or
@@ -5614,8 +5628,10 @@ $CE_map = @{
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
     "SortBy_SortOrder"=@("Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CESavingsPlansUtilizationDetail")
+    "Status"=@("Get-CECostAllocationTagList")
     "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "TotalImpact_NumericOperator"=@("Get-CEAnomaly")
+    "Type"=@("Get-CECostAllocationTagList")
 }
 
 _awsArgumentCompleterRegistration $CE_Completers $CE_map
@@ -5693,6 +5709,7 @@ $CE_SelectMap = @{
                "Get-CESavingsPlansUtilizationDetail",
                "Get-CETag",
                "Get-CEUsageForecast",
+               "Get-CECostAllocationTagList",
                "Get-CECostCategoryDefinitionList",
                "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",
@@ -5700,6 +5717,7 @@ $CE_SelectMap = @{
                "Remove-CEResourceTag",
                "Update-CEAnomalyMonitor",
                "Update-CEAnomalySubscription",
+               "Update-CECostAllocationTagsStatus",
                "Update-CECostCategoryDefinition")
 }
 

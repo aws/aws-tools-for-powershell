@@ -35,6 +35,29 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// The share request specifies a recipient and notifies them that a custom framework
     /// is available. Recipients have 120 days to accept or decline the request. If no action
     /// is taken, the share request expires.
+    /// </para><para>
+    /// When you create a share request, Audit Manager stores a snapshot of your custom framework
+    /// in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores
+    /// a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.
+    /// </para><para>
+    /// Audit Manager deletes the snapshot and the backup snapshot when one of the following
+    /// events occurs:
+    /// </para><ul><li><para>
+    /// The sender revokes the share request.
+    /// </para></li><li><para>
+    /// The recipient declines the share request.
+    /// </para></li><li><para>
+    /// The recipient encounters an error and doesn't successfully accept the share request.
+    /// </para></li><li><para>
+    /// The share request expires before the recipient responds to the request.
+    /// </para></li></ul><para>
+    /// When a sender <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend">resends
+    /// a share request</a>, the snapshot is replaced with an updated version that corresponds
+    /// with the latest version of the custom framework. 
+    /// </para><para>
+    /// When a recipient accepts a share request, the snapshot is replicated into their Amazon
+    /// Web Services account under the Amazon Web Services Region that was specified in the
+    /// share request. 
     /// </para><important><para>
     /// When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about
     /// to share a custom framework with another Amazon Web Services account. You may not

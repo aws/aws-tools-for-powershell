@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// 
     ///  <note><para>
     /// This is an opt-in only feature. You can enable this feature from the Cost Explorer
-    /// Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
+    /// Settings page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
     /// Access for Cost Explorer</a> in the <i>Billing and Cost Management User Guide</i>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// and <code>UsageQuantity</code>. </para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
         /// numbers without taking the units into account. For example, if you aggregate <code>usageQuantity</code>
         /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
-        /// hours and data transfer are measured in different units (for example, hours vs. GB).
+        /// hours and data transfer are measured in different units (for example, hour or GB).
         /// To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code>
         /// or <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsageWithResources</code> requests.</para>
         /// </para>

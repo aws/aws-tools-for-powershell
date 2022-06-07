@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter CostCategoryArn
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for your Cost Category. </para>
+        /// <para>The unique identifier for your Cost Category. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

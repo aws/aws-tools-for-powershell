@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// to determine the possible dimension values.
     /// 
     ///  <note><para>
-    /// You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.
+    /// You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilization")]

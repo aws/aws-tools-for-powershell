@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CEAnomaly', 
         'Get-CEAnomalyMonitor', 
         'Get-CEAnomalySubscription', 
+        'Get-CECostAllocationTagList', 
         'Get-CECostAndUsage', 
         'Get-CECostAndUsageWithResource', 
         'Get-CECostCategory', 
@@ -118,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Set-CEAnomalyFeedback', 
         'Update-CEAnomalyMonitor', 
         'Update-CEAnomalySubscription', 
+        'Update-CECostAllocationTagsStatus', 
         'Update-CECostCategoryDefinition')
 
     # Variables to export from this module

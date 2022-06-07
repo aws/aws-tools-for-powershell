@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of the in-scope Amazon Web Services services for the specified assessment.
+    /// Returns a list of the in-scope Amazon Web Services for the specified assessment.
     /// </summary>
     [Cmdlet("Get", "AUDMServiceInScope")]
     [OutputType("Amazon.AuditManager.Model.ServiceMetadata")]

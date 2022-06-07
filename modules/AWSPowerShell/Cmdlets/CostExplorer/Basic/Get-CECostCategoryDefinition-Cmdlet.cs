@@ -28,15 +28,15 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's
-    /// defined in the account.
+    /// Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates
+    /// of a Cost Category that's defined in the account.
     /// 
     ///  
     /// <para>
-    /// You have the option to use <code>EffectiveOn</code> to return a Cost Category that
-    /// is active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll
-    /// see a Cost Category that is effective on the current date. If Cost Category is still
-    /// effective, <code>EffectiveEnd</code> is omitted in the response. 
+    /// You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
+    /// active on a specific date. If there's no <code>EffectiveOn</code> specified, you see
+    /// a Cost Category that's effective on the current date. If Cost Category is still effective,
+    /// <code>EffectiveEnd</code> is omitted in the response. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CECostCategoryDefinition")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter CostCategoryArn
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for your Cost Category. </para>
+        /// <para>The unique identifier for your Cost Category. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter EffectiveOn
         /// <summary>
         /// <para>
-        /// <para> The date when the Cost Category was effective. </para>
+        /// <para>The date when the Cost Category was effective. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
