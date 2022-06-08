@@ -1,4 +1,29 @@
-﻿### 4.1.100 (2022-06-07 22:12Z)
+﻿### 4.1.101 (2022-06-08 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.290.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Database Migration Service
+    * Added cmdlet Get-DMSFleetAdvisorCollector leveraging the DescribeFleetAdvisorCollectors service API.
+    * Added cmdlet Get-DMSFleetAdvisorDatabase leveraging the DescribeFleetAdvisorDatabases service API.
+    * Added cmdlet Get-DMSFleetAdvisorLsaAnalysis leveraging the DescribeFleetAdvisorLsaAnalysis service API.
+    * Added cmdlet Get-DMSFleetAdvisorSchema leveraging the DescribeFleetAdvisorSchemas service API.
+    * Added cmdlet Get-DMSFleetAdvisorSchemaObjectSummary leveraging the DescribeFleetAdvisorSchemaObjectSummary service API.
+    * Added cmdlet New-DMSFleetAdvisorCollector leveraging the CreateFleetAdvisorCollector service API.
+    * Added cmdlet Remove-DMSFleetAdvisorCollector leveraging the DeleteFleetAdvisorCollector service API.
+    * Added cmdlet Remove-DMSFleetAdvisorDatabaseId leveraging the DeleteFleetAdvisorDatabases service API.
+    * Added cmdlet Start-DMSFleetAdvisorLsaAnalysis leveraging the RunFleetAdvisorLsaAnalysis service API.
+  * Amazon M2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AMM and can be listed using the command 'Get-AWSCmdletName -Service AMM'.
+  * Amazon Neptune
+    * Added cmdlet Edit-NPTGlobalCluster leveraging the ModifyGlobalCluster service API.
+    * Added cmdlet Edit-NPTGlobalClusterPrimary leveraging the FailoverGlobalCluster service API.
+    * Added cmdlet Get-NPTGlobalCluster leveraging the DescribeGlobalClusters service API.
+    * Added cmdlet New-NPTGlobalCluster leveraging the CreateGlobalCluster service API.
+    * Added cmdlet Remove-NPTFromGlobalCluster leveraging the RemoveFromGlobalCluster service API.
+    * Added cmdlet Remove-NPTGlobalCluster leveraging the DeleteGlobalCluster service API.
+    * Modified cmdlet New-NPTDBCluster: added parameter GlobalClusterIdentifier.
+  * Amazon Redshift
+    * Added cmdlet Get-RSClusterCredentialsWithIAM leveraging the GetClusterCredentialsWithIAM service API.
+  * Amazon Redshift Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RSS and can be listed using the command 'Get-AWSCmdletName -Service RSS'.
+
+### 4.1.100 (2022-06-07 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.289.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cost Explorer
     * Added cmdlet Get-CECostAllocationTagList leveraging the ListCostAllocationTags service API.

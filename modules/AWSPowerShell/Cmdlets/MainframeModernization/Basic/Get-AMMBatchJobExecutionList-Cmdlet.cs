@@ -1,0 +1,318 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.MainframeModernization;
+using Amazon.MainframeModernization.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AMM
+{
+    /// <summary>
+    /// Lists historical, current, and scheduled batch job executions for a specific application.
+    /// </summary>
+    [Cmdlet("Get", "AMMBatchJobExecutionList")]
+    [OutputType("Amazon.MainframeModernization.Model.BatchJobExecutionSummary")]
+    [AWSCmdlet("Calls the M2 ListBatchJobExecutions API operation.", Operation = new[] {"ListBatchJobExecutions"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse))]
+    [AWSCmdletOutput("Amazon.MainframeModernization.Model.BatchJobExecutionSummary or Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse",
+        "This cmdlet returns a collection of Amazon.MainframeModernization.Model.BatchJobExecutionSummary objects.",
+        "The service call response (type Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class GetAMMBatchJobExecutionListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ApplicationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the application.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of each batch job execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExecutionIds")]
+        public System.String[] ExecutionId { get; set; }
+        #endregion
+        
+        #region Parameter JobName
+        /// <summary>
+        /// <para>
+        /// <para>The name of each batch job execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobName { get; set; }
+        #endregion
+        
+        #region Parameter StartedAfter
+        /// <summary>
+        /// <para>
+        /// <para>The time after which the batch job executions started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartedAfter { get; set; }
+        #endregion
+        
+        #region Parameter StartedBefore
+        /// <summary>
+        /// <para>
+        /// <para>The time before the batch job executions started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartedBefore { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the batch job executions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MainframeModernization.BatchJobExecutionStatus")]
+        public Amazon.MainframeModernization.BatchJobExecutionStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of batch job executions to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A pagination token to control the number of batch job executions displayed in the
+        /// list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BatchJobExecutions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse).
+        /// Specifying the name of a property of type Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "BatchJobExecutions";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse, GetAMMBatchJobExecutionListCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ApplicationId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplicationId = this.ApplicationId;
+            #if MODULAR
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.ExecutionId != null)
+            {
+                context.ExecutionId = new List<System.String>(this.ExecutionId);
+            }
+            context.JobName = this.JobName;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.StartedAfter = this.StartedAfter;
+            context.StartedBefore = this.StartedBefore;
+            context.Status = this.Status;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.MainframeModernization.Model.ListBatchJobExecutionsRequest();
+            
+            if (cmdletContext.ApplicationId != null)
+            {
+                request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.ExecutionId != null)
+            {
+                request.ExecutionIds = cmdletContext.ExecutionId;
+            }
+            if (cmdletContext.JobName != null)
+            {
+                request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.StartedAfter != null)
+            {
+                request.StartedAfter = cmdletContext.StartedAfter.Value;
+            }
+            if (cmdletContext.StartedBefore != null)
+            {
+                request.StartedBefore = cmdletContext.StartedBefore.Value;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse CallAWSServiceOperation(IAmazonMainframeModernization client, Amazon.MainframeModernization.Model.ListBatchJobExecutionsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "ListBatchJobExecutions");
+            try
+            {
+                #if DESKTOP
+                return client.ListBatchJobExecutions(request);
+                #elif CORECLR
+                return client.ListBatchJobExecutionsAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ApplicationId { get; set; }
+            public List<System.String> ExecutionId { get; set; }
+            public System.String JobName { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.DateTime? StartedAfter { get; set; }
+            public System.DateTime? StartedBefore { get; set; }
+            public Amazon.MainframeModernization.BatchJobExecutionStatus Status { get; set; }
+            public System.Func<Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse, GetAMMBatchJobExecutionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BatchJobExecutions;
+        }
+        
+    }
+}

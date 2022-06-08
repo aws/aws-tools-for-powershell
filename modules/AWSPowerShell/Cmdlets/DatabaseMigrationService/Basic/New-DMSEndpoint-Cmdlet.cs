@@ -707,7 +707,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The name of the endpoint database. For a MySQL source or target endpoint, do not specify
-        /// DatabaseName.</para>
+        /// DatabaseName. To migrate to a specific database, use this setting and <code>targetDbType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3222,7 +3222,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies where to migrate source tables on the target, either to a single database
-        /// or multiple databases.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
+        /// or multiple databases. If you specify <code>SPECIFIC_DATABASE</code>, specify the
+        /// database name using the <code>DatabaseName</code> parameter of the <code>Endpoint</code>
+        /// object.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

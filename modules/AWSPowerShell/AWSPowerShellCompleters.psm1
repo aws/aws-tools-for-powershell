@@ -14776,6 +14776,7 @@ $DMS_SelectMap = @{
                "Stop-DMSReplicationTaskAssessmentRun",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
+               "New-DMSFleetAdvisorCollector",
                "New-DMSReplicationInstance",
                "New-DMSReplicationSubnetGroup",
                "New-DMSReplicationTask",
@@ -14783,6 +14784,8 @@ $DMS_SelectMap = @{
                "Remove-DMSConnection",
                "Remove-DMSEndpoint",
                "Remove-DMSEventSubscription",
+               "Remove-DMSFleetAdvisorCollector",
+               "Remove-DMSFleetAdvisorDatabaseId",
                "Remove-DMSReplicationInstance",
                "Remove-DMSReplicationSubnetGroup",
                "Remove-DMSReplicationTask",
@@ -14797,6 +14800,11 @@ $DMS_SelectMap = @{
                "Get-DMSEventCategory",
                "Get-DMSEvent",
                "Get-DMSEventSubscription",
+               "Get-DMSFleetAdvisorCollector",
+               "Get-DMSFleetAdvisorDatabase",
+               "Get-DMSFleetAdvisorLsaAnalysis",
+               "Get-DMSFleetAdvisorSchemaObjectSummary",
+               "Get-DMSFleetAdvisorSchema",
                "Get-DMSOrderableReplicationInstance",
                "Get-DMSPendingMaintenanceAction",
                "Get-DMSRefreshSchemasStatus",
@@ -14821,6 +14829,7 @@ $DMS_SelectMap = @{
                "Invoke-DMSSchemaRefresh",
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
+               "Start-DMSFleetAdvisorLsaAnalysis",
                "Start-DMSReplicationTask",
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
@@ -31215,6 +31224,131 @@ $LFV_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $LFV_SelectCompleters $LFV_SelectMap
+# Argument completions for service M2
+
+
+$AMM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MainframeModernization.BatchJobExecutionStatus
+        "Get-AMMBatchJobExecutionList/Status"
+        {
+            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Running","Submitting","Succeeded","Succeeded With Warning"
+            break
+        }
+
+        # Amazon.MainframeModernization.EngineType
+        {
+            ($_ -eq "Get-AMMEngineVersionList/EngineType") -Or
+            ($_ -eq "Get-AMMEnvironmentList/EngineType") -Or
+            ($_ -eq "New-AMMApplication/EngineType") -Or
+            ($_ -eq "New-AMMEnvironment/EngineType")
+        }
+        {
+            $v = "bluage","microfocus"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AMM_map = @{
+    "EngineType"=@("Get-AMMEngineVersionList","Get-AMMEnvironmentList","New-AMMApplication","New-AMMEnvironment")
+    "Status"=@("Get-AMMBatchJobExecutionList")
+}
+
+_awsArgumentCompleterRegistration $AMM_Completers $AMM_map
+
+$AMM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AMM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AMM_SelectMap = @{
+    "Select"=@("Stop-AMMBatchJobExecution",
+               "New-AMMApplication",
+               "New-AMMDataSetImportTask",
+               "New-AMMDeployment",
+               "New-AMMEnvironment",
+               "Remove-AMMApplication",
+               "Remove-AMMApplicationFromEnvironment",
+               "Remove-AMMEnvironment",
+               "Get-AMMApplication",
+               "Get-AMMApplicationVersion",
+               "Get-AMMBatchJobExecution",
+               "Get-AMMDataSetDetail",
+               "Get-AMMDataSetImportTask",
+               "Get-AMMDeployment",
+               "Get-AMMEnvironment",
+               "Get-AMMApplicationList",
+               "Get-AMMApplicationVersionList",
+               "Get-AMMBatchJobDefinitionList",
+               "Get-AMMBatchJobExecutionList",
+               "Get-AMMDataSetImportHistoryList",
+               "Get-AMMDataSetList",
+               "Get-AMMDeploymentList",
+               "Get-AMMEngineVersionList",
+               "Get-AMMEnvironmentList",
+               "Get-AMMResourceTag",
+               "Start-AMMApplication",
+               "Start-AMMBatchJob",
+               "Stop-AMMApplication",
+               "Add-AMMResourceTag",
+               "Remove-AMMResourceTag",
+               "Update-AMMApplication",
+               "Update-AMMEnvironment")
+}
+
+_awsArgumentCompleterRegistration $AMM_SelectCompleters $AMM_SelectMap
 # Argument completions for service Amazon Machine Learning
 
 
@@ -35162,6 +35296,7 @@ $NPT_SelectMap = @{
                "New-NPTDBParameterGroup",
                "New-NPTDBSubnetGroup",
                "New-NPTEventSubscription",
+               "New-NPTGlobalCluster",
                "Remove-NPTDBCluster",
                "Remove-NPTDBClusterEndpoint",
                "Remove-NPTDBClusterParameterGroup",
@@ -35170,6 +35305,7 @@ $NPT_SelectMap = @{
                "Remove-NPTDBParameterGroup",
                "Remove-NPTDBSubnetGroup",
                "Remove-NPTEventSubscription",
+               "Remove-NPTGlobalCluster",
                "Get-NPTDBClusterEndpoint",
                "Get-NPTDBClusterParameterGroup",
                "Get-NPTDBClusterParameter",
@@ -35186,10 +35322,12 @@ $NPT_SelectMap = @{
                "Get-NPTEventCategory",
                "Get-NPTEvent",
                "Get-NPTEventSubscription",
+               "Get-NPTGlobalCluster",
                "Get-NPTOrderableDBInstanceOption",
                "Get-NPTPendingMaintenanceAction",
                "Get-NPTValidDBInstanceModification",
                "Start-NPTDBClusterFailover",
+               "Edit-NPTGlobalClusterPrimary",
                "Get-NPTResourceTagList",
                "Edit-NPTDBCluster",
                "Edit-NPTDBClusterEndpoint",
@@ -35199,8 +35337,10 @@ $NPT_SelectMap = @{
                "Edit-NPTDBParameterGroup",
                "Edit-NPTDBSubnetGroup",
                "Edit-NPTEventSubscription",
+               "Edit-NPTGlobalCluster",
                "Convert-NPTReadReplicaDBCluster",
                "Restart-NPTDBInstance",
+               "Remove-NPTFromGlobalCluster",
                "Remove-NPTRoleFromDBCluster",
                "Remove-NPTSourceIdentifierFromSubscription",
                "Remove-NPTResourceTag",
@@ -39872,6 +40012,7 @@ $RS_SelectMap = @{
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
+               "Get-RSClusterCredentialsWithIAM",
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Edit-RSAquaConfiguration",
@@ -39997,6 +40138,145 @@ $RSD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $RSD_SelectCompleters $RSD_SelectMap
+# Argument completions for service Amazon Redshift Serverless
+
+
+$RSS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.RedshiftServerless.UsageLimitBreachAction
+        {
+            ($_ -eq "New-RSSUsageLimit/BreachAction") -Or
+            ($_ -eq "Update-RSSUsageLimit/BreachAction")
+        }
+        {
+            $v = "deactivate","emit-metric","log"
+            break
+        }
+
+        # Amazon.RedshiftServerless.UsageLimitPeriod
+        "New-RSSUsageLimit/Period"
+        {
+            $v = "daily","monthly","weekly"
+            break
+        }
+
+        # Amazon.RedshiftServerless.UsageLimitUsageType
+        {
+            ($_ -eq "Get-RSSUsageLimitList/UsageType") -Or
+            ($_ -eq "New-RSSUsageLimit/UsageType")
+        }
+        {
+            $v = "cross-region-datasharing","serverless-compute"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RSS_map = @{
+    "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
+    "Period"=@("New-RSSUsageLimit")
+    "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
+}
+
+_awsArgumentCompleterRegistration $RSS_Completers $RSS_map
+
+$RSS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RSS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RSS_SelectMap = @{
+    "Select"=@("Convert-RSSRecoveryPointToSnapshot",
+               "New-RSSEndpointAccess",
+               "New-RSSNamespace",
+               "New-RSSSnapshot",
+               "New-RSSUsageLimit",
+               "New-RSSWorkgroup",
+               "Remove-RSSEndpointAccess",
+               "Remove-RSSNamespace",
+               "Remove-RSSResourcePolicy",
+               "Remove-RSSSnapshot",
+               "Remove-RSSUsageLimit",
+               "Remove-RSSWorkgroup",
+               "Get-RSSCredential",
+               "Get-RSSEndpointAccess",
+               "Get-RSSNamespace",
+               "Get-RSSRecoveryPoint",
+               "Get-RSSResourcePolicy",
+               "Get-RSSSnapshot",
+               "Get-RSSUsageLimit",
+               "Get-RSSWorkgroup",
+               "Get-RSSEndpointAccessList",
+               "Get-RSSNamespaceList",
+               "Get-RSSRecoveryPointList",
+               "Get-RSSSnapshotList",
+               "Get-RSSResourceTag",
+               "Get-RSSUsageLimitList",
+               "Get-RSSWorkgroupList",
+               "Write-RSSResourcePolicy",
+               "Restore-RSSFromRecoveryPoint",
+               "Restore-RSSFromSnapshot",
+               "Add-RSSResourceTag",
+               "Remove-RSSResourceTag",
+               "Update-RSSEndpointAccess",
+               "Update-RSSNamespace",
+               "Update-RSSSnapshot",
+               "Update-RSSUsageLimit",
+               "Update-RSSWorkgroup")
+}
+
+_awsArgumentCompleterRegistration $RSS_SelectCompleters $RSS_SelectMap
 # Argument completions for service Amazon Rekognition
 
 

@@ -204,6 +204,16 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter GlobalClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Neptune global database to which this new DB cluster should be added.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GlobalClusterIdentifier { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -448,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             }
             #endif
             context.EngineVersion = this.EngineVersion;
+            context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -537,6 +548,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.GlobalClusterIdentifier != null)
+            {
+                request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -661,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String GlobalClusterIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }

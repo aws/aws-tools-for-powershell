@@ -41,6 +41,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleetAdvisorCollector" OutputProperty="CollectorReferencedId" Verb="New" Noun="FleetAdvisorCollector" ShouldProcessTarget="CollectorName" PipelineParameter="CollectorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationInstance" OutputProperty="ReplicationInstance" Verb="New" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceIdentifier" PipelineParameter="ReplicationInstanceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -66,6 +70,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleetAdvisorCollector" Verb="Remove" Noun="FleetAdvisorCollector" ShouldProcessTarget="CollectorReferencedId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleetAdvisorDatabases" OutputProperty="DatabaseIds" Verb="Remove" Noun="FleetAdvisorDatabaseId" ShouldProcessTarget="DatabaseIds" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -122,6 +134,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAdvisorCollectors" OutputProperty="Collectors" Verb="Get" Noun="FleetAdvisorCollector" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAdvisorDatabases" OutputProperty="Databases" Verb="Get" Noun="FleetAdvisorDatabase" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAdvisorLsaAnalysis" OutputProperty="Analysis" Verb="Get" Noun="FleetAdvisorLsaAnalysis" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAdvisorSchemaObjectSummary" OutputProperty="FleetAdvisorSchemaObjects" Verb="Get" Noun="FleetAdvisorSchemaObjectSummary" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAdvisorSchemas" OutputProperty="FleetAdvisorSchemas" Verb="Get" Noun="FleetAdvisorSchema" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -218,6 +250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunFleetAdvisorLsaAnalysis" OutputProperty="LsaAnalysisId" Verb="Start" Noun="FleetAdvisorLsaAnalysis" PipelineParameter="LsaAnalysisId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

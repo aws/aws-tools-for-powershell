@@ -338,6 +338,7 @@ $RS_SelectMap = @{
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
+               "Get-RSClusterCredentialsWithIAM",
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Edit-RSAquaConfiguration",

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the cluster that contains the database for which your are
+        /// <para>The unique identifier of the cluster that contains the database for which you are
         /// requesting credentials. This parameter is case sensitive.</para>
         /// </para>
         /// </summary>

@@ -607,6 +607,9 @@
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Macie2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MainframeModernization">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MainframeModernization.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
@@ -762,6 +765,9 @@
     </Reference>
     <Reference Include="AWSSDK.RedshiftDataAPIService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftDataAPIService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RedshiftServerless">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
@@ -1506,6 +1512,9 @@
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MainframeModernization">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MainframeModernization.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
@@ -1661,6 +1670,9 @@
     </Reference>
     <Reference Include="AWSSDK.RedshiftDataAPIService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RedshiftDataAPIService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RedshiftServerless">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RedshiftServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Rekognition.dll</HintPath>
