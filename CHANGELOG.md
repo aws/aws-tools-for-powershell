@@ -1,4 +1,7 @@
-﻿### 4.1.101 (2022-06-08 22:07Z)
+﻿### 4.1.102 (2022-06-09 22:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.291.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.101 (2022-06-08 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.290.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Database Migration Service
     * Added cmdlet Get-DMSFleetAdvisorCollector leveraging the DescribeFleetAdvisorCollectors service API.

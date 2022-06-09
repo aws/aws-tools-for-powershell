@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.290.0",
+    "ProductVersion" : "3.7.291.0",
     "CoreVersion"    : "3.7.11.14",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -2290,7 +2290,7 @@
             "InPreview"               : false
         },
         "ChimeSDKMeetings"                : {
-            "Version" : "3.7.7.3",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.14"
