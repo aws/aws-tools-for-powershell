@@ -111,7 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter PredictionTimestamp
         /// <summary>
         /// <para>
-        /// <para> The timestamp that defines when the prediction was generated. </para>
+        /// <para> The timestamp that defines when the prediction was generated. The timestamp must
+        /// be specified using ISO 8601 standard in UTC.</para><para>We recommend calling <a href="https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html">ListEventPredictions</a>
+        /// first, and using the <code>predictionTimestamp</code> value in the response to provide
+        /// an accurate prediction timestamp value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

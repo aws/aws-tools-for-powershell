@@ -28,7 +28,8 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Deletes data that was batch imported to Amazon Fraud Detector.
+    /// Deletes the specified batch import job ID record. This action does not delete the
+    /// data that was batch imported.
     /// </summary>
     [Cmdlet("Remove", "FDBatchImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
