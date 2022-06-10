@@ -24,7 +24,6 @@
     * Modified cmdlet New-NPTDBCluster: added parameter GlobalClusterIdentifier.
   * Amazon Redshift
     * Added cmdlet Get-RSClusterCredentialsWithIAM leveraging the GetClusterCredentialsWithIAM service API.
-  * Amazon Redshift Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RSS and can be listed using the command 'Get-AWSCmdletName -Service RSS'.
 
 ### 4.1.100 (2022-06-07 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.289.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.

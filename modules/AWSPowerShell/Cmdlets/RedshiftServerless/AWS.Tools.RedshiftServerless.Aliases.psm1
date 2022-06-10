@@ -1,3 +1,0 @@
-﻿# RedshiftServerless
-
-Export-ModuleMember -Alias *

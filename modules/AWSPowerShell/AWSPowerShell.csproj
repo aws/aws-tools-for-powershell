@@ -766,9 +766,6 @@
     <Reference Include="AWSSDK.RedshiftDataAPIService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftDataAPIService.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.RedshiftServerless">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftServerless.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
@@ -1670,9 +1667,6 @@
     </Reference>
     <Reference Include="AWSSDK.RedshiftDataAPIService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RedshiftDataAPIService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.RedshiftServerless">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RedshiftServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Rekognition.dll</HintPath>

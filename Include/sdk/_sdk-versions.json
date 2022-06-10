@@ -2464,14 +2464,6 @@
                 "Core" : "3.7.11.14"
             },
             "InPreview"               : false
-        },
-        "RedshiftServerless"                  : {
-            "Version" : "3.7.0.0",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.11.14"
-            },
-            "InPreview"               : false
         }
     }
 }

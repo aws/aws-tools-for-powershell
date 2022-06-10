@@ -161,7 +161,8 @@ namespace AWSPowerShellGenerator.Utils
                 .Select(fullFilename => Path.GetFileNameWithoutExtension(fullFilename).Substring("AWSSDK.".Length));
             var distinctAssemblyFilenames = foundNet45SdkFilenames.Union(foundNetstandard20SdkFilenames)
                 .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
-                    && !name.Equals("Core", StringComparison.OrdinalIgnoreCase) && !name.Equals("EMRServerlessWebService", StringComparison.OrdinalIgnoreCase));
+                    && !name.Equals("Core", StringComparison.OrdinalIgnoreCase)
+                    && !name.Equals("RedshiftServerless", StringComparison.OrdinalIgnoreCase));
 
             return distinctAssemblyFilenames;
         }
