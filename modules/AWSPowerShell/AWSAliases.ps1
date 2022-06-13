@@ -15899,6 +15899,7 @@ Set-Alias -Name OUTP-DeleteOutpost -Value Remove-OUTPOutpost
 Set-Alias -Name Delete-OUTPSite -Value Remove-OUTPSite
 Set-Alias -Name OUTP-DeleteSite -Value Remove-OUTPSite
 Set-Alias -Name OUTP-GetCatalogItem -Value Get-OUTPCatalogItem
+Set-Alias -Name OUTP-GetConnection -Value Get-OUTPConnection
 Set-Alias -Name OUTP-GetOrder -Value Get-OUTPOrder
 Set-Alias -Name OUTP-GetOutpost -Value Get-OUTPOutpost
 Set-Alias -Name Get-OUTPOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
@@ -15921,6 +15922,7 @@ Set-Alias -Name List-OUTPSites -Value Get-OUTPSiteList
 Set-Alias -Name List-OUTPSiteList -Value Get-OUTPSiteList
 Set-Alias -Name OUTP-ListSites -Value Get-OUTPSiteList
 Set-Alias -Name OUTP-ListTagsForResource -Value Get-OUTPResourceTag
+Set-Alias -Name OUTP-StartConnection -Value Start-OUTPConnection
 Set-Alias -Name OUTP-TagResource -Value Add-OUTPResourceTag
 Set-Alias -Name OUTP-UntagResource -Value Remove-OUTPResourceTag
 Set-Alias -Name OUTP-UpdateOutpost -Value Update-OUTPOutpost

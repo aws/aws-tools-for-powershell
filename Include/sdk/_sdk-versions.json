@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.291.1",
+    "ProductVersion" : "3.7.292.0",
     "CoreVersion"    : "3.7.11.15",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1714,7 +1714,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.8.21",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.11.15"

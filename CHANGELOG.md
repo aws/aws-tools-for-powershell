@@ -1,4 +1,10 @@
-﻿### 4.1.103 (2022-06-10 20:52Z)
+﻿### 4.1.104 (2022-06-13 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.292.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPConnection leveraging the GetConnection service API.
+    * Added cmdlet Start-OUTPConnection leveraging the StartConnection service API.
+
+### 4.1.103 (2022-06-10 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.291.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * [Breaking Change] Removed support for Amazon Redshift Serverless
 

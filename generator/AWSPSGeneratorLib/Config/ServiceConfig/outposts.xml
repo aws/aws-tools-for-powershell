@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOrder" OutputProperty="Order" Verb="Get" Noun="Order" PipelineParameter="OrderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConnection" OutputProperty="*" Verb="Start" Noun="Connection" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
