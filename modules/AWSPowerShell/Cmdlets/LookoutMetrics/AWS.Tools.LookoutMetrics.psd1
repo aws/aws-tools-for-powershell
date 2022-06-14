@@ -111,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LOMAlert', 
         'Remove-LOMAnomalyDetector', 
         'Remove-LOMResourceTag', 
+        'Update-LOMAlert', 
         'Update-LOMAnomalyDetector', 
         'Update-LOMMetricSet', 
         'Write-LOMFeedback')

@@ -1,4 +1,10 @@
-﻿### 4.1.104 (2022-06-13 20:52Z)
+﻿### 4.1.105 (2022-06-14 20:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.294.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Lookout for Metrics
+    * Added cmdlet Update-LOMAlert leveraging the UpdateAlert service API.
+    * Modified cmdlet New-LOMAlert: added parameters AlertFilters_DimensionFilterList and AlertFilters_MetricList.
+
+### 4.1.104 (2022-06-13 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.292.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Outposts
     * Added cmdlet Get-OUTPConnection leveraging the GetConnection service API.

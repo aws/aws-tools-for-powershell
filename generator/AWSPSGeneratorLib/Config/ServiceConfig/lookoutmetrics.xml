@@ -128,6 +128,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlert" OutputProperty="AlertArn" Verb="Update" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="Update" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

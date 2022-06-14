@@ -13743,6 +13743,7 @@ Set-Alias -Name Put-LOMFeedback -Value Write-LOMFeedback
 Set-Alias -Name LOM-PutFeedback -Value Write-LOMFeedback
 Set-Alias -Name LOM-TagResource -Value Add-LOMResourceTag
 Set-Alias -Name LOM-UntagResource -Value Remove-LOMResourceTag
+Set-Alias -Name LOM-UpdateAlert -Value Update-LOMAlert
 Set-Alias -Name LOM-UpdateAnomalyDetector -Value Update-LOMAnomalyDetector
 Set-Alias -Name LOM-UpdateMetricSet -Value Update-LOMMetricSet
 Set-Alias -Name Create-LFVDataset -Value New-LFVDataset

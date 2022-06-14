@@ -28,17 +28,34 @@ using Amazon.LookoutMetrics.Model;
 namespace Amazon.PowerShell.Cmdlets.LOM
 {
     /// <summary>
-    /// Creates an alert for an anomaly detector.
+    /// Make changes to an existing alert.
     /// </summary>
-    [Cmdlet("New", "LOMAlert", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "LOMAlert", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Lookout for Metrics CreateAlert API operation.", Operation = new[] {"CreateAlert"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.CreateAlertResponse))]
-    [AWSCmdletOutput("System.String or Amazon.LookoutMetrics.Model.CreateAlertResponse",
+    [AWSCmdlet("Calls the Amazon Lookout for Metrics UpdateAlert API operation.", Operation = new[] {"UpdateAlert"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.UpdateAlertResponse))]
+    [AWSCmdletOutput("System.String or Amazon.LookoutMetrics.Model.UpdateAlertResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LookoutMetrics.Model.CreateAlertResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutMetrics.Model.UpdateAlertResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewLOMAlertCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
+    public partial class UpdateLOMAlertCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlertArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the alert to update.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AlertArn { get; set; }
+        #endregion
         
         #region Parameter AlertDescription
         /// <summary>
@@ -50,23 +67,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String AlertDescription { get; set; }
         #endregion
         
-        #region Parameter AlertName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the alert.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AlertName { get; set; }
-        #endregion
-        
         #region Parameter AlertSensitivityThreshold
         /// <summary>
         /// <para>
@@ -75,23 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? AlertSensitivityThreshold { get; set; }
-        #endregion
-        
-        #region Parameter AnomalyDetectorArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the detector to which the alert is attached.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AnomalyDetectorArn { get; set; }
         #endregion
         
         #region Parameter AlertFilters_DimensionFilterList
@@ -173,23 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String SNSConfiguration_SnsTopicArn { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>
-        /// to apply to the alert.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AlertArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LookoutMetrics.Model.CreateAlertResponse).
-        /// Specifying the name of a property of type Amazon.LookoutMetrics.Model.CreateAlertResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LookoutMetrics.Model.UpdateAlertResponse).
+        /// Specifying the name of a property of type Amazon.LookoutMetrics.Model.UpdateAlertResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,10 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AnomalyDetectorArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AlertArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AlertArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AlertArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -220,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AlertName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-LOMAlert (CreateAlert)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AlertArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-LOMAlert (UpdateAlert)"))
             {
                 return;
             }
@@ -234,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LookoutMetrics.Model.CreateAlertResponse, NewLOMAlertCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LookoutMetrics.Model.UpdateAlertResponse, UpdateLOMAlertCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -243,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AnomalyDetectorArn;
+                context.Select = (response, cmdlet) => this.AlertArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.LambdaConfiguration_LambdaArn = this.LambdaConfiguration_LambdaArn;
@@ -251,6 +222,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             context.SNSConfiguration_RoleArn = this.SNSConfiguration_RoleArn;
             context.SNSConfiguration_SnsFormat = this.SNSConfiguration_SnsFormat;
             context.SNSConfiguration_SnsTopicArn = this.SNSConfiguration_SnsTopicArn;
+            context.AlertArn = this.AlertArn;
+            #if MODULAR
+            if (this.AlertArn == null && ParameterWasBound(nameof(this.AlertArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AlertArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.AlertDescription = this.AlertDescription;
             if (this.AlertFilters_DimensionFilterList != null)
             {
@@ -260,29 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             {
                 context.AlertFilters_MetricList = new List<System.String>(this.AlertFilters_MetricList);
             }
-            context.AlertName = this.AlertName;
-            #if MODULAR
-            if (this.AlertName == null && ParameterWasBound(nameof(this.AlertName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AlertName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AlertSensitivityThreshold = this.AlertSensitivityThreshold;
-            context.AnomalyDetectorArn = this.AnomalyDetectorArn;
-            #if MODULAR
-            if (this.AnomalyDetectorArn == null && ParameterWasBound(nameof(this.AnomalyDetectorArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AnomalyDetectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -297,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LookoutMetrics.Model.CreateAlertRequest();
+            var request = new Amazon.LookoutMetrics.Model.UpdateAlertRequest();
             
             
              // populate Action
@@ -388,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             {
                 request.Action = null;
             }
+            if (cmdletContext.AlertArn != null)
+            {
+                request.AlertArn = cmdletContext.AlertArn;
+            }
             if (cmdletContext.AlertDescription != null)
             {
                 request.AlertDescription = cmdletContext.AlertDescription;
@@ -421,21 +381,9 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             {
                 request.AlertFilters = null;
             }
-            if (cmdletContext.AlertName != null)
-            {
-                request.AlertName = cmdletContext.AlertName;
-            }
             if (cmdletContext.AlertSensitivityThreshold != null)
             {
                 request.AlertSensitivityThreshold = cmdletContext.AlertSensitivityThreshold.Value;
-            }
-            if (cmdletContext.AnomalyDetectorArn != null)
-            {
-                request.AnomalyDetectorArn = cmdletContext.AnomalyDetectorArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -470,15 +418,15 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         
         #region AWS Service Operation Call
         
-        private Amazon.LookoutMetrics.Model.CreateAlertResponse CallAWSServiceOperation(IAmazonLookoutMetrics client, Amazon.LookoutMetrics.Model.CreateAlertRequest request)
+        private Amazon.LookoutMetrics.Model.UpdateAlertResponse CallAWSServiceOperation(IAmazonLookoutMetrics client, Amazon.LookoutMetrics.Model.UpdateAlertRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Metrics", "CreateAlert");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Metrics", "UpdateAlert");
             try
             {
                 #if DESKTOP
-                return client.CreateAlert(request);
+                return client.UpdateAlert(request);
                 #elif CORECLR
-                return client.CreateAlertAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAlertAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -503,14 +451,12 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             public System.String SNSConfiguration_RoleArn { get; set; }
             public Amazon.LookoutMetrics.SnsFormat SNSConfiguration_SnsFormat { get; set; }
             public System.String SNSConfiguration_SnsTopicArn { get; set; }
+            public System.String AlertArn { get; set; }
             public System.String AlertDescription { get; set; }
             public List<Amazon.LookoutMetrics.Model.DimensionFilter> AlertFilters_DimensionFilterList { get; set; }
             public List<System.String> AlertFilters_MetricList { get; set; }
-            public System.String AlertName { get; set; }
             public System.Int32? AlertSensitivityThreshold { get; set; }
-            public System.String AnomalyDetectorArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.LookoutMetrics.Model.CreateAlertResponse, NewLOMAlertCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LookoutMetrics.Model.UpdateAlertResponse, UpdateLOMAlertCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AlertArn;
         }
         
