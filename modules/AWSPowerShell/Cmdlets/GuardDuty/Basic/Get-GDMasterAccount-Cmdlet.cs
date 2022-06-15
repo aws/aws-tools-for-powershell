@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Provides the details for the GuardDuty administrator account associated with the current
-    /// GuardDuty member account.
+    /// GuardDuty member account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "GDMasterAccount")]
     [OutputType("Amazon.GuardDuty.Model.Master")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         "This cmdlet returns an Amazon.GuardDuty.Model.Master object.",
         "The service call response (type Amazon.GuardDuty.Model.GetMasterAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use GetAdministratorAccount instead")]
     public partial class GetGDMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         

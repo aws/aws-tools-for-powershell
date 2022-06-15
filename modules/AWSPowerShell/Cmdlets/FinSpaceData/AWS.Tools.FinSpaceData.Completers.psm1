@@ -198,7 +198,8 @@ $FNSP_SelectCompleters = {
 }
 
 $FNSP_SelectMap = @{
-    "Select"=@("New-FNSPChangeset",
+    "Select"=@("Add-FNSPUserToPermissionGroup",
+               "New-FNSPChangeset",
                "New-FNSPDataset",
                "New-FNSPDataView",
                "New-FNSPPermissionGroup",
@@ -206,10 +207,12 @@ $FNSP_SelectMap = @{
                "Remove-FNSPDataset",
                "Remove-FNSPPermissionGroup",
                "Disable-FNSPUser",
+               "Remove-FNSPUserFromPermissionGroup",
                "Enable-FNSPUser",
                "Get-FNSPChangeset",
                "Get-FNSPDataset",
                "Get-FNSPDataView",
+               "Get-FNSPPermissionGroup",
                "Get-FNSPProgrammaticAccessCredential",
                "Get-FNSPUser",
                "Get-FNSPWorkingLocation",
@@ -217,7 +220,9 @@ $FNSP_SelectMap = @{
                "Get-FNSPDatasetList",
                "Get-FNSPDataViewList",
                "Get-FNSPPermissionGroupList",
+               "Get-FNSPPermissionGroupsByUserList",
                "Get-FNSPUserList",
+               "Get-FNSPUsersByPermissionGroupList",
                "Reset-FNSPUserPassword",
                "Update-FNSPChangeset",
                "Update-FNSPDataset",

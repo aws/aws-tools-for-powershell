@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttributeGroupsForApplication" OutputProperty="AttributeGroupsDetails" Verb="Get" Noun="AttributeGroupsForApplicationList" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

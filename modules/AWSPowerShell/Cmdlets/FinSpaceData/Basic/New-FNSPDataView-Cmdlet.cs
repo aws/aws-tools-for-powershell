@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormat
         /// <summary>
         /// <para>
-        /// <para>Data view export file format.</para><ul><li><para><code>PARQUET</code> – Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> – Delimited text export file format.</para></li></ul>
+        /// <para>Dataview export file format.</para><ul><li><para><code>PARQUET</code> – Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> – Delimited text export file format.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

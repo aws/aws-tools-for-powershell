@@ -82,8 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The new name of the attribute group. The name must be unique in the region in which
-        /// you are updating the attribute group.</para>
+        /// <para>Deprecated: The new name of the attribute group. The name must be unique in the region
+        /// in which you are updating the attribute group. Please do not use this field as we
+        /// have stopped supporting name updates.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

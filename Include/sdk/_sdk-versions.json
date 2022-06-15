@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.294.0",
+    "ProductVersion" : "3.7.295.0",
     "CoreVersion"    : "3.7.12.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -386,7 +386,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.6.14",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.0"
@@ -914,7 +914,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.2.55",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.0"
@@ -1882,7 +1882,7 @@
             "InPreview"               : false
         },
         "AppRegistry"                     : {
-            "Version" : "3.7.2.42",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.0"
@@ -2114,7 +2114,7 @@
             "InPreview"               : false
         },
         "FinSpaceData"                    : {
-            "Version" : "3.7.3.43",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.0"

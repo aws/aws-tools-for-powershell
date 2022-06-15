@@ -28,22 +28,23 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Updates an existing application with new attributes.
+    /// Lists the details of all attribute groups associated with a specific application.
+    /// The results display in pages.
     /// </summary>
-    [Cmdlet("Update", "SCARApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppRegistry.Model.Application")]
-    [AWSCmdlet("Calls the AWS Service Catalog App Registry UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.UpdateApplicationResponse))]
-    [AWSCmdletOutput("Amazon.AppRegistry.Model.Application or Amazon.AppRegistry.Model.UpdateApplicationResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.Application object.",
-        "The service call response (type Amazon.AppRegistry.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCARAttributeGroupsForApplicationList")]
+    [OutputType("Amazon.AppRegistry.Model.AttributeGroupDetails")]
+    [AWSCmdlet("Calls the AWS Service Catalog App Registry ListAttributeGroupsForApplication API operation.", Operation = new[] {"ListAttributeGroupsForApplication"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse))]
+    [AWSCmdletOutput("Amazon.AppRegistry.Model.AttributeGroupDetails or Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse",
+        "This cmdlet returns a collection of Amazon.AppRegistry.Model.AttributeGroupDetails objects.",
+        "The service call response (type Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSCARApplicationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
+    public partial class GetSCARAttributeGroupsForApplicationListCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application that will be updated.</para>
+        /// <para>The name or ID of the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,39 +58,37 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         public System.String Application { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The new description of the application.</para>
+        /// <para>The upper bound of the number of results to return. The value cannot exceed 25. If
+        /// you omit this parameter, it defaults to 25. This value is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Deprecated: The new name of the application. The name must be unique in the region
-        /// in which you are updating the application. Please do not use this field as we have
-        /// stopped supporting name updates.</para>
+        /// <para>This token retrieves the next page of results after a previous API call.</para>
         /// </para>
-        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Name update for application is deprecated.")]
-        public System.String Name { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Application'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRegistry.Model.UpdateApplicationResponse).
-        /// Specifying the name of a property of type Amazon.AppRegistry.Model.UpdateApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AttributeGroupsDetails'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse).
+        /// Specifying the name of a property of type Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Application";
+        public string Select { get; set; } = "AttributeGroupsDetails";
         #endregion
         
         #region Parameter PassThru
@@ -102,25 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCARApplication (UpdateApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -130,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse, GetSCARAttributeGroupsForApplicationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,10 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
                 WriteWarning("You are passing $null as a value for parameter Application which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,22 +148,20 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppRegistry.Model.UpdateApplicationRequest();
+            var request = new Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationRequest();
             
             if (cmdletContext.Application != null)
             {
                 request.Application = cmdletContext.Application;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Description = cmdletContext.Description;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NextToken = cmdletContext.NextToken;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -216,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRegistry.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonAppRegistry client, Amazon.AppRegistry.Model.UpdateApplicationRequest request)
+        private Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse CallAWSServiceOperation(IAmazonAppRegistry client, Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog App Registry", "UpdateApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog App Registry", "ListAttributeGroupsForApplication");
             try
             {
                 #if DESKTOP
-                return client.UpdateApplication(request);
+                return client.ListAttributeGroupsForApplication(request);
                 #elif CORECLR
-                return client.UpdateApplicationAsync(request).GetAwaiter().GetResult();
+                return client.ListAttributeGroupsForApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,11 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Application { get; set; }
-            public System.String Description { get; set; }
-            [System.ObsoleteAttribute]
-            public System.String Name { get; set; }
-            public System.Func<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Application;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.AppRegistry.Model.ListAttributeGroupsForApplicationResponse, GetSCARAttributeGroupsForApplicationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AttributeGroupsDetails;
         }
         
     }

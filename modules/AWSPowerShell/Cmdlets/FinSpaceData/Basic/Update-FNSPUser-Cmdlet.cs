@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         /// <para>
         /// <para>The option to indicate the type of user.</para><ul><li><para><code>SUPER_USER</code>– A user with permission to all the functionality and data
         /// in FinSpace.</para></li><li><para><code>APP_USER</code> – A user with specific permissions in FinSpace. The users are
-        /// assigned permissions by adding them to a permissions group.</para></li></ul>
+        /// assigned permissions by adding them to a permission group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

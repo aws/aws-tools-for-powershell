@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppRegistry;
-using Amazon.AppRegistry.Model;
+using Amazon.FinSpaceData;
+using Amazon.FinSpaceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SCAR
+namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Updates an existing application with new attributes.
+    /// Lists details of all the users in a specific permission group.
     /// </summary>
-    [Cmdlet("Update", "SCARApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppRegistry.Model.Application")]
-    [AWSCmdlet("Calls the AWS Service Catalog App Registry UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.UpdateApplicationResponse))]
-    [AWSCmdletOutput("Amazon.AppRegistry.Model.Application or Amazon.AppRegistry.Model.UpdateApplicationResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.Application object.",
-        "The service call response (type Amazon.AppRegistry.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FNSPUsersByPermissionGroupList")]
+    [OutputType("Amazon.FinSpaceData.Model.UserByPermissionGroup")]
+    [AWSCmdlet("Calls the FinSpace Public API ListUsersByPermissionGroup API operation.", Operation = new[] {"ListUsersByPermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse))]
+    [AWSCmdletOutput("Amazon.FinSpaceData.Model.UserByPermissionGroup or Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse",
+        "This cmdlet returns a collection of Amazon.FinSpaceData.Model.UserByPermissionGroup objects.",
+        "The service call response (type Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSCARApplicationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
+    public partial class GetFNSPUsersByPermissionGroupListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
-        #region Parameter Application
+        #region Parameter PermissionGroupId
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application that will be updated.</para>
+        /// <para>The unique identifier for the permission group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,73 +54,60 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Application { get; set; }
+        public System.String PermissionGroupId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The new description of the application.</para>
+        /// <para>The maximum number of results per page.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that indicates where a results page should begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Deprecated: The new name of the application. The name must be unique in the region
-        /// in which you are updating the application. Please do not use this field as we have
-        /// stopped supporting name updates.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Name update for application is deprecated.")]
-        public System.String Name { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Application'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRegistry.Model.UpdateApplicationResponse).
-        /// Specifying the name of a property of type Amazon.AppRegistry.Model.UpdateApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Users'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse).
+        /// Specifying the name of a property of type Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Application";
+        public string Select { get; set; } = "Users";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Application parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Application' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PermissionGroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PermissionGroupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Application' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionGroupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCARApplication (UpdateApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -130,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse, GetFNSPUsersByPermissionGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,20 +126,24 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Application;
+                context.Select = (response, cmdlet) => this.PermissionGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Application = this.Application;
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            if (this.Application == null && ParameterWasBound(nameof(this.Application)))
+            if (this.MaxResult == null && ParameterWasBound(nameof(this.MaxResult)))
             {
-                WriteWarning("You are passing $null as a value for parameter Application which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MaxResult which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.NextToken = this.NextToken;
+            context.PermissionGroupId = this.PermissionGroupId;
+            #if MODULAR
+            if (this.PermissionGroupId == null && ParameterWasBound(nameof(this.PermissionGroupId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PermissionGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,22 +158,20 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppRegistry.Model.UpdateApplicationRequest();
+            var request = new Amazon.FinSpaceData.Model.ListUsersByPermissionGroupRequest();
             
-            if (cmdletContext.Application != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Application = cmdletContext.Application;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Description = cmdletContext.Description;
+                request.NextToken = cmdletContext.NextToken;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.Name != null)
+            if (cmdletContext.PermissionGroupId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.PermissionGroupId = cmdletContext.PermissionGroupId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -216,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRegistry.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonAppRegistry client, Amazon.AppRegistry.Model.UpdateApplicationRequest request)
+        private Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse CallAWSServiceOperation(IAmazonFinSpaceData client, Amazon.FinSpaceData.Model.ListUsersByPermissionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog App Registry", "UpdateApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "ListUsersByPermissionGroup");
             try
             {
                 #if DESKTOP
-                return client.UpdateApplication(request);
+                return client.ListUsersByPermissionGroup(request);
                 #elif CORECLR
-                return client.UpdateApplicationAsync(request).GetAwaiter().GetResult();
+                return client.ListUsersByPermissionGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,12 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Application { get; set; }
-            public System.String Description { get; set; }
-            [System.ObsoleteAttribute]
-            public System.String Name { get; set; }
-            public System.Func<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Application;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String PermissionGroupId { get; set; }
+            public System.Func<Amazon.FinSpaceData.Model.ListUsersByPermissionGroupResponse, GetFNSPUsersByPermissionGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Users;
         }
         
     }

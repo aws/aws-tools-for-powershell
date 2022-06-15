@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateUserToPermissionGroup" OutputProperty="StatusCode" Verb="Add" Noun="UserToPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateChangeset" OutputProperty="*" Verb="New" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateUserFromPermissionGroup" OutputProperty="StatusCode" Verb="Remove" Noun="UserFromPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableUser" OutputProperty="UserId" Verb="Enable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDataView" OutputProperty="*" Verb="Get" Noun="DataView" PipelineParameter="DatasetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPermissionGroup" OutputProperty="PermissionGroup" Verb="Get" Noun="PermissionGroup" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,7 +106,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionGroupsByUser" OutputProperty="PermissionGroups" Verb="Get" Noun="PermissionGroupsByUserList" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsersByPermissionGroup" OutputProperty="Users" Verb="Get" Noun="UsersByPermissionGroupList" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

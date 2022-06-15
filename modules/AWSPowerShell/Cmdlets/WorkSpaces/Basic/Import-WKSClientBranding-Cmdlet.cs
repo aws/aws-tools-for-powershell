@@ -201,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeAndroid_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. The only image
-        /// format accepted is <code>.png</code>.</para>
+        /// <para>The logo. The only image format accepted is a binary data object that is converted
+        /// from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeIos_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. This is the standard-resolution
-        /// display that has a 1:1 pixel density (or @1x), where one pixel is equal to one point.</para>
+        /// <para>The logo. This is the standard-resolution display that has a 1:1 pixel density (or
+        /// @1x), where one pixel is equal to one point. The only image format accepted is a binary
+        /// data object that is converted from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -227,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeLinux_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. The only image
-        /// format accepted is <code>.png</code>.</para>
+        /// <para>The logo. The only image format accepted is a binary data object that is converted
+        /// from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -240,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeOsx_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. The only image
-        /// format accepted is <code>.png</code>.</para>
+        /// <para>The logo. The only image format accepted is a binary data object that is converted
+        /// from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -253,8 +254,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWeb_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. The only image
-        /// format accepted is <code>.png</code>.</para>
+        /// <para>The logo. The only image format accepted is a binary data object that is converted
+        /// from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -266,8 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWindows_Logo
         /// <summary>
         /// <para>
-        /// <para>The logo. This is the link where users can download the logo image. The only image
-        /// format accepted is <code>.png</code>.</para>
+        /// <para>The logo. The only image format accepted is a binary data object that is converted
+        /// from a <code>.png</code> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -280,7 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The @2x version of the logo. This is the higher resolution display that offers a scale
-        /// factor of 2.0 (or @2x).</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
+        /// factor of 2.0 (or @2x). The only image format accepted is a binary data object that
+        /// is converted from a <code>.png</code> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
         /// Size and Resolution </a> in the <i>Apple Human Interface Guidelines</i>.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -294,7 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The @3x version of the logo. This is the higher resolution display that offers a scale
-        /// factor of 3.0 (or @3x).</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
+        /// factor of 3.0 (or @3x). The only image format accepted is a binary data object that
+        /// is converted from a <code>.png</code> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
         /// Size and Resolution </a> in the <i>Apple Human Interface Guidelines</i>.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

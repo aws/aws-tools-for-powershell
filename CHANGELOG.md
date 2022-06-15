@@ -1,4 +1,20 @@
-﻿### 4.1.105 (2022-06-14 20:29Z)
+﻿### 4.1.106 (2022-06-15 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.295.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon FinSpace Public API
+    * Added cmdlet Add-FNSPUserToPermissionGroup leveraging the AssociateUserToPermissionGroup service API.
+    * Added cmdlet Get-FNSPPermissionGroup leveraging the GetPermissionGroup service API.
+    * Added cmdlet Get-FNSPPermissionGroupsByUserList leveraging the ListPermissionGroupsByUser service API.
+    * Added cmdlet Get-FNSPUsersByPermissionGroupList leveraging the ListUsersByPermissionGroup service API.
+    * Added cmdlet Remove-FNSPUserFromPermissionGroup leveraging the DisassociateUserFromPermissionGroup service API.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDAdministratorAccount leveraging the GetAdministratorAccount service API.
+    * Added cmdlet Get-GDRemainingFreeTrialDay leveraging the GetRemainingFreeTrialDays service API.
+    * Added cmdlet Receive-GDAdministratorInvitation leveraging the AcceptAdministratorInvitation service API.
+    * Added cmdlet Remove-GDFromAdministratorAccount leveraging the DisassociateFromAdministratorAccount service API.
+  * Amazon Service Catalog App Registry
+    * Added cmdlet Get-SCARAttributeGroupsForApplicationList leveraging the ListAttributeGroupsForApplication service API.
+
+### 4.1.105 (2022-06-14 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.294.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lookout for Metrics
     * Added cmdlet Update-LOMAlert leveraging the UpdateAlert service API.

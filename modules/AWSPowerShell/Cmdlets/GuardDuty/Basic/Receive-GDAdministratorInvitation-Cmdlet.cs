@@ -28,18 +28,35 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disassociates the current GuardDuty member account from its administrator account.<br/><br/>This operation is deprecated.
+    /// Accepts the invitation to be a member account and get monitored by a GuardDuty administrator
+    /// account that sent the invitation.
     /// </summary>
-    [Cmdlet("Unregister", "GDFromMasterAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Receive", "GDAdministratorInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse",
+    [AWSCmdlet("Calls the Amazon GuardDuty AcceptAdministratorInvitation API operation.", Operation = new[] {"AcceptAdministratorInvitation"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse))]
+    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("This operation is deprecated, use DisassociateFromAdministratorAccount instead")]
-    public partial class UnregisterGDFromMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class ReceiveGDAdministratorInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdministratorId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the GuardDuty administrator account whose invitation you're accepting.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AdministratorId { get; set; }
+        #endregion
         
         #region Parameter DetectorId
         /// <summary>
@@ -58,10 +75,27 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter InvitationId
+        /// <summary>
+        /// <para>
+        /// <para>The value that is used to validate the administrator account to the member account.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InvitationId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DetectorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-GDFromMasterAccount (DisassociateFromMasterAccount)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Receive-GDAdministratorInvitation (AcceptAdministratorInvitation)"))
             {
                 return;
             }
@@ -106,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse, ReceiveGDAdministratorInvitationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,11 +152,25 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.Select = (response, cmdlet) => this.DetectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AdministratorId = this.AdministratorId;
+            #if MODULAR
+            if (this.AdministratorId == null && ParameterWasBound(nameof(this.AdministratorId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AdministratorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DetectorId = this.DetectorId;
             #if MODULAR
             if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
             {
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InvitationId = this.InvitationId;
+            #if MODULAR
+            if (this.InvitationId == null && ParameterWasBound(nameof(this.InvitationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InvitationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +187,19 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest();
+            var request = new Amazon.GuardDuty.Model.AcceptAdministratorInvitationRequest();
             
+            if (cmdletContext.AdministratorId != null)
+            {
+                request.AdministratorId = cmdletContext.AdministratorId;
+            }
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.InvitationId != null)
+            {
+                request.InvitationId = cmdletContext.InvitationId;
             }
             
             CmdletOutput output;
@@ -178,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest request)
+        private Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.AcceptAdministratorInvitationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DisassociateFromMasterAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "AcceptAdministratorInvitation");
             try
             {
                 #if DESKTOP
-                return client.DisassociateFromMasterAccount(request);
+                return client.AcceptAdministratorInvitation(request);
                 #elif CORECLR
-                return client.DisassociateFromMasterAccountAsync(request).GetAwaiter().GetResult();
+                return client.AcceptAdministratorInvitationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,8 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdministratorId { get; set; }
             public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet, object> Select { get; set; } =
+            public System.String InvitationId { get; set; }
+            public System.Func<Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse, ReceiveGDAdministratorInvitationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

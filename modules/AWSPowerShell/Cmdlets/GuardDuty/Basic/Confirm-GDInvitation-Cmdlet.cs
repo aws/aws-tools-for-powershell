@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Accepts the invitation to be monitored by a GuardDuty administrator account.
+    /// Accepts the invitation to be monitored by a GuardDuty administrator account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Confirm", "GDInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.GuardDuty.Model.AcceptInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use AcceptAdministratorInvitation instead")]
     public partial class ConfirmGDInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         

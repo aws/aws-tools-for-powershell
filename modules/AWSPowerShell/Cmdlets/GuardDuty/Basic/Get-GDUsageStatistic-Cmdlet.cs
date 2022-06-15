@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
-    /// ID. For newly enabled detectors or data sources the cost returned will include only
-    /// the usage so far under 30 days, this may differ from the cost metrics in the console,
-    /// which projects usage over 30 days to provide a monthly cost estimate. For more information
+    /// ID. For newly enabled detectors or data sources, the cost returned will include only
+    /// the usage so far under 30 days. This may differ from the cost metrics in the console,
+    /// which project usage over 30 days to provide a monthly cost estimate. For more information,
     /// see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding
     /// How Usage Costs are Calculated</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

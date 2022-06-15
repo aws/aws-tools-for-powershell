@@ -22,29 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.FinSpaceData;
+using Amazon.FinSpaceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Disassociates the current GuardDuty member account from its administrator account.<br/><br/>This operation is deprecated.
+    /// Retrieves the details of a specific permission group.
     /// </summary>
-    [Cmdlet("Unregister", "GDFromMasterAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FNSPPermissionGroup")]
+    [OutputType("Amazon.FinSpaceData.Model.PermissionGroup")]
+    [AWSCmdlet("Calls the FinSpace Public API GetPermissionGroup API operation.", Operation = new[] {"GetPermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.GetPermissionGroupResponse))]
+    [AWSCmdletOutput("Amazon.FinSpaceData.Model.PermissionGroup or Amazon.FinSpaceData.Model.GetPermissionGroupResponse",
+        "This cmdlet returns an Amazon.FinSpaceData.Model.PermissionGroup object.",
+        "The service call response (type Amazon.FinSpaceData.Model.GetPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("This operation is deprecated, use DisassociateFromAdministratorAccount instead")]
-    public partial class UnregisterGDFromMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
-        #region Parameter DetectorId
+        #region Parameter PermissionGroupId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty member account.</para>
+        /// <para>The unique identifier for the permission group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,48 +54,33 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String PermissionGroupId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PermissionGroup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.GetPermissionGroupResponse).
+        /// Specifying the name of a property of type Amazon.FinSpaceData.Model.GetPermissionGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PermissionGroup";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PermissionGroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PermissionGroupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionGroupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DetectorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-GDFromMasterAccount (DisassociateFromMasterAccount)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -106,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FinSpaceData.Model.GetPermissionGroupResponse, GetFNSPPermissionGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -115,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.PermissionGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DetectorId = this.DetectorId;
+            context.PermissionGroupId = this.PermissionGroupId;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.PermissionGroupId == null && ParameterWasBound(nameof(this.PermissionGroupId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PermissionGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest();
+            var request = new Amazon.FinSpaceData.Model.GetPermissionGroupRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.PermissionGroupId != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.PermissionGroupId = cmdletContext.PermissionGroupId;
             }
             
             CmdletOutput output;
@@ -178,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest request)
+        private Amazon.FinSpaceData.Model.GetPermissionGroupResponse CallAWSServiceOperation(IAmazonFinSpaceData client, Amazon.FinSpaceData.Model.GetPermissionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DisassociateFromMasterAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "GetPermissionGroup");
             try
             {
                 #if DESKTOP
-                return client.DisassociateFromMasterAccount(request);
+                return client.GetPermissionGroup(request);
                 #elif CORECLR
-                return client.DisassociateFromMasterAccountAsync(request).GetAwaiter().GetResult();
+                return client.GetPermissionGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String PermissionGroupId { get; set; }
+            public System.Func<Amazon.FinSpaceData.Model.GetPermissionGroupResponse, GetFNSPPermissionGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PermissionGroup;
         }
         
     }

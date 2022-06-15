@@ -169,6 +169,7 @@ $SCAR_SelectMap = @{
                "Get-SCARAssociatedAttributeGroupList",
                "Get-SCARAssociatedResourceList",
                "Get-SCARAttributeGroupList",
+               "Get-SCARAttributeGroupsForApplicationList",
                "Get-SCARResourceTag",
                "Sync-SCARResource",
                "Add-SCARResourceTag",

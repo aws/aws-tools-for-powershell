@@ -28,18 +28,27 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disassociates the current GuardDuty member account from its administrator account.<br/><br/>This operation is deprecated.
+    /// Provides the number of days left for each data source used in the free trial period.
     /// </summary>
-    [Cmdlet("Unregister", "GDFromMasterAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GDRemainingFreeTrialDay")]
+    [OutputType("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse")]
+    [AWSCmdlet("Calls the Amazon GuardDuty GetRemainingFreeTrialDays API operation.", Operation = new[] {"GetRemainingFreeTrialDays"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse))]
+    [AWSCmdletOutput("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse",
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("This operation is deprecated, use DisassociateFromAdministratorAccount instead")]
-    public partial class UnregisterGDFromMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetGDRemainingFreeTrialDayCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>A list of account identifiers of the GuardDuty member account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccountIds")]
+        public System.String[] AccountId { get; set; }
+        #endregion
         
         #region Parameter DetectorId
         /// <summary>
@@ -60,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse).
+        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,25 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DetectorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-GDFromMasterAccount (DisassociateFromMasterAccount)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -106,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,6 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.Select = (response, cmdlet) => this.DetectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AccountId != null)
+            {
+                context.AccountId = new List<System.String>(this.AccountId);
+            }
             context.DetectorId = this.DetectorId;
             #if MODULAR
             if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
@@ -139,8 +137,12 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest();
+            var request = new Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountIds = cmdletContext.AccountId;
+            }
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
@@ -178,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DisassociateFromMasterAccountRequest request)
+        private Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DisassociateFromMasterAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetRemainingFreeTrialDays");
             try
             {
                 #if DESKTOP
-                return client.DisassociateFromMasterAccount(request);
+                return client.GetRemainingFreeTrialDays(request);
                 #elif CORECLR
-                return client.DisassociateFromMasterAccountAsync(request).GetAwaiter().GetResult();
+                return client.GetRemainingFreeTrialDaysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AccountId { get; set; }
             public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse, UnregisterGDFromMasterAccountCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

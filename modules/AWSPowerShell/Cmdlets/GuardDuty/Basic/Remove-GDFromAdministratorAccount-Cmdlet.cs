@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppRegistry;
-using Amazon.AppRegistry.Model;
+using Amazon.GuardDuty;
+using Amazon.GuardDuty.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SCAR
+namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Updates an existing application with new attributes.
+    /// Disassociates the current GuardDuty member account from its administrator account.
     /// </summary>
-    [Cmdlet("Update", "SCARApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppRegistry.Model.Application")]
-    [AWSCmdlet("Calls the AWS Service Catalog App Registry UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.UpdateApplicationResponse))]
-    [AWSCmdletOutput("Amazon.AppRegistry.Model.Application or Amazon.AppRegistry.Model.UpdateApplicationResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.Application object.",
-        "The service call response (type Amazon.AppRegistry.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "GDFromAdministratorAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromAdministratorAccount API operation.", Operation = new[] {"DisassociateFromAdministratorAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse))]
+    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSCARApplicationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
+    public partial class RemoveGDFromAdministratorAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
-        #region Parameter Application
+        #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application that will be updated.</para>
+        /// <para>The unique ID of the detector of the GuardDuty member account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,50 +54,25 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Application { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The new description of the application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Deprecated: The new name of the application. The name must be unique in the region
-        /// in which you are updating the application. Please do not use this field as we have
-        /// stopped supporting name updates.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Name update for application is deprecated.")]
-        public System.String Name { get; set; }
+        public System.String DetectorId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Application'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRegistry.Model.UpdateApplicationResponse).
-        /// Specifying the name of a property of type Amazon.AppRegistry.Model.UpdateApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Application";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Application parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Application' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Application' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCARApplication (UpdateApplication)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DetectorId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GDFromAdministratorAccount (DisassociateFromAdministratorAccount)"))
             {
                 return;
             }
@@ -130,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse, RemoveGDFromAdministratorAccountCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,20 +114,16 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Application;
+                context.Select = (response, cmdlet) => this.DetectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Application = this.Application;
+            context.DetectorId = this.DetectorId;
             #if MODULAR
-            if (this.Application == null && ParameterWasBound(nameof(this.Application)))
+            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Application which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,22 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppRegistry.Model.UpdateApplicationRequest();
+            var request = new Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountRequest();
             
-            if (cmdletContext.Application != null)
+            if (cmdletContext.DetectorId != null)
             {
-                request.Application = cmdletContext.Application;
+                request.DetectorId = cmdletContext.DetectorId;
             }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -216,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRegistry.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonAppRegistry client, Amazon.AppRegistry.Model.UpdateApplicationRequest request)
+        private Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog App Registry", "UpdateApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DisassociateFromAdministratorAccount");
             try
             {
                 #if DESKTOP
-                return client.UpdateApplication(request);
+                return client.DisassociateFromAdministratorAccount(request);
                 #elif CORECLR
-                return client.UpdateApplicationAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateFromAdministratorAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,12 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Application { get; set; }
-            public System.String Description { get; set; }
-            [System.ObsoleteAttribute]
-            public System.String Name { get; set; }
-            public System.Func<Amazon.AppRegistry.Model.UpdateApplicationResponse, UpdateSCARApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Application;
+            public System.String DetectorId { get; set; }
+            public System.Func<Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse, RemoveGDFromAdministratorAccountCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

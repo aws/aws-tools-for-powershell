@@ -202,7 +202,8 @@ $GD_SelectCompleters = {
 }
 
 $GD_SelectMap = @{
-    "Select"=@("Confirm-GDInvitation",
+    "Select"=@("Receive-GDAdministratorInvitation",
+               "Confirm-GDInvitation",
                "Backup-GDFinding",
                "New-GDDetector",
                "New-GDFilter",
@@ -222,9 +223,11 @@ $GD_SelectMap = @{
                "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
                "Disable-GDOrganizationAdminAccount",
+               "Remove-GDFromAdministratorAccount",
                "Unregister-GDFromMasterAccount",
                "Unregister-GDMember",
                "Enable-GDOrganizationAdminAccount",
+               "Get-GDAdministratorAccount",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -234,6 +237,7 @@ $GD_SelectMap = @{
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
                "Get-GDMember",
+               "Get-GDRemainingFreeTrialDay",
                "Get-GDThreatIntelSet",
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",

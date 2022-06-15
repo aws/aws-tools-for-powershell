@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SCARAssociatedResourceList', 
         'Get-SCARAttributeGroup', 
         'Get-SCARAttributeGroupList', 
+        'Get-SCARAttributeGroupsForApplicationList', 
         'Get-SCARResourceTag', 
         'New-SCARApplication', 
         'New-SCARAttributeGroup', 
