@@ -1,4 +1,15 @@
-﻿### 4.1.106 (2022-06-15 21:36Z)
+﻿### 4.1.107 (2022-06-16 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.296.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Get-RSDDatabasisList: added parameter WorkgroupName.
+    * Modified cmdlet Get-RSDSchemaList: added parameter WorkgroupName.
+    * Modified cmdlet Get-RSDTable: added parameter WorkgroupName.
+    * Modified cmdlet Get-RSDTableList: added parameter WorkgroupName.
+    * Modified cmdlet Push-RSDBatchStatement: added parameter WorkgroupName.
+    * Modified cmdlet Send-RSDStatement: added parameter WorkgroupName.
+  * Amazon Redshift Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RSS and can be listed using the command 'Get-AWSCmdletName -Service RSS'.
+
+### 4.1.106 (2022-06-15 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.295.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon FinSpace Public API
     * Added cmdlet Add-FNSPUserToPermissionGroup leveraging the AssociateUserToPermissionGroup service API.

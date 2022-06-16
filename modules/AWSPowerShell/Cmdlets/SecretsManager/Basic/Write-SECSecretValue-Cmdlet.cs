@@ -52,11 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// to this version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
     /// to the version that <code>AWSCURRENT</code> was removed from.
     /// </para><para>
-    /// This operation is idempotent. If a version with a <code>VersionId</code> with the
-    /// same value as the <code>ClientRequestToken</code> parameter already exists, and you
-    /// specify the same secret data, the operation succeeds but does nothing. However, if
-    /// the secret data is different, then the operation fails because you can't modify an
-    /// existing version; you can only create new ones.
+    /// This operation is idempotent. If you call this operation with a <code>ClientRequestToken</code>
+    /// that matches an existing version's VersionId, and you specify the same secret data,
+    /// the operation succeeds but does nothing. However, if the secret data is different,
+    /// then the operation fails because you can't modify an existing version; you can only
+    /// create new ones.
     /// </para><para><b>Required permissions: </b><code>secretsmanager:PutSecretValue</code>. For more
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication

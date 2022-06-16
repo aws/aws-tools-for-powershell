@@ -36,13 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     ///  <ul><li><para>
     /// Secrets Manager - when connecting to a cluster, specify the Amazon Resource Name (ARN)
     /// of the secret, the database name, and the cluster identifier that matches the cluster
-    /// in the secret. When connecting to a serverless endpoint, specify the Amazon Resource
+    /// in the secret. When connecting to a serverless workgroup, specify the Amazon Resource
     /// Name (ARN) of the secret and the database name. 
     /// </para></li><li><para>
     /// Temporary credentials - when connecting to a cluster, specify the cluster identifier,
     /// the database name, and the database user name. Also, permission to call the <code>redshift:GetClusterCredentials</code>
-    /// operation is required. When connecting to a serverless endpoint, specify the database
-    /// name. 
+    /// operation is required. When connecting to a serverless workgroup, specify the workgroup
+    /// name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code>
+    /// operation is required. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RSDTableList")]
@@ -148,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String TablePattern { get; set; }
         #endregion
         
+        #region Parameter WorkgroupName
+        /// <summary>
+        /// <para>
+        /// <para>The serverless workgroup name. This parameter is required when connecting to a serverless
+        /// workgroup and authenticating using either Secrets Manager or temporary credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkgroupName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -215,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             context.SchemaPattern = this.SchemaPattern;
             context.SecretArn = this.SecretArn;
             context.TablePattern = this.TablePattern;
+            context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.TablePattern != null)
             {
                 request.TablePattern = cmdletContext.TablePattern;
+            }
+            if (cmdletContext.WorkgroupName != null)
+            {
+                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -337,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String SchemaPattern { get; set; }
             public System.String SecretArn { get; set; }
             public System.String TablePattern { get; set; }
+            public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.ListTablesResponse, GetRSDTableListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Tables;
         }

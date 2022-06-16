@@ -35,13 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     ///  <ul><li><para>
     /// Secrets Manager - when connecting to a cluster, specify the Amazon Resource Name (ARN)
     /// of the secret, the database name, and the cluster identifier that matches the cluster
-    /// in the secret. When connecting to a serverless endpoint, specify the Amazon Resource
+    /// in the secret. When connecting to a serverless workgroup, specify the Amazon Resource
     /// Name (ARN) of the secret and the database name. 
     /// </para></li><li><para>
     /// Temporary credentials - when connecting to a cluster, specify the cluster identifier,
     /// the database name, and the database user name. Also, permission to call the <code>redshift:GetClusterCredentials</code>
-    /// operation is required. When connecting to a serverless endpoint, specify the database
-    /// name. 
+    /// operation is required. When connecting to a serverless workgroup, specify the workgroup
+    /// name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code>
+    /// operation is required. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "RSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -155,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.Boolean? WithEvent { get; set; }
         #endregion
         
+        #region Parameter WorkgroupName
+        /// <summary>
+        /// <para>
+        /// <para>The serverless workgroup name. This parameter is required when connecting to a serverless
+        /// workgroup and authenticating using either Secrets Manager or temporary credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkgroupName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -219,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             #endif
             context.StatementName = this.StatementName;
             context.WithEvent = this.WithEvent;
+            context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.WithEvent != null)
             {
                 request.WithEvent = cmdletContext.WithEvent.Value;
+            }
+            if (cmdletContext.WorkgroupName != null)
+            {
+                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -336,6 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String Sql { get; set; }
             public System.String StatementName { get; set; }
             public System.Boolean? WithEvent { get; set; }
+            public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.ExecuteStatementResponse, SendRSDStatementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }
