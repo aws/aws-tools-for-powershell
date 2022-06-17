@@ -1,4 +1,8 @@
-﻿### 4.1.107 (2022-06-16 20:25Z)
+﻿### 4.1.108 (2022-06-17 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.297.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Campaign Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCS and can be listed using the command 'Get-AWSCmdletName -Service CCS'.
+
+### 4.1.107 (2022-06-16 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.296.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Redshift Data API Service
     * Modified cmdlet Get-RSDDatabasisList: added parameter WorkgroupName.

@@ -22,82 +22,74 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.Model;
+using Amazon.ConnectCampaignService;
+using Amazon.ConnectCampaignService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DDB
+namespace Amazon.PowerShell.Cmdlets.CCS
 {
     /// <summary>
-    /// This operation allows you to perform batch reads or writes on data stored in DynamoDB,
-    /// using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
-    /// an equality condition on all key attributes. This enforces that each <code>SELECT</code>
-    /// statement in a batch returns at most a single item.
-    /// 
-    ///  <note><para>
-    /// The entire batch must consist of either read statements or write statements, you cannot
-    /// mix both in one batch.
-    /// </para></note><important><para>
-    /// A HTTP 200 response does not mean that all statements in the BatchExecuteStatement
-    /// succeeded. Error details for individual statements can be found under the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error">Error</a>
-    /// field of the <code>BatchStatementResponse</code> for each statement.
-    /// </para></important>
+    /// Updates the name of a campaign. This API is idempotent.
     /// </summary>
-    [Cmdlet("Invoke", "DDBDDBBatchExecuteStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DynamoDBv2.Model.BatchStatementResponse")]
-    [AWSCmdlet("Calls the Amazon DynamoDB BatchExecuteStatement API operation.", Operation = new[] {"BatchExecuteStatement"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.BatchStatementResponse or Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse",
-        "This cmdlet returns a collection of Amazon.DynamoDBv2.Model.BatchStatementResponse objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CCSCampaignName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Campaign Service UpdateCampaignName API operation.", Operation = new[] {"UpdateCampaignName"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class InvokeDDBDDBBatchExecuteStatementCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class UpdateCCSCampaignNameCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ReturnConsumedCapacity
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.DynamoDBv2.ReturnConsumedCapacity")]
-        public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter Statement
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The list of PartiQL statements representing the batch to run.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Statements")]
-        public Amazon.DynamoDBv2.Model.BatchStatementRequest[] Statement { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Responses'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Responses";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ReturnConsumedCapacity parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ReturnConsumedCapacity' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReturnConsumedCapacity' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Statement), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-DDBDDBBatchExecuteStatement (BatchExecuteStatement)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCSCampaignName (UpdateCampaignName)"))
             {
                 return;
             }
@@ -130,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse, InvokeDDBDDBBatchExecuteStatementCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse, UpdateCCSCampaignNameCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,18 +131,21 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ReturnConsumedCapacity;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ReturnConsumedCapacity = this.ReturnConsumedCapacity;
-            if (this.Statement != null)
-            {
-                context.Statement = new List<Amazon.DynamoDBv2.Model.BatchStatementRequest>(this.Statement);
-            }
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Statement == null && ParameterWasBound(nameof(this.Statement)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Statement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -167,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.BatchExecuteStatementRequest();
+            var request = new Amazon.ConnectCampaignService.Model.UpdateCampaignNameRequest();
             
-            if (cmdletContext.ReturnConsumedCapacity != null)
+            if (cmdletContext.Id != null)
             {
-                request.ReturnConsumedCapacity = cmdletContext.ReturnConsumedCapacity;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.Statement != null)
+            if (cmdletContext.Name != null)
             {
-                request.Statements = cmdletContext.Statement;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -210,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.BatchExecuteStatementRequest request)
+        private Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse CallAWSServiceOperation(IAmazonConnectCampaignService client, Amazon.ConnectCampaignService.Model.UpdateCampaignNameRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "BatchExecuteStatement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Campaign Service", "UpdateCampaignName");
             try
             {
                 #if DESKTOP
-                return client.BatchExecuteStatement(request);
+                return client.UpdateCampaignName(request);
                 #elif CORECLR
-                return client.BatchExecuteStatementAsync(request).GetAwaiter().GetResult();
+                return client.UpdateCampaignNameAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,10 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
-            public List<Amazon.DynamoDBv2.Model.BatchStatementRequest> Statement { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.BatchExecuteStatementResponse, InvokeDDBDDBBatchExecuteStatementCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Responses;
+            public System.String Id { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.ConnectCampaignService.Model.UpdateCampaignNameResponse, UpdateCCSCampaignNameCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -56,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ExportTime
         /// <summary>
         /// <para>
-        /// <para>Time in the past from which to export table data. The table export will be a snapshot
-        /// of the table's state at this point in time.</para>
+        /// <para>Time in the past from which to export table data, counted in seconds from the start
+        /// of the Unix epoch. The table export will be a snapshot of the table's state at this
+        /// point in time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

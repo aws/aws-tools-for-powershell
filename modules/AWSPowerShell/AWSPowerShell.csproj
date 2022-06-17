@@ -289,6 +289,9 @@
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectCampaignService">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCampaignService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectContactLens">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectContactLens.dll</HintPath>
     </Reference>
@@ -1193,6 +1196,9 @@
     </Reference>
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Connect.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ConnectCampaignService">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectCampaignService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectContactLens">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectContactLens.dll</HintPath>

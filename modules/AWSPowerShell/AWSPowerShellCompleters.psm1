@@ -11913,7 +11913,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -12291,6 +12291,116 @@ $CONN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CONN_SelectCompleters $CONN_SelectMap
+# Argument completions for service Amazon Connect Campaign Service
+
+
+$CCS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectCampaignService.EncryptionType
+        "Start-CCSInstanceOnboardingJob/EncryptionConfig_EncryptionType"
+        {
+            $v = "KMS"
+            break
+        }
+
+        # Amazon.ConnectCampaignService.InstanceIdFilterOperator
+        "Get-CCSCampaignList/Filters_InstanceIdFilter_Operator"
+        {
+            $v = "Eq"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCS_map = @{
+    "EncryptionConfig_EncryptionType"=@("Start-CCSInstanceOnboardingJob")
+    "Filters_InstanceIdFilter_Operator"=@("Get-CCSCampaignList")
+}
+
+_awsArgumentCompleterRegistration $CCS_Completers $CCS_map
+
+$CCS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCS_SelectMap = @{
+    "Select"=@("New-CCSCampaign",
+               "Remove-CCSCampaign",
+               "Remove-CCSConnectInstanceConfig",
+               "Remove-CCSInstanceOnboardingJob",
+               "Get-CCSCampaign",
+               "Get-CCSCampaignState",
+               "Get-CCSCampaignStateBatch",
+               "Get-CCSConnectInstanceConfig",
+               "Get-CCSInstanceOnboardingJobStatus",
+               "Get-CCSCampaignList",
+               "Get-CCSResourceTag",
+               "Suspend-CCSCampaign",
+               "Write-CCSDialRequestBatch",
+               "Resume-CCSCampaign",
+               "Start-CCSCampaign",
+               "Start-CCSInstanceOnboardingJob",
+               "Stop-CCSCampaign",
+               "Add-CCSResourceTag",
+               "Remove-CCSResourceTag",
+               "Update-CCSCampaignDialerConfig",
+               "Update-CCSCampaignName",
+               "Update-CCSCampaignOutboundCallConfig")
+}
+
+_awsArgumentCompleterRegistration $CCS_SelectCompleters $CCS_SelectMap
 # Argument completions for service Amazon Connect Contact Lens
 
 

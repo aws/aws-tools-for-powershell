@@ -1,0 +1,3 @@
+﻿# ConnectCampaignService
+
+Export-ModuleMember -Alias *

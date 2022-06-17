@@ -37,8 +37,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </para><ul><li><para>
     /// Modify the provisioned throughput settings of the table.
     /// </para></li><li><para>
-    /// Enable or disable DynamoDB Streams on the table.
-    /// </para></li><li><para>
     /// Remove a global secondary index from the table.
     /// </para></li><li><para>
     /// Create a new global secondary index on the table. After the index begins backfilling,
