@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.297.0",
+    "ProductVersion" : "3.7.298.0",
     "CoreVersion"    : "3.7.12.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -394,7 +394,7 @@
             "InPreview"               : false
         },
         "DirectoryService"          : {
-            "Version" : "3.7.1.122",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -1330,7 +1330,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.6.56",
+            "Version" : "3.7.6.57",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -1714,7 +1714,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.9.3",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"

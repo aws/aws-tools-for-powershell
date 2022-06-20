@@ -15267,7 +15267,14 @@ $DS_Completers = {
             ($_ -eq "Get-DSClientAuthenticationSetting/Type")
         }
         {
-            $v = "SmartCard"
+            $v = "SmartCard","SmartCardOrPassword"
+            break
+        }
+
+        # Amazon.DirectoryService.DirectoryConfigurationStatus
+        "Get-DSSetting/Status"
+        {
+            $v = "Default","Failed","Requested","Updated","Updating"
             break
         }
 
@@ -15365,6 +15372,7 @@ $DS_map = @{
     "ShareMethod"=@("Enable-DSDirectoryShare")
     "ShareTarget_Type"=@("Enable-DSDirectoryShare")
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
+    "Status"=@("Get-DSSetting")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
     "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSClientAuthenticationSetting","Get-DSLDAPSSetting","Register-DSCertificate")
@@ -15450,6 +15458,7 @@ $DS_SelectMap = @{
                "Get-DSEventTopic",
                "Get-DSLDAPSSetting",
                "Get-DSRegion",
+               "Get-DSSetting",
                "Get-DSSharedDirectory",
                "Get-DSSnapshot",
                "Get-DSTrust",
@@ -15482,6 +15491,7 @@ $DS_SelectMap = @{
                "Update-DSConditionalForwarder",
                "Set-DSDomainControllerCount",
                "Update-DSRadius",
+               "Update-DSSetting",
                "Update-DSTrust",
                "Approve-DSTrust")
 }

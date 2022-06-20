@@ -6215,6 +6215,9 @@ Set-Alias -Name DS-DescribeLDAPSSettings -Value Get-DSLDAPSSetting
 Set-Alias -Name Describe-DSRegions -Value Get-DSRegion
 Set-Alias -Name Describe-DSRegion -Value Get-DSRegion
 Set-Alias -Name DS-DescribeRegions -Value Get-DSRegion
+Set-Alias -Name Describe-DSSettings -Value Get-DSSetting
+Set-Alias -Name Describe-DSSetting -Value Get-DSSetting
+Set-Alias -Name DS-DescribeSettings -Value Get-DSSetting
 Set-Alias -Name Describe-DSSharedDirectories -Value Get-DSSharedDirectory
 Set-Alias -Name Describe-DSSharedDirectory -Value Get-DSSharedDirectory
 Set-Alias -Name DS-DescribeSharedDirectories -Value Get-DSSharedDirectory
@@ -6272,6 +6275,8 @@ Set-Alias -Name Update-DSNumberOfDomainControllers -Value Set-DSDomainController
 Set-Alias -Name Update-DSDomainControllerCount -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateNumberOfDomainControllers -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
+Set-Alias -Name Update-DSSettings -Value Update-DSSetting
+Set-Alias -Name DS-UpdateSettings -Value Update-DSSetting
 Set-Alias -Name DS-UpdateTrust -Value Update-DSTrust
 Set-Alias -Name Verify-DSTrust -Value Approve-DSTrust
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust

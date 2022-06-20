@@ -1,4 +1,10 @@
-﻿### 4.1.108 (2022-06-17 21:22Z)
+﻿### 4.1.109 (2022-06-20 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.298.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Directory Service
+    * Added cmdlet Get-DSSetting leveraging the DescribeSettings service API.
+    * Added cmdlet Update-DSSetting leveraging the UpdateSettings service API.
+
+### 4.1.108 (2022-06-17 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.297.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Campaign Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCS and can be listed using the command 'Get-AWSCmdletName -Service CCS'.
 

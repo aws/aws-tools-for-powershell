@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DSRegion', 
         'Get-DSResourceTag', 
         'Get-DSSchemaExtension', 
+        'Get-DSSetting', 
         'Get-DSSharedDirectory', 
         'Get-DSSnapshot', 
         'Get-DSSnapshotLimit', 
@@ -148,6 +149,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-DSEventTopic', 
         'Update-DSConditionalForwarder', 
         'Update-DSRadius', 
+        'Update-DSSetting', 
         'Update-DSTrust')
 
     # Variables to export from this module

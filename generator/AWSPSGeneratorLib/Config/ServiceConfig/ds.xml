@@ -135,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSettings" OutputProperty="*" Verb="Get" Noun="Setting" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -260,6 +264,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRadius" Verb="Update" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSettings" OutputProperty="DirectoryId" Verb="Update" Noun="Setting" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
