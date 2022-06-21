@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Options_LocalIpv6NetworkCidr { get; set; }
         #endregion
         
+        #region Parameter Options_OutsideIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The type of IPv4 address assigned to the outside interface of the customer gateway
+        /// device.</para><para>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></para><para>Default: <code>PublicIpv4</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_OutsideIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter Options_RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
@@ -162,6 +173,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TransitGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter Options_TransportTransitGatewayAttachmentId
+        /// <summary>
+        /// <para>
+        /// <para>The transit gateway attachment ID to use for the VPN tunnel.</para><para>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_TransportTransitGatewayAttachmentId { get; set; }
         #endregion
         
         #region Parameter Options_TunnelInsideIpVersion
@@ -285,9 +306,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_EnableAcceleration = this.Options_EnableAcceleration;
             context.Options_LocalIpv4NetworkCidr = this.Options_LocalIpv4NetworkCidr;
             context.Options_LocalIpv6NetworkCidr = this.Options_LocalIpv6NetworkCidr;
+            context.Options_OutsideIpAddressType = this.Options_OutsideIpAddressType;
             context.Options_RemoteIpv4NetworkCidr = this.Options_RemoteIpv4NetworkCidr;
             context.Options_RemoteIpv6NetworkCidr = this.Options_RemoteIpv6NetworkCidr;
             context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
+            context.Options_TransportTransitGatewayAttachmentId = this.Options_TransportTransitGatewayAttachmentId;
             context.Options_TunnelInsideIpVersion = this.Options_TunnelInsideIpVersion;
             if (this.Options_TunnelOption != null)
             {
@@ -360,6 +383,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Options.LocalIpv6NetworkCidr = requestOptions_options_LocalIpv6NetworkCidr;
                 requestOptionsIsNull = false;
             }
+            System.String requestOptions_options_OutsideIpAddressType = null;
+            if (cmdletContext.Options_OutsideIpAddressType != null)
+            {
+                requestOptions_options_OutsideIpAddressType = cmdletContext.Options_OutsideIpAddressType;
+            }
+            if (requestOptions_options_OutsideIpAddressType != null)
+            {
+                request.Options.OutsideIpAddressType = requestOptions_options_OutsideIpAddressType;
+                requestOptionsIsNull = false;
+            }
             System.String requestOptions_options_RemoteIpv4NetworkCidr = null;
             if (cmdletContext.Options_RemoteIpv4NetworkCidr != null)
             {
@@ -388,6 +421,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_StaticRoutesOnly != null)
             {
                 request.Options.StaticRoutesOnly = requestOptions_options_StaticRoutesOnly.Value;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_TransportTransitGatewayAttachmentId = null;
+            if (cmdletContext.Options_TransportTransitGatewayAttachmentId != null)
+            {
+                requestOptions_options_TransportTransitGatewayAttachmentId = cmdletContext.Options_TransportTransitGatewayAttachmentId;
+            }
+            if (requestOptions_options_TransportTransitGatewayAttachmentId != null)
+            {
+                request.Options.TransportTransitGatewayAttachmentId = requestOptions_options_TransportTransitGatewayAttachmentId;
                 requestOptionsIsNull = false;
             }
             Amazon.EC2.TunnelInsideIpVersion requestOptions_options_TunnelInsideIpVersion = null;
@@ -496,9 +539,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Options_EnableAcceleration { get; set; }
             public System.String Options_LocalIpv4NetworkCidr { get; set; }
             public System.String Options_LocalIpv6NetworkCidr { get; set; }
+            public System.String Options_OutsideIpAddressType { get; set; }
             public System.String Options_RemoteIpv4NetworkCidr { get; set; }
             public System.String Options_RemoteIpv6NetworkCidr { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
+            public System.String Options_TransportTransitGatewayAttachmentId { get; set; }
             public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

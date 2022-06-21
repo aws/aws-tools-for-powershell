@@ -28,12 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Provides information to Amazon Web Services about your VPN customer gateway device.
-    /// The customer gateway is the appliance at your end of the VPN connection. (The device
-    /// on the Amazon Web Services side of the VPN connection is the virtual private gateway.)
-    /// You must provide the internet-routable IP address of the customer gateway's external
-    /// interface. The IP address must be static and can be behind a device performing network
-    /// address translation (NAT).
+    /// Provides information to Amazon Web Services about your customer gateway device. The
+    /// customer gateway device is the appliance at your end of the VPN connection. You must
+    /// provide the IP address of the customer gateway device’s external interface. The IP
+    /// address must be static and can be behind a device performing network address translation
+    /// (NAT).
     /// 
     ///  
     /// <para>
@@ -96,15 +95,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DeviceName { get; set; }
         #endregion
         
+        #region Parameter IpAddress
+        /// <summary>
+        /// <para>
+        /// <para> IPv4 address for the customer gateway device's outside interface. The address must
+        /// be static. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpAddress { get; set; }
+        #endregion
+        
         #region Parameter PublicIp
         /// <summary>
         /// <para>
-        /// <para>The Internet-routable IP address for the customer gateway's outside interface. The
-        /// address must be static.</para>
+        /// <para><i>This member has been deprecated.</i> The Internet-routable IP address for the
+        /// customer gateway's outside interface. The address must be static.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        [Alias("IpAddress")]
         public System.String PublicIp { get; set; }
         #endregion
         
@@ -206,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.CertificateArn = this.CertificateArn;
             context.DeviceName = this.DeviceName;
+            context.IpAddress = this.IpAddress;
             context.PublicIp = this.PublicIp;
             if (this.TagSpecification != null)
             {
@@ -245,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeviceName != null)
             {
                 request.DeviceName = cmdletContext.DeviceName;
+            }
+            if (cmdletContext.IpAddress != null)
+            {
+                request.IpAddress = cmdletContext.IpAddress;
             }
             if (cmdletContext.PublicIp != null)
             {
@@ -322,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? BgpAsn { get; set; }
             public System.String CertificateArn { get; set; }
             public System.String DeviceName { get; set; }
+            public System.String IpAddress { get; set; }
             public System.String PublicIp { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }

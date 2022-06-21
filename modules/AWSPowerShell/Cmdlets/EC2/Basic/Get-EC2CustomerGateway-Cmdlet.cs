@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous
-        /// System Number (ASN).</para></li><li><para><code>customer-gateway-id</code> - The ID of the customer gateway.</para></li><li><para><code>ip-address</code> - The IP address of the customer gateway's Internet-routable
-        /// external interface.</para></li><li><para><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code>
+        /// System Number (ASN).</para></li><li><para><code>customer-gateway-id</code> - The ID of the customer gateway.</para></li><li><para><code>ip-address</code> - The IP address of the customer gateway device's external
+        /// interface.</para></li><li><para><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code>
         /// | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>type</code> - The type of customer gateway. Currently, the only supported type
         /// is <code>ipsec.1</code>.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.

@@ -70,11 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance ID or full ARN of the container instance to deregister. The
-        /// ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the
-        /// container instance, the Amazon Web Services account ID of the container instance owner,
-        /// the <code>container-instance</code> namespace, and then the container instance ID.
-        /// For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</para>
+        /// <para>The container instance ID or full ARN of the container instance to deregister. For
+        /// more information about the ARN format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon
+        /// Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

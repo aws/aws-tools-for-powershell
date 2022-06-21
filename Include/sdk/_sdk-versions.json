@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.298.0",
+    "ProductVersion" : "3.7.299.0",
     "CoreVersion"    : "3.7.12.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.74.9",
+            "Version" : "3.7.75.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -160,7 +160,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.5.44",
+            "Version" : "3.7.5.45",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -2050,7 +2050,7 @@
             "InPreview"               : false
         },
         "WellArchitected"                 : {
-            "Version" : "3.7.2.71",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"

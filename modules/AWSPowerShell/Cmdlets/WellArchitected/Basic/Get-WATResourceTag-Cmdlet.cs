@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
     /// List the tags for a resource.
+    /// 
+    ///  <note><para>
+    /// The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "WATResourceTag")]
     [OutputType("System.String")]

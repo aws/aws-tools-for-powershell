@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Create a task set in the specified cluster and service. This is used when a service
     /// uses the <code>EXTERNAL</code> deployment controller type. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
-    /// ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "ECSTaskSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.TaskSet")]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The launch type that new tasks in the task set uses. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
         /// parameter must be omitted.</para>
         /// </para>
         /// </summary>
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The details of the service discovery registries to assign to this task set. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-        /// Discovery</a>.</para>
+        /// discovery</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

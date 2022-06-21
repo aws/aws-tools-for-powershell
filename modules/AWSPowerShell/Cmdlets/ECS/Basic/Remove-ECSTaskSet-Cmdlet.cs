@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Deletes a specified task set within a service. This is used when a service uses the
     /// <code>EXTERNAL</code> deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
-    /// ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "ECSTaskSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.TaskSet")]

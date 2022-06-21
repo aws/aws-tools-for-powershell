@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Runs a command remotely on a container within a task.
+    /// 
+    ///  
+    /// <para>
+    /// If you use a condition key in your IAM policy to refine the conditions for the policy
+    /// statement, for example limit the actions to a specific cluster, you recevie an <code>AccessDeniedException</code>
+    /// when there is a mismatch between the condition key value and the corresponding parameter
+    /// value.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "ECSCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.ExecuteCommandResponse")]

@@ -1,4 +1,10 @@
-﻿### 4.1.109 (2022-06-20 20:11Z)
+﻿### 4.1.110 (2022-06-21 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.299.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * [Breaking Change] Modified cmdlet New-EC2CustomerGateway: removed parameter PublicIp; added parameters IpAddress and PublicIp.
+    * Modified cmdlet New-EC2VpnConnection: added parameters Options_OutsideIpAddressType and Options_TransportTransitGatewayAttachmentId.
+
+### 4.1.109 (2022-06-20 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.298.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Directory Service
     * Added cmdlet Get-DSSetting leveraging the DescribeSettings service API.

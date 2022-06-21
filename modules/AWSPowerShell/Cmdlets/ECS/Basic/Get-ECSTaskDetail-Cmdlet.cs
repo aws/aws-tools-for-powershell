@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Describes a specified task or tasks.
+    /// 
+    ///  
+    /// <para>
+    /// Currently, stopped tasks appear in the returned results for at least one hour.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ECSTaskDetail")]
     [OutputType("Amazon.ECS.Model.DescribeTasksResponse")]

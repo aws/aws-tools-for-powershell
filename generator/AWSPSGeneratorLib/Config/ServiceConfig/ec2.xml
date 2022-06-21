@@ -278,9 +278,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomerGateway" OutputProperty="CustomerGateway" Verb="New" Noun="CustomerGateway" ShouldProcessTarget="Type" PositionalParameters="PublicIp;BgpAsn" PipelineParameter="Type" NoPipelineParameter="false">
-            <Params>
-                <Param Name="PublicIp" Alias="IpAddress" />
-            </Params>
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDefaultSubnet" OutputProperty="Subnet" Verb="New" Noun="DefaultSubnet" ShouldProcessTarget="AvailabilityZone" PipelineParameter="AvailabilityZone" NoPipelineParameter="false">

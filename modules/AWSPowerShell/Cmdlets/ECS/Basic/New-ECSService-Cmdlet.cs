@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Runs and maintains your desired number of tasks from a specified task definition.
     /// If the number of tasks running in a service drops below the <code>desiredCount</code>,
     /// Amazon ECS runs another copy of the task in the specified cluster. To update an existing
-    /// service, see the UpdateService action.
+    /// service, see the <a>UpdateService</a> action.
     /// 
     ///  
     /// <para>
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// run your service behind one or more load balancers. The load balancers distribute
     /// traffic across the tasks that are associated with the service. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
-    /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// Tasks for services that don't use a load balancer are considered healthy if they're
     /// in the <code>RUNNING</code> state. Tasks for services that use a load balancer are
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// desired number of tasks across your cluster. By default, the service scheduler spreads
     /// tasks across Availability Zones. You can use task placement strategies and constraints
     /// to customize task placement decisions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service
-    /// Scheduler Concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para></li><li><para><code>DAEMON</code> - The daemon scheduling strategy deploys exactly one task on
     /// each active container instance that meets all of the task placement constraints that
     /// you specify in your cluster. The service scheduler also evaluates the task placement
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// When using this strategy, you don't need to specify a desired number of tasks, a task
     /// placement strategy, or use Service Auto Scaling policies. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service
-    /// Scheduler Concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para></li></ul><para>
     /// You can optionally specify a deployment configuration for your service. The deployment
     /// is initiated by changing properties. For example, the deployment might be initiated
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// you can specify only parameters that aren't controlled at the task set level. The
     /// only required parameter is the service name. You control your services using the <a>CreateTaskSet</a>
     /// operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
-    /// ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// When the service scheduler launches new tasks, it determines task placement in your
     /// cluster using the following logic:
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
-        /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
+        /// your Amazon ECS resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>A load balancer object representing the load balancers to use with your service. For
         /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
-        /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the service uses the rolling update (<code>ECS</code>) deployment controller and
+        /// load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the service uses the rolling update (<code>ECS</code>) deployment controller and
         /// using either an Application Load Balancer or Network Load Balancer, you must specify
         /// one or more target group ARNs to attach to the service. The service-linked role is
         /// required for services that use multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
@@ -309,16 +309,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
-        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <b>maximum
-        /// percent</b> parameter represents an upper limit on the number of tasks in a service
-        /// that are allowed in the <code>RUNNING</code> or <code>PENDING</code> state during
-        /// a deployment, as a percentage of the desired number of tasks (rounded down to the
-        /// nearest integer), and while any container instances are in the <code>DRAINING</code>
-        /// state if the service contains tasks using the EC2 launch type. This parameter enables
-        /// you to define the deployment batch size. For example, if your service has a desired
-        /// number of four tasks and a maximum percent value of 200%, the scheduler may start
+        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <code>maximumPercent</code>
+        /// parameter represents an upper limit on the number of your service's tasks that are
+        /// allowed in the <code>RUNNING</code> or <code>PENDING</code> state during a deployment,
+        /// as a percentage of the <code>desiredCount</code> (rounded down to the nearest integer).
+        /// This parameter enables you to define the deployment batch size. For example, if your
+        /// service is using the <code>REPLICA</code> service scheduler and has a <code>desiredCount</code>
+        /// of four tasks and a <code>maximumPercent</code> value of 200%, the scheduler may start
         /// four new tasks before stopping the four older tasks (provided that the cluster resources
-        /// required to do this are available). The default value for maximum percent is 200%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// required to do this are available). The default <code>maximumPercent</code> value
+        /// for a service using the <code>REPLICA</code> service scheduler is 200%.</para><para>If a service is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
         /// deployment types and tasks that use the EC2 launch type, the <b>maximum percent</b>
         /// value is set to the default value and is used to define the upper limit on the number
         /// of the tasks in the service that remain in the <code>RUNNING</code> state while the
@@ -334,25 +334,34 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MinimumHealthyPercent
         /// <summary>
         /// <para>
-        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <b>minimum
-        /// healthy percent</b> represents a lower limit on the number of tasks in a service that
-        /// must remain in the <code>RUNNING</code> state during a deployment, as a percentage
-        /// of the desired number of tasks (rounded up to the nearest integer), and while any
-        /// container instances are in the <code>DRAINING</code> state if the service contains
-        /// tasks using the EC2 launch type. This parameter enables you to deploy without using
-        /// additional cluster capacity. For example, if your service has a desired number of
-        /// four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing
-        /// tasks to free up cluster capacity before starting two new tasks. Tasks for services
-        /// that <i>do not</i> use a load balancer are considered healthy if they're in the <code>RUNNING</code>
-        /// state; tasks for services that <i>do</i> use a load balancer are considered healthy
-        /// if they're in the <code>RUNNING</code> state and they're reported as healthy by the
-        /// load balancer. The default value for minimum healthy percent is 100%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
-        /// deployment types and tasks that use the EC2 launch type, the <b>minimum healthy percent</b>
-        /// value is set to the default value and is used to define the lower limit on the number
-        /// of the tasks in the service that remain in the <code>RUNNING</code> state while the
-        /// container instances are in the <code>DRAINING</code> state. If the tasks in the service
-        /// use the Fargate launch type, the minimum healthy percent value is not used, although
-        /// it is returned when describing your service.</para>
+        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <code>minimumHealthyPercent</code>
+        /// represents a lower limit on the number of your service's tasks that must remain in
+        /// the <code>RUNNING</code> state during a deployment, as a percentage of the <code>desiredCount</code>
+        /// (rounded up to the nearest integer). This parameter enables you to deploy without
+        /// using additional cluster capacity. For example, if your service has a <code>desiredCount</code>
+        /// of four tasks and a <code>minimumHealthyPercent</code> of 50%, the service scheduler
+        /// may stop two existing tasks to free up cluster capacity before starting two new tasks.
+        /// </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
+        /// service pass their health checks.</para></li><li><para>If a task has no essential containers with a health check defined, the service scheduler
+        /// will wait for 40 seconds after a task reaches a <code>RUNNING</code> state before
+        /// the task is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service
+        /// scheduler will wait for the task to reach a healthy status before counting it towards
+        /// the minimum healthy percent total. A task is considered healthy when all essential
+        /// containers within the task have passed their health checks. The amount of time the
+        /// service scheduler can wait for is determined by the container health check settings.
+        /// </para></li></ul><para>For services are that <i>do</i> use a load balancer, the following should be noted:</para><ul><li><para>If a task has no essential containers with a health check defined, the service scheduler
+        /// will wait for the load balancer target group health check to return a healthy status
+        /// before counting the task towards the minimum healthy percent total.</para></li><li><para>If a task has an essential container with a health check defined, the service scheduler
+        /// will wait for both the task to reach a healthy status and the load balancer target
+        /// group health check to return a healthy status before counting the task towards the
+        /// minimum healthy percent total.</para></li></ul><para>If a service is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// deployment types and is running tasks that use the EC2 launch type, the <b>minimum
+        /// healthy percent</b> value is set to the default value and is used to define the lower
+        /// limit on the number of the tasks in the service that remain in the <code>RUNNING</code>
+        /// state while the container instances are in the <code>DRAINING</code> state. If a service
+        /// is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// deployment types and is running tasks that use the Fargate launch type, the minimum
+        /// healthy percent value is not used, although it is returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
