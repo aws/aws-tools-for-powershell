@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SshPublicKeyBody
         /// <summary>
         /// <para>
-        /// <para>The public key portion of an SSH key pair.</para>
+        /// <para>The public key portion of an SSH key pair.</para><para>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

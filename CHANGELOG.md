@@ -1,4 +1,7 @@
-﻿### 4.1.110 (2022-06-21 20:11Z)
+﻿### 4.1.111 (2022-06-22 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.300.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.110 (2022-06-21 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.299.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * [Breaking Change] Modified cmdlet New-EC2CustomerGateway: removed parameter PublicIp; added parameters IpAddress and PublicIp.

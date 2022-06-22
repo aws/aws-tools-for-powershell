@@ -58,7 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// <para>The code for the service whose products you want to retrieve. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceCode { get; set; }
         #endregion
         
@@ -174,6 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.PLS
             #endif
             context.NextToken = this.NextToken;
             context.ServiceCode = this.ServiceCode;
+            #if MODULAR
+            if (this.ServiceCode == null && ParameterWasBound(nameof(this.ServiceCode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
