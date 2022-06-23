@@ -44,7 +44,6 @@
     * Modified cmdlet Get-RSDTableList: added parameter WorkgroupName.
     * Modified cmdlet Push-RSDBatchStatement: added parameter WorkgroupName.
     * Modified cmdlet Send-RSDStatement: added parameter WorkgroupName.
-  * Amazon Redshift Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RSS and can be listed using the command 'Get-AWSCmdletName -Service RSS'.
 
 ### 4.1.106 (2022-06-15 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.295.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
@@ -76,7 +75,6 @@
 
 ### 4.1.103 (2022-06-10 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.291.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
-  * [Breaking Change] Removed support for Amazon Redshift Serverless
 
 ### 4.1.102 (2022-06-09 22:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.291.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.

@@ -2465,14 +2465,6 @@
             },
             "InPreview"               : false
         },
-        "RedshiftServerless"                  : {
-            "Version" : "3.7.0.1",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.12.2"
-            },
-            "InPreview"               : false
-        },
         "ConnectCampaignService"              : {
             "Version" : "3.7.0.0",
             "AssemblyVersionOverride" : "3.3",

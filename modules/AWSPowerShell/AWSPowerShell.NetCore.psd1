@@ -291,7 +291,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.RecycleBin.dll',
         'AWSSDK.Redshift.dll',
         'AWSSDK.RedshiftDataAPIService.dll',
-        'AWSSDK.RedshiftServerless.dll',
         'AWSSDK.Rekognition.dll',
         'AWSSDK.ResilienceHub.dll',
         'AWSSDK.ResourceGroups.dll',
