@@ -22,35 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MigrationHubRefactorSpaces;
-using Amazon.MigrationHubRefactorSpaces.Model;
+using Amazon.Mgn;
+using Amazon.Mgn.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MHRS
+namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Removes the tags of a given resource. Tags are metadata which can be used to manage
-    /// a resource. To tag a resource, the caller account must be the same as the resource’s
-    /// <code>OwnerAccountId</code>. Tagging resources in other accounts is not supported.
-    /// 
-    ///  <note><para>
-    /// Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated
-    /// resources, such as an environment’s transit gateway.
-    /// </para></note>
+    /// Creates a new ReplicationConfigurationTemplate.
     /// </summary>
-    [Cmdlet("Add", "MHRSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "MGNLaunchConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse",
+    [AWSCmdlet("Calls the Application Migration Service DeleteLaunchConfigurationTemplate API operation.", Operation = new[] {"DeleteLaunchConfigurationTemplate"}, SelectReturnType = typeof(Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddMHRSResourceTagCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
+    public partial class RemoveMGNLaunchConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter LaunchConfigurationTemplateID
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>ID of resource to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,31 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The new or modified tags for the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String LaunchConfigurationTemplateID { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LaunchConfigurationTemplateID parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MHRSResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LaunchConfigurationTemplateID), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MGNLaunchConfigurationTemplate (DeleteLaunchConfigurationTemplate)"))
             {
                 return;
             }
@@ -130,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse, AddMHRSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse, RemoveMGNLaunchConfigurationTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,28 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.LaunchConfigurationTemplateID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.LaunchConfigurationTemplateID = this.LaunchConfigurationTemplateID;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.LaunchConfigurationTemplateID == null && ParameterWasBound(nameof(this.LaunchConfigurationTemplateID)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LaunchConfigurationTemplateID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,15 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MigrationHubRefactorSpaces.Model.TagResourceRequest();
+            var request = new Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.LaunchConfigurationTemplateID != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.LaunchConfigurationTemplateID = cmdletContext.LaunchConfigurationTemplateID;
             }
             
             CmdletOutput output;
@@ -220,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         
         #region AWS Service Operation Call
         
-        private Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse CallAWSServiceOperation(IAmazonMigrationHubRefactorSpaces client, Amazon.MigrationHubRefactorSpaces.Model.TagResourceRequest request)
+        private Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Refactor Spaces", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "DeleteLaunchConfigurationTemplate");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.DeleteLaunchConfigurationTemplate(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteLaunchConfigurationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,9 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MigrationHubRefactorSpaces.Model.TagResourceResponse, AddMHRSResourceTagCmdlet, object> Select { get; set; } =
+            public System.String LaunchConfigurationTemplateID { get; set; }
+            public System.Func<Amazon.Mgn.Model.DeleteLaunchConfigurationTemplateResponse, RemoveMGNLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

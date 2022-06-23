@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>JSON formatted S3 file that defines bias parameters. For more information on this
-        /// JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html">Configure
+        /// JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure
         /// bias parameters</a>.</para>
         /// </para>
         /// </summary>

@@ -31057,6 +31057,7 @@ $L4E_SelectMap = @{
                "Get-L4EModel",
                "Get-L4EDataIngestionJobList",
                "Get-L4EDatasetList",
+               "Get-L4EInferenceEventList",
                "Get-L4EInferenceExecutionList",
                "Get-L4EInferenceSchedulerList",
                "Get-L4EModelList",
@@ -33755,6 +33756,17 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.PostLaunchActionsDeploymentType
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/PostLaunchActions_Deployment") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment")
+        }
+        {
+            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER"
+            break
+        }
+
         # Amazon.Mgn.ReplicationConfigurationDataPlaneRouting
         {
             ($_ -eq "New-MGNReplicationConfigurationTemplate/DataPlaneRouting") -Or
@@ -33817,6 +33829,7 @@ $MGN_map = @{
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "LaunchDisposition"=@("Update-MGNLaunchConfiguration")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
+    "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "TargetInstanceTypeRightSizingMethod"=@("Update-MGNLaunchConfiguration")
 }
@@ -33872,13 +33885,16 @@ $MGN_SelectCompleters = {
 
 $MGN_SelectMap = @{
     "Select"=@("Set-MGNServerLifeCycleState",
+               "New-MGNLaunchConfigurationTemplate",
                "New-MGNReplicationConfigurationTemplate",
                "Remove-MGNJob",
+               "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
                "Get-MGNJobLogItem",
                "Get-MGNJob",
+               "Get-MGNLaunchConfigurationTemplate",
                "Get-MGNReplicationConfigurationTemplate",
                "Get-MGNSourceServer",
                "Get-MGNVcenterClient",
@@ -33897,6 +33913,7 @@ $MGN_SelectMap = @{
                "Remove-MGNTargetInstance",
                "Remove-MGNResourceTag",
                "Update-MGNLaunchConfiguration",
+               "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
                "Update-MGNSourceServerReplicationType")
@@ -34019,9 +34036,13 @@ $MHRS_Completers = {
         }
 
         # Amazon.MigrationHubRefactorSpaces.RouteActivationState
-        "New-MHRSRoute/UriPathRoute_ActivationState"
         {
-            $v = "ACTIVE"
+            ($_ -eq "Update-MHRSRoute/ActivationState") -Or
+            ($_ -eq "New-MHRSRoute/DefaultRoute_ActivationState") -Or
+            ($_ -eq "New-MHRSRoute/UriPathRoute_ActivationState")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
             break
         }
 
@@ -34048,7 +34069,9 @@ $MHRS_Completers = {
 }
 
 $MHRS_map = @{
+    "ActivationState"=@("Update-MHRSRoute")
     "ApiGatewayProxy_EndpointType"=@("New-MHRSApplication")
+    "DefaultRoute_ActivationState"=@("New-MHRSRoute")
     "EndpointType"=@("New-MHRSService")
     "NetworkFabricType"=@("New-MHRSEnvironment")
     "ProxyType"=@("New-MHRSApplication")
@@ -34128,7 +34151,8 @@ $MHRS_SelectMap = @{
                "Get-MHRSResourceTag",
                "Write-MHRSResourcePolicy",
                "Add-MHRSResourceTag",
-               "Remove-MHRSResourceTag")
+               "Remove-MHRSResourceTag",
+               "Update-MHRSRoute")
 }
 
 _awsArgumentCompleterRegistration $MHRS_SelectCompleters $MHRS_SelectMap

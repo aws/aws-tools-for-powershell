@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// 
     ///  
     /// <para>
+    /// When created, the default route defaults to an active state so state is not a required
+    /// input. However, like all other state values the state of the default route can be
+    /// updated after creation, but only when all other routes are also inactive. Conversely,
+    /// no route can be active without the default route also being active.
+    /// </para><para>
     /// When you create a route, Refactor Spaces configures the Amazon API Gateway to send
     /// traffic to the target service as follows:
     /// </para><ul><li><para>
@@ -48,8 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// Lambda function's resource policy to allow the application's API Gateway to invoke
     /// the function.
     /// </para></li></ul><para>
-    /// A one-time health check is performed on the service when the route is created. If
-    /// the health check fails, the route transitions to <code>FAILED</code>, and no traffic
+    /// A one-time health check is performed on the service when either the route is updated
+    /// from inactive to active, or when it is created with an active state. If the health
+    /// check fails, the route transitions the route state to <code>FAILED</code>, an error
+    /// code of <code>SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE</code> is provided, and no traffic
     /// is sent to the service.
     /// </para><para>
     /// For Lambda functions, the Lambda function state is checked. If the function is not
@@ -58,19 +65,22 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// information, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's
     /// State response parameter</a> in the <i>Lambda Developer Guide</i>.
     /// </para><para>
-    /// For public URLs, a connection is opened to the public endpoint. If the URL is not
-    /// reachable, the health check fails. For private URLs, a target group is created and
-    /// the target group health check is run.
+    /// For Lambda endpoints, a check is performed to determine that a Lambda function with
+    /// the specified ARN exists. If it does not exist, the health check fails. For public
+    /// URLs, a connection is opened to the public endpoint. If the URL is not reachable,
+    /// the health check fails. 
     /// </para><para>
-    /// The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>, and <code>HealthCheckPath</code>
-    /// are the same protocol, port, and path specified in the URL or health URL, if used.
-    /// All other settings use the default values, as described in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health
+    /// For private URLS, a target group is created on the Elastic Load Balancing and the
+    /// target group health check is run. The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>,
+    /// and <code>HealthCheckPath</code> are the same protocol, port, and path specified in
+    /// the URL or health URL, if used. All other settings use the default values, as described
+    /// in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health
     /// checks for your target groups</a>. The health check is considered successful if at
     /// least one target within the target group transitions to a healthy state.
     /// </para><para>
     /// Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs, publicly-signed certificates
     /// are supported. Private Certificate Authorities (CAs) are permitted only if the CA's
-    /// domain is publicly resolvable.
+    /// domain is also publicly resolvable.
     /// </para>
     /// </summary>
     [Cmdlet("New", "MHRSRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,11 +92,23 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class NewMHRSRouteCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        #region Parameter DefaultRoute_ActivationState
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after
+        /// the route is created. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MigrationHubRefactorSpaces.RouteActivationState")]
+        public Amazon.MigrationHubRefactorSpaces.RouteActivationState DefaultRoute_ActivationState { get; set; }
+        #endregion
+        
         #region Parameter UriPathRoute_ActivationState
         /// <summary>
         /// <para>
-        /// <para>Indicates whether traffic is forwarded to this route’s service after the route is
-        /// created. </para>
+        /// <para>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after
+        /// the route is created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.DefaultRoute_ActivationState = this.DefaultRoute_ActivationState;
             context.EnvironmentIdentifier = this.EnvironmentIdentifier;
             #if MODULAR
             if (this.EnvironmentIdentifier == null && ParameterWasBound(nameof(this.EnvironmentIdentifier)))
@@ -334,6 +357,25 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate DefaultRoute
+            var requestDefaultRouteIsNull = true;
+            request.DefaultRoute = new Amazon.MigrationHubRefactorSpaces.Model.DefaultRouteInput();
+            Amazon.MigrationHubRefactorSpaces.RouteActivationState requestDefaultRoute_defaultRoute_ActivationState = null;
+            if (cmdletContext.DefaultRoute_ActivationState != null)
+            {
+                requestDefaultRoute_defaultRoute_ActivationState = cmdletContext.DefaultRoute_ActivationState;
+            }
+            if (requestDefaultRoute_defaultRoute_ActivationState != null)
+            {
+                request.DefaultRoute.ActivationState = requestDefaultRoute_defaultRoute_ActivationState;
+                requestDefaultRouteIsNull = false;
+            }
+             // determine if request.DefaultRoute should be set to null
+            if (requestDefaultRouteIsNull)
+            {
+                request.DefaultRoute = null;
             }
             if (cmdletContext.EnvironmentIdentifier != null)
             {
@@ -463,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         {
             public System.String ApplicationIdentifier { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.MigrationHubRefactorSpaces.RouteActivationState DefaultRoute_ActivationState { get; set; }
             public System.String EnvironmentIdentifier { get; set; }
             public Amazon.MigrationHubRefactorSpaces.RouteType RouteType { get; set; }
             public System.String ServiceIdentifier { get; set; }

@@ -23,11 +23,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchConfigurationTemplate" OutputProperty="*" Verb="New" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="PostLaunchActions_CloudWatchLogGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobID" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchConfigurationTemplate" Verb="Remove" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="LaunchConfigurationTemplateID" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +56,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeJobs" OutputProperty="Items" Verb="Get" Noun="Job" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="LaunchConfigurationTemplate" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLaunchConfiguration" OutputProperty="*" Verb="Update" Noun="LaunchConfiguration" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchConfigurationTemplate" OutputProperty="*" Verb="Update" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="PostLaunchActions_CloudWatchLogGroupName" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

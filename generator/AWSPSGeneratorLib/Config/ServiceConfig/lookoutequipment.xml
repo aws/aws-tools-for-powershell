@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceEvents" OutputProperty="InferenceEventSummaries" Verb="Get" Noun="InferenceEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInferenceExecutions" OutputProperty="InferenceExecutionSummaries" Verb="Get" Noun="InferenceExecutionList" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -102,9 +102,13 @@ $MHRS_Completers = {
         }
 
         # Amazon.MigrationHubRefactorSpaces.RouteActivationState
-        "New-MHRSRoute/UriPathRoute_ActivationState"
         {
-            $v = "ACTIVE"
+            ($_ -eq "Update-MHRSRoute/ActivationState") -Or
+            ($_ -eq "New-MHRSRoute/DefaultRoute_ActivationState") -Or
+            ($_ -eq "New-MHRSRoute/UriPathRoute_ActivationState")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
             break
         }
 
@@ -131,7 +135,9 @@ $MHRS_Completers = {
 }
 
 $MHRS_map = @{
+    "ActivationState"=@("Update-MHRSRoute")
     "ApiGatewayProxy_EndpointType"=@("New-MHRSApplication")
+    "DefaultRoute_ActivationState"=@("New-MHRSRoute")
     "EndpointType"=@("New-MHRSService")
     "NetworkFabricType"=@("New-MHRSEnvironment")
     "ProxyType"=@("New-MHRSApplication")
@@ -211,7 +217,8 @@ $MHRS_SelectMap = @{
                "Get-MHRSResourceTag",
                "Write-MHRSResourcePolicy",
                "Add-MHRSResourceTag",
-               "Remove-MHRSResourceTag")
+               "Remove-MHRSResourceTag",
+               "Update-MHRSRoute")
 }
 
 _awsArgumentCompleterRegistration $MHRS_SelectCompleters $MHRS_SelectMap

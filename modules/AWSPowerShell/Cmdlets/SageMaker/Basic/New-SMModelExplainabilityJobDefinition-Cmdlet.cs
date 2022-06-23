@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>JSON formatted S3 file that defines explainability parameters. For more information
-        /// on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html">Configure
+        /// on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure
         /// model explainability parameters</a>.</para>
         /// </para>
         /// </summary>

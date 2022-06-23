@@ -110,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteIdentifier" PipelineParameter="RouteIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

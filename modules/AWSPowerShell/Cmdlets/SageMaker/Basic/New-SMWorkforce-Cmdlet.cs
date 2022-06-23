@@ -144,6 +144,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OidcConfig_LogoutEndpoint { get; set; }
         #endregion
         
+        #region Parameter WorkforceVpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for
+        /// the same VPC as specified in the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkforceVpcConfig_SecurityGroupIds")]
+        public System.String[] WorkforceVpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter WorkforceVpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC that you want to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkforceVpcConfig_Subnets")]
+        public System.String[] WorkforceVpcConfig_Subnet { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -188,6 +211,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CognitoConfig_UserPool { get; set; }
+        #endregion
+        
+        #region Parameter WorkforceVpcConfig_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC that the workforce uses for communication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkforceVpcConfig_VpcId { get; set; }
         #endregion
         
         #region Parameter WorkforceName
@@ -293,6 +326,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter WorkforceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.WorkforceVpcConfig_SecurityGroupId != null)
+            {
+                context.WorkforceVpcConfig_SecurityGroupId = new List<System.String>(this.WorkforceVpcConfig_SecurityGroupId);
+            }
+            if (this.WorkforceVpcConfig_Subnet != null)
+            {
+                context.WorkforceVpcConfig_Subnet = new List<System.String>(this.WorkforceVpcConfig_Subnet);
+            }
+            context.WorkforceVpcConfig_VpcId = this.WorkforceVpcConfig_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -455,6 +497,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.WorkforceName = cmdletContext.WorkforceName;
             }
             
+             // populate WorkforceVpcConfig
+            var requestWorkforceVpcConfigIsNull = true;
+            request.WorkforceVpcConfig = new Amazon.SageMaker.Model.WorkforceVpcConfigRequest();
+            List<System.String> requestWorkforceVpcConfig_workforceVpcConfig_SecurityGroupId = null;
+            if (cmdletContext.WorkforceVpcConfig_SecurityGroupId != null)
+            {
+                requestWorkforceVpcConfig_workforceVpcConfig_SecurityGroupId = cmdletContext.WorkforceVpcConfig_SecurityGroupId;
+            }
+            if (requestWorkforceVpcConfig_workforceVpcConfig_SecurityGroupId != null)
+            {
+                request.WorkforceVpcConfig.SecurityGroupIds = requestWorkforceVpcConfig_workforceVpcConfig_SecurityGroupId;
+                requestWorkforceVpcConfigIsNull = false;
+            }
+            List<System.String> requestWorkforceVpcConfig_workforceVpcConfig_Subnet = null;
+            if (cmdletContext.WorkforceVpcConfig_Subnet != null)
+            {
+                requestWorkforceVpcConfig_workforceVpcConfig_Subnet = cmdletContext.WorkforceVpcConfig_Subnet;
+            }
+            if (requestWorkforceVpcConfig_workforceVpcConfig_Subnet != null)
+            {
+                request.WorkforceVpcConfig.Subnets = requestWorkforceVpcConfig_workforceVpcConfig_Subnet;
+                requestWorkforceVpcConfigIsNull = false;
+            }
+            System.String requestWorkforceVpcConfig_workforceVpcConfig_VpcId = null;
+            if (cmdletContext.WorkforceVpcConfig_VpcId != null)
+            {
+                requestWorkforceVpcConfig_workforceVpcConfig_VpcId = cmdletContext.WorkforceVpcConfig_VpcId;
+            }
+            if (requestWorkforceVpcConfig_workforceVpcConfig_VpcId != null)
+            {
+                request.WorkforceVpcConfig.VpcId = requestWorkforceVpcConfig_workforceVpcConfig_VpcId;
+                requestWorkforceVpcConfigIsNull = false;
+            }
+             // determine if request.WorkforceVpcConfig should be set to null
+            if (requestWorkforceVpcConfigIsNull)
+            {
+                request.WorkforceVpcConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -528,6 +609,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> SourceIpConfig_Cidr { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String WorkforceName { get; set; }
+            public List<System.String> WorkforceVpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> WorkforceVpcConfig_Subnet { get; set; }
+            public System.String WorkforceVpcConfig_VpcId { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateWorkforceResponse, NewSMWorkforceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WorkforceArn;
         }

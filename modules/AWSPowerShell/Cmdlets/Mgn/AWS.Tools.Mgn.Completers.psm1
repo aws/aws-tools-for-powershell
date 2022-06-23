@@ -101,6 +101,17 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.PostLaunchActionsDeploymentType
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/PostLaunchActions_Deployment") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment")
+        }
+        {
+            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER"
+            break
+        }
+
         # Amazon.Mgn.ReplicationConfigurationDataPlaneRouting
         {
             ($_ -eq "New-MGNReplicationConfigurationTemplate/DataPlaneRouting") -Or
@@ -163,6 +174,7 @@ $MGN_map = @{
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "LaunchDisposition"=@("Update-MGNLaunchConfiguration")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
+    "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "TargetInstanceTypeRightSizingMethod"=@("Update-MGNLaunchConfiguration")
 }
@@ -218,13 +230,16 @@ $MGN_SelectCompleters = {
 
 $MGN_SelectMap = @{
     "Select"=@("Set-MGNServerLifeCycleState",
+               "New-MGNLaunchConfigurationTemplate",
                "New-MGNReplicationConfigurationTemplate",
                "Remove-MGNJob",
+               "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
                "Get-MGNJobLogItem",
                "Get-MGNJob",
+               "Get-MGNLaunchConfigurationTemplate",
                "Get-MGNReplicationConfigurationTemplate",
                "Get-MGNSourceServer",
                "Get-MGNVcenterClient",
@@ -243,6 +258,7 @@ $MGN_SelectMap = @{
                "Remove-MGNTargetInstance",
                "Remove-MGNResourceTag",
                "Update-MGNLaunchConfiguration",
+               "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
                "Update-MGNSourceServerReplicationType")

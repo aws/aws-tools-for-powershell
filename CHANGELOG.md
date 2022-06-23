@@ -1,4 +1,22 @@
-﻿### 4.1.111 (2022-06-22 20:12Z)
+﻿### 4.1.112 (2022-06-23 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.301.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Application Migration Service
+    * Added cmdlet Get-MGNLaunchConfigurationTemplate leveraging the DescribeLaunchConfigurationTemplates service API.
+    * Added cmdlet New-MGNLaunchConfigurationTemplate leveraging the CreateLaunchConfigurationTemplate service API.
+    * Added cmdlet Remove-MGNLaunchConfigurationTemplate leveraging the DeleteLaunchConfigurationTemplate service API.
+    * Added cmdlet Update-MGNLaunchConfigurationTemplate leveraging the UpdateLaunchConfigurationTemplate service API.
+    * Modified cmdlet Update-MGNLaunchConfiguration: added parameters PostLaunchActions_CloudWatchLogGroupName, PostLaunchActions_Deployment, PostLaunchActions_S3LogBucket, PostLaunchActions_S3OutputKeyPrefix and PostLaunchActions_SsmDocument.
+  * Amazon Lookout for Equipment
+    * Added cmdlet Get-L4EInferenceEventList leveraging the ListInferenceEvents service API.
+  * Amazon Migration Hub Refactor Spaces
+    * Added cmdlet Update-MHRSRoute leveraging the UpdateRoute service API.
+    * Modified cmdlet New-MHRSRoute: added parameter DefaultRoute_ActivationState.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMLabelingJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet New-SMWorkforce: added parameters WorkforceVpcConfig_SecurityGroupId, WorkforceVpcConfig_Subnet and WorkforceVpcConfig_VpcId.
+    * Modified cmdlet Update-SMWorkforce: added parameters WorkforceVpcConfig_SecurityGroupId, WorkforceVpcConfig_Subnet and WorkforceVpcConfig_VpcId.
+
+### 4.1.111 (2022-06-22 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.300.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.110 (2022-06-21 20:11Z)

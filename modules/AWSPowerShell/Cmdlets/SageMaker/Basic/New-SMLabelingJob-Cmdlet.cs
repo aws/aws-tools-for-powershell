@@ -497,6 +497,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OutputConfig_S3OutputPath { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
+        /// the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LabelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter SnsDataSource_SnsTopicArn
         /// <summary>
         /// <para>
@@ -522,6 +534,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputConfig_SnsTopicArn { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
+        /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
+        /// Instance Types and Availability Zones</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LabelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -821,6 +846,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.LabelingJobAlgorithmsConfig_InitialActiveLearningModelArn = this.LabelingJobAlgorithmsConfig_InitialActiveLearningModelArn;
             context.LabelingJobAlgorithmsConfig_LabelingJobAlgorithmSpecificationArn = this.LabelingJobAlgorithmsConfig_LabelingJobAlgorithmSpecificationArn;
             context.LabelingJobResourceConfig_VolumeKmsKeyId = this.LabelingJobResourceConfig_VolumeKmsKeyId;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
+            }
             context.LabelingJobName = this.LabelingJobName;
             #if MODULAR
             if (this.LabelingJobName == null && ParameterWasBound(nameof(this.LabelingJobName)))
@@ -1231,6 +1264,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig.VolumeKmsKeyId = requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobResourceConfig_VolumeKmsKeyId;
                 requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.VpcConfig requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig = null;
+            
+             // populate VpcConfig
+            var requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfigIsNull = true;
+            requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig = new Amazon.SageMaker.Model.VpcConfig();
+            List<System.String> requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig.SecurityGroupIds = requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_SecurityGroupId;
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfigIsNull = false;
+            }
+            List<System.String> requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_Subnet != null)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig.Subnets = requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig_vpcConfig_Subnet;
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfigIsNull = false;
+            }
+             // determine if requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig should be set to null
+            if (requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfigIsNull)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig = null;
+            }
+            if (requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig != null)
+            {
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig.VpcConfig = requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig_VpcConfig;
+                requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfigIsNull = false;
+            }
              // determine if requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfig should be set to null
             if (requestLabelingJobAlgorithmsConfig_labelingJobAlgorithmsConfig_LabelingJobResourceConfigIsNull)
             {
@@ -1410,6 +1478,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String LabelingJobAlgorithmsConfig_InitialActiveLearningModelArn { get; set; }
             public System.String LabelingJobAlgorithmsConfig_LabelingJobAlgorithmSpecificationArn { get; set; }
             public System.String LabelingJobResourceConfig_VolumeKmsKeyId { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
             public System.String LabelingJobName { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputPath { get; set; }

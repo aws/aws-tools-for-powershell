@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-L4EDataIngestionJobList', 
         'Get-L4EDataset', 
         'Get-L4EDatasetList', 
+        'Get-L4EInferenceEventList', 
         'Get-L4EInferenceExecutionList', 
         'Get-L4EInferenceScheduler', 
         'Get-L4EInferenceSchedulerList', 

@@ -108,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MHRSResourceTag', 
         'Remove-MHRSRoute', 
         'Remove-MHRSService', 
+        'Update-MHRSRoute', 
         'Write-MHRSResourcePolicy')
 
     # Variables to export from this module

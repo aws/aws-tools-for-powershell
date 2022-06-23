@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.300.0",
+    "ProductVersion" : "3.7.301.0",
     "CoreVersion"    : "3.7.12.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -898,7 +898,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.17.2",
+            "Version" : "3.7.17.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.36.7",
+            "Version" : "3.7.37.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -2090,7 +2090,7 @@
             "InPreview"               : false
         },
         "Mgn"                             : {
-            "Version" : "3.7.4.24",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -2098,7 +2098,7 @@
             "InPreview"               : false
         },
         "LookoutEquipment"                : {
-            "Version" : "3.7.2.24",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"
@@ -2330,7 +2330,7 @@
             "InPreview"               : false
         },
         "MigrationHubRefactorSpaces"          : {
-            "Version" : "3.7.0.73",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.2"

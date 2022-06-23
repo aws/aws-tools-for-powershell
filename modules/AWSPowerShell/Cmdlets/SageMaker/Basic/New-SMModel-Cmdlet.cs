@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     /// </para><para>
     /// For an example that calls this method when deploying a model to SageMaker hosting
-    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
-    /// the Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python
-    /// (Boto 3)).</a></para><para>
+    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create
+    /// a Model (Amazon Web Services SDK for Python (Boto 3)).</a></para><para>
     /// To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code>
     /// API. SageMaker uses your model and your dataset to get inferences which are then saved
     /// to a specified S3 location.

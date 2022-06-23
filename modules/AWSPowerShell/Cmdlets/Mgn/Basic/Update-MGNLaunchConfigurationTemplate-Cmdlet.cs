@@ -28,27 +28,16 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Updates multiple LaunchConfigurations by Source Server ID.
+    /// Creates a new ReplicationConfigurationTemplate.
     /// </summary>
-    [Cmdlet("Update", "MGNLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Mgn.Model.UpdateLaunchConfigurationResponse")]
-    [AWSCmdlet("Calls the Application Migration Service UpdateLaunchConfiguration API operation.", Operation = new[] {"UpdateLaunchConfiguration"}, SelectReturnType = typeof(Amazon.Mgn.Model.UpdateLaunchConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.Mgn.Model.UpdateLaunchConfigurationResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.UpdateLaunchConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "MGNLaunchConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse")]
+    [AWSCmdlet("Calls the Application Migration Service UpdateLaunchConfigurationTemplate API operation.", Operation = new[] {"UpdateLaunchConfigurationTemplate"}, SelectReturnType = typeof(Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse))]
+    [AWSCmdletOutput("Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse",
+        "This cmdlet returns an Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateMGNLaunchConfigurationCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class UpdateMGNLaunchConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
-        
-        #region Parameter BootMode
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration boot mode request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Mgn.BootMode")]
-        public Amazon.Mgn.BootMode BootMode { get; set; }
-        #endregion
         
         #region Parameter PostLaunchActions_CloudWatchLogGroupName
         /// <summary>
@@ -58,27 +47,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PostLaunchActions_CloudWatchLogGroupName { get; set; }
-        #endregion
-        
-        #region Parameter CopyPrivateIp
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration copy Private IP request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? CopyPrivateIp { get; set; }
-        #endregion
-        
-        #region Parameter CopyTag
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration copy Tags request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CopyTags")]
-        public System.Boolean? CopyTag { get; set; }
         #endregion
         
         #region Parameter PostLaunchActions_Deployment
@@ -92,35 +60,21 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.PostLaunchActionsDeploymentType PostLaunchActions_Deployment { get; set; }
         #endregion
         
-        #region Parameter LaunchDisposition
+        #region Parameter LaunchConfigurationTemplateID
         /// <summary>
         /// <para>
-        /// <para>Update Launch configuration launch disposition request.</para>
+        /// <para>Update Launch configuration Target instance right sizing request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Mgn.LaunchDisposition")]
-        public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration name request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Licensing_OsByol
-        /// <summary>
-        /// <para>
-        /// <para>Configure BYOL OS licensing.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Licensing_OsByol { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String LaunchConfigurationTemplateID { get; set; }
         #endregion
         
         #region Parameter PostLaunchActions_S3LogBucket
@@ -143,23 +97,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String PostLaunchActions_S3OutputKeyPrefix { get; set; }
         #endregion
         
-        #region Parameter SourceServerID
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration by Source Server ID request.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SourceServerID { get; set; }
-        #endregion
-        
         #region Parameter PostLaunchActions_SsmDocument
         /// <summary>
         /// <para>
@@ -171,22 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.Model.SsmDocument[] PostLaunchActions_SsmDocument { get; set; }
         #endregion
         
-        #region Parameter TargetInstanceTypeRightSizingMethod
-        /// <summary>
-        /// <para>
-        /// <para>Update Launch configuration Target instance right sizing request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Mgn.TargetInstanceTypeRightSizingMethod")]
-        public Amazon.Mgn.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.UpdateLaunchConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.Mgn.Model.UpdateLaunchConfigurationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse).
+        /// Specifying the name of a property of type Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SourceServerID parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LaunchConfigurationTemplateID parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -217,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerID), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MGNLaunchConfiguration (UpdateLaunchConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PostLaunchActions_CloudWatchLogGroupName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MGNLaunchConfigurationTemplate (UpdateLaunchConfigurationTemplate)"))
             {
                 return;
             }
@@ -231,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.UpdateLaunchConfigurationResponse, UpdateMGNLaunchConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse, UpdateMGNLaunchConfigurationTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -240,15 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SourceServerID;
+                context.Select = (response, cmdlet) => this.LaunchConfigurationTemplateID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BootMode = this.BootMode;
-            context.CopyPrivateIp = this.CopyPrivateIp;
-            context.CopyTag = this.CopyTag;
-            context.LaunchDisposition = this.LaunchDisposition;
-            context.Licensing_OsByol = this.Licensing_OsByol;
-            context.Name = this.Name;
+            context.LaunchConfigurationTemplateID = this.LaunchConfigurationTemplateID;
+            #if MODULAR
+            if (this.LaunchConfigurationTemplateID == null && ParameterWasBound(nameof(this.LaunchConfigurationTemplateID)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LaunchConfigurationTemplateID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.PostLaunchActions_CloudWatchLogGroupName = this.PostLaunchActions_CloudWatchLogGroupName;
             context.PostLaunchActions_Deployment = this.PostLaunchActions_Deployment;
             context.PostLaunchActions_S3LogBucket = this.PostLaunchActions_S3LogBucket;
@@ -257,14 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.PostLaunchActions_SsmDocument = new List<Amazon.Mgn.Model.SsmDocument>(this.PostLaunchActions_SsmDocument);
             }
-            context.SourceServerID = this.SourceServerID;
-            #if MODULAR
-            if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceServerID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TargetInstanceTypeRightSizingMethod = this.TargetInstanceTypeRightSizingMethod;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -279,46 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Mgn.Model.UpdateLaunchConfigurationRequest();
+            var request = new Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateRequest();
             
-            if (cmdletContext.BootMode != null)
+            if (cmdletContext.LaunchConfigurationTemplateID != null)
             {
-                request.BootMode = cmdletContext.BootMode;
-            }
-            if (cmdletContext.CopyPrivateIp != null)
-            {
-                request.CopyPrivateIp = cmdletContext.CopyPrivateIp.Value;
-            }
-            if (cmdletContext.CopyTag != null)
-            {
-                request.CopyTags = cmdletContext.CopyTag.Value;
-            }
-            if (cmdletContext.LaunchDisposition != null)
-            {
-                request.LaunchDisposition = cmdletContext.LaunchDisposition;
-            }
-            
-             // populate Licensing
-            var requestLicensingIsNull = true;
-            request.Licensing = new Amazon.Mgn.Model.Licensing();
-            System.Boolean? requestLicensing_licensing_OsByol = null;
-            if (cmdletContext.Licensing_OsByol != null)
-            {
-                requestLicensing_licensing_OsByol = cmdletContext.Licensing_OsByol.Value;
-            }
-            if (requestLicensing_licensing_OsByol != null)
-            {
-                request.Licensing.OsByol = requestLicensing_licensing_OsByol.Value;
-                requestLicensingIsNull = false;
-            }
-             // determine if request.Licensing should be set to null
-            if (requestLicensingIsNull)
-            {
-                request.Licensing = null;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.LaunchConfigurationTemplateID = cmdletContext.LaunchConfigurationTemplateID;
             }
             
              // populate PostLaunchActions
@@ -379,14 +263,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.PostLaunchActions = null;
             }
-            if (cmdletContext.SourceServerID != null)
-            {
-                request.SourceServerID = cmdletContext.SourceServerID;
-            }
-            if (cmdletContext.TargetInstanceTypeRightSizingMethod != null)
-            {
-                request.TargetInstanceTypeRightSizingMethod = cmdletContext.TargetInstanceTypeRightSizingMethod;
-            }
             
             CmdletOutput output;
             
@@ -420,15 +296,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.UpdateLaunchConfigurationResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.UpdateLaunchConfigurationRequest request)
+        private Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "UpdateLaunchConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "UpdateLaunchConfigurationTemplate");
             try
             {
                 #if DESKTOP
-                return client.UpdateLaunchConfiguration(request);
+                return client.UpdateLaunchConfigurationTemplate(request);
                 #elif CORECLR
-                return client.UpdateLaunchConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLaunchConfigurationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -448,20 +324,13 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Mgn.BootMode BootMode { get; set; }
-            public System.Boolean? CopyPrivateIp { get; set; }
-            public System.Boolean? CopyTag { get; set; }
-            public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
-            public System.Boolean? Licensing_OsByol { get; set; }
-            public System.String Name { get; set; }
+            public System.String LaunchConfigurationTemplateID { get; set; }
             public System.String PostLaunchActions_CloudWatchLogGroupName { get; set; }
             public Amazon.Mgn.PostLaunchActionsDeploymentType PostLaunchActions_Deployment { get; set; }
             public System.String PostLaunchActions_S3LogBucket { get; set; }
             public System.String PostLaunchActions_S3OutputKeyPrefix { get; set; }
             public List<Amazon.Mgn.Model.SsmDocument> PostLaunchActions_SsmDocument { get; set; }
-            public System.String SourceServerID { get; set; }
-            public Amazon.Mgn.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
-            public System.Func<Amazon.Mgn.Model.UpdateLaunchConfigurationResponse, UpdateMGNLaunchConfigurationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Mgn.Model.UpdateLaunchConfigurationTemplateResponse, UpdateMGNLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

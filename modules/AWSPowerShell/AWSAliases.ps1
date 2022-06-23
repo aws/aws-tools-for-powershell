@@ -13724,6 +13724,9 @@ Set-Alias -Name L4E-ListDataIngestionJobs -Value Get-L4EDataIngestionJobList
 Set-Alias -Name List-L4EDatasets -Value Get-L4EDatasetList
 Set-Alias -Name List-L4EDatasetList -Value Get-L4EDatasetList
 Set-Alias -Name L4E-ListDatasets -Value Get-L4EDatasetList
+Set-Alias -Name List-L4EInferenceEvents -Value Get-L4EInferenceEventList
+Set-Alias -Name List-L4EInferenceEventList -Value Get-L4EInferenceEventList
+Set-Alias -Name L4E-ListInferenceEvents -Value Get-L4EInferenceEventList
 Set-Alias -Name List-L4EInferenceExecutions -Value Get-L4EInferenceExecutionList
 Set-Alias -Name List-L4EInferenceExecutionList -Value Get-L4EInferenceExecutionList
 Set-Alias -Name L4E-ListInferenceExecutions -Value Get-L4EInferenceExecutionList
@@ -14640,10 +14643,14 @@ Set-Alias -Name Resolve-MMCustomerMetadata -Value Get-MMCustomerMetadata
 Set-Alias -Name MM-ResolveCustomer -Value Get-MMCustomerMetadata
 Set-Alias -Name Change-MGNServerLifeCycleState -Value Set-MGNServerLifeCycleState
 Set-Alias -Name MGN-ChangeServerLifeCycleState -Value Set-MGNServerLifeCycleState
+Set-Alias -Name Create-MGNLaunchConfigurationTemplate -Value New-MGNLaunchConfigurationTemplate
+Set-Alias -Name MGN-CreateLaunchConfigurationTemplate -Value New-MGNLaunchConfigurationTemplate
 Set-Alias -Name Create-MGNReplicationConfigurationTemplate -Value New-MGNReplicationConfigurationTemplate
 Set-Alias -Name MGN-CreateReplicationConfigurationTemplate -Value New-MGNReplicationConfigurationTemplate
 Set-Alias -Name Delete-MGNJob -Value Remove-MGNJob
 Set-Alias -Name MGN-DeleteJob -Value Remove-MGNJob
+Set-Alias -Name Delete-MGNLaunchConfigurationTemplate -Value Remove-MGNLaunchConfigurationTemplate
+Set-Alias -Name MGN-DeleteLaunchConfigurationTemplate -Value Remove-MGNLaunchConfigurationTemplate
 Set-Alias -Name Delete-MGNReplicationConfigurationTemplate -Value Remove-MGNReplicationConfigurationTemplate
 Set-Alias -Name MGN-DeleteReplicationConfigurationTemplate -Value Remove-MGNReplicationConfigurationTemplate
 Set-Alias -Name Delete-MGNSourceServer -Value Remove-MGNSourceServer
@@ -14656,6 +14663,9 @@ Set-Alias -Name MGN-DescribeJobLogItems -Value Get-MGNJobLogItem
 Set-Alias -Name Describe-MGNJobs -Value Get-MGNJob
 Set-Alias -Name Describe-MGNJob -Value Get-MGNJob
 Set-Alias -Name MGN-DescribeJobs -Value Get-MGNJob
+Set-Alias -Name Describe-MGNLaunchConfigurationTemplates -Value Get-MGNLaunchConfigurationTemplate
+Set-Alias -Name Describe-MGNLaunchConfigurationTemplate -Value Get-MGNLaunchConfigurationTemplate
+Set-Alias -Name MGN-DescribeLaunchConfigurationTemplates -Value Get-MGNLaunchConfigurationTemplate
 Set-Alias -Name Describe-MGNReplicationConfigurationTemplates -Value Get-MGNReplicationConfigurationTemplate
 Set-Alias -Name Describe-MGNReplicationConfigurationTemplate -Value Get-MGNReplicationConfigurationTemplate
 Set-Alias -Name MGN-DescribeReplicationConfigurationTemplates -Value Get-MGNReplicationConfigurationTemplate
@@ -14685,6 +14695,7 @@ Set-Alias -Name Terminate-MGNTargetInstance -Value Remove-MGNTargetInstance
 Set-Alias -Name MGN-TerminateTargetInstances -Value Remove-MGNTargetInstance
 Set-Alias -Name MGN-UntagResource -Value Remove-MGNResourceTag
 Set-Alias -Name MGN-UpdateLaunchConfiguration -Value Update-MGNLaunchConfiguration
+Set-Alias -Name MGN-UpdateLaunchConfigurationTemplate -Value Update-MGNLaunchConfigurationTemplate
 Set-Alias -Name MGN-UpdateReplicationConfiguration -Value Update-MGNReplicationConfiguration
 Set-Alias -Name MGN-UpdateReplicationConfigurationTemplate -Value Update-MGNReplicationConfigurationTemplate
 Set-Alias -Name MGN-UpdateSourceServerReplicationType -Value Update-MGNSourceServerReplicationType
@@ -14737,6 +14748,7 @@ Set-Alias -Name Put-MHRSResourcePolicy -Value Write-MHRSResourcePolicy
 Set-Alias -Name MHRS-PutResourcePolicy -Value Write-MHRSResourcePolicy
 Set-Alias -Name MHRS-TagResource -Value Add-MHRSResourceTag
 Set-Alias -Name MHRS-UntagResource -Value Remove-MHRSResourceTag
+Set-Alias -Name MHRS-UpdateRoute -Value Update-MHRSRoute
 Set-Alias -Name Get-MHSApplicationComponentDetails -Value Get-MHSApplicationComponentDetail
 Set-Alias -Name MHS-GetApplicationComponentDetails -Value Get-MHSApplicationComponentDetail
 Set-Alias -Name Get-MHSApplicationComponentStrategies -Value Get-MHSApplicationComponentStrategy
