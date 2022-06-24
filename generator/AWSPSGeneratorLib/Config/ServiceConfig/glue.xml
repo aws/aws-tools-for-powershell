@@ -527,6 +527,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCrawls" OutputProperty="Crawls" Verb="Get" Noun="CrawlList" PipelineParameter="CrawlerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCustomEntityTypes" OutputProperty="CustomEntityTypes" Verb="Get" Noun="CustomEntityTypeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

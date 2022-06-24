@@ -10093,6 +10093,9 @@ Set-Alias -Name GLUE-ListBlueprints -Value Get-GLUEBlueprintList
 Set-Alias -Name List-GLUECrawlers -Value Get-GLUECrawlerNameList
 Set-Alias -Name List-GLUECrawlerNameList -Value Get-GLUECrawlerNameList
 Set-Alias -Name GLUE-ListCrawlers -Value Get-GLUECrawlerNameList
+Set-Alias -Name List-GLUECrawls -Value Get-GLUECrawlList
+Set-Alias -Name List-GLUECrawlList -Value Get-GLUECrawlList
+Set-Alias -Name GLUE-ListCrawls -Value Get-GLUECrawlList
 Set-Alias -Name List-GLUECustomEntityTypes -Value Get-GLUECustomEntityTypeList
 Set-Alias -Name List-GLUECustomEntityTypeList -Value Get-GLUECustomEntityTypeList
 Set-Alias -Name GLUE-ListCustomEntityTypes -Value Get-GLUECustomEntityTypeList

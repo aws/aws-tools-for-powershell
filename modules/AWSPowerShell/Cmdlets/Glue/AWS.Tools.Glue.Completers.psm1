@@ -493,6 +493,7 @@ $GLUE_SelectMap = @{
                "Import-GLUECatalog",
                "Get-GLUEBlueprintList",
                "Get-GLUECrawlerNameList",
+               "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",

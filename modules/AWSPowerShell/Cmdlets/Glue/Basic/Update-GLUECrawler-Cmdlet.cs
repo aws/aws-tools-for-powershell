@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter LakeFormationConfiguration_UseLakeFormationCredential
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to use AWS Lake Formation credentials for the crawler instead of
-        /// the IAM role credentials.</para>
+        /// <para>Specifies whether to use Lake Formation credentials for the crawler instead of the
+        /// IAM role credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

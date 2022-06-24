@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     ///  <important><para>
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
-    /// </para></important><para>
+    /// </para><para>
     /// If the binary response data from the database is more than 1 MB, the call is terminated.
-    /// </para>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Invoke", "RDSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDSDataService.Model.ExecuteStatementResponse")]
@@ -165,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter SecretArn
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the secret that enables access to the DB cluster.</para>
+        /// <para>The ARN of the secret that enables access to the DB cluster. Enter the database user
+        /// name and password for the credentials in the secret.</para><para>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create
+        /// a database secret</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

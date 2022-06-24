@@ -1,4 +1,10 @@
-﻿### 4.1.112 (2022-06-23 20:37Z)
+﻿### 4.1.113 (2022-06-24 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.302.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * [Breaking Change] Removed support for Amazon Redshift Serverless
+  * Amazon Glue
+    * Added cmdlet Get-GLUECrawlList leveraging the ListCrawls service API.
+
+### 4.1.112 (2022-06-23 20:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.301.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Application Migration Service
     * Added cmdlet Get-MGNLaunchConfigurationTemplate leveraging the DescribeLaunchConfigurationTemplates service API.

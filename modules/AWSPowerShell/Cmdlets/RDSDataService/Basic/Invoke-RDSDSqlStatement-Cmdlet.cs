@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter AwsSecretStoreArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster.</para>
+        /// <para>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster.
+        /// Enter the database user name and password for the credentials in the secret.</para><para>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create
+        /// a database secret</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
