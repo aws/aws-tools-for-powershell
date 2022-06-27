@@ -1,4 +1,7 @@
-﻿### 4.1.113 (2022-06-24 20:31Z)
+﻿### 4.1.114 (2022-06-27 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.303.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.113 (2022-06-24 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.302.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * [Breaking Change] Removed support for Amazon Redshift Serverless
   * Amazon Glue

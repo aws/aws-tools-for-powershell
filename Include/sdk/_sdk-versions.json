@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.302.0",
+    "ProductVersion" : "3.7.303.0",
     "CoreVersion"    : "3.7.12.3",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -466,7 +466,7 @@
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.13.21",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.3"
