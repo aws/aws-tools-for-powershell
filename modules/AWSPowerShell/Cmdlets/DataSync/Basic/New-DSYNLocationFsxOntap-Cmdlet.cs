@@ -28,16 +28,18 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+    /// Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can
+    /// access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating
+    /// a location for FSx for ONTAP</a>.
     /// </summary>
-    [Cmdlet("New", "DSYNLocationFsxOpenZf", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "DSYNLocationFsxOntap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS DataSync CreateLocationFsxOpenZfs API operation.", Operation = new[] {"CreateLocationFsxOpenZfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse))]
-    [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse",
+    [AWSCmdlet("Calls the AWS DataSync CreateLocationFsxOntap API operation.", Operation = new[] {"CreateLocationFsxOntap"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationFsxOntapResponse))]
+    [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationFsxOntapResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateLocationFsxOntapResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDSYNLocationFsxOpenZfCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class NewDSYNLocationFsxOntapCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
         #region Parameter SMB_Domain
@@ -50,23 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Protocol_SMB_Domain")]
         public System.String SMB_Domain { get; set; }
-        #endregion
-        
-        #region Parameter FsxFilesystemArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FsxFilesystemArn { get; set; }
         #endregion
         
         #region Parameter SMB_Password
@@ -83,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the security groups that are used to configure the FSx for OpenZFS file
-        /// system.</para>
+        /// <para>Specifies the security groups that DataSync can use to access your FSx for ONTAP file
+        /// system. You must configure the security groups to allow outbound traffic on the following
+        /// ports (depending on the protocol that you're using):</para><ul><li><para><b>Network File System (NFS)</b>: TCP port 2049</para></li><li><para><b>Server Message Block (SMB)</b>: TCP port 445</para></li></ul><para>Your file system's security groups must also allow inbound traffic on the same port.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,12 +85,32 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String[] SecurityGroupArn { get; set; }
         #endregion
         
+        #region Parameter StorageVirtualMachineArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ARN of the storage virtual machine (SVM) on your file system where you're
+        /// copying data to or from.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String StorageVirtualMachineArn { get; set; }
+        #endregion
+        
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync
-        /// uses this subdirectory to read or write data (depending on whether the file system
-        /// is a source or destination location).</para>
+        /// <para>Specifies the junction path (also known as a mount point) in the SVM volume where
+        /// you're copying data to or from (for example, <code>/vol1</code>).</para><note><para>Don't specify a junction path in the SVM's root volume. For more information, see
+        /// <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing
+        /// FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User
+        /// Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,9 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents a tag that you want to add to the resource. The
-        /// value can be an empty string. This value helps you manage, filter, and search for
-        /// your resources. We recommend that you create a name tag for your location.</para>
+        /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
+        /// Services resources. We recommend creating at least a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String SMB_User { get; set; }
         #endregion
         
-        #region Parameter MountOptions_Version
+        #region Parameter Protocol_NFS_MountOptions_Version
         /// <summary>
         /// <para>
         /// <para>Specifies the NFS version that you want DataSync to use when mounting your NFS share.
@@ -147,9 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Protocol_NFS_MountOptions_Version")]
         [AWSConstantClassSource("Amazon.DataSync.NfsVersion")]
-        public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
+        public Amazon.DataSync.NfsVersion Protocol_NFS_MountOptions_Version { get; set; }
         #endregion
         
         #region Parameter Protocol_SMB_MountOptions_Version
@@ -168,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'LocationArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.CreateLocationFsxOntapResponse).
+        /// Specifying the name of a property of type Amazon.DataSync.Model.CreateLocationFsxOntapResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,10 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FsxFilesystemArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FsxFilesystemArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StorageVirtualMachineArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StorageVirtualMachineArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FsxFilesystemArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StorageVirtualMachineArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -200,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FsxFilesystemArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSYNLocationFsxOpenZf (CreateLocationFsxOpenZfs)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StorageVirtualMachineArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSYNLocationFsxOntap (CreateLocationFsxOntap)"))
             {
                 return;
             }
@@ -214,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse, NewDSYNLocationFsxOpenZfCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.CreateLocationFsxOntapResponse, NewDSYNLocationFsxOntapCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -223,17 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FsxFilesystemArn;
+                context.Select = (response, cmdlet) => this.StorageVirtualMachineArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FsxFilesystemArn = this.FsxFilesystemArn;
-            #if MODULAR
-            if (this.FsxFilesystemArn == null && ParameterWasBound(nameof(this.FsxFilesystemArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FsxFilesystemArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.MountOptions_Version = this.MountOptions_Version;
+            context.Protocol_NFS_MountOptions_Version = this.Protocol_NFS_MountOptions_Version;
             context.SMB_Domain = this.SMB_Domain;
             context.Protocol_SMB_MountOptions_Version = this.Protocol_SMB_MountOptions_Version;
             context.SMB_Password = this.SMB_Password;
@@ -246,6 +243,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (this.SecurityGroupArn == null && ParameterWasBound(nameof(this.SecurityGroupArn)))
             {
                 WriteWarning("You are passing $null as a value for parameter SecurityGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.StorageVirtualMachineArn = this.StorageVirtualMachineArn;
+            #if MODULAR
+            if (this.StorageVirtualMachineArn == null && ParameterWasBound(nameof(this.StorageVirtualMachineArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StorageVirtualMachineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Subdirectory = this.Subdirectory;
@@ -267,12 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.CreateLocationFsxOpenZfsRequest();
+            var request = new Amazon.DataSync.Model.CreateLocationFsxOntapRequest();
             
-            if (cmdletContext.FsxFilesystemArn != null)
-            {
-                request.FsxFilesystemArn = cmdletContext.FsxFilesystemArn;
-            }
             
              // populate Protocol
             var requestProtocolIsNull = true;
@@ -287,14 +287,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
              // populate MountOptions
             var requestProtocol_protocol_NFS_protocol_NFS_MountOptionsIsNull = true;
             requestProtocol_protocol_NFS_protocol_NFS_MountOptions = new Amazon.DataSync.Model.NfsMountOptions();
-            Amazon.DataSync.NfsVersion requestProtocol_protocol_NFS_protocol_NFS_MountOptions_mountOptions_Version = null;
-            if (cmdletContext.MountOptions_Version != null)
+            Amazon.DataSync.NfsVersion requestProtocol_protocol_NFS_protocol_NFS_MountOptions_protocol_NFS_MountOptions_Version = null;
+            if (cmdletContext.Protocol_NFS_MountOptions_Version != null)
             {
-                requestProtocol_protocol_NFS_protocol_NFS_MountOptions_mountOptions_Version = cmdletContext.MountOptions_Version;
+                requestProtocol_protocol_NFS_protocol_NFS_MountOptions_protocol_NFS_MountOptions_Version = cmdletContext.Protocol_NFS_MountOptions_Version;
             }
-            if (requestProtocol_protocol_NFS_protocol_NFS_MountOptions_mountOptions_Version != null)
+            if (requestProtocol_protocol_NFS_protocol_NFS_MountOptions_protocol_NFS_MountOptions_Version != null)
             {
-                requestProtocol_protocol_NFS_protocol_NFS_MountOptions.Version = requestProtocol_protocol_NFS_protocol_NFS_MountOptions_mountOptions_Version;
+                requestProtocol_protocol_NFS_protocol_NFS_MountOptions.Version = requestProtocol_protocol_NFS_protocol_NFS_MountOptions_protocol_NFS_MountOptions_Version;
                 requestProtocol_protocol_NFS_protocol_NFS_MountOptionsIsNull = false;
             }
              // determine if requestProtocol_protocol_NFS_protocol_NFS_MountOptions should be set to null
@@ -396,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 request.SecurityGroupArns = cmdletContext.SecurityGroupArn;
             }
+            if (cmdletContext.StorageVirtualMachineArn != null)
+            {
+                request.StorageVirtualMachineArn = cmdletContext.StorageVirtualMachineArn;
+            }
             if (cmdletContext.Subdirectory != null)
             {
                 request.Subdirectory = cmdletContext.Subdirectory;
@@ -437,15 +441,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.CreateLocationFsxOpenZfsRequest request)
+        private Amazon.DataSync.Model.CreateLocationFsxOntapResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.CreateLocationFsxOntapRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "CreateLocationFsxOpenZfs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "CreateLocationFsxOntap");
             try
             {
                 #if DESKTOP
-                return client.CreateLocationFsxOpenZfs(request);
+                return client.CreateLocationFsxOntap(request);
                 #elif CORECLR
-                return client.CreateLocationFsxOpenZfsAsync(request).GetAwaiter().GetResult();
+                return client.CreateLocationFsxOntapAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -465,16 +469,16 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FsxFilesystemArn { get; set; }
-            public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
+            public Amazon.DataSync.NfsVersion Protocol_NFS_MountOptions_Version { get; set; }
             public System.String SMB_Domain { get; set; }
             public Amazon.DataSync.SmbVersion Protocol_SMB_MountOptions_Version { get; set; }
             public System.String SMB_Password { get; set; }
             public System.String SMB_User { get; set; }
             public List<System.String> SecurityGroupArn { get; set; }
+            public System.String StorageVirtualMachineArn { get; set; }
             public System.String Subdirectory { get; set; }
             public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }
-            public System.Func<Amazon.DataSync.Model.CreateLocationFsxOpenZfsResponse, NewDSYNLocationFsxOpenZfCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataSync.Model.CreateLocationFsxOntapResponse, NewDSYNLocationFsxOntapCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LocationArn;
         }
         

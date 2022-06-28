@@ -13387,6 +13387,7 @@ $DSYN_Completers = {
         {
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version") -Or
+            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
         }
         {
@@ -13414,7 +13415,9 @@ $DSYN_Completers = {
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
-            ($_ -eq "Update-DSYNLocationSmb/MountOptions_Version")
+            ($_ -eq "Update-DSYNLocationSmb/MountOptions_Version") -Or
+            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_SMB_MountOptions_Version") -Or
+            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","SMB2","SMB3"
@@ -13433,7 +13436,8 @@ $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "InTransitEncryption"=@("New-DSYNLocationEfs")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
-    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOpenZf")
+    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
+    "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "S3StorageClass"=@("New-DSYNLocationS3")
@@ -13494,6 +13498,7 @@ $DSYN_SelectMap = @{
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
+               "New-DSYNLocationFsxOntap",
                "New-DSYNLocationFsxOpenZf",
                "New-DSYNLocationFsxWindow",
                "New-DSYNLocationHdf",
@@ -13508,6 +13513,7 @@ $DSYN_SelectMap = @{
                "Get-DSYNAgent",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
+               "Get-DSYNLocationFsxOntap",
                "Get-DSYNLocationFsxOpenZf",
                "Get-DSYNLocationFsxWindow",
                "Get-DSYNLocationHdf",
@@ -16721,6 +16727,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SpreadLevel
+        "New-EC2PlacementGroup/SpreadLevel"
+        {
+            $v = "host","rack"
+            break
+        }
+
         # Amazon.EC2.StaticSourcesSupportValue
         "New-EC2TransitGatewayMulticastDomain/Options_StaticSourcesSupport"
         {
@@ -16975,6 +16988,7 @@ $EC2_map = @{
     "SpotOptions_AllocationStrategy"=@("New-EC2Fleet")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
+    "SpreadLevel"=@("New-EC2PlacementGroup")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
     "Strategy"=@("New-EC2PlacementGroup")
@@ -20867,6 +20881,7 @@ $FNSP_SelectMap = @{
                "Get-FNSPChangeset",
                "Get-FNSPDataset",
                "Get-FNSPDataView",
+               "Get-FNSPExternalDataViewAccessDetail",
                "Get-FNSPPermissionGroup",
                "Get-FNSPProgrammaticAccessCredential",
                "Get-FNSPUser",
@@ -38288,7 +38303,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 

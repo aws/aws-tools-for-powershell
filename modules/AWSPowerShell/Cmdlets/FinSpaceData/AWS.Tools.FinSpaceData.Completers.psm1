@@ -212,6 +212,7 @@ $FNSP_SelectMap = @{
                "Get-FNSPChangeset",
                "Get-FNSPDataset",
                "Get-FNSPDataView",
+               "Get-FNSPExternalDataViewAccessDetail",
                "Get-FNSPPermissionGroup",
                "Get-FNSPProgrammaticAccessCredential",
                "Get-FNSPUser",

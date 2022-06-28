@@ -837,6 +837,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SpreadLevel
+        "New-EC2PlacementGroup/SpreadLevel"
+        {
+            $v = "host","rack"
+            break
+        }
+
         # Amazon.EC2.StaticSourcesSupportValue
         "New-EC2TransitGatewayMulticastDomain/Options_StaticSourcesSupport"
         {
@@ -1091,6 +1098,7 @@ $EC2_map = @{
     "SpotOptions_AllocationStrategy"=@("New-EC2Fleet")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
+    "SpreadLevel"=@("New-EC2PlacementGroup")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
     "Strategy"=@("New-EC2PlacementGroup")

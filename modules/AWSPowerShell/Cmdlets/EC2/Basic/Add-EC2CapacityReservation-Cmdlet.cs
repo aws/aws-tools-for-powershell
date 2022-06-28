@@ -133,8 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EphemeralStorage
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the Capacity Reservation supports instances with temporary, block-level
-        /// storage.</para>
+        /// <para><i>Deprecated.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

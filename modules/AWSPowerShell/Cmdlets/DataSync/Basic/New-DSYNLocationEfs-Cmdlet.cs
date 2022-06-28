@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter InTransitEncryption
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want DataSync to use TLS encryption when transferring data to
-        /// or from your Amazon EFS file system.</para><para>If you specify an access point using <code>AccessPointArn</code> or an IAM role using
+        /// <para>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption
+        /// when it copies data to or from the Amazon EFS file system.</para><para>If you specify an access point using <code>AccessPointArn</code> or an IAM role using
         /// <code>FileSystemAccessRoleArn</code>, you must set this parameter to <code>TLS1_2</code>.</para>
         /// </para>
         /// </summary>

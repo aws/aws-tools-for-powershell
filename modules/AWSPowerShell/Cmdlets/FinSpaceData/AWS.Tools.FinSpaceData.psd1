@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FNSPDatasetList', 
         'Get-FNSPDataView', 
         'Get-FNSPDataViewList', 
+        'Get-FNSPExternalDataViewAccessDetail', 
         'Get-FNSPPermissionGroup', 
         'Get-FNSPPermissionGroupList', 
         'Get-FNSPPermissionGroupsByUserList', 

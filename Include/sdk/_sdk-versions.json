@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.303.0",
+    "ProductVersion" : "3.7.304.0",
     "CoreVersion"    : "3.7.12.3",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.75.1",
+            "Version" : "3.7.76.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.3"
@@ -626,7 +626,7 @@
             "InPreview"               : false
         },
         "Polly"                           : {
-            "Version" : "3.7.5.26",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.3"
@@ -1250,7 +1250,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.7.9",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.3"
@@ -2114,7 +2114,7 @@
             "InPreview"               : false
         },
         "FinSpaceData"                    : {
-            "Version" : "3.7.4.3",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.3"

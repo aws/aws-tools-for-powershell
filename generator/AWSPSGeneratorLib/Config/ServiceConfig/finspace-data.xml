@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExternalDataViewAccessDetails" OutputProperty="*" Verb="Get" Noun="ExternalDataViewAccessDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPermissionGroup" OutputProperty="PermissionGroup" Verb="Get" Noun="PermissionGroup" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

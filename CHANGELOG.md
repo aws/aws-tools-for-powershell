@@ -1,4 +1,15 @@
-﻿### 4.1.114 (2022-06-27 20:13Z)
+﻿### 4.1.115 (2022-06-28 20:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.304.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DataSync
+    * Added cmdlet Get-DSYNLocationFsxOntap leveraging the DescribeLocationFsxOntap service API.
+    * Added cmdlet New-DSYNLocationFsxOntap leveraging the CreateLocationFsxOntap service API.
+    * Modified cmdlet New-DSYNLocationFsxOpenZf: added parameters Protocol_SMB_MountOptions_Version, SMB_Domain, SMB_Password and SMB_User.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2PlacementGroup: added parameter SpreadLevel.
+  * Amazon FinSpace Public API
+    * Added cmdlet Get-FNSPExternalDataViewAccessDetail leveraging the GetExternalDataViewAccessDetails service API.
+
+### 4.1.114 (2022-06-27 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.303.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.113 (2022-06-24 20:31Z)

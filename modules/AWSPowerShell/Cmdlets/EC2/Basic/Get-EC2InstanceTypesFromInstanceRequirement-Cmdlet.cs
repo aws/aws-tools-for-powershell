@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_LocalStorageType
         /// <summary>
         /// <para>
-        /// <para>The type of local storage that is required.</para><ul><li><para>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</para></li><li><para>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</para></li></ul><para>Default: <code>hdd</code> and <code>sdd</code></para>
+        /// <para>The type of local storage that is required.</para><ul><li><para>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</para></li><li><para>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</para></li></ul><para>Default: <code>hdd</code> and <code>ssd</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

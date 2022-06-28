@@ -125,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MountOptions_Version
         /// <summary>
         /// <para>
-        /// <para>The specific SMB version that you want DataSync to use to mount your SMB share. If
-        /// you don't specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is,
-        /// DataSync automatically selects a version based on negotiation with the SMB server.</para>
+        /// <para>Specifies the SMB version that you want DataSync to use when mounting your SMB share.
+        /// If you don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses
+        /// a version based on negotiation with the SMB server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

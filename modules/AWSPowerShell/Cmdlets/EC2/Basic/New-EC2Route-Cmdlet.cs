@@ -32,9 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You must specify one of the following targets: internet gateway or virtual private
-    /// gateway, NAT instance, NAT gateway, VPC peering connection, network interface, egress-only
-    /// internet gateway, or transit gateway.
+    /// You must specify either a destination CIDR block or a prefix list ID. You must also
+    /// specify exactly one of the resources from the parameter list.
     /// </para><para>
     /// When determining how to route traffic, we use the route with the most specific match.
     /// For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and

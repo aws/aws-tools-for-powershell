@@ -35,8 +35,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocationFsxOntap" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOntap" ShouldProcessTarget="StorageVirtualMachineArn" PipelineParameter="StorageVirtualMachineArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
+                <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationFsxOpenZfs" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOpenZf" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Protocol_NFS_MountOptions_Version" NewName="MountOptions_Version" />
+                <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationFsxWindows" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxWindow" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
@@ -91,6 +101,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationFsxLustre" OutputProperty="*" Verb="Get" Noun="LocationFsxLustre" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocationFsxOntap" OutputProperty="*" Verb="Get" Noun="LocationFsxOntap" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

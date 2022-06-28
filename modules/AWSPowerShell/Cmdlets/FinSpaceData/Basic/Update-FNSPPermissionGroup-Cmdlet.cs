@@ -43,9 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ApplicationPermission
         /// <summary>
         /// <para>
-        /// <para>The permissions that are granted to a specific group for accessing the FinSpace application.</para><ul><li><para><code>CreateDataset</code> – Group members can create new datasets.</para></li><li><para><code>ManageClusters</code> – Group members can manage Apache Spark clusters from
+        /// <para>The permissions that are granted to a specific group for accessing the FinSpace application.</para><important><para>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code>
+        /// allows users to grant themselves or others access to any functionality in their FinSpace
+        /// environment's application. It should only be granted to trusted users.</para></important><ul><li><para><code>CreateDataset</code> – Group members can create new datasets.</para></li><li><para><code>ManageClusters</code> – Group members can manage Apache Spark clusters from
         /// FinSpace notebooks.</para></li><li><para><code>ManageUsersAndGroups</code> – Group members can manage users and permission
-        /// groups.</para></li><li><para><code>ManageAttributeSets</code> – Group members can manage attribute sets.</para></li><li><para><code>ViewAuditData</code> – Group members can view audit data.</para></li><li><para><code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</para></li><li><para><code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</para></li></ul>
+        /// groups. This is a privileged permission that allows users to grant themselves or others
+        /// access to any functionality in the application. It should only be granted to trusted
+        /// users.</para></li><li><para><code>ManageAttributeSets</code> – Group members can manage attribute sets.</para></li><li><para><code>ViewAuditData</code> – Group members can view audit data.</para></li><li><para><code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</para></li><li><para><code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

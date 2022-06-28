@@ -28,8 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for a self-managed object storage bucket. For more information
-    /// about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
+    /// Creates an endpoint for an object storage system that DataSync can access for a transfer.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
     /// a location for object storage</a>.
     /// </summary>
     [Cmdlet("New", "DSYNLocationObjectStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,10 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter BucketAccessKey
         /// <summary>
         /// <para>
-        /// <para>Optional. The access key is used if credentials are required to access the self-managed
-        /// object storage server. If your object storage requires a user name and password to
-        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
-        /// user name and password, respectively.</para>
+        /// <para>Specifies the access key (for example, a user name) if credentials are required to
+        /// authenticate with the object storage server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the agents associated with the self-managed object
-        /// storage server location.</para>
+        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely
+        /// connect with your location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket on the self-managed object storage server that is used to read data from.</para>
+        /// <para>Specifies the name of the object storage bucket involved in the transfer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,10 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter BucketSecretKey
         /// <summary>
         /// <para>
-        /// <para>Optional. The secret key is used if credentials are required to access the self-managed
-        /// object storage server. If your object storage requires a user name and password to
-        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
-        /// user name and password, respectively.</para>
+        /// <para>Specifies the secret key (for example, a password) if credentials are required to
+        /// authenticate with the object storage server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>The name of the self-managed object storage server. This value is the IP address or
-        /// Domain Name Service (DNS) name of the object storage server. An agent uses this hostname
-        /// to mount the object storage server in a network. </para>
+        /// <para>Specifies the domain name or IP address of the object storage server. A DataSync agent
+        /// uses this hostname to mount the object storage server in a network.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,9 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerPort
         /// <summary>
         /// <para>
-        /// <para>The port that your self-managed object storage server accepts inbound network traffic
-        /// on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can
-        /// specify a custom port if your self-managed object storage server requires one.</para>
+        /// <para>Specifies the port that your object storage server accepts inbound network traffic
+        /// on (for example, port 443).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerProtocol
         /// <summary>
         /// <para>
-        /// <para>The protocol that the object storage server uses to communicate. Valid values are
-        /// HTTP or HTTPS.</para>
+        /// <para>Specifies the protocol that your object storage server uses to communicate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>The subdirectory in the self-managed object storage server that is used to read data
-        /// from.</para>
+        /// <para>Specifies the object prefix for your object storage server. If this is a source location,
+        /// DataSync only copies objects with this prefix. If this is a destination location,
+        /// DataSync writes all objects with this prefix. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents the tag that you want to add to the location. The
-        /// value can be an empty string. We recommend using tags to name your resources.</para>
+        /// <para>Specifies the key-value pair that represents a tag that you want to add to the resource.
+        /// Tags can help you manage, filter, and search for your resources. We recommend creating
+        /// a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

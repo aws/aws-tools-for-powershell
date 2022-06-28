@@ -5271,6 +5271,8 @@ Set-Alias -Name Create-DSYNLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name DSYN-CreateLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name Create-DSYNLocationFsxLustre -Value New-DSYNLocationFsxLustre
 Set-Alias -Name DSYN-CreateLocationFsxLustre -Value New-DSYNLocationFsxLustre
+Set-Alias -Name Create-DSYNLocationFsxOntap -Value New-DSYNLocationFsxOntap
+Set-Alias -Name DSYN-CreateLocationFsxOntap -Value New-DSYNLocationFsxOntap
 Set-Alias -Name Create-DSYNLocationFsxOpenZfs -Value New-DSYNLocationFsxOpenZf
 Set-Alias -Name Create-DSYNLocationFsxOpenZf -Value New-DSYNLocationFsxOpenZf
 Set-Alias -Name DSYN-CreateLocationFsxOpenZfs -Value New-DSYNLocationFsxOpenZf
@@ -5302,6 +5304,8 @@ Set-Alias -Name Describe-DSYNLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name DSYN-DescribeLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name Describe-DSYNLocationFsxLustre -Value Get-DSYNLocationFsxLustre
 Set-Alias -Name DSYN-DescribeLocationFsxLustre -Value Get-DSYNLocationFsxLustre
+Set-Alias -Name Describe-DSYNLocationFsxOntap -Value Get-DSYNLocationFsxOntap
+Set-Alias -Name DSYN-DescribeLocationFsxOntap -Value Get-DSYNLocationFsxOntap
 Set-Alias -Name Describe-DSYNLocationFsxOpenZfs -Value Get-DSYNLocationFsxOpenZf
 Set-Alias -Name Describe-DSYNLocationFsxOpenZf -Value Get-DSYNLocationFsxOpenZf
 Set-Alias -Name DSYN-DescribeLocationFsxOpenZfs -Value Get-DSYNLocationFsxOpenZf
@@ -9013,6 +9017,8 @@ Set-Alias -Name FNSP-EnableUser -Value Enable-FNSPUser
 Set-Alias -Name FNSP-GetChangeset -Value Get-FNSPChangeset
 Set-Alias -Name FNSP-GetDataset -Value Get-FNSPDataset
 Set-Alias -Name FNSP-GetDataView -Value Get-FNSPDataView
+Set-Alias -Name Get-FNSPExternalDataViewAccessDetails -Value Get-FNSPExternalDataViewAccessDetail
+Set-Alias -Name FNSP-GetExternalDataViewAccessDetails -Value Get-FNSPExternalDataViewAccessDetail
 Set-Alias -Name FNSP-GetPermissionGroup -Value Get-FNSPPermissionGroup
 Set-Alias -Name Get-FNSPProgrammaticAccessCredentials -Value Get-FNSPProgrammaticAccessCredential
 Set-Alias -Name FNSP-GetProgrammaticAccessCredentials -Value Get-FNSPProgrammaticAccessCredential

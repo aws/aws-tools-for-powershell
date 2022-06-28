@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// entry. </para></li><li><para><code>entry.port-range.to</code> - The end of the port range specified in the entry.
         /// </para></li><li><para><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code>
         /// | <code>udp</code> | <code>icmp</code> or a protocol number).</para></li><li><para><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code>
-        /// | <code>deny</code>).</para></li><li><para><code>entry.rule-number</code> - The number of an entry (in other words, rule) in
+        /// | <code>deny</code>).</para></li><li><para><code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code>
+        /// for egress rules, or <code>false</code> for ingress rules.</para></li><li><para><code>entry.rule-number</code> - The number of an entry (in other words, rule) in
         /// the set of ACL entries.</para></li><li><para><code>network-acl-id</code> - The ID of the network ACL.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network
         /// ACL.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.

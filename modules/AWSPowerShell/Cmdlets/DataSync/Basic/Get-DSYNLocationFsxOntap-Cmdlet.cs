@@ -28,22 +28,23 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about your DataSync location for an object storage system.
+    /// Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP
+    /// file system is configured.
     /// </summary>
-    [Cmdlet("Get", "DSYNLocationObjectStorage")]
-    [OutputType("Amazon.DataSync.Model.DescribeLocationObjectStorageResponse")]
-    [AWSCmdlet("Calls the AWS DataSync DescribeLocationObjectStorage API operation.", Operation = new[] {"DescribeLocationObjectStorage"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationObjectStorageResponse))]
-    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationObjectStorageResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationObjectStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSYNLocationFsxOntap")]
+    [OutputType("Amazon.DataSync.Model.DescribeLocationFsxOntapResponse")]
+    [AWSCmdlet("Calls the AWS DataSync DescribeLocationFsxOntap API operation.", Operation = new[] {"DescribeLocationFsxOntap"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationFsxOntapResponse))]
+    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationFsxOntapResponse",
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationFsxOntapResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDSYNLocationObjectStorageCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class GetDSYNLocationFsxOntapCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the object storage system location that you want
-        /// information about.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP file system location
+        /// that you want information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationObjectStorageResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationObjectStorageResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationFsxOntapResponse).
+        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationFsxOntapResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationObjectStorageResponse, GetDSYNLocationObjectStorageCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationFsxOntapResponse, GetDSYNLocationFsxOntapCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.DescribeLocationObjectStorageRequest();
+            var request = new Amazon.DataSync.Model.DescribeLocationFsxOntapRequest();
             
             if (cmdletContext.LocationArn != null)
             {
@@ -162,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.DescribeLocationObjectStorageResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationObjectStorageRequest request)
+        private Amazon.DataSync.Model.DescribeLocationFsxOntapResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationFsxOntapRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationObjectStorage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationFsxOntap");
             try
             {
                 #if DESKTOP
-                return client.DescribeLocationObjectStorage(request);
+                return client.DescribeLocationFsxOntap(request);
                 #elif CORECLR
-                return client.DescribeLocationObjectStorageAsync(request).GetAwaiter().GetResult();
+                return client.DescribeLocationFsxOntapAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String LocationArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.DescribeLocationObjectStorageResponse, GetDSYNLocationObjectStorageCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataSync.Model.DescribeLocationFsxOntapResponse, GetDSYNLocationFsxOntapCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -95,14 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MountOptions_Version
         /// <summary>
         /// <para>
-        /// <para>The specific NFS version that you want DataSync to use to mount your NFS share. If
-        /// the server refuses to use the version specified, the sync will fail. If you don't
-        /// specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync
-        /// automatically selects a version based on negotiation with the NFS server.</para><para>You can specify the following NFS versions:</para><ul><li><para><b><a href="https://tools.ietf.org/html/rfc1813">NFSv3</a></b> - stateless protocol
-        /// version that allows for asynchronous writes on the server.</para></li><li><para><b><a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a></b> - stateful, firewall-friendly
-        /// protocol version that supports delegations and pseudo file systems.</para></li><li><para><b><a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a></b> - stateful protocol
-        /// version that supports sessions, directory delegations, and parallel data processing.
-        /// Version 4.1 also includes all features available in version 4.0.</para></li></ul>
+        /// <para>Specifies the NFS version that you want DataSync to use when mounting your NFS share.
+        /// If the server refuses to use the version specified, the task fails.</para><para>You can specify the following options:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1.</para></li><li><para><code>NFS3</code>: Stateless protocol version that allows for asynchronous writes
+        /// on the server.</para></li><li><para><code>NFSv4_0</code>: Stateful, firewall-friendly protocol version that supports
+        /// delegations and pseudo file systems.</para></li><li><para><code>NFSv4_1</code>: Stateful protocol version that supports sessions, directory
+        /// delegations, and parallel data processing. NFS version 4.1 also includes all features
+        /// available in version 4.0.</para></li></ul><note><para>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

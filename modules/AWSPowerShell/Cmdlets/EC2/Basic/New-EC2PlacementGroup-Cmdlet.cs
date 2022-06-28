@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? PartitionCount { get; set; }
         #endregion
         
+        #region Parameter SpreadLevel
+        /// <summary>
+        /// <para>
+        /// <para>Determines how placement groups spread instances. </para><ul><li><para>Host – You can use <code>host</code> only with Outpost placement groups.</para></li><li><para>Rack – No usage restrictions.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SpreadLevel")]
+        public Amazon.EC2.SpreadLevel SpreadLevel { get; set; }
+        #endregion
+        
         #region Parameter Strategy
         /// <summary>
         /// <para>
@@ -158,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
             context.PartitionCount = this.PartitionCount;
+            context.SpreadLevel = this.SpreadLevel;
             context.Strategy = this.Strategy;
             if (this.TagSpecification != null)
             {
@@ -186,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PartitionCount != null)
             {
                 request.PartitionCount = cmdletContext.PartitionCount.Value;
+            }
+            if (cmdletContext.SpreadLevel != null)
+            {
+                request.SpreadLevel = cmdletContext.SpreadLevel;
             }
             if (cmdletContext.Strategy != null)
             {
@@ -258,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String GroupName { get; set; }
             public System.Int32? PartitionCount { get; set; }
+            public Amazon.EC2.SpreadLevel SpreadLevel { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreatePlacementGroupResponse, NewEC2PlacementGroupCmdlet, object> Select { get; set; } =
