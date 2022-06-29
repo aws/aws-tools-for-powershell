@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// Elastic fleet type
     /// </para><para>
     /// You can update the <code>DisplayName</code>, <code>IdleDisconnectTimeoutInSeconds</code>,
-    /// <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, and <code>UsbDeviceFilterStrings</code>
-    /// attributes.
+    /// <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code>
+    /// and <code>UsbDeviceFilterStrings</code> attributes.
     /// </para></li></ul><para>
     /// If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't
     /// update it.

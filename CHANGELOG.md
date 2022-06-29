@@ -1,4 +1,20 @@
-﻿### 4.1.115 (2022-06-28 20:19Z)
+﻿### 4.1.116 (2022-06-29 20:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.305.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameter StreamingExperienceSettings_PreferredProtocol.
+    * Modified cmdlet Update-APSStack: added parameter StreamingExperienceSettings_PreferredProtocol.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLOfferingPurchase: added parameters RenewalSettings_AutomaticRenewal and RenewalSettings_RenewalCount.
+    * Modified cmdlet Update-EMLReservation: added parameters RenewalSettings_AutomaticRenewal and RenewalSettings_RenewalCount.
+  * Amazon Redshift Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RSS and can be listed using the command 'Get-AWSCmdletName -Service RSS'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMFeatureMetadata leveraging the DescribeFeatureMetadata service API.
+    * Added cmdlet Update-SMFeatureGroup leveraging the UpdateFeatureGroup service API.
+    * Added cmdlet Update-SMFeatureMetadata leveraging the UpdateFeatureMetadata service API.
+  * Amazon Translate
+    * Added cmdlet Get-TRNLanguageList leveraging the ListLanguages service API.
+
+### 4.1.115 (2022-06-28 20:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.304.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DataSync
     * Added cmdlet Get-DSYNLocationFsxOntap leveraging the DescribeLocationFsxOntap service API.

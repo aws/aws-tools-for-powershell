@@ -59,10 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyDataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the custom terminology being retrieved.</para><para>If you don't specify this parameter, Amazon Translate returns a file that has the
-        /// same format as the file that was imported to create the terminology. </para><para>If you specify this parameter when you retrieve a multi-directional terminology resource,
-        /// you must specify the same format as that of the input file that was imported to create
-        /// it. Otherwise, Amazon Translate throws an error.</para>
+        /// <para>The data format of the custom terminology being retrieved.</para><para>If you don't specify this parameter, Amazon Translate returns a file with the same
+        /// format as the file that was imported to create the terminology. </para><para>If you specify this parameter when you retrieve a multi-directional terminology resource,
+        /// you must specify the same format as the input file that was imported to create it.
+        /// Otherwise, Amazon Translate throws an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

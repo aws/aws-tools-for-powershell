@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Modifies the health checks used when evaluating the health state of the targets in
     /// the specified target group.
+    /// 
+    ///  
+    /// <para>
+    /// If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify
+    /// the health check protocol, interval, timeout, or success codes.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2TargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroup")]
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For TCP health checks, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// target. For TCP health checks, the supported values are 10 or 30 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// Load Balancers, the default is TCP. The TCP protocol is not supported for health checks
         /// if the protocol of the target group is HTTP or HTTPS. It is supported for health checks
         /// only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
-        /// TLS, UDP, and TCP_UDP protocols are not supported for health checks.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// TLS, UDP, and TCP_UDP protocols are not supported for health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response
-        /// means a failed health check.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// means a failed health check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'ConvertTo-TRNTargetLanguage', 
+        'Get-TRNLanguageList', 
         'Get-TRNParallelData', 
         'Get-TRNParallelDataList', 
         'Get-TRNTerminology', 

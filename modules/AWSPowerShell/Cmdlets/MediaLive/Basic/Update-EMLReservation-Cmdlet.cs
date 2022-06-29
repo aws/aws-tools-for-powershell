@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLReservationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        #region Parameter RenewalSettings_AutomaticRenewal
+        /// <summary>
+        /// <para>
+        /// Automatic renewal status for the reservation
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.ReservationAutomaticRenewal")]
+        public Amazon.MediaLive.ReservationAutomaticRenewal RenewalSettings_AutomaticRenewal { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -48,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RenewalSettings_RenewalCount
+        /// <summary>
+        /// <para>
+        /// Count for the reservation renewal
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RenewalSettings_RenewalCount { get; set; }
         #endregion
         
         #region Parameter ReservationId
@@ -129,6 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
+            context.RenewalSettings_AutomaticRenewal = this.RenewalSettings_AutomaticRenewal;
+            context.RenewalSettings_RenewalCount = this.RenewalSettings_RenewalCount;
             context.ReservationId = this.ReservationId;
             #if MODULAR
             if (this.ReservationId == null && ParameterWasBound(nameof(this.ReservationId)))
@@ -155,6 +178,35 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RenewalSettings
+            var requestRenewalSettingsIsNull = true;
+            request.RenewalSettings = new Amazon.MediaLive.Model.RenewalSettings();
+            Amazon.MediaLive.ReservationAutomaticRenewal requestRenewalSettings_renewalSettings_AutomaticRenewal = null;
+            if (cmdletContext.RenewalSettings_AutomaticRenewal != null)
+            {
+                requestRenewalSettings_renewalSettings_AutomaticRenewal = cmdletContext.RenewalSettings_AutomaticRenewal;
+            }
+            if (requestRenewalSettings_renewalSettings_AutomaticRenewal != null)
+            {
+                request.RenewalSettings.AutomaticRenewal = requestRenewalSettings_renewalSettings_AutomaticRenewal;
+                requestRenewalSettingsIsNull = false;
+            }
+            System.Int32? requestRenewalSettings_renewalSettings_RenewalCount = null;
+            if (cmdletContext.RenewalSettings_RenewalCount != null)
+            {
+                requestRenewalSettings_renewalSettings_RenewalCount = cmdletContext.RenewalSettings_RenewalCount.Value;
+            }
+            if (requestRenewalSettings_renewalSettings_RenewalCount != null)
+            {
+                request.RenewalSettings.RenewalCount = requestRenewalSettings_renewalSettings_RenewalCount.Value;
+                requestRenewalSettingsIsNull = false;
+            }
+             // determine if request.RenewalSettings should be set to null
+            if (requestRenewalSettingsIsNull)
+            {
+                request.RenewalSettings = null;
             }
             if (cmdletContext.ReservationId != null)
             {
@@ -222,6 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public Amazon.MediaLive.ReservationAutomaticRenewal RenewalSettings_AutomaticRenewal { get; set; }
+            public System.Int32? RenewalSettings_RenewalCount { get; set; }
             public System.String ReservationId { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateReservationResponse, UpdateEMLReservationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Reservation;

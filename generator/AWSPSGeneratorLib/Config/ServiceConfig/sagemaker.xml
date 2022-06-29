@@ -487,6 +487,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFeatureMetadata" OutputProperty="*" Verb="Get" Noun="FeatureMetadata" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFlowDefinition" OutputProperty="*" Verb="Get" Noun="FlowDefinition" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1004,6 +1008,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateExperiment" OutputProperty="ExperimentArn" Verb="Update" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFeatureGroup" OutputProperty="FeatureGroupArn" Verb="Update" Noun="FeatureGroup" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFeatureMetadata" Verb="Update" Noun="FeatureMetadata" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

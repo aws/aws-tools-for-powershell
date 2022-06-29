@@ -28,17 +28,17 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    /// Creates or updates a custom terminology, depending on whether or not one already exists
-    /// for the given terminology name. Importing a terminology with the same name as an existing
-    /// one will merge the terminologies based on the chosen merge strategy. Currently, the
-    /// only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite
-    /// an existing terminology of the same name.
+    /// Creates or updates a custom terminology, depending on whether one already exists for
+    /// the given terminology name. Importing a terminology with the same name as an existing
+    /// one will merge the terminologies based on the chosen merge strategy. The only supported
+    /// merge strategy is OVERWRITE, where the imported terminology overwrites the existing
+    /// terminology of the same name.
     /// 
     ///  
     /// <para>
-    /// If you import a terminology that overwrites an existing one, the new terminology take
-    /// up to 10 minutes to fully propagate and be available for use in a translation due
-    /// to cache policies with the DataPlane service that performs the translations.
+    /// If you import a terminology that overwrites an existing one, the new terminology takes
+    /// up to 10 minutes to fully propagate. After that, translations have access to the new
+    /// terminology.
     /// </para>
     /// </summary>
     [Cmdlet("Import", "TRNTerminology", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,9 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// language (uni-directional) or multiple (multi-directional).</para><dl><dt>UNI</dt><dd><para>The terminology resource has one source language (for example, the first column in
         /// a CSV file), and all of its other languages are target languages. </para></dd><dt>MULTI</dt><dd><para>Any language in the terminology resource can be the source language or a target language.
         /// A single multi-directional terminology resource can be used for jobs that translate
-        /// different language pairs. For example, if the terminology contains terms in English
-        /// and Spanish, then it can be used for jobs that translate English to Spanish and jobs
-        /// that translate Spanish to English.</para></dd></dl><para>When you create a custom terminology resource without specifying the directionality,
+        /// different language pairs. For example, if the terminology contains English and Spanish
+        /// terms, it can be used for jobs that translate English to Spanish and Spanish to English.</para></dd></dl><para>When you create a custom terminology resource without specifying the directionality,
         /// it behaves as uni-directional terminology, although this parameter will have a null
         /// value.</para>
         /// </para>

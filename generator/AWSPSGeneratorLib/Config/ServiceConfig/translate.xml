@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLanguages" OutputProperty="*" Verb="Get" Noun="LanguageList" PipelineParameter="DisplayLanguageCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListParallelData" OutputProperty="ParallelDataPropertiesList" Verb="Get" Noun="ParallelDataList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

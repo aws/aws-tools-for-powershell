@@ -87,6 +87,13 @@ $TRN_Completers = {
             break
         }
 
+        # Amazon.Translate.DisplayLanguageCode
+        "Get-TRNLanguageList/DisplayLanguageCode"
+        {
+            $v = "de","en","es","fr","it","ja","ko","pt","zh","zh-TW"
+            break
+        }
+
         # Amazon.Translate.EncryptionKeyType
         {
             ($_ -eq "Import-TRNTerminology/EncryptionKey_Type") -Or
@@ -161,6 +168,7 @@ $TRN_Completers = {
 }
 
 $TRN_map = @{
+    "DisplayLanguageCode"=@("Get-TRNLanguageList")
     "EncryptionKey_Type"=@("Import-TRNTerminology","New-TRNParallelData")
     "Filter_JobStatus"=@("Get-TRNTextTranslationJobList")
     "MergeStrategy"=@("Import-TRNTerminology")
@@ -230,6 +238,7 @@ $TRN_SelectMap = @{
                "Get-TRNParallelData",
                "Get-TRNTerminology",
                "Import-TRNTerminology",
+               "Get-TRNLanguageList",
                "Get-TRNParallelDataList",
                "Get-TRNTerminologyList",
                "Get-TRNTextTranslationJobList",

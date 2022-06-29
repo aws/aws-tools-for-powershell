@@ -184,6 +184,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.ReservationAutomaticRenewal
+        {
+            ($_ -eq "New-EMLOfferingPurchase/RenewalSettings_AutomaticRenewal") -Or
+            ($_ -eq "Update-EMLReservation/RenewalSettings_AutomaticRenewal")
+        }
+        {
+            $v = "DISABLED","ENABLED","UNAVAILABLE"
+            break
+        }
+
 
     }
 
@@ -203,6 +213,7 @@ $EML_map = @{
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
+    "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Type"=@("New-EMLInput")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }

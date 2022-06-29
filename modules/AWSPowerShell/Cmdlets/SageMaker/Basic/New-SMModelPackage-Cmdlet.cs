@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingConstraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingConstraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_Explainability_Constraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Constraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Statistics_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingReport_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingReport_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Bias_Report_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Explainability_Report_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Constraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Statistics_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Constraints_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Statistics_ContentDigest
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The hash key used for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingConstraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingConstraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_Explainability_Constraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Constraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Statistics_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingReport_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingReport_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Bias_Report_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Explainability_Report_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Constraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,7 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Statistics_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -446,7 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Constraints_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Statistics_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The metric source content type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -576,7 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingConstraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -587,7 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingConstraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -608,7 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_Explainability_Constraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -619,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Constraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -629,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelDataQuality_Statistics_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -640,7 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Constraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -650,7 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DriftCheckBaselines_ModelQuality_Statistics_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -660,7 +660,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PostTrainingReport_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -671,7 +671,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PreTrainingReport_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -682,7 +682,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Bias_Report_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -693,7 +693,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_Explainability_Report_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -703,7 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Constraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -714,7 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelDataQuality_Statistics_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -725,7 +725,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Constraints_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -735,7 +735,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelMetrics_ModelQuality_Statistics_S3Uri
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 URI for the metrics source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

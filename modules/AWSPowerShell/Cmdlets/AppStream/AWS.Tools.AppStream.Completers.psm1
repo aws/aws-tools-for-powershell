@@ -129,6 +129,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.PreferredProtocol
+        {
+            ($_ -eq "New-APSStack/StreamingExperienceSettings_PreferredProtocol") -Or
+            ($_ -eq "Update-APSStack/StreamingExperienceSettings_PreferredProtocol")
+        }
+        {
+            $v = "TCP","UDP"
+            break
+        }
+
         # Amazon.AppStream.StreamView
         {
             ($_ -eq "New-APSFleet/StreamView") -Or
@@ -160,6 +170,7 @@ $APS_map = @{
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
     "Platform"=@("New-APSFleet","Update-APSFleet")
+    "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
 }

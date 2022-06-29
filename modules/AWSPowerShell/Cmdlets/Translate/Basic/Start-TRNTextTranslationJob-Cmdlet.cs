@@ -102,7 +102,15 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>You can optionally specify the desired level of formality for real-time translations
+        /// to supported target languages. The formality setting controls the level of formal
+        /// language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
+        /// in the translation output. You can set the value to informal or formal. If you don't
+        /// specify a value for formality, or if the target language doesn't support formality,
+        /// the translation will ignore the formality setting.</para><para>Note that asynchronous translation jobs don't support formality. If you provide a
+        /// value for formality, the <code>StartTextTranslationJob</code> API throws an exception
+        /// (InvalidRequestException).</para><para>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
+        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>Enable the profanity setting if you want Amazon Translate to mask profane words and
         /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
-        /// regardless of the length or number of words.</para><para>Amazon Translate does not detect profanity in all of its supported languages. For
-        /// languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported
+        /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
+        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
         /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -166,8 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The URI of the AWS S3 folder that contains the input file. The folder must be in the
-        /// same Region as the API endpoint you are calling.</para>
+        /// <para>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates
+        /// all the files in the folder. The folder must be in the same Region as the API endpoint
+        /// you are calling.</para><note><para>The URI can also point to a single input document, or it can provide the prefix for
+        /// a collection of input documents. For example. if you use the URI <code>S3://bucketName/prefix</code>
+        /// and the prefix is a single file, Amazon Translate uses that files as input. If more
+        /// than one file begins with the prefix, Amazon Translate uses all of them as input.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -263,8 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the request. This token is auto-generated when using the Amazon
-        /// Translate SDK.</para>
+        /// <para>A unique identifier for the request. This token is generated for you when using the
+        /// Amazon Translate SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

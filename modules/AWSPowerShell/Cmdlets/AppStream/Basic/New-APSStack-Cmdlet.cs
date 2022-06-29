@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter StreamingExperienceSettings_PreferredProtocol
+        /// <summary>
+        /// <para>
+        /// <para>The preferred protocol that you want to use while streaming your application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.PreferredProtocol")]
+        public Amazon.AppStream.PreferredProtocol StreamingExperienceSettings_PreferredProtocol { get; set; }
+        #endregion
+        
         #region Parameter RedirectURL
         /// <summary>
         /// <para>
@@ -271,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.StorageConnector = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
             }
+            context.StreamingExperienceSettings_PreferredProtocol = this.StreamingExperienceSettings_PreferredProtocol;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -360,6 +372,25 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.StorageConnectors = cmdletContext.StorageConnector;
             }
+            
+             // populate StreamingExperienceSettings
+            var requestStreamingExperienceSettingsIsNull = true;
+            request.StreamingExperienceSettings = new Amazon.AppStream.Model.StreamingExperienceSettings();
+            Amazon.AppStream.PreferredProtocol requestStreamingExperienceSettings_streamingExperienceSettings_PreferredProtocol = null;
+            if (cmdletContext.StreamingExperienceSettings_PreferredProtocol != null)
+            {
+                requestStreamingExperienceSettings_streamingExperienceSettings_PreferredProtocol = cmdletContext.StreamingExperienceSettings_PreferredProtocol;
+            }
+            if (requestStreamingExperienceSettings_streamingExperienceSettings_PreferredProtocol != null)
+            {
+                request.StreamingExperienceSettings.PreferredProtocol = requestStreamingExperienceSettings_streamingExperienceSettings_PreferredProtocol;
+                requestStreamingExperienceSettingsIsNull = false;
+            }
+             // determine if request.StreamingExperienceSettings should be set to null
+            if (requestStreamingExperienceSettingsIsNull)
+            {
+                request.StreamingExperienceSettings = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -439,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Name { get; set; }
             public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnector { get; set; }
+            public Amazon.AppStream.PreferredProtocol StreamingExperienceSettings_PreferredProtocol { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.AppStream.Model.UserSetting> UserSetting { get; set; }
             public System.Func<Amazon.AppStream.Model.CreateStackResponse, NewAPSStackCmdlet, object> Select { get; set; } =

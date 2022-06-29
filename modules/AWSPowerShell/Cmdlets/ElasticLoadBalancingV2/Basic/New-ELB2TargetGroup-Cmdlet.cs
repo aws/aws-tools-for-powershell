@@ -79,10 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values
-        /// are 10 and 30 seconds. If the target group protocol is HTTP or HTTPS, the default
-        /// is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds.
-        /// If the target type is <code>lambda</code>, the default is 35 seconds.</para>
+        /// target. If the target group protocol is HTTP or HTTPS, the default is 30 seconds.
+        /// If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are
+        /// 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE,
+        /// the default is 10 seconds. If the target type is <code>lambda</code>, the default
+        /// is 35 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -3221,6 +3221,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.PreferredProtocol
+        {
+            ($_ -eq "New-APSStack/StreamingExperienceSettings_PreferredProtocol") -Or
+            ($_ -eq "Update-APSStack/StreamingExperienceSettings_PreferredProtocol")
+        }
+        {
+            $v = "TCP","UDP"
+            break
+        }
+
         # Amazon.AppStream.StreamView
         {
             ($_ -eq "New-APSFleet/StreamView") -Or
@@ -3252,6 +3262,7 @@ $APS_map = @{
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
     "Platform"=@("New-APSFleet","Update-APSFleet")
+    "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
 }
@@ -32869,6 +32880,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.ReservationAutomaticRenewal
+        {
+            ($_ -eq "New-EMLOfferingPurchase/RenewalSettings_AutomaticRenewal") -Or
+            ($_ -eq "Update-EMLReservation/RenewalSettings_AutomaticRenewal")
+        }
+        {
+            $v = "DISABLED","ENABLED","UNAVAILABLE"
+            break
+        }
+
 
     }
 
@@ -32888,6 +32909,7 @@ $EML_map = @{
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
+    "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Type"=@("New-EMLInput")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }
@@ -40313,6 +40335,145 @@ $RSD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $RSD_SelectCompleters $RSD_SelectMap
+# Argument completions for service Redshift Serverless
+
+
+$RSS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.RedshiftServerless.UsageLimitBreachAction
+        {
+            ($_ -eq "New-RSSUsageLimit/BreachAction") -Or
+            ($_ -eq "Update-RSSUsageLimit/BreachAction")
+        }
+        {
+            $v = "deactivate","emit-metric","log"
+            break
+        }
+
+        # Amazon.RedshiftServerless.UsageLimitPeriod
+        "New-RSSUsageLimit/Period"
+        {
+            $v = "daily","monthly","weekly"
+            break
+        }
+
+        # Amazon.RedshiftServerless.UsageLimitUsageType
+        {
+            ($_ -eq "Get-RSSUsageLimitList/UsageType") -Or
+            ($_ -eq "New-RSSUsageLimit/UsageType")
+        }
+        {
+            $v = "cross-region-datasharing","serverless-compute"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RSS_map = @{
+    "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
+    "Period"=@("New-RSSUsageLimit")
+    "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
+}
+
+_awsArgumentCompleterRegistration $RSS_Completers $RSS_map
+
+$RSS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RSS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RSS_SelectMap = @{
+    "Select"=@("Convert-RSSRecoveryPointToSnapshot",
+               "New-RSSEndpointAccess",
+               "New-RSSNamespace",
+               "New-RSSSnapshot",
+               "New-RSSUsageLimit",
+               "New-RSSWorkgroup",
+               "Remove-RSSEndpointAccess",
+               "Remove-RSSNamespace",
+               "Remove-RSSResourcePolicy",
+               "Remove-RSSSnapshot",
+               "Remove-RSSUsageLimit",
+               "Remove-RSSWorkgroup",
+               "Get-RSSCredential",
+               "Get-RSSEndpointAccess",
+               "Get-RSSNamespace",
+               "Get-RSSRecoveryPoint",
+               "Get-RSSResourcePolicy",
+               "Get-RSSSnapshot",
+               "Get-RSSUsageLimit",
+               "Get-RSSWorkgroup",
+               "Get-RSSEndpointAccessList",
+               "Get-RSSNamespaceList",
+               "Get-RSSRecoveryPointList",
+               "Get-RSSSnapshotList",
+               "Get-RSSResourceTag",
+               "Get-RSSUsageLimitList",
+               "Get-RSSWorkgroupList",
+               "Write-RSSResourcePolicy",
+               "Restore-RSSFromRecoveryPoint",
+               "Restore-RSSFromSnapshot",
+               "Add-RSSResourceTag",
+               "Remove-RSSResourceTag",
+               "Update-RSSEndpointAccess",
+               "Update-RSSNamespace",
+               "Update-RSSSnapshot",
+               "Update-RSSUsageLimit",
+               "Update-RSSWorkgroup")
+}
+
+_awsArgumentCompleterRegistration $RSS_SelectCompleters $RSS_SelectMap
 # Argument completions for service Amazon Rekognition
 
 
@@ -43619,7 +43780,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
             break
         }
 
@@ -44155,6 +44316,7 @@ $SM_SelectMap = @{
                "Get-SMEndpointConfig",
                "Get-SMExperiment",
                "Get-SMFeatureGroup",
+               "Get-SMFeatureMetadata",
                "Get-SMFlowDefinition",
                "Get-SMHumanTaskUi",
                "Get-SMHyperParameterTuningJob",
@@ -44285,6 +44447,8 @@ $SM_SelectMap = @{
                "Update-SMEndpoint",
                "Update-SMEndpointWeightAndCapacity",
                "Update-SMExperiment",
+               "Update-SMFeatureGroup",
+               "Update-SMFeatureMetadata",
                "Update-SMImage",
                "Update-SMModelPackage",
                "Update-SMMonitoringSchedule",
@@ -49172,6 +49336,13 @@ $TRN_Completers = {
             break
         }
 
+        # Amazon.Translate.DisplayLanguageCode
+        "Get-TRNLanguageList/DisplayLanguageCode"
+        {
+            $v = "de","en","es","fr","it","ja","ko","pt","zh","zh-TW"
+            break
+        }
+
         # Amazon.Translate.EncryptionKeyType
         {
             ($_ -eq "Import-TRNTerminology/EncryptionKey_Type") -Or
@@ -49246,6 +49417,7 @@ $TRN_Completers = {
 }
 
 $TRN_map = @{
+    "DisplayLanguageCode"=@("Get-TRNLanguageList")
     "EncryptionKey_Type"=@("Import-TRNTerminology","New-TRNParallelData")
     "Filter_JobStatus"=@("Get-TRNTextTranslationJobList")
     "MergeStrategy"=@("Import-TRNTerminology")
@@ -49315,6 +49487,7 @@ $TRN_SelectMap = @{
                "Get-TRNParallelData",
                "Get-TRNTerminology",
                "Import-TRNTerminology",
+               "Get-TRNLanguageList",
                "Get-TRNParallelDataList",
                "Get-TRNTerminologyList",
                "Get-TRNTextTranslationJobList",

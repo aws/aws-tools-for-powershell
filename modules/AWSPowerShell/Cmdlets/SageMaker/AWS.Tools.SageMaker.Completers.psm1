@@ -731,7 +731,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
             break
         }
 
@@ -1267,6 +1267,7 @@ $SM_SelectMap = @{
                "Get-SMEndpointConfig",
                "Get-SMExperiment",
                "Get-SMFeatureGroup",
+               "Get-SMFeatureMetadata",
                "Get-SMFlowDefinition",
                "Get-SMHumanTaskUi",
                "Get-SMHyperParameterTuningJob",
@@ -1397,6 +1398,8 @@ $SM_SelectMap = @{
                "Update-SMEndpoint",
                "Update-SMEndpointWeightAndCapacity",
                "Update-SMExperiment",
+               "Update-SMFeatureGroup",
+               "Update-SMFeatureMetadata",
                "Update-SMImage",
                "Update-SMModelPackage",
                "Update-SMMonitoringSchedule",
