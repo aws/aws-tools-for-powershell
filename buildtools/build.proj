@@ -198,6 +198,8 @@
 
         <Copy SourceFiles="$(RootPath)/thirdparty/log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)/CHANGELOG.txt"/>
+        <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(DesktopDeploymentArtifacts)/LICENSE"/>
+        <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(DesktopDeploymentArtifacts)/NOTICE"/>
     </Target>
 
     <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
@@ -225,6 +227,8 @@
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
 
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
+        <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(NetCoreDeploymentArtifacts)/LICENSE"/>
+        <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(NetCoreDeploymentArtifacts)/NOTICE"/>
     </Target>
 
     <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
