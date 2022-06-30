@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetPreparedStatement" OutputProperty="*" Verb="Get" Noun="BatchPreparedStatement" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetQueryExecution" OutputProperty="*" Verb="Get" Noun="QueryExecutionBatch" PipelineParameter="QueryExecutionIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

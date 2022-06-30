@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
         #endregion
         
+        #region Parameter ExecutionParameter
+        /// <summary>
+        /// <para>
+        /// <para>A list of values for the parameters in a query. The values are applied sequentially
+        /// to the parameters in the query in the order in which the parameters occur.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExecutionParameters")]
+        public System.String[] ExecutionParameter { get; set; }
+        #endregion
+        
         #region Parameter ResultConfiguration_ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -250,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.ExecutionParameter != null)
+            {
+                context.ExecutionParameter = new List<System.String>(this.ExecutionParameter);
+            }
             context.QueryExecutionContext_Catalog = this.QueryExecutionContext_Catalog;
             context.QueryExecutionContext_Database = this.QueryExecutionContext_Database;
             context.QueryString = this.QueryString;
@@ -284,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ExecutionParameter != null)
+            {
+                request.ExecutionParameters = cmdletContext.ExecutionParameter;
             }
             
              // populate QueryExecutionContext
@@ -473,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<System.String> ExecutionParameter { get; set; }
             public System.String QueryExecutionContext_Catalog { get; set; }
             public System.String QueryExecutionContext_Database { get; set; }
             public System.String QueryString { get; set; }

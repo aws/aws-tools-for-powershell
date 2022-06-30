@@ -189,6 +189,7 @@ $ATH_SelectCompleters = {
 
 $ATH_SelectMap = @{
     "Select"=@("Get-ATHNamedQueryBatch",
+               "Get-ATHBatchPreparedStatement",
                "Get-ATHQueryExecutionBatch",
                "New-ATHDataCatalog",
                "New-ATHNamedQuery",

@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String[][] Consolidation_MatchingAttributesList { get; set; }
         #endregion
         
+        #region Parameter MinAllowedConfidenceScoreForMerging
+        /// <summary>
+        /// <para>
+        /// <para>Minimum confidence score required for profiles within a matching group to be merged
+        /// during the auto-merge process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? MinAllowedConfidenceScoreForMerging { get; set; }
+        #endregion
+        
         #region Parameter ConflictResolution_SourceName
         /// <summary>
         /// <para>
@@ -194,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MinAllowedConfidenceScoreForMerging = this.MinAllowedConfidenceScoreForMerging;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -262,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.DomainName = cmdletContext.DomainName;
             }
+            if (cmdletContext.MinAllowedConfidenceScoreForMerging != null)
+            {
+                request.MinAllowedConfidenceScoreForMerging = cmdletContext.MinAllowedConfidenceScoreForMerging.Value;
+            }
             
             CmdletOutput output;
             
@@ -327,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String ConflictResolution_SourceName { get; set; }
             public List<List<System.String>> Consolidation_MatchingAttributesList { get; set; }
             public System.String DomainName { get; set; }
+            public System.Double? MinAllowedConfidenceScoreForMerging { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse, GetCPFAutoMergingPreviewCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

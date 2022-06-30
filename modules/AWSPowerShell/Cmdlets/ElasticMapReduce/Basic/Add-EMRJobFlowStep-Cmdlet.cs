@@ -66,6 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        #region Parameter ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
+        /// runtime role can be a cross-account IAM role. The runtime role ARN is a combination
+        /// of account ID, role name, and role type using the following format: <code>arn:partition:service:region:account:resource</code>.
+        /// </para><para>For example, <code>arn:aws:iam::1234567890:role/ReadOnly</code> is a correctly formatted
+        /// runtime role ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter JobFlowId
         /// <summary>
         /// <para>
@@ -163,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Select = (response, cmdlet) => this.JobFlowId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.JobFlowId = this.JobFlowId;
             #if MODULAR
             if (this.JobFlowId == null && ParameterWasBound(nameof(this.JobFlowId)))
@@ -196,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // create request
             var request = new Amazon.ElasticMapReduce.Model.AddJobFlowStepsRequest();
             
+            if (cmdletContext.ExecutionRoleArn != null)
+            {
+                request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
             if (cmdletContext.JobFlowId != null)
             {
                 request.JobFlowId = cmdletContext.JobFlowId;
@@ -265,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ExecutionRoleArn { get; set; }
             public System.String JobFlowId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Step { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse, AddEMRJobFlowStepCmdlet, object> Select { get; set; } =

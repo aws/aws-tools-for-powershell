@@ -3816,6 +3816,7 @@ $ATH_SelectCompleters = {
 
 $ATH_SelectMap = @{
     "Select"=@("Get-ATHNamedQueryBatch",
+               "Get-ATHBatchPreparedStatement",
                "Get-ATHQueryExecutionBatch",
                "New-ATHDataCatalog",
                "New-ATHNamedQuery",
@@ -28045,7 +28046,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
+            $v = "ALFRESCO","BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -50206,6 +50207,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.OrganizationSharingStatus
+        "Update-WATGlobalSetting/OrganizationSharingStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.PermissionType
         {
             ($_ -eq "New-WATWorkloadShare/PermissionType") -Or
@@ -50227,6 +50235,16 @@ $WAT_Completers = {
         "Get-WATShareInvitationList/ShareResourceType"
         {
             $v = "LENS","WORKLOAD"
+            break
+        }
+
+        # Amazon.WellArchitected.ShareStatus
+        {
+            ($_ -eq "Get-WATLensShareList/Status") -Or
+            ($_ -eq "Get-WATWorkloadShareList/Status")
+        }
+        {
+            $v = "ACCEPTED","ASSOCIATED","ASSOCIATING","EXPIRED","FAILED","PENDING","REJECTED","REVOKED"
             break
         }
 
@@ -50260,10 +50278,12 @@ $WAT_map = @{
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
+    "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
     "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
+    "Status"=@("Get-WATLensShareList","Get-WATWorkloadShareList")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -50350,6 +50370,7 @@ $WAT_SelectMap = @{
                "Add-WATResourceTag",
                "Remove-WATResourceTag",
                "Update-WATAnswer",
+               "Update-WATGlobalSetting",
                "Update-WATLensReview",
                "Update-WATShareInvitation",
                "Update-WATWorkload",
@@ -50953,6 +50974,7 @@ $WM_SelectMap = @{
                "Add-WMMemberToGroup",
                "Stop-WMMailboxExportJob",
                "New-WMAlias",
+               "New-WMAvailabilityConfiguration",
                "New-WMGroup",
                "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
@@ -50960,6 +50982,7 @@ $WM_SelectMap = @{
                "New-WMUser",
                "Remove-WMAccessControlRule",
                "Remove-WMAlias",
+               "Remove-WMAvailabilityConfiguration",
                "Remove-WMEmailMonitoringConfiguration",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
@@ -50988,6 +51011,7 @@ $WM_SelectMap = @{
                "Get-WMMobileDeviceAccessOverride",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
+               "Get-WMAvailabilityConfigurationList",
                "Get-WMMemberList",
                "Get-WMGroupList",
                "Get-WMMailboxExportJobList",
@@ -51011,7 +51035,9 @@ $WM_SelectMap = @{
                "Reset-WMPassword",
                "Start-WMMailboxExportJob",
                "Add-WMResourceTag",
+               "Test-WMAvailabilityConfiguration",
                "Remove-WMResourceTag",
+               "Update-WMAvailabilityConfiguration",
                "Update-WMDefaultMailDomain",
                "Update-WMMailboxQuota",
                "Update-WMMobileDeviceAccessRule",

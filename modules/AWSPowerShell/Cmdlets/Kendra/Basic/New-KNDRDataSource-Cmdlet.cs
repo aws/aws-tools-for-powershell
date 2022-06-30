@@ -40,6 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a>
     /// data sources are the only supported data sources in the Amazon Web Services GovCloud
     /// (US-West) region.
+    /// </para><para>
+    /// For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
+    /// started with Python SDK</a>. For an example of creating an index and data source using
+    /// the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting
+    /// started with Java SDK</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

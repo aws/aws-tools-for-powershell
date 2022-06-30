@@ -33,6 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     ///  
     /// <para>
     /// Adding FAQs to an index is an asynchronous operation.
+    /// </para><para>
+    /// For an example of adding an FAQ to an index using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using
+    /// you FAQ file</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRFaq", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -154,6 +154,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLensReview" OutputProperty="*" Verb="Update" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

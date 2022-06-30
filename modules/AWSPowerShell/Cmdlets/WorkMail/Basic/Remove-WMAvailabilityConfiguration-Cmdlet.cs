@@ -22,66 +22,64 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.WorkMail;
+using Amazon.WorkMail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a new database in a Data Catalog.
+    /// Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization
+    /// and domain.
     /// </summary>
-    [Cmdlet("New", "GLUEDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "WMAvailabilityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CreateDatabase API operation.", Operation = new[] {"CreateDatabase"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateDatabaseResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateDatabaseResponse",
+    [AWSCmdlet("Calls the Amazon WorkMail DeleteAvailabilityConfiguration API operation.", Operation = new[] {"DeleteAvailabilityConfiguration"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateDatabaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewGLUEDatabaseCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveWMAvailabilityConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
-        #region Parameter CatalogId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the database. If none is provided, the
-        /// Amazon Web Services account ID is used by default.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CatalogId { get; set; }
-        #endregion
-        
-        #region Parameter DatabaseInput
-        /// <summary>
-        /// <para>
-        /// <para>The metadata for the database.</para>
+        /// <para>The domain for which the <code>AvailabilityConfiguration</code> will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Glue.Model.DatabaseInput DatabaseInput { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The tags you assign to the database.</para>
+        /// <para>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code>
+        /// will be deleted.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OrganizationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateDatabaseResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatabaseInput parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatabaseInput' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatabaseInput' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEDatabase (CreateDatabase)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WMAvailabilityConfiguration (DeleteAvailabilityConfiguration)"))
             {
                 return;
             }
@@ -126,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateDatabaseResponse, NewGLUEDatabaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse, RemoveWMAvailabilityConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,25 +133,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatabaseInput;
+                context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CatalogId = this.CatalogId;
-            context.DatabaseInput = this.DatabaseInput;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.DatabaseInput == null && ParameterWasBound(nameof(this.DatabaseInput)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatabaseInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.OrganizationId = this.OrganizationId;
+            #if MODULAR
+            if (this.OrganizationId == null && ParameterWasBound(nameof(this.OrganizationId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter OrganizationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,19 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateDatabaseRequest();
+            var request = new Amazon.WorkMail.Model.DeleteAvailabilityConfigurationRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.DatabaseInput != null)
+            if (cmdletContext.OrganizationId != null)
             {
-                request.DatabaseInput = cmdletContext.DatabaseInput;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.OrganizationId = cmdletContext.OrganizationId;
             }
             
             CmdletOutput output;
@@ -215,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateDatabaseResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateDatabaseRequest request)
+        private Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.DeleteAvailabilityConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "DeleteAvailabilityConfiguration");
             try
             {
                 #if DESKTOP
-                return client.CreateDatabase(request);
+                return client.DeleteAvailabilityConfiguration(request);
                 #elif CORECLR
-                return client.CreateDatabaseAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAvailabilityConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,10 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public Amazon.Glue.Model.DatabaseInput DatabaseInput { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateDatabaseResponse, NewGLUEDatabaseCmdlet, object> Select { get; set; } =
+            public System.String DomainName { get; set; }
+            public System.String OrganizationId { get; set; }
+            public System.Func<Amazon.WorkMail.Model.DeleteAvailabilityConfigurationResponse, RemoveWMAvailabilityConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

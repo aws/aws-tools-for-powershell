@@ -1,4 +1,28 @@
-﻿### 4.1.116 (2022-06-29 20:34Z)
+﻿### 4.1.117 (2022-06-30 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.306.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Added cmdlet Get-ATHBatchPreparedStatement leveraging the BatchGetPreparedStatement service API.
+    * Modified cmdlet Start-ATHQueryExecution: added parameter ExecutionParameter.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Get-CPFAutoMergingPreview: added parameter MinAllowedConfidenceScoreForMerging.
+    * Modified cmdlet New-CPFDomain: added parameter AutoMerging_MinAllowedConfidenceScoreForMerging.
+    * Modified cmdlet Update-CPFDomain: added parameter AutoMerging_MinAllowedConfidenceScoreForMerging.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Add-EMRJobFlowStep: added parameter ExecutionRoleArn.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEDatabase: added parameter Tag.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Update-WATGlobalSetting leveraging the UpdateGlobalSettings service API.
+    * Modified cmdlet Get-WATLensShareList: added parameter Status.
+    * Modified cmdlet Get-WATWorkloadShareList: added parameter Status.
+  * Amazon WorkMail
+    * Added cmdlet Get-WMAvailabilityConfigurationList leveraging the ListAvailabilityConfigurations service API.
+    * Added cmdlet New-WMAvailabilityConfiguration leveraging the CreateAvailabilityConfiguration service API.
+    * Added cmdlet Remove-WMAvailabilityConfiguration leveraging the DeleteAvailabilityConfiguration service API.
+    * Added cmdlet Test-WMAvailabilityConfiguration leveraging the TestAvailabilityConfiguration service API.
+    * Added cmdlet Update-WMAvailabilityConfiguration leveraging the UpdateAvailabilityConfiguration service API.
+
+### 4.1.116 (2022-06-29 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.305.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppStream
     * Modified cmdlet New-APSStack: added parameter StreamingExperienceSettings_PreferredProtocol.

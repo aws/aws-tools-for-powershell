@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAvailabilityConfiguration" Verb="New" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="GroupId" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAvailabilityConfiguration" Verb="Remove" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailabilityConfigurations" OutputProperty="AvailabilityConfigurations" Verb="Get" Noun="AvailabilityConfigurationList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGroupMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -267,7 +279,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TestAvailabilityConfiguration" OutputProperty="*" Verb="Test" Noun="AvailabilityConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAvailabilityConfiguration" Verb="Update" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

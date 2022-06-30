@@ -1358,6 +1358,9 @@ Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name Batch-ATHGetNamedQuery -Value Get-ATHNamedQueryBatch
 Set-Alias -Name Batch-ATHNamedQueryBatch -Value Get-ATHNamedQueryBatch
 Set-Alias -Name ATH-BatchGetNamedQuery -Value Get-ATHNamedQueryBatch
+Set-Alias -Name Batch-ATHGetPreparedStatement -Value Get-ATHBatchPreparedStatement
+Set-Alias -Name Batch-ATHBatchPreparedStatement -Value Get-ATHBatchPreparedStatement
+Set-Alias -Name ATH-BatchGetPreparedStatement -Value Get-ATHBatchPreparedStatement
 Set-Alias -Name Batch-ATHGetQueryExecution -Value Get-ATHQueryExecutionBatch
 Set-Alias -Name Batch-ATHQueryExecutionBatch -Value Get-ATHQueryExecutionBatch
 Set-Alias -Name ATH-BatchGetQueryExecution -Value Get-ATHQueryExecutionBatch
@@ -21901,6 +21904,8 @@ Set-Alias -Name WAT-ListWorkloadShares -Value Get-WATWorkloadShareList
 Set-Alias -Name WAT-TagResource -Value Add-WATResourceTag
 Set-Alias -Name WAT-UntagResource -Value Remove-WATResourceTag
 Set-Alias -Name WAT-UpdateAnswer -Value Update-WATAnswer
+Set-Alias -Name Update-WATGlobalSettings -Value Update-WATGlobalSetting
+Set-Alias -Name WAT-UpdateGlobalSettings -Value Update-WATGlobalSetting
 Set-Alias -Name WAT-UpdateLensReview -Value Update-WATLensReview
 Set-Alias -Name WAT-UpdateShareInvitation -Value Update-WATShareInvitation
 Set-Alias -Name WAT-UpdateWorkload -Value Update-WATWorkload
@@ -22111,6 +22116,8 @@ Set-Alias -Name Cancel-WMMailboxExportJob -Value Stop-WMMailboxExportJob
 Set-Alias -Name WM-CancelMailboxExportJob -Value Stop-WMMailboxExportJob
 Set-Alias -Name Create-WMAlias -Value New-WMAlias
 Set-Alias -Name WM-CreateAlias -Value New-WMAlias
+Set-Alias -Name Create-WMAvailabilityConfiguration -Value New-WMAvailabilityConfiguration
+Set-Alias -Name WM-CreateAvailabilityConfiguration -Value New-WMAvailabilityConfiguration
 Set-Alias -Name Create-WMGroup -Value New-WMGroup
 Set-Alias -Name WM-CreateGroup -Value New-WMGroup
 Set-Alias -Name Create-WMMobileDeviceAccessRule -Value New-WMMobileDeviceAccessRule
@@ -22125,6 +22132,8 @@ Set-Alias -Name Delete-WMAccessControlRule -Value Remove-WMAccessControlRule
 Set-Alias -Name WM-DeleteAccessControlRule -Value Remove-WMAccessControlRule
 Set-Alias -Name Delete-WMAlias -Value Remove-WMAlias
 Set-Alias -Name WM-DeleteAlias -Value Remove-WMAlias
+Set-Alias -Name Delete-WMAvailabilityConfiguration -Value Remove-WMAvailabilityConfiguration
+Set-Alias -Name WM-DeleteAvailabilityConfiguration -Value Remove-WMAvailabilityConfiguration
 Set-Alias -Name Delete-WMEmailMonitoringConfiguration -Value Remove-WMEmailMonitoringConfiguration
 Set-Alias -Name WM-DeleteEmailMonitoringConfiguration -Value Remove-WMEmailMonitoringConfiguration
 Set-Alias -Name Delete-WMGroup -Value Remove-WMGroup
@@ -22180,6 +22189,9 @@ Set-Alias -Name WM-ListAccessControlRules -Value Get-WMAccessControlRuleList
 Set-Alias -Name List-WMAliases -Value Get-WMAliasList
 Set-Alias -Name List-WMAliasList -Value Get-WMAliasList
 Set-Alias -Name WM-ListAliases -Value Get-WMAliasList
+Set-Alias -Name List-WMAvailabilityConfigurations -Value Get-WMAvailabilityConfigurationList
+Set-Alias -Name List-WMAvailabilityConfigurationList -Value Get-WMAvailabilityConfigurationList
+Set-Alias -Name WM-ListAvailabilityConfigurations -Value Get-WMAvailabilityConfigurationList
 Set-Alias -Name List-WMGroupMembers -Value Get-WMMemberList
 Set-Alias -Name List-WMMemberList -Value Get-WMMemberList
 Set-Alias -Name WM-ListGroupMembers -Value Get-WMMemberList
@@ -22234,7 +22246,9 @@ Set-Alias -Name WM-RegisterToWorkMail -Value Register-WMToWorkMail
 Set-Alias -Name WM-ResetPassword -Value Reset-WMPassword
 Set-Alias -Name WM-StartMailboxExportJob -Value Start-WMMailboxExportJob
 Set-Alias -Name WM-TagResource -Value Add-WMResourceTag
+Set-Alias -Name WM-TestAvailabilityConfiguration -Value Test-WMAvailabilityConfiguration
 Set-Alias -Name WM-UntagResource -Value Remove-WMResourceTag
+Set-Alias -Name WM-UpdateAvailabilityConfiguration -Value Update-WMAvailabilityConfiguration
 Set-Alias -Name WM-UpdateDefaultMailDomain -Value Update-WMDefaultMailDomain
 Set-Alias -Name WM-UpdateMailboxQuota -Value Update-WMMailboxQuota
 Set-Alias -Name WM-UpdateMobileDeviceAccessRule -Value Update-WMMobileDeviceAccessRule

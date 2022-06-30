@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// for Amazon Kendra</a>.
     /// </para><para><code>CreateQuerySuggestionsBlockList</code> is currently not supported in the Amazon
     /// Web Services GovCloud (US-West) region.
+    /// </para><para>
+    /// For an example of creating a block list for query suggestions using the Python SDK,
+    /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list">Query
+    /// suggestions block list</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRQuerySuggestionsBlockList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

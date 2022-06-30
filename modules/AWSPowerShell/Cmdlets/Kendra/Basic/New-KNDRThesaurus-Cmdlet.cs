@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <summary>
     /// Creates a thesaurus for an index. The thesaurus contains a list of synonyms in Solr
     /// format.
+    /// 
+    ///  
+    /// <para>
+    /// For an example of adding a thesaurus file to an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html">Adding
+    /// custom synonyms to an index</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRThesaurus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

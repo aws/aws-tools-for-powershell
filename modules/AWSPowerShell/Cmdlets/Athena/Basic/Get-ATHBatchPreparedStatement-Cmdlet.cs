@@ -22,66 +22,66 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.Athena;
+using Amazon.Athena.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Creates a new database in a Data Catalog.
+    /// Returns the details of a single prepared statement or a list of up to 256 prepared
+    /// statements for the array of prepared statement names that you provide. Requires you
+    /// to have access to the workgroup to which the prepared statements belong. If a prepared
+    /// statement cannot be retrieved for the name specified, the statement is listed in <code>UnprocessedPreparedStatementNames</code>.
     /// </summary>
-    [Cmdlet("New", "GLUEDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CreateDatabase API operation.", Operation = new[] {"CreateDatabase"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateDatabaseResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateDatabaseResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateDatabaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ATHBatchPreparedStatement")]
+    [OutputType("Amazon.Athena.Model.BatchGetPreparedStatementResponse")]
+    [AWSCmdlet("Calls the Amazon Athena BatchGetPreparedStatement API operation.", Operation = new[] {"BatchGetPreparedStatement"}, SelectReturnType = typeof(Amazon.Athena.Model.BatchGetPreparedStatementResponse))]
+    [AWSCmdletOutput("Amazon.Athena.Model.BatchGetPreparedStatementResponse",
+        "This cmdlet returns an Amazon.Athena.Model.BatchGetPreparedStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewGLUEDatabaseCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetATHBatchPreparedStatementCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
-        #region Parameter CatalogId
+        #region Parameter PreparedStatementName
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the database. If none is provided, the
-        /// Amazon Web Services account ID is used by default.</para>
+        /// <para>A list of prepared statement names to return.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CatalogId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("PreparedStatementNames")]
+        public System.String[] PreparedStatementName { get; set; }
         #endregion
         
-        #region Parameter DatabaseInput
+        #region Parameter WorkGroup
         /// <summary>
         /// <para>
-        /// <para>The metadata for the database.</para>
+        /// <para>The name of the workgroup to which the prepared statements belong.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Glue.Model.DatabaseInput DatabaseInput { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags you assign to the database.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String WorkGroup { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateDatabaseResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.BatchGetPreparedStatementResponse).
+        /// Specifying the name of a property of type Amazon.Athena.Model.BatchGetPreparedStatementResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,33 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatabaseInput parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatabaseInput' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkGroup parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkGroup' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatabaseInput' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkGroup' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEDatabase (CreateDatabase)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateDatabaseResponse, NewGLUEDatabaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Athena.Model.BatchGetPreparedStatementResponse, GetATHBatchPreparedStatementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,25 +119,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatabaseInput;
+                context.Select = (response, cmdlet) => this.WorkGroup;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CatalogId = this.CatalogId;
-            context.DatabaseInput = this.DatabaseInput;
-            #if MODULAR
-            if (this.DatabaseInput == null && ParameterWasBound(nameof(this.DatabaseInput)))
+            if (this.PreparedStatementName != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DatabaseInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PreparedStatementName = new List<System.String>(this.PreparedStatementName);
+            }
+            #if MODULAR
+            if (this.PreparedStatementName == null && ParameterWasBound(nameof(this.PreparedStatementName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PreparedStatementName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.WorkGroup = this.WorkGroup;
+            #if MODULAR
+            if (this.WorkGroup == null && ParameterWasBound(nameof(this.WorkGroup)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter WorkGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,19 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateDatabaseRequest();
+            var request = new Amazon.Athena.Model.BatchGetPreparedStatementRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.PreparedStatementName != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.PreparedStatementNames = cmdletContext.PreparedStatementName;
             }
-            if (cmdletContext.DatabaseInput != null)
+            if (cmdletContext.WorkGroup != null)
             {
-                request.DatabaseInput = cmdletContext.DatabaseInput;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.WorkGroup = cmdletContext.WorkGroup;
             }
             
             CmdletOutput output;
@@ -215,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateDatabaseResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateDatabaseRequest request)
+        private Amazon.Athena.Model.BatchGetPreparedStatementResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.BatchGetPreparedStatementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "BatchGetPreparedStatement");
             try
             {
                 #if DESKTOP
-                return client.CreateDatabase(request);
+                return client.BatchGetPreparedStatement(request);
                 #elif CORECLR
-                return client.CreateDatabaseAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetPreparedStatementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,11 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public Amazon.Glue.Model.DatabaseInput DatabaseInput { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateDatabaseResponse, NewGLUEDatabaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> PreparedStatementName { get; set; }
+            public System.String WorkGroup { get; set; }
+            public System.Func<Amazon.Athena.Model.BatchGetPreparedStatementResponse, GetATHBatchPreparedStatementCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

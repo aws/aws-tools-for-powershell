@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.305.0",
+    "ProductVersion" : "3.7.306.0",
     "CoreVersion"    : "3.7.12.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -192,7 +192,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "3.7.6.0",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -794,7 +794,7 @@
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "3.7.6.28",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.19.1",
+            "Version" : "3.7.20.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -850,7 +850,7 @@
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "3.7.2.2",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -1034,7 +1034,7 @@
             "InPreview"               : false
         },
         "WorkMail"                        : {
-            "Version" : "3.7.5.67",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -1682,7 +1682,7 @@
             "InPreview"               : false
         },
         "Kendra"                          : {
-            "Version" : "3.7.20.9",
+            "Version" : "3.7.21.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -1898,7 +1898,7 @@
             "InPreview"               : false
         },
         "MWAA"                            : {
-            "Version" : "3.7.2.64",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -1962,7 +1962,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "3.7.6.51",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -2050,7 +2050,7 @@
             "InPreview"               : false
         },
         "WellArchitected"                 : {
-            "Version" : "3.7.3.2",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"

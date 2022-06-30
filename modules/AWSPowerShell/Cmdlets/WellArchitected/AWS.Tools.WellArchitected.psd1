@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WATWorkloadShare', 
         'Unregister-WATLens', 
         'Update-WATAnswer', 
+        'Update-WATGlobalSetting', 
         'Update-WATLensReview', 
         'Update-WATShareInvitation', 
         'Update-WATWorkload', 

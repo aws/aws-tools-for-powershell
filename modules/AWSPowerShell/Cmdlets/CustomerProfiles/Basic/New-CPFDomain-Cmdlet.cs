@@ -172,6 +172,19 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String[][] Consolidation_MatchingAttributesList { get; set; }
         #endregion
         
+        #region Parameter AutoMerging_MinAllowedConfidenceScoreForMerging
+        /// <summary>
+        /// <para>
+        /// <para>A number between 0 and 1 that represents the minimum confidence score required for
+        /// profiles within a matching group to be merged during the auto-merge process. A higher
+        /// score means higher similarity required to merge profiles. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Matching_AutoMerging_MinAllowedConfidenceScoreForMerging")]
+        public System.Double? AutoMerging_MinAllowedConfidenceScoreForMerging { get; set; }
+        #endregion
+        
         #region Parameter S3Exporting_S3BucketName
         /// <summary>
         /// <para>
@@ -316,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 }
             }
             context.AutoMerging_Enabled = this.AutoMerging_Enabled;
+            context.AutoMerging_MinAllowedConfidenceScoreForMerging = this.AutoMerging_MinAllowedConfidenceScoreForMerging;
             context.Matching_Enabled = this.Matching_Enabled;
             context.S3Exporting_S3BucketName = this.S3Exporting_S3BucketName;
             context.S3Exporting_S3KeyName = this.S3Exporting_S3KeyName;
@@ -475,6 +489,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 requestMatching_matching_AutoMerging.Enabled = requestMatching_matching_AutoMerging_autoMerging_Enabled.Value;
                 requestMatching_matching_AutoMergingIsNull = false;
             }
+            System.Double? requestMatching_matching_AutoMerging_autoMerging_MinAllowedConfidenceScoreForMerging = null;
+            if (cmdletContext.AutoMerging_MinAllowedConfidenceScoreForMerging != null)
+            {
+                requestMatching_matching_AutoMerging_autoMerging_MinAllowedConfidenceScoreForMerging = cmdletContext.AutoMerging_MinAllowedConfidenceScoreForMerging.Value;
+            }
+            if (requestMatching_matching_AutoMerging_autoMerging_MinAllowedConfidenceScoreForMerging != null)
+            {
+                requestMatching_matching_AutoMerging.MinAllowedConfidenceScoreForMerging = requestMatching_matching_AutoMerging_autoMerging_MinAllowedConfidenceScoreForMerging.Value;
+                requestMatching_matching_AutoMergingIsNull = false;
+            }
             Amazon.CustomerProfiles.Model.Consolidation requestMatching_matching_AutoMerging_matching_AutoMerging_Consolidation = null;
             
              // populate Consolidation
@@ -623,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String ConflictResolution_SourceName { get; set; }
             public List<List<System.String>> Consolidation_MatchingAttributesList { get; set; }
             public System.Boolean? AutoMerging_Enabled { get; set; }
+            public System.Double? AutoMerging_MinAllowedConfidenceScoreForMerging { get; set; }
             public System.Boolean? Matching_Enabled { get; set; }
             public System.String S3Exporting_S3BucketName { get; set; }
             public System.String S3Exporting_S3KeyName { get; set; }

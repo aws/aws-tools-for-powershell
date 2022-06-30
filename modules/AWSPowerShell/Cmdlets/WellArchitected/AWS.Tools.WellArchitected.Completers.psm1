@@ -104,6 +104,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.OrganizationSharingStatus
+        "Update-WATGlobalSetting/OrganizationSharingStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.PermissionType
         {
             ($_ -eq "New-WATWorkloadShare/PermissionType") -Or
@@ -125,6 +132,16 @@ $WAT_Completers = {
         "Get-WATShareInvitationList/ShareResourceType"
         {
             $v = "LENS","WORKLOAD"
+            break
+        }
+
+        # Amazon.WellArchitected.ShareStatus
+        {
+            ($_ -eq "Get-WATLensShareList/Status") -Or
+            ($_ -eq "Get-WATWorkloadShareList/Status")
+        }
+        {
+            $v = "ACCEPTED","ASSOCIATED","ASSOCIATING","EXPIRED","FAILED","PENDING","REJECTED","REVOKED"
             break
         }
 
@@ -158,10 +175,12 @@ $WAT_map = @{
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
+    "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
     "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
+    "Status"=@("Get-WATLensShareList","Get-WATWorkloadShareList")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -248,6 +267,7 @@ $WAT_SelectMap = @{
                "Add-WATResourceTag",
                "Remove-WATResourceTag",
                "Update-WATAnswer",
+               "Update-WATGlobalSetting",
                "Update-WATLensReview",
                "Update-WATShareInvitation",
                "Update-WATWorkload",

@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The version ID at which to update the table contents. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

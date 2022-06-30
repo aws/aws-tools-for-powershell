@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String SharedWithPrefix { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.ShareStatus")]
+        public Amazon.WellArchitected.ShareStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -123,6 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SharedWithPrefix = this.SharedWithPrefix;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.SharedWithPrefix != null)
             {
                 request.SharedWithPrefix = cmdletContext.SharedWithPrefix;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -220,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SharedWithPrefix { get; set; }
+            public Amazon.WellArchitected.ShareStatus Status { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListLensSharesResponse, GetWATLensShareListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LensShareSummaries;
         }

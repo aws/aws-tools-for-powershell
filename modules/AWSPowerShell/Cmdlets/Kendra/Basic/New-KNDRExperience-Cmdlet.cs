@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Creates an Amazon Kendra experience such as a search application. For more information
-    /// on creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+    /// on creating a search application experience, including using the Python and Java SDKs,
+    /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
     /// a search experience with no code</a>.
     /// </summary>
     [Cmdlet("New", "KNDRExperience", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
