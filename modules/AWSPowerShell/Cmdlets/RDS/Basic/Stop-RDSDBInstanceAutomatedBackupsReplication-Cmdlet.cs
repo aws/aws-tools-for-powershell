@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// This command doesn't apply to RDS Custom.
+    /// This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
     /// Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon

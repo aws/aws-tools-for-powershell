@@ -115,6 +115,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? OracleSettings_AddSupplementalLogging { get; set; }
         #endregion
         
+        #region Parameter S3Settings_AddTrailingPaddingCharacter
+        /// <summary>
+        /// <para>
+        /// <para>Use the S3 target endpoint setting <code>AddTrailingPaddingCharacter</code> to add
+        /// padding on string data. The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3Settings_AddTrailingPaddingCharacter { get; set; }
+        #endregion
+        
         #region Parameter GcpMySQLSettings_AfterConnectScript
         /// <summary>
         /// <para>
@@ -1215,6 +1226,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>To specify a bucket owner and prevent sniping, you can use the <code>ExpectedBucketOwner</code>
+        /// endpoint setting. </para><para>Example: <code>--s3-settings='{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"}'</code></para><para>When you make a request to test a connection or perform a migration, S3 checks the
+        /// account ID of the bucket owner against the specified parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Settings_ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ExplicitId
@@ -3263,6 +3286,39 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? RedshiftSettings_TrimBlank { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_TrimSpaceInChar
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
+        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_TrimSpaceInChar { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_TrimSpaceInChar
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
+        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_TrimSpaceInChar { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_TrimSpaceInChar
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
+        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostgreSQLSettings_TrimSpaceInChar { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_TruncateColumn
         /// <summary>
         /// <para>
@@ -3353,6 +3409,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? OracleSettings_UseLogminerReader { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchSettings_UseNewMappingType
+        /// <summary>
+        /// <para>
+        /// <para>Set this option to <code>true</code> for DMS to migrate documentation using the documentation
+        /// type <code>_doc</code>. OpenSearch and an Elasticsearch cluster only support the _doc
+        /// documentation type in versions 7. x and later. The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ElasticsearchSettings_UseNewMappingType { get; set; }
         #endregion
         
         #region Parameter OracleSettings_UsePathPrefix
@@ -3597,6 +3665,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ElasticsearchSettings_ErrorRetryDuration = this.ElasticsearchSettings_ErrorRetryDuration;
             context.ElasticsearchSettings_FullLoadErrorPercentage = this.ElasticsearchSettings_FullLoadErrorPercentage;
             context.ElasticsearchSettings_ServiceAccessRoleArn = this.ElasticsearchSettings_ServiceAccessRoleArn;
+            context.ElasticsearchSettings_UseNewMappingType = this.ElasticsearchSettings_UseNewMappingType;
             context.EndpointArn = this.EndpointArn;
             #if MODULAR
             if (this.EndpointArn == null && ParameterWasBound(nameof(this.EndpointArn)))
@@ -3673,6 +3742,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn = this.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn;
             context.MicrosoftSQLServerSettings_SecretsManagerSecretId = this.MicrosoftSQLServerSettings_SecretsManagerSecretId;
             context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
+            context.MicrosoftSQLServerSettings_TrimSpaceInChar = this.MicrosoftSQLServerSettings_TrimSpaceInChar;
             context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
             context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
             context.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice = this.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice;
@@ -3748,6 +3818,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_ServerName = this.OracleSettings_ServerName;
             context.OracleSettings_SpatialDataOptionToGeoJsonFunctionName = this.OracleSettings_SpatialDataOptionToGeoJsonFunctionName;
             context.OracleSettings_StandbyDelayTime = this.OracleSettings_StandbyDelayTime;
+            context.OracleSettings_TrimSpaceInChar = this.OracleSettings_TrimSpaceInChar;
             context.OracleSettings_UseAlternateFolderForOnline = this.OracleSettings_UseAlternateFolderForOnline;
             context.OracleSettings_UseBFile = this.OracleSettings_UseBFile;
             context.OracleSettings_UseDirectPathFullLoad = this.OracleSettings_UseDirectPathFullLoad;
@@ -3773,6 +3844,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSQLSettings_SecretsManagerSecretId = this.PostgreSQLSettings_SecretsManagerSecretId;
             context.PostgreSQLSettings_ServerName = this.PostgreSQLSettings_ServerName;
             context.PostgreSQLSettings_SlotName = this.PostgreSQLSettings_SlotName;
+            context.PostgreSQLSettings_TrimSpaceInChar = this.PostgreSQLSettings_TrimSpaceInChar;
             context.PostgreSQLSettings_Username = this.PostgreSQLSettings_Username;
             context.RedisSettings_AuthPassword = this.RedisSettings_AuthPassword;
             context.RedisSettings_AuthType = this.RedisSettings_AuthType;
@@ -3812,6 +3884,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_Username = this.RedshiftSettings_Username;
             context.RedshiftSettings_WriteBufferSize = this.RedshiftSettings_WriteBufferSize;
             context.S3Settings_AddColumnName = this.S3Settings_AddColumnName;
+            context.S3Settings_AddTrailingPaddingCharacter = this.S3Settings_AddTrailingPaddingCharacter;
             context.S3Settings_BucketFolder = this.S3Settings_BucketFolder;
             context.S3Settings_BucketName = this.S3Settings_BucketName;
             context.S3Settings_CannedAclForObject = this.S3Settings_CannedAclForObject;
@@ -3835,6 +3908,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_EnableStatistic = this.S3Settings_EnableStatistic;
             context.S3Settings_EncodingType = this.S3Settings_EncodingType;
             context.S3Settings_EncryptionMode = this.S3Settings_EncryptionMode;
+            context.S3Settings_ExpectedBucketOwner = this.S3Settings_ExpectedBucketOwner;
             context.S3Settings_ExternalTableDefinition = this.S3Settings_ExternalTableDefinition;
             context.S3Settings_IgnoreHeaderRow = this.S3Settings_IgnoreHeaderRow;
             context.S3Settings_IncludeOpForFullLoad = this.S3Settings_IncludeOpForFullLoad;
@@ -4093,6 +4167,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn != null)
             {
                 request.ElasticsearchSettings.ServiceAccessRoleArn = requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn;
+                requestElasticsearchSettingsIsNull = false;
+            }
+            System.Boolean? requestElasticsearchSettings_elasticsearchSettings_UseNewMappingType = null;
+            if (cmdletContext.ElasticsearchSettings_UseNewMappingType != null)
+            {
+                requestElasticsearchSettings_elasticsearchSettings_UseNewMappingType = cmdletContext.ElasticsearchSettings_UseNewMappingType.Value;
+            }
+            if (requestElasticsearchSettings_elasticsearchSettings_UseNewMappingType != null)
+            {
+                request.ElasticsearchSettings.UseNewMappingType = requestElasticsearchSettings_elasticsearchSettings_UseNewMappingType.Value;
                 requestElasticsearchSettingsIsNull = false;
             }
              // determine if request.ElasticsearchSettings should be set to null
@@ -4796,6 +4880,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName != null)
             {
                 request.MicrosoftSQLServerSettings.ServerName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TrimSpaceInChar = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_TrimSpaceInChar != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TrimSpaceInChar = cmdletContext.MicrosoftSQLServerSettings_TrimSpaceInChar.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TrimSpaceInChar != null)
+            {
+                request.MicrosoftSQLServerSettings.TrimSpaceInChar = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TrimSpaceInChar.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
             System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad = null;
@@ -5554,6 +5648,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.StandbyDelayTime = requestOracleSettings_oracleSettings_StandbyDelayTime.Value;
                 requestOracleSettingsIsNull = false;
             }
+            System.Boolean? requestOracleSettings_oracleSettings_TrimSpaceInChar = null;
+            if (cmdletContext.OracleSettings_TrimSpaceInChar != null)
+            {
+                requestOracleSettings_oracleSettings_TrimSpaceInChar = cmdletContext.OracleSettings_TrimSpaceInChar.Value;
+            }
+            if (requestOracleSettings_oracleSettings_TrimSpaceInChar != null)
+            {
+                request.OracleSettings.TrimSpaceInChar = requestOracleSettings_oracleSettings_TrimSpaceInChar.Value;
+                requestOracleSettingsIsNull = false;
+            }
             System.Boolean? requestOracleSettings_oracleSettings_UseAlternateFolderForOnline = null;
             if (cmdletContext.OracleSettings_UseAlternateFolderForOnline != null)
             {
@@ -5799,6 +5903,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_SlotName != null)
             {
                 request.PostgreSQLSettings.SlotName = requestPostgreSQLSettings_postgreSQLSettings_SlotName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_TrimSpaceInChar = null;
+            if (cmdletContext.PostgreSQLSettings_TrimSpaceInChar != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_TrimSpaceInChar = cmdletContext.PostgreSQLSettings_TrimSpaceInChar.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_TrimSpaceInChar != null)
+            {
+                request.PostgreSQLSettings.TrimSpaceInChar = requestPostgreSQLSettings_postgreSQLSettings_TrimSpaceInChar.Value;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_Username = null;
@@ -6218,6 +6332,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.AddColumnName = requestS3Settings_s3Settings_AddColumnName.Value;
                 requestS3SettingsIsNull = false;
             }
+            System.Boolean? requestS3Settings_s3Settings_AddTrailingPaddingCharacter = null;
+            if (cmdletContext.S3Settings_AddTrailingPaddingCharacter != null)
+            {
+                requestS3Settings_s3Settings_AddTrailingPaddingCharacter = cmdletContext.S3Settings_AddTrailingPaddingCharacter.Value;
+            }
+            if (requestS3Settings_s3Settings_AddTrailingPaddingCharacter != null)
+            {
+                request.S3Settings.AddTrailingPaddingCharacter = requestS3Settings_s3Settings_AddTrailingPaddingCharacter.Value;
+                requestS3SettingsIsNull = false;
+            }
             System.String requestS3Settings_s3Settings_BucketFolder = null;
             if (cmdletContext.S3Settings_BucketFolder != null)
             {
@@ -6446,6 +6570,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestS3Settings_s3Settings_EncryptionMode != null)
             {
                 request.S3Settings.EncryptionMode = requestS3Settings_s3Settings_EncryptionMode;
+                requestS3SettingsIsNull = false;
+            }
+            System.String requestS3Settings_s3Settings_ExpectedBucketOwner = null;
+            if (cmdletContext.S3Settings_ExpectedBucketOwner != null)
+            {
+                requestS3Settings_s3Settings_ExpectedBucketOwner = cmdletContext.S3Settings_ExpectedBucketOwner;
+            }
+            if (requestS3Settings_s3Settings_ExpectedBucketOwner != null)
+            {
+                request.S3Settings.ExpectedBucketOwner = requestS3Settings_s3Settings_ExpectedBucketOwner;
                 requestS3SettingsIsNull = false;
             }
             System.String requestS3Settings_s3Settings_ExternalTableDefinition = null;
@@ -6769,6 +6903,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? ElasticsearchSettings_ErrorRetryDuration { get; set; }
             public System.Int32? ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
             public System.String ElasticsearchSettings_ServiceAccessRoleArn { get; set; }
+            public System.Boolean? ElasticsearchSettings_UseNewMappingType { get; set; }
             public System.String EndpointArn { get; set; }
             public System.String EndpointIdentifier { get; set; }
             public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }
@@ -6839,6 +6974,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn { get; set; }
             public System.String MicrosoftSQLServerSettings_SecretsManagerSecretId { get; set; }
             public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_TrimSpaceInChar { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
             public System.String MicrosoftSQLServerSettings_Username { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseThirdPartyBackupDevice { get; set; }
@@ -6911,6 +7047,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String OracleSettings_ServerName { get; set; }
             public System.String OracleSettings_SpatialDataOptionToGeoJsonFunctionName { get; set; }
             public System.Int32? OracleSettings_StandbyDelayTime { get; set; }
+            public System.Boolean? OracleSettings_TrimSpaceInChar { get; set; }
             public System.Boolean? OracleSettings_UseAlternateFolderForOnline { get; set; }
             public System.Boolean? OracleSettings_UseBFile { get; set; }
             public System.Boolean? OracleSettings_UseDirectPathFullLoad { get; set; }
@@ -6936,6 +7073,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String PostgreSQLSettings_SecretsManagerSecretId { get; set; }
             public System.String PostgreSQLSettings_ServerName { get; set; }
             public System.String PostgreSQLSettings_SlotName { get; set; }
+            public System.Boolean? PostgreSQLSettings_TrimSpaceInChar { get; set; }
             public System.String PostgreSQLSettings_Username { get; set; }
             public System.String RedisSettings_AuthPassword { get; set; }
             public Amazon.DatabaseMigrationService.RedisAuthTypeValue RedisSettings_AuthType { get; set; }
@@ -6975,6 +7113,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String RedshiftSettings_Username { get; set; }
             public System.Int32? RedshiftSettings_WriteBufferSize { get; set; }
             public System.Boolean? S3Settings_AddColumnName { get; set; }
+            public System.Boolean? S3Settings_AddTrailingPaddingCharacter { get; set; }
             public System.String S3Settings_BucketFolder { get; set; }
             public System.String S3Settings_BucketName { get; set; }
             public Amazon.DatabaseMigrationService.CannedAclForObjectsValue S3Settings_CannedAclForObject { get; set; }
@@ -6998,6 +7137,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? S3Settings_EnableStatistic { get; set; }
             public Amazon.DatabaseMigrationService.EncodingTypeValue S3Settings_EncodingType { get; set; }
             public Amazon.DatabaseMigrationService.EncryptionModeValue S3Settings_EncryptionMode { get; set; }
+            public System.String S3Settings_ExpectedBucketOwner { get; set; }
             public System.String S3Settings_ExternalTableDefinition { get; set; }
             public System.Int32? S3Settings_IgnoreHeaderRow { get; set; }
             public System.Boolean? S3Settings_IncludeOpForFullLoad { get; set; }

@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// parameter is enabled for this request. If you change the parameter from one non-zero
         /// value to another non-zero value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
         /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source
-        /// to read replicas. It can't be set to 0 or 35 for an RDS Custom for Oracle DB instance.</para></li><li><para>It can be specified for a MySQL read replica only if the source is running MySQL 5.6
+        /// to read replicas. It can't be set to 0 for an RDS Custom for Oracle DB instance.</para></li><li><para>It can be specified for a MySQL read replica only if the source is running MySQL 5.6
         /// or later.</para></li><li><para>It can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
         /// 9.3.5.</para></li></ul>
         /// </para>
@@ -185,11 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The new compute and memory capacity of the DB instance, for example db.m4.large. Not
+        /// <para>The new compute and memory capacity of the DB instance, for example db.m5.large. Not
         /// all DB instance classes are available in all Amazon Web Services Regions, or for all
         /// database engines. For the full list of DB instance classes, and availability for your
         /// engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
+        /// instance classes</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
+        /// DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
         /// is enabled for this request.</para><para>This setting doesn't apply to RDS Custom for Oracle.</para><para>Default: Uses existing setting</para>
         /// </para>
@@ -363,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide.</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,9 +436,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
-        /// more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
-        /// regain access to a primary instance user if the password is lost. This includes restoring
-        /// privileges that might have been accidentally revoked.</para></note>
+        /// more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API operations never return the password, so this action provides a way
+        /// to regain access to a primary instance user if the password is lost. This includes
+        /// restoring privileges that might have been accidentally revoked.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -560,8 +561,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years).</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The number of days to retain Performance Insights data. The default is 7 days. The
+        /// following values are valid:</para><ul><li><para>7</para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23</para></li><li><para>731</para></li></ul><para>For example, the following values are valid:</para><ul><li><para>93 (3 months * 31)</para></li><li><para>341 (11 months * 31)</para></li><li><para>589 (19 months * 31)</para></li><li><para>731</para></li></ul><para>If you specify a retention period such as 94, which isn't a valid value, RDS issues
+        /// an error.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

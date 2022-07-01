@@ -1,4 +1,10 @@
-﻿### 4.1.117 (2022-06-30 20:22Z)
+﻿### 4.1.118 (2022-07-01 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.307.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters ElasticsearchSettings_UseNewMappingType, MicrosoftSQLServerSettings_TrimSpaceInChar, OracleSettings_TrimSpaceInChar, PostgreSQLSettings_TrimSpaceInChar, S3Settings_AddTrailingPaddingCharacter and S3Settings_ExpectedBucketOwner.
+    * Modified cmdlet New-DMSEndpoint: added parameters ElasticsearchSettings_UseNewMappingType, MicrosoftSQLServerSettings_TrimSpaceInChar, OracleSettings_TrimSpaceInChar, PostgreSQLSettings_TrimSpaceInChar, S3Settings_AddTrailingPaddingCharacter and S3Settings_ExpectedBucketOwner.
+
+### 4.1.117 (2022-06-30 20:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.306.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Added cmdlet Get-ATHBatchPreparedStatement leveraging the BatchGetPreparedStatement service API.

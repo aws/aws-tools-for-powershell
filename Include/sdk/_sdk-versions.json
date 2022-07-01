@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.306.0",
+    "ProductVersion" : "3.7.307.0",
     "CoreVersion"    : "3.7.12.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.13.26",
+            "Version" : "3.7.13.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"
@@ -522,7 +522,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.7.6",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.4"

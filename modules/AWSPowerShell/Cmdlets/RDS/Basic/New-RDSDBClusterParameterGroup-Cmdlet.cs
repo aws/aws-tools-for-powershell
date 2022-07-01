@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// database for a DB cluster, such as the character set for the default database defined
     /// by the <code>character_set_database</code> parameter. You can use the <i>Parameter
     /// Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS
-    /// console</a> or the <code>DescribeDBClusterParameters</code> action to verify that
+    /// console</a> or the <code>DescribeDBClusterParameters</code> operation to verify that
     /// your DB cluster parameter group has been created or modified.
     /// </para></important><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
