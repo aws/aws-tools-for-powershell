@@ -66,6 +66,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSEmbedUrlForRegisteredUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowedDomain
+        /// <summary>
+        /// <para>
+        /// <para>The domains that you want to add to the allow list for access to the generated URL
+        /// that is then embedded. This optional parameter overrides the static domains that are
+        /// configured in the Manage QuickSight menu in the Amazon QuickSight console and instead
+        /// allows only the domains that you include in this parameter. You can list up to three
+        /// domains or subdomains in each API call.</para><para>To include a subdomain, use <code>*</code> to include all subdomains under a specific
+        /// domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes
+        /// all subdomains under <code>https://sapp.amazon.com</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedDomains")]
+        public System.String[] AllowedDomain { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
@@ -217,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AllowedDomain != null)
+            {
+                context.AllowedDomain = new List<System.String>(this.AllowedDomain);
+            }
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
             if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
@@ -251,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             // create request
             var request = new Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserRequest();
             
+            if (cmdletContext.AllowedDomain != null)
+            {
+                request.AllowedDomains = cmdletContext.AllowedDomain;
+            }
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
@@ -408,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedDomain { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }
             public System.String QSearchBar_InitialTopicId { get; set; }

@@ -40,10 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Once redeemed within this period, it cannot be re-used again.
     /// </para></li><li><para>
     /// The URL validity period should not be confused with the actual session lifetime that
-    /// can be customized using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></code> parameter.
-    /// </para><para>
-    /// The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum).
-    /// The default session duration is 10 hours. 
+    /// can be customized using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></code> parameter. The resulting user session is valid for 15 minutes (minimum) to
+    /// 10 hours (maximum). The default session duration is 10 hours.
     /// </para></li><li><para>
     /// You are charged only when the URL is used or there is interaction with Amazon QuickSight.
     /// </para></li></ul><para>
@@ -65,11 +63,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSEmbedUrlForAnonymousUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowedDomain
+        /// <summary>
+        /// <para>
+        /// <para>The domains that you want to add to the allow list for access to the generated URL
+        /// that is then embedded. This optional parameter overrides the static domains that are
+        /// configured in the Manage QuickSight menu in the Amazon QuickSight console and instead
+        /// allows only the domains that you include in this parameter. You can list up to three
+        /// domains or subdomains in each API call.</para><para>To include a subdomain, use <code>*</code> to include all subdomains under a specific
+        /// domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes
+        /// all subdomains under <code>https://sapp.amazon.com</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedDomains")]
+        public System.String[] AllowedDomain { get; set; }
+        #endregion
+        
         #region Parameter AuthorizedResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names for the Amazon QuickSight resources that the user is authorized
-        /// to access during the lifetime of the session. If you choose <code>Dashboard</code>
+        /// <para>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
+        /// is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code>
         /// embedding experience, pass the list of dashboard ARNs in the account that you want
         /// the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each
         /// API call.</para>
@@ -156,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code>
         /// parameter so that session tags can be used to provide row-level security.</para><para>These are not the tags used for the Amazon Web Services resource tagging feature.
         /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using
-        /// Row-Level Security (RLS) with Tags</a>.</para>
+        /// Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AllowedDomain != null)
+            {
+                context.AllowedDomain = new List<System.String>(this.AllowedDomain);
+            }
             if (this.AuthorizedResourceArn != null)
             {
                 context.AuthorizedResourceArn = new List<System.String>(this.AuthorizedResourceArn);
@@ -271,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             // create request
             var request = new Amazon.QuickSight.Model.GenerateEmbedUrlForAnonymousUserRequest();
             
+            if (cmdletContext.AllowedDomain != null)
+            {
+                request.AllowedDomains = cmdletContext.AllowedDomain;
+            }
             if (cmdletContext.AuthorizedResourceArn != null)
             {
                 request.AuthorizedResourceArns = cmdletContext.AuthorizedResourceArn;
@@ -386,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedDomain { get; set; }
             public List<System.String> AuthorizedResourceArn { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }

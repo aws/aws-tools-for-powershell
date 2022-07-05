@@ -1,4 +1,21 @@
-﻿### 4.1.118 (2022-07-01 20:16Z)
+﻿### 4.1.119 (2022-07-05 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.308.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IAM Roles Anywhere. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IAMRA and can be listed using the command 'Get-AWSCmdletName -Service IAMRA'.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Intent: added parameter PromptSpecification_MessageSelectionStrategy.
+    * Modified cmdlet New-LMBV2Slot: added parameter PromptSpecification_MessageSelectionStrategy.
+    * Modified cmdlet Update-LMBV2Intent: added parameter PromptSpecification_MessageSelectionStrategy.
+    * Modified cmdlet Update-LMBV2Slot: added parameter PromptSpecification_MessageSelectionStrategy.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAccountSubscription leveraging the DescribeAccountSubscription service API.
+    * Added cmdlet New-QSAccountSubscription leveraging the CreateAccountSubscription service API.
+    * Modified cmdlet New-QSEmbedUrlForAnonymousUser: added parameter AllowedDomain.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameter AllowedDomain.
+  * Amazon Systems Manager Incident Manager
+    * Modified cmdlet New-SSMIResponsePlan: added parameter IncidentTemplate_IncidentTag.
+    * Modified cmdlet Update-SSMIResponsePlan: added parameter IncidentTemplateTag.
+
+### 4.1.118 (2022-07-01 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.307.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Database Migration Service
     * Modified cmdlet Edit-DMSEndpoint: added parameters ElasticsearchSettings_UseNewMappingType, MicrosoftSQLServerSettings_TrimSpaceInChar, OracleSettings_TrimSpaceInChar, PostgreSQLSettings_TrimSpaceInChar, S3Settings_AddTrailingPaddingCharacter and S3Settings_ExpectedBucketOwner.

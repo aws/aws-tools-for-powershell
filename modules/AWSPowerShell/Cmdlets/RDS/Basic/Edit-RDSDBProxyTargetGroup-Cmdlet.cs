@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBProxyName
         /// <summary>
         /// <para>
-        /// <para>The name of the proxy.</para>
+        /// <para>The name of the new proxy to which to assign the target group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TargetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the target group to modify.</para>
+        /// <para>The name of the new target group to assign to the proxy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

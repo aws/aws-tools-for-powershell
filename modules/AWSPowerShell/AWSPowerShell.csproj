@@ -472,6 +472,9 @@
     <Reference Include="AWSSDK.Honeycode">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Honeycode.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IAMRolesAnywhere">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IAMRolesAnywhere.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
@@ -1379,6 +1382,9 @@
     </Reference>
     <Reference Include="AWSSDK.Honeycode">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Honeycode.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IAMRolesAnywhere">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IAMRolesAnywhere.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IdentityManagement.dll</HintPath>

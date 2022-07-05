@@ -204,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationManagedRuleMetadata_MaximumExecutionFrequency
         /// <summary>
         /// <para>
-        /// <para>The maximum frequency with which Config runs evaluations for a rule. You are using
-        /// an Config managed rule that is triggered at a periodic frequency.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
+        /// <para>The maximum frequency with which Config runs evaluations for a rule. This is for an
+        /// Config managed rule that is triggered at a periodic frequency.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
         /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
         /// parameter.</para></note>
         /// </para>

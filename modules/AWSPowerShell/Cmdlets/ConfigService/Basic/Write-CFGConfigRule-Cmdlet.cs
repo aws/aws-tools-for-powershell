@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum frequency with which Config runs evaluations for a rule. You can specify
-        /// a value for <code>MaximumExecutionFrequency</code> when:</para><ul><li><para>You are using an Config managed rule that is triggered at a periodic frequency.</para></li><li><para>Your custom rule is triggered when Config delivers the configuration snapshot. For
+        /// a value for <code>MaximumExecutionFrequency</code> when:</para><ul><li><para>This is for an Config managed rule that is triggered at a periodic frequency.</para></li><li><para>Your custom rule is triggered when Config delivers the configuration snapshot. For
         /// more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para></li></ul><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
         /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
         /// parameter.</para></note>

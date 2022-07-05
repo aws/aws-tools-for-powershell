@@ -124,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.Int32? IncidentTemplate_Impact { get; set; }
         #endregion
         
+        #region Parameter IncidentTemplate_IncidentTag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to apply to an incident when calling the <code>StartIncident</code> API action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncidentTemplate_IncidentTags")]
+        public System.Collections.Hashtable IncidentTemplate_IncidentTag { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -285,6 +296,14 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 WriteWarning("You are passing $null as a value for parameter IncidentTemplate_Impact which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.IncidentTemplate_IncidentTag != null)
+            {
+                context.IncidentTemplate_IncidentTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IncidentTemplate_IncidentTag.Keys)
+                {
+                    context.IncidentTemplate_IncidentTag.Add((String)hashKey, (String)(this.IncidentTemplate_IncidentTag[hashKey]));
+                }
+            }
             if (this.IncidentTemplate_NotificationTarget != null)
             {
                 context.IncidentTemplate_NotificationTarget = new List<Amazon.SSMIncidents.Model.NotificationTargetItem>(this.IncidentTemplate_NotificationTarget);
@@ -395,6 +414,16 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestIncidentTemplate_incidentTemplate_Impact != null)
             {
                 request.IncidentTemplate.Impact = requestIncidentTemplate_incidentTemplate_Impact.Value;
+                requestIncidentTemplateIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestIncidentTemplate_incidentTemplate_IncidentTag = null;
+            if (cmdletContext.IncidentTemplate_IncidentTag != null)
+            {
+                requestIncidentTemplate_incidentTemplate_IncidentTag = cmdletContext.IncidentTemplate_IncidentTag;
+            }
+            if (requestIncidentTemplate_incidentTemplate_IncidentTag != null)
+            {
+                request.IncidentTemplate.IncidentTags = requestIncidentTemplate_incidentTemplate_IncidentTag;
                 requestIncidentTemplateIsNull = false;
             }
             List<Amazon.SSMIncidents.Model.NotificationTargetItem> requestIncidentTemplate_incidentTemplate_NotificationTarget = null;
@@ -509,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             public List<System.String> Engagement { get; set; }
             public System.String IncidentTemplate_DedupeString { get; set; }
             public System.Int32? IncidentTemplate_Impact { get; set; }
+            public Dictionary<System.String, System.String> IncidentTemplate_IncidentTag { get; set; }
             public List<Amazon.SSMIncidents.Model.NotificationTargetItem> IncidentTemplate_NotificationTarget { get; set; }
             public System.String IncidentTemplate_Summary { get; set; }
             public System.String IncidentTemplate_Title { get; set; }

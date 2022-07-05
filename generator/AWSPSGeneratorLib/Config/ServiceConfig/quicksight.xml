@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccountSubscription" OutputProperty="*" Verb="New" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -163,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountSubscription" OutputProperty="AccountInfo" Verb="Get" Noun="AccountSubscription" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

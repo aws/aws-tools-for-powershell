@@ -115,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the IAM role used to describe the Amazon Web Services
-        /// resources associated with the account.</para>
+        /// resources associated with the account.</para><note><para>While the API model does not require this field, the server will reject a request
+        /// without a defined roleARN for the configuration recorder.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

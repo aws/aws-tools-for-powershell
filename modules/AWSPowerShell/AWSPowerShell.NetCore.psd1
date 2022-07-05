@@ -192,6 +192,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.GuardDuty.dll',
         'AWSSDK.HealthLake.dll',
         'AWSSDK.Honeycode.dll',
+        'AWSSDK.IAMRolesAnywhere.dll',
         'AWSSDK.IdentityManagement.dll',
         'AWSSDK.IdentityStore.dll',
         'AWSSDK.Imagebuilder.dll',

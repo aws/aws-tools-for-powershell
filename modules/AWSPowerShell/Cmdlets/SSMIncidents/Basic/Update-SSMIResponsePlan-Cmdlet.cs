@@ -156,6 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.String IncidentTemplateSummary { get; set; }
         #endregion
         
+        #region Parameter IncidentTemplateTag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to apply to an incident when calling the <code>StartIncident</code> API action.
+        /// To call this action, you must also have permission to call the <code>TagResource</code>
+        /// API action for the incident record resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncidentTemplateTags")]
+        public System.Collections.Hashtable IncidentTemplateTag { get; set; }
+        #endregion
+        
         #region Parameter IncidentTemplateTitle
         /// <summary>
         /// <para>
@@ -265,6 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.IncidentTemplateNotificationTarget = new List<Amazon.SSMIncidents.Model.NotificationTargetItem>(this.IncidentTemplateNotificationTarget);
             }
             context.IncidentTemplateSummary = this.IncidentTemplateSummary;
+            if (this.IncidentTemplateTag != null)
+            {
+                context.IncidentTemplateTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IncidentTemplateTag.Keys)
+                {
+                    context.IncidentTemplateTag.Add((String)hashKey, (String)(this.IncidentTemplateTag[hashKey]));
+                }
+            }
             context.IncidentTemplateTitle = this.IncidentTemplateTitle;
             
             // allow further manipulation of loaded context prior to processing
@@ -347,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             {
                 request.IncidentTemplateSummary = cmdletContext.IncidentTemplateSummary;
             }
+            if (cmdletContext.IncidentTemplateTag != null)
+            {
+                request.IncidentTemplateTags = cmdletContext.IncidentTemplateTag;
+            }
             if (cmdletContext.IncidentTemplateTitle != null)
             {
                 request.IncidentTemplateTitle = cmdletContext.IncidentTemplateTitle;
@@ -423,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             public System.Int32? IncidentTemplateImpact { get; set; }
             public List<Amazon.SSMIncidents.Model.NotificationTargetItem> IncidentTemplateNotificationTarget { get; set; }
             public System.String IncidentTemplateSummary { get; set; }
+            public Dictionary<System.String, System.String> IncidentTemplateTag { get; set; }
             public System.String IncidentTemplateTitle { get; set; }
             public System.Func<Amazon.SSMIncidents.Model.UpdateResponsePlanResponse, UpdateSSMIResponsePlanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

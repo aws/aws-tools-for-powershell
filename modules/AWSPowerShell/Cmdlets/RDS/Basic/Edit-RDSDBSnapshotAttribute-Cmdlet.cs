@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// To view which Amazon Web Services accounts have access to copy or restore a manual
     /// DB snapshot, or whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a>
-    /// API operation. The accounts are returned as values for the <code>restore</code> attribute.
+    /// API action. The accounts are returned as values for the <code>restore</code> attribute.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the DB snapshot attribute to modify.</para><para>To manage authorization for other Amazon Web Services accounts to copy or restore
         /// a manual DB snapshot, set this value to <code>restore</code>.</para><note><para>To view the list of attributes available to modify, use the <a>DescribeDBSnapshotAttributes</a>
-        /// API operation.</para></note>
+        /// API action.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -91,6 +91,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AuthenticationMethodOption
+        "New-QSAccountSubscription/AuthenticationMethod"
+        {
+            $v = "ACTIVE_DIRECTORY","IAM_AND_QUICKSIGHT","IAM_ONLY"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
@@ -127,6 +134,13 @@ $QS_Completers = {
         "New-QSDataSource/Type"
         {
             $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            break
+        }
+
+        # Amazon.QuickSight.Edition
+        "New-QSAccountSubscription/Edition"
+        {
+            $v = "ENTERPRISE","ENTERPRISE_AND_Q","STANDARD"
             break
         }
 
@@ -234,9 +248,11 @@ $QS_Completers = {
 
 $QS_map = @{
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
+    "AuthenticationMethod"=@("New-QSAccountSubscription")
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "Edition"=@("New-QSAccountSubscription")
     "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
@@ -304,6 +320,7 @@ $QS_SelectCompleters = {
 $QS_SelectMap = @{
     "Select"=@("Stop-QSIngestion",
                "New-QSAccountCustomization",
+               "New-QSAccountSubscription",
                "New-QSAnalysis",
                "New-QSDashboard",
                "New-QSDataSet",
@@ -338,6 +355,7 @@ $QS_SelectMap = @{
                "Remove-QSUserByPrincipalId",
                "Get-QSAccountCustomization",
                "Get-QSAccountSetting",
+               "Get-QSAccountSubscription",
                "Get-QSAnalysis",
                "Get-QSAnalysisPermission",
                "Get-QSDashboard",

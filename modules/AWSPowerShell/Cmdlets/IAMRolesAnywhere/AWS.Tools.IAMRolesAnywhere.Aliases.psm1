@@ -1,0 +1,3 @@
+﻿# IAMRolesAnywhere
+
+Export-ModuleMember -Alias *

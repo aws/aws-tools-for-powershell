@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// To view which Amazon Web Services accounts have access to copy or restore a manual
     /// DB cluster snapshot, or whether a manual DB cluster snapshot is public or private,
-    /// use the <a>DescribeDBClusterSnapshotAttributes</a> API operation. The accounts are
-    /// returned as values for the <code>restore</code> attribute.
+    /// use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are returned
+    /// as values for the <code>restore</code> attribute.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBClusterSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the DB cluster snapshot attribute to modify.</para><para>To manage authorization for other Amazon Web Services accounts to copy or restore
         /// a manual DB cluster snapshot, set this value to <code>restore</code>.</para><note><para>To view the list of attributes available to modify, use the <a>DescribeDBClusterSnapshotAttributes</a>
-        /// API operation.</para></note>
+        /// API action.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

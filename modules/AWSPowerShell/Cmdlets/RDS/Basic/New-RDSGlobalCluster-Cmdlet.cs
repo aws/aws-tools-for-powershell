@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and a secondary cluster to it. Or you can specify an existing Aurora cluster during
     /// the create operation, and this cluster becomes the primary cluster of the global database.
     /// </para><note><para>
-    /// This action applies only to Aurora DB clusters.
+    /// This action only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name for your database of up to 64 alphanumeric characters. If you do not provide
+        /// <para>The name for your database of up to 64 alpha-numeric characters. If you do not provide
         /// a name, Amazon Aurora will not create a database in the global database cluster you
         /// are creating.</para>
         /// </para>

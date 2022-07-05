@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide.</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,9 +422,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data. The default is 7 days. The
-        /// following values are valid:</para><ul><li><para>7</para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23</para></li><li><para>731</para></li></ul><para>For example, the following values are valid:</para><ul><li><para>93 (3 months * 31)</para></li><li><para>341 (11 months * 31)</para></li><li><para>589 (19 months * 31)</para></li><li><para>731</para></li></ul><para>If you specify a retention period such as 94, which isn't a valid value, RDS issues
-        /// an error.</para>
+        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

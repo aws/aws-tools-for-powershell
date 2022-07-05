@@ -34570,6 +34570,18 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.MessageSelectionStrategy
+        {
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy")
+        }
+        {
+            $v = "Ordered","Random"
+            break
+        }
+
         # Amazon.LexModelsV2.ObfuscationSettingType
         {
             ($_ -eq "New-LMBV2Slot/ObfuscationSetting_ObfuscationSettingType") -Or
@@ -34677,6 +34689,7 @@ $LMBV2_map = @{
     "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
+    "IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine"=@("Start-LMBV2Import")
@@ -34684,6 +34697,7 @@ $LMBV2_map = @{
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
+    "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
@@ -38996,6 +39010,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AuthenticationMethodOption
+        "New-QSAccountSubscription/AuthenticationMethod"
+        {
+            $v = "ACTIVE_DIRECTORY","IAM_AND_QUICKSIGHT","IAM_ONLY"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
@@ -39032,6 +39053,13 @@ $QS_Completers = {
         "New-QSDataSource/Type"
         {
             $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            break
+        }
+
+        # Amazon.QuickSight.Edition
+        "New-QSAccountSubscription/Edition"
+        {
+            $v = "ENTERPRISE","ENTERPRISE_AND_Q","STANDARD"
             break
         }
 
@@ -39139,9 +39167,11 @@ $QS_Completers = {
 
 $QS_map = @{
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
+    "AuthenticationMethod"=@("New-QSAccountSubscription")
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "Edition"=@("New-QSAccountSubscription")
     "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
@@ -39209,6 +39239,7 @@ $QS_SelectCompleters = {
 $QS_SelectMap = @{
     "Select"=@("Stop-QSIngestion",
                "New-QSAccountCustomization",
+               "New-QSAccountSubscription",
                "New-QSAnalysis",
                "New-QSDashboard",
                "New-QSDataSet",
@@ -39243,6 +39274,7 @@ $QS_SelectMap = @{
                "Remove-QSUserByPrincipalId",
                "Get-QSAccountCustomization",
                "Get-QSAccountSetting",
+               "Get-QSAccountSubscription",
                "Get-QSAnalysis",
                "Get-QSAnalysisPermission",
                "Get-QSDashboard",
@@ -41134,6 +41166,115 @@ $ROBO_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ROBO_SelectCompleters $ROBO_SelectMap
+# Argument completions for service IAM Roles Anywhere
+
+
+$IAMRA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IAMRolesAnywhere.TrustAnchorType
+        {
+            ($_ -eq "New-IAMRATrustAnchor/Source_SourceType") -Or
+            ($_ -eq "Update-IAMRATrustAnchor/Source_SourceType")
+        }
+        {
+            $v = "AWS_ACM_PCA","CERTIFICATE_BUNDLE","SELF_SIGNED_REPOSITORY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IAMRA_map = @{
+    "Source_SourceType"=@("New-IAMRATrustAnchor","Update-IAMRATrustAnchor")
+}
+
+_awsArgumentCompleterRegistration $IAMRA_Completers $IAMRA_map
+
+$IAMRA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IAMRA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IAMRA_SelectMap = @{
+    "Select"=@("New-IAMRAProfile",
+               "New-IAMRATrustAnchor",
+               "Remove-IAMRACrl",
+               "Remove-IAMRAProfile",
+               "Remove-IAMRATrustAnchor",
+               "Disable-IAMRACrl",
+               "Disable-IAMRAProfile",
+               "Disable-IAMRATrustAnchor",
+               "Enable-IAMRACrl",
+               "Enable-IAMRAProfile",
+               "Enable-IAMRATrustAnchor",
+               "Get-IAMRACrl",
+               "Get-IAMRAProfile",
+               "Get-IAMRASubject",
+               "Get-IAMRATrustAnchor",
+               "Import-IAMRACrl",
+               "Get-IAMRACrlList",
+               "Get-IAMRAProfileList",
+               "Get-IAMRASubjectList",
+               "Get-IAMRAResourceTag",
+               "Get-IAMRATrustAnchorList",
+               "Add-IAMRAResourceTag",
+               "Remove-IAMRAResourceTag",
+               "Update-IAMRACrl",
+               "Update-IAMRAProfile",
+               "Update-IAMRATrustAnchor")
+}
+
+_awsArgumentCompleterRegistration $IAMRA_SelectCompleters $IAMRA_SelectMap
 # Argument completions for service Amazon Route 53
 
 

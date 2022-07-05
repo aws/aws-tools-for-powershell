@@ -28,15 +28,15 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates a session URL and authorization code that you can use to embed an Amazon
-    /// Amazon QuickSight read-only dashboard in your web server code. Before you use this
-    /// command, make sure that you have configured the dashboards and permissions. 
+    /// Generates a temporary session URL and authorization code that you can use to embed
+    /// an Amazon QuickSight read-only dashboard in your website or application. Before you
+    /// use this command, make sure that you have configured the dashboards and permissions.
+    /// 
     /// 
     ///  
     /// <para>
     /// Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
-    /// from the user's browser. The following rules apply to the combination of URL and authorization
-    /// code:
+    /// from the user's browser. The following rules apply to the generated URL:
     /// </para><ul><li><para>
     /// They must be used together.
     /// </para></li><li><para>
@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li><li><para>
     /// They are valid for 5 minutes after you run this command.
     /// </para></li><li><para>
-    /// The resulting user session is valid for 10 hours.
+    /// The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum).
+    /// You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customi
+    /// session duration.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding
     /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User Guide</i>.
@@ -67,12 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AdditionalDashboardId
         /// <summary>
         /// <para>
-        /// <para>A list of one or more dashboard IDs that you want to add to a session that includes
-        /// anonymous users. The <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code>
-        /// for this to work, because other identity types authenticate as Amazon QuickSight or
-        /// IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
-        /// dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.
-        /// </para>
+        /// <para>A list of one or more dashboard IDs that you want anonymous users to have tempporary
+        /// access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code>
+        /// because other identity types authenticate as Amazon QuickSight or IAM users. For example,
+        /// if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type
+        /// ANONYMOUS</code>", the session can access all three dashboards.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

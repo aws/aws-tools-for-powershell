@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
     /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
-    /// DB instance.
+    /// DB instance. For cross-Region replication where the DB cluster identified by <code>ReplicationSourceIdentifier</code>
+    /// is encrypted, also specify the <code>PreSignedUrl</code> parameter.
     /// </para><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
@@ -296,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
         /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,15 +341,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</para><para>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and
         /// higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x
         /// versions.</para><para>The <code>multimaster</code> engine mode only applies for DB clusters created with
-        /// Aurora MySQL version 5.6.10a.</para><para>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</para><para>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both
+        /// Aurora MySQL version 5.6.10a.</para><para>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both
         /// the <code>parallelquery</code> and the <code>multimaster</code> engine modes currently
         /// aren't supported.</para><para>Limitations and requirements apply to some DB engine modes. For more information,
-        /// see the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">Limitations
-        /// of Aurora Serverless v1</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html">Requirements
-        /// for Aurora Serverless v2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations
-        /// of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations
-        /// of Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">Limitations
-        /// of Multi-Master Clusters</a></para></li></ul><para>Valid for: Aurora DB clusters only</para>
+        /// see the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+        /// Limitations of Aurora Serverless v1</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+        /// Limitations of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+        /// Limitations of Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+        /// Limitations of Multi-Master Clusters</a></para></li></ul><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -547,9 +547,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data. The default is 7 days. The
-        /// following values are valid:</para><ul><li><para>7</para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23</para></li><li><para>731</para></li></ul><para>For example, the following values are valid:</para><ul><li><para>93 (3 months * 31)</para></li><li><para>341 (11 months * 31)</para></li><li><para>589 (19 months * 31)</para></li><li><para>731</para></li></ul><para>If you specify a retention period such as 94, which isn't a valid value, RDS issues
-        /// an error.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years).</para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -597,17 +596,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PreSignedUrl
         /// <summary>
         /// <para>
-        /// <para>When you are replicating a DB cluster from one Amazon Web Services GovCloud (US) Region
-        /// to another, an URL that contains a Signature Version 4 signed request for the <code>CreateDBCluster</code>
-        /// operation to be called in the source Amazon Web Services Region where the DB cluster
+        /// <para>A URL that contains a Signature Version 4 signed request for the <code>CreateDBCluster</code>
+        /// action to be called in the source Amazon Web Services Region where the DB cluster
         /// is replicated from. Specify <code>PreSignedUrl</code> only when you are performing
-        /// cross-Region replication from an encrypted DB cluster.</para><para>The presigned URL must be a valid request for the <code>CreateDBCluster</code> API
-        /// operation that can run in the source Amazon Web Services Region that contains the
-        /// encrypted DB cluster to copy.</para><para>The presigned URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the KMS key to use to encrypt
-        /// the copy of the DB cluster in the destination Amazon Web Services Region. This should
-        /// refer to the same KMS key for both the <code>CreateDBCluster</code> operation that
-        /// is called in the destination Amazon Web Services Region, and the operation contained
-        /// in the presigned URL.</para></li><li><para><code>DestinationRegion</code> - The name of the Amazon Web Services Region that
+        /// cross-Region replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
+        /// action that can be executed in the source Amazon Web Services Region that contains
+        /// the encrypted DB cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key
+        /// to use to encrypt the copy of the DB cluster in the destination Amazon Web Services
+        /// Region. This should refer to the same KMS key for both the <code>CreateDBCluster</code>
+        /// action that is called in the destination Amazon Web Services Region, and the action
+        /// contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the Amazon Web Services Region that
         /// Aurora read replica will be created in.</para></li><li><para><code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted
         /// DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN)
         /// format for the source Amazon Web Services Region. For example, if you are copying
@@ -617,9 +615,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// 4)</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
         /// Signature Version 4 Signing Process</a>.</para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code>
         /// (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code>
-        /// manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that
-        /// is a valid request for the operation that can run in the source Amazon Web Services
-        /// Region.</para></note><para>Valid for: Aurora DB clusters only</para>
+        /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
+        /// is a valid request for the operation that can be executed in the source Amazon Web
+        /// Services Region.</para></note><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

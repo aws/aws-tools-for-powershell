@@ -461,6 +461,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.MessageGroup[] PromptSpecification_MessageGroup { get; set; }
         #endregion
         
+        #region Parameter PromptSpecification_MessageSelectionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how a message is selected from a message group among retries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.MessageSelectionStrategy")]
+        public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
+        #endregion
+        
         #region Parameter OutputContext
         /// <summary>
         /// <para>
@@ -664,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 context.PromptSpecification_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.PromptSpecification_MessageGroup);
             }
+            context.PromptSpecification_MessageSelectionStrategy = this.PromptSpecification_MessageSelectionStrategy;
             context.IntentName = this.IntentName;
             #if MODULAR
             if (this.IntentName == null && ParameterWasBound(nameof(this.IntentName)))
@@ -1143,6 +1156,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification.MessageGroups = requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageGroup;
                 requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.MessageSelectionStrategy requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = null;
+            if (cmdletContext.PromptSpecification_MessageSelectionStrategy != null)
+            {
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = cmdletContext.PromptSpecification_MessageSelectionStrategy;
+            }
+            if (requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy != null)
+            {
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification.MessageSelectionStrategy = requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy;
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull = false;
+            }
              // determine if requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification should be set to null
             if (requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull)
             {
@@ -1307,6 +1330,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? PromptSpecification_AllowInterrupt { get; set; }
             public System.Int32? PromptSpecification_MaxRetry { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
+            public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
             public System.String IntentName { get; set; }
             public System.String KendraConfiguration_KendraIndex { get; set; }
             public System.String KendraConfiguration_QueryFilterString { get; set; }

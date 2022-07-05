@@ -174,6 +174,18 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.MessageSelectionStrategy
+        {
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy")
+        }
+        {
+            $v = "Ordered","Random"
+            break
+        }
+
         # Amazon.LexModelsV2.ObfuscationSettingType
         {
             ($_ -eq "New-LMBV2Slot/ObfuscationSetting_ObfuscationSettingType") -Or
@@ -281,6 +293,7 @@ $LMBV2_map = @{
     "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
+    "IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine"=@("Start-LMBV2Import")
@@ -288,6 +301,7 @@ $LMBV2_map = @{
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
+    "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")

@@ -279,6 +279,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.MessageGroup[] WaitingResponse_MessageGroup { get; set; }
         #endregion
         
+        #region Parameter PromptSpecification_MessageSelectionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how a message is selected from a message group among retries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.MessageSelectionStrategy")]
+        public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
+        #endregion
+        
         #region Parameter ObfuscationSetting_ObfuscationSettingType
         /// <summary>
         /// <para>
@@ -471,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 context.PromptSpecification_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.PromptSpecification_MessageGroup);
             }
+            context.PromptSpecification_MessageSelectionStrategy = this.PromptSpecification_MessageSelectionStrategy;
             if (this.ValueElicitationSetting_SampleUtterance != null)
             {
                 context.ValueElicitationSetting_SampleUtterance = new List<Amazon.LexModelsV2.Model.SampleUtterance>(this.ValueElicitationSetting_SampleUtterance);
@@ -664,6 +677,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup != null)
             {
                 requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageGroups = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.MessageSelectionStrategy requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = null;
+            if (cmdletContext.PromptSpecification_MessageSelectionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = cmdletContext.PromptSpecification_MessageSelectionStrategy;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageSelectionStrategy = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy;
                 requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
             }
              // determine if requestValueElicitationSetting_valueElicitationSetting_PromptSpecification should be set to null
@@ -905,6 +928,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? PromptSpecification_AllowInterrupt { get; set; }
             public System.Int32? PromptSpecification_MaxRetry { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
+            public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
             public List<Amazon.LexModelsV2.Model.SampleUtterance> ValueElicitationSetting_SampleUtterance { get; set; }
             public Amazon.LexModelsV2.SlotConstraint ValueElicitationSetting_SlotConstraint { get; set; }
             public System.Boolean? WaitAndContinueSpecification_Active { get; set; }

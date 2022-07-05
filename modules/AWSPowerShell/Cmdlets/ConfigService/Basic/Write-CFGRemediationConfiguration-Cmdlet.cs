@@ -41,6 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// This API does not support adding remediation configurations for service-linked Config
     /// Rules such as Organization Config rules, the rules deployed by conformance packs,
     /// and rules deployed by Amazon Web Services Security Hub.
+    /// </para></note><note><para>
+    /// For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code>
+    /// or use a value in the <code>assumeRole</code>field to remediate your resources. The
+    /// SSM automation document can use either as long as it maps to a valid parameter.
+    /// </para><para>
+    /// However, for automatic remediation configuration, the only valid <code>assumeRole</code>
+    /// field value is <code>AutomationAssumeRole</code> and you need to provide a value for
+    /// <code>AutomationAssumeRole</code> to remediate your resources.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRemediationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

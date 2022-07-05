@@ -139,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags associated with the resource.</para>
+        /// <para>Tags associated with the resource.</para><note><para>This field is not to be confused with the Amazon Web Services-wide tag feature for
+        /// Amazon Web Services resources. Tags for <code>PutResourceConfig</code> are tags that
+        /// you supply for the configuration items of your custom resources.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
