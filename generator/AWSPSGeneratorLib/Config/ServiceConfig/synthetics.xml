@@ -11,7 +11,10 @@
     <ServiceModuleGuid>319adb79-d568-4732-96f1-f556f19b70b6</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Associate" To="Add" />
+        <Map From="Disassociate" To="Remove" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -19,11 +22,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateResource" Verb="Add" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCanary" OutputProperty="Canary" Verb="New" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCanary" Verb="Remove" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,11 +54,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResource" Verb="Remove" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCanary" OutputProperty="Canary" Verb="Get" Noun="Canary" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCanaryRuns" OutputProperty="CanaryRuns" Verb="Get" Noun="CanaryRun" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedGroups" OutputProperty="Groups" Verb="Get" Noun="AssociatedGroupList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupResources" OutputProperty="Resources" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

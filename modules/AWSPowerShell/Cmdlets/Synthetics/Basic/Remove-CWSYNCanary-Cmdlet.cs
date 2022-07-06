@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics
     /// also deletes the Lambda functions and layers that are used by the canary.
     /// </para><para>
-    /// Other esources used and created by the canary are not automatically deleted. After
+    /// Other resources used and created by the canary are not automatically deleted. After
     /// you delete a canary that you do not intend to use again, you should also delete the
     /// following:
     /// </para><ul><li><para>

@@ -28,7 +28,7 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Displays the tags associated with a canary.
+    /// Displays the tags associated with a canary or group.
     /// </summary>
     [Cmdlet("Get", "CWSYNResourceTag")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the canary that you want to view tags for.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para>
+        /// <para>The ARN of the canary or group that you want to view tags for.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para><para>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

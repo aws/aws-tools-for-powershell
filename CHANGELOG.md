@@ -1,4 +1,21 @@
-﻿### 4.1.119 (2022-07-05 20:33Z)
+﻿### 4.1.120 (2022-07-06 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.309.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNStackInstance: added parameter DeploymentTargets_AccountFilterType.
+    * Modified cmdlet Remove-CFNStackInstance: added parameter DeploymentTargets_AccountFilterType.
+    * Modified cmdlet Update-CFNStackInstance: added parameter DeploymentTargets_AccountFilterType.
+    * Modified cmdlet Update-CFNStackSet: added parameter DeploymentTargets_AccountFilterType.
+  * Amazon CloudWatch Synthetics
+    * Added cmdlet Add-CWSYNResource leveraging the AssociateResource service API.
+    * Added cmdlet Get-CWSYNAssociatedGroupList leveraging the ListAssociatedGroups service API.
+    * Added cmdlet Get-CWSYNGroup leveraging the GetGroup service API.
+    * Added cmdlet Get-CWSYNGroupList leveraging the ListGroups service API.
+    * Added cmdlet Get-CWSYNGroupResourceList leveraging the ListGroupResources service API.
+    * Added cmdlet New-CWSYNGroup leveraging the CreateGroup service API.
+    * Added cmdlet Remove-CWSYNGroup leveraging the DeleteGroup service API.
+    * Added cmdlet Remove-CWSYNResource leveraging the DisassociateResource service API.
+
+### 4.1.119 (2022-07-05 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.308.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IAM Roles Anywhere. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IAMRA and can be listed using the command 'Get-AWSCmdletName -Service IAMRA'.
   * Amazon Lex Model Building V2

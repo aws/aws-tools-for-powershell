@@ -80,6 +80,18 @@ $CFN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudFormation.AccountFilterType
+        {
+            ($_ -eq "New-CFNStackInstance/DeploymentTargets_AccountFilterType") -Or
+            ($_ -eq "Remove-CFNStackInstance/DeploymentTargets_AccountFilterType") -Or
+            ($_ -eq "Update-CFNStackInstance/DeploymentTargets_AccountFilterType") -Or
+            ($_ -eq "Update-CFNStackSet/DeploymentTargets_AccountFilterType")
+        }
+        {
+            $v = "DIFFERENCE","INTERSECTION","NONE","UNION"
+            break
+        }
+
         # Amazon.CloudFormation.CallAs
         {
             ($_ -eq "Get-CFNStackInstance/CallAs") -Or
@@ -262,6 +274,7 @@ $CFN_map = @{
     "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
+    "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
     "Filters_Category"=@("Get-CFNTypeList")

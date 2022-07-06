@@ -28,7 +28,7 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Use this operation to change the settings of a canary that has already been created.
+    /// Updates the configuration of a canary that has already been created.
     /// 
     ///  
     /// <para>
@@ -136,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment
         /// variables as the keys for your environment variables. For more information about reserved
         /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
-        /// Runtime environment variables</a>.</para>
+        /// Runtime environment variables</a>.</para><important><para>The environment variables keys and values are not encrypted. Do not store sensitive
+        /// information in this field.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

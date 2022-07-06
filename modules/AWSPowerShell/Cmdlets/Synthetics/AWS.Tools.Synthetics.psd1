@@ -86,15 +86,23 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CWSYNResource', 
         'Add-CWSYNResourceTag', 
+        'Get-CWSYNAssociatedGroupList', 
         'Get-CWSYNCanariesLastRun', 
         'Get-CWSYNCanary', 
         'Get-CWSYNCanaryList', 
         'Get-CWSYNCanaryRun', 
+        'Get-CWSYNGroup', 
+        'Get-CWSYNGroupList', 
+        'Get-CWSYNGroupResourceList', 
         'Get-CWSYNResourceTag', 
         'Get-CWSYNRuntimeVersion', 
         'New-CWSYNCanary', 
+        'New-CWSYNGroup', 
         'Remove-CWSYNCanary', 
+        'Remove-CWSYNGroup', 
+        'Remove-CWSYNResource', 
         'Remove-CWSYNResourceTag', 
         'Start-CWSYNCanary', 
         'Stop-CWSYNCanary', 

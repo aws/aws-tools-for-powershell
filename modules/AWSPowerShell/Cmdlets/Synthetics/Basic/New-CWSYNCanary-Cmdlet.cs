@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// instead.
     /// </para><para>
     /// To create canaries, you must have the <code>CloudWatchSyntheticsFullAccess</code>
-    /// policy. If you are creating a new IAM role for the canary, you also need the the <code>iam:CreateRole</code>,
+    /// policy. If you are creating a new IAM role for the canary, you also need the <code>iam:CreateRole</code>,
     /// <code>iam:CreatePolicy</code> and <code>iam:AttachRolePolicy</code> permissions. For
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles">Necessary
     /// Roles and Permissions</a>.
@@ -129,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment
         /// variables as the keys for your environment variables. For more information about reserved
         /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
-        /// Runtime environment variables</a>.</para>
+        /// Runtime environment variables</a>.</para><important><para>The environment variables keys and values are not encrypted. Do not store sensitive
+        /// information in this field.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

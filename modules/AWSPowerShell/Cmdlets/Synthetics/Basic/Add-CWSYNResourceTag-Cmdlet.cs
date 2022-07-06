@@ -28,7 +28,7 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Assigns one or more tags (key-value pairs) to the specified canary. 
+    /// Assigns one or more tags (key-value pairs) to the specified canary or group. 
     /// 
     ///  
     /// <para>
@@ -39,13 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
     /// as strings of characters.
     /// </para><para>
-    /// You can use the <code>TagResource</code> action with a canary that already has tags.
-    /// If you specify a new tag key for the alarm, this tag is appended to the list of tags
-    /// associated with the alarm. If you specify a tag key that is already associated with
-    /// the alarm, the new tag value that you specify replaces the previous value for that
-    /// tag.
+    /// You can use the <code>TagResource</code> action with a resource that already has tags.
+    /// If you specify a new tag key for the resource, this tag is appended to the list of
+    /// tags associated with the resource. If you specify a tag key that is already associated
+    /// with the resource, the new tag value that you specify replaces the previous value
+    /// for that tag.
     /// </para><para>
-    /// You can associate as many as 50 tags with a canary.
+    /// You can associate as many as 50 tags with a canary or group.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "CWSYNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the canary that you're adding tags to.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para>
+        /// <para>The ARN of the canary or group that you're adding tags to.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para><para>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of key-value pairs to associate with the canary.</para>
+        /// <para>The list of key-value pairs to associate with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

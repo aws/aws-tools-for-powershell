@@ -152,13 +152,21 @@ $CWSYN_SelectCompleters = {
 }
 
 $CWSYN_SelectMap = @{
-    "Select"=@("New-CWSYNCanary",
+    "Select"=@("Add-CWSYNResource",
+               "New-CWSYNCanary",
+               "New-CWSYNGroup",
                "Remove-CWSYNCanary",
+               "Remove-CWSYNGroup",
                "Get-CWSYNCanaryList",
                "Get-CWSYNCanariesLastRun",
                "Get-CWSYNRuntimeVersion",
+               "Remove-CWSYNResource",
                "Get-CWSYNCanary",
                "Get-CWSYNCanaryRun",
+               "Get-CWSYNGroup",
+               "Get-CWSYNAssociatedGroupList",
+               "Get-CWSYNGroupResourceList",
+               "Get-CWSYNGroupList",
                "Get-CWSYNResourceTag",
                "Start-CWSYNCanary",
                "Stop-CWSYNCanary",

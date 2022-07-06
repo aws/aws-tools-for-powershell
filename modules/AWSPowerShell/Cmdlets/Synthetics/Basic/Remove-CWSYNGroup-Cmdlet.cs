@@ -28,31 +28,31 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Stops the canary to prevent all future runs. If the canary is currently running,the
-    /// run that is in progress completes on its own, publishes metrics, and uploads artifacts,
-    /// but it is not recorded in Synthetics as a completed run.
+    /// Deletes a group. The group doesn't need to be empty to be deleted. If there are canaries
+    /// in the group, they are not deleted when you delete the group. 
     /// 
     ///  
     /// <para>
-    /// You can use <code>StartCanary</code> to start it running again with the canary’s current
-    /// schedule at any point in the future. 
+    /// Groups are a global resource that appear in all Regions, but the request to delete
+    /// a group must be made from its home Region. You can find the home Region of a group
+    /// within its ARN.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "CWSYNCanary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "CWSYNGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics StopCanary API operation.", Operation = new[] {"StopCanary"}, SelectReturnType = typeof(Amazon.Synthetics.Model.StopCanaryResponse))]
-    [AWSCmdletOutput("None or Amazon.Synthetics.Model.StopCanaryResponse",
+    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.Synthetics.Model.DeleteGroupResponse))]
+    [AWSCmdletOutput("None or Amazon.Synthetics.Model.DeleteGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.StopCanaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
+    public partial class RemoveCWSYNGroupCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter GroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the canary that you want to stop. To find the names of your canaries,
-        /// use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">ListCanaries</a>.</para>
+        /// <para>Specifies which group to delete. You can specify the group name, the ARN, or the group
+        /// ID as the <code>GroupIdentifier</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,13 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String GroupIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.StopCanaryResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.DeleteGroupResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GroupIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GroupIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CWSYNCanary (StopCanary)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWSYNGroup (DeleteGroup)"))
             {
                 return;
             }
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.StopCanaryResponse, StopCWSYNCanaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.DeleteGroupResponse, RemoveCWSYNGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,14 +123,14 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.GroupIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.GroupIdentifier = this.GroupIdentifier;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.GroupIdentifier == null && ParameterWasBound(nameof(this.GroupIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GroupIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,11 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Synthetics.Model.StopCanaryRequest();
+            var request = new Amazon.Synthetics.Model.DeleteGroupRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.GroupIdentifier != null)
             {
-                request.Name = cmdletContext.Name;
+                request.GroupIdentifier = cmdletContext.GroupIdentifier;
             }
             
             CmdletOutput output;
@@ -186,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.Synthetics.Model.StopCanaryResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.StopCanaryRequest request)
+        private Amazon.Synthetics.Model.DeleteGroupResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.DeleteGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "StopCanary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "DeleteGroup");
             try
             {
                 #if DESKTOP
-                return client.StopCanary(request);
+                return client.DeleteGroup(request);
                 #elif CORECLR
-                return client.StopCanaryAsync(request).GetAwaiter().GetResult();
+                return client.DeleteGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Synthetics.Model.StopCanaryResponse, StopCWSYNCanaryCmdlet, object> Select { get; set; } =
+            public System.String GroupIdentifier { get; set; }
+            public System.Func<Amazon.Synthetics.Model.DeleteGroupResponse, RemoveCWSYNGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

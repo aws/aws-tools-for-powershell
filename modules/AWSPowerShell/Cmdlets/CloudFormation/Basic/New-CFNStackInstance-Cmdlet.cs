@@ -43,6 +43,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class NewCFNStackInstanceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter DeploymentTargets_AccountFilterType
+        /// <summary>
+        /// <para>
+        /// <para>Limit deployment targets to individual accounts or include additional accounts with
+        /// provided OUs.</para><para>The following is a list of possible values for the <code>AccountFilterType</code>
+        /// operation.</para><ul><li><para><code>INTERSECTION</code>: StackSets deploys to the accounts specified in <code>Accounts</code>
+        /// parameter. </para></li><li><para><code>DIFFERENCE</code>: StackSets excludes the accounts specified in <code>Accounts</code>
+        /// parameter. This enables user to avoid certain accounts within an OU such as suspended
+        /// accounts.</para></li><li><para><code>UNION</code>: (default value) StackSets includes additional accounts deployment
+        /// targets. </para><para>This is the default value if <code>AccountFilterType</code> is not provided. This
+        /// enables user to update an entire OU and individual accounts from a different OU in
+        /// one request, which used to be two separate requests.</para></li><li><para><code>NONE</code>: Deploys to all the accounts in specified organizational units
+        /// (OU).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.AccountFilterType")]
+        public Amazon.CloudFormation.AccountFilterType DeploymentTargets_AccountFilterType { get; set; }
+        #endregion
+        
         #region Parameter Account
         /// <summary>
         /// <para>
@@ -252,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Account = new List<System.String>(this.Account);
             }
             context.CallAs = this.CallAs;
+            context.DeploymentTargets_AccountFilterType = this.DeploymentTargets_AccountFilterType;
             if (this.DeploymentTargets_Account != null)
             {
                 context.DeploymentTargets_Account = new List<System.String>(this.DeploymentTargets_Account);
@@ -312,6 +333,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
              // populate DeploymentTargets
             var requestDeploymentTargetsIsNull = true;
             request.DeploymentTargets = new Amazon.CloudFormation.Model.DeploymentTargets();
+            Amazon.CloudFormation.AccountFilterType requestDeploymentTargets_deploymentTargets_AccountFilterType = null;
+            if (cmdletContext.DeploymentTargets_AccountFilterType != null)
+            {
+                requestDeploymentTargets_deploymentTargets_AccountFilterType = cmdletContext.DeploymentTargets_AccountFilterType;
+            }
+            if (requestDeploymentTargets_deploymentTargets_AccountFilterType != null)
+            {
+                request.DeploymentTargets.AccountFilterType = requestDeploymentTargets_deploymentTargets_AccountFilterType;
+                requestDeploymentTargetsIsNull = false;
+            }
             List<System.String> requestDeploymentTargets_deploymentTargets_Account = null;
             if (cmdletContext.DeploymentTargets_Account != null)
             {
@@ -430,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public List<System.String> Account { get; set; }
             public Amazon.CloudFormation.CallAs CallAs { get; set; }
+            public Amazon.CloudFormation.AccountFilterType DeploymentTargets_AccountFilterType { get; set; }
             public List<System.String> DeploymentTargets_Account { get; set; }
             public System.String DeploymentTargets_AccountsUrl { get; set; }
             public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }

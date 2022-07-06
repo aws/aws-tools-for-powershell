@@ -28,55 +28,25 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Use this operation to see information from the most recent run of each canary that
-    /// you have created.
-    /// 
-    ///  
-    /// <para>
-    /// This operation supports resource-level authorization using an IAM policy and the <code>Names</code>
-    /// parameter. If you specify the <code>Names</code> parameter, the operation is successful
-    /// only if you have authorization to view all the canaries that you specify in your request.
-    /// If you do not have permission to view any of the canaries, the request fails with
-    /// a 403 response.
-    /// </para><para>
-    /// You are required to use the <code>Names</code> parameter if you are logged on to a
-    /// user or role that has an IAM policy that restricts which canaries that you are allowed
-    /// to view. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
-    /// Limiting a user to viewing specific canaries</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all groups in the account, displaying their names, unique IDs, and
+    /// ARNs. The groups from all Regions are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWSYNCanariesLastRun")]
-    [OutputType("Amazon.Synthetics.Model.CanaryLastRun")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics DescribeCanariesLastRun API operation.", Operation = new[] {"DescribeCanariesLastRun"}, SelectReturnType = typeof(Amazon.Synthetics.Model.DescribeCanariesLastRunResponse))]
-    [AWSCmdletOutput("Amazon.Synthetics.Model.CanaryLastRun or Amazon.Synthetics.Model.DescribeCanariesLastRunResponse",
-        "This cmdlet returns a collection of Amazon.Synthetics.Model.CanaryLastRun objects.",
-        "The service call response (type Amazon.Synthetics.Model.DescribeCanariesLastRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWSYNGroupList")]
+    [OutputType("Amazon.Synthetics.Model.GroupSummary")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics ListGroups API operation.", Operation = new[] {"ListGroups"}, SelectReturnType = typeof(Amazon.Synthetics.Model.ListGroupsResponse))]
+    [AWSCmdletOutput("Amazon.Synthetics.Model.GroupSummary or Amazon.Synthetics.Model.ListGroupsResponse",
+        "This cmdlet returns a collection of Amazon.Synthetics.Model.GroupSummary objects.",
+        "The service call response (type Amazon.Synthetics.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWSYNCanariesLastRunCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
+    public partial class GetCWSYNGroupListCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Use this parameter to return only canaries that match the names that you specify here.
-        /// You can specify as many as five canary names.</para><para>If you specify this parameter, the operation is successful only if you have authorization
-        /// to view all the canaries that you specify in your request. If you do not have permission
-        /// to view any of the canaries, the request fails with a 403 response.</para><para>You are required to use the <code>Names</code> parameter if you are logged on to a
-        /// user or role that has an IAM policy that restricts which canaries that you are allowed
-        /// to view. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
-        /// Limiting a user to viewing specific canaries</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Names")]
-        public System.String[] Name { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specify this parameter to limit how many runs are returned each time you use the <code>DescribeLastRun</code>
-        /// operation. If you omit this parameter, the default of 100 is used.</para>
+        /// <para>Specify this parameter to limit how many groups are returned each time you use the
+        /// <code>ListGroups</code> operation. If you omit this parameter, the default of 20 is
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>A token that indicates that there is more data available. You can use this token in
-        /// a subsequent <code>DescribeCanariesLastRun</code> operation to retrieve the next set
-        /// of results.</para>
+        /// a subsequent operation to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -102,13 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CanariesLastRun'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.DescribeCanariesLastRunResponse).
-        /// Specifying the name of a property of type Amazon.Synthetics.Model.DescribeCanariesLastRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Groups'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.ListGroupsResponse).
+        /// Specifying the name of a property of type Amazon.Synthetics.Model.ListGroupsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CanariesLastRun";
+        public string Select { get; set; } = "Groups";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -132,14 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.DescribeCanariesLastRunResponse, GetCWSYNCanariesLastRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.ListGroupsResponse, GetCWSYNGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
-            if (this.Name != null)
-            {
-                context.Name = new List<System.String>(this.Name);
-            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -157,15 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Synthetics.Model.DescribeCanariesLastRunRequest();
+            var request = new Amazon.Synthetics.Model.ListGroupsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Names = cmdletContext.Name;
             }
             
             // Initialize loop variant and commence piping
@@ -224,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.Synthetics.Model.DescribeCanariesLastRunResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.DescribeCanariesLastRunRequest request)
+        private Amazon.Synthetics.Model.ListGroupsResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.ListGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "DescribeCanariesLastRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "ListGroups");
             try
             {
                 #if DESKTOP
-                return client.DescribeCanariesLastRun(request);
+                return client.ListGroups(request);
                 #elif CORECLR
-                return client.DescribeCanariesLastRunAsync(request).GetAwaiter().GetResult();
+                return client.ListGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,10 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
-            public List<System.String> Name { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Synthetics.Model.DescribeCanariesLastRunResponse, GetCWSYNCanariesLastRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CanariesLastRun;
+            public System.Func<Amazon.Synthetics.Model.ListGroupsResponse, GetCWSYNGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Groups;
         }
         
     }
