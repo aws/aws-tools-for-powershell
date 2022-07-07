@@ -183,6 +183,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.CertificateMode
+        "Register-IOTCACertificate/CertificateMode"
+        {
+            $v = "DEFAULT","SNI_ONLY"
+            break
+        }
+
         # Amazon.IoT.CertificateStatus
         {
             ($_ -eq "Update-IOTCertificate/NewStatus") -Or
@@ -444,6 +451,7 @@ $IOT_map = @{
     "ActionType"=@("Get-IOTMitigationActionList")
     "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
+    "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
     "DimensionValueOperator"=@("Get-IOTMetricValueList")

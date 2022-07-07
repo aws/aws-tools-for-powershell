@@ -93,6 +93,10 @@
                 <Param Name="LoRaWAN_OtaaV1_1_NwkKey" NewName="LoRaWAN_OtaaV1_1_NwkKey" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_AbpV1_0_x_FCntStart" NewName="LoRaWAN_AbpV1_0_x_FCntStart" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_AbpV1_1_FCntStart" NewName="LoRaWAN_AbpV1_1_FCntStart" AutoApplyAlias="false" />
+                <Param Name="Cellular_DtlsV1_2_PreSharedKeyIdentity" NewName="Cellular_DtlsV1_2_PreSharedKeyIdentity" AutoApplyAlias="false" />
+                <Param Name="WiFi_DtlsV1_2_PreSharedKeyIdentity" NewName="WiFi_DtlsV1_2_PreSharedKeyIdentity" AutoApplyAlias="false" />
+                <Param Name="Cellular_DtlsV1_2_PreSharedKeySecret" NewName="Cellular_DtlsV1_2_PreSharedKeySecret" AutoApplyAlias="false" />
+                <Param Name="WiFi_DtlsV1_2_PreSharedKeySecret" NewName="WiFi_DtlsV1_2_PreSharedKeySecret" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +220,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPosition" OutputProperty="*" Verb="Get" Noun="Position" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPositionConfiguration" OutputProperty="*" Verb="Get" Noun="PositionConfiguration" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceEventConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceEventConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -296,6 +308,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPositionConfigurations" OutputProperty="PositionConfigurationList" Verb="Get" Noun="PositionConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListQueuedMessages" OutputProperty="DownlinkQueueMessagesList" Verb="Get" Noun="QueuedMessageList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -317,6 +333,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWirelessGatewayTaskDefinitions" OutputProperty="TaskDefinitions" Verb="Get" Noun="WirelessGatewayTaskDefinitionList" PipelineParameter="TaskDefinitionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPositionConfiguration" Verb="Write" Noun="PositionConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -399,10 +419,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePosition" Verb="Update" Noun="Position" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceEventConfiguration" Verb="Update" Noun="ResourceEventConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="PROXIMITY_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_PROXIMITY_AmazonIdEventTopic" Alias="PROXIMITY_AmazonIdEventTopic" />
                 <Param Name="DeviceRegistrationState_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_DeviceRegistrationState_AmazonIdEventTopic" Alias="DeviceRegistrationState_AmazonIdEventTopic" />
+                <Param Name="MessageDeliveryStatus_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic" Alias="MessageDeliveryStatus_AmazonIdEventTopic" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

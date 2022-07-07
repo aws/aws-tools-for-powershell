@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <summary>
         /// <para>
         /// <para>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region,
-        /// Amazon Chime uses the meeting's Region.</para>
+        /// Amazon Chime uses the meeting's Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

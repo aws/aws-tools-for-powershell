@@ -277,6 +277,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionsToEventBridge" OutputProperty="Result" Verb="Update" Noun="SubscriptionsToEventBridge" ShouldProcessTarget="ForceMove" PipelineParameter="ForceMove" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

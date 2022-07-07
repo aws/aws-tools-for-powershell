@@ -483,7 +483,8 @@ $DMS_SelectMap = @{
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
                "Stop-DMSReplicationTask",
-               "Test-DMSConnection")
+               "Test-DMSConnection",
+               "Update-DMSSubscriptionsToEventBridge")
 }
 
 _awsArgumentCompleterRegistration $DMS_SelectCompleters $DMS_SelectMap

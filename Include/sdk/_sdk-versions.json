@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.309.0",
+    "ProductVersion" : "3.7.310.0",
     "CoreVersion"    : "3.7.12.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -466,7 +466,7 @@
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.14.2",
+            "Version" : "3.7.15.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"
@@ -522,7 +522,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.8.1",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.38.1",
+            "Version" : "3.7.39.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"
@@ -2018,7 +2018,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.10.27",
+            "Version" : "3.7.11.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"
@@ -2290,7 +2290,7 @@
             "InPreview"               : false
         },
         "ChimeSDKMeetings"                : {
-            "Version" : "3.7.8.7",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"

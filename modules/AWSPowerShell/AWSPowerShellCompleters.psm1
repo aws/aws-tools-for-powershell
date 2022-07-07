@@ -14975,7 +14975,8 @@ $DMS_SelectMap = @{
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
                "Stop-DMSReplicationTask",
-               "Test-DMSConnection")
+               "Test-DMSConnection",
+               "Update-DMSSubscriptionsToEventBridge")
 }
 
 _awsArgumentCompleterRegistration $DMS_SelectCompleters $DMS_SelectMap
@@ -25583,6 +25584,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.CertificateMode
+        "Register-IOTCACertificate/CertificateMode"
+        {
+            $v = "DEFAULT","SNI_ONLY"
+            break
+        }
+
         # Amazon.IoT.CertificateStatus
         {
             ($_ -eq "Update-IOTCertificate/NewStatus") -Or
@@ -25844,6 +25852,7 @@ $IOT_map = @{
     "ActionType"=@("Get-IOTMitigationActionList")
     "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
+    "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
     "DimensionValueOperator"=@("Get-IOTMetricValueList")
@@ -27307,6 +27316,33 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.PositionConfigurationFec
+        "Write-IOTWPositionConfiguration/Solvers_SemtechGnss_Fec"
+        {
+            $v = "NONE","ROSE"
+            break
+        }
+
+        # Amazon.IoTWireless.PositionConfigurationStatus
+        "Write-IOTWPositionConfiguration/Solvers_SemtechGnss_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+        # Amazon.IoTWireless.PositionResourceType
+        {
+            ($_ -eq "Get-IOTWPosition/ResourceType") -Or
+            ($_ -eq "Get-IOTWPositionConfiguration/ResourceType") -Or
+            ($_ -eq "Get-IOTWPositionConfigurationList/ResourceType") -Or
+            ($_ -eq "Update-IOTWPosition/ResourceType") -Or
+            ($_ -eq "Write-IOTWPositionConfiguration/ResourceType")
+        }
+        {
+            $v = "WirelessDevice","WirelessGateway"
+            break
+        }
+
         # Amazon.IoTWireless.SupportedRfRegion
         {
             ($_ -eq "New-IOTWFuotaTask/LoRaWAN_RfRegion") -Or
@@ -27397,8 +27433,10 @@ $IOTW_map = @{
     "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "ResourceType"=@("Get-IOTWEventConfigurationList")
+    "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Update-IOTWPosition","Write-IOTWPositionConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
+    "Solvers_SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
+    "Solvers_SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
@@ -27502,6 +27540,8 @@ $IOTW_SelectMap = @{
                "Get-IOTWMulticastGroupSession",
                "Get-IOTWNetworkAnalyzerConfiguration",
                "Get-IOTWPartnerAccount",
+               "Get-IOTWPosition",
+               "Get-IOTWPositionConfiguration",
                "Get-IOTWResourceEventConfiguration",
                "Get-IOTWResourceLogLevel",
                "Get-IOTWServiceEndpoint",
@@ -27522,12 +27562,14 @@ $IOTW_SelectMap = @{
                "Get-IOTWMulticastGroupsByFuotaTaskList",
                "Get-IOTWNetworkAnalyzerConfigurationList",
                "Get-IOTWPartnerAccountList",
+               "Get-IOTWPositionConfigurationList",
                "Get-IOTWQueuedMessageList",
                "Get-IOTWServiceProfileList",
                "Get-IOTWResourceTag",
                "Get-IOTWWirelessDeviceList",
                "Get-IOTWWirelessGatewayList",
                "Get-IOTWWirelessGatewayTaskDefinitionList",
+               "Write-IOTWPositionConfiguration",
                "Write-IOTWResourceLogLevel",
                "Reset-IOTWAllResourceLogLevel",
                "Reset-IOTWResourceLogLevel",
@@ -27547,6 +27589,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWMulticastGroup",
                "Update-IOTWNetworkAnalyzerConfiguration",
                "Update-IOTWPartnerAccount",
+               "Update-IOTWPosition",
                "Update-IOTWResourceEventConfiguration",
                "Update-IOTWWirelessDevice",
                "Update-IOTWWirelessGateway")

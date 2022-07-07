@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_DevEuiEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the dev eui join event topic is enabled or disabled.</para>
+        /// <para>Enum to denote whether the Dev EUI join event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_GatewayEuiEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the gateway eui connection status event topic is enabled or
+        /// <para>Enum to denote whether the gateway EUI connection status event topic is enabled or
         /// disabled.</para>
         /// </para>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter PartnerType
         /// <summary>
         /// <para>
-        /// <para>Partner type of the resource if the identifier type is PartnerAccountId</para>
+        /// <para>Partner type of the resource if the identifier type is <code>PartnerAccountId</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ConnectionStatus_WirelessGatewayIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless gateway id connection status event topic is enabled
-        /// or disabled .</para>
+        /// <para>Enum to denote whether the wireless gateway ID connection status event topic is enabled
+        /// or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

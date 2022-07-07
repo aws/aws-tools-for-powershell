@@ -1,4 +1,22 @@
-﻿### 4.1.120 (2022-07-06 20:11Z)
+﻿### 4.1.121 (2022-07-07 20:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.310.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet New-CHMTGMeeting: added parameter TenantId.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameter TenantId.
+  * Amazon Database Migration Service
+    * Added cmdlet Update-DMSSubscriptionsToEventBridge leveraging the UpdateSubscriptionsToEventBridge service API.
+  * Amazon IoT
+    * Modified cmdlet Register-IOTCACertificate: added parameter CertificateMode.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWPosition leveraging the GetPosition service API.
+    * Added cmdlet Get-IOTWPositionConfiguration leveraging the GetPositionConfiguration service API.
+    * Added cmdlet Get-IOTWPositionConfigurationList leveraging the ListPositionConfigurations service API.
+    * Added cmdlet Update-IOTWPosition leveraging the UpdatePosition service API.
+    * Added cmdlet Write-IOTWPositionConfiguration leveraging the PutPositionConfiguration service API.
+    * Modified cmdlet New-IOTWWirelessDevice: added parameters Positioning_ClockSync, Positioning_Gnss and Positioning_Stream.
+    * Modified cmdlet Update-IOTWWirelessDevice: added parameters Positioning_ClockSync, Positioning_Gnss and Positioning_Stream.
+
+### 4.1.120 (2022-07-06 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.309.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudFormation
     * Modified cmdlet New-CFNStackInstance: added parameter DeploymentTargets_AccountFilterType.

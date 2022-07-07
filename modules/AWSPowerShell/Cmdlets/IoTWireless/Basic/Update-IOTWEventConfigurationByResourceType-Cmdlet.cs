@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Update the event configuration by resource types.
+    /// Update the event configuration based on resource types.
     /// </summary>
     [Cmdlet("Update", "IOTWEventConfigurationByResourceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

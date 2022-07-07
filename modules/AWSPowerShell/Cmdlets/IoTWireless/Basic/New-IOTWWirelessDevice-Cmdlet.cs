@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Int32? FPorts_ClockSync { get; set; }
         #endregion
         
+        #region Parameter Positioning_ClockSync
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Positioning_ClockSync")]
+        public System.Int32? Positioning_ClockSync { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -232,6 +243,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String x_GenAppKey { get; set; }
         #endregion
         
+        #region Parameter Positioning_Gnss
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Positioning_Gnss")]
+        public System.Int32? Positioning_Gnss { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_OtaaV1_1_JoinEui
         /// <summary>
         /// <para>
@@ -311,6 +333,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey { get; set; }
+        #endregion
+        
+        #region Parameter Positioning_Stream
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Positioning_Stream")]
+        public System.Int32? Positioning_Stream { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -427,6 +460,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.FPorts_ClockSync = this.FPorts_ClockSync;
             context.FPorts_Fuota = this.FPorts_Fuota;
             context.FPorts_Multicast = this.FPorts_Multicast;
+            context.Positioning_ClockSync = this.Positioning_ClockSync;
+            context.Positioning_Gnss = this.Positioning_Gnss;
+            context.Positioning_Stream = this.Positioning_Stream;
             context.LoRaWAN_OtaaV1_0_x_AppEui = this.LoRaWAN_OtaaV1_0_x_AppEui;
             context.LoRaWAN_OtaaV1_0_x_AppKey = this.LoRaWAN_OtaaV1_0_x_AppKey;
             context.x_GenAppKey = this.x_GenAppKey;
@@ -668,51 +704,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.AbpV1_1 = requestLoRaWAN_loRaWAN_AbpV1_1;
                 requestLoRaWANIsNull = false;
             }
-            Amazon.IoTWireless.Model.FPorts requestLoRaWAN_loRaWAN_FPorts = null;
-            
-             // populate FPorts
-            var requestLoRaWAN_loRaWAN_FPortsIsNull = true;
-            requestLoRaWAN_loRaWAN_FPorts = new Amazon.IoTWireless.Model.FPorts();
-            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = null;
-            if (cmdletContext.FPorts_ClockSync != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = cmdletContext.FPorts_ClockSync.Value;
-            }
-            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts.ClockSync = requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync.Value;
-                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
-            }
-            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = null;
-            if (cmdletContext.FPorts_Fuota != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = cmdletContext.FPorts_Fuota.Value;
-            }
-            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts.Fuota = requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota.Value;
-                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
-            }
-            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = null;
-            if (cmdletContext.FPorts_Multicast != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = cmdletContext.FPorts_Multicast.Value;
-            }
-            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast != null)
-            {
-                requestLoRaWAN_loRaWAN_FPorts.Multicast = requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast.Value;
-                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
-            }
-             // determine if requestLoRaWAN_loRaWAN_FPorts should be set to null
-            if (requestLoRaWAN_loRaWAN_FPortsIsNull)
-            {
-                requestLoRaWAN_loRaWAN_FPorts = null;
-            }
-            if (requestLoRaWAN_loRaWAN_FPorts != null)
-            {
-                request.LoRaWAN.FPorts = requestLoRaWAN_loRaWAN_FPorts;
-                requestLoRaWANIsNull = false;
-            }
             Amazon.IoTWireless.Model.OtaaV1_0_x requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
             
              // populate OtaaV1_0_x
@@ -801,6 +792,96 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_OtaaV1_1 != null)
             {
                 request.LoRaWAN.OtaaV1_1 = requestLoRaWAN_loRaWAN_OtaaV1_1;
+                requestLoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.FPorts requestLoRaWAN_loRaWAN_FPorts = null;
+            
+             // populate FPorts
+            var requestLoRaWAN_loRaWAN_FPortsIsNull = true;
+            requestLoRaWAN_loRaWAN_FPorts = new Amazon.IoTWireless.Model.FPorts();
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = null;
+            if (cmdletContext.FPorts_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = cmdletContext.FPorts_ClockSync.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.ClockSync = requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = null;
+            if (cmdletContext.FPorts_Fuota != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota = cmdletContext.FPorts_Fuota.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Fuota = requestLoRaWAN_loRaWAN_FPorts_fPorts_Fuota.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = null;
+            if (cmdletContext.FPorts_Multicast != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast = cmdletContext.FPorts_Multicast.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Multicast = requestLoRaWAN_loRaWAN_FPorts_fPorts_Multicast.Value;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+            Amazon.IoTWireless.Model.Positioning requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning = null;
+            
+             // populate Positioning
+            var requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_PositioningIsNull = true;
+            requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning = new Amazon.IoTWireless.Model.Positioning();
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_ClockSync = null;
+            if (cmdletContext.Positioning_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_ClockSync = cmdletContext.Positioning_ClockSync.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_ClockSync != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning.ClockSync = requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_ClockSync.Value;
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_PositioningIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Gnss = null;
+            if (cmdletContext.Positioning_Gnss != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Gnss = cmdletContext.Positioning_Gnss.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Gnss != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning.Gnss = requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Gnss.Value;
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_PositioningIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Stream = null;
+            if (cmdletContext.Positioning_Stream != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Stream = cmdletContext.Positioning_Stream.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Stream != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning.Stream = requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning_positioning_Stream.Value;
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_PositioningIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning should be set to null
+            if (requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_PositioningIsNull)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning = null;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Positioning = requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_FPorts should be set to null
+            if (requestLoRaWAN_loRaWAN_FPortsIsNull)
+            {
+                requestLoRaWAN_loRaWAN_FPorts = null;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts != null)
+            {
+                request.LoRaWAN.FPorts = requestLoRaWAN_loRaWAN_FPorts;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -899,6 +980,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Int32? FPorts_ClockSync { get; set; }
             public System.Int32? FPorts_Fuota { get; set; }
             public System.Int32? FPorts_Multicast { get; set; }
+            public System.Int32? Positioning_ClockSync { get; set; }
+            public System.Int32? Positioning_Gnss { get; set; }
+            public System.Int32? Positioning_Stream { get; set; }
             public System.String LoRaWAN_OtaaV1_0_x_AppEui { get; set; }
             public System.String LoRaWAN_OtaaV1_0_x_AppKey { get; set; }
             public System.String x_GenAppKey { get; set; }

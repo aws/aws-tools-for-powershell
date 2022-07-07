@@ -149,7 +149,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-DMSReplicationTaskAssessmentRun', 
         'Stop-DMSReplicationTask', 
         'Stop-DMSReplicationTaskAssessmentRun', 
-        'Test-DMSConnection')
+        'Test-DMSConnection', 
+        'Update-DMSSubscriptionsToEventBridge')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Get the event configuration by resource types.
+    /// Get the event configuration based on resource types.
     /// </summary>
     [Cmdlet("Get", "IOTWEventConfigurationByResourceType")]
     [OutputType("Amazon.IoTWireless.Model.GetEventConfigurationByResourceTypesResponse")]

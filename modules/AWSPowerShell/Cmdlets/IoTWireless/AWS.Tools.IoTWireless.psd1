@@ -104,6 +104,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTWNetworkAnalyzerConfigurationList', 
         'Get-IOTWPartnerAccount', 
         'Get-IOTWPartnerAccountList', 
+        'Get-IOTWPosition', 
+        'Get-IOTWPositionConfiguration', 
+        'Get-IOTWPositionConfigurationList', 
         'Get-IOTWQueuedMessageList', 
         'Get-IOTWResourceEventConfiguration', 
         'Get-IOTWResourceLogLevel', 
@@ -175,9 +178,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTWMulticastGroup', 
         'Update-IOTWNetworkAnalyzerConfiguration', 
         'Update-IOTWPartnerAccount', 
+        'Update-IOTWPosition', 
         'Update-IOTWResourceEventConfiguration', 
         'Update-IOTWWirelessDevice', 
         'Update-IOTWWirelessGateway', 
+        'Write-IOTWPositionConfiguration', 
         'Write-IOTWResourceLogLevel')
 
     # Variables to export from this module

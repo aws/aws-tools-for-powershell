@@ -5990,6 +5990,7 @@ Set-Alias -Name DMS-StartReplicationTaskAssessmentRun -Value Start-DMSReplicatio
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
 Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask
 Set-Alias -Name DMS-TestConnection -Value Test-DMSConnection
+Set-Alias -Name DMS-UpdateSubscriptionsToEventBridge -Value Update-DMSSubscriptionsToEventBridge
 Set-Alias -Name DOC-AddSourceIdentifierToSubscription -Value Add-DOCSourceIdentifierToSubscription
 Set-Alias -Name Add-DOCTagsToResource -Value Add-DOCResourceTag
 Set-Alias -Name DOC-AddTagsToResource -Value Add-DOCResourceTag
@@ -12226,6 +12227,8 @@ Set-Alias -Name IOTW-GetMulticastGroup -Value Get-IOTWMulticastGroup
 Set-Alias -Name IOTW-GetMulticastGroupSession -Value Get-IOTWMulticastGroupSession
 Set-Alias -Name IOTW-GetNetworkAnalyzerConfiguration -Value Get-IOTWNetworkAnalyzerConfiguration
 Set-Alias -Name IOTW-GetPartnerAccount -Value Get-IOTWPartnerAccount
+Set-Alias -Name IOTW-GetPosition -Value Get-IOTWPosition
+Set-Alias -Name IOTW-GetPositionConfiguration -Value Get-IOTWPositionConfiguration
 Set-Alias -Name IOTW-GetResourceEventConfiguration -Value Get-IOTWResourceEventConfiguration
 Set-Alias -Name IOTW-GetResourceLogLevel -Value Get-IOTWResourceLogLevel
 Set-Alias -Name IOTW-GetServiceEndpoint -Value Get-IOTWServiceEndpoint
@@ -12264,6 +12267,9 @@ Set-Alias -Name IOTW-ListNetworkAnalyzerConfigurations -Value Get-IOTWNetworkAna
 Set-Alias -Name List-IOTWPartnerAccounts -Value Get-IOTWPartnerAccountList
 Set-Alias -Name List-IOTWPartnerAccountList -Value Get-IOTWPartnerAccountList
 Set-Alias -Name IOTW-ListPartnerAccounts -Value Get-IOTWPartnerAccountList
+Set-Alias -Name List-IOTWPositionConfigurations -Value Get-IOTWPositionConfigurationList
+Set-Alias -Name List-IOTWPositionConfigurationList -Value Get-IOTWPositionConfigurationList
+Set-Alias -Name IOTW-ListPositionConfigurations -Value Get-IOTWPositionConfigurationList
 Set-Alias -Name List-IOTWQueuedMessages -Value Get-IOTWQueuedMessageList
 Set-Alias -Name List-IOTWQueuedMessageList -Value Get-IOTWQueuedMessageList
 Set-Alias -Name IOTW-ListQueuedMessages -Value Get-IOTWQueuedMessageList
@@ -12280,6 +12286,8 @@ Set-Alias -Name IOTW-ListWirelessGateways -Value Get-IOTWWirelessGatewayList
 Set-Alias -Name List-IOTWWirelessGatewayTaskDefinitions -Value Get-IOTWWirelessGatewayTaskDefinitionList
 Set-Alias -Name List-IOTWWirelessGatewayTaskDefinitionList -Value Get-IOTWWirelessGatewayTaskDefinitionList
 Set-Alias -Name IOTW-ListWirelessGatewayTaskDefinitions -Value Get-IOTWWirelessGatewayTaskDefinitionList
+Set-Alias -Name Put-IOTWPositionConfiguration -Value Write-IOTWPositionConfiguration
+Set-Alias -Name IOTW-PutPositionConfiguration -Value Write-IOTWPositionConfiguration
 Set-Alias -Name Put-IOTWResourceLogLevel -Value Write-IOTWResourceLogLevel
 Set-Alias -Name IOTW-PutResourceLogLevel -Value Write-IOTWResourceLogLevel
 Set-Alias -Name Reset-IOTWAllResourceLogLevels -Value Reset-IOTWAllResourceLogLevel
@@ -12303,6 +12311,7 @@ Set-Alias -Name IOTW-UpdateLogLevelsByResourceTypes -Value Update-IOTWLogLevelsB
 Set-Alias -Name IOTW-UpdateMulticastGroup -Value Update-IOTWMulticastGroup
 Set-Alias -Name IOTW-UpdateNetworkAnalyzerConfiguration -Value Update-IOTWNetworkAnalyzerConfiguration
 Set-Alias -Name IOTW-UpdatePartnerAccount -Value Update-IOTWPartnerAccount
+Set-Alias -Name IOTW-UpdatePosition -Value Update-IOTWPosition
 Set-Alias -Name IOTW-UpdateResourceEventConfiguration -Value Update-IOTWResourceEventConfiguration
 Set-Alias -Name IOTW-UpdateWirelessDevice -Value Update-IOTWWirelessDevice
 Set-Alias -Name IOTW-UpdateWirelessGateway -Value Update-IOTWWirelessGateway

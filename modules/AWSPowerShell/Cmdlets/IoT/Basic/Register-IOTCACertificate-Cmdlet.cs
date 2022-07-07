@@ -28,12 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Registers a CA certificate with IoT. This CA certificate can then be used to sign
-    /// device certificates, which can be then registered with IoT. You can register up to
-    /// 10 CA certificates per Amazon Web Services account that have the same subject field.
-    /// This enables you to have up to 10 certificate authorities sign your device certificates.
-    /// If you have more than one CA certificate registered, make sure you pass the CA certificate
-    /// when you register your device certificates with the <a>RegisterCertificate</a> action.
+    /// Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to
+    /// the number of CA certificates you can register in your Amazon Web Services account.
+    /// You can register up to 10 CA certificates with the same <code>CA subject field</code>
+    /// per Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -75,6 +73,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CaCertificate { get; set; }
+        #endregion
+        
+        #region Parameter CertificateMode
+        /// <summary>
+        /// <para>
+        /// <para>Describes the certificate mode in which the Certificate Authority (CA) will be registered.
+        /// If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code>
+        /// to be <code>SNI_ONLY</code>. If the <code>verificationCertificate</code> field is
+        /// provided, set <code>certificateMode</code> to be <code>DEFAULT</code>. When <code>certificateMode</code>
+        /// is not provided, it defaults to <code>DEFAULT</code>. All the device certificates
+        /// that are registered using this CA will be registered in the same certificate mode
+        /// as the CA. For more information about certificate mode for device certificates, see
+        /// <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">
+        /// certificate mode</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.CertificateMode")]
+        public Amazon.IoT.CertificateMode CertificateMode { get; set; }
         #endregion
         
         #region Parameter RegistrationConfig_RoleArn
@@ -121,17 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter VerificationCertificate
         /// <summary>
         /// <para>
-        /// <para>The private key verification certificate.</para>
+        /// <para>The private key verification certificate. If <code>certificateMode</code> is <code>SNI_ONLY</code>,
+        /// the <code>verificationCertificate</code> field must be empty. If <code>certificateMode</code>
+        /// is <code>DEFAULT</code> or not provided, the <code>verificationCertificate</code>
+        /// field must not be empty. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VerificationCertificate { get; set; }
         #endregion
         
@@ -168,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter CaCertificate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CertificateMode = this.CertificateMode;
             context.RegistrationConfig_RoleArn = this.RegistrationConfig_RoleArn;
             context.RegistrationConfig_TemplateBody = this.RegistrationConfig_TemplateBody;
             context.SetAsActive = this.SetAsActive;
@@ -176,12 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
             }
             context.VerificationCertificate = this.VerificationCertificate;
-            #if MODULAR
-            if (this.VerificationCertificate == null && ParameterWasBound(nameof(this.VerificationCertificate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VerificationCertificate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.CaCertificate != null)
             {
                 request.CaCertificate = cmdletContext.CaCertificate;
+            }
+            if (cmdletContext.CertificateMode != null)
+            {
+                request.CertificateMode = cmdletContext.CertificateMode;
             }
             
              // populate RegistrationConfig
@@ -310,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.Boolean? AllowAutoRegistration { get; set; }
             public System.String CaCertificate { get; set; }
+            public Amazon.IoT.CertificateMode CertificateMode { get; set; }
             public System.String RegistrationConfig_RoleArn { get; set; }
             public System.String RegistrationConfig_TemplateBody { get; set; }
             public System.Boolean? SetAsActive { get; set; }

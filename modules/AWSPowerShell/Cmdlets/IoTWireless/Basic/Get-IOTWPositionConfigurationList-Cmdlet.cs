@@ -22,71 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.IoTWireless;
+using Amazon.IoTWireless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// The query search index.
-    /// 
-    ///  
-    /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a>
-    /// action.
-    /// </para>
+    /// List position configurations for a given resource, such as positioning solvers.
     /// </summary>
-    [Cmdlet("Search", "IOTIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.SearchIndexResponse")]
-    [AWSCmdlet("Calls the AWS IoT SearchIndex API operation.", Operation = new[] {"SearchIndex"}, SelectReturnType = typeof(Amazon.IoT.Model.SearchIndexResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.SearchIndexResponse",
-        "This cmdlet returns an Amazon.IoT.Model.SearchIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTWPositionConfigurationList")]
+    [OutputType("Amazon.IoTWireless.Model.PositionConfigurationItem")]
+    [AWSCmdlet("Calls the AWS IoT Wireless ListPositionConfigurations API operation.", Operation = new[] {"ListPositionConfigurations"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListPositionConfigurationsResponse))]
+    [AWSCmdletOutput("Amazon.IoTWireless.Model.PositionConfigurationItem or Amazon.IoTWireless.Model.ListPositionConfigurationsResponse",
+        "This cmdlet returns a collection of Amazon.IoTWireless.Model.PositionConfigurationItem objects.",
+        "The service call response (type Amazon.IoTWireless.Model.ListPositionConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SearchIOTIndexCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTWPositionConfigurationListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
-        #region Parameter IndexName
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The search index name.</para>
+        /// <para>Resource type for which position configurations are listed.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IndexName { get; set; }
-        #endregion
-        
-        #region Parameter QueryString
-        /// <summary>
-        /// <para>
-        /// <para>The search query string. For more information about the search query syntax, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query
-        /// syntax</a>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryString { get; set; }
-        #endregion
-        
-        #region Parameter QueryVersion
-        /// <summary>
-        /// <para>
-        /// <para>The query version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String QueryVersion { get; set; }
+        [AWSConstantClassSource("Amazon.IoTWireless.PositionResourceType")]
+        public Amazon.IoTWireless.PositionResourceType ResourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token used to get the next set of results, or <code>null</code> if there are no
-        /// additional results.</para>
+        /// <para>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+        /// response; otherwise <b>null</b> to receive the first set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,44 +75,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.SearchIndexResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.SearchIndexResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PositionConfigurationList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTWireless.Model.ListPositionConfigurationsResponse).
+        /// Specifying the name of a property of type Amazon.IoTWireless.Model.ListPositionConfigurationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PositionConfigurationList";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryString parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryString' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceType' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryString' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceType' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IndexName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-IOTIndex (SearchIndex)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -154,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.SearchIndexResponse, SearchIOTIndexCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTWireless.Model.ListPositionConfigurationsResponse, GetIOTWPositionConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -163,20 +115,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryString;
+                context.Select = (response, cmdlet) => this.ResourceType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IndexName = this.IndexName;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.QueryString = this.QueryString;
-            #if MODULAR
-            if (this.QueryString == null && ParameterWasBound(nameof(this.QueryString)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.QueryVersion = this.QueryVersion;
+            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,12 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.SearchIndexRequest();
+            var request = new Amazon.IoTWireless.Model.ListPositionConfigurationsRequest();
             
-            if (cmdletContext.IndexName != null)
-            {
-                request.IndexName = cmdletContext.IndexName;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -205,13 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.QueryString != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.QueryString = cmdletContext.QueryString;
-            }
-            if (cmdletContext.QueryVersion != null)
-            {
-                request.QueryVersion = cmdletContext.QueryVersion;
+                request.ResourceType = cmdletContext.ResourceType;
             }
             
             CmdletOutput output;
@@ -246,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.SearchIndexResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.SearchIndexRequest request)
+        private Amazon.IoTWireless.Model.ListPositionConfigurationsResponse CallAWSServiceOperation(IAmazonIoTWireless client, Amazon.IoTWireless.Model.ListPositionConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "SearchIndex");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Wireless", "ListPositionConfigurations");
             try
             {
                 #if DESKTOP
-                return client.SearchIndex(request);
+                return client.ListPositionConfigurations(request);
                 #elif CORECLR
-                return client.SearchIndexAsync(request).GetAwaiter().GetResult();
+                return client.ListPositionConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -274,13 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IndexName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String QueryString { get; set; }
-            public System.String QueryVersion { get; set; }
-            public System.Func<Amazon.IoT.Model.SearchIndexResponse, SearchIOTIndexCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.IoTWireless.PositionResourceType ResourceType { get; set; }
+            public System.Func<Amazon.IoTWireless.Model.ListPositionConfigurationsResponse, GetIOTWPositionConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PositionConfigurationList;
         }
         
     }
