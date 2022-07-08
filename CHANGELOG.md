@@ -1,4 +1,7 @@
-﻿### 4.1.121 (2022-07-07 20:19Z)
+﻿### 4.1.122 (2022-07-08 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.311.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.121 (2022-07-07 20:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.310.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Meetings
     * Modified cmdlet New-CHMTGMeeting: added parameter TenantId.

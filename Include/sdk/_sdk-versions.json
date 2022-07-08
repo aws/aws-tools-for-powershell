@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.310.0",
+    "ProductVersion" : "3.7.311.0",
     "CoreVersion"    : "3.7.12.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1362,7 +1362,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.7.23",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.5"

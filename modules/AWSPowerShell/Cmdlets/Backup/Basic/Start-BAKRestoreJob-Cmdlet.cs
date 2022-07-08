@@ -47,14 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IamRoleArn { get; set; }
         #endregion
         
@@ -192,12 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IamRoleArn = this.IamRoleArn;
-            #if MODULAR
-            if (this.IamRoleArn == null && ParameterWasBound(nameof(this.IamRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IamRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.IdempotencyToken = this.IdempotencyToken;
             if (this.Metadata != null)
             {
