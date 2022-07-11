@@ -928,7 +928,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                 // IEnumerable<T> yields exception on hashValue
                                                 writer.WriteLine($"object hashValue = this.{property.CmdletParameterName}[hashKey];");
                                                 // have to dig deeper to get the real type, and not "List`1"
-                                                string valueSetItemType = ((property.GenericCollectionTypes[1]).GetGenericArguments())[0].Name;
+                                                string valueSetItemType = ((property.GenericCollectionTypes[1]).GetGenericArguments())[0].FullName;
 
                                                 writer.WriteLine("if (hashValue == null)");
                                                 writer.OpenRegion();
