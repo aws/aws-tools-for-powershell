@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Requests a transit gateway peering attachment between the specified transit gateway
-    /// (requester) and a peer transit gateway (accepter). The peer transit gateway can be
-    /// in your account or a different Amazon Web Services account.
+    /// (requester) and a peer transit gateway (accepter). The transit gateways must be in
+    /// different Regions. The peer transit gateway can be in your account or a different
+    /// Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -47,6 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class NewEC2TransitGatewayPeeringAttachmentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Options_DynamicRouting
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.DynamicRoutingValue")]
+        public Amazon.EC2.DynamicRoutingValue Options_DynamicRouting { get; set; }
+        #endregion
         
         #region Parameter PeerAccountId
         /// <summary>
@@ -188,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.TransitGatewayId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Options_DynamicRouting = this.Options_DynamicRouting;
             context.PeerAccountId = this.PeerAccountId;
             #if MODULAR
             if (this.PeerAccountId == null && ParameterWasBound(nameof(this.PeerAccountId)))
@@ -236,6 +249,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateTransitGatewayPeeringAttachmentRequest();
             
+            
+             // populate Options
+            var requestOptionsIsNull = true;
+            request.Options = new Amazon.EC2.Model.CreateTransitGatewayPeeringAttachmentRequestOptions();
+            Amazon.EC2.DynamicRoutingValue requestOptions_options_DynamicRouting = null;
+            if (cmdletContext.Options_DynamicRouting != null)
+            {
+                requestOptions_options_DynamicRouting = cmdletContext.Options_DynamicRouting;
+            }
+            if (requestOptions_options_DynamicRouting != null)
+            {
+                request.Options.DynamicRouting = requestOptions_options_DynamicRouting;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
+            }
             if (cmdletContext.PeerAccountId != null)
             {
                 request.PeerAccountId = cmdletContext.PeerAccountId;
@@ -317,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.DynamicRoutingValue Options_DynamicRouting { get; set; }
             public System.String PeerAccountId { get; set; }
             public System.String PeerRegion { get; set; }
             public System.String PeerTransitGatewayId { get; set; }

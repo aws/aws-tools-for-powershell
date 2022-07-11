@@ -94,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String OwnerAccount { get; set; }
         #endregion
         
+        #region Parameter SnapshotArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe
+        /// node configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotArn { get; set; }
+        #endregion
+        
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
@@ -230,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #endif
             context.OwnerAccount = this.OwnerAccount;
+            context.SnapshotArn = this.SnapshotArn;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             
             // allow further manipulation of loaded context prior to processing
@@ -271,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.OwnerAccount != null)
             {
                 request.OwnerAccount = cmdletContext.OwnerAccount;
+            }
+            if (cmdletContext.SnapshotArn != null)
+            {
+                request.SnapshotArn = cmdletContext.SnapshotArn;
             }
             if (cmdletContext.SnapshotIdentifier != null)
             {
@@ -346,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.OwnerAccount != null)
             {
                 request.OwnerAccount = cmdletContext.OwnerAccount;
+            }
+            if (cmdletContext.SnapshotArn != null)
+            {
+                request.SnapshotArn = cmdletContext.SnapshotArn;
             }
             if (cmdletContext.SnapshotIdentifier != null)
             {
@@ -480,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String Marker { get; set; }
             public int? MaxRecord { get; set; }
             public System.String OwnerAccount { get; set; }
+            public System.String SnapshotArn { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.Func<Amazon.Redshift.Model.DescribeNodeConfigurationOptionsResponse, GetRSNodeConfigurationOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NodeConfigurationOptionList;

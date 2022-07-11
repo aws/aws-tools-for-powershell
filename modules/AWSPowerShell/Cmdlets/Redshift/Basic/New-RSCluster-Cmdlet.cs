@@ -227,7 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
-        /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
+        /// <para>The Elastic IP (EIP) address for the cluster. You don't have to specify the EIP for
+        /// a publicly accessible cluster with AvailabilityZoneRelocation turned on.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
         /// an Internet gateway. For more information about provisioning clusters in EC2-VPC,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
         /// Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</para>

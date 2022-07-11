@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String AccountWithRestoreAccess { get; set; }
         #endregion
         
+        #region Parameter SnapshotArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot associated with the message to revoke
+        /// access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotArn { get; set; }
+        #endregion
+        
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
@@ -84,14 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The identifier of the snapshot that the account can no longer access.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SnapshotIdentifier { get; set; }
         #endregion
         
@@ -163,14 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter AccountWithRestoreAccess which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SnapshotArn = this.SnapshotArn;
             context.SnapshotClusterIdentifier = this.SnapshotClusterIdentifier;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
-            #if MODULAR
-            if (this.SnapshotIdentifier == null && ParameterWasBound(nameof(this.SnapshotIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SnapshotIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AccountWithRestoreAccess != null)
             {
                 request.AccountWithRestoreAccess = cmdletContext.AccountWithRestoreAccess;
+            }
+            if (cmdletContext.SnapshotArn != null)
+            {
+                request.SnapshotArn = cmdletContext.SnapshotArn;
             }
             if (cmdletContext.SnapshotClusterIdentifier != null)
             {
@@ -261,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountWithRestoreAccess { get; set; }
+            public System.String SnapshotArn { get; set; }
             public System.String SnapshotClusterIdentifier { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.Func<Amazon.Redshift.Model.RevokeSnapshotAccessResponse, RevokeRSSnapshotAccessCmdlet, object> Select { get; set; } =

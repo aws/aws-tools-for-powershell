@@ -16232,6 +16232,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DynamicRoutingValue
+        "New-EC2TransitGatewayPeeringAttachment/Options_DynamicRouting"
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.EndDateType
         {
             ($_ -eq "Add-EC2CapacityReservation/EndDateType") -Or
@@ -16985,6 +16992,7 @@ $EC2_map = @{
     "Options_DefaultRouteTableAssociation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DnsSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
+    "Options_DynamicRouting"=@("New-EC2TransitGatewayPeeringAttachment")
     "Options_Igmpv2Support"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
@@ -17104,6 +17112,7 @@ $EC2_SelectMap = @{
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
                "Register-EC2TransitGatewayMulticastDomain",
+               "Register-EC2TransitGatewayPolicyTable",
                "Register-EC2TransitGatewayRouteTable",
                "Register-EC2TrunkInterface",
                "Register-EC2VpcCidrBlock",
@@ -17185,9 +17194,11 @@ $EC2_SelectMap = @{
                "New-EC2TransitGatewayConnectPeer",
                "New-EC2TransitGatewayMulticastDomain",
                "New-EC2TransitGatewayPeeringAttachment",
+               "New-EC2TransitGatewayPolicyTable",
                "New-EC2TransitGatewayPrefixListReference",
                "New-EC2TransitGatewayRoute",
                "New-EC2TransitGatewayRouteTable",
+               "New-EC2TransitGatewayRouteTableAnnouncement",
                "New-EC2TransitGatewayVpcAttachment",
                "New-EC2Volume",
                "New-EC2Vpc",
@@ -17247,9 +17258,11 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGatewayConnectPeer",
                "Remove-EC2TransitGatewayMulticastDomain",
                "Remove-EC2TransitGatewayPeeringAttachment",
+               "Remove-EC2TransitGatewayPolicyTable",
                "Remove-EC2TransitGatewayPrefixListReference",
                "Remove-EC2TransitGatewayRoute",
                "Remove-EC2TransitGatewayRouteTable",
+               "Remove-EC2TransitGatewayRouteTableAnnouncement",
                "Remove-EC2TransitGatewayVpcAttachment",
                "Remove-EC2Volume",
                "Remove-EC2Vpc",
@@ -17378,6 +17391,8 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGatewayConnect",
                "Get-EC2TransitGatewayMulticastDomain",
                "Get-EC2TransitGatewayPeeringAttachment",
+               "Get-EC2TransitGatewayPolicyTable",
+               "Get-EC2TransitGatewayRouteTableAnnouncement",
                "Get-EC2TransitGatewayRouteTable",
                "Get-EC2TransitGateway",
                "Get-EC2TransitGatewayVpcAttachment",
@@ -17422,6 +17437,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
                "Unregister-EC2TransitGatewayMulticastDomain",
+               "Unregister-EC2TransitGatewayPolicyTable",
                "Unregister-EC2TransitGatewayRouteTable",
                "Unregister-EC2TrunkInterface",
                "Unregister-EC2VpcCidrBlock",
@@ -17469,6 +17485,8 @@ $EC2_SelectMap = @{
                "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
+               "Get-EC2TransitGatewayPolicyTableAssociation",
+               "Get-EC2TransitGatewayPolicyTableEntry",
                "Get-EC2TransitGatewayPrefixListReference",
                "Get-EC2TransitGatewayRouteTableAssociation",
                "Get-EC2TransitGatewayRouteTablePropagation",

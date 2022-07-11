@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] Options_AddTransitGatewayCidrBlock { get; set; }
         #endregion
         
+        #region Parameter Options_AmazonSideAsn
+        /// <summary>
+        /// <para>
+        /// <para>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The
+        /// range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Options_AmazonSideAsn { get; set; }
+        #endregion
+        
         #region Parameter Options_AssociationDefaultRouteTableId
         /// <summary>
         /// <para>
@@ -235,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Options_AddTransitGatewayCidrBlock = new List<System.String>(this.Options_AddTransitGatewayCidrBlock);
             }
+            context.Options_AmazonSideAsn = this.Options_AmazonSideAsn;
             context.Options_AssociationDefaultRouteTableId = this.Options_AssociationDefaultRouteTableId;
             context.Options_AutoAcceptSharedAttachment = this.Options_AutoAcceptSharedAttachment;
             context.Options_DefaultRouteTableAssociation = this.Options_DefaultRouteTableAssociation;
@@ -285,6 +297,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_AddTransitGatewayCidrBlock != null)
             {
                 request.Options.AddTransitGatewayCidrBlocks = requestOptions_options_AddTransitGatewayCidrBlock;
+                requestOptionsIsNull = false;
+            }
+            System.Int64? requestOptions_options_AmazonSideAsn = null;
+            if (cmdletContext.Options_AmazonSideAsn != null)
+            {
+                requestOptions_options_AmazonSideAsn = cmdletContext.Options_AmazonSideAsn.Value;
+            }
+            if (requestOptions_options_AmazonSideAsn != null)
+            {
+                request.Options.AmazonSideAsn = requestOptions_options_AmazonSideAsn.Value;
                 requestOptionsIsNull = false;
             }
             System.String requestOptions_options_AssociationDefaultRouteTableId = null;
@@ -439,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Description { get; set; }
             public List<System.String> Options_AddTransitGatewayCidrBlock { get; set; }
+            public System.Int64? Options_AmazonSideAsn { get; set; }
             public System.String Options_AssociationDefaultRouteTableId { get; set; }
             public Amazon.EC2.AutoAcceptSharedAttachmentsValue Options_AutoAcceptSharedAttachment { get; set; }
             public Amazon.EC2.DefaultRouteTableAssociationValue Options_DefaultRouteTableAssociation { get; set; }

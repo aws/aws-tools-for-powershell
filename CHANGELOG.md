@@ -1,4 +1,28 @@
-﻿### 4.1.122 (2022-07-08 20:11Z)
+﻿### 4.1.123 (2022-07-11 20:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.312.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2TransitGatewayPolicyTable leveraging the DescribeTransitGatewayPolicyTables service API.
+    * Added cmdlet Get-EC2TransitGatewayPolicyTableAssociation leveraging the GetTransitGatewayPolicyTableAssociations service API.
+    * Added cmdlet Get-EC2TransitGatewayPolicyTableEntry leveraging the GetTransitGatewayPolicyTableEntries service API.
+    * Added cmdlet Get-EC2TransitGatewayRouteTableAnnouncement leveraging the DescribeTransitGatewayRouteTableAnnouncements service API.
+    * Added cmdlet New-EC2TransitGatewayPolicyTable leveraging the CreateTransitGatewayPolicyTable service API.
+    * Added cmdlet New-EC2TransitGatewayRouteTableAnnouncement leveraging the CreateTransitGatewayRouteTableAnnouncement service API.
+    * Added cmdlet Register-EC2TransitGatewayPolicyTable leveraging the AssociateTransitGatewayPolicyTable service API.
+    * Added cmdlet Remove-EC2TransitGatewayPolicyTable leveraging the DeleteTransitGatewayPolicyTable service API.
+    * Added cmdlet Remove-EC2TransitGatewayRouteTableAnnouncement leveraging the DeleteTransitGatewayRouteTableAnnouncement service API.
+    * Added cmdlet Unregister-EC2TransitGatewayPolicyTable leveraging the DisassociateTransitGatewayPolicyTable service API.
+    * Modified cmdlet Disable-EC2TransitGatewayRouteTablePropagation: added parameter TransitGatewayRouteTableAnnouncementId.
+    * Modified cmdlet Edit-EC2TransitGateway: added parameter Options_AmazonSideAsn.
+    * Modified cmdlet Enable-EC2TransitGatewayRouteTablePropagation: added parameter TransitGatewayRouteTableAnnouncementId.
+    * Modified cmdlet New-EC2TransitGatewayPeeringAttachment: added parameter Options_DynamicRouting.
+  * Amazon Redshift
+    * Modified cmdlet Approve-RSSnapshotAccess: added parameter SnapshotArn.
+    * Modified cmdlet Get-RSClusterSnapshot: added parameter SnapshotArn.
+    * Modified cmdlet Get-RSNodeConfigurationOption: added parameter SnapshotArn.
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameter SnapshotArn.
+    * Modified cmdlet Revoke-RSSnapshotAccess: added parameter SnapshotArn.
+
+### 4.1.122 (2022-07-08 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.311.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.121 (2022-07-07 20:19Z)

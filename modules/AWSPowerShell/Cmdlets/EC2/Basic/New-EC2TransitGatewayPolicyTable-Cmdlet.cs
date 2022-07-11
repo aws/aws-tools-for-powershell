@@ -28,43 +28,33 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Disables the specified resource attachment from propagating routes to the specified
-    /// propagation route table.
+    /// Creates a transit gateway policy table.
     /// </summary>
-    [Cmdlet("Disable", "EC2TransitGatewayRouteTablePropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.TransitGatewayPropagation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableTransitGatewayRouteTablePropagation API operation.", Operation = new[] {"DisableTransitGatewayRouteTablePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPropagation or Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse",
-        "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPropagation object.",
-        "The service call response (type Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EC2TransitGatewayPolicyTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.TransitGatewayPolicyTable")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayPolicyTable API operation.", Operation = new[] {"CreateTransitGatewayPolicyTable"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPolicyTable or Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse",
+        "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPolicyTable object.",
+        "The service call response (type Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableEC2TransitGatewayRouteTablePropagationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2TransitGatewayPolicyTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter TransitGatewayAttachmentId
+        #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The ID of the attachment.</para>
+        /// <para>The tags specification for the transit gateway policy table created during the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TransitGatewayAttachmentId { get; set; }
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
-        #region Parameter TransitGatewayRouteTableAnnouncementId
+        #region Parameter TransitGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the route table announcement.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TransitGatewayRouteTableAnnouncementId { get; set; }
-        #endregion
-        
-        #region Parameter TransitGatewayRouteTableId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the propagation route table.</para>
+        /// <para>The ID of the transit gateway used for the policy table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,26 +65,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TransitGatewayRouteTableId { get; set; }
+        public System.String TransitGatewayId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Propagation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TransitGatewayPolicyTable'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Propagation";
+        public string Select { get; set; } = "TransitGatewayPolicyTable";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TransitGatewayRouteTableId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TransitGatewayRouteTableId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TransitGatewayId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TransitGatewayId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TransitGatewayRouteTableId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TransitGatewayId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TransitGatewayRouteTableId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2TransitGatewayRouteTablePropagation (DisableTransitGatewayRouteTablePropagation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TransitGatewayId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2TransitGatewayPolicyTable (CreateTransitGatewayPolicyTable)"))
             {
                 return;
             }
@@ -127,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse, DisableEC2TransitGatewayRouteTablePropagationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse, NewEC2TransitGatewayPolicyTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,16 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TransitGatewayRouteTableId;
+                context.Select = (response, cmdlet) => this.TransitGatewayId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
-            context.TransitGatewayRouteTableAnnouncementId = this.TransitGatewayRouteTableAnnouncementId;
-            context.TransitGatewayRouteTableId = this.TransitGatewayRouteTableId;
-            #if MODULAR
-            if (this.TransitGatewayRouteTableId == null && ParameterWasBound(nameof(this.TransitGatewayRouteTableId)))
+            if (this.TagSpecification != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TransitGatewayRouteTableId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
+            context.TransitGatewayId = this.TransitGatewayId;
+            #if MODULAR
+            if (this.TransitGatewayId == null && ParameterWasBound(nameof(this.TransitGatewayId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -162,19 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationRequest();
+            var request = new Amazon.EC2.Model.CreateTransitGatewayPolicyTableRequest();
             
-            if (cmdletContext.TransitGatewayAttachmentId != null)
+            if (cmdletContext.TagSpecification != null)
             {
-                request.TransitGatewayAttachmentId = cmdletContext.TransitGatewayAttachmentId;
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
-            if (cmdletContext.TransitGatewayRouteTableAnnouncementId != null)
+            if (cmdletContext.TransitGatewayId != null)
             {
-                request.TransitGatewayRouteTableAnnouncementId = cmdletContext.TransitGatewayRouteTableAnnouncementId;
-            }
-            if (cmdletContext.TransitGatewayRouteTableId != null)
-            {
-                request.TransitGatewayRouteTableId = cmdletContext.TransitGatewayRouteTableId;
+                request.TransitGatewayId = cmdletContext.TransitGatewayId;
             }
             
             CmdletOutput output;
@@ -209,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationRequest request)
+        private Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTransitGatewayPolicyTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableTransitGatewayRouteTablePropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTransitGatewayPolicyTable");
             try
             {
                 #if DESKTOP
-                return client.DisableTransitGatewayRouteTablePropagation(request);
+                return client.CreateTransitGatewayPolicyTable(request);
                 #elif CORECLR
-                return client.DisableTransitGatewayRouteTablePropagationAsync(request).GetAwaiter().GetResult();
+                return client.CreateTransitGatewayPolicyTableAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,11 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TransitGatewayAttachmentId { get; set; }
-            public System.String TransitGatewayRouteTableAnnouncementId { get; set; }
-            public System.String TransitGatewayRouteTableId { get; set; }
-            public System.Func<Amazon.EC2.Model.DisableTransitGatewayRouteTablePropagationResponse, DisableEC2TransitGatewayRouteTablePropagationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Propagation;
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.String TransitGatewayId { get; set; }
+            public System.Func<Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse, NewEC2TransitGatewayPolicyTableCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TransitGatewayPolicyTable;
         }
         
     }

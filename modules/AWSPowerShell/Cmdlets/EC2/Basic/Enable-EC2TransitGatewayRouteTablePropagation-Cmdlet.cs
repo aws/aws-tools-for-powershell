@@ -47,15 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the attachment.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TransitGatewayAttachmentId { get; set; }
+        #endregion
+        
+        #region Parameter TransitGatewayRouteTableAnnouncementId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the transit gateway route table announcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransitGatewayRouteTableAnnouncementId { get; set; }
         #endregion
         
         #region Parameter TransitGatewayRouteTableId
@@ -137,12 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
-            #if MODULAR
-            if (this.TransitGatewayAttachmentId == null && ParameterWasBound(nameof(this.TransitGatewayAttachmentId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TransitGatewayAttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TransitGatewayRouteTableAnnouncementId = this.TransitGatewayRouteTableAnnouncementId;
             context.TransitGatewayRouteTableId = this.TransitGatewayRouteTableId;
             #if MODULAR
             if (this.TransitGatewayRouteTableId == null && ParameterWasBound(nameof(this.TransitGatewayRouteTableId)))
@@ -169,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TransitGatewayAttachmentId != null)
             {
                 request.TransitGatewayAttachmentId = cmdletContext.TransitGatewayAttachmentId;
+            }
+            if (cmdletContext.TransitGatewayRouteTableAnnouncementId != null)
+            {
+                request.TransitGatewayRouteTableAnnouncementId = cmdletContext.TransitGatewayRouteTableAnnouncementId;
             }
             if (cmdletContext.TransitGatewayRouteTableId != null)
             {
@@ -236,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String TransitGatewayAttachmentId { get; set; }
+            public System.String TransitGatewayRouteTableAnnouncementId { get; set; }
             public System.String TransitGatewayRouteTableId { get; set; }
             public System.Func<Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse, EnableEC2TransitGatewayRouteTablePropagationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Propagation;

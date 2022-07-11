@@ -188,7 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
-        /// <para>The elastic IP (EIP) address for the cluster.</para>
+        /// <para>The elastic IP (EIP) address for the cluster. You don't have to specify the EIP for
+        /// a publicly accessible cluster with AvailabilityZoneRelocation turned on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -382,6 +383,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ReservedNodeId { get; set; }
         #endregion
         
+        #region Parameter SnapshotArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore
+        /// from a cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotArn { get; set; }
+        #endregion
+        
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
@@ -401,14 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// case sensitive.</para><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SnapshotIdentifier { get; set; }
         #endregion
         
@@ -543,14 +548,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReservedNodeId = this.ReservedNodeId;
+            context.SnapshotArn = this.SnapshotArn;
             context.SnapshotClusterIdentifier = this.SnapshotClusterIdentifier;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
-            #if MODULAR
-            if (this.SnapshotIdentifier == null && ParameterWasBound(nameof(this.SnapshotIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SnapshotIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SnapshotScheduleIdentifier = this.SnapshotScheduleIdentifier;
             context.TargetReservedNodeOfferingId = this.TargetReservedNodeOfferingId;
             if (this.VpcSecurityGroupId != null)
@@ -681,6 +681,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.ReservedNodeId = cmdletContext.ReservedNodeId;
             }
+            if (cmdletContext.SnapshotArn != null)
+            {
+                request.SnapshotArn = cmdletContext.SnapshotArn;
+            }
             if (cmdletContext.SnapshotClusterIdentifier != null)
             {
                 request.SnapshotClusterIdentifier = cmdletContext.SnapshotClusterIdentifier;
@@ -789,6 +793,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String ReservedNodeId { get; set; }
+            public System.String SnapshotArn { get; set; }
             public System.String SnapshotClusterIdentifier { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.String SnapshotScheduleIdentifier { get; set; }

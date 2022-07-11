@@ -157,6 +157,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateTransitGatewayRouteTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -503,6 +507,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayPolicyTable" OutputProperty="TransitGatewayPolicyTable" Verb="New" Noun="TransitGatewayPolicyTable" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="New" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -512,6 +520,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayRouteTable" OutputProperty="TransitGatewayRouteTable" Verb="New" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="New" Noun="TransitGatewayRouteTableAnnouncement" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -761,6 +773,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayPolicyTable" OutputProperty="TransitGatewayPolicyTable" Verb="Remove" Noun="TransitGatewayPolicyTable" ShouldProcessTarget="TransitGatewayPolicyTableId" PipelineParameter="TransitGatewayPolicyTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="Remove" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -770,6 +786,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayRouteTable" OutputProperty="TransitGatewayRouteTable" Verb="Remove" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="Remove" Noun="TransitGatewayRouteTableAnnouncement" ShouldProcessTarget="TransitGatewayRouteTableAnnouncementId" PipelineParameter="TransitGatewayRouteTableAnnouncementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1324,6 +1344,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayPolicyTables" OutputProperty="TransitGatewayPolicyTables" Verb="Get" Noun="TransitGatewayPolicyTable" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTableAnnouncements" OutputProperty="TransitGatewayRouteTableAnnouncements" Verb="Get" Noun="TransitGatewayRouteTableAnnouncement" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1509,6 +1537,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateTransitGatewayMulticastDomain" OutputProperty="Associations" Verb="Unregister" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1701,6 +1733,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTransitGatewayMulticastDomainAssociations" OutputProperty="MulticastDomainAssociations" Verb="Get" Noun="TransitGatewayMulticastDomainAssociation" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayPolicyTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayPolicyTableAssociation" PipelineParameter="TransitGatewayPolicyTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayPolicyTableEntries" OutputProperty="TransitGatewayPolicyTableEntries" Verb="Get" Noun="TransitGatewayPolicyTableEntry" PipelineParameter="TransitGatewayPolicyTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
