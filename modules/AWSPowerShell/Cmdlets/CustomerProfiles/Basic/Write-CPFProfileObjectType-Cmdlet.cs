@@ -283,10 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<ObjectTypeKey>();
+                    var valueSet = new List<Amazon.CustomerProfiles.Model.ObjectTypeKey>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((ObjectTypeKey)s);
+                        valueSet.Add((Amazon.CustomerProfiles.Model.ObjectTypeKey)s);
                     }
                     context.Key.Add((String)hashKey, valueSet);
                 }

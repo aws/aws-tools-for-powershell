@@ -15426,6 +15426,10 @@ Set-Alias -Name Create-NMGRSite -Value New-NMGRSite
 Set-Alias -Name NMGR-CreateSite -Value New-NMGRSite
 Set-Alias -Name Create-NMGRSiteToSiteVpnAttachment -Value New-NMGRSiteToSiteVpnAttachment
 Set-Alias -Name NMGR-CreateSiteToSiteVpnAttachment -Value New-NMGRSiteToSiteVpnAttachment
+Set-Alias -Name Create-NMGRTransitGatewayPeering -Value New-NMGRTransitGatewayPeering
+Set-Alias -Name NMGR-CreateTransitGatewayPeering -Value New-NMGRTransitGatewayPeering
+Set-Alias -Name Create-NMGRTransitGatewayRouteTableAttachment -Value New-NMGRTransitGatewayRouteTableAttachment
+Set-Alias -Name NMGR-CreateTransitGatewayRouteTableAttachment -Value New-NMGRTransitGatewayRouteTableAttachment
 Set-Alias -Name Create-NMGRVpcAttachment -Value New-NMGRVpcAttachment
 Set-Alias -Name NMGR-CreateVpcAttachment -Value New-NMGRVpcAttachment
 Set-Alias -Name Delete-NMGRAttachment -Value Remove-NMGRAttachment
@@ -15444,6 +15448,8 @@ Set-Alias -Name Delete-NMGRGlobalNetwork -Value Remove-NMGRGlobalNetwork
 Set-Alias -Name NMGR-DeleteGlobalNetwork -Value Remove-NMGRGlobalNetwork
 Set-Alias -Name Delete-NMGRLink -Value Remove-NMGRLink
 Set-Alias -Name NMGR-DeleteLink -Value Remove-NMGRLink
+Set-Alias -Name Delete-NMGRPeering -Value Remove-NMGRPeering
+Set-Alias -Name NMGR-DeletePeering -Value Remove-NMGRPeering
 Set-Alias -Name Delete-NMGRResourcePolicy -Value Remove-NMGRResourcePolicy
 Set-Alias -Name NMGR-DeleteResourcePolicy -Value Remove-NMGRResourcePolicy
 Set-Alias -Name Delete-NMGRSite -Value Remove-NMGRSite
@@ -15471,6 +15477,8 @@ Set-Alias -Name Get-NMGRConnectPeerAssociations -Value Get-NMGRConnectPeerAssoci
 Set-Alias -Name NMGR-GetConnectPeerAssociations -Value Get-NMGRConnectPeerAssociation
 Set-Alias -Name NMGR-GetConnectPeer -Value Get-NMGRConnectPeer
 Set-Alias -Name NMGR-GetCoreNetwork -Value Get-NMGRCoreNetwork
+Set-Alias -Name Get-NMGRCoreNetworkChangeEvents -Value Get-NMGRCoreNetworkChangeEvent
+Set-Alias -Name NMGR-GetCoreNetworkChangeEvents -Value Get-NMGRCoreNetworkChangeEvent
 Set-Alias -Name NMGR-GetCoreNetworkChangeSet -Value Get-NMGRCoreNetworkChangeSet
 Set-Alias -Name NMGR-GetCoreNetworkPolicy -Value Get-NMGRCoreNetworkPolicy
 Set-Alias -Name Get-NMGRCustomerGatewayAssociations -Value Get-NMGRCustomerGatewayAssociation
@@ -15497,8 +15505,10 @@ Set-Alias -Name NMGR-GetSites -Value Get-NMGRSite
 Set-Alias -Name NMGR-GetSiteToSiteVpnAttachment -Value Get-NMGRSiteToSiteVpnAttachment
 Set-Alias -Name Get-NMGRTransitGatewayConnectPeerAssociations -Value Get-NMGRTransitGatewayConnectPeerAssociation
 Set-Alias -Name NMGR-GetTransitGatewayConnectPeerAssociations -Value Get-NMGRTransitGatewayConnectPeerAssociation
+Set-Alias -Name NMGR-GetTransitGatewayPeering -Value Get-NMGRTransitGatewayPeering
 Set-Alias -Name Get-NMGRTransitGatewayRegistrations -Value Get-NMGRTransitGatewayRegistration
 Set-Alias -Name NMGR-GetTransitGatewayRegistrations -Value Get-NMGRTransitGatewayRegistration
+Set-Alias -Name NMGR-GetTransitGatewayRouteTableAttachment -Value Get-NMGRTransitGatewayRouteTableAttachment
 Set-Alias -Name NMGR-GetVpcAttachment -Value Get-NMGRVpcAttachment
 Set-Alias -Name List-NMGRAttachments -Value Get-NMGRAttachmentList
 Set-Alias -Name List-NMGRAttachmentList -Value Get-NMGRAttachmentList
@@ -15515,6 +15525,9 @@ Set-Alias -Name NMGR-ListCoreNetworks -Value Get-NMGRCoreNetworkList
 Set-Alias -Name List-NMGROrganizationServiceAccessStatus -Value Get-NMGROrganizationServiceAccessStatusList
 Set-Alias -Name List-NMGROrganizationServiceAccessStatusList -Value Get-NMGROrganizationServiceAccessStatusList
 Set-Alias -Name NMGR-ListOrganizationServiceAccessStatus -Value Get-NMGROrganizationServiceAccessStatusList
+Set-Alias -Name List-NMGRPeerings -Value Get-NMGRPeeringList
+Set-Alias -Name List-NMGRPeeringList -Value Get-NMGRPeeringList
+Set-Alias -Name NMGR-ListPeerings -Value Get-NMGRPeeringList
 Set-Alias -Name NMGR-ListTagsForResource -Value Get-NMGRResourceTag
 Set-Alias -Name Put-NMGRCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy
 Set-Alias -Name NMGR-PutCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy

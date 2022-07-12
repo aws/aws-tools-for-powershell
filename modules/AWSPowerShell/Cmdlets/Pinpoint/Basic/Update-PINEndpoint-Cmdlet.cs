@@ -456,10 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.EndpointRequest_Attribute.Add((String)hashKey, valueSet);
                 }
@@ -503,10 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.User_UserAttribute.Add((String)hashKey, valueSet);
                 }

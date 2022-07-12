@@ -306,10 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<DiskMap>();
+                    var valueSet = new List<Amazon.Lightsail.Model.DiskMap>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((DiskMap)s);
+                        valueSet.Add((Amazon.Lightsail.Model.DiskMap)s);
                     }
                     context.AttachedDiskMapping.Add((String)hashKey, valueSet);
                 }

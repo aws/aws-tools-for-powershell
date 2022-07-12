@@ -229,10 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<App>();
+                    var valueSet = new List<Amazon.FMS.Model.App>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((App)s);
+                        valueSet.Add((Amazon.FMS.Model.App)s);
                     }
                     context.AppsList_PreviousAppsList.Add((String)hashKey, valueSet);
                 }

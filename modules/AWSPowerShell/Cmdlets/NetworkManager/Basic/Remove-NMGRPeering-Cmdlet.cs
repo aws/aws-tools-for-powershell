@@ -28,34 +28,22 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Returns details about a core network policy. You can get details about your current
-    /// live policy or any previous policy version.
+    /// Deletes an existing peering connection.
     /// </summary>
-    [Cmdlet("Get", "NMGRCoreNetworkPolicy")]
-    [OutputType("Amazon.NetworkManager.Model.CoreNetworkPolicy")]
-    [AWSCmdlet("Calls the AWS Network Manager GetCoreNetworkPolicy API operation.", Operation = new[] {"GetCoreNetworkPolicy"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse))]
-    [AWSCmdletOutput("Amazon.NetworkManager.Model.CoreNetworkPolicy or Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse",
-        "This cmdlet returns an Amazon.NetworkManager.Model.CoreNetworkPolicy object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "NMGRPeering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.NetworkManager.Model.Peering")]
+    [AWSCmdlet("Calls the AWS Network Manager DeletePeering API operation.", Operation = new[] {"DeletePeering"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeletePeeringResponse))]
+    [AWSCmdletOutput("Amazon.NetworkManager.Model.Peering or Amazon.NetworkManager.Model.DeletePeeringResponse",
+        "This cmdlet returns an Amazon.NetworkManager.Model.Peering object.",
+        "The service call response (type Amazon.NetworkManager.Model.DeletePeeringResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetNMGRCoreNetworkPolicyCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    public partial class RemoveNMGRPeeringCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
-        #region Parameter Alias
+        #region Parameter PeeringId
         /// <summary>
         /// <para>
-        /// <para>The alias of a core network policy </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.NetworkManager.CoreNetworkPolicyAlias")]
-        public Amazon.NetworkManager.CoreNetworkPolicyAlias Alias { get; set; }
-        #endregion
-        
-        #region Parameter CoreNetworkId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of a core network.</para>
+        /// <para>The ID of the peering connection to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,43 +54,49 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CoreNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter PolicyVersionId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of a core network policy version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? PolicyVersionId { get; set; }
+        public System.String PeeringId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CoreNetworkPolicy'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse).
-        /// Specifying the name of a property of type Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Peering'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.DeletePeeringResponse).
+        /// Specifying the name of a property of type Amazon.NetworkManager.Model.DeletePeeringResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CoreNetworkPolicy";
+        public string Select { get; set; } = "Peering";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CoreNetworkId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CoreNetworkId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PeeringId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PeeringId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CoreNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PeeringId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PeeringId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NMGRPeering (DeletePeering)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -112,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse, GetNMGRCoreNetworkPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.DeletePeeringResponse, RemoveNMGRPeeringCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CoreNetworkId;
+                context.Select = (response, cmdlet) => this.PeeringId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Alias = this.Alias;
-            context.CoreNetworkId = this.CoreNetworkId;
+            context.PeeringId = this.PeeringId;
             #if MODULAR
-            if (this.CoreNetworkId == null && ParameterWasBound(nameof(this.CoreNetworkId)))
+            if (this.PeeringId == null && ParameterWasBound(nameof(this.PeeringId)))
             {
-                WriteWarning("You are passing $null as a value for parameter CoreNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PeeringId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyVersionId = this.PolicyVersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkManager.Model.GetCoreNetworkPolicyRequest();
+            var request = new Amazon.NetworkManager.Model.DeletePeeringRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.PeeringId != null)
             {
-                request.Alias = cmdletContext.Alias;
-            }
-            if (cmdletContext.CoreNetworkId != null)
-            {
-                request.CoreNetworkId = cmdletContext.CoreNetworkId;
-            }
-            if (cmdletContext.PolicyVersionId != null)
-            {
-                request.PolicyVersionId = cmdletContext.PolicyVersionId.Value;
+                request.PeeringId = cmdletContext.PeeringId;
             }
             
             CmdletOutput output;
@@ -194,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.GetCoreNetworkPolicyRequest request)
+        private Amazon.NetworkManager.Model.DeletePeeringResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.DeletePeeringRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "GetCoreNetworkPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "DeletePeering");
             try
             {
                 #if DESKTOP
-                return client.GetCoreNetworkPolicy(request);
+                return client.DeletePeering(request);
                 #elif CORECLR
-                return client.GetCoreNetworkPolicyAsync(request).GetAwaiter().GetResult();
+                return client.DeletePeeringAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.NetworkManager.CoreNetworkPolicyAlias Alias { get; set; }
-            public System.String CoreNetworkId { get; set; }
-            public System.Int32? PolicyVersionId { get; set; }
-            public System.Func<Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse, GetNMGRCoreNetworkPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CoreNetworkPolicy;
+            public System.String PeeringId { get; set; }
+            public System.Func<Amazon.NetworkManager.Model.DeletePeeringResponse, RemoveNMGRPeeringCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Peering;
         }
         
     }

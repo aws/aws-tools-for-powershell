@@ -28,7 +28,8 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    
+    /// Enables for the Network Manager service for an Amazon Web Services Organization. This
+    /// can only be called by a management account within the organization.
     /// </summary>
     [Cmdlet("Start", "NMGROrganizationServiceAccessUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkManager.Model.OrganizationStatus")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The action to take for the update request. This can be either <code>ENABLE</code>
+        /// or <code>DISABLE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

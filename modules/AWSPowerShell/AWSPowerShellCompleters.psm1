@@ -35829,7 +35829,7 @@ $NMGR_Completers = {
         # Amazon.NetworkManager.AttachmentType
         "Get-NMGRAttachmentList/AttachmentType"
         {
-            $v = "CONNECT","SITE_TO_SITE_VPN","VPC"
+            $v = "CONNECT","SITE_TO_SITE_VPN","TRANSIT_GATEWAY_ROUTE_TABLE","VPC"
             break
         }
 
@@ -35837,6 +35837,20 @@ $NMGR_Completers = {
         "Get-NMGRCoreNetworkPolicy/Alias"
         {
             $v = "LATEST","LIVE"
+            break
+        }
+
+        # Amazon.NetworkManager.PeeringState
+        "Get-NMGRPeeringList/State"
+        {
+            $v = "AVAILABLE","CREATING","DELETING","FAILED"
+            break
+        }
+
+        # Amazon.NetworkManager.PeeringType
+        "Get-NMGRPeeringList/PeeringType"
+        {
+            $v = "TRANSIT_GATEWAY"
             break
         }
 
@@ -35859,7 +35873,8 @@ $NMGR_map = @{
     "Alias"=@("Get-NMGRCoreNetworkPolicy")
     "AttachmentType"=@("Get-NMGRAttachmentList")
     "Options_Protocol"=@("New-NMGRConnectAttachment")
-    "State"=@("Get-NMGRAttachmentList")
+    "PeeringType"=@("Get-NMGRPeeringList")
+    "State"=@("Get-NMGRAttachmentList","Get-NMGRPeeringList")
 }
 
 _awsArgumentCompleterRegistration $NMGR_Completers $NMGR_map
@@ -35926,6 +35941,8 @@ $NMGR_SelectMap = @{
                "New-NMGRLink",
                "New-NMGRSite",
                "New-NMGRSiteToSiteVpnAttachment",
+               "New-NMGRTransitGatewayPeering",
+               "New-NMGRTransitGatewayRouteTableAttachment",
                "New-NMGRVpcAttachment",
                "Remove-NMGRAttachment",
                "Remove-NMGRConnection",
@@ -35935,6 +35952,7 @@ $NMGR_SelectMap = @{
                "Remove-NMGRDevice",
                "Remove-NMGRGlobalNetwork",
                "Remove-NMGRLink",
+               "Remove-NMGRPeering",
                "Remove-NMGRResourcePolicy",
                "Remove-NMGRSite",
                "Unregister-NMGRTransitGateway",
@@ -35949,6 +35967,7 @@ $NMGR_SelectMap = @{
                "Get-NMGRConnectPeer",
                "Get-NMGRConnectPeerAssociation",
                "Get-NMGRCoreNetwork",
+               "Get-NMGRCoreNetworkChangeEvent",
                "Get-NMGRCoreNetworkChangeSet",
                "Get-NMGRCoreNetworkPolicy",
                "Get-NMGRCustomerGatewayAssociation",
@@ -35965,13 +35984,16 @@ $NMGR_SelectMap = @{
                "Get-NMGRSite",
                "Get-NMGRSiteToSiteVpnAttachment",
                "Get-NMGRTransitGatewayConnectPeerAssociation",
+               "Get-NMGRTransitGatewayPeering",
                "Get-NMGRTransitGatewayRegistration",
+               "Get-NMGRTransitGatewayRouteTableAttachment",
                "Get-NMGRVpcAttachment",
                "Get-NMGRAttachmentList",
                "Get-NMGRConnectPeerList",
                "Get-NMGRCoreNetworkPolicyVersionList",
                "Get-NMGRCoreNetworkList",
                "Get-NMGROrganizationServiceAccessStatusList",
+               "Get-NMGRPeeringList",
                "Get-NMGRResourceTag",
                "Write-NMGRCoreNetworkPolicy",
                "Write-NMGRResourcePolicy",

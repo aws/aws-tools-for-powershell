@@ -1,4 +1,15 @@
-﻿### 4.1.123 (2022-07-11 20:30Z)
+﻿### 4.1.124 (2022-07-12 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.313.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGRCoreNetworkChangeEvent leveraging the GetCoreNetworkChangeEvents service API.
+    * Added cmdlet Get-NMGRPeeringList leveraging the ListPeerings service API.
+    * Added cmdlet Get-NMGRTransitGatewayPeering leveraging the GetTransitGatewayPeering service API.
+    * Added cmdlet Get-NMGRTransitGatewayRouteTableAttachment leveraging the GetTransitGatewayRouteTableAttachment service API.
+    * Added cmdlet New-NMGRTransitGatewayPeering leveraging the CreateTransitGatewayPeering service API.
+    * Added cmdlet New-NMGRTransitGatewayRouteTableAttachment leveraging the CreateTransitGatewayRouteTableAttachment service API.
+    * Added cmdlet Remove-NMGRPeering leveraging the DeletePeering service API.
+
+### 4.1.123 (2022-07-11 20:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.312.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2TransitGatewayPolicyTable leveraging the DescribeTransitGatewayPolicyTables service API.

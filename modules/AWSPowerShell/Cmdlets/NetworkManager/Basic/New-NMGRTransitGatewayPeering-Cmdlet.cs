@@ -28,34 +28,50 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Returns details about a core network policy. You can get details about your current
-    /// live policy or any previous policy version.
+    /// Creates a transit gateway peering connection.
     /// </summary>
-    [Cmdlet("Get", "NMGRCoreNetworkPolicy")]
-    [OutputType("Amazon.NetworkManager.Model.CoreNetworkPolicy")]
-    [AWSCmdlet("Calls the AWS Network Manager GetCoreNetworkPolicy API operation.", Operation = new[] {"GetCoreNetworkPolicy"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse))]
-    [AWSCmdletOutput("Amazon.NetworkManager.Model.CoreNetworkPolicy or Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse",
-        "This cmdlet returns an Amazon.NetworkManager.Model.CoreNetworkPolicy object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "NMGRTransitGatewayPeering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.NetworkManager.Model.TransitGatewayPeering")]
+    [AWSCmdlet("Calls the AWS Network Manager CreateTransitGatewayPeering API operation.", Operation = new[] {"CreateTransitGatewayPeering"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse))]
+    [AWSCmdletOutput("Amazon.NetworkManager.Model.TransitGatewayPeering or Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse",
+        "This cmdlet returns an Amazon.NetworkManager.Model.TransitGatewayPeering object.",
+        "The service call response (type Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetNMGRCoreNetworkPolicyCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    public partial class NewNMGRTransitGatewayPeeringCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
-        
-        #region Parameter Alias
-        /// <summary>
-        /// <para>
-        /// <para>The alias of a core network policy </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.NetworkManager.CoreNetworkPolicyAlias")]
-        public Amazon.NetworkManager.CoreNetworkPolicyAlias Alias { get; set; }
-        #endregion
         
         #region Parameter CoreNetworkId
         /// <summary>
         /// <para>
         /// <para>The ID of a core network.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CoreNetworkId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of key-value tags associated with the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.NetworkManager.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TransitGatewayArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the transit gateway for the peering request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,43 +82,59 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CoreNetworkId { get; set; }
+        public System.String TransitGatewayArn { get; set; }
         #endregion
         
-        #region Parameter PolicyVersionId
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The ID of a core network policy version.</para>
+        /// <para>The client token associated with the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? PolicyVersionId { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CoreNetworkPolicy'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse).
-        /// Specifying the name of a property of type Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TransitGatewayPeering'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse).
+        /// Specifying the name of a property of type Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CoreNetworkPolicy";
+        public string Select { get; set; } = "TransitGatewayPeering";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CoreNetworkId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CoreNetworkId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TransitGatewayArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TransitGatewayArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CoreNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TransitGatewayArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-NMGRTransitGatewayPeering (CreateTransitGatewayPeering)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -112,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse, GetNMGRCoreNetworkPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse, NewNMGRTransitGatewayPeeringCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,10 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CoreNetworkId;
+                context.Select = (response, cmdlet) => this.TransitGatewayArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Alias = this.Alias;
+            context.ClientToken = this.ClientToken;
             context.CoreNetworkId = this.CoreNetworkId;
             #if MODULAR
             if (this.CoreNetworkId == null && ParameterWasBound(nameof(this.CoreNetworkId)))
@@ -132,7 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter CoreNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyVersionId = this.PolicyVersionId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.NetworkManager.Model.Tag>(this.Tag);
+            }
+            context.TransitGatewayArn = this.TransitGatewayArn;
+            #if MODULAR
+            if (this.TransitGatewayArn == null && ParameterWasBound(nameof(this.TransitGatewayArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +189,23 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkManager.Model.GetCoreNetworkPolicyRequest();
+            var request = new Amazon.NetworkManager.Model.CreateTransitGatewayPeeringRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Alias = cmdletContext.Alias;
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.CoreNetworkId != null)
             {
                 request.CoreNetworkId = cmdletContext.CoreNetworkId;
             }
-            if (cmdletContext.PolicyVersionId != null)
+            if (cmdletContext.Tag != null)
             {
-                request.PolicyVersionId = cmdletContext.PolicyVersionId.Value;
+                request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TransitGatewayArn != null)
+            {
+                request.TransitGatewayArn = cmdletContext.TransitGatewayArn;
             }
             
             CmdletOutput output;
@@ -194,15 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.GetCoreNetworkPolicyRequest request)
+        private Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.CreateTransitGatewayPeeringRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "GetCoreNetworkPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "CreateTransitGatewayPeering");
             try
             {
                 #if DESKTOP
-                return client.GetCoreNetworkPolicy(request);
+                return client.CreateTransitGatewayPeering(request);
                 #elif CORECLR
-                return client.GetCoreNetworkPolicyAsync(request).GetAwaiter().GetResult();
+                return client.CreateTransitGatewayPeeringAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +268,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.NetworkManager.CoreNetworkPolicyAlias Alias { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String CoreNetworkId { get; set; }
-            public System.Int32? PolicyVersionId { get; set; }
-            public System.Func<Amazon.NetworkManager.Model.GetCoreNetworkPolicyResponse, GetNMGRCoreNetworkPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CoreNetworkPolicy;
+            public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
+            public System.String TransitGatewayArn { get; set; }
+            public System.Func<Amazon.NetworkManager.Model.CreateTransitGatewayPeeringResponse, NewNMGRTransitGatewayPeeringCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TransitGatewayPeering;
         }
         
     }

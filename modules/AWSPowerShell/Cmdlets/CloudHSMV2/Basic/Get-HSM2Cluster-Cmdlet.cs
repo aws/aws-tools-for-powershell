@@ -142,10 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.Filter.Add((String)hashKey, valueSet);
                 }

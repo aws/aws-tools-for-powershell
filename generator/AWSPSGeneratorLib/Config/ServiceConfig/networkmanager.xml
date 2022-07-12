@@ -75,6 +75,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayPeering" OutputProperty="TransitGatewayPeering" Verb="New" Noun="TransitGatewayPeering" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="TransitGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAttachment" OutputProperty="TransitGatewayRouteTableAttachment" Verb="New" Noun="TransitGatewayRouteTableAttachment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="TransitGatewayRouteTableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcAttachment" OutputProperty="VpcAttachment" Verb="New" Noun="VpcAttachment" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLink" OutputProperty="Link" Verb="Remove" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePeering" OutputProperty="Peering" Verb="Remove" Noun="Peering" ShouldProcessTarget="PeeringId" PipelineParameter="PeeringId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,6 +176,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCoreNetwork" OutputProperty="CoreNetwork" Verb="Get" Noun="CoreNetwork" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreNetworkChangeEvents" OutputProperty="CoreNetworkChangeEvents" Verb="Get" Noun="CoreNetworkChangeEvent" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,7 +247,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayPeering" OutputProperty="TransitGatewayPeering" Verb="Get" Noun="TransitGatewayPeering" PipelineParameter="PeeringId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTransitGatewayRegistrations" OutputProperty="TransitGatewayRegistrations" Verb="Get" Noun="TransitGatewayRegistration" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayRouteTableAttachment" OutputProperty="TransitGatewayRouteTableAttachment" Verb="Get" Noun="TransitGatewayRouteTableAttachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOrganizationServiceAccessStatus" OutputProperty="OrganizationStatus" Verb="Get" Noun="OrganizationServiceAccessStatusList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPeerings" OutputProperty="Peerings" Verb="Get" Noun="PeeringList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

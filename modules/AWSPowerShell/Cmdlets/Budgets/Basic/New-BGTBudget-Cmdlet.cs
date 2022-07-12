@@ -566,10 +566,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.Budget_CostFilter.Add((String)hashKey, valueSet);
                 }

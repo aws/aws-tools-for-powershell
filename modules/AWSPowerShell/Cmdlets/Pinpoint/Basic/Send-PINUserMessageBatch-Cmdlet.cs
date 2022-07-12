@@ -1592,10 +1592,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.ADMMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1634,10 +1634,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.APNSMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1675,10 +1675,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.BaiduMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1699,10 +1699,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.DefaultMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1730,10 +1730,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.DefaultPushNotificationMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1766,10 +1766,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.EmailMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1806,10 +1806,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.GCMMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1836,10 +1836,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.SMSMessage_Substitution.Add((String)hashKey, valueSet);
                 }
@@ -1860,10 +1860,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.VoiceMessage_Substitution.Add((String)hashKey, valueSet);
                 }

@@ -616,10 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.Automation_Parameter.Add((String)hashKey, valueSet);
                 }
@@ -653,10 +653,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         continue;
                     }
                     var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
+                    var valueSet = new List<System.String>();
                     foreach (var s in enumerable)
                     {
-                        valueSet.Add((String)s);
+                        valueSet.Add((System.String)s);
                     }
                     context.RunCommand_Parameter.Add((String)hashKey, valueSet);
                 }
