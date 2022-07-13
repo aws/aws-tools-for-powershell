@@ -72,8 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter FinalBakeTimeInMinute
         /// <summary>
         /// <para>
-        /// <para>The amount of time AppConfig monitors for alarms before considering the deployment
-        /// to be complete and no longer eligible for automatic roll back.</para>
+        /// <para>Specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms after
+        /// the configuration has been deployed to 100% of its targets, before considering the
+        /// deployment to be complete. If an alarm is triggered during this time, AppConfig rolls
+        /// back the deployment. You must configure permissions for AppConfig to roll back based
+        /// on CloudWatch alarms. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html">Configuring
+        /// permissions for rollback based on Amazon CloudWatch alarms</a> in the <i>AppConfig
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,13 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>Save the deployment strategy to a Systems Manager (SSM) document.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AppConfig.ReplicateTo")]
         public Amazon.AppConfig.ReplicateTo ReplicateTo { get; set; }
         #endregion
@@ -253,12 +252,6 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.ReplicateTo = this.ReplicateTo;
-            #if MODULAR
-            if (this.ReplicateTo == null && ParameterWasBound(nameof(this.ReplicateTo)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicateTo which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

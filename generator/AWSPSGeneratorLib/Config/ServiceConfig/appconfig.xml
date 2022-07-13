@@ -35,6 +35,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateExtension" OutputProperty="*" Verb="New" Noun="Extension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExtensionAssociation" OutputProperty="*" Verb="New" Noun="ExtensionAssociation" ShouldProcessTarget="ExtensionIdentifier" PipelineParameter="ExtensionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateHostedConfigurationVersion" OutputProperty="*" Verb="New" Noun="HostedConfigurationVersion" ShouldProcessTarget="ConfigurationProfileId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -52,6 +60,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExtension" Verb="Remove" Noun="Extension" ShouldProcessTarget="ExtensionIdentifier" PipelineParameter="ExtensionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExtensionAssociation" Verb="Remove" Noun="ExtensionAssociation" ShouldProcessTarget="ExtensionAssociationId" PipelineParameter="ExtensionAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +99,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExtension" OutputProperty="*" Verb="Get" Noun="Extension" PipelineParameter="ExtensionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExtensionAssociation" OutputProperty="*" Verb="Get" Noun="ExtensionAssociation" PipelineParameter="ExtensionAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetHostedConfigurationVersion" OutputProperty="*" Verb="Get" Noun="HostedConfigurationVersion" PipelineParameter="ConfigurationProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +128,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEnvironments" OutputProperty="Items" Verb="Get" Noun="EnvironmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtensionAssociations" OutputProperty="Items" Verb="Get" Noun="ExtensionAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtensions" OutputProperty="Items" Verb="Get" Noun="ExtensionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,6 +176,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExtension" OutputProperty="*" Verb="Update" Noun="Extension" ShouldProcessTarget="ExtensionIdentifier" PipelineParameter="ExtensionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExtensionAssociation" OutputProperty="*" Verb="Update" Noun="ExtensionAssociation" ShouldProcessTarget="ExtensionAssociationId" PipelineParameter="ExtensionAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

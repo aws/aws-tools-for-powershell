@@ -98,6 +98,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-APPCDeploymentStrategyList', 
         'Get-APPCEnvironment', 
         'Get-APPCEnvironmentList', 
+        'Get-APPCExtension', 
+        'Get-APPCExtensionAssociation', 
+        'Get-APPCExtensionAssociationList', 
+        'Get-APPCExtensionList', 
         'Get-APPCHostedConfigurationVersion', 
         'Get-APPCHostedConfigurationVersionList', 
         'Get-APPCResourceTag', 
@@ -105,11 +109,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-APPCConfigurationProfile', 
         'New-APPCDeploymentStrategy', 
         'New-APPCEnvironment', 
+        'New-APPCExtension', 
+        'New-APPCExtensionAssociation', 
         'New-APPCHostedConfigurationVersion', 
         'Remove-APPCApplication', 
         'Remove-APPCConfigurationProfile', 
         'Remove-APPCDeploymentStrategy', 
         'Remove-APPCEnvironment', 
+        'Remove-APPCExtension', 
+        'Remove-APPCExtensionAssociation', 
         'Remove-APPCHostedConfigurationVersion', 
         'Remove-APPCResourceTag', 
         'Start-APPCDeployment', 
@@ -118,7 +126,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-APPCApplication', 
         'Update-APPCConfigurationProfile', 
         'Update-APPCDeploymentStrategy', 
-        'Update-APPCEnvironment')
+        'Update-APPCEnvironment', 
+        'Update-APPCExtension', 
+        'Update-APPCExtensionAssociation')
 
     # Variables to export from this module
     VariablesToExport = '*'

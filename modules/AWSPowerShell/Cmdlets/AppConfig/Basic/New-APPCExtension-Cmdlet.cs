@@ -28,35 +28,73 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Creates an application. In AppConfig, an application is simply an organizational construct
-    /// like a folder. This organizational construct has a relationship with some unit of
-    /// executable code. For example, you could create an application called MyMobileApp to
-    /// organize and manage configuration data for a mobile application installed by your
-    /// users.
+    /// Creates an AppConfig extension. An extension augments your ability to inject logic
+    /// or behavior at different points during the AppConfig workflow of creating or deploying
+    /// a configuration.
+    /// 
+    ///  
+    /// <para>
+    /// You can create your own extensions or use the Amazon Web Services-authored extensions
+    /// provided by AppConfig. For most use-cases, to create your own extension, you must
+    /// create an Lambda function to perform any computation and processing defined in the
+    /// extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
+    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "APPCApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppConfig.Model.CreateApplicationResponse")]
-    [AWSCmdlet("Calls the AWS AppConfig CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.AppConfig.Model.CreateApplicationResponse))]
-    [AWSCmdletOutput("Amazon.AppConfig.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "APPCExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AppConfig.Model.CreateExtensionResponse")]
+    [AWSCmdlet("Calls the AWS AppConfig CreateExtension API operation.", Operation = new[] {"CreateExtension"}, SelectReturnType = typeof(Amazon.AppConfig.Model.CreateExtensionResponse))]
+    [AWSCmdletOutput("Amazon.AppConfig.Model.CreateExtensionResponse",
+        "This cmdlet returns an Amazon.AppConfig.Model.CreateExtensionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewAPPCApplicationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
+    public partial class NewAPPCExtensionCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
+        
+        #region Parameter Action
+        /// <summary>
+        /// <para>
+        /// <para>The actions defined in the extension.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Actions")]
+        public System.Collections.Hashtable Action { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the application.</para>
+        /// <para>Information about the extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter LatestVersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>You can omit this field when you create an extension. When you create a new version,
+        /// specify the most recent current version number. For example, you create version 3,
+        /// enter 2 for this field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LatestVersionNumber { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the application.</para>
+        /// <para>A name for the extension. Each extension name in your account must be unique. Extension
+        /// versions use the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,11 +108,26 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The parameters accepted by the extension. You specify parameter values when you associate
+        /// the extension to an AppConfig resource by using the <code>CreateExtensionAssociation</code>
+        /// API action. For Lambda extension actions, these parameters are included in the Lambda
+        /// request object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata to assign to the application. Tags help organize and categorize your AppConfig
-        /// resources. Each tag consists of a key and an optional value, both of which you define.</para>
+        /// <para>Adds one or more tags for the specified extension. Tags are metadata that help you
+        /// categorize resources in different ways, for example, by purpose, owner, or environment.
+        /// Each tag consists of a key and an optional value, both of which you define. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.CreateApplicationResponse).
-        /// Specifying the name of a property of type Amazon.AppConfig.Model.CreateApplicationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.CreateExtensionResponse).
+        /// Specifying the name of a property of type Amazon.AppConfig.Model.CreateExtensionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-APPCApplication (CreateApplication)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-APPCExtension (CreateExtension)"))
             {
                 return;
             }
@@ -131,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.CreateApplicationResponse, NewAPPCApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.CreateExtensionResponse, NewAPPCExtensionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,7 +196,34 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Action != null)
+            {
+                context.Action = new Dictionary<System.String, List<Amazon.AppConfig.Model.Action>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Action.Keys)
+                {
+                    object hashValue = this.Action[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Action.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.AppConfig.Model.Action>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.AppConfig.Model.Action)s);
+                    }
+                    context.Action.Add((String)hashKey, valueSet);
+                }
+            }
+            #if MODULAR
+            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Description = this.Description;
+            context.LatestVersionNumber = this.LatestVersionNumber;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -151,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Parameter != null)
+            {
+                context.Parameter = new Dictionary<System.String, Amazon.AppConfig.Model.Parameter>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Parameter.Keys)
+                {
+                    context.Parameter.Add((String)hashKey, (Parameter)(this.Parameter[hashKey]));
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -173,15 +261,27 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppConfig.Model.CreateApplicationRequest();
+            var request = new Amazon.AppConfig.Model.CreateExtensionRequest();
             
+            if (cmdletContext.Action != null)
+            {
+                request.Actions = cmdletContext.Action;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.LatestVersionNumber != null)
+            {
+                request.LatestVersionNumber = cmdletContext.LatestVersionNumber.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.Tag != null)
             {
@@ -220,15 +320,15 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region AWS Service Operation Call
         
-        private Amazon.AppConfig.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.CreateApplicationRequest request)
+        private Amazon.AppConfig.Model.CreateExtensionResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.CreateExtensionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "CreateApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "CreateExtension");
             try
             {
                 #if DESKTOP
-                return client.CreateApplication(request);
+                return client.CreateExtension(request);
                 #elif CORECLR
-                return client.CreateApplicationAsync(request).GetAwaiter().GetResult();
+                return client.CreateExtensionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +348,13 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, List<Amazon.AppConfig.Model.Action>> Action { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? LatestVersionNumber { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, Amazon.AppConfig.Model.Parameter> Parameter { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.AppConfig.Model.CreateApplicationResponse, NewAPPCApplicationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.AppConfig.Model.CreateExtensionResponse, NewAPPCExtensionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

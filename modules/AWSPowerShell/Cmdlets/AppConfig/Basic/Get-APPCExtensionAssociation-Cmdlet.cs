@@ -28,35 +28,23 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Creates an application. In AppConfig, an application is simply an organizational construct
-    /// like a folder. This organizational construct has a relationship with some unit of
-    /// executable code. For example, you could create an application called MyMobileApp to
-    /// organize and manage configuration data for a mobile application installed by your
-    /// users.
+    /// Returns information about an AppConfig extension association. For more information
+    /// about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
+    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
-    [Cmdlet("New", "APPCApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppConfig.Model.CreateApplicationResponse")]
-    [AWSCmdlet("Calls the AWS AppConfig CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.AppConfig.Model.CreateApplicationResponse))]
-    [AWSCmdletOutput("Amazon.AppConfig.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "APPCExtensionAssociation")]
+    [OutputType("Amazon.AppConfig.Model.GetExtensionAssociationResponse")]
+    [AWSCmdlet("Calls the AWS AppConfig GetExtensionAssociation API operation.", Operation = new[] {"GetExtensionAssociation"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetExtensionAssociationResponse))]
+    [AWSCmdletOutput("Amazon.AppConfig.Model.GetExtensionAssociationResponse",
+        "This cmdlet returns an Amazon.AppConfig.Model.GetExtensionAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewAPPCApplicationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
+    public partial class GetAPPCExtensionAssociationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter ExtensionAssociationId
         /// <summary>
         /// <para>
-        /// <para>A description of the application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>A name for the application.</para>
+        /// <para>The extension association ID to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,26 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Metadata to assign to the application. Tags help organize and categorize your AppConfig
-        /// resources. Each tag consists of a key and an optional value, both of which you define.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String ExtensionAssociationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.CreateApplicationResponse).
-        /// Specifying the name of a property of type Amazon.AppConfig.Model.CreateApplicationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.GetExtensionAssociationResponse).
+        /// Specifying the name of a property of type Amazon.AppConfig.Model.GetExtensionAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,33 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ExtensionAssociationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ExtensionAssociationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExtensionAssociationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-APPCApplication (CreateApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -131,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.CreateApplicationResponse, NewAPPCApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.GetExtensionAssociationResponse, GetAPPCExtensionAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,25 +100,16 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ExtensionAssociationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.ExtensionAssociationId = this.ExtensionAssociationId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ExtensionAssociationId == null && ParameterWasBound(nameof(this.ExtensionAssociationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExtensionAssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppConfig.Model.CreateApplicationRequest();
+            var request = new Amazon.AppConfig.Model.GetExtensionAssociationRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ExtensionAssociationId != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.ExtensionAssociationId = cmdletContext.ExtensionAssociationId;
             }
             
             CmdletOutput output;
@@ -220,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region AWS Service Operation Call
         
-        private Amazon.AppConfig.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.CreateApplicationRequest request)
+        private Amazon.AppConfig.Model.GetExtensionAssociationResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.GetExtensionAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "CreateApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "GetExtensionAssociation");
             try
             {
                 #if DESKTOP
-                return client.CreateApplication(request);
+                return client.GetExtensionAssociation(request);
                 #elif CORECLR
-                return client.CreateApplicationAsync(request).GetAwaiter().GetResult();
+                return client.GetExtensionAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.AppConfig.Model.CreateApplicationResponse, NewAPPCApplicationCmdlet, object> Select { get; set; } =
+            public System.String ExtensionAssociationId { get; set; }
+            public System.Func<Amazon.AppConfig.Model.GetExtensionAssociationResponse, GetAPPCExtensionAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

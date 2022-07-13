@@ -1,4 +1,18 @@
-﻿### 4.1.124 (2022-07-12 20:54Z)
+﻿### 4.1.125 (2022-07-13 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.314.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppConfig
+    * Added cmdlet Get-APPCExtension leveraging the GetExtension service API.
+    * Added cmdlet Get-APPCExtensionAssociation leveraging the GetExtensionAssociation service API.
+    * Added cmdlet Get-APPCExtensionAssociationList leveraging the ListExtensionAssociations service API.
+    * Added cmdlet Get-APPCExtensionList leveraging the ListExtensions service API.
+    * Added cmdlet New-APPCExtension leveraging the CreateExtension service API.
+    * Added cmdlet New-APPCExtensionAssociation leveraging the CreateExtensionAssociation service API.
+    * Added cmdlet Remove-APPCExtension leveraging the DeleteExtension service API.
+    * Added cmdlet Remove-APPCExtensionAssociation leveraging the DeleteExtensionAssociation service API.
+    * Added cmdlet Update-APPCExtension leveraging the UpdateExtension service API.
+    * Added cmdlet Update-APPCExtensionAssociation leveraging the UpdateExtensionAssociation service API.
+
+### 4.1.124 (2022-07-12 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.313.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Network Manager
     * Added cmdlet Get-NMGRCoreNetworkChangeEvent leveraging the GetCoreNetworkChangeEvents service API.

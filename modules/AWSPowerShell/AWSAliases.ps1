@@ -760,6 +760,10 @@ Set-Alias -Name Create-APPCDeploymentStrategy -Value New-APPCDeploymentStrategy
 Set-Alias -Name APPC-CreateDeploymentStrategy -Value New-APPCDeploymentStrategy
 Set-Alias -Name Create-APPCEnvironment -Value New-APPCEnvironment
 Set-Alias -Name APPC-CreateEnvironment -Value New-APPCEnvironment
+Set-Alias -Name Create-APPCExtensionAssociation -Value New-APPCExtensionAssociation
+Set-Alias -Name APPC-CreateExtensionAssociation -Value New-APPCExtensionAssociation
+Set-Alias -Name Create-APPCExtension -Value New-APPCExtension
+Set-Alias -Name APPC-CreateExtension -Value New-APPCExtension
 Set-Alias -Name Create-APPCHostedConfigurationVersion -Value New-APPCHostedConfigurationVersion
 Set-Alias -Name APPC-CreateHostedConfigurationVersion -Value New-APPCHostedConfigurationVersion
 Set-Alias -Name Delete-APPCApplication -Value Remove-APPCApplication
@@ -770,6 +774,10 @@ Set-Alias -Name Delete-APPCDeploymentStrategy -Value Remove-APPCDeploymentStrate
 Set-Alias -Name APPC-DeleteDeploymentStrategy -Value Remove-APPCDeploymentStrategy
 Set-Alias -Name Delete-APPCEnvironment -Value Remove-APPCEnvironment
 Set-Alias -Name APPC-DeleteEnvironment -Value Remove-APPCEnvironment
+Set-Alias -Name Delete-APPCExtensionAssociation -Value Remove-APPCExtensionAssociation
+Set-Alias -Name APPC-DeleteExtensionAssociation -Value Remove-APPCExtensionAssociation
+Set-Alias -Name Delete-APPCExtension -Value Remove-APPCExtension
+Set-Alias -Name APPC-DeleteExtension -Value Remove-APPCExtension
 Set-Alias -Name Delete-APPCHostedConfigurationVersion -Value Remove-APPCHostedConfigurationVersion
 Set-Alias -Name APPC-DeleteHostedConfigurationVersion -Value Remove-APPCHostedConfigurationVersion
 Set-Alias -Name APPC-GetApplication -Value Get-APPCApplication
@@ -778,6 +786,8 @@ Set-Alias -Name APPC-GetConfigurationProfile -Value Get-APPCConfigurationProfile
 Set-Alias -Name APPC-GetDeployment -Value Get-APPCDeployment
 Set-Alias -Name APPC-GetDeploymentStrategy -Value Get-APPCDeploymentStrategy
 Set-Alias -Name APPC-GetEnvironment -Value Get-APPCEnvironment
+Set-Alias -Name APPC-GetExtensionAssociation -Value Get-APPCExtensionAssociation
+Set-Alias -Name APPC-GetExtension -Value Get-APPCExtension
 Set-Alias -Name APPC-GetHostedConfigurationVersion -Value Get-APPCHostedConfigurationVersion
 Set-Alias -Name List-APPCApplications -Value Get-APPCApplicationList
 Set-Alias -Name List-APPCApplicationList -Value Get-APPCApplicationList
@@ -794,6 +804,12 @@ Set-Alias -Name APPC-ListDeploymentStrategies -Value Get-APPCDeploymentStrategyL
 Set-Alias -Name List-APPCEnvironments -Value Get-APPCEnvironmentList
 Set-Alias -Name List-APPCEnvironmentList -Value Get-APPCEnvironmentList
 Set-Alias -Name APPC-ListEnvironments -Value Get-APPCEnvironmentList
+Set-Alias -Name List-APPCExtensionAssociations -Value Get-APPCExtensionAssociationList
+Set-Alias -Name List-APPCExtensionAssociationList -Value Get-APPCExtensionAssociationList
+Set-Alias -Name APPC-ListExtensionAssociations -Value Get-APPCExtensionAssociationList
+Set-Alias -Name List-APPCExtensions -Value Get-APPCExtensionList
+Set-Alias -Name List-APPCExtensionList -Value Get-APPCExtensionList
+Set-Alias -Name APPC-ListExtensions -Value Get-APPCExtensionList
 Set-Alias -Name List-APPCHostedConfigurationVersions -Value Get-APPCHostedConfigurationVersionList
 Set-Alias -Name List-APPCHostedConfigurationVersionList -Value Get-APPCHostedConfigurationVersionList
 Set-Alias -Name APPC-ListHostedConfigurationVersions -Value Get-APPCHostedConfigurationVersionList
@@ -806,6 +822,8 @@ Set-Alias -Name APPC-UpdateApplication -Value Update-APPCApplication
 Set-Alias -Name APPC-UpdateConfigurationProfile -Value Update-APPCConfigurationProfile
 Set-Alias -Name APPC-UpdateDeploymentStrategy -Value Update-APPCDeploymentStrategy
 Set-Alias -Name APPC-UpdateEnvironment -Value Update-APPCEnvironment
+Set-Alias -Name APPC-UpdateExtensionAssociation -Value Update-APPCExtensionAssociation
+Set-Alias -Name APPC-UpdateExtension -Value Update-APPCExtension
 Set-Alias -Name Validate-APPCConfiguration -Value Test-APPCConfigurationValidity
 Set-Alias -Name Validate-APPCConfigurationValidity -Value Test-APPCConfigurationValidity
 Set-Alias -Name APPC-ValidateConfiguration -Value Test-APPCConfigurationValidity
