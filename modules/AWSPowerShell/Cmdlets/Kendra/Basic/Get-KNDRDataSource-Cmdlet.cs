@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source to describe.</para>
+        /// <para>The identifier of the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the data source.</para>
+        /// <para>The identifier of the index used with the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

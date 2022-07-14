@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source to delete.</para>
+        /// <para>The identifier of the data source you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the index associated with the data source.</para>
+        /// <para>The identifier of the index used with the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

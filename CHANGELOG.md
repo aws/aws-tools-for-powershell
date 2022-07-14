@@ -1,4 +1,26 @@
-﻿### 4.1.125 (2022-07-13 21:12Z)
+﻿### 4.1.126 (2022-07-14 20:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.315.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CodeArtifact
+    * Added cmdlet Get-CAPackage leveraging the DescribePackage service API.
+    * Added cmdlet Write-CAPackageOriginConfiguration leveraging the PutPackageOriginConfiguration service API.
+    * Modified cmdlet Get-CAPackageList: added parameters Publish and Upstream.
+    * Modified cmdlet Get-CAPackageVersionList: added parameter OriginType.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2Configuration leveraging the GetConfiguration service API.
+    * Added cmdlet Update-INS2Configuration leveraging the UpdateConfiguration service API.
+    * Modified cmdlet New-INS2Filter: added parameter Reason.
+    * Modified cmdlet Update-INS2Filter: added parameter Reason.
+  * Amazon Kendra
+    * Added cmdlet Get-KNDRAccessControlConfiguration leveraging the DescribeAccessControlConfiguration service API.
+    * Added cmdlet Get-KNDRAccessControlConfigurationList leveraging the ListAccessControlConfigurations service API.
+    * Added cmdlet New-KNDRAccessControlConfiguration leveraging the CreateAccessControlConfiguration service API.
+    * Added cmdlet Remove-KNDRAccessControlConfiguration leveraging the DeleteAccessControlConfiguration service API.
+    * Added cmdlet Update-KNDRAccessControlConfiguration leveraging the UpdateAccessControlConfiguration service API.
+  * Amazon Nimble Studio
+    * Modified cmdlet New-NSStudioComponent: added parameters RuntimeRoleArn and SecureInitializationRoleArn.
+    * Modified cmdlet Update-NSStudioComponent: added parameters RuntimeRoleArn and SecureInitializationRoleArn.
+
+### 4.1.125 (2022-07-13 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.314.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppConfig
     * Added cmdlet Get-APPCExtension leveraging the GetExtension service API.

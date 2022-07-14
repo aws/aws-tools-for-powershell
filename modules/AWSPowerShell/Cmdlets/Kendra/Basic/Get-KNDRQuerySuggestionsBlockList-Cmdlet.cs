@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Describes a block list used for query suggestions for an index.
+    /// Gets information about a block list used for query suggestions for an index.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the block list.</para>
+        /// <para>The identifier of the block list you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

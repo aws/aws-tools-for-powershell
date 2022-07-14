@@ -28,74 +28,78 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Updates a block list used for query suggestions for an index.
+    /// Creates an access configuration for your documents. This includes user and group access
+    /// information for your documents. This is useful for user context filtering, where search
+    /// results are filtered based on the user or their group access to documents.
     /// 
     ///  
     /// <para>
-    /// Updates to a block list might not take effect right away. Amazon Kendra needs to refresh
-    /// the entire suggestions list to apply any updates to the block list. Other changes
-    /// not related to the block list apply immediately.
+    /// You can use this to re-configure your existing document level access control without
+    /// indexing all of your documents again. For example, your index contains top-secret
+    /// company documents that only certain employees or users should access. One of these
+    /// users leaves the company or switches to a team that should be blocked from access
+    /// to top-secret documents. Your documents in your index still give this user access
+    /// to top-secret documents due to the user having access at the time your documents were
+    /// indexed. You can create a specific access control configuration for this user with
+    /// deny access. You can later update the access control configuration to allow access
+    /// in the case the user returns to the company and re-joins the 'top-secret' team. You
+    /// can re-configure access control for your documents circumstances change.
     /// </para><para>
-    /// If a block list is updating, then you need to wait for the first update to finish
-    /// before submitting another update.
-    /// </para><para>
-    /// Amazon Kendra supports partial updates, so you only need to provide the fields you
-    /// want to update.
-    /// </para><para><code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the Amazon
-    /// Web Services GovCloud (US-West) region.
+    /// To apply your access control configuration to certain documents, you call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
+    /// API with the <code>AccessControlConfigurationId</code> included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+    /// object. If you use an S3 bucket as a data source, you update the <code>.metadata.json</code>
+    /// with the <code>AccessControlConfigurationId</code> and synchronize your data source.
+    /// Amazon Kendra currently only supports access control configuration for S3 data sources
+    /// and documents indexed using the <code>BatchPutDocument</code> API.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "KNDRQuerySuggestionsBlockList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kendra UpdateQuerySuggestionsBlockList API operation.", Operation = new[] {"UpdateQuerySuggestionsBlockList"}, SelectReturnType = typeof(Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse))]
-    [AWSCmdletOutput("None or Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "KNDRAccessControlConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Kendra CreateAccessControlConfiguration API operation.", Operation = new[] {"CreateAccessControlConfiguration"}, SelectReturnType = typeof(Amazon.Kendra.Model.CreateAccessControlConfigurationResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Kendra.Model.CreateAccessControlConfigurationResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Kendra.Model.CreateAccessControlConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateKNDRQuerySuggestionsBlockListCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class NewKNDRAccessControlConfigurationCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
-        #region Parameter SourceS3Path_Bucket
+        #region Parameter AccessControlList
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket that contains the file.</para>
+        /// <para>Information on principals (users and/or groups) and which documents they should have
+        /// access to. This is useful for user context filtering, where search results are filtered
+        /// based on the user or their group access to documents.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SourceS3Path_Bucket { get; set; }
+        public Amazon.Kendra.Model.Principal[] AccessControlList { get; set; }
         #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A new description for the block list.</para>
+        /// <para>A description for the access control configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter HierarchicalAccessControlList
         /// <summary>
         /// <para>
-        /// <para>The identifier of the block list you want to update.</para>
+        /// <para>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a>
+        /// lists that define the hierarchy for which documents users should have access to.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public Amazon.Kendra.Model.HierarchicalPrincipal[] HierarchicalAccessControlList { get; set; }
         #endregion
         
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index for the block list.</para>
+        /// <para>The identifier of the index to create an access control configuration for your documents.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,45 +113,44 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String IndexId { get; set; }
         #endregion
         
-        #region Parameter SourceS3Path_Key
-        /// <summary>
-        /// <para>
-        /// <para>The name of the file.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SourceS3Path_Key { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A new name for the block list.</para>
+        /// <para>A name for the access control configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter RoleArn
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The IAM (Identity and Access Management) role used to access the block list text file
-        /// in S3.</para>
+        /// <para>A token that you provide to identify the request to create an access control configuration.
+        /// Multiple calls to the <code>CreateAccessControlConfiguration</code> API with the same
+        /// client token will create only one access control configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RoleArn { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.CreateAccessControlConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.Kendra.Model.CreateAccessControlConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Id";
         #endregion
         
         #region Parameter PassThru
@@ -174,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-KNDRQuerySuggestionsBlockList (UpdateQuerySuggestionsBlockList)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IndexId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-KNDRAccessControlConfiguration (CreateAccessControlConfiguration)"))
             {
                 return;
             }
@@ -188,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse, UpdateKNDRQuerySuggestionsBlockListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.CreateAccessControlConfigurationResponse, NewKNDRAccessControlConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -200,14 +203,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.AccessControlList != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AccessControlList = new List<Amazon.Kendra.Model.Principal>(this.AccessControlList);
             }
-            #endif
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            if (this.HierarchicalAccessControlList != null)
+            {
+                context.HierarchicalAccessControlList = new List<Amazon.Kendra.Model.HierarchicalPrincipal>(this.HierarchicalAccessControlList);
+            }
             context.IndexId = this.IndexId;
             #if MODULAR
             if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
@@ -216,9 +221,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #endif
             context.Name = this.Name;
-            context.RoleArn = this.RoleArn;
-            context.SourceS3Path_Bucket = this.SourceS3Path_Bucket;
-            context.SourceS3Path_Key = this.SourceS3Path_Key;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -233,15 +241,23 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListRequest();
+            var request = new Amazon.Kendra.Model.CreateAccessControlConfigurationRequest();
             
+            if (cmdletContext.AccessControlList != null)
+            {
+                request.AccessControlList = cmdletContext.AccessControlList;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.HierarchicalAccessControlList != null)
             {
-                request.Id = cmdletContext.Id;
+                request.HierarchicalAccessControlList = cmdletContext.HierarchicalAccessControlList;
             }
             if (cmdletContext.IndexId != null)
             {
@@ -250,39 +266,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.RoleArn != null)
-            {
-                request.RoleArn = cmdletContext.RoleArn;
-            }
-            
-             // populate SourceS3Path
-            var requestSourceS3PathIsNull = true;
-            request.SourceS3Path = new Amazon.Kendra.Model.S3Path();
-            System.String requestSourceS3Path_sourceS3Path_Bucket = null;
-            if (cmdletContext.SourceS3Path_Bucket != null)
-            {
-                requestSourceS3Path_sourceS3Path_Bucket = cmdletContext.SourceS3Path_Bucket;
-            }
-            if (requestSourceS3Path_sourceS3Path_Bucket != null)
-            {
-                request.SourceS3Path.Bucket = requestSourceS3Path_sourceS3Path_Bucket;
-                requestSourceS3PathIsNull = false;
-            }
-            System.String requestSourceS3Path_sourceS3Path_Key = null;
-            if (cmdletContext.SourceS3Path_Key != null)
-            {
-                requestSourceS3Path_sourceS3Path_Key = cmdletContext.SourceS3Path_Key;
-            }
-            if (requestSourceS3Path_sourceS3Path_Key != null)
-            {
-                request.SourceS3Path.Key = requestSourceS3Path_sourceS3Path_Key;
-                requestSourceS3PathIsNull = false;
-            }
-             // determine if request.SourceS3Path should be set to null
-            if (requestSourceS3PathIsNull)
-            {
-                request.SourceS3Path = null;
             }
             
             CmdletOutput output;
@@ -317,15 +300,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListRequest request)
+        private Amazon.Kendra.Model.CreateAccessControlConfigurationResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.CreateAccessControlConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "UpdateQuerySuggestionsBlockList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "CreateAccessControlConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdateQuerySuggestionsBlockList(request);
+                return client.CreateAccessControlConfiguration(request);
                 #elif CORECLR
-                return client.UpdateQuerySuggestionsBlockListAsync(request).GetAwaiter().GetResult();
+                return client.CreateAccessControlConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -345,15 +328,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Kendra.Model.Principal> AccessControlList { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            public System.String Id { get; set; }
+            public List<Amazon.Kendra.Model.HierarchicalPrincipal> HierarchicalAccessControlList { get; set; }
             public System.String IndexId { get; set; }
             public System.String Name { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.String SourceS3Path_Bucket { get; set; }
-            public System.String SourceS3Path_Key { get; set; }
-            public System.Func<Amazon.Kendra.Model.UpdateQuerySuggestionsBlockListResponse, UpdateKNDRQuerySuggestionsBlockListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Kendra.Model.CreateAccessControlConfigurationResponse, NewKNDRAccessControlConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Id;
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Updates a thesaurus file associated with an index.
+    /// Updates a thesaurus for an index.
     /// </summary>
     [Cmdlet("Update", "KNDRThesaurus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the thesaurus.</para>
+        /// <para>A new description for the thesaurus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the thesaurus to update.</para>
+        /// <para>The identifier of the thesaurus you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index associated with the thesaurus to update.</para>
+        /// <para>The identifier of the index for the thesaurus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The updated name of the thesaurus.</para>
+        /// <para>A new name for the thesaurus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The updated role ARN of the thesaurus.</para>
+        /// <para>An IAM role that gives Amazon Kendra permissions to access thesaurus file specified
+        /// in <code>SourceS3Path</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

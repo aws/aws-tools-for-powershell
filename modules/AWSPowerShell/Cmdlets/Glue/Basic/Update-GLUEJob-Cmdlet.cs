@@ -28,7 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Updates an existing job definition.
+    /// Updates an existing job definition. The previous job definition is completely overwritten
+    /// by this information.
     /// </summary>
     [Cmdlet("Update", "GLUEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobUpdate
         /// <summary>
         /// <para>
-        /// <para>Specifies the values with which to update the job definition.</para>
+        /// <para>Specifies the values with which to update the job definition. Unspecified configuration
+        /// is removed or reset to default values.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

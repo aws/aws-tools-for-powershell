@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackage" OutputProperty="Package" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribePackageVersion" OutputProperty="PackageVersion" Verb="Get" Noun="PackageVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDomainPermissionsPolicy" OutputProperty="Policy" Verb="Write" Noun="DomainPermissionsPolicy" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPackageOriginConfiguration" OutputProperty="OriginConfiguration" Verb="Write" Noun="PackageOriginConfiguration" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

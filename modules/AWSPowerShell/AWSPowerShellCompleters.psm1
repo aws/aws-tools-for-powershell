@@ -8649,9 +8649,30 @@ $CA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeArtifact.AllowPublish
+        {
+            ($_ -eq "Get-CAPackageList/Publish") -Or
+            ($_ -eq "Write-CAPackageOriginConfiguration/Restrictions_Publish")
+        }
+        {
+            $v = "ALLOW","BLOCK"
+            break
+        }
+
+        # Amazon.CodeArtifact.AllowUpstream
+        {
+            ($_ -eq "Write-CAPackageOriginConfiguration/Restrictions_Upstream") -Or
+            ($_ -eq "Get-CAPackageList/Upstream")
+        }
+        {
+            $v = "ALLOW","BLOCK"
+            break
+        }
+
         # Amazon.CodeArtifact.PackageFormat
         {
             ($_ -eq "Copy-CAPackageVersion/Format") -Or
+            ($_ -eq "Get-CAPackage/Format") -Or
             ($_ -eq "Get-CAPackageList/Format") -Or
             ($_ -eq "Get-CAPackageVersion/Format") -Or
             ($_ -eq "Get-CAPackageVersionAsset/Format") -Or
@@ -8662,10 +8683,18 @@ $CA_Completers = {
             ($_ -eq "Get-CARepositoryEndpoint/Format") -Or
             ($_ -eq "Remove-CAPackageVersion/Format") -Or
             ($_ -eq "Unpublish-CAPackageVersion/Format") -Or
-            ($_ -eq "Update-CAPackageVersionsStatus/Format")
+            ($_ -eq "Update-CAPackageVersionsStatus/Format") -Or
+            ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
             $v = "maven","npm","nuget","pypi"
+            break
+        }
+
+        # Amazon.CodeArtifact.PackageVersionOriginType
+        "Get-CAPackageVersionList/OriginType"
+        {
+            $v = "EXTERNAL","INTERNAL","UNKNOWN"
             break
         }
 
@@ -8699,10 +8728,15 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
+    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "OriginType"=@("Get-CAPackageVersionList")
+    "Publish"=@("Get-CAPackageList")
+    "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
+    "Restrictions_Upstream"=@("Write-CAPackageOriginConfiguration")
     "SortBy"=@("Get-CAPackageVersionList")
     "Status"=@("Get-CAPackageVersionList")
     "TargetStatus"=@("Update-CAPackageVersionsStatus")
+    "Upstream"=@("Get-CAPackageList")
 }
 
 _awsArgumentCompleterRegistration $CA_Completers $CA_map
@@ -8765,6 +8799,7 @@ $CA_SelectMap = @{
                "Remove-CARepository",
                "Remove-CARepositoryPermissionsPolicy",
                "Get-CADomain",
+               "Get-CAPackage",
                "Get-CAPackageVersion",
                "Get-CARepository",
                "Disconnect-CAExternalConnection",
@@ -8784,6 +8819,7 @@ $CA_SelectMap = @{
                "Get-CARepositoriesInDomainList",
                "Get-CAResourceTag",
                "Write-CADomainPermissionsPolicy",
+               "Write-CAPackageOriginConfiguration",
                "Write-CARepositoryPermissionsPolicy",
                "Add-CAResourceTag",
                "Remove-CAResourceTag",
@@ -11701,7 +11737,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::TransitGateway","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Cluster","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::GuardDuty::Detector","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::OpenSearch::Domain","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SageMaker::CodeRepository","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::XRay::EncryptionConfig"
+            $v = "AWS::AccessAnalyzer::Analyzer","AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::Batch::ComputeEnvironment","AWS::Batch::JobQueue","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::DMS::EventSubscription","AWS::DMS::ReplicationSubnetGroup","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::TransitGateway","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Cluster","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::Listener","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::GuardDuty::Detector","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::OpenSearch::Domain","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::Route53Resolver::ResolverEndpoint","AWS::Route53Resolver::ResolverRule","AWS::Route53Resolver::ResolverRuleAssociation","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SageMaker::CodeRepository","AWS::SageMaker::Model","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::StepFunctions::Activity","AWS::StepFunctions::StateMachine","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::WorkSpaces::ConnectionAlias","AWS::WorkSpaces::Workspace","AWS::XRay::EncryptionConfig"
             break
         }
 
@@ -16348,7 +16384,7 @@ $EC2_Completers = {
         # Amazon.EC2.FlowLogsResourceType
         "New-EC2FlowLog/ResourceType"
         {
-            $v = "NetworkInterface","Subnet","VPC"
+            $v = "NetworkInterface","Subnet","TransitGateway","TransitGatewayAttachment","VPC"
             break
         }
 
@@ -22984,7 +23020,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUEMLTransform/WorkerType")
         }
         {
-            $v = "G.1X","G.2X","Standard"
+            $v = "G.025X","G.1X","G.2X","Standard"
             break
         }
 
@@ -25285,6 +25321,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.EcrRescanDuration
+        "Update-INS2Configuration/EcrConfiguration_RescanDuration"
+        {
+            $v = "DAYS_180","DAYS_30","LIFETIME"
+            break
+        }
+
         # Amazon.Inspector2.FilterAction
         {
             ($_ -eq "Get-INS2FilterList/Action") -Or
@@ -25411,6 +25454,7 @@ $INS2_map = @{
     "AggregationRequest_TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
+    "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
     "ReportFormat"=@("New-INS2FindingsReport")
     "Service"=@("Get-INS2AccountPermissionList")
@@ -25481,6 +25525,7 @@ $INS2_SelectMap = @{
                "Unregister-INS2Member",
                "Stop-INS2Inspector",
                "Enable-INS2DelegatedAdminAccount",
+               "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
@@ -25496,6 +25541,7 @@ $INS2_SelectMap = @{
                "Get-INS2UsageTotalList",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
+               "Update-INS2Configuration",
                "Update-INS2Filter",
                "Update-INS2OrganizationConfiguration")
 }
@@ -28283,12 +28329,14 @@ $KNDR_SelectMap = @{
                "Get-KNDRGetDocumentStatus",
                "Write-KNDRDocumentBatch",
                "Clear-KNDRQuerySuggestion",
+               "New-KNDRAccessControlConfiguration",
                "New-KNDRDataSource",
                "New-KNDRExperience",
                "New-KNDRFaq",
                "New-KNDRIndex",
                "New-KNDRQuerySuggestionsBlockList",
                "New-KNDRThesaurus",
+               "Remove-KNDRAccessControlConfiguration",
                "Remove-KNDRDataSource",
                "Remove-KNDRExperience",
                "Remove-KNDRFaq",
@@ -28296,6 +28344,7 @@ $KNDR_SelectMap = @{
                "Remove-KNDRPrincipalMapping",
                "Remove-KNDRQuerySuggestionsBlockList",
                "Remove-KNDRThesaurus",
+               "Get-KNDRAccessControlConfiguration",
                "Get-KNDRDataSource",
                "Get-KNDRExperience",
                "Get-KNDRFaq",
@@ -28308,6 +28357,7 @@ $KNDR_SelectMap = @{
                "Remove-KNDRPersonasFromEntity",
                "Get-KNDRQuerySuggestion",
                "Get-KNDRSnapshot",
+               "Get-KNDRAccessControlConfigurationList",
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDREntityPersonaList",
@@ -28326,6 +28376,7 @@ $KNDR_SelectMap = @{
                "Send-KNDRFeedback",
                "Add-KNDRResourceTag",
                "Remove-KNDRResourceTag",
+               "Update-KNDRAccessControlConfiguration",
                "Update-KNDRDataSource",
                "Update-KNDRExperience",
                "Update-KNDRIndex",

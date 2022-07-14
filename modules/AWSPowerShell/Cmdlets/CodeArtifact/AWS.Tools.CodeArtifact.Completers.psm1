@@ -80,9 +80,30 @@ $CA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeArtifact.AllowPublish
+        {
+            ($_ -eq "Get-CAPackageList/Publish") -Or
+            ($_ -eq "Write-CAPackageOriginConfiguration/Restrictions_Publish")
+        }
+        {
+            $v = "ALLOW","BLOCK"
+            break
+        }
+
+        # Amazon.CodeArtifact.AllowUpstream
+        {
+            ($_ -eq "Write-CAPackageOriginConfiguration/Restrictions_Upstream") -Or
+            ($_ -eq "Get-CAPackageList/Upstream")
+        }
+        {
+            $v = "ALLOW","BLOCK"
+            break
+        }
+
         # Amazon.CodeArtifact.PackageFormat
         {
             ($_ -eq "Copy-CAPackageVersion/Format") -Or
+            ($_ -eq "Get-CAPackage/Format") -Or
             ($_ -eq "Get-CAPackageList/Format") -Or
             ($_ -eq "Get-CAPackageVersion/Format") -Or
             ($_ -eq "Get-CAPackageVersionAsset/Format") -Or
@@ -93,10 +114,18 @@ $CA_Completers = {
             ($_ -eq "Get-CARepositoryEndpoint/Format") -Or
             ($_ -eq "Remove-CAPackageVersion/Format") -Or
             ($_ -eq "Unpublish-CAPackageVersion/Format") -Or
-            ($_ -eq "Update-CAPackageVersionsStatus/Format")
+            ($_ -eq "Update-CAPackageVersionsStatus/Format") -Or
+            ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
             $v = "maven","npm","nuget","pypi"
+            break
+        }
+
+        # Amazon.CodeArtifact.PackageVersionOriginType
+        "Get-CAPackageVersionList/OriginType"
+        {
+            $v = "EXTERNAL","INTERNAL","UNKNOWN"
             break
         }
 
@@ -130,10 +159,15 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
+    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "OriginType"=@("Get-CAPackageVersionList")
+    "Publish"=@("Get-CAPackageList")
+    "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
+    "Restrictions_Upstream"=@("Write-CAPackageOriginConfiguration")
     "SortBy"=@("Get-CAPackageVersionList")
     "Status"=@("Get-CAPackageVersionList")
     "TargetStatus"=@("Update-CAPackageVersionsStatus")
+    "Upstream"=@("Get-CAPackageList")
 }
 
 _awsArgumentCompleterRegistration $CA_Completers $CA_map
@@ -196,6 +230,7 @@ $CA_SelectMap = @{
                "Remove-CARepository",
                "Remove-CARepositoryPermissionsPolicy",
                "Get-CADomain",
+               "Get-CAPackage",
                "Get-CAPackageVersion",
                "Get-CARepository",
                "Disconnect-CAExternalConnection",
@@ -215,6 +250,7 @@ $CA_SelectMap = @{
                "Get-CARepositoriesInDomainList",
                "Get-CAResourceTag",
                "Write-CADomainPermissionsPolicy",
+               "Write-CAPackageOriginConfiguration",
                "Write-CARepositoryPermissionsPolicy",
                "Add-CAResourceTag",
                "Remove-CAResourceTag",

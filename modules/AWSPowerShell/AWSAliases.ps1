@@ -3411,6 +3411,8 @@ Set-Alias -Name Delete-CARepositoryPermissionsPolicy -Value Remove-CARepositoryP
 Set-Alias -Name CA-DeleteRepositoryPermissionsPolicy -Value Remove-CARepositoryPermissionsPolicy
 Set-Alias -Name Describe-CADomain -Value Get-CADomain
 Set-Alias -Name CA-DescribeDomain -Value Get-CADomain
+Set-Alias -Name Describe-CAPackage -Value Get-CAPackage
+Set-Alias -Name CA-DescribePackage -Value Get-CAPackage
 Set-Alias -Name Describe-CAPackageVersion -Value Get-CAPackageVersion
 Set-Alias -Name CA-DescribePackageVersion -Value Get-CAPackageVersion
 Set-Alias -Name Describe-CARepository -Value Get-CARepository
@@ -3450,6 +3452,8 @@ Set-Alias -Name CA-ListRepositoriesInDomain -Value Get-CARepositoriesInDomainLis
 Set-Alias -Name CA-ListTagsForResource -Value Get-CAResourceTag
 Set-Alias -Name Put-CADomainPermissionsPolicy -Value Write-CADomainPermissionsPolicy
 Set-Alias -Name CA-PutDomainPermissionsPolicy -Value Write-CADomainPermissionsPolicy
+Set-Alias -Name Put-CAPackageOriginConfiguration -Value Write-CAPackageOriginConfiguration
+Set-Alias -Name CA-PutPackageOriginConfiguration -Value Write-CAPackageOriginConfiguration
 Set-Alias -Name Put-CARepositoryPermissionsPolicy -Value Write-CARepositoryPermissionsPolicy
 Set-Alias -Name CA-PutRepositoryPermissionsPolicy -Value Write-CARepositoryPermissionsPolicy
 Set-Alias -Name CA-TagResource -Value Add-CAResourceTag
@@ -11287,6 +11291,7 @@ Set-Alias -Name Enable-INS2 -Value Stop-INS2Inspector
 Set-Alias -Name Enable-INS2Inspector -Value Stop-INS2Inspector
 Set-Alias -Name INS2-Enable -Value Stop-INS2Inspector
 Set-Alias -Name INS2-EnableDelegatedAdminAccount -Value Enable-INS2DelegatedAdminAccount
+Set-Alias -Name INS2-GetConfiguration -Value Get-INS2Configuration
 Set-Alias -Name INS2-GetDelegatedAdminAccount -Value Get-INS2DelegatedAdminAccount
 Set-Alias -Name INS2-GetFindingsReportStatus -Value Get-INS2FindingsReportStatus
 Set-Alias -Name INS2-GetMember -Value Get-INS2Member
@@ -11320,6 +11325,7 @@ Set-Alias -Name List-INS2UsageTotalList -Value Get-INS2UsageTotalList
 Set-Alias -Name INS2-ListUsageTotals -Value Get-INS2UsageTotalList
 Set-Alias -Name INS2-TagResource -Value Add-INS2ResourceTag
 Set-Alias -Name INS2-UntagResource -Value Remove-INS2ResourceTag
+Set-Alias -Name INS2-UpdateConfiguration -Value Update-INS2Configuration
 Set-Alias -Name INS2-UpdateFilter -Value Update-INS2Filter
 Set-Alias -Name INS2-UpdateOrganizationConfiguration -Value Update-INS2OrganizationConfiguration
 Set-Alias -Name Accept-IOTCertificateTransfer -Value Confirm-IOTCertificateTransfer
@@ -12532,6 +12538,8 @@ Set-Alias -Name Batch-KNDRDocumentBatch -Value Write-KNDRDocumentBatch
 Set-Alias -Name KNDR-BatchPutDocument -Value Write-KNDRDocumentBatch
 Set-Alias -Name Clear-KNDRQuerySuggestions -Value Clear-KNDRQuerySuggestion
 Set-Alias -Name KNDR-ClearQuerySuggestions -Value Clear-KNDRQuerySuggestion
+Set-Alias -Name Create-KNDRAccessControlConfiguration -Value New-KNDRAccessControlConfiguration
+Set-Alias -Name KNDR-CreateAccessControlConfiguration -Value New-KNDRAccessControlConfiguration
 Set-Alias -Name Create-KNDRDataSource -Value New-KNDRDataSource
 Set-Alias -Name KNDR-CreateDataSource -Value New-KNDRDataSource
 Set-Alias -Name Create-KNDRExperience -Value New-KNDRExperience
@@ -12544,6 +12552,8 @@ Set-Alias -Name Create-KNDRQuerySuggestionsBlockList -Value New-KNDRQuerySuggest
 Set-Alias -Name KNDR-CreateQuerySuggestionsBlockList -Value New-KNDRQuerySuggestionsBlockList
 Set-Alias -Name Create-KNDRThesaurus -Value New-KNDRThesaurus
 Set-Alias -Name KNDR-CreateThesaurus -Value New-KNDRThesaurus
+Set-Alias -Name Delete-KNDRAccessControlConfiguration -Value Remove-KNDRAccessControlConfiguration
+Set-Alias -Name KNDR-DeleteAccessControlConfiguration -Value Remove-KNDRAccessControlConfiguration
 Set-Alias -Name Delete-KNDRDataSource -Value Remove-KNDRDataSource
 Set-Alias -Name KNDR-DeleteDataSource -Value Remove-KNDRDataSource
 Set-Alias -Name Delete-KNDRExperience -Value Remove-KNDRExperience
@@ -12558,6 +12568,8 @@ Set-Alias -Name Delete-KNDRQuerySuggestionsBlockList -Value Remove-KNDRQuerySugg
 Set-Alias -Name KNDR-DeleteQuerySuggestionsBlockList -Value Remove-KNDRQuerySuggestionsBlockList
 Set-Alias -Name Delete-KNDRThesaurus -Value Remove-KNDRThesaurus
 Set-Alias -Name KNDR-DeleteThesaurus -Value Remove-KNDRThesaurus
+Set-Alias -Name Describe-KNDRAccessControlConfiguration -Value Get-KNDRAccessControlConfiguration
+Set-Alias -Name KNDR-DescribeAccessControlConfiguration -Value Get-KNDRAccessControlConfiguration
 Set-Alias -Name Describe-KNDRDataSource -Value Get-KNDRDataSource
 Set-Alias -Name KNDR-DescribeDataSource -Value Get-KNDRDataSource
 Set-Alias -Name Describe-KNDRExperience -Value Get-KNDRExperience
@@ -12583,6 +12595,9 @@ Set-Alias -Name Get-KNDRQuerySuggestions -Value Get-KNDRQuerySuggestion
 Set-Alias -Name KNDR-GetQuerySuggestions -Value Get-KNDRQuerySuggestion
 Set-Alias -Name Get-KNDRSnapshots -Value Get-KNDRSnapshot
 Set-Alias -Name KNDR-GetSnapshots -Value Get-KNDRSnapshot
+Set-Alias -Name List-KNDRAccessControlConfigurations -Value Get-KNDRAccessControlConfigurationList
+Set-Alias -Name List-KNDRAccessControlConfigurationList -Value Get-KNDRAccessControlConfigurationList
+Set-Alias -Name KNDR-ListAccessControlConfigurations -Value Get-KNDRAccessControlConfigurationList
 Set-Alias -Name List-KNDRDataSources -Value Get-KNDRDataSourceList
 Set-Alias -Name List-KNDRDataSourceList -Value Get-KNDRDataSourceList
 Set-Alias -Name KNDR-ListDataSources -Value Get-KNDRDataSourceList
@@ -12625,6 +12640,7 @@ Set-Alias -Name Submit-KNDRFeedback -Value Send-KNDRFeedback
 Set-Alias -Name KNDR-SubmitFeedback -Value Send-KNDRFeedback
 Set-Alias -Name KNDR-TagResource -Value Add-KNDRResourceTag
 Set-Alias -Name KNDR-UntagResource -Value Remove-KNDRResourceTag
+Set-Alias -Name KNDR-UpdateAccessControlConfiguration -Value Update-KNDRAccessControlConfiguration
 Set-Alias -Name KNDR-UpdateDataSource -Value Update-KNDRDataSource
 Set-Alias -Name KNDR-UpdateExperience -Value Update-KNDRExperience
 Set-Alias -Name KNDR-UpdateIndex -Value Update-KNDRIndex

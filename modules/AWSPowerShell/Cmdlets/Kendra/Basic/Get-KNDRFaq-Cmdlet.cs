@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the FAQ.</para>
+        /// <para>The identifier of the FAQ you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the FAQ.</para>
+        /// <para>The identifier of the index for the FAQ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

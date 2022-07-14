@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Configuration information that is required to access the data source repository.</para><para>You can't specify the <code>Configuration</code> parameter when the <code>Type</code>
+        /// <para>Configuration information to connect to your data source repository.</para><para>You can't specify the <code>Configuration</code> parameter when the <code>Type</code>
         /// parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para><para>The <code>Configuration</code> parameter is required for all other data sources.</para>
         /// </para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the data source.</para>
+        /// <para>A description for the data source connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that should be associated with this data source.</para>
+        /// <para>The identifier of the index you want to use with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The code for a language. This allows you to support a language for all documents when
-        /// creating the data source. English is supported by default. For more information on
-        /// supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+        /// creating the data source connector. English is supported by default. For more information
+        /// on supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
         /// documents in languages other than English</a>.</para>
         /// </para>
         /// </summary>
@@ -224,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique name for the data source. A data source name can't be changed without deleting
-        /// and recreating the data source.</para>
+        /// <para>A unique name for the data source connector. A data source name can't be changed without
+        /// deleting and recreating the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -279,8 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source
+        /// connector. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// Roles for Amazon Kendra</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para><para>The <code>RoleArn</code> parameter is required for all other data sources.</para>
@@ -319,8 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>Sets the frequency for Amazon Kendra to check the documents in your repository and
-        /// update the index. If you don't set a schedule Amazon Kendra will not periodically
+        /// <para>Sets the frequency for Amazon Kendra to check the documents in your data source repository
+        /// and update the index. If you don't set a schedule Amazon Kendra will not periodically
         /// update the index. You can call the <code>StartDataSourceSyncJob</code> API to update
         /// the index.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
@@ -378,8 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that identify the data source. You can use the tags to identify
-        /// and organize your resources and to control access to resources.</para>
+        /// <para>A list of key-value pairs that identify the data source connector. You can use the
+        /// tags to identify and organize your resources and to control access to resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of repository that contains the data source.</para>
+        /// <para>The type of data source repository. For example, <code>SHAREPOINT</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -407,9 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to create a data source. Multiple
-        /// calls to the <code>CreateDataSource</code> API with the same client token will create
-        /// only one data source.</para>
+        /// <para>A token that you provide to identify the request to create a data source connector.
+        /// Multiple calls to the <code>CreateDataSource</code> API with the same client token
+        /// will create only one data source connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

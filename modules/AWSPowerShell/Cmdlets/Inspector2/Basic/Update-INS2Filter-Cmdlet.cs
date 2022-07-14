@@ -289,6 +289,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.PortRangeFilter[] FilterCriteria_PortRange { get; set; }
         #endregion
         
+        #region Parameter Reason
+        /// <summary>
+        /// <para>
+        /// <para>The reason the filter was updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Reason { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_RelatedVulnerability
         /// <summary>
         /// <para>
@@ -597,6 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.FilterCriteria_VulnerablePackage = new List<Amazon.Inspector2.Model.PackageFilter>(this.FilterCriteria_VulnerablePackage);
             }
             context.Name = this.Name;
+            context.Reason = this.Reason;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -948,6 +959,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
+            }
             
             CmdletOutput output;
             
@@ -1044,6 +1059,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_VulnerabilitySource { get; set; }
             public List<Amazon.Inspector2.Model.PackageFilter> FilterCriteria_VulnerablePackage { get; set; }
             public System.String Name { get; set; }
+            public System.String Reason { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateFilterResponse, UpdateINS2FilterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

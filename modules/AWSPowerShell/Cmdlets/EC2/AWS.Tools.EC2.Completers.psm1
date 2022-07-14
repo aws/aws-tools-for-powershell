@@ -422,7 +422,7 @@ $EC2_Completers = {
         # Amazon.EC2.FlowLogsResourceType
         "New-EC2FlowLog/ResourceType"
         {
-            $v = "NetworkInterface","Subnet","VPC"
+            $v = "NetworkInterface","Subnet","TransitGateway","TransitGatewayAttachment","VPC"
             break
         }
 

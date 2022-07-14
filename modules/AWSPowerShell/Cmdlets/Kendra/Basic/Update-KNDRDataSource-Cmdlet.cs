@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for an Amazon Kendra data source you want to update.</para>
+        /// <para>Configuration information you want to update for the data source connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The new description for the data source.</para>
+        /// <para>A new description for the data source connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source to update.</para>
+        /// <para>The identifier of the data source you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the data source to update.</para>
+        /// <para>The identifier of the index used with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,9 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The code for a language. This allows you to support a language for all documents when
-        /// updating the data source. English is supported by default. For more information on
-        /// supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+        /// <para>The code for a language you want to update for the data source connector. This allows
+        /// you to support a language for all documents when updating the data source. English
+        /// is supported by default. For more information on supported languages, including their
+        /// codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
         /// documents in languages other than English</a>.</para>
         /// </para>
         /// </summary>
@@ -222,8 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data source to update. The name of the data source can't be updated.
-        /// To rename a data source you must delete the data source and re-create it.</para>
+        /// <para>A new name for the data source connector. You must first delete the data source and
+        /// re-create it to change the name of the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,8 +271,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the new role to use when the data source is accessing
-        /// resources on your behalf.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// Roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The new update schedule for the data source.</para>
+        /// <para>The sync schedule you want to update for the data source connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

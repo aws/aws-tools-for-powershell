@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DocumentMetadataConfigurationUpdate
         /// <summary>
         /// <para>
-        /// <para>The document metadata you want to update.</para>
+        /// <para>The document metadata configuration you want to update for the index. Document metadata
+        /// are fields or attributes associated with your documents. For example, the company
+        /// department name associated with each document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index to update.</para>
+        /// <para>The identifier of the index you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the index to update.</para>
+        /// <para>The name of the index you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch
-        /// logs.</para>
+        /// <para>An Identity and Access Management (IAM) role that gives Amazon Kendra permission to
+        /// access Amazon CloudWatch logs and metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

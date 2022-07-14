@@ -287,6 +287,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.PortRangeFilter[] FilterCriteria_PortRange { get; set; }
         #endregion
         
+        #region Parameter Reason
+        /// <summary>
+        /// <para>
+        /// <para>The reason for creating the filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Reason { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_RelatedVulnerability
         /// <summary>
         /// <para>
@@ -591,6 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Reason = this.Reason;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -946,6 +957,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1045,6 +1060,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_VulnerabilitySource { get; set; }
             public List<Amazon.Inspector2.Model.PackageFilter> FilterCriteria_VulnerablePackage { get; set; }
             public System.String Name { get; set; }
+            public System.String Reason { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Inspector2.Model.CreateFilterResponse, NewINS2FilterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;

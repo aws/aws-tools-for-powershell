@@ -22,28 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Cancels the statement.
+    /// Updates setting configurations for your Amazon Inspector account. When you use this
+    /// API as an Amazon Inspector delegated administrator this updates the setting for all
+    /// accounts you manage. Member accounts in an organization cannot update this setting.
     /// </summary>
-    [Cmdlet("Stop", "GLUEStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "INS2Configuration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CancelStatement API operation.", Operation = new[] {"CancelStatement"}, SelectReturnType = typeof(Amazon.Glue.Model.CancelStatementResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CancelStatementResponse",
+    [AWSCmdlet("Calls the Inspector2 UpdateConfiguration API operation.", Operation = new[] {"UpdateConfiguration"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Inspector2.Model.UpdateConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CancelStatementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector2.Model.UpdateConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopGLUEStatementCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class UpdateINS2ConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter EcrConfiguration_RescanDuration
         /// <summary>
         /// <para>
-        /// <para>The ID of the statement to be cancelled.</para>
+        /// <para>The ECR automated re-scan duration defines how long an ECR image will be actively
+        /// scanned by Amazon Inspector. When the number of days since an image was last pushed
+        /// exceeds the automated re-scan duration the monitoring state of that image becomes
+        /// <code>inactive</code> and all associated findings are scheduled for closure.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,40 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? Id { get; set; }
-        #endregion
-        
-        #region Parameter RequestOrigin
-        /// <summary>
-        /// <para>
-        /// <para>The origin of the request to cancel the statement.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RequestOrigin { get; set; }
-        #endregion
-        
-        #region Parameter SessionId
-        /// <summary>
-        /// <para>
-        /// <para>The Session ID of the statement to be cancelled.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SessionId { get; set; }
+        [AWSConstantClassSource("Amazon.Inspector2.EcrRescanDuration")]
+        public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CancelStatementResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.UpdateConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EcrConfiguration_RescanDuration parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EcrConfiguration_RescanDuration' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EcrConfiguration_RescanDuration' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-GLUEStatement (CancelStatement)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EcrConfiguration_RescanDuration), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2Configuration (UpdateConfiguration)"))
             {
                 return;
             }
@@ -131,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CancelStatementResponse, StopGLUEStatementCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,22 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.EcrConfiguration_RescanDuration;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.EcrConfiguration_RescanDuration = this.EcrConfiguration_RescanDuration;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.EcrConfiguration_RescanDuration == null && ParameterWasBound(nameof(this.EcrConfiguration_RescanDuration)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RequestOrigin = this.RequestOrigin;
-            context.SessionId = this.SessionId;
-            #if MODULAR
-            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EcrConfiguration_RescanDuration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,19 +143,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CancelStatementRequest();
+            var request = new Amazon.Inspector2.Model.UpdateConfigurationRequest();
             
-            if (cmdletContext.Id != null)
+            
+             // populate EcrConfiguration
+            var requestEcrConfigurationIsNull = true;
+            request.EcrConfiguration = new Amazon.Inspector2.Model.EcrConfiguration();
+            Amazon.Inspector2.EcrRescanDuration requestEcrConfiguration_ecrConfiguration_RescanDuration = null;
+            if (cmdletContext.EcrConfiguration_RescanDuration != null)
             {
-                request.Id = cmdletContext.Id.Value;
+                requestEcrConfiguration_ecrConfiguration_RescanDuration = cmdletContext.EcrConfiguration_RescanDuration;
             }
-            if (cmdletContext.RequestOrigin != null)
+            if (requestEcrConfiguration_ecrConfiguration_RescanDuration != null)
             {
-                request.RequestOrigin = cmdletContext.RequestOrigin;
+                request.EcrConfiguration.RescanDuration = requestEcrConfiguration_ecrConfiguration_RescanDuration;
+                requestEcrConfigurationIsNull = false;
             }
-            if (cmdletContext.SessionId != null)
+             // determine if request.EcrConfiguration should be set to null
+            if (requestEcrConfigurationIsNull)
             {
-                request.SessionId = cmdletContext.SessionId;
+                request.EcrConfiguration = null;
             }
             
             CmdletOutput output;
@@ -219,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CancelStatementResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CancelStatementRequest request)
+        private Amazon.Inspector2.Model.UpdateConfigurationResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.UpdateConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CancelStatement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateConfiguration");
             try
             {
                 #if DESKTOP
-                return client.CancelStatement(request);
+                return client.UpdateConfiguration(request);
                 #elif CORECLR
-                return client.CancelStatementAsync(request).GetAwaiter().GetResult();
+                return client.UpdateConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? Id { get; set; }
-            public System.String RequestOrigin { get; set; }
-            public System.String SessionId { get; set; }
-            public System.Func<Amazon.Glue.Model.CancelStatementResponse, StopGLUEStatementCmdlet, object> Select { get; set; } =
+            public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
+            public System.Func<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

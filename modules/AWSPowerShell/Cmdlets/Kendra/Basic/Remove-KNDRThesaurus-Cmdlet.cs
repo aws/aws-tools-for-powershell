@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the thesaurus to delete.</para>
+        /// <para>The identifier of the thesaurus you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index associated with the thesaurus to delete.</para>
+        /// <para>The identifier of the index for the thesaurus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for the new thesaurus.</para>
+        /// <para>A description for the thesaurus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the index for the new thesaurus. </para>
+        /// <para>The identifier of the index for the thesaurus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name for the new thesaurus.</para>
+        /// <para>A name for the thesaurus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

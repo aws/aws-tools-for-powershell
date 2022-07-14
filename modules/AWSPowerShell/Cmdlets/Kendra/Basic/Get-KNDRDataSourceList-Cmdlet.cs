@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the data source.</para>
+        /// <para>The identifier of the index used with one or more data sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Describes an existing Amazon Kendra index.
+    /// Gets information about an existing Amazon Kendra index.
     /// </summary>
     [Cmdlet("Get", "KNDRIndex")]
     [OutputType("Amazon.Kendra.Model.DescribeIndexResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index to describe.</para>
+        /// <para>The identifier of the index you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

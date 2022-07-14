@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The name of the domain that contains the repository that contains the returned package
+        /// <para> The name of the domain that contains the repository that contains the requested package
         /// versions. </para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para> The format of the returned packages. </para>
+        /// <para> The format of the returned package versions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,20 +89,31 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para> The namespace of the package. The package component that specifies its namespace
-        /// depends on its type. For example: </para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> A Python package does not contain a corresponding component, so Python packages do
-        /// not have a namespace. </para></li></ul>
+        /// <para>The namespace of the package that contains the requested package versions. The package
+        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
+        /// formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Namespace { get; set; }
         #endregion
         
+        #region Parameter OriginType
+        /// <summary>
+        /// <para>
+        /// <para>The <code>originType</code> used to filter package versions. Only package versions
+        /// with the provided <code>originType</code> will be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeArtifact.PackageVersionOriginType")]
+        public Amazon.CodeArtifact.PackageVersionOriginType OriginType { get; set; }
+        #endregion
+        
         #region Parameter Package
         /// <summary>
         /// <para>
-        /// <para> The name of the package for which you want to return a list of package versions.
-        /// </para>
+        /// <para> The name of the package for which you want to request package versions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Repository
         /// <summary>
         /// <para>
-        /// <para> The name of the repository that contains the package. </para>
+        /// <para> The name of the repository that contains the requested package versions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para> How to sort the returned list of package versions. </para>
+        /// <para> How to sort the requested list of package versions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,8 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> A string that specifies the status of the package versions to include in the returned
-        /// list. </para>
+        /// <para> A string that filters the requested package versions by status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             context.MaxResult = this.MaxResult;
             context.Namespace = this.Namespace;
             context.NextToken = this.NextToken;
+            context.OriginType = this.OriginType;
             context.Package = this.Package;
             #if MODULAR
             if (this.Package == null && ParameterWasBound(nameof(this.Package)))
@@ -276,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OriginType != null)
+            {
+                request.OriginType = cmdletContext.OriginType;
             }
             if (cmdletContext.Package != null)
             {
@@ -360,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             public System.Int32? MaxResult { get; set; }
             public System.String Namespace { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CodeArtifact.PackageVersionOriginType OriginType { get; set; }
             public System.String Package { get; set; }
             public System.String Repository { get; set; }
             public Amazon.CodeArtifact.PackageVersionSortType SortBy { get; set; }

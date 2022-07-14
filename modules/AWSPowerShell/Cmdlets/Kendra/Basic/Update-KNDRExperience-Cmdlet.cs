@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of your Amazon Kendra experience you want to update.</para>
+        /// <para>A new description for your Amazon Kendra experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index for your Amazon Kendra experience you want to update.</para>
+        /// <para>The identifier of the index for your Amazon Kendra experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of your Amazon Kendra experience you want to update.</para>
+        /// <para>A new name for your Amazon Kendra experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

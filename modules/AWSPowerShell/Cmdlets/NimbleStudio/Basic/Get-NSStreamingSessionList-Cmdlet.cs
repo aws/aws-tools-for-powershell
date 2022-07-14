@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Lists the streaming image resources in a studio.
+    /// Lists the streaming sessions in a studio.
     /// </summary>
     [Cmdlet("Get", "NSStreamingSessionList")]
     [OutputType("Amazon.NimbleStudio.Model.StreamingSession")]

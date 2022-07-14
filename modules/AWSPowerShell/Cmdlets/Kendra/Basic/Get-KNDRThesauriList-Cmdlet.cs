@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Lists the Amazon Kendra thesauri associated with an index.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the thesauri for an index.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRThesauriList")]
     [OutputType("Amazon.Kendra.Model.ThesaurusSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index associated with the thesaurus to list.</para>
+        /// <para>The identifier of the index with one or more thesauri.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

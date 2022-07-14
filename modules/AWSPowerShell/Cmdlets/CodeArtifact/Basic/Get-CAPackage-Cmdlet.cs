@@ -28,27 +28,23 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns the direct dependencies for a package version. The dependencies are returned
-    /// as <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
-    /// objects. CodeArtifact extracts the dependencies for a package version from the metadata
-    /// file for the package format (for example, the <code>package.json</code> file for npm
-    /// packages and the <code>pom.xml</code> file for Maven). Any package version dependencies
-    /// that are not listed in the configuration file are not returned.
+    /// Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
+    /// object that contains information about the requested package.
     /// </summary>
-    [Cmdlet("Get", "CAPackageVersionDependencyList")]
-    [OutputType("Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse")]
-    [AWSCmdlet("Calls the AWS CodeArtifact ListPackageVersionDependencies API operation.", Operation = new[] {"ListPackageVersionDependencies"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse))]
-    [AWSCmdletOutput("Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CAPackage")]
+    [OutputType("Amazon.CodeArtifact.Model.PackageDescription")]
+    [AWSCmdlet("Calls the AWS CodeArtifact DescribePackage API operation.", Operation = new[] {"DescribePackage"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DescribePackageResponse))]
+    [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageDescription or Amazon.CodeArtifact.Model.DescribePackageResponse",
+        "This cmdlet returns an Amazon.CodeArtifact.Model.PackageDescription object.",
+        "The service call response (type Amazon.CodeArtifact.Model.DescribePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCAPackageVersionDependencyListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
+    public partial class GetCAPackageCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The name of the domain that contains the repository that contains the requested package
-        /// version dependencies. </para>
+        /// <para>The name of the domain that contains the repository that contains the package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para> The format of the package with the requested dependencies. </para>
+        /// <para>A format that specifies the type of the requested package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,9 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the package version with the requested dependencies. The package
-        /// version component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li></ul>
+        /// <para>The namespace of the requested package. The package component that specifies its namespace
+        /// depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. The namespace is required
+        /// when requesting Maven packages. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
+        /// formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Package
         /// <summary>
         /// <para>
-        /// <para> The name of the package versions' package. </para>
+        /// <para>The name of the requested package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,27 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String Package { get; set; }
         #endregion
         
-        #region Parameter PackageVersion
-        /// <summary>
-        /// <para>
-        /// <para> A string that contains the package version (for example, <code>3.5.2</code>). </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PackageVersion { get; set; }
-        #endregion
-        
         #region Parameter Repository
         /// <summary>
         /// <para>
-        /// <para> The name of the repository that contains the requested package version. </para>
+        /// <para>The name of the repository that contains the requested package. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,26 +133,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String Repository { get; set; }
         #endregion
         
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse).
-        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Package'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.DescribePackageResponse).
+        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.DescribePackageResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Package";
         #endregion
         
         protected override void ProcessRecord()
@@ -186,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse, GetCAPackageVersionDependencyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.DescribePackageResponse, GetCAPackageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Domain = this.Domain;
@@ -205,19 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.Namespace = this.Namespace;
-            context.NextToken = this.NextToken;
             context.Package = this.Package;
             #if MODULAR
             if (this.Package == null && ParameterWasBound(nameof(this.Package)))
             {
                 WriteWarning("You are passing $null as a value for parameter Package which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.PackageVersion = this.PackageVersion;
-            #if MODULAR
-            if (this.PackageVersion == null && ParameterWasBound(nameof(this.PackageVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PackageVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Repository = this.Repository;
@@ -241,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeArtifact.Model.ListPackageVersionDependenciesRequest();
+            var request = new Amazon.CodeArtifact.Model.DescribePackageRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -259,17 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
             {
                 request.Namespace = cmdletContext.Namespace;
             }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             if (cmdletContext.Package != null)
             {
                 request.Package = cmdletContext.Package;
-            }
-            if (cmdletContext.PackageVersion != null)
-            {
-                request.PackageVersion = cmdletContext.PackageVersion;
             }
             if (cmdletContext.Repository != null)
             {
@@ -308,15 +261,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.ListPackageVersionDependenciesRequest request)
+        private Amazon.CodeArtifact.Model.DescribePackageResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.DescribePackageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "ListPackageVersionDependencies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "DescribePackage");
             try
             {
                 #if DESKTOP
-                return client.ListPackageVersionDependencies(request);
+                return client.DescribePackage(request);
                 #elif CORECLR
-                return client.ListPackageVersionDependenciesAsync(request).GetAwaiter().GetResult();
+                return client.DescribePackageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -340,12 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             public System.String DomainOwner { get; set; }
             public Amazon.CodeArtifact.PackageFormat Format { get; set; }
             public System.String Namespace { get; set; }
-            public System.String NextToken { get; set; }
             public System.String Package { get; set; }
-            public System.String PackageVersion { get; set; }
             public System.String Repository { get; set; }
-            public System.Func<Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse, GetCAPackageVersionDependencyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.CodeArtifact.Model.DescribePackageResponse, GetCAPackageCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Package;
         }
         
     }

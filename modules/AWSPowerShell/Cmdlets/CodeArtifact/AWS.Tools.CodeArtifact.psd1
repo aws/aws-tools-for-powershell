@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CADomain', 
         'Get-CADomainList', 
         'Get-CADomainPermissionsPolicy', 
+        'Get-CAPackage', 
         'Get-CAPackageList', 
         'Get-CAPackageVersion', 
         'Get-CAPackageVersionAsset', 
@@ -119,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CAPackageVersionsStatus', 
         'Update-CARepository', 
         'Write-CADomainPermissionsPolicy', 
+        'Write-CAPackageOriginConfiguration', 
         'Write-CARepositoryPermissionsPolicy')
 
     # Variables to export from this module

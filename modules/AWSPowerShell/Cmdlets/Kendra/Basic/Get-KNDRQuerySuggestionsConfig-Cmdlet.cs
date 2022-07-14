@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Describes the settings of query suggestions for an index.
+    /// Gets information on the settings of query suggestions for an index.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index you want to describe query suggestions settings for.</para>
+        /// <para>The identifier of the index with query suggestions that you want to get information
+        /// on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

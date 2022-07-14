@@ -95,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ResourceType
         /// <summary>
         /// <para>
-        /// <para>An array of Amazon Web Services resource types to return coverage statistics for.</para>
+        /// <para>An array of Amazon Web Services resource types to return coverage statistics for.
+        /// The values can be <code>AWS_EC2_INSTANCE</code> or <code>AWS_ECR_REPOSITORY</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

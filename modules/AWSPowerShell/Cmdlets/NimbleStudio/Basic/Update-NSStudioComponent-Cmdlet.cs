@@ -182,6 +182,17 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String ActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName { get; set; }
         #endregion
         
+        #region Parameter RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role attached to a Studio Component that gives the studio component access
+        /// to AWS resources at anytime while the instance is running. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuntimeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ScriptParameter
         /// <summary>
         /// <para>
@@ -191,6 +202,18 @@ namespace Amazon.PowerShell.Cmdlets.NS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ScriptParameters")]
         public Amazon.NimbleStudio.Model.ScriptParameterKeyValue[] ScriptParameter { get; set; }
+        #endregion
+        
+        #region Parameter SecureInitializationRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role attached to Studio Component when the system initialization script runs
+        /// which give the studio component access to AWS resources when the system initialization
+        /// script runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecureInitializationRoleArn { get; set; }
         #endregion
         
         #region Parameter SharedFileSystemConfiguration_ShareName
@@ -369,10 +392,12 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 context.InitializationScript = new List<Amazon.NimbleStudio.Model.StudioComponentInitializationScript>(this.InitializationScript);
             }
             context.Name = this.Name;
+            context.RuntimeRoleArn = this.RuntimeRoleArn;
             if (this.ScriptParameter != null)
             {
                 context.ScriptParameter = new List<Amazon.NimbleStudio.Model.ScriptParameterKeyValue>(this.ScriptParameter);
             }
+            context.SecureInitializationRoleArn = this.SecureInitializationRoleArn;
             context.StudioComponentId = this.StudioComponentId;
             #if MODULAR
             if (this.StudioComponentId == null && ParameterWasBound(nameof(this.StudioComponentId)))
@@ -604,9 +629,17 @@ namespace Amazon.PowerShell.Cmdlets.NS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.RuntimeRoleArn != null)
+            {
+                request.RuntimeRoleArn = cmdletContext.RuntimeRoleArn;
+            }
             if (cmdletContext.ScriptParameter != null)
             {
                 request.ScriptParameters = cmdletContext.ScriptParameter;
+            }
+            if (cmdletContext.SecureInitializationRoleArn != null)
+            {
+                request.SecureInitializationRoleArn = cmdletContext.SecureInitializationRoleArn;
             }
             if (cmdletContext.StudioComponentId != null)
             {
@@ -701,7 +734,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public List<System.String> Ec2SecurityGroupId { get; set; }
             public List<Amazon.NimbleStudio.Model.StudioComponentInitializationScript> InitializationScript { get; set; }
             public System.String Name { get; set; }
+            public System.String RuntimeRoleArn { get; set; }
             public List<Amazon.NimbleStudio.Model.ScriptParameterKeyValue> ScriptParameter { get; set; }
+            public System.String SecureInitializationRoleArn { get; set; }
             public System.String StudioComponentId { get; set; }
             public System.String StudioId { get; set; }
             public Amazon.NimbleStudio.StudioComponentSubtype Subtype { get; set; }

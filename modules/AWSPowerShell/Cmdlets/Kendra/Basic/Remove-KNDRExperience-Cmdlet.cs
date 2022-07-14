@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index for your Amazon Kendra experience you want to delete.</para>
+        /// <para>The identifier of the index for your Amazon Kendra experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

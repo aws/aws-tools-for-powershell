@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the block list that needs to be deleted.</para>
+        /// <para>The identifier of the block list you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the you want to delete a block list from.</para>
+        /// <para>The identifier of the index for the block list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

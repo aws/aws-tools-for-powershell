@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index you want to update query suggestions settings for.</para>
+        /// <para> The identifier of the index with query suggestions you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,32 +28,24 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets statistics about synchronizing Amazon Kendra with a data source.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists one or more access control configurations for an index. This includes user and
+    /// group access information for your documents. This is useful for user context filtering,
+    /// where search results are filtered based on the user or their group access to documents.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KNDRDataSourceSyncJobList")]
-    [OutputType("Amazon.Kendra.Model.DataSourceSyncJob")]
-    [AWSCmdlet("Calls the Amazon Kendra ListDataSourceSyncJobs API operation.", Operation = new[] {"ListDataSourceSyncJobs"}, SelectReturnType = typeof(Amazon.Kendra.Model.ListDataSourceSyncJobsResponse))]
-    [AWSCmdletOutput("Amazon.Kendra.Model.DataSourceSyncJob or Amazon.Kendra.Model.ListDataSourceSyncJobsResponse",
-        "This cmdlet returns a collection of Amazon.Kendra.Model.DataSourceSyncJob objects.",
-        "The service call response (type Amazon.Kendra.Model.ListDataSourceSyncJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KNDRAccessControlConfigurationList")]
+    [OutputType("Amazon.Kendra.Model.AccessControlConfigurationSummary")]
+    [AWSCmdlet("Calls the Amazon Kendra ListAccessControlConfigurations API operation.", Operation = new[] {"ListAccessControlConfigurations"}, SelectReturnType = typeof(Amazon.Kendra.Model.ListAccessControlConfigurationsResponse))]
+    [AWSCmdletOutput("Amazon.Kendra.Model.AccessControlConfigurationSummary or Amazon.Kendra.Model.ListAccessControlConfigurationsResponse",
+        "This cmdlet returns a collection of Amazon.Kendra.Model.AccessControlConfigurationSummary objects.",
+        "The service call response (type Amazon.Kendra.Model.ListAccessControlConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKNDRDataSourceSyncJobListCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class GetKNDRAccessControlConfigurationListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
-        #region Parameter StartTimeFilter_EndTime
+        #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The UNIX datetime of the end of the time range.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? StartTimeFilter_EndTime { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the data source.</para>
+        /// <para>The identifier of the index for the access control configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,53 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter IndexId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the index used with the data source.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IndexId { get; set; }
-        #endregion
-        
-        #region Parameter StartTimeFilter_StartTime
-        /// <summary>
-        /// <para>
-        /// <para>The UNIX datetime of the beginning of the time range.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? StartTimeFilter_StartTime { get; set; }
-        #endregion
-        
-        #region Parameter StatusFilter
-        /// <summary>
-        /// <para>
-        /// <para>When specified, only returns synchronization jobs with the <code>Status</code> field
-        /// equal to the specified status.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Kendra.DataSourceSyncJobStatus")]
-        public Amazon.Kendra.DataSourceSyncJobStatus StatusFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of synchronization jobs to return in the response. If there are
-        /// fewer results in the list, this response contains only the actual results.</para>
+        /// <para>The maximum number of access control configurations to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>If the previous response was incomplete (because there is more data to retrieve),
         /// Amazon Kendra returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of jobs.</para>
+        /// token to retrieve the next set of access control configurations.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -136,21 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'History'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.ListDataSourceSyncJobsResponse).
-        /// Specifying the name of a property of type Amazon.Kendra.Model.ListDataSourceSyncJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessControlConfigurations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.ListAccessControlConfigurationsResponse).
+        /// Specifying the name of a property of type Amazon.Kendra.Model.ListAccessControlConfigurationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "History";
+        public string Select { get; set; } = "AccessControlConfigurations";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IndexId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -177,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.ListDataSourceSyncJobsResponse, GetKNDRDataSourceSyncJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.ListAccessControlConfigurationsResponse, GetKNDRAccessControlConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -186,16 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.IndexId = this.IndexId;
             #if MODULAR
             if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
@@ -205,9 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.StartTimeFilter_EndTime = this.StartTimeFilter_EndTime;
-            context.StartTimeFilter_StartTime = this.StartTimeFilter_StartTime;
-            context.StatusFilter = this.StatusFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -226,12 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Kendra.Model.ListDataSourceSyncJobsRequest();
+            var request = new Amazon.Kendra.Model.ListAccessControlConfigurationsRequest();
             
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
-            }
             if (cmdletContext.IndexId != null)
             {
                 request.IndexId = cmdletContext.IndexId;
@@ -239,39 +177,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            
-             // populate StartTimeFilter
-            var requestStartTimeFilterIsNull = true;
-            request.StartTimeFilter = new Amazon.Kendra.Model.TimeRange();
-            System.DateTime? requestStartTimeFilter_startTimeFilter_EndTime = null;
-            if (cmdletContext.StartTimeFilter_EndTime != null)
-            {
-                requestStartTimeFilter_startTimeFilter_EndTime = cmdletContext.StartTimeFilter_EndTime.Value;
-            }
-            if (requestStartTimeFilter_startTimeFilter_EndTime != null)
-            {
-                request.StartTimeFilter.EndTime = requestStartTimeFilter_startTimeFilter_EndTime.Value;
-                requestStartTimeFilterIsNull = false;
-            }
-            System.DateTime? requestStartTimeFilter_startTimeFilter_StartTime = null;
-            if (cmdletContext.StartTimeFilter_StartTime != null)
-            {
-                requestStartTimeFilter_startTimeFilter_StartTime = cmdletContext.StartTimeFilter_StartTime.Value;
-            }
-            if (requestStartTimeFilter_startTimeFilter_StartTime != null)
-            {
-                request.StartTimeFilter.StartTime = requestStartTimeFilter_startTimeFilter_StartTime.Value;
-                requestStartTimeFilterIsNull = false;
-            }
-             // determine if request.StartTimeFilter should be set to null
-            if (requestStartTimeFilterIsNull)
-            {
-                request.StartTimeFilter = null;
-            }
-            if (cmdletContext.StatusFilter != null)
-            {
-                request.StatusFilter = cmdletContext.StatusFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -330,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.ListDataSourceSyncJobsResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.ListDataSourceSyncJobsRequest request)
+        private Amazon.Kendra.Model.ListAccessControlConfigurationsResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.ListAccessControlConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "ListDataSourceSyncJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "ListAccessControlConfigurations");
             try
             {
                 #if DESKTOP
-                return client.ListDataSourceSyncJobs(request);
+                return client.ListAccessControlConfigurations(request);
                 #elif CORECLR
-                return client.ListDataSourceSyncJobsAsync(request).GetAwaiter().GetResult();
+                return client.ListAccessControlConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -358,15 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
             public System.String IndexId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? StartTimeFilter_EndTime { get; set; }
-            public System.DateTime? StartTimeFilter_StartTime { get; set; }
-            public Amazon.Kendra.DataSourceSyncJobStatus StatusFilter { get; set; }
-            public System.Func<Amazon.Kendra.Model.ListDataSourceSyncJobsResponse, GetKNDRDataSourceSyncJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.History;
+            public System.Func<Amazon.Kendra.Model.ListAccessControlConfigurationsResponse, GetKNDRAccessControlConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccessControlConfigurations;
         }
         
     }

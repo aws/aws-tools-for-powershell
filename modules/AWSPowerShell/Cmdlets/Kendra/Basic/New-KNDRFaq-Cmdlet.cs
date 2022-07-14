@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// Adding FAQs to an index is an asynchronous operation.
     /// </para><para>
     /// For an example of adding an FAQ to an index using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using
-    /// you FAQ file</a>.
+    /// your FAQ file</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRFaq", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the FAQ.</para>
+        /// <para>A description for the FAQ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the input file. You can choose between a basic CSV format, a CSV format
-        /// that includes customs attributes in a header, and a JSON format that includes custom
-        /// attributes.</para><para>The format must match the format of the file stored in the S3 bucket identified in
+        /// <para>The format of the FAQ input file. You can choose between a basic CSV format, a CSV
+        /// format that includes customs attributes in a header, and a JSON format that includes
+        /// custom attributes.</para><para>The format must match the format of the file stored in the S3 bucket identified in
         /// the <code>S3Path</code> parameter.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding
         /// questions and answers</a>.</para>
         /// </para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the FAQ.</para>
+        /// <para>The identifier of the index for the FAQ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name that should be associated with the FAQ.</para>
+        /// <para>A name for the FAQ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

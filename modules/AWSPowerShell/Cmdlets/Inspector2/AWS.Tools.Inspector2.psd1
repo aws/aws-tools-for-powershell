@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Disable-INS2DelegatedAdminAccount', 
         'Enable-INS2DelegatedAdminAccount', 
         'Get-INS2AccountPermissionList', 
+        'Get-INS2Configuration', 
         'Get-INS2CoverageList', 
         'Get-INS2CoverageStatisticList', 
         'Get-INS2DelegatedAdminAccount', 
@@ -114,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-INS2Inspector', 
         'Stop-INS2Service', 
         'Unregister-INS2Member', 
+        'Update-INS2Configuration', 
         'Update-INS2Filter', 
         'Update-INS2OrganizationConfiguration')
 

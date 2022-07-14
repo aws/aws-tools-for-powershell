@@ -136,6 +136,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.EcrRescanDuration
+        "Update-INS2Configuration/EcrConfiguration_RescanDuration"
+        {
+            $v = "DAYS_180","DAYS_30","LIFETIME"
+            break
+        }
+
         # Amazon.Inspector2.FilterAction
         {
             ($_ -eq "Get-INS2FilterList/Action") -Or
@@ -262,6 +269,7 @@ $INS2_map = @{
     "AggregationRequest_TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
+    "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
     "ReportFormat"=@("New-INS2FindingsReport")
     "Service"=@("Get-INS2AccountPermissionList")
@@ -332,6 +340,7 @@ $INS2_SelectMap = @{
                "Unregister-INS2Member",
                "Stop-INS2Inspector",
                "Enable-INS2DelegatedAdminAccount",
+               "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
@@ -347,6 +356,7 @@ $INS2_SelectMap = @{
                "Get-INS2UsageTotalList",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
+               "Update-INS2Configuration",
                "Update-INS2Filter",
                "Update-INS2OrganizationConfiguration")
 }

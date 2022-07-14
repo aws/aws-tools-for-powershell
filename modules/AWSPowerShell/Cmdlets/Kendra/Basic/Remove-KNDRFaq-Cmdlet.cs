@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the FAQ to remove.</para>
+        /// <para>The identifier of the FAQ you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The index to remove the FAQ from.</para>
+        /// <para>The identifier of the index for the FAQ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

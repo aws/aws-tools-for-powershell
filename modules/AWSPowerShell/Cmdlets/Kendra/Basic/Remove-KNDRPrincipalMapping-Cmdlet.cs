@@ -59,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source you want to delete a group from.</para><para>This is useful if a group is tied to multiple data sources and you want to delete
-        /// a group from accessing documents in a certain data source. For example, the groups
-        /// "Research", "Engineering", and "Sales and Marketing" are all tied to the company's
-        /// documents stored in the data sources Confluence and Salesforce. You want to delete
-        /// "Research" and "Engineering" groups from Salesforce, so that these groups cannot access
-        /// customer-related documents stored in Salesforce. Only "Sales and Marketing" should
-        /// access documents in the Salesforce data source.</para>
+        /// <para>The identifier of the data source you want to delete a group from.</para><para>A group can be tied to multiple data sources. You can delete a group from accessing
+        /// documents in a certain data source. For example, the groups "Research", "Engineering",
+        /// and "Sales and Marketing" are all tied to the company's documents stored in the data
+        /// sources Confluence and Salesforce. You want to delete "Research" and "Engineering"
+        /// groups from Salesforce, so that these groups cannot access customer-related documents
+        /// stored in Salesforce. Only "Sales and Marketing" should access documents in the Salesforce
+        /// data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

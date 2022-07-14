@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index to delete.</para>
+        /// <para>The identifier of the index you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

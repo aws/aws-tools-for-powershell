@@ -28,7 +28,10 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Gets the readme file or descriptive text for a package version. 
+    /// Gets the readme file or descriptive text for a package version. For packages that
+    /// do not contain a readme file, CodeArtifact extracts a description from a metadata
+    /// file. For example, from the <code>&lt;description&gt;</code> element in the <code>pom.xml</code>
+    /// file of a Maven package. 
     /// 
     ///  
     /// <para>
@@ -78,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A format that specifies the type of the package version with the requested readme
-        /// file. </para><note><para>Although <code>maven</code> is listed as a valid value, CodeArtifact does not support
-        /// displaying readme files for Maven packages.</para></note>
+        /// file. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para> The namespace of the package. The package component that specifies its namespace
-        /// depends on its type. For example: </para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> A Python package does not contain a corresponding component, so Python packages do
-        /// not have a namespace. </para></li></ul>
+        /// <para>The namespace of the package version with the requested readme file. The package version
+        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

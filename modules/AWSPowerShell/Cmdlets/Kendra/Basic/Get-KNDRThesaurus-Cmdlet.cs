@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Describes an existing Amazon Kendra thesaurus.
+    /// Gets information about an existing Amazon Kendra thesaurus.
     /// </summary>
     [Cmdlet("Get", "KNDRThesaurus")]
     [OutputType("Amazon.Kendra.Model.DescribeThesaurusResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the thesaurus to describe.</para>
+        /// <para>The identifier of the thesaurus you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index associated with the thesaurus to describe.</para>
+        /// <para>The identifier of the index for the thesaurus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

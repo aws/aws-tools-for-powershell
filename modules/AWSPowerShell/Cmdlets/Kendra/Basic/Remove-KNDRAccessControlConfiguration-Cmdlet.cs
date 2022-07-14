@@ -22,54 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.Kendra;
+using Amazon.Kendra.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Cancels the statement.
+    /// Deletes an access control configuration that you created for your documents in an
+    /// index. This includes user and group access information for your documents. This is
+    /// useful for user context filtering, where search results are filtered based on the
+    /// user or their group access to documents.
     /// </summary>
-    [Cmdlet("Stop", "GLUEStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "KNDRAccessControlConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CancelStatement API operation.", Operation = new[] {"CancelStatement"}, SelectReturnType = typeof(Amazon.Glue.Model.CancelStatementResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CancelStatementResponse",
+    [AWSCmdlet("Calls the Amazon Kendra DeleteAccessControlConfiguration API operation.", Operation = new[] {"DeleteAccessControlConfiguration"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CancelStatementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopGLUEStatementCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveKNDRAccessControlConfigurationCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the statement to be cancelled.</para>
+        /// <para>The identifier of the access control configuration you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? Id { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter RequestOrigin
+        #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The origin of the request to cancel the statement.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RequestOrigin { get; set; }
-        #endregion
-        
-        #region Parameter SessionId
-        /// <summary>
-        /// <para>
-        /// <para>The Session ID of the statement to be cancelled.</para>
+        /// <para>The identifier of the index for an access control configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,13 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SessionId { get; set; }
+        public System.String IndexId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CancelStatementResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-GLUEStatement (CancelStatement)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KNDRAccessControlConfiguration (DeleteAccessControlConfiguration)"))
             {
                 return;
             }
@@ -131,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CancelStatementResponse, StopGLUEStatementCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse, RemoveKNDRAccessControlConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,12 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RequestOrigin = this.RequestOrigin;
-            context.SessionId = this.SessionId;
+            context.IndexId = this.IndexId;
             #if MODULAR
-            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,19 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CancelStatementRequest();
+            var request = new Amazon.Kendra.Model.DeleteAccessControlConfigurationRequest();
             
             if (cmdletContext.Id != null)
             {
-                request.Id = cmdletContext.Id.Value;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.RequestOrigin != null)
+            if (cmdletContext.IndexId != null)
             {
-                request.RequestOrigin = cmdletContext.RequestOrigin;
-            }
-            if (cmdletContext.SessionId != null)
-            {
-                request.SessionId = cmdletContext.SessionId;
+                request.IndexId = cmdletContext.IndexId;
             }
             
             CmdletOutput output;
@@ -219,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CancelStatementResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CancelStatementRequest request)
+        private Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.DeleteAccessControlConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CancelStatement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "DeleteAccessControlConfiguration");
             try
             {
                 #if DESKTOP
-                return client.CancelStatement(request);
+                return client.DeleteAccessControlConfiguration(request);
                 #elif CORECLR
-                return client.CancelStatementAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAccessControlConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? Id { get; set; }
-            public System.String RequestOrigin { get; set; }
-            public System.String SessionId { get; set; }
-            public System.Func<Amazon.Glue.Model.CancelStatementResponse, StopGLUEStatementCmdlet, object> Select { get; set; } =
+            public System.String Id { get; set; }
+            public System.String IndexId { get; set; }
+            public System.Func<Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse, RemoveKNDRAccessControlConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
