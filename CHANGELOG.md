@@ -1,4 +1,16 @@
-﻿### 4.1.126 (2022-07-14 20:38Z)
+﻿### 4.1.127 (2022-07-15 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.316.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Evidently
+    * Added cmdlet Get-CWEVDSegment leveraging the GetSegment service API.
+    * Added cmdlet Get-CWEVDSegmentList leveraging the ListSegments service API.
+    * Added cmdlet Get-CWEVDSegmentReferenceList leveraging the ListSegmentReferences service API.
+    * Added cmdlet New-CWEVDSegment leveraging the CreateSegment service API.
+    * Added cmdlet Remove-CWEVDSegment leveraging the DeleteSegment service API.
+    * Added cmdlet Test-CWEVDSegmentPattern leveraging the TestSegmentPattern service API.
+    * Modified cmdlet New-CWEVDExperiment: added parameter Segment.
+    * Modified cmdlet Update-CWEVDExperiment: added parameters RemoveSegment and Segment.
+
+### 4.1.126 (2022-07-14 20:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.315.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeArtifact
     * Added cmdlet Get-CAPackage leveraging the DescribePackage service API.

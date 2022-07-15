@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the security groups that DataSync can use to access your FSx for ONTAP file
-        /// system. You must configure the security groups to allow outbound traffic on the following
-        /// ports (depending on the protocol that you're using):</para><ul><li><para><b>Network File System (NFS)</b>: TCP port 2049</para></li><li><para><b>Server Message Block (SMB)</b>: TCP port 445</para></li></ul><para>Your file system's security groups must also allow inbound traffic on the same port.</para>
+        /// <para>Specifies the Amazon EC2 security groups that provide access to your file system's
+        /// preferred subnet.</para><para>The security groups must allow outbound traffic on the following ports (depending
+        /// on the protocol you use):</para><ul><li><para><b>Network File System (NFS)</b>: TCP ports 111, 635, and 2049</para></li><li><para><b>Server Message Block (SMB)</b>: TCP port 445</para></li></ul><para>Your file system's security groups must also allow inbound traffic on the same ports.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SMB_User
         /// <summary>
         /// <para>
-        /// <para>Specifies a user who has permission to access your SVM.</para>
+        /// <para>Specifies a user name that can mount the location and access the files, folders, and
+        /// metadata that you need in the SVM.</para><para>If you provide a user in your Active Directory, note the following:</para><ul><li><para>If you're using Directory Service for Microsoft Active Directory, the user must be
+        /// a member of the Amazon Web Services Delegated FSx Administrators group.</para></li><li><para>If you're using a self-managed Active Directory, the user must be a member of either
+        /// the Domain Admins group or a custom group that you specified for file system administration
+        /// when you created your file system.</para></li></ul><para>Make sure that the user has the permissions it needs to copy the data you want:</para><ul><li><para><code>SE_TCB_NAME</code>: Required to set object ownership and file metadata. With
+        /// this privilege, you also can copy NTFS discretionary access lists (DACLs).</para></li><li><para><code>SE_SECURITY_NAME</code>: May be needed to copy NTFS system access control lists
+        /// (SACLs). This operation specifically requires the Windows privilege, which is granted
+        /// to members of the Domain Admins group. If you configure your task to copy SACLs, make
+        /// sure that the user has the required privileges. For information about copying SACLs,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership
+        /// and permissions-related options</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

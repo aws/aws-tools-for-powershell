@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The name of the Windows domain that the FSx for Windows File Server belongs to.</para>
+        /// <para>Specifies the name of the Windows domain that the FSx for Windows File Server belongs
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter FsxFilesystemArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file
+        /// system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password of the user who has the permissions to access files and folders in the
-        /// FSx for Windows File Server file system.</para>
+        /// <para>Specifies the password of the user who has the permissions to access files and folders
+        /// in the file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,8 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the security groups that are used to configure the FSx for Windows File
-        /// Server file system.</para>
+        /// <para>Specifies the ARNs of the security groups that provide access to your file system's
+        /// preferred subnet.</para><note><para>If you choose a security group that doesn't allow connections from within itself,
+        /// do one of the following:</para><ul><li><para>Configure the security group to allow it to communicate within itself.</para></li><li><para>Choose a different security group that can communicate with the mount target's security
+        /// group.</para></li></ul></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,9 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
-        /// File Server file system is used to read data from the Amazon FSx for Windows File
-        /// Server source location or write data to the FSx for Windows File Server destination.</para>
+        /// <para>Specifies a mount path for your file system using forward slashes. This is where DataSync
+        /// reads or writes data (depending on if this is a source or destination location).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents a tag that you want to add to the resource. The
-        /// value can be an empty string. This value helps you manage, filter, and search for
-        /// your resources. We recommend that you create a name tag for your location.</para>
+        /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
+        /// Services resources. We recommend creating at least a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter User
         /// <summary>
         /// <para>
-        /// <para>The user who has the permissions to access files and folders in the FSx for Windows
-        /// File Server file system.</para><para>For information about choosing a user name that ensures sufficient permissions to
+        /// <para>Specifies the user who has the permissions to access files and folders in the file
+        /// system.</para><para>For information about choosing a user name that ensures sufficient permissions to
         /// files, folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</para>
         /// </para>
         /// </summary>

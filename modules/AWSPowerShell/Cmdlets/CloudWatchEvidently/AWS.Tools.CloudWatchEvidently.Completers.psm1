@@ -125,6 +125,13 @@ $CWEVD_Completers = {
             break
         }
 
+        # Amazon.CloudWatchEvidently.SegmentReferenceResourceType
+        "Get-CWEVDSegmentReferenceList/Type"
+        {
+            $v = "EXPERIMENT","LAUNCH"
+            break
+        }
+
 
     }
 
@@ -138,6 +145,7 @@ $CWEVD_map = @{
     "DesiredState"=@("Stop-CWEVDExperiment","Stop-CWEVDLaunch")
     "EvaluationStrategy"=@("New-CWEVDFeature","Update-CWEVDFeature")
     "Status"=@("Get-CWEVDExperimentList","Get-CWEVDLaunchList")
+    "Type"=@("Get-CWEVDSegmentReferenceList")
 }
 
 _awsArgumentCompleterRegistration $CWEVD_Completers $CWEVD_map
@@ -195,20 +203,25 @@ $CWEVD_SelectMap = @{
                "New-CWEVDFeature",
                "New-CWEVDLaunch",
                "New-CWEVDProject",
+               "New-CWEVDSegment",
                "Remove-CWEVDExperiment",
                "Remove-CWEVDFeature",
                "Remove-CWEVDLaunch",
                "Remove-CWEVDProject",
+               "Remove-CWEVDSegment",
                "Get-CWEVDFeatureEvaluation",
                "Get-CWEVDExperiment",
                "Get-CWEVDExperimentResult",
                "Get-CWEVDFeature",
                "Get-CWEVDLaunch",
                "Get-CWEVDProject",
+               "Get-CWEVDSegment",
                "Get-CWEVDExperimentList",
                "Get-CWEVDFeatureList",
                "Get-CWEVDLaunchList",
                "Get-CWEVDProjectList",
+               "Get-CWEVDSegmentReferenceList",
+               "Get-CWEVDSegmentList",
                "Get-CWEVDResourceTag",
                "Write-CWEVDProjectEvent",
                "Start-CWEVDExperiment",
@@ -216,6 +229,7 @@ $CWEVD_SelectMap = @{
                "Stop-CWEVDExperiment",
                "Stop-CWEVDLaunch",
                "Add-CWEVDResourceTag",
+               "Test-CWEVDSegmentPattern",
                "Remove-CWEVDResourceTag",
                "Update-CWEVDExperiment",
                "Update-CWEVDFeature",

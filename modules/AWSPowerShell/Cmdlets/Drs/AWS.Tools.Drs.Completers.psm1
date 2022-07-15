@@ -112,7 +112,7 @@ $EDRS_Completers = {
             ($_ -eq "Update-EDRSReplicationConfigurationTemplate/DefaultLargeStagingDiskType")
         }
         {
-            $v = "GP2","GP3","ST1"
+            $v = "AUTO","GP2","GP3","ST1"
             break
         }
 

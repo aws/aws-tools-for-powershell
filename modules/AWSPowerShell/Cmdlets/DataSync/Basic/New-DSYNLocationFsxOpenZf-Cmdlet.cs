@@ -127,7 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SMB_User
         /// <summary>
         /// <para>
-        /// <para>Specifies a user who has permission to access your SVM.</para>
+        /// <para>Specifies a user name that can mount the location and access the files, folders, and
+        /// metadata that you need in the SVM.</para><para>If you provide a user in your Active Directory, note the following:</para><ul><li><para>If you're using Directory Service for Microsoft Active Directory, the user must be
+        /// a member of the Amazon Web Services Delegated FSx Administrators group.</para></li><li><para>If you're using a self-managed Active Directory, the user must be a member of either
+        /// the Domain Admins group or a custom group that you specified for file system administration
+        /// when you created your file system.</para></li></ul><para>Make sure that the user has the permissions it needs to copy the data you want:</para><ul><li><para><code>SE_TCB_NAME</code>: Required to set object ownership and file metadata. With
+        /// this privilege, you also can copy NTFS discretionary access lists (DACLs).</para></li><li><para><code>SE_SECURITY_NAME</code>: May be needed to copy NTFS system access control lists
+        /// (SACLs). This operation specifically requires the Windows privilege, which is granted
+        /// to members of the Domain Admins group. If you configure your task to copy SACLs, make
+        /// sure that the user has the required privileges. For information about copying SACLs,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership
+        /// and permissions-related options</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

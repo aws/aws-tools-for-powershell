@@ -22,30 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Drs;
-using Amazon.Drs.Model;
+using Amazon.CloudWatchEvidently;
+using Amazon.CloudWatchEvidently.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EDRS
+namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
-    /// Deletes a single Recovery Instance by ID. This deletes the Recovery Instance resource
-    /// from Elastic Disaster Recovery. The Recovery Instance must be disconnected first in
-    /// order to delete it.
+    /// Returns information about the specified segment. Specify the segment you want to view
+    /// by specifying its ARN.
     /// </summary>
-    [Cmdlet("Remove", "EDRSRecoveryInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Disaster Recovery Service DeleteRecoveryInstance API operation.", Operation = new[] {"DeleteRecoveryInstance"}, SelectReturnType = typeof(Amazon.Drs.Model.DeleteRecoveryInstanceResponse))]
-    [AWSCmdletOutput("None or Amazon.Drs.Model.DeleteRecoveryInstanceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.DeleteRecoveryInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWEVDSegment")]
+    [OutputType("Amazon.CloudWatchEvidently.Model.Segment")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Evidently GetSegment API operation.", Operation = new[] {"GetSegment"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.GetSegmentResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.Segment or Amazon.CloudWatchEvidently.Model.GetSegmentResponse",
+        "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Segment object.",
+        "The service call response (type Amazon.CloudWatchEvidently.Model.GetSegmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveEDRSRecoveryInstanceCmdlet : AmazonDrsClientCmdlet, IExecutor
+    public partial class GetCWEVDSegmentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
-        #region Parameter RecoveryInstanceID
+        #region Parameter Segment
         /// <summary>
         /// <para>
-        /// <para>The ID of the Recovery Instance to be deleted.</para>
+        /// <para>The ARN of the segment to return information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,48 +55,33 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RecoveryInstanceID { get; set; }
+        public System.String Segment { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.DeleteRecoveryInstanceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Segment'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchEvidently.Model.GetSegmentResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchEvidently.Model.GetSegmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Segment";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RecoveryInstanceID parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RecoveryInstanceID' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Segment parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Segment' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RecoveryInstanceID' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Segment' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecoveryInstanceID), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EDRSRecoveryInstance (DeleteRecoveryInstance)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -107,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Drs.Model.DeleteRecoveryInstanceResponse, RemoveEDRSRecoveryInstanceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchEvidently.Model.GetSegmentResponse, GetCWEVDSegmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RecoveryInstanceID;
+                context.Select = (response, cmdlet) => this.Segment;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RecoveryInstanceID = this.RecoveryInstanceID;
+            context.Segment = this.Segment;
             #if MODULAR
-            if (this.RecoveryInstanceID == null && ParameterWasBound(nameof(this.RecoveryInstanceID)))
+            if (this.Segment == null && ParameterWasBound(nameof(this.Segment)))
             {
-                WriteWarning("You are passing $null as a value for parameter RecoveryInstanceID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Segment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Drs.Model.DeleteRecoveryInstanceRequest();
+            var request = new Amazon.CloudWatchEvidently.Model.GetSegmentRequest();
             
-            if (cmdletContext.RecoveryInstanceID != null)
+            if (cmdletContext.Segment != null)
             {
-                request.RecoveryInstanceID = cmdletContext.RecoveryInstanceID;
+                request.Segment = cmdletContext.Segment;
             }
             
             CmdletOutput output;
@@ -179,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         
         #region AWS Service Operation Call
         
-        private Amazon.Drs.Model.DeleteRecoveryInstanceResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.DeleteRecoveryInstanceRequest request)
+        private Amazon.CloudWatchEvidently.Model.GetSegmentResponse CallAWSServiceOperation(IAmazonCloudWatchEvidently client, Amazon.CloudWatchEvidently.Model.GetSegmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "DeleteRecoveryInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Evidently", "GetSegment");
             try
             {
                 #if DESKTOP
-                return client.DeleteRecoveryInstance(request);
+                return client.GetSegment(request);
                 #elif CORECLR
-                return client.DeleteRecoveryInstanceAsync(request).GetAwaiter().GetResult();
+                return client.GetSegmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RecoveryInstanceID { get; set; }
-            public System.Func<Amazon.Drs.Model.DeleteRecoveryInstanceResponse, RemoveEDRSRecoveryInstanceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Segment { get; set; }
+            public System.Func<Amazon.CloudWatchEvidently.Model.GetSegmentResponse, GetCWEVDSegmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Segment;
         }
         
     }

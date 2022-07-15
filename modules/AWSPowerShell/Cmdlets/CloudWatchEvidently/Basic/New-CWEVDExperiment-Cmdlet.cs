@@ -38,6 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// data and analyzes it by statistical methods, and provides clear recommendations about
     /// which variations perform better.
     /// </para><para>
+    /// You can optionally specify a <code>segment</code> to have the experiment consider
+    /// only certain audience types in the experiment, such as using only user sessions from
+    /// a certain location or who use a certain internet browser.
+    /// </para><para>
     /// Don't use this operation to update an existing experiment. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html">UpdateExperiment</a>.
     /// 
     /// </para>
@@ -150,6 +154,18 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? SamplingRate { get; set; }
+        #endregion
+        
+        #region Parameter Segment
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an audience <i>segment</i> to use in the experiment. When a segment is used
+        /// in an experiment, only user sessions that match the segment pattern are used in the
+        /// experiment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Segment { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -298,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             #endif
             context.RandomizationSalt = this.RandomizationSalt;
             context.SamplingRate = this.SamplingRate;
+            context.Segment = this.Segment;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -385,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             {
                 request.SamplingRate = cmdletContext.SamplingRate.Value;
             }
+            if (cmdletContext.Segment != null)
+            {
+                request.Segment = cmdletContext.Segment;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -462,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             public System.String Project { get; set; }
             public System.String RandomizationSalt { get; set; }
             public System.Int64? SamplingRate { get; set; }
+            public System.String Segment { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.CloudWatchEvidently.Model.TreatmentConfig> Treatment { get; set; }
             public System.Func<Amazon.CloudWatchEvidently.Model.CreateExperimentResponse, NewCWEVDExperimentCmdlet, object> Select { get; set; } =

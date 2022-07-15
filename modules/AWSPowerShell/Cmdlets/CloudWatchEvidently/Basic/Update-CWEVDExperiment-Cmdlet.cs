@@ -126,6 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         public System.String RandomizationSalt { get; set; }
         #endregion
         
+        #region Parameter RemoveSegment
+        /// <summary>
+        /// <para>
+        /// <para>Removes a segment from being used in an experiment. You can't use this parameter if
+        /// the experiment is currently running.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveSegment { get; set; }
+        #endregion
+        
         #region Parameter SamplingRate
         /// <summary>
         /// <para>
@@ -137,6 +148,18 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? SamplingRate { get; set; }
+        #endregion
+        
+        #region Parameter Segment
+        /// <summary>
+        /// <para>
+        /// <para>Adds an audience <i>segment</i> to an experiment. When a segment is used in an experiment,
+        /// only user sessions that match the segment pattern are used in the experiment. You
+        /// can't use this parameter if the experiment is currently running.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Segment { get; set; }
         #endregion
         
         #region Parameter Treatment
@@ -234,7 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             }
             #endif
             context.RandomizationSalt = this.RandomizationSalt;
+            context.RemoveSegment = this.RemoveSegment;
             context.SamplingRate = this.SamplingRate;
+            context.Segment = this.Segment;
             if (this.Treatment != null)
             {
                 context.Treatment = new List<Amazon.CloudWatchEvidently.Model.TreatmentConfig>(this.Treatment);
@@ -304,9 +329,17 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             {
                 request.RandomizationSalt = cmdletContext.RandomizationSalt;
             }
+            if (cmdletContext.RemoveSegment != null)
+            {
+                request.RemoveSegment = cmdletContext.RemoveSegment.Value;
+            }
             if (cmdletContext.SamplingRate != null)
             {
                 request.SamplingRate = cmdletContext.SamplingRate.Value;
+            }
+            if (cmdletContext.Segment != null)
+            {
+                request.Segment = cmdletContext.Segment;
             }
             if (cmdletContext.Treatment != null)
             {
@@ -380,7 +413,9 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             public Dictionary<System.String, System.Int64> OnlineAbConfig_TreatmentWeight { get; set; }
             public System.String Project { get; set; }
             public System.String RandomizationSalt { get; set; }
+            public System.Boolean? RemoveSegment { get; set; }
             public System.Int64? SamplingRate { get; set; }
+            public System.String Segment { get; set; }
             public List<Amazon.CloudWatchEvidently.Model.TreatmentConfig> Treatment { get; set; }
             public System.Func<Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse, UpdateCWEVDExperimentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Experiment;

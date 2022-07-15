@@ -8986,6 +8986,8 @@ Set-Alias -Name Create-CWEVDLaunch -Value New-CWEVDLaunch
 Set-Alias -Name CWEVD-CreateLaunch -Value New-CWEVDLaunch
 Set-Alias -Name Create-CWEVDProject -Value New-CWEVDProject
 Set-Alias -Name CWEVD-CreateProject -Value New-CWEVDProject
+Set-Alias -Name Create-CWEVDSegment -Value New-CWEVDSegment
+Set-Alias -Name CWEVD-CreateSegment -Value New-CWEVDSegment
 Set-Alias -Name Delete-CWEVDExperiment -Value Remove-CWEVDExperiment
 Set-Alias -Name CWEVD-DeleteExperiment -Value Remove-CWEVDExperiment
 Set-Alias -Name Delete-CWEVDFeature -Value Remove-CWEVDFeature
@@ -8994,6 +8996,8 @@ Set-Alias -Name Delete-CWEVDLaunch -Value Remove-CWEVDLaunch
 Set-Alias -Name CWEVD-DeleteLaunch -Value Remove-CWEVDLaunch
 Set-Alias -Name Delete-CWEVDProject -Value Remove-CWEVDProject
 Set-Alias -Name CWEVD-DeleteProject -Value Remove-CWEVDProject
+Set-Alias -Name Delete-CWEVDSegment -Value Remove-CWEVDSegment
+Set-Alias -Name CWEVD-DeleteSegment -Value Remove-CWEVDSegment
 Set-Alias -Name Evaluate-CWEVDFeature -Value Get-CWEVDFeatureEvaluation
 Set-Alias -Name Evaluate-CWEVDFeatureEvaluation -Value Get-CWEVDFeatureEvaluation
 Set-Alias -Name CWEVD-EvaluateFeature -Value Get-CWEVDFeatureEvaluation
@@ -9003,6 +9007,7 @@ Set-Alias -Name CWEVD-GetExperimentResults -Value Get-CWEVDExperimentResult
 Set-Alias -Name CWEVD-GetFeature -Value Get-CWEVDFeature
 Set-Alias -Name CWEVD-GetLaunch -Value Get-CWEVDLaunch
 Set-Alias -Name CWEVD-GetProject -Value Get-CWEVDProject
+Set-Alias -Name CWEVD-GetSegment -Value Get-CWEVDSegment
 Set-Alias -Name List-CWEVDExperiments -Value Get-CWEVDExperimentList
 Set-Alias -Name List-CWEVDExperimentList -Value Get-CWEVDExperimentList
 Set-Alias -Name CWEVD-ListExperiments -Value Get-CWEVDExperimentList
@@ -9015,6 +9020,12 @@ Set-Alias -Name CWEVD-ListLaunches -Value Get-CWEVDLaunchList
 Set-Alias -Name List-CWEVDProjects -Value Get-CWEVDProjectList
 Set-Alias -Name List-CWEVDProjectList -Value Get-CWEVDProjectList
 Set-Alias -Name CWEVD-ListProjects -Value Get-CWEVDProjectList
+Set-Alias -Name List-CWEVDSegmentReferences -Value Get-CWEVDSegmentReferenceList
+Set-Alias -Name List-CWEVDSegmentReferenceList -Value Get-CWEVDSegmentReferenceList
+Set-Alias -Name CWEVD-ListSegmentReferences -Value Get-CWEVDSegmentReferenceList
+Set-Alias -Name List-CWEVDSegments -Value Get-CWEVDSegmentList
+Set-Alias -Name List-CWEVDSegmentList -Value Get-CWEVDSegmentList
+Set-Alias -Name CWEVD-ListSegments -Value Get-CWEVDSegmentList
 Set-Alias -Name CWEVD-ListTagsForResource -Value Get-CWEVDResourceTag
 Set-Alias -Name Put-CWEVDProjectEvents -Value Write-CWEVDProjectEvent
 Set-Alias -Name Put-CWEVDProjectEvent -Value Write-CWEVDProjectEvent
@@ -9024,6 +9035,7 @@ Set-Alias -Name CWEVD-StartLaunch -Value Start-CWEVDLaunch
 Set-Alias -Name CWEVD-StopExperiment -Value Stop-CWEVDExperiment
 Set-Alias -Name CWEVD-StopLaunch -Value Stop-CWEVDLaunch
 Set-Alias -Name CWEVD-TagResource -Value Add-CWEVDResourceTag
+Set-Alias -Name CWEVD-TestSegmentPattern -Value Test-CWEVDSegmentPattern
 Set-Alias -Name CWEVD-UntagResource -Value Remove-CWEVDResourceTag
 Set-Alias -Name CWEVD-UpdateExperiment -Value Update-CWEVDExperiment
 Set-Alias -Name CWEVD-UpdateFeature -Value Update-CWEVDFeature

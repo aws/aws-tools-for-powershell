@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// <summary>
     /// Updates the expiration information for your managed rule set. Use this to initiate
     /// the expiration of a managed rule group version. After you initiate expiration for
-    /// a version, WAF excludes it from the reponse to <a>ListAvailableManagedRuleGroupVersions</a>
+    /// a version, WAF excludes it from the response to <a>ListAvailableManagedRuleGroupVersions</a>
     /// for the managed rule group. 
     /// 
     ///  <note><para>

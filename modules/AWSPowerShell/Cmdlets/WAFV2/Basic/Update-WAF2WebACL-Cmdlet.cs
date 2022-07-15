@@ -28,7 +28,7 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides continous
+    /// Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides continuous
     /// coverage to the resources that you have associated with the web ACL. 
     /// 
     ///  
@@ -196,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
         /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
-        /// long. It can't contain whitespace or metric names reserved for WAF, for example "All"
-        /// and "Default_Action." </para>
+        /// long. It can't contain whitespace or metric names reserved for WAF, for example <code>All</code>
+        /// and <code>Default_Action</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
