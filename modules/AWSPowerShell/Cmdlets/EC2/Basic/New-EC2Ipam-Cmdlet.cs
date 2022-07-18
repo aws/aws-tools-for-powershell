@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a>
-    /// in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create
+    /// an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Ipam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions
         /// where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors
-        /// resources in the Amazon Web Services Regions you select as operating Regions.</para><para>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create
+        /// resources in the Amazon Web Services Regions you select as operating Regions.</para><para>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create
         /// an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
         /// </para>
         /// </summary>

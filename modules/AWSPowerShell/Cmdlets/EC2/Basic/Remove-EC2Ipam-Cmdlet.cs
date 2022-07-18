@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a>
-    /// in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete
+    /// an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Ipam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

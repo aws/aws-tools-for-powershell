@@ -180,7 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_MaxTotalPrice
         /// <summary>
         /// <para>
-        /// <para>The maximum amount per hour for Spot Instances that you're willing to pay.</para>
+        /// <para>The maximum amount per hour for Spot Instances that you're willing to pay. We do not
+        /// recommend using this parameter because it can lead to increased interruptions. If
+        /// you do not specify this parameter, you will pay the current Spot price.</para><important><para>If you specify a maximum price, your Spot Instances will be interrupted more frequently
+        /// than if you do not specify this parameter.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

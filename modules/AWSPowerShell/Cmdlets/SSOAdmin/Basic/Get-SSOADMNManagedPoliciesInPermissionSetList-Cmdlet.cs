@@ -28,7 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Lists the IAM managed policy that is attached to a specified permission set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon Web Services managed IAM policy that is attached to a specified permission
+    /// set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNManagedPoliciesInPermissionSetList")]
     [OutputType("Amazon.SSOAdmin.Model.AttachedManagedPolicy")]

@@ -83,6 +83,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEdgeDeploymentPlan" OutputProperty="EdgeDeploymentPlanArn" Verb="New" Noun="EdgeDeploymentPlan" ShouldProcessTarget="EdgeDeploymentPlanName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEdgeDeploymentStage" Verb="New" Noun="EdgeDeploymentStage" ShouldProcessTarget="EdgeDeploymentPlanName" PipelineParameter="EdgeDeploymentPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEdgePackagingJob" Verb="New" Noun="EdgePackagingJob" ShouldProcessTarget="EdgePackagingJobName" PipelineParameter="EdgePackagingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -303,6 +311,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEdgeDeploymentPlan" Verb="Remove" Noun="EdgeDeploymentPlan" ShouldProcessTarget="EdgeDeploymentPlanName" PipelineParameter="EdgeDeploymentPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEdgeDeploymentStage" Verb="Remove" Noun="EdgeDeploymentStage" ShouldProcessTarget="StageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -464,6 +480,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEdgeDeploymentPlan" OutputProperty="*" Verb="Get" Noun="EdgeDeploymentPlan" PipelineParameter="EdgeDeploymentPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -707,6 +727,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEdgeDeploymentPlans" OutputProperty="EdgeDeploymentPlanSummaries" Verb="Get" Noun="EdgeDeploymentPlanList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEdgePackagingJobs" OutputProperty="EdgePackagingJobSummaries" Verb="Get" Noun="EdgePackagingJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -831,6 +855,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStageDevices" OutputProperty="DeviceDeploymentSummaries" Verb="Get" Noun="StageDeviceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStudioLifecycleConfigs" OutputProperty="StudioLifecycleConfigs" Verb="Get" Noun="StudioLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -907,6 +935,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartEdgeDeploymentStage" Verb="Start" Noun="EdgeDeploymentStage" ShouldProcessTarget="StageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringSchedule" Verb="Start" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -924,6 +956,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCompilationJob" Verb="Stop" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEdgeDeploymentStage" Verb="Stop" Noun="EdgeDeploymentStage" ShouldProcessTarget="StageName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

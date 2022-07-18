@@ -18976,6 +18976,10 @@ Set-Alias -Name Create-SMDeviceFleet -Value New-SMDeviceFleet
 Set-Alias -Name SM-CreateDeviceFleet -Value New-SMDeviceFleet
 Set-Alias -Name Create-SMDomain -Value New-SMDomain
 Set-Alias -Name SM-CreateDomain -Value New-SMDomain
+Set-Alias -Name Create-SMEdgeDeploymentPlan -Value New-SMEdgeDeploymentPlan
+Set-Alias -Name SM-CreateEdgeDeploymentPlan -Value New-SMEdgeDeploymentPlan
+Set-Alias -Name Create-SMEdgeDeploymentStage -Value New-SMEdgeDeploymentStage
+Set-Alias -Name SM-CreateEdgeDeploymentStage -Value New-SMEdgeDeploymentStage
 Set-Alias -Name Create-SMEdgePackagingJob -Value New-SMEdgePackagingJob
 Set-Alias -Name SM-CreateEdgePackagingJob -Value New-SMEdgePackagingJob
 Set-Alias -Name Create-SMEndpoint -Value New-SMEndpoint
@@ -19066,6 +19070,10 @@ Set-Alias -Name Delete-SMDeviceFleet -Value Remove-SMDeviceFleet
 Set-Alias -Name SM-DeleteDeviceFleet -Value Remove-SMDeviceFleet
 Set-Alias -Name Delete-SMDomain -Value Remove-SMDomain
 Set-Alias -Name SM-DeleteDomain -Value Remove-SMDomain
+Set-Alias -Name Delete-SMEdgeDeploymentPlan -Value Remove-SMEdgeDeploymentPlan
+Set-Alias -Name SM-DeleteEdgeDeploymentPlan -Value Remove-SMEdgeDeploymentPlan
+Set-Alias -Name Delete-SMEdgeDeploymentStage -Value Remove-SMEdgeDeploymentStage
+Set-Alias -Name SM-DeleteEdgeDeploymentStage -Value Remove-SMEdgeDeploymentStage
 Set-Alias -Name Delete-SMEndpoint -Value Remove-SMEndpoint
 Set-Alias -Name SM-DeleteEndpoint -Value Remove-SMEndpoint
 Set-Alias -Name Delete-SMEndpointConfig -Value Remove-SMEndpointConfig
@@ -19150,6 +19158,8 @@ Set-Alias -Name Describe-SMDeviceFleet -Value Get-SMDeviceFleet
 Set-Alias -Name SM-DescribeDeviceFleet -Value Get-SMDeviceFleet
 Set-Alias -Name Describe-SMDomain -Value Get-SMDomain
 Set-Alias -Name SM-DescribeDomain -Value Get-SMDomain
+Set-Alias -Name Describe-SMEdgeDeploymentPlan -Value Get-SMEdgeDeploymentPlan
+Set-Alias -Name SM-DescribeEdgeDeploymentPlan -Value Get-SMEdgeDeploymentPlan
 Set-Alias -Name Describe-SMEdgePackagingJob -Value Get-SMEdgePackagingJob
 Set-Alias -Name SM-DescribeEdgePackagingJob -Value Get-SMEdgePackagingJob
 Set-Alias -Name Describe-SMEndpoint -Value Get-SMEndpoint
@@ -19279,6 +19289,9 @@ Set-Alias -Name SM-ListDevices -Value Get-SMDeviceList
 Set-Alias -Name List-SMDomains -Value Get-SMDomainList
 Set-Alias -Name List-SMDomainList -Value Get-SMDomainList
 Set-Alias -Name SM-ListDomains -Value Get-SMDomainList
+Set-Alias -Name List-SMEdgeDeploymentPlans -Value Get-SMEdgeDeploymentPlanList
+Set-Alias -Name List-SMEdgeDeploymentPlanList -Value Get-SMEdgeDeploymentPlanList
+Set-Alias -Name SM-ListEdgeDeploymentPlans -Value Get-SMEdgeDeploymentPlanList
 Set-Alias -Name List-SMEdgePackagingJobs -Value Get-SMEdgePackagingJobList
 Set-Alias -Name List-SMEdgePackagingJobList -Value Get-SMEdgePackagingJobList
 Set-Alias -Name SM-ListEdgePackagingJobs -Value Get-SMEdgePackagingJobList
@@ -19372,6 +19385,9 @@ Set-Alias -Name SM-ListProcessingJobs -Value Get-SMProcessingJobList
 Set-Alias -Name List-SMProjects -Value Get-SMProjectList
 Set-Alias -Name List-SMProjectList -Value Get-SMProjectList
 Set-Alias -Name SM-ListProjects -Value Get-SMProjectList
+Set-Alias -Name List-SMStageDevices -Value Get-SMStageDeviceList
+Set-Alias -Name List-SMStageDeviceList -Value Get-SMStageDeviceList
+Set-Alias -Name SM-ListStageDevices -Value Get-SMStageDeviceList
 Set-Alias -Name List-SMStudioLifecycleConfigs -Value Get-SMStudioLifecycleConfigList
 Set-Alias -Name List-SMStudioLifecycleConfigList -Value Get-SMStudioLifecycleConfigList
 Set-Alias -Name SM-ListStudioLifecycleConfigs -Value Get-SMStudioLifecycleConfigList
@@ -19419,11 +19435,13 @@ Set-Alias -Name Search-SM -Value Search-SMResource
 Set-Alias -Name SM-Search -Value Search-SMResource
 Set-Alias -Name SM-SendPipelineExecutionStepFailure -Value Send-SMPipelineExecutionStepFailure
 Set-Alias -Name SM-SendPipelineExecutionStepSuccess -Value Send-SMPipelineExecutionStepSuccess
+Set-Alias -Name SM-StartEdgeDeploymentStage -Value Start-SMEdgeDeploymentStage
 Set-Alias -Name SM-StartMonitoringSchedule -Value Start-SMMonitoringSchedule
 Set-Alias -Name SM-StartNotebookInstance -Value Start-SMNotebookInstance
 Set-Alias -Name SM-StartPipelineExecution -Value Start-SMPipelineExecution
 Set-Alias -Name SM-StopAutoMLJob -Value Stop-SMAutoMLJob
 Set-Alias -Name SM-StopCompilationJob -Value Stop-SMCompilationJob
+Set-Alias -Name SM-StopEdgeDeploymentStage -Value Stop-SMEdgeDeploymentStage
 Set-Alias -Name SM-StopEdgePackagingJob -Value Stop-SMEdgePackagingJob
 Set-Alias -Name SM-StopHyperParameterTuningJob -Value Stop-SMHyperParameterTuningJob
 Set-Alias -Name SM-StopInferenceRecommendationsJob -Value Stop-SMInferenceRecommendationsJob
@@ -20905,6 +20923,8 @@ Set-Alias -Name SSO-ListAccounts -Value Get-SSOAccountList
 Set-Alias -Name Logout-SSO -Value Close-SSOSession
 Set-Alias -Name Logout-SSOSession -Value Close-SSOSession
 Set-Alias -Name SSO-Logout -Value Close-SSOSession
+Set-Alias -Name Attach-SSOADMNCustomerManagedPolicyReferenceToPermissionSet -Value Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet
+Set-Alias -Name SSOADMN-AttachCustomerManagedPolicyReferenceToPermissionSet -Value Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet
 Set-Alias -Name Attach-SSOADMNManagedPolicyToPermissionSet -Value Mount-SSOADMNManagedPolicyToPermissionSet
 Set-Alias -Name SSOADMN-AttachManagedPolicyToPermissionSet -Value Mount-SSOADMNManagedPolicyToPermissionSet
 Set-Alias -Name Create-SSOADMNAccountAssignment -Value New-SSOADMNAccountAssignment
@@ -20919,6 +20939,8 @@ Set-Alias -Name Delete-SSOADMNInlinePolicyFromPermissionSet -Value Remove-SSOADM
 Set-Alias -Name SSOADMN-DeleteInlinePolicyFromPermissionSet -Value Remove-SSOADMNInlinePolicyFromPermissionSet
 Set-Alias -Name Delete-SSOADMNInstanceAccessControlAttributeConfiguration -Value Remove-SSOADMNInstanceAccessControlAttributeConfiguration
 Set-Alias -Name SSOADMN-DeleteInstanceAccessControlAttributeConfiguration -Value Remove-SSOADMNInstanceAccessControlAttributeConfiguration
+Set-Alias -Name Delete-SSOADMNPermissionsBoundaryFromPermissionSet -Value Remove-SSOADMNPermissionsBoundaryFromPermissionSet
+Set-Alias -Name SSOADMN-DeletePermissionsBoundaryFromPermissionSet -Value Remove-SSOADMNPermissionsBoundaryFromPermissionSet
 Set-Alias -Name Delete-SSOADMNPermissionSet -Value Remove-SSOADMNPermissionSet
 Set-Alias -Name SSOADMN-DeletePermissionSet -Value Remove-SSOADMNPermissionSet
 Set-Alias -Name Describe-SSOADMNAccountAssignmentCreationStatus -Value Get-SSOADMNAccountAssignmentCreationStatus
@@ -20931,9 +20953,12 @@ Set-Alias -Name Describe-SSOADMNPermissionSet -Value Get-SSOADMNPermissionSet
 Set-Alias -Name SSOADMN-DescribePermissionSet -Value Get-SSOADMNPermissionSet
 Set-Alias -Name Describe-SSOADMNPermissionSetProvisioningStatus -Value Get-SSOADMNPermissionSetProvisioningStatus
 Set-Alias -Name SSOADMN-DescribePermissionSetProvisioningStatus -Value Get-SSOADMNPermissionSetProvisioningStatus
+Set-Alias -Name Detach-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet -Value Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet
+Set-Alias -Name SSOADMN-DetachCustomerManagedPolicyReferenceFromPermissionSet -Value Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet
 Set-Alias -Name Detach-SSOADMNManagedPolicyFromPermissionSet -Value Dismount-SSOADMNManagedPolicyFromPermissionSet
 Set-Alias -Name SSOADMN-DetachManagedPolicyFromPermissionSet -Value Dismount-SSOADMNManagedPolicyFromPermissionSet
 Set-Alias -Name SSOADMN-GetInlinePolicyForPermissionSet -Value Get-SSOADMNInlinePolicyForPermissionSet
+Set-Alias -Name SSOADMN-GetPermissionsBoundaryForPermissionSet -Value Get-SSOADMNPermissionsBoundaryForPermissionSet
 Set-Alias -Name List-SSOADMNAccountAssignmentCreationStatus -Value Get-SSOADMNAccountAssignmentCreationStatusList
 Set-Alias -Name List-SSOADMNAccountAssignmentCreationStatusList -Value Get-SSOADMNAccountAssignmentCreationStatusList
 Set-Alias -Name SSOADMN-ListAccountAssignmentCreationStatus -Value Get-SSOADMNAccountAssignmentCreationStatusList
@@ -20946,6 +20971,9 @@ Set-Alias -Name SSOADMN-ListAccountAssignments -Value Get-SSOADMNAccountAssignme
 Set-Alias -Name List-SSOADMNAccountsForProvisionedPermissionSet -Value Get-SSOADMNAccountsForProvisionedPermissionSetList
 Set-Alias -Name List-SSOADMNAccountsForProvisionedPermissionSetList -Value Get-SSOADMNAccountsForProvisionedPermissionSetList
 Set-Alias -Name SSOADMN-ListAccountsForProvisionedPermissionSet -Value Get-SSOADMNAccountsForProvisionedPermissionSetList
+Set-Alias -Name List-SSOADMNCustomerManagedPolicyReferencesInPermissionSet -Value Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList
+Set-Alias -Name List-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList -Value Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList
+Set-Alias -Name SSOADMN-ListCustomerManagedPolicyReferencesInPermissionSet -Value Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList
 Set-Alias -Name List-SSOADMNInstances -Value Get-SSOADMNInstanceList
 Set-Alias -Name List-SSOADMNInstanceList -Value Get-SSOADMNInstanceList
 Set-Alias -Name SSOADMN-ListInstances -Value Get-SSOADMNInstanceList
@@ -20967,6 +20995,8 @@ Set-Alias -Name Provision-SSOADMNPermissionSetProvision -Value Add-SSOADMNPermis
 Set-Alias -Name SSOADMN-ProvisionPermissionSet -Value Add-SSOADMNPermissionSetProvision
 Set-Alias -Name Put-SSOADMNInlinePolicyToPermissionSet -Value Write-SSOADMNInlinePolicyToPermissionSet
 Set-Alias -Name SSOADMN-PutInlinePolicyToPermissionSet -Value Write-SSOADMNInlinePolicyToPermissionSet
+Set-Alias -Name Put-SSOADMNPermissionsBoundaryToPermissionSet -Value Write-SSOADMNPermissionsBoundaryToPermissionSet
+Set-Alias -Name SSOADMN-PutPermissionsBoundaryToPermissionSet -Value Write-SSOADMNPermissionsBoundaryToPermissionSet
 Set-Alias -Name SSOADMN-TagResource -Value Add-SSOADMNResourceTag
 Set-Alias -Name SSOADMN-UntagResource -Value Remove-SSOADMNResourceTag
 Set-Alias -Name SSOADMN-UpdateInstanceAccessControlAttributeConfiguration -Value Update-SSOADMNInstanceAccessControlAttributeConfiguration

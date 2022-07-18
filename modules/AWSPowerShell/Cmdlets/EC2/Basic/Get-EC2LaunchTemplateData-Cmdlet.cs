@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// This action calls on other describe actions to get instance information. Depending
     /// on your instance configuration, you may need to allow the following actions in your
-    /// IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes,
-    /// DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code>
-    /// depending on your instance requirements.
+    /// IAM policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
+    /// <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>.
+    /// Or, you can allow <code>describe*</code> depending on your instance requirements.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2LaunchTemplateData")]

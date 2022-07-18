@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move
-    /// resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move
+    /// resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change
     /// the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
     /// </para>
     /// </summary>

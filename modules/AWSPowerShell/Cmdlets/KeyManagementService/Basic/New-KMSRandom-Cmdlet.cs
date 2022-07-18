@@ -32,6 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
+    /// You must use the <code>NumberOfBytes</code> parameter to specify the length of the
+    /// random byte string. There is no default value for string length.
+    /// </para><para>
     /// By default, the random byte string is generated in KMS. To generate the byte string
     /// in the CloudHSM cluster that is associated with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
     /// key store</a>, specify the custom key store ID.
@@ -45,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// For more information about entropy and random number generation, see <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key
     /// Management Service Cryptographic Details</a>.
+    /// </para><para><b>Cross-account use</b>: Not applicable. <code>GenerateRandom</code> does not use
+    /// any account-specific resources, such as KMS keys.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a>
     /// (IAM policy)
     /// </para>
@@ -75,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
-        /// <para>The length of the byte string.</para>
+        /// <para>The length of the random byte string. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

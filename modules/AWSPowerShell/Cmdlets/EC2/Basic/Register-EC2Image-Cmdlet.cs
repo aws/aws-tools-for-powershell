@@ -35,7 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <note><para>
     /// For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
-    /// in a single request, so you don't have to register the AMI yourself.
+    /// in a single request, so you don't have to register the AMI yourself. We recommend
+    /// that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.
     /// </para></note><para>
     /// If needed, you can deregister an AMI at any time. Any modifications you make to an
     /// AMI backed by an instance store volume invalidates its registration. If you make changes

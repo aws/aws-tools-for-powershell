@@ -173,10 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// delay before including the new principal in a key policy because the new principal
         /// might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i><i>Identity and Access
-        /// Management User Guide</i></i>.</para></li></ul><para>A key policy document must conform to the following rules.</para><ul><li><para>Up to 32 kilobytes (32768 bytes)</para></li><li><para>Must be UTF-8 encoded</para></li><li><para>The only Unicode characters that are permitted in a key policy document are the horizontal
-        /// tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range
-        /// U+0020 to U+00FF.</para></li><li><para>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces
-        /// are prohibited in the <code>Sid</code> element of an IAM policy document.)</para></li></ul>
+        /// Management User Guide</i></i>.</para></li></ul><para>A key policy document can include only the following characters:</para><ul><li><para>Printable ASCII characters from the space character (<code>\u0020</code>) through
+        /// the end of the ASCII character range.</para></li><li><para>Printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>).</para></li><li><para>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return
+        /// (<code>\u000D</code>) special characters</para></li></ul><para>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key
+        /// policies in KMS</a> in the <i>Key Management Service Developer Guide</i>. For help
+        /// writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+        /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

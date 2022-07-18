@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom
-    /// Key Store feature</a> feature in KMS, which combines the convenience and extensive
+    /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// key store feature</a> feature in KMS, which combines the convenience and extensive
     /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para>
     /// By default, this operation returns information about all custom key stores in the

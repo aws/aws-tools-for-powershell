@@ -335,8 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_SpotPrice
         /// <summary>
         /// <para>
-        /// <para>The maximum price per unit hour that you are willing to pay for a Spot Instance. The
-        /// default is the On-Demand price.</para>
+        /// <para>The maximum price per unit hour that you are willing to pay for a Spot Instance. We
+        /// do not recommend using this parameter because it can lead to increased interruptions.
+        /// If you do not specify this parameter, you will pay the current Spot price.</para><important><para>If you specify a maximum price, your instances will be interrupted more frequently
+        /// than if you do not specify this parameter.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

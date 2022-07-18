@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom
-    /// Key Store feature</a> feature in KMS, which combines the convenience and extensive
+    /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// key store feature</a> feature in KMS, which combines the convenience and extensive
     /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para>
     /// Before you create the custom key store, you must assemble the required elements, including
@@ -76,14 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// operation.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CloudHsmClusterId { get; set; }
         #endregion
         
@@ -113,14 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// the password in the CloudHSM cluster.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KeyStorePassword { get; set; }
         #endregion
         
@@ -132,14 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// the cluster</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrustAnchorCertificate { get; set; }
         #endregion
         
@@ -205,12 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CloudHsmClusterId = this.CloudHsmClusterId;
-            #if MODULAR
-            if (this.CloudHsmClusterId == null && ParameterWasBound(nameof(this.CloudHsmClusterId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CloudHsmClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.CustomKeyStoreName = this.CustomKeyStoreName;
             #if MODULAR
             if (this.CustomKeyStoreName == null && ParameterWasBound(nameof(this.CustomKeyStoreName)))
@@ -219,19 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             #endif
             context.KeyStorePassword = this.KeyStorePassword;
-            #if MODULAR
-            if (this.KeyStorePassword == null && ParameterWasBound(nameof(this.KeyStorePassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KeyStorePassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TrustAnchorCertificate = this.TrustAnchorCertificate;
-            #if MODULAR
-            if (this.TrustAnchorCertificate == null && ParameterWasBound(nameof(this.TrustAnchorCertificate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TrustAnchorCertificate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

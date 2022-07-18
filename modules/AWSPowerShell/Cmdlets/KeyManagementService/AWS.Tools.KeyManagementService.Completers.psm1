@@ -90,7 +90,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.CustomerMasterKeySpec
         "New-KMSKey/CustomerMasterKeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -100,7 +100,7 @@ $KMS_Completers = {
             ($_ -eq "New-KMSDataKeyPairWithoutPlaintext/KeyPairSpec")
         }
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SM2"
             break
         }
 
@@ -122,7 +122,7 @@ $KMS_Completers = {
             ($_ -eq "Invoke-KMSReEncrypt/SourceEncryptionAlgorithm")
         }
         {
-            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","SYMMETRIC_DEFAULT"
+            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","SM2PKE","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -136,7 +136,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -180,7 +180,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/SigningAlgorithm")
         }
         {
-            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512"
+            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
             break
         }
 

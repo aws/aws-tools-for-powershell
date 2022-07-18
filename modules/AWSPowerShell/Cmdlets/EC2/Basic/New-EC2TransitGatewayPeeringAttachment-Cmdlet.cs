@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Requests a transit gateway peering attachment between the specified transit gateway
-    /// (requester) and a peer transit gateway (accepter). The transit gateways must be in
-    /// different Regions. The peer transit gateway can be in your account or a different
-    /// Amazon Web Services account.
+    /// (requester) and a peer transit gateway (accepter). The peer transit gateway can be
+    /// in your account or a different Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_DynamicRouting
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Indicates whether dynamic routing is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

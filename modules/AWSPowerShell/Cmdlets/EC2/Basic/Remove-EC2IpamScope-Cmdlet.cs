@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete
     /// a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. 
     /// </para>
     /// </summary>

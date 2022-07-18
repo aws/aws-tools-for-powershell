@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from
-    /// an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate
+    /// an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate
     /// CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2IpamPoolCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

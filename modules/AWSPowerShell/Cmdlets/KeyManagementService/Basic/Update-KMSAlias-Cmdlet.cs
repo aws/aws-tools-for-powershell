@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code>
         /// followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use
-        /// UpdateAlias to change the alias name.</para>
+        /// <code>UpdateAlias</code> to change the alias name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

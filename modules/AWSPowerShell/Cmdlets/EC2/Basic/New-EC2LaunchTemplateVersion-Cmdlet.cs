@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a new version for a launch template. You can specify an existing version of
+    /// Creates a new version of a launch template. You can specify an existing version of
     /// launch template from which to base the new version.
     /// 
     ///  
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// changes you require.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify
-    /// a launch template (manage launch template versions)</a>in the <i>Amazon Elastic Compute
+    /// a launch template (manage launch template versions)</a> in the <i>Amazon Elastic Compute
     /// Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template. You must specify either the launch template ID or launch
-        /// template name in the request.</para>
+        /// <para>The ID of the launch template.</para><para>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template. You must specify either the launch template ID or
-        /// launch template name in the request.</para>
+        /// <para>The name of the launch template.</para><para>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

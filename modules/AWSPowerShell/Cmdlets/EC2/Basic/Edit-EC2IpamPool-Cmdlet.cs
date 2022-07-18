@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a>
-    /// in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify
+    /// a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2IpamPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Add tag allocation rules to a pool. For more information about allocation rules, see
-        /// <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the
-        /// <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create
+        /// a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

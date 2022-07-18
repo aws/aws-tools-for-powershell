@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// To list the current tags, use <a>DescribeTags</a>. For more information about tags,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
+    /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

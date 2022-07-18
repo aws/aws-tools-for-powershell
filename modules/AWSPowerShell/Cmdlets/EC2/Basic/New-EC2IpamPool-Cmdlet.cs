@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a
-    /// top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create
+    /// a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2IpamPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

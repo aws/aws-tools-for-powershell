@@ -1,4 +1,24 @@
-﻿### 4.1.127 (2022-07-15 20:25Z)
+﻿### 4.1.128 (2022-07-18 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.317.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMEdgeDeploymentPlan leveraging the DescribeEdgeDeploymentPlan service API.
+    * Added cmdlet Get-SMEdgeDeploymentPlanList leveraging the ListEdgeDeploymentPlans service API.
+    * Added cmdlet Get-SMStageDeviceList leveraging the ListStageDevices service API.
+    * Added cmdlet New-SMEdgeDeploymentPlan leveraging the CreateEdgeDeploymentPlan service API.
+    * Added cmdlet New-SMEdgeDeploymentStage leveraging the CreateEdgeDeploymentStage service API.
+    * Added cmdlet Remove-SMEdgeDeploymentPlan leveraging the DeleteEdgeDeploymentPlan service API.
+    * Added cmdlet Remove-SMEdgeDeploymentStage leveraging the DeleteEdgeDeploymentStage service API.
+    * Added cmdlet Start-SMEdgeDeploymentStage leveraging the StartEdgeDeploymentStage service API.
+    * Added cmdlet Stop-SMEdgeDeploymentStage leveraging the StopEdgeDeploymentStage service API.
+  * Amazon Single Sign-On Admin
+    * Added cmdlet Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet leveraging the DetachCustomerManagedPolicyReferenceFromPermissionSet service API.
+    * Added cmdlet Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList leveraging the ListCustomerManagedPolicyReferencesInPermissionSet service API.
+    * Added cmdlet Get-SSOADMNPermissionsBoundaryForPermissionSet leveraging the GetPermissionsBoundaryForPermissionSet service API.
+    * Added cmdlet Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet leveraging the AttachCustomerManagedPolicyReferenceToPermissionSet service API.
+    * Added cmdlet Remove-SSOADMNPermissionsBoundaryFromPermissionSet leveraging the DeletePermissionsBoundaryFromPermissionSet service API.
+    * Added cmdlet Write-SSOADMNPermissionsBoundaryToPermissionSet leveraging the PutPermissionsBoundaryToPermissionSet service API.
+
+### 4.1.127 (2022-07-15 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.316.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Evidently
     * Added cmdlet Get-CWEVDSegment leveraging the GetSegment service API.

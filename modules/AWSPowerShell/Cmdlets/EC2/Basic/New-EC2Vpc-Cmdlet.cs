@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more
-        /// information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a>
-        /// in the <i>Amazon VPC IPAM User Guide</i>. </para>
+        /// information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon
-        /// VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// IPAM is a VPC feature that you can use to automate your IP address management workflows
         /// including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon
         /// Web Services Regions and accounts throughout your Amazon Web Services Organization.
-        /// For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is
-        /// IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon
-        /// VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>

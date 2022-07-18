@@ -28,7 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Detaches the attached IAM managed policy ARN from the specified permission set.
+    /// Detaches the attached Amazon Web Services managed IAM policy ARN from the specified
+    /// permission set.
     /// </summary>
     [Cmdlet("Dismount", "SSOADMNManagedPolicyFromPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter ManagedPolicyArn
         /// <summary>
         /// <para>
-        /// <para>The IAM managed policy ARN to be attached to a permission set.</para>
+        /// <para>The Amazon Web Services managed policy ARN to be detached from a permission set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

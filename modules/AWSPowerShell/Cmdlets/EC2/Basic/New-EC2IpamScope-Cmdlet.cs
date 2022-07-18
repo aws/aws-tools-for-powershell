@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a>
-    /// in the <i>Amazon VPC IPAM User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add
+    /// a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2IpamScope", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

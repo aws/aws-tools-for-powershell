@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about
-        /// Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC
-        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information
-        /// about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC
-        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What
         /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
         /// </para>
         /// </summary>

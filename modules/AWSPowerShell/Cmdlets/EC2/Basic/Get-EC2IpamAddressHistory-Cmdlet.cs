@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Retrieve historical information about a CIDR within an IPAM scope. For more information,
-    /// see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP
-    /// addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View
+    /// the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IpamAddressHistory")]
     [OutputType("Amazon.EC2.Model.IpamAddressHistoryRecord")]

@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template. To describe one or more versions of a specified launch
-        /// template, you must specify either the launch template ID or the launch template name
-        /// in the request. To describe all the latest or default launch template versions in
-        /// your account, you must omit this parameter.</para>
+        /// <para>The ID of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
+        /// either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but
+        /// not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// must omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template. To describe one or more versions of a specified launch
-        /// template, you must specify either the launch template ID or the launch template name
-        /// in the request. To describe all the latest or default launch template versions in
-        /// your account, you must omit this parameter.</para>
+        /// <para>The name of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
+        /// either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but
+        /// not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// must omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>$Latest</code>, <code>$Default</code>, and numbers.</para><para>To describe all launch templates in your account that are defined as the latest version,
         /// the valid value is <code>$Latest</code>. To describe all launch templates in your
         /// account that are defined as the default version, the valid value is <code>$Default</code>.
-        /// You can specify <code>$Latest</code> and <code>$Default</code> in the same call. You
-        /// cannot specify numbers.</para>
+        /// You can specify <code>$Latest</code> and <code>$Default</code> in the same request.
+        /// You cannot specify numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

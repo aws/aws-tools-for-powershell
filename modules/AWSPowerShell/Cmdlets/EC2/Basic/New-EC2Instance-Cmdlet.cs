@@ -214,8 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CreditSpecification_CpuCredit
         /// <summary>
         /// <para>
-        /// <para>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code>
-        /// and <code>unlimited</code>.</para>
+        /// <para>The credit option for CPU usage of a T instance.</para><para>Valid values: <code>standard</code> | <code>unlimited</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates whether an instance is enabled for stop protection. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-        /// Protection</a>. </para>
+        /// protection</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -722,9 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the resources during launch. You can only tag instances and volumes
-        /// on launch. The specified tags are applied to all instances or volumes that are created
-        /// during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// <para>The tags to apply to the resources that are created during instance launch.</para><para>You can specify tags for the following resources only:</para><ul><li><para>Instances</para></li><li><para>Volumes</para></li><li><para>Elastic graphics</para></li><li><para>Spot Instance requests</para></li><li><para>Network interfaces</para></li></ul><para>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

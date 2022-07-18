@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AttachCustomerManagedPolicyReferenceToPermissionSet" Verb="Mount" Noun="CustomerManagedPolicyReferenceToPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachManagedPolicyToPermissionSet" Verb="Mount" Noun="ManagedPolicyToPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePermissionsBoundaryFromPermissionSet" Verb="Remove" Noun="PermissionsBoundaryFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePermissionSet" Verb="Remove" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,11 +79,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DetachCustomerManagedPolicyReferenceFromPermissionSet" Verb="Dismount" Noun="CustomerManagedPolicyReferenceFromPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetachManagedPolicyFromPermissionSet" Verb="Dismount" Noun="ManagedPolicyFromPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPermissionsBoundaryForPermissionSet" OutputProperty="PermissionsBoundary" Verb="Get" Noun="PermissionsBoundaryForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccountsForProvisionedPermissionSet" OutputProperty="AccountIds" Verb="Get" Noun="AccountsForProvisionedPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomerManagedPolicyReferencesInPermissionSet" OutputProperty="CustomerManagedPolicyReferences" Verb="Get" Noun="CustomerManagedPolicyReferencesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutInlinePolicyToPermissionSet" Verb="Write" Noun="InlinePolicyToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPermissionsBoundaryToPermissionSet" Verb="Write" Noun="PermissionsBoundaryToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

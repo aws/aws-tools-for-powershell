@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-SSOADMNPermissionSetProvision', 
         'Add-SSOADMNResourceTag', 
+        'Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet', 
         'Dismount-SSOADMNManagedPolicyFromPermissionSet', 
         'Get-SSOADMNAccountAssignmentCreationStatus', 
         'Get-SSOADMNAccountAssignmentCreationStatusList', 
@@ -95,16 +96,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSOADMNAccountAssignmentDeletionStatusList', 
         'Get-SSOADMNAccountAssignmentList', 
         'Get-SSOADMNAccountsForProvisionedPermissionSetList', 
+        'Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList', 
         'Get-SSOADMNInlinePolicyForPermissionSet', 
         'Get-SSOADMNInstanceAccessControlAttributeConfiguration', 
         'Get-SSOADMNInstanceList', 
         'Get-SSOADMNManagedPoliciesInPermissionSetList', 
+        'Get-SSOADMNPermissionsBoundaryForPermissionSet', 
         'Get-SSOADMNPermissionSet', 
         'Get-SSOADMNPermissionSetList', 
         'Get-SSOADMNPermissionSetProvisioningStatus', 
         'Get-SSOADMNPermissionSetProvisioningStatusList', 
         'Get-SSOADMNPermissionSetsProvisionedToAccountList', 
         'Get-SSOADMNResourceTag', 
+        'Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet', 
         'Mount-SSOADMNManagedPolicyToPermissionSet', 
         'New-SSOADMNAccountAssignment', 
         'New-SSOADMNInstanceAccessControlAttributeConfiguration', 
@@ -112,11 +116,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SSOADMNAccountAssignment', 
         'Remove-SSOADMNInlinePolicyFromPermissionSet', 
         'Remove-SSOADMNInstanceAccessControlAttributeConfiguration', 
+        'Remove-SSOADMNPermissionsBoundaryFromPermissionSet', 
         'Remove-SSOADMNPermissionSet', 
         'Remove-SSOADMNResourceTag', 
         'Update-SSOADMNInstanceAccessControlAttributeConfiguration', 
         'Update-SSOADMNPermissionSet', 
-        'Write-SSOADMNInlinePolicyToPermissionSet')
+        'Write-SSOADMNInlinePolicyToPermissionSet', 
+        'Write-SSOADMNPermissionsBoundaryToPermissionSet')
 
     # Variables to export from this module
     VariablesToExport = '*'
