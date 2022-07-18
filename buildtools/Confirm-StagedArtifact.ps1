@@ -29,8 +29,6 @@ Param (
 
 function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
 
-    $authenticodeSignatureStart = 'SIG # Begin signature block'
-
     Write-Host "Validating module $modulePath"
 
     $manifestPath = (Get-ChildItem -Path "$modulePath\*.psd1").FullName
@@ -52,14 +50,26 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
 
     if ($signingCheck) {
         Write-Host 'Verifying module files are Authenticode-signed'
-        $filter = @('*.ps1', '*.psm1', '*.psd1', '*.ps1xml')
+        $filter = 
+        @(
+            '*.ps1',
+            '*.psm1',
+            '*.psd1',
+            '*.ps1xml',
+            'AWSPowerShell.dll',
+            'AWSPowerShell.NetCore.dll',
+            'AWS.Tools.*.dll'
+        ) 
         $signableFiles = Get-ChildItem -Path $modulePath\* -Include $filter | Select-Object -ExpandProperty Name
 
         $signableFiles | ForEach-Object {
-            Write-Host "......testing module file $_"
+            Write-Host "...verifying module file $_"
             $fileToTest = Join-Path $modulePath $_
-            if (-not (Select-String -Path $fileToTest -Pattern $authenticodeSignatureStart -Quiet)) {
-                throw "Failed to locate start of Authenticode signature, $authenticodeSignatureStart, in module file $_."
+            $signature = Get-AuthenticodeSignature -FilePath $fileToTest
+            if ($signature.Status -ne 'Valid') {
+                Write-Host "...$fileToTest does not have a valid signature"
+                $signature | Format-List | Out-String | Write-Host
+                throw "Signature check failed for $fileToTest"
             }
         }
         Write-Host '...module files signing check - PASS'
