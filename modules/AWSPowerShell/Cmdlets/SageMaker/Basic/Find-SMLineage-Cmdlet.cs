@@ -154,14 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// your lineage query.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("StartArns")]
         public System.String[] StartArn { get; set; }
         #endregion
@@ -269,12 +262,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.StartArn = new List<System.String>(this.StartArn);
             }
-            #if MODULAR
-            if (this.StartArn == null && ParameterWasBound(nameof(this.StartArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StartArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

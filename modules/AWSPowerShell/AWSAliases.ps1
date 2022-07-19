@@ -5639,12 +5639,18 @@ Set-Alias -Name DGURU-GetResourceCollection -Value Get-DGURUResourceCollection
 Set-Alias -Name List-DGURUAnomaliesForInsight -Value Get-DGURUAnomaliesForInsightList
 Set-Alias -Name List-DGURUAnomaliesForInsightList -Value Get-DGURUAnomaliesForInsightList
 Set-Alias -Name DGURU-ListAnomaliesForInsight -Value Get-DGURUAnomaliesForInsightList
+Set-Alias -Name List-DGURUAnomalousLogGroups -Value Get-DGURUAnomalousLogGroupList
+Set-Alias -Name List-DGURUAnomalousLogGroupList -Value Get-DGURUAnomalousLogGroupList
+Set-Alias -Name DGURU-ListAnomalousLogGroups -Value Get-DGURUAnomalousLogGroupList
 Set-Alias -Name List-DGURUEvents -Value Get-DGURUEventList
 Set-Alias -Name List-DGURUEventList -Value Get-DGURUEventList
 Set-Alias -Name DGURU-ListEvents -Value Get-DGURUEventList
 Set-Alias -Name List-DGURUInsights -Value Get-DGURUInsightList
 Set-Alias -Name List-DGURUInsightList -Value Get-DGURUInsightList
 Set-Alias -Name DGURU-ListInsights -Value Get-DGURUInsightList
+Set-Alias -Name List-DGURUMonitoredResources -Value Get-DGURUMonitoredResourceList
+Set-Alias -Name List-DGURUMonitoredResourceList -Value Get-DGURUMonitoredResourceList
+Set-Alias -Name DGURU-ListMonitoredResources -Value Get-DGURUMonitoredResourceList
 Set-Alias -Name List-DGURUNotificationChannels -Value Get-DGURUNotificationChannelList
 Set-Alias -Name List-DGURUNotificationChannelList -Value Get-DGURUNotificationChannelList
 Set-Alias -Name DGURU-ListNotificationChannels -Value Get-DGURUNotificationChannelList
@@ -19490,6 +19496,8 @@ Set-Alias -Name List-A2IRHumanLoopList -Value Get-A2IRHumanLoopList
 Set-Alias -Name A2IR-ListHumanLoops -Value Get-A2IRHumanLoopList
 Set-Alias -Name A2IR-StartHumanLoop -Value Start-A2IRHumanLoop
 Set-Alias -Name A2IR-StopHumanLoop -Value Stop-A2IRHumanLoop
+Set-Alias -Name Get-SMEDeployments -Value Get-SMEDeployment
+Set-Alias -Name SME-GetDeployments -Value Get-SMEDeployment
 Set-Alias -Name SME-GetDeviceRegistration -Value Get-SMEDeviceRegistration
 Set-Alias -Name SME-SendHeartbeat -Value Send-SMEHeartbeat
 Set-Alias -Name Batch-SMFSGetRecord -Value Get-SMFSRecordBatch

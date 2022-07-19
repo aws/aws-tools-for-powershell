@@ -1,4 +1,14 @@
-﻿### 4.1.128 (2022-07-18 20:37Z)
+﻿### 4.1.129 (2022-07-19 20:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.318.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DevOps Guru
+    * Added cmdlet Get-DGURUAnomalousLogGroupList leveraging the ListAnomalousLogGroups service API.
+    * Added cmdlet Get-DGURUMonitoredResourceList leveraging the ListMonitoredResources service API.
+    * Modified cmdlet Update-DGURUServiceIntegration: added parameter LogsAnomalyDetection_OptInStatus.
+  * Amazon Sagemaker Edge Manager
+    * Added cmdlet Get-SMEDeployment leveraging the GetDeployments service API.
+    * Modified cmdlet Send-SMEHeartbeat: added parameters DeploymentResult_DeploymentEndTime, DeploymentResult_DeploymentModel, DeploymentResult_DeploymentName, DeploymentResult_DeploymentStartTime, DeploymentResult_DeploymentStatus and DeploymentResult_DeploymentStatusMessage.
+
+### 4.1.128 (2022-07-18 20:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.317.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon SageMaker Service
     * Added cmdlet Get-SMEdgeDeploymentPlan leveraging the DescribeEdgeDeploymentPlan service API.

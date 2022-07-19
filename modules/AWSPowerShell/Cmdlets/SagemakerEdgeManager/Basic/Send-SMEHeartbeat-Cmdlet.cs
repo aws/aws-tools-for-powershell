@@ -68,6 +68,67 @@ namespace Amazon.PowerShell.Cmdlets.SME
         public System.String AgentVersion { get; set; }
         #endregion
         
+        #region Parameter DeploymentResult_DeploymentEndTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp of when the deployment was ended, and the agent got the deployment results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? DeploymentResult_DeploymentEndTime { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentResult_DeploymentModel
+        /// <summary>
+        /// <para>
+        /// <para>Returns a list of models deployed on the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentResult_DeploymentModels")]
+        public Amazon.SagemakerEdgeManager.Model.DeploymentModel[] DeploymentResult_DeploymentModel { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentResult_DeploymentName
+        /// <summary>
+        /// <para>
+        /// <para>The name and unique ID of the deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentResult_DeploymentName { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentResult_DeploymentStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp of when the deployment was started on the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? DeploymentResult_DeploymentStartTime { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentResult_DeploymentStatus
+        /// <summary>
+        /// <para>
+        /// <para>Returns the bucket error code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentResult_DeploymentStatus { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentResult_DeploymentStatusMessage
+        /// <summary>
+        /// <para>
+        /// <para>Returns the detailed error message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentResult_DeploymentStatusMessage { get; set; }
+        #endregion
+        
         #region Parameter DeviceFleetName
         /// <summary>
         /// <para>
@@ -184,6 +245,15 @@ namespace Amazon.PowerShell.Cmdlets.SME
                 WriteWarning("You are passing $null as a value for parameter AgentVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeploymentResult_DeploymentEndTime = this.DeploymentResult_DeploymentEndTime;
+            if (this.DeploymentResult_DeploymentModel != null)
+            {
+                context.DeploymentResult_DeploymentModel = new List<Amazon.SagemakerEdgeManager.Model.DeploymentModel>(this.DeploymentResult_DeploymentModel);
+            }
+            context.DeploymentResult_DeploymentName = this.DeploymentResult_DeploymentName;
+            context.DeploymentResult_DeploymentStartTime = this.DeploymentResult_DeploymentStartTime;
+            context.DeploymentResult_DeploymentStatus = this.DeploymentResult_DeploymentStatus;
+            context.DeploymentResult_DeploymentStatusMessage = this.DeploymentResult_DeploymentStatusMessage;
             context.DeviceFleetName = this.DeviceFleetName;
             #if MODULAR
             if (this.DeviceFleetName == null && ParameterWasBound(nameof(this.DeviceFleetName)))
@@ -225,6 +295,75 @@ namespace Amazon.PowerShell.Cmdlets.SME
             if (cmdletContext.AgentVersion != null)
             {
                 request.AgentVersion = cmdletContext.AgentVersion;
+            }
+            
+             // populate DeploymentResult
+            var requestDeploymentResultIsNull = true;
+            request.DeploymentResult = new Amazon.SagemakerEdgeManager.Model.DeploymentResult();
+            System.DateTime? requestDeploymentResult_deploymentResult_DeploymentEndTime = null;
+            if (cmdletContext.DeploymentResult_DeploymentEndTime != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentEndTime = cmdletContext.DeploymentResult_DeploymentEndTime.Value;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentEndTime != null)
+            {
+                request.DeploymentResult.DeploymentEndTime = requestDeploymentResult_deploymentResult_DeploymentEndTime.Value;
+                requestDeploymentResultIsNull = false;
+            }
+            List<Amazon.SagemakerEdgeManager.Model.DeploymentModel> requestDeploymentResult_deploymentResult_DeploymentModel = null;
+            if (cmdletContext.DeploymentResult_DeploymentModel != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentModel = cmdletContext.DeploymentResult_DeploymentModel;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentModel != null)
+            {
+                request.DeploymentResult.DeploymentModels = requestDeploymentResult_deploymentResult_DeploymentModel;
+                requestDeploymentResultIsNull = false;
+            }
+            System.String requestDeploymentResult_deploymentResult_DeploymentName = null;
+            if (cmdletContext.DeploymentResult_DeploymentName != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentName = cmdletContext.DeploymentResult_DeploymentName;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentName != null)
+            {
+                request.DeploymentResult.DeploymentName = requestDeploymentResult_deploymentResult_DeploymentName;
+                requestDeploymentResultIsNull = false;
+            }
+            System.DateTime? requestDeploymentResult_deploymentResult_DeploymentStartTime = null;
+            if (cmdletContext.DeploymentResult_DeploymentStartTime != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentStartTime = cmdletContext.DeploymentResult_DeploymentStartTime.Value;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentStartTime != null)
+            {
+                request.DeploymentResult.DeploymentStartTime = requestDeploymentResult_deploymentResult_DeploymentStartTime.Value;
+                requestDeploymentResultIsNull = false;
+            }
+            System.String requestDeploymentResult_deploymentResult_DeploymentStatus = null;
+            if (cmdletContext.DeploymentResult_DeploymentStatus != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentStatus = cmdletContext.DeploymentResult_DeploymentStatus;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentStatus != null)
+            {
+                request.DeploymentResult.DeploymentStatus = requestDeploymentResult_deploymentResult_DeploymentStatus;
+                requestDeploymentResultIsNull = false;
+            }
+            System.String requestDeploymentResult_deploymentResult_DeploymentStatusMessage = null;
+            if (cmdletContext.DeploymentResult_DeploymentStatusMessage != null)
+            {
+                requestDeploymentResult_deploymentResult_DeploymentStatusMessage = cmdletContext.DeploymentResult_DeploymentStatusMessage;
+            }
+            if (requestDeploymentResult_deploymentResult_DeploymentStatusMessage != null)
+            {
+                request.DeploymentResult.DeploymentStatusMessage = requestDeploymentResult_deploymentResult_DeploymentStatusMessage;
+                requestDeploymentResultIsNull = false;
+            }
+             // determine if request.DeploymentResult should be set to null
+            if (requestDeploymentResultIsNull)
+            {
+                request.DeploymentResult = null;
             }
             if (cmdletContext.DeviceFleetName != null)
             {
@@ -301,6 +440,12 @@ namespace Amazon.PowerShell.Cmdlets.SME
         {
             public List<Amazon.SagemakerEdgeManager.Model.EdgeMetric> AgentMetric { get; set; }
             public System.String AgentVersion { get; set; }
+            public System.DateTime? DeploymentResult_DeploymentEndTime { get; set; }
+            public List<Amazon.SagemakerEdgeManager.Model.DeploymentModel> DeploymentResult_DeploymentModel { get; set; }
+            public System.String DeploymentResult_DeploymentName { get; set; }
+            public System.DateTime? DeploymentResult_DeploymentStartTime { get; set; }
+            public System.String DeploymentResult_DeploymentStatus { get; set; }
+            public System.String DeploymentResult_DeploymentStatusMessage { get; set; }
             public System.String DeviceFleetName { get; set; }
             public System.String DeviceName { get; set; }
             public List<Amazon.SagemakerEdgeManager.Model.Model> Model { get; set; }

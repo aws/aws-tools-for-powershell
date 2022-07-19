@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.317.0",
+    "ProductVersion" : "3.7.318.0",
     "CoreVersion"    : "3.7.12.10",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.9.26",
+            "Version" : "3.7.9.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"
@@ -386,7 +386,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.7.10",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.21.2",
+            "Version" : "3.7.21.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.41.0",
+            "Version" : "3.7.42.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"
@@ -1906,7 +1906,7 @@
             "InPreview"               : false
         },
         "DevOpsGuru"                      : {
-            "Version" : "3.7.9.35",
+            "Version" : "3.7.10.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"
@@ -1978,7 +1978,7 @@
             "InPreview"               : false
         },
         "SagemakerEdgeManager"            : {
-            "Version" : "3.7.0.182",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.10"

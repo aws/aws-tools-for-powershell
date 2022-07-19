@@ -87,6 +87,10 @@
                 <Type>Amazon.DevOpsGuru.Model.StartTimeRange</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAnomalousLogGroups" OutputProperty="*" Verb="Get" Noun="AnomalousLogGroupList" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEvents" OutputProperty="Events" Verb="Get" Noun="EventList" PipelineParameter="Filters_InsightId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>
@@ -99,6 +103,10 @@
             <TypesNotToFlatten>
                 <Type>Amazon.DevOpsGuru.Model.ListInsightsStatusFilter</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitoredResources" OutputProperty="MonitoredResourceIdentifiers" Verb="Get" Noun="MonitoredResourceList" PipelineParameter="Filters_ResourcePermission" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotificationChannels" OutputProperty="Channels" Verb="Get" Noun="NotificationChannelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />

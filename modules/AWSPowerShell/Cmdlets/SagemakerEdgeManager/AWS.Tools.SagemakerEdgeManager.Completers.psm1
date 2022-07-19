@@ -123,7 +123,8 @@ $SME_SelectCompleters = {
 }
 
 $SME_SelectMap = @{
-    "Select"=@("Get-SMEDeviceRegistration",
+    "Select"=@("Get-SMEDeployment",
+               "Get-SMEDeviceRegistration",
                "Send-SMEHeartbeat")
 }
 

@@ -52,6 +52,19 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         public Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig ServiceIntegration_OpsCenter { get; set; }
         #endregion
         
+        #region Parameter LogsAnomalyDetection_OptInStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch
+        /// log groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceIntegration_LogsAnomalyDetection_OptInStatus")]
+        [AWSConstantClassSource("Amazon.DevOpsGuru.OptInStatus")]
+        public Amazon.DevOpsGuru.OptInStatus LogsAnomalyDetection_OptInStatus { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -112,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.ServiceIntegration_OpsCenter;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LogsAnomalyDetection_OptInStatus = this.LogsAnomalyDetection_OptInStatus;
             context.ServiceIntegration_OpsCenter = this.ServiceIntegration_OpsCenter;
             
             // allow further manipulation of loaded context prior to processing
@@ -141,6 +155,31 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestServiceIntegration_serviceIntegration_OpsCenter != null)
             {
                 request.ServiceIntegration.OpsCenter = requestServiceIntegration_serviceIntegration_OpsCenter;
+                requestServiceIntegrationIsNull = false;
+            }
+            Amazon.DevOpsGuru.Model.LogsAnomalyDetectionIntegrationConfig requestServiceIntegration_serviceIntegration_LogsAnomalyDetection = null;
+            
+             // populate LogsAnomalyDetection
+            var requestServiceIntegration_serviceIntegration_LogsAnomalyDetectionIsNull = true;
+            requestServiceIntegration_serviceIntegration_LogsAnomalyDetection = new Amazon.DevOpsGuru.Model.LogsAnomalyDetectionIntegrationConfig();
+            Amazon.DevOpsGuru.OptInStatus requestServiceIntegration_serviceIntegration_LogsAnomalyDetection_logsAnomalyDetection_OptInStatus = null;
+            if (cmdletContext.LogsAnomalyDetection_OptInStatus != null)
+            {
+                requestServiceIntegration_serviceIntegration_LogsAnomalyDetection_logsAnomalyDetection_OptInStatus = cmdletContext.LogsAnomalyDetection_OptInStatus;
+            }
+            if (requestServiceIntegration_serviceIntegration_LogsAnomalyDetection_logsAnomalyDetection_OptInStatus != null)
+            {
+                requestServiceIntegration_serviceIntegration_LogsAnomalyDetection.OptInStatus = requestServiceIntegration_serviceIntegration_LogsAnomalyDetection_logsAnomalyDetection_OptInStatus;
+                requestServiceIntegration_serviceIntegration_LogsAnomalyDetectionIsNull = false;
+            }
+             // determine if requestServiceIntegration_serviceIntegration_LogsAnomalyDetection should be set to null
+            if (requestServiceIntegration_serviceIntegration_LogsAnomalyDetectionIsNull)
+            {
+                requestServiceIntegration_serviceIntegration_LogsAnomalyDetection = null;
+            }
+            if (requestServiceIntegration_serviceIntegration_LogsAnomalyDetection != null)
+            {
+                request.ServiceIntegration.LogsAnomalyDetection = requestServiceIntegration_serviceIntegration_LogsAnomalyDetection;
                 requestServiceIntegrationIsNull = false;
             }
              // determine if request.ServiceIntegration should be set to null
@@ -209,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DevOpsGuru.OptInStatus LogsAnomalyDetection_OptInStatus { get; set; }
             public Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig ServiceIntegration_OpsCenter { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.UpdateServiceIntegrationResponse, UpdateDGURUServiceIntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

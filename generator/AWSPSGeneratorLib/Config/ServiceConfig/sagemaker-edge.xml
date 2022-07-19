@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Deployments" Verb="Get" Noun="Deployment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDeviceRegistration" OutputProperty="*" Verb="Get" Noun="DeviceRegistration" PipelineParameter="DeviceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

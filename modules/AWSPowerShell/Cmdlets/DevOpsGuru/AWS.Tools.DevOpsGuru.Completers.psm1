@@ -121,6 +121,13 @@ $DGURU_Completers = {
             break
         }
 
+        # Amazon.DevOpsGuru.OptInStatus
+        "Update-DGURUServiceIntegration/ServiceIntegration_LogsAnomalyDetection_OptInStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.DevOpsGuru.OrganizationResourceCollectionType
         "Get-DGURUOrganizationResourceCollectionHealth/OrganizationResourceCollectionType"
         {
@@ -135,6 +142,13 @@ $DGURU_Completers = {
         }
         {
             $v = "AWS_CLOUD_FORMATION","AWS_SERVICE","AWS_TAGS"
+            break
+        }
+
+        # Amazon.DevOpsGuru.ResourcePermission
+        "Get-DGURUMonitoredResourceList/Filters_ResourcePermission"
+        {
+            $v = "FULL_PERMISSION","MISSING_PERMISSION"
             break
         }
 
@@ -158,9 +172,11 @@ $DGURU_map = @{
     "EventSources_AmazonCodeGuruProfiler_Status"=@("Update-DGURUEventSourcesConfig")
     "Filters_DataSource"=@("Get-DGURUEventList")
     "Filters_EventClass"=@("Get-DGURUEventList")
+    "Filters_ResourcePermission"=@("Get-DGURUMonitoredResourceList")
     "Locale"=@("Get-DGURURecommendationList")
     "OrganizationResourceCollectionType"=@("Get-DGURUOrganizationResourceCollectionHealth")
     "ResourceCollectionType"=@("Get-DGURUResourceCollection","Get-DGURUResourceCollectionHealth")
+    "ServiceIntegration_LogsAnomalyDetection_OptInStatus"=@("Update-DGURUServiceIntegration")
     "StatusFilter_Any_Type"=@("Get-DGURUOrganizationInsightList")
     "StatusFilter_Closed_Type"=@("Get-DGURUOrganizationInsightList")
     "StatusFilter_Ongoing_Type"=@("Get-DGURUOrganizationInsightList")
@@ -233,8 +249,10 @@ $DGURU_SelectMap = @{
                "Get-DGURUCostEstimation",
                "Get-DGURUResourceCollection",
                "Get-DGURUAnomaliesForInsightList",
+               "Get-DGURUAnomalousLogGroupList",
                "Get-DGURUEventList",
                "Get-DGURUInsightList",
+               "Get-DGURUMonitoredResourceList",
                "Get-DGURUNotificationChannelList",
                "Get-DGURUOrganizationInsightList",
                "Get-DGURURecommendationList",
