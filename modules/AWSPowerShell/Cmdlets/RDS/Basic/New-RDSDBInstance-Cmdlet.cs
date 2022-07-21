@@ -29,6 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance.
+    /// 
+    ///  
+    /// <para>
+    /// The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora
+    /// DB cluster. For an Aurora DB cluster, you can call this operation multiple times to
+    /// add more than one DB instance to the cluster.
+    /// </para><para>
+    /// For more information about creating an RDS DB instance, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html">
+    /// Creating an Amazon RDS DB instance</a> in the <i>Amazon RDS User Guide</i>.
+    /// </para><para>
+    /// For more information about creating a DB instance in an Aurora DB cluster, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html">
+    /// Creating an Amazon Aurora DB cluster</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
@@ -89,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
         /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li><li><para>Can't be set to 0 or 35 for an RDS Custom for Oracle DB instance</para></li></ul>
+        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li><li><para>Can't be set to 0 for an RDS Custom for Oracle DB instance</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,11 +172,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the DB instance, for example db.m4.large. Not all
+        /// <para>The compute and memory capacity of the DB instance, for example db.m5.large. Not all
         /// DB instance classes are available in all Amazon Web Services Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// instance classes</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
+        /// DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -233,7 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of DB security groups to associate with this DB instance.</para><para>Default: The default DB security group for the database engine.</para>
+        /// <para>A list of DB security groups to associate with this DB instance.</para><para>This setting applies to the legacy EC2-Classic platform, which is no longer used to
+        /// create new DB instances. Use the <code>VpcSecurityGroupIds</code> setting instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Active Directory directory ID to create the DB instance in. Currently, only MySQL,
         /// Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active
         /// Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
-        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The domain is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The domain is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,10 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora. In Aurora, mapping Amazon
-        /// Web Services IAM accounts to database accounts is managed by the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. Mapping Amazon Web Services IAM accounts to database accounts is managed
+        /// by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>For a list of valid engine versions, use the <code>DescribeDBEngineVersions</code>
-        /// action.</para><para>The following are the database engines and links to information about the major and
+        /// operation.</para><para>The following are the database engines and links to information about the major and
         /// minor versions that are available with Amazon RDS. Not every database engine is available
         /// for every Amazon Web Services Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
         /// is managed by the DB cluster.</para><para><b>Amazon RDS Custom for Oracle</b></para><para>A custom engine version (CEV) that you have previously created. This setting is required
@@ -398,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
         /// Guide</i>.</para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple
         /// between .5 and 50 of the storage amount for the DB instance. For SQL Server DB instances,
-        /// must be a multiple between 1 and 50 of the storage amount for the DB instance.</para>
+        /// must be a multiple between 1 and 50 of the storage amount for the DB instance.</para><para><b>Amazon Aurora</b></para><para>Not applicable. Storage is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>License model information for this DB instance.</para><para>Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
-        /// | <code>general-public-license</code></para><para>This setting doesn't apply to RDS Custom.</para>
+        /// | <code>general-public-license</code></para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -463,7 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage of the DB instance.</para><para>For more information about this setting, including limitations that apply to it, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
         /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
-        /// RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. Storage is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -501,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment. You can't
-        /// set the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// set the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. DB instance Availability Zones (AZs) are managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -537,7 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates that the DB instance should be associated with the specified
         /// option group.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
         /// be removed from an option group. Also, that option group can't be removed from a DB
-        /// instance after it is associated with a DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// instance after it is associated with a DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,8 +577,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years).</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The number of days to retain Performance Insights data. The default is 7 days. The
+        /// following values are valid:</para><ul><li><para>7</para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23</para></li><li><para>731</para></li></ul><para>For example, the following values are valid:</para><ul><li><para>93 (3 months * 31)</para></li><li><para>341 (11 months * 31)</para></li><li><para>589 (19 months * 31)</para></li><li><para>731</para></li></ul><para>If you specify a retention period such as 94, which isn't a valid value, RDS issues
+        /// an error.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -613,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
-        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -674,7 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
         /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
-        /// <code>gp2</code></para>
+        /// <code>gp2</code></para><para><b>Amazon Aurora</b></para><para>Not applicable. Storage is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -695,7 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

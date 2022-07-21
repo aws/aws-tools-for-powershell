@@ -100,6 +100,44 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.Boolean? ActionsEnabled { get; set; }
         #endregion
         
+        #region Parameter ActionsSuppressor
+        /// <summary>
+        /// <para>
+        /// <para> Actions will be suppressed if the suppressor alarm is in the <code>ALARM</code> state.
+        /// <code>ActionsSuppressor</code> can be an AlarmName or an Amazon Resource Name (ARN)
+        /// from an existing alarm. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ActionsSuppressor { get; set; }
+        #endregion
+        
+        #region Parameter ActionsSuppressorExtensionPeriod
+        /// <summary>
+        /// <para>
+        /// <para> The maximum time in seconds that the composite alarm waits after suppressor alarm
+        /// goes out of the <code>ALARM</code> state. After this time, the composite alarm performs
+        /// its actions. </para><important><para><code>ExtensionPeriod</code> is required only when <code>ActionsSuppressor</code>
+        /// is specified. </para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ActionsSuppressorExtensionPeriod { get; set; }
+        #endregion
+        
+        #region Parameter ActionsSuppressorWaitPeriod
+        /// <summary>
+        /// <para>
+        /// <para> The maximum time in seconds that the composite alarm waits for the suppressor alarm
+        /// to go into the <code>ALARM</code> state. After this time, the composite alarm performs
+        /// its actions. </para><important><para><code>WaitPeriod</code> is required only when <code>ActionsSuppressor</code> is specified.
+        /// </para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ActionsSuppressorWaitPeriod { get; set; }
+        #endregion
+        
         #region Parameter AlarmAction
         /// <summary>
         /// <para>
@@ -277,6 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ActionsEnabled = this.ActionsEnabled;
+            context.ActionsSuppressor = this.ActionsSuppressor;
+            context.ActionsSuppressorExtensionPeriod = this.ActionsSuppressorExtensionPeriod;
+            context.ActionsSuppressorWaitPeriod = this.ActionsSuppressorWaitPeriod;
             if (this.AlarmAction != null)
             {
                 context.AlarmAction = new List<System.String>(this.AlarmAction);
@@ -327,6 +368,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.ActionsEnabled != null)
             {
                 request.ActionsEnabled = cmdletContext.ActionsEnabled.Value;
+            }
+            if (cmdletContext.ActionsSuppressor != null)
+            {
+                request.ActionsSuppressor = cmdletContext.ActionsSuppressor;
+            }
+            if (cmdletContext.ActionsSuppressorExtensionPeriod != null)
+            {
+                request.ActionsSuppressorExtensionPeriod = cmdletContext.ActionsSuppressorExtensionPeriod.Value;
+            }
+            if (cmdletContext.ActionsSuppressorWaitPeriod != null)
+            {
+                request.ActionsSuppressorWaitPeriod = cmdletContext.ActionsSuppressorWaitPeriod.Value;
             }
             if (cmdletContext.AlarmAction != null)
             {
@@ -418,6 +471,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ActionsEnabled { get; set; }
+            public System.String ActionsSuppressor { get; set; }
+            public System.Int32? ActionsSuppressorExtensionPeriod { get; set; }
+            public System.Int32? ActionsSuppressorWaitPeriod { get; set; }
             public List<System.String> AlarmAction { get; set; }
             public System.String AlarmDescription { get; set; }
             public System.String AlarmName { get; set; }

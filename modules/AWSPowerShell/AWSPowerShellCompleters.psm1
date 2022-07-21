@@ -3842,6 +3842,7 @@ $ATH_SelectMap = @{
                "Get-ATHPreparedStatement",
                "Get-ATHQueryExecution",
                "Get-ATHQueryResult",
+               "Get-ATHQueryRuntimeStatistic",
                "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
                "Get-ATHDatabasisList",
@@ -21714,7 +21715,7 @@ $FD_Completers = {
             ($_ -eq "Update-FDModelVersionStatus/ModelType")
         }
         {
-            $v = "ONLINE_FRAUD_INSIGHTS","TRANSACTION_FRAUD_INSIGHTS"
+            $v = "ACCOUNT_TAKEOVER_INSIGHTS","ONLINE_FRAUD_INSIGHTS","TRANSACTION_FRAUD_INSIGHTS"
             break
         }
 
@@ -26831,6 +26832,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.ListBulkImportJobsFilter
+        "Get-IOTSWBulkImportJobList/Filter"
+        {
+            $v = "ALL","CANCELLED","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","PENDING","RUNNING"
+            break
+        }
+
         # Amazon.IoTSiteWise.ListTimeSeriesType
         "Get-IOTSWTimeSeriesList/TimeSeriesType"
         {
@@ -26919,7 +26927,7 @@ $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
-    "Filter"=@("Get-IOTSWAssetList")
+    "Filter"=@("Get-IOTSWAssetList","Get-IOTSWBulkImportJobList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "PortalAuthMode"=@("New-IOTSWPortal")
@@ -26996,6 +27004,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWAccessPolicy",
                "New-IOTSWAsset",
                "New-IOTSWAssetModel",
+               "New-IOTSWBulkImportJob",
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
@@ -27012,6 +27021,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAsset",
                "Get-IOTSWAssetModel",
                "Get-IOTSWAssetProperty",
+               "Get-IOTSWBulkImportJob",
                "Get-IOTSWDashboard",
                "Get-IOTSWDefaultEncryptionConfiguration",
                "Get-IOTSWGateway",
@@ -27032,6 +27042,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetRelationshipList",
                "Get-IOTSWAssetList",
                "Get-IOTSWAssociatedAssetList",
+               "Get-IOTSWBulkImportJobList",
                "Get-IOTSWDashboardList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWPortalList",

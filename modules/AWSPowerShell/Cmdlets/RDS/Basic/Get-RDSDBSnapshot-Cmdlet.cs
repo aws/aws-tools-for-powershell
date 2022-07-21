@@ -44,7 +44,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
-        /// can't be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
         /// isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>A specific DB snapshot identifier to describe. This parameter can't be used in conjunction
-        /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// <para>A specific DB snapshot identifier to describe. This value is stored as a lowercase
+        /// string.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String CACertificateIdentifier { get; set; }
         #endregion
         
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to copy all tags from the DB instance to snapshots
+        /// of the DB instance. By default, tags are not copied.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -239,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.ApplyImmediately = this.ApplyImmediately;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
@@ -279,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.CACertificateIdentifier != null)
             {
                 request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -372,6 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String CACertificateIdentifier { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }

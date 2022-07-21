@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.GeneratedRulesType RulesSourceList_GeneratedRulesType { get; set; }
         #endregion
         
+        #region Parameter ReferenceSets_IPSetReference
+        /// <summary>
+        /// <para>
+        /// <para>The list of IP set references.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleGroup_ReferenceSets_IPSetReferences")]
+        public System.Collections.Hashtable ReferenceSets_IPSetReference { get; set; }
+        #endregion
+        
         #region Parameter RuleVariables_IPSet
         /// <summary>
         /// <para>
@@ -421,6 +432,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.DryRun = this.DryRun;
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
+            if (this.ReferenceSets_IPSetReference != null)
+            {
+                context.ReferenceSets_IPSetReference = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ReferenceSets_IPSetReference.Keys)
+                {
+                    context.ReferenceSets_IPSetReference.Add((String)hashKey, (IPSetReference)(this.ReferenceSets_IPSetReference[hashKey]));
+                }
+            }
             context.RulesSourceList_GeneratedRulesType = this.RulesSourceList_GeneratedRulesType;
             if (this.RulesSourceList_Target != null)
             {
@@ -542,6 +561,31 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
              // populate RuleGroup
             var requestRuleGroupIsNull = true;
             request.RuleGroup = new Amazon.NetworkFirewall.Model.RuleGroup();
+            Amazon.NetworkFirewall.Model.ReferenceSets requestRuleGroup_ruleGroup_ReferenceSets = null;
+            
+             // populate ReferenceSets
+            var requestRuleGroup_ruleGroup_ReferenceSetsIsNull = true;
+            requestRuleGroup_ruleGroup_ReferenceSets = new Amazon.NetworkFirewall.Model.ReferenceSets();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> requestRuleGroup_ruleGroup_ReferenceSets_referenceSets_IPSetReference = null;
+            if (cmdletContext.ReferenceSets_IPSetReference != null)
+            {
+                requestRuleGroup_ruleGroup_ReferenceSets_referenceSets_IPSetReference = cmdletContext.ReferenceSets_IPSetReference;
+            }
+            if (requestRuleGroup_ruleGroup_ReferenceSets_referenceSets_IPSetReference != null)
+            {
+                requestRuleGroup_ruleGroup_ReferenceSets.IPSetReferences = requestRuleGroup_ruleGroup_ReferenceSets_referenceSets_IPSetReference;
+                requestRuleGroup_ruleGroup_ReferenceSetsIsNull = false;
+            }
+             // determine if requestRuleGroup_ruleGroup_ReferenceSets should be set to null
+            if (requestRuleGroup_ruleGroup_ReferenceSetsIsNull)
+            {
+                requestRuleGroup_ruleGroup_ReferenceSets = null;
+            }
+            if (requestRuleGroup_ruleGroup_ReferenceSets != null)
+            {
+                request.RuleGroup.ReferenceSets = requestRuleGroup_ruleGroup_ReferenceSets;
+                requestRuleGroupIsNull = false;
+            }
             Amazon.NetworkFirewall.Model.StatefulRuleOptions requestRuleGroup_ruleGroup_StatefulRuleOptions = null;
             
              // populate StatefulRuleOptions
@@ -833,6 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? DryRun { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> ReferenceSets_IPSetReference { get; set; }
             public Amazon.NetworkFirewall.GeneratedRulesType RulesSourceList_GeneratedRulesType { get; set; }
             public List<System.String> RulesSourceList_Target { get; set; }
             public List<System.String> RulesSourceList_TargetType { get; set; }

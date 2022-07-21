@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryRuntimeStatistics" OutputProperty="*" Verb="Get" Noun="QueryRuntimeStatistic" PipelineParameter="QueryExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableMetadata" OutputProperty="TableMetadata" Verb="Get" Noun="TableMetadata" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
     /// 
     ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This action applies only to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSDBClusterEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

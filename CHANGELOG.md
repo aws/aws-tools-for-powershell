@@ -1,4 +1,22 @@
-﻿### 4.1.130 (2022-07-21 00:20Z)
+﻿### 4.1.131 (2022-07-21 20:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.320.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Added cmdlet Get-ATHQueryRuntimeStatistic leveraging the GetQueryRuntimeStatistics service API.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWCompositeAlarm: added parameters ActionsSuppressor, ActionsSuppressorExtensionPeriod and ActionsSuppressorWaitPeriod.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBInstance: added parameter CopyTagsToSnapshot.
+    * Modified cmdlet New-DOCDBInstance: added parameter CopyTagsToSnapshot.
+    * Modified cmdlet Restore-DOCDBClusterToPointInTime: added parameter RestoreType.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWBulkImportJob leveraging the DescribeBulkImportJob service API.
+    * Added cmdlet Get-IOTSWBulkImportJobList leveraging the ListBulkImportJobs service API.
+    * Added cmdlet New-IOTSWBulkImportJob leveraging the CreateBulkImportJob service API.
+  * Amazon Network Firewall
+    * Modified cmdlet New-NWFWRuleGroup: added parameter ReferenceSets_IPSetReference.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameter ReferenceSets_IPSetReference.
+
+### 4.1.130 (2022-07-21 00:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.319.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IoT
     * Modified cmdlet Update-IOTIndexingConfiguration: added parameter Filter_NamedShadowName.

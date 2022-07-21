@@ -1405,6 +1405,8 @@ Set-Alias -Name ATH-GetPreparedStatement -Value Get-ATHPreparedStatement
 Set-Alias -Name ATH-GetQueryExecution -Value Get-ATHQueryExecution
 Set-Alias -Name Get-ATHQueryResults -Value Get-ATHQueryResult
 Set-Alias -Name ATH-GetQueryResults -Value Get-ATHQueryResult
+Set-Alias -Name Get-ATHQueryRuntimeStatistics -Value Get-ATHQueryRuntimeStatistic
+Set-Alias -Name ATH-GetQueryRuntimeStatistics -Value Get-ATHQueryRuntimeStatistic
 Set-Alias -Name ATH-GetTableMetadata -Value Get-ATHTableMetadata
 Set-Alias -Name ATH-GetWorkGroup -Value Get-ATHWorkGroup
 Set-Alias -Name List-ATHDatabases -Value Get-ATHDatabasisList
@@ -11983,6 +11985,8 @@ Set-Alias -Name Create-IOTSWAsset -Value New-IOTSWAsset
 Set-Alias -Name IOTSW-CreateAsset -Value New-IOTSWAsset
 Set-Alias -Name Create-IOTSWAssetModel -Value New-IOTSWAssetModel
 Set-Alias -Name IOTSW-CreateAssetModel -Value New-IOTSWAssetModel
+Set-Alias -Name Create-IOTSWBulkImportJob -Value New-IOTSWBulkImportJob
+Set-Alias -Name IOTSW-CreateBulkImportJob -Value New-IOTSWBulkImportJob
 Set-Alias -Name Create-IOTSWDashboard -Value New-IOTSWDashboard
 Set-Alias -Name IOTSW-CreateDashboard -Value New-IOTSWDashboard
 Set-Alias -Name Create-IOTSWGateway -Value New-IOTSWGateway
@@ -12015,6 +12019,8 @@ Set-Alias -Name Describe-IOTSWAssetModel -Value Get-IOTSWAssetModel
 Set-Alias -Name IOTSW-DescribeAssetModel -Value Get-IOTSWAssetModel
 Set-Alias -Name Describe-IOTSWAssetProperty -Value Get-IOTSWAssetProperty
 Set-Alias -Name IOTSW-DescribeAssetProperty -Value Get-IOTSWAssetProperty
+Set-Alias -Name Describe-IOTSWBulkImportJob -Value Get-IOTSWBulkImportJob
+Set-Alias -Name IOTSW-DescribeBulkImportJob -Value Get-IOTSWBulkImportJob
 Set-Alias -Name Describe-IOTSWDashboard -Value Get-IOTSWDashboard
 Set-Alias -Name IOTSW-DescribeDashboard -Value Get-IOTSWDashboard
 Set-Alias -Name Describe-IOTSWDefaultEncryptionConfiguration -Value Get-IOTSWDefaultEncryptionConfiguration
@@ -12060,6 +12066,9 @@ Set-Alias -Name IOTSW-ListAssets -Value Get-IOTSWAssetList
 Set-Alias -Name List-IOTSWAssociatedAssets -Value Get-IOTSWAssociatedAssetList
 Set-Alias -Name List-IOTSWAssociatedAssetList -Value Get-IOTSWAssociatedAssetList
 Set-Alias -Name IOTSW-ListAssociatedAssets -Value Get-IOTSWAssociatedAssetList
+Set-Alias -Name List-IOTSWBulkImportJobs -Value Get-IOTSWBulkImportJobList
+Set-Alias -Name List-IOTSWBulkImportJobList -Value Get-IOTSWBulkImportJobList
+Set-Alias -Name IOTSW-ListBulkImportJobs -Value Get-IOTSWBulkImportJobList
 Set-Alias -Name List-IOTSWDashboards -Value Get-IOTSWDashboardList
 Set-Alias -Name List-IOTSWDashboardList -Value Get-IOTSWDashboardList
 Set-Alias -Name IOTSW-ListDashboards -Value Get-IOTSWDashboardList

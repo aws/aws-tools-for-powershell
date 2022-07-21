@@ -160,7 +160,7 @@ $FD_Completers = {
             ($_ -eq "Update-FDModelVersionStatus/ModelType")
         }
         {
-            $v = "ONLINE_FRAUD_INSIGHTS","TRANSACTION_FRAUD_INSIGHTS"
+            $v = "ACCOUNT_TAKEOVER_INSIGHTS","ONLINE_FRAUD_INSIGHTS","TRANSACTION_FRAUD_INSIGHTS"
             break
         }
 

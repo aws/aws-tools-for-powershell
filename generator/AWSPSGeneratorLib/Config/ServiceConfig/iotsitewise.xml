@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBulkImportJob" OutputProperty="*" Verb="New" Noun="BulkImportJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAssetProperty" OutputProperty="*" Verb="Get" Noun="AssetProperty" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBulkImportJob" OutputProperty="*" Verb="Get" Noun="BulkImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssociatedAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssociatedAssetList" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBulkImportJobs" OutputProperty="JobSummaries" Verb="Get" Noun="BulkImportJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

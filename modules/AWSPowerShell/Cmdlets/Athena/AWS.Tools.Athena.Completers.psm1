@@ -205,6 +205,7 @@ $ATH_SelectMap = @{
                "Get-ATHPreparedStatement",
                "Get-ATHQueryExecution",
                "Get-ATHQueryResult",
+               "Get-ATHQueryRuntimeStatistic",
                "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
                "Get-ATHDatabasisList",

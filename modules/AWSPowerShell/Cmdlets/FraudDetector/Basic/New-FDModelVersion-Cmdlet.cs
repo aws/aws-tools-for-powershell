@@ -84,14 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// label. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TrainingDataSchema_LabelSchema_LabelMapper")]
         public System.Collections.Hashtable LabelSchema_LabelMapper { get; set; }
         #endregion
@@ -302,12 +295,6 @@ namespace Amazon.PowerShell.Cmdlets.FD
                     context.LabelSchema_LabelMapper.Add((String)hashKey, valueSet);
                 }
             }
-            #if MODULAR
-            if (this.LabelSchema_LabelMapper == null && ParameterWasBound(nameof(this.LabelSchema_LabelMapper)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LabelSchema_LabelMapper which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LabelSchema_UnlabeledEventsTreatment = this.LabelSchema_UnlabeledEventsTreatment;
             if (this.TrainingDataSchema_ModelVariable != null)
             {

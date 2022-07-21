@@ -22,37 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Stops automated backup replication for a DB instance.
-    /// 
-    ///  
-    /// <para>
-    /// This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
-    /// Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon
-    /// RDS User Guide.</i></para>
+    /// <note><para>
+    /// This API operation is in preview release for IoT SiteWise and is subject to change.
+    /// We recommend that you use this operation only with test data, and not in production
+    /// environments.
+    /// </para></note><para>
+    /// Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
+    /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Stop", "RDSDBInstanceAutomatedBackupsReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBInstanceAutomatedBackup")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service StopDBInstanceAutomatedBackupsReplication API operation.", Operation = new[] {"StopDBInstanceAutomatedBackupsReplication"}, SelectReturnType = typeof(Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse))]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBInstanceAutomatedBackup or Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DBInstanceAutomatedBackup object.",
-        "The service call response (type Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTSWBulkImportJob")]
+    [OutputType("Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise DescribeBulkImportJob API operation.", Operation = new[] {"DescribeBulkImportJob"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse",
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopRDSDBInstanceAutomatedBackupsReplicationCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class GetIOTSWBulkImportJobCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
-        #region Parameter SourceDBInstanceArn
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating
-        /// automated backups, for example, <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</para>
+        /// <para>The ID of the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,49 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SourceDBInstanceArn { get; set; }
+        public System.String JobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DBInstanceAutomatedBackup'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse).
-        /// Specifying the name of a property of type Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DBInstanceAutomatedBackup";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SourceDBInstanceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SourceDBInstanceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceDBInstanceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceDBInstanceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-RDSDBInstanceAutomatedBackupsReplication (StopDBInstanceAutomatedBackupsReplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -115,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse, StopRDSDBInstanceAutomatedBackupsReplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse, GetIOTSWBulkImportJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SourceDBInstanceArn;
+                context.Select = (response, cmdlet) => this.JobId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SourceDBInstanceArn = this.SourceDBInstanceArn;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.SourceDBInstanceArn == null && ParameterWasBound(nameof(this.SourceDBInstanceArn)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SourceDBInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -148,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationRequest();
+            var request = new Amazon.IoTSiteWise.Model.DescribeBulkImportJobRequest();
             
-            if (cmdletContext.SourceDBInstanceArn != null)
+            if (cmdletContext.JobId != null)
             {
-                request.SourceDBInstanceArn = cmdletContext.SourceDBInstanceArn;
+                request.JobId = cmdletContext.JobId;
             }
             
             CmdletOutput output;
@@ -187,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationRequest request)
+        private Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.DescribeBulkImportJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "StopDBInstanceAutomatedBackupsReplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "DescribeBulkImportJob");
             try
             {
                 #if DESKTOP
-                return client.StopDBInstanceAutomatedBackupsReplication(request);
+                return client.DescribeBulkImportJob(request);
                 #elif CORECLR
-                return client.StopDBInstanceAutomatedBackupsReplicationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeBulkImportJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -215,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String SourceDBInstanceArn { get; set; }
-            public System.Func<Amazon.RDS.Model.StopDBInstanceAutomatedBackupsReplicationResponse, StopRDSDBInstanceAutomatedBackupsReplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DBInstanceAutomatedBackup;
+            public System.String JobId { get; set; }
+            public System.Func<Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse, GetIOTSWBulkImportJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

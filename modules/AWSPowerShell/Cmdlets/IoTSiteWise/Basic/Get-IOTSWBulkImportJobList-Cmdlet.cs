@@ -22,47 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kendra;
-using Amazon.Kendra.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KNDR
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Lists one or more access control configurations for an index. This includes user and
-    /// group access information for your documents. This is useful for user context filtering,
-    /// where search results are filtered based on the user or their group access to documents.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <note><para>
+    /// This API operation is in preview release for IoT SiteWise and is subject to change.
+    /// We recommend that you use this operation only with test data, and not in production
+    /// environments.
+    /// </para></note><para>
+    /// Retrieves a paginated list of bulk import job requests. For more information, see
+    /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List
+    /// bulk import jobs (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KNDRAccessControlConfigurationList")]
-    [OutputType("Amazon.Kendra.Model.AccessControlConfigurationSummary")]
-    [AWSCmdlet("Calls the Amazon Kendra ListAccessControlConfigurations API operation.", Operation = new[] {"ListAccessControlConfigurations"}, SelectReturnType = typeof(Amazon.Kendra.Model.ListAccessControlConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.Kendra.Model.AccessControlConfigurationSummary or Amazon.Kendra.Model.ListAccessControlConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.Kendra.Model.AccessControlConfigurationSummary objects.",
-        "The service call response (type Amazon.Kendra.Model.ListAccessControlConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTSWBulkImportJobList")]
+    [OutputType("Amazon.IoTSiteWise.Model.JobSummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListBulkImportJobs API operation.", Operation = new[] {"ListBulkImportJobs"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.JobSummary or Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.JobSummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKNDRAccessControlConfigurationListCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class GetIOTSWBulkImportJobListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
-        #region Parameter IndexId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index for the access control configuration.</para>
+        /// <para>You can use a filter to select the bulk import jobs that you want to retrieve.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IndexId { get; set; }
+        [AWSConstantClassSource("Amazon.IoTSiteWise.ListBulkImportJobsFilter")]
+        public Amazon.IoTSiteWise.ListBulkImportJobsFilter Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of access control configurations to return.</para>
+        /// <para>The maximum number of results to return for each paginated request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous response was incomplete (because there's more data to retrieve), Amazon
-        /// Kendra returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of access control configurations.</para>
+        /// <para>The token to be used for the next set of paginated results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -88,21 +86,21 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessControlConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.ListAccessControlConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.Kendra.Model.ListAccessControlConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AccessControlConfigurations";
+        public string Select { get; set; } = "JobSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IndexId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Filter parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Filter' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Filter' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -129,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.ListAccessControlConfigurationsResponse, GetKNDRAccessControlConfigurationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse, GetIOTSWBulkImportJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,16 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IndexId;
+                context.Select = (response, cmdlet) => this.Filter;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IndexId = this.IndexId;
-            #if MODULAR
-            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -168,11 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Kendra.Model.ListAccessControlConfigurationsRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListBulkImportJobsRequest();
             
-            if (cmdletContext.IndexId != null)
+            if (cmdletContext.Filter != null)
             {
-                request.IndexId = cmdletContext.IndexId;
+                request.Filter = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -235,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.ListAccessControlConfigurationsResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.ListAccessControlConfigurationsRequest request)
+        private Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListBulkImportJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "ListAccessControlConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListBulkImportJobs");
             try
             {
                 #if DESKTOP
-                return client.ListAccessControlConfigurations(request);
+                return client.ListBulkImportJobs(request);
                 #elif CORECLR
-                return client.ListAccessControlConfigurationsAsync(request).GetAwaiter().GetResult();
+                return client.ListBulkImportJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -263,11 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IndexId { get; set; }
+            public Amazon.IoTSiteWise.ListBulkImportJobsFilter Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Kendra.Model.ListAccessControlConfigurationsResponse, GetKNDRAccessControlConfigurationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AccessControlConfigurations;
+            public System.Func<Amazon.IoTSiteWise.Model.ListBulkImportJobsResponse, GetIOTSWBulkImportJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobSummaries;
         }
         
     }
