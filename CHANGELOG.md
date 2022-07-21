@@ -1,4 +1,9 @@
-﻿### 4.1.129 (2022-07-19 20:15Z)
+﻿### 4.1.130 (2022-07-21 00:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.319.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT
+    * Modified cmdlet Update-IOTIndexingConfiguration: added parameter Filter_NamedShadowName.
+
+### 4.1.129 (2022-07-19 20:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.318.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DevOps Guru
     * Added cmdlet Get-DGURUAnomalousLogGroupList leveraging the ListAnomalousLogGroups service API.

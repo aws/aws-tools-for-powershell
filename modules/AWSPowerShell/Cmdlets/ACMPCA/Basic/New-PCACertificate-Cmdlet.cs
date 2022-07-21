@@ -161,8 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>Contains a sequence of one or more X.509 extensions, each of which consists of an
         /// object identifier (OID), a base64-encoded value, and the critical flag. For more information,
-        /// see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a></para><note><para>The OID value of a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CustomExtension.html">CustomExtension</a>
-        /// must not match the OID of a predefined extension.</para></note>
+        /// see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

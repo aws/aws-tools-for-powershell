@@ -119,6 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.NamedShadowIndexingMode ThingIndexingConfiguration_NamedShadowIndexingMode { get; set; }
         #endregion
         
+        #region Parameter Filter_NamedShadowName
+        /// <summary>
+        /// <para>
+        /// <para>The shadow names that you select to index. The default maximum number of shadow names
+        /// for indexing is 10. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon
+        /// Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General
+        /// Reference</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingIndexingConfiguration_Filter_NamedShadowNames")]
+        public System.String[] Filter_NamedShadowName { get; set; }
+        #endregion
+        
         #region Parameter ThingIndexingConfiguration_ThingConnectivityIndexingMode
         /// <summary>
         /// <para>
@@ -227,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.ThingIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_CustomField);
             }
             context.ThingIndexingConfiguration_DeviceDefenderIndexingMode = this.ThingIndexingConfiguration_DeviceDefenderIndexingMode;
+            if (this.Filter_NamedShadowName != null)
+            {
+                context.Filter_NamedShadowName = new List<System.String>(this.Filter_NamedShadowName);
+            }
             if (this.ThingIndexingConfiguration_ManagedField != null)
             {
                 context.ThingIndexingConfiguration_ManagedField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_ManagedField);
@@ -353,6 +371,31 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.ThingIndexingConfiguration.ThingIndexingMode = requestThingIndexingConfiguration_thingIndexingConfiguration_ThingIndexingMode;
                 requestThingIndexingConfigurationIsNull = false;
             }
+            Amazon.IoT.Model.IndexingFilter requestThingIndexingConfiguration_thingIndexingConfiguration_Filter = null;
+            
+             // populate Filter
+            var requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = true;
+            requestThingIndexingConfiguration_thingIndexingConfiguration_Filter = new Amazon.IoT.Model.IndexingFilter();
+            List<System.String> requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName = null;
+            if (cmdletContext.Filter_NamedShadowName != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName = cmdletContext.Filter_NamedShadowName;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter.NamedShadowNames = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName;
+                requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = false;
+            }
+             // determine if requestThingIndexingConfiguration_thingIndexingConfiguration_Filter should be set to null
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter = null;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter != null)
+            {
+                request.ThingIndexingConfiguration.Filter = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter;
+                requestThingIndexingConfigurationIsNull = false;
+            }
              // determine if request.ThingIndexingConfiguration should be set to null
             if (requestThingIndexingConfigurationIsNull)
             {
@@ -424,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_CustomField { get; set; }
             public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
+            public List<System.String> Filter_NamedShadowName { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_ManagedField { get; set; }
             public Amazon.IoT.NamedShadowIndexingMode ThingIndexingConfiguration_NamedShadowIndexingMode { get; set; }
             public Amazon.IoT.ThingConnectivityIndexingMode ThingIndexingConfiguration_ThingConnectivityIndexingMode { get; set; }
