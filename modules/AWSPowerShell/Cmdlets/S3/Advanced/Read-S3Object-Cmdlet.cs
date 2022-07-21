@@ -130,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Folder { get; set; }
         #endregion
 
+        #region Parameter DisableSlashCorrection
+        /// <summary>
+        /// By default if KeyPrefix doesn't have a trailing '/' then a '/' is appended to mimic a virtual S3 directory. If the 
+        /// KeyPrefix is not meant to be S3 virtual directory set DisableSlashCorrection to true to disable the behavior 
+        /// for adding a trailing '/' to the KeyPrefix value.
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_ToLocalFolder, ValueFromPipelineByPropertyName = true)]
+        public bool DisableSlashCorrection { get; set; }
+        #endregion
+
         #endregion
 
         #region S3Object Download Parameters
@@ -263,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
                             ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
                         context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
+                        context.DisableSlashCorrection = this.DisableSlashCorrection;
                     }
                     break;
 
@@ -384,7 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 BucketName = cmdletContext.BucketName,
                 LocalDirectory = cmdletContext.Folder,
-                S3Directory = cmdletContext.KeyPrefix
+                S3Directory = cmdletContext.KeyPrefix,
+                DisableSlashCorrection = cmdletContext.DisableSlashCorrection
             };
 
             if (cmdletContext.UtcModifiedSinceDate.HasValue)
@@ -462,6 +474,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
 
             public ChecksumMode ChecksumMode { get; set; }
+
+            public bool DisableSlashCorrection { get; set; }
         }
 
         internal class DownloadFileProgressTracker : ProgressTracker<WriteObjectProgressArgs>

@@ -100,6 +100,26 @@ Describe -Tag "Smoke" "S3" {
             (Get-Content ".\temp\new-bar\baz\blah.txt").Length | Should -BeGreaterThan 0
         }
 
+        It "Cannot download to a folder hierarchy with partial KeyPrefix and DisableSlashCorrection disabled (default setting)" {
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix 'ba' -Folder temp\new-bar-nodisableslashcorrection
+
+            (Test-Path ".\temp\new-bar-nodisableslashcorrection\basic.txt") | Should -BeFalse
+            (Test-Path ".\temp\new-bar-nodisableslashcorrection\bar2\foo.txt") | Should -BeFalse
+            (Test-Path ".\temp\new-bar-nodisableslashcorrection\bar2\test.txt") | Should -BeFalse
+            (Test-Path ".\temp\new-bar-nodisableslashcorrection\bar2\test2.txt") | Should -BeFalse
+            (Test-Path ".\temp\new-bar-nodisableslashcorrection\bar2\baz\blah.txt") | Should -BeFalse
+        }
+
+        It "Can download to a folder hierarchy with partial KeyPrefix and DisableSlashCorrection enabled" {
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix 'ba' -Folder temp\new-bar-disableslashcorrection -DisableSlashCorrection $true
+
+            (Get-Content ".\temp\new-bar-disableslashcorrection\basic.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar-disableslashcorrection\bar2\foo.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar-disableslashcorrection\bar2\test.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar-disableslashcorrection\bar2\test2.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\new-bar-disableslashcorrection\bar2\baz\blah.txt").Length | Should -BeGreaterThan 0
+        }
+
         It "Can copy an object to a local file" {
             Copy-S3Object -BucketName $script:bucketName -Key "basic.txt" -LocalFile "$pwd\temp\blah.blah"
             (Get-Content "$pwd\temp\blah.blah").Length | Should -BeGreaterThan 0
