@@ -32,6 +32,12 @@ We require a second engineer to validate the PR before merging
 - [ ] I have added tests to cover my changes
 - [ ] All new and existing tests passed
 
+## New/existing dependencies impact assessment, if applicable
+<!--- If any dependency was added / modified / removed, please provide the following details for each package: Name, Version, and License. -->
+<!-- If no new dependencies were added to this change, this section can be removed. -->
+
+> Note to reviewers: Please follow runbook to update the internal open source attribution tool
+
 ## License
 <!--- The SDK is released under the [Apache 2.0 license][license], so any code you submit will be released under that license -->
 <!--- For substantial contributions, we may ask you to sign a [Contributor License Agreement (CLA)][cla] -->
