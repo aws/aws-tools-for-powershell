@@ -97,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Copy-RDSDBParameterGroup', 
         'Copy-RDSDBSnapshot', 
         'Copy-RDSOptionGroup', 
+        'Edit-RDSActivityStream', 
         'Edit-RDSCertificate', 
         'Edit-RDSCurrentDBClusterCapacity', 
         'Edit-RDSCustomDBEngineVersion', 

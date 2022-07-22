@@ -87,8 +87,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-ACCTAlternateContact', 
+        'Get-ACCTContactInformation', 
         'Remove-ACCTAlternateContact', 
-        'Write-ACCTAlternateContact')
+        'Write-ACCTAlternateContact', 
+        'Write-ACCTContactInformation')
 
     # Variables to export from this module
     VariablesToExport = '*'

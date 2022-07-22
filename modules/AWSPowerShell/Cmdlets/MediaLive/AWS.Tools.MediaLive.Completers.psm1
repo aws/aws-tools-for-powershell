@@ -184,6 +184,13 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.RebootInputDeviceForce
+        "Restart-EMLInputDevice/Force"
+        {
+            $v = "NO","YES"
+            break
+        }
+
         # Amazon.MediaLive.ReservationAutomaticRenewal
         {
             ($_ -eq "New-EMLOfferingPurchase/RenewalSettings_AutomaticRenewal") -Or
@@ -206,6 +213,7 @@ $EML_map = @{
     "Accept"=@("Get-EMLInputDeviceThumbnail")
     "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
+    "Force"=@("Restart-EMLInputDevice")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
@@ -311,8 +319,10 @@ $EML_SelectMap = @{
                "Get-EMLReservationList",
                "Get-EMLResourceTag",
                "New-EMLOfferingPurchase",
+               "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",
                "Start-EMLChannel",
+               "Start-EMLInputDeviceMaintenanceWindow",
                "Start-EMLMultiplex",
                "Stop-EMLChannel",
                "Stop-EMLMultiplex",

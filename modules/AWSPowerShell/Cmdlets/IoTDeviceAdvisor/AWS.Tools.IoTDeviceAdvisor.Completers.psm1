@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS IoT Core Device Advisor
 
 
+$IOTDA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTDeviceAdvisor.Protocol
+        {
+            ($_ -eq "New-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol") -Or
+            ($_ -eq "Update-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol")
+        }
+        {
+            $v = "MqttV3_1_1","MqttV5"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTDA_map = @{
+    "SuiteDefinitionConfiguration_Protocol"=@("New-IOTDASuiteDefinition","Update-IOTDASuiteDefinition")
+}
+
+_awsArgumentCompleterRegistration $IOTDA_Completers $IOTDA_map
+
 $IOTDA_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

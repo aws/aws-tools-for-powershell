@@ -1,4 +1,20 @@
-﻿### 4.1.131 (2022-07-21 20:27Z)
+﻿### 4.1.132 (2022-07-22 20:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.321.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Account
+    * Added cmdlet Get-ACCTContactInformation leveraging the GetContactInformation service API.
+    * Added cmdlet Write-ACCTContactInformation leveraging the PutContactInformation service API.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Restart-EMLInputDevice leveraging the RebootInputDevice service API.
+    * Added cmdlet Start-EMLInputDeviceMaintenanceWindow leveraging the StartInputDeviceMaintenanceWindow service API.
+  * Amazon IoT Core Device Advisor
+    * Modified cmdlet New-IOTDASuiteDefinition: added parameters SuiteDefinitionConfiguration_IsLongDurationTest and SuiteDefinitionConfiguration_Protocol.
+    * Modified cmdlet Update-IOTDASuiteDefinition: added parameters SuiteDefinitionConfiguration_IsLongDurationTest and SuiteDefinitionConfiguration_Protocol.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSActivityStream leveraging the ModifyActivityStream service API.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Read-S3Object: added parameter DisableSlashCorrection.
+
+### 4.1.131 (2022-07-21 20:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.320.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Added cmdlet Get-ATHQueryRuntimeStatistic leveraging the GetQueryRuntimeStatistics service API.

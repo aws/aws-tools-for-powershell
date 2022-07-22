@@ -76,6 +76,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         public System.Boolean? SuiteDefinitionConfiguration_IntendedForQualification { get; set; }
         #endregion
         
+        #region Parameter SuiteDefinitionConfiguration_IsLongDurationTest
+        /// <summary>
+        /// <para>
+        /// <para> Verifies if the test suite is a long duration test. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SuiteDefinitionConfiguration_IsLongDurationTest { get; set; }
+        #endregion
+        
+        #region Parameter SuiteDefinitionConfiguration_Protocol
+        /// <summary>
+        /// <para>
+        /// <para> Gets the MQTT protocol that is configured in the suite definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTDeviceAdvisor.Protocol")]
+        public Amazon.IoTDeviceAdvisor.Protocol SuiteDefinitionConfiguration_Protocol { get; set; }
+        #endregion
+        
         #region Parameter SuiteDefinitionConfiguration_RootGroup
         /// <summary>
         /// <para>
@@ -180,6 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
                 context.SuiteDefinitionConfiguration_Device = new List<Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest>(this.SuiteDefinitionConfiguration_Device);
             }
             context.SuiteDefinitionConfiguration_IntendedForQualification = this.SuiteDefinitionConfiguration_IntendedForQualification;
+            context.SuiteDefinitionConfiguration_IsLongDurationTest = this.SuiteDefinitionConfiguration_IsLongDurationTest;
+            context.SuiteDefinitionConfiguration_Protocol = this.SuiteDefinitionConfiguration_Protocol;
             context.SuiteDefinitionConfiguration_RootGroup = this.SuiteDefinitionConfiguration_RootGroup;
             context.SuiteDefinitionConfiguration_SuiteDefinitionName = this.SuiteDefinitionConfiguration_SuiteDefinitionName;
             context.SuiteDefinitionId = this.SuiteDefinitionId;
@@ -237,6 +260,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             if (requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IntendedForQualification != null)
             {
                 request.SuiteDefinitionConfiguration.IntendedForQualification = requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IntendedForQualification.Value;
+                requestSuiteDefinitionConfigurationIsNull = false;
+            }
+            System.Boolean? requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IsLongDurationTest = null;
+            if (cmdletContext.SuiteDefinitionConfiguration_IsLongDurationTest != null)
+            {
+                requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IsLongDurationTest = cmdletContext.SuiteDefinitionConfiguration_IsLongDurationTest.Value;
+            }
+            if (requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IsLongDurationTest != null)
+            {
+                request.SuiteDefinitionConfiguration.IsLongDurationTest = requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_IsLongDurationTest.Value;
+                requestSuiteDefinitionConfigurationIsNull = false;
+            }
+            Amazon.IoTDeviceAdvisor.Protocol requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_Protocol = null;
+            if (cmdletContext.SuiteDefinitionConfiguration_Protocol != null)
+            {
+                requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_Protocol = cmdletContext.SuiteDefinitionConfiguration_Protocol;
+            }
+            if (requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_Protocol != null)
+            {
+                request.SuiteDefinitionConfiguration.Protocol = requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_Protocol;
                 requestSuiteDefinitionConfigurationIsNull = false;
             }
             System.String requestSuiteDefinitionConfiguration_suiteDefinitionConfiguration_RootGroup = null;
@@ -332,6 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             public System.String SuiteDefinitionConfiguration_DevicePermissionRoleArn { get; set; }
             public List<Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest> SuiteDefinitionConfiguration_Device { get; set; }
             public System.Boolean? SuiteDefinitionConfiguration_IntendedForQualification { get; set; }
+            public System.Boolean? SuiteDefinitionConfiguration_IsLongDurationTest { get; set; }
+            public Amazon.IoTDeviceAdvisor.Protocol SuiteDefinitionConfiguration_Protocol { get; set; }
             public System.String SuiteDefinitionConfiguration_RootGroup { get; set; }
             public System.String SuiteDefinitionConfiguration_SuiteDefinitionName { get; set; }
             public System.String SuiteDefinitionId { get; set; }

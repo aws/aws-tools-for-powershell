@@ -53,8 +53,11 @@ Set-Alias -Name IAMAA-ValidatePolicy -Value Use-IAMAAPolicyValidation
 Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DeleteAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
+Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
 Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
+Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
+Set-Alias -Name ACCT-PutContactInformation -Value Write-ACCTContactInformation
 Set-Alias -Name Add-ACMTagsToCertificate -Value Add-ACMCertificateTag
 Set-Alias -Name ACM-AddTagsToCertificate -Value Add-ACMCertificateTag
 Set-Alias -Name Delete-ACMCertificate -Value Remove-ACMCertificate
@@ -14451,9 +14454,12 @@ Set-Alias -Name EML-ListTagsForResource -Value Get-EMLResourceTag
 Set-Alias -Name Purchase-EMLOffering -Value New-EMLOfferingPurchase
 Set-Alias -Name Purchase-EMLOfferingPurchase -Value New-EMLOfferingPurchase
 Set-Alias -Name EML-PurchaseOffering -Value New-EMLOfferingPurchase
+Set-Alias -Name Reboot-EMLInputDevice -Value Restart-EMLInputDevice
+Set-Alias -Name EML-RebootInputDevice -Value Restart-EMLInputDevice
 Set-Alias -Name Reject-EMLInputDeviceTransfer -Value Deny-EMLInputDeviceTransfer
 Set-Alias -Name EML-RejectInputDeviceTransfer -Value Deny-EMLInputDeviceTransfer
 Set-Alias -Name EML-StartChannel -Value Start-EMLChannel
+Set-Alias -Name EML-StartInputDeviceMaintenanceWindow -Value Start-EMLInputDeviceMaintenanceWindow
 Set-Alias -Name EML-StartMultiplex -Value Start-EMLMultiplex
 Set-Alias -Name EML-StopChannel -Value Stop-EMLChannel
 Set-Alias -Name EML-StopMultiplex -Value Stop-EMLMultiplex
@@ -17483,6 +17489,8 @@ Set-Alias -Name Failover-RDSFailoverGlobalCluster -Value Start-RDSFailoverGlobal
 Set-Alias -Name RDS-FailoverGlobalCluster -Value Start-RDSFailoverGlobalCluster
 Set-Alias -Name Get-RDSResourceTag -Value Get-RDSTagForResource
 Set-Alias -Name RDS-ListTagsForResource -Value Get-RDSTagForResource
+Set-Alias -Name Modify-RDSActivityStream -Value Edit-RDSActivityStream
+Set-Alias -Name RDS-ModifyActivityStream -Value Edit-RDSActivityStream
 Set-Alias -Name Modify-RDSCertificates -Value Edit-RDSCertificate
 Set-Alias -Name Modify-RDSCertificate -Value Edit-RDSCertificate
 Set-Alias -Name RDS-ModifyCertificates -Value Edit-RDSCertificate

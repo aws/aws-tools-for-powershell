@@ -22,77 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Account;
-using Amazon.Account.Model;
+using Amazon.MediaLive;
+using Amazon.MediaLive.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ACCT
+namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Deletes the specified alternate contact from an Amazon Web Services account.
-    /// 
-    ///  
-    /// <para>
-    /// For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access
-    /// or updating the alternate contacts</a>.
-    /// </para><note><para>
-    /// Before you can update the alternate contact information for an Amazon Web Services
-    /// account that is managed by Organizations, you must first enable integration between
-    /// Amazon Web Services Account Management and Organizations. For more information, see
-    /// <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling
-    /// trusted access for Amazon Web Services Account Management</a>.
-    /// </para></note>
+    /// Send a reboot command to the specified input device. The device will begin rebooting
+    /// within a few seconds of sending the command. When the reboot is complete, the device’s
+    /// connection status will change to connected.
     /// </summary>
-    [Cmdlet("Remove", "ACCTAlternateContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Restart", "EMLInputDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Account DeleteAlternateContact API operation.", Operation = new[] {"DeleteAlternateContact"}, SelectReturnType = typeof(Amazon.Account.Model.DeleteAlternateContactResponse))]
-    [AWSCmdletOutput("None or Amazon.Account.Model.DeleteAlternateContactResponse",
+    [AWSCmdlet("Calls the AWS Elemental MediaLive RebootInputDevice API operation.", Operation = new[] {"RebootInputDevice"}, SelectReturnType = typeof(Amazon.MediaLive.Model.RebootInputDeviceResponse))]
+    [AWSCmdletOutput("None or Amazon.MediaLive.Model.RebootInputDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.DeleteAlternateContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.RebootInputDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveACCTAlternateContactCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class RestartEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
-        #region Parameter AccountId
+        #region Parameter IgnoreStreaming
         /// <summary>
         /// <para>
-        /// <para>Specifies the 12 digit account ID number of the Amazon Web Services account that you
-        /// want to access or modify with this operation.</para><para>If you do not specify this parameter, it defaults to the Amazon Web Services account
-        /// of the identity used to call the operation.</para><para>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
-        /// management account</a> or a delegated administrator account, and the specified account
-        /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
-        /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <code>AccountId</code>; it must call
-        /// the operation in standalone context by not including the <code>AccountId</code> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
-        /// don't specify this parameter, and call the operation using an identity belonging to
-        /// the account whose contacts you wish to retrieve or modify.</para>
+        /// Force a reboot of an input device. If the device
+        /// is streaming, it will stop streaming and begin rebooting within a few seconds of sending
+        /// the command. If the device was streaming prior to the reboot, the device will resume
+        /// streaming when the reboot completes.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
+        [AWSConstantClassSource("Amazon.MediaLive.RebootInputDeviceForce")]
+        public Amazon.MediaLive.RebootInputDeviceForce IgnoreStreaming { get; set; }
         #endregion
         
-        #region Parameter AlternateContactType
+        #region Parameter InputDeviceId
         /// <summary>
         /// <para>
-        /// <para>Specifies which of the alternate contacts to delete. </para>
+        /// The unique ID of the input device to reboot.
+        /// For example, hd-123456789abcdef.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Account.AlternateContactType")]
-        public Amazon.Account.AlternateContactType AlternateContactType { get; set; }
+        public System.String InputDeviceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.DeleteAlternateContactResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaLive.Model.RebootInputDeviceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AlternateContactType parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AlternateContactType' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InputDeviceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InputDeviceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AlternateContactType' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InputDeviceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ACCTAlternateContact (DeleteAlternateContact)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InputDeviceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-EMLInputDevice (RebootInputDevice)"))
             {
                 return;
             }
@@ -137,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.DeleteAlternateContactResponse, RemoveACCTAlternateContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaLive.Model.RebootInputDeviceResponse, RestartEMLInputDeviceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,15 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AlternateContactType;
+                context.Select = (response, cmdlet) => this.InputDeviceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            context.AlternateContactType = this.AlternateContactType;
+            context.IgnoreStreaming = this.IgnoreStreaming;
+            context.InputDeviceId = this.InputDeviceId;
             #if MODULAR
-            if (this.AlternateContactType == null && ParameterWasBound(nameof(this.AlternateContactType)))
+            if (this.InputDeviceId == null && ParameterWasBound(nameof(this.InputDeviceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AlternateContactType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InputDeviceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.DeleteAlternateContactRequest();
+            var request = new Amazon.MediaLive.Model.RebootInputDeviceRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.IgnoreStreaming != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.Force = cmdletContext.IgnoreStreaming;
             }
-            if (cmdletContext.AlternateContactType != null)
+            if (cmdletContext.InputDeviceId != null)
             {
-                request.AlternateContactType = cmdletContext.AlternateContactType;
+                request.InputDeviceId = cmdletContext.InputDeviceId;
             }
             
             CmdletOutput output;
@@ -214,15 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.DeleteAlternateContactResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.DeleteAlternateContactRequest request)
+        private Amazon.MediaLive.Model.RebootInputDeviceResponse CallAWSServiceOperation(IAmazonMediaLive client, Amazon.MediaLive.Model.RebootInputDeviceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "DeleteAlternateContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "RebootInputDevice");
             try
             {
                 #if DESKTOP
-                return client.DeleteAlternateContact(request);
+                return client.RebootInputDevice(request);
                 #elif CORECLR
-                return client.DeleteAlternateContactAsync(request).GetAwaiter().GetResult();
+                return client.RebootInputDeviceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,9 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public Amazon.Account.AlternateContactType AlternateContactType { get; set; }
-            public System.Func<Amazon.Account.Model.DeleteAlternateContactResponse, RemoveACCTAlternateContactCmdlet, object> Select { get; set; } =
+            public Amazon.MediaLive.RebootInputDeviceForce IgnoreStreaming { get; set; }
+            public System.String InputDeviceId { get; set; }
+            public System.Func<Amazon.MediaLive.Model.RebootInputDeviceResponse, RestartEMLInputDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

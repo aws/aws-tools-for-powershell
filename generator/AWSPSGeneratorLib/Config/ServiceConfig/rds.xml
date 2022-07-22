@@ -413,6 +413,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyActivityStream" OutputProperty="*" Verb="Edit" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyCertificates" OutputProperty="Certificate" Verb="Edit" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="CertificateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

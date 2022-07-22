@@ -191,11 +191,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RebootInputDevice" Verb="Restart" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="IgnoreStreaming" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RejectInputDeviceTransfer" Verb="Deny" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartChannel" OutputProperty="*" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInputDeviceMaintenanceWindow" Verb="Start" Noun="InputDeviceMaintenanceWindow" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

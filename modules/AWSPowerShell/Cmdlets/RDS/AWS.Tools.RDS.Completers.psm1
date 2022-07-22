@@ -87,6 +87,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.AuditPolicyState
+        "Edit-RDSActivityStream/AuditPolicyState"
+        {
+            $v = "locked","unlocked"
+            break
+        }
+
         # Amazon.RDS.AutomationMode
         "Edit-RDSDBInstance/AutomationMode"
         {
@@ -141,6 +148,7 @@ $RDS_Completers = {
 }
 
 $RDS_map = @{
+    "AuditPolicyState"=@("Edit-RDSActivityStream")
     "AutomationMode"=@("Edit-RDSDBInstance")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
@@ -288,6 +296,7 @@ $RDS_SelectMap = @{
                "Start-RDSDBClusterFailover",
                "Start-RDSFailoverGlobalCluster",
                "Get-RDSTagForResource",
+               "Edit-RDSActivityStream",
                "Edit-RDSCertificate",
                "Edit-RDSCurrentDBClusterCapacity",
                "Edit-RDSCustomDBEngineVersion",

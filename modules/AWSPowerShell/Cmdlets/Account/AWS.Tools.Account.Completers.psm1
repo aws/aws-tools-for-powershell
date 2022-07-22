@@ -155,7 +155,9 @@ $ACCT_SelectCompleters = {
 $ACCT_SelectMap = @{
     "Select"=@("Remove-ACCTAlternateContact",
                "Get-ACCTAlternateContact",
-               "Write-ACCTAlternateContact")
+               "Get-ACCTContactInformation",
+               "Write-ACCTAlternateContact",
+               "Write-ACCTContactInformation")
 }
 
 _awsArgumentCompleterRegistration $ACCT_SelectCompleters $ACCT_SelectMap

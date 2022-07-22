@@ -68,7 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code></para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VocabularyFileUri { get; set; }
         #endregion
         
@@ -139,6 +146,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             #endif
             context.VocabularyFileUri = this.VocabularyFileUri;
+            #if MODULAR
+            if (this.VocabularyFileUri == null && ParameterWasBound(nameof(this.VocabularyFileUri)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VocabularyFileUri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.VocabularyName = this.VocabularyName;
             #if MODULAR
             if (this.VocabularyName == null && ParameterWasBound(nameof(this.VocabularyName)))

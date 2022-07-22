@@ -34,7 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     /// <para>
     /// For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access
     /// or updating the alternate contacts</a>.
-    /// </para>
+    /// </para><note><para>
+    /// Before you can update the alternate contact information for an Amazon Web Services
+    /// account that is managed by Organizations, you must first enable integration between
+    /// Amazon Web Services Account Management and Organizations. For more information, see
+    /// <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling
+    /// trusted access for Amazon Web Services Account Management</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ACCTAlternateContact")]
     [OutputType("Amazon.Account.Model.AlternateContact")]
