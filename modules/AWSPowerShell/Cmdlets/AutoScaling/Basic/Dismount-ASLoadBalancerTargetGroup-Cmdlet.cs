@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Detaches one or more target groups from the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// When you detach a target group, it enters the <code>Removing</code> state while deregistering
+    /// the instances in the group. When all instances are deregistered, then you can no longer
+    /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
+    /// The instances remain running.
+    /// </para>
     /// </summary>
     [Cmdlet("Dismount", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

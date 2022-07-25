@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a>
     /// API call. If you are no longer using a scheduled action, you can delete it by calling
     /// the <a>DeleteScheduledAction</a> API.
+    /// </para><para>
+    /// If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
+    /// error message.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScheduledUpdateGroupAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
         /// action runs and the capacity it attempts to maintain. It can scale beyond this capacity
-        /// if you add more scaling conditions. </para>
+        /// if you add more scaling conditions. </para><note><para>You must specify at least one of the following properties: <code>MaxSize</code>, <code>MinSize</code>,
+        /// or <code>DesiredCapacity</code>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the recurring schedule to end, in UTC.</para>
+        /// <para>The date and time for the recurring schedule to end, in UTC. For example, <code>"2021-06-01T00:00:00Z"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,10 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
-        /// only and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// only and in quotes (for example, <code>"2021-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
         /// Scaling performs the action at this time, and then performs the action based on the
-        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
-        /// error message.</para>
+        /// specified recurrence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter UtcTime
         /// <summary>
         /// <para>
-        /// <para>This parameter is no longer used.</para>
+        /// <para>This property is no longer used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end, in UTC.</para>
+        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end, in UTC. For example, <code>"2021-06-01T00:00:00Z"</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -203,10 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
-        /// only and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// only and in quotes (for example, <code>"2021-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
         /// Scaling performs the action at this time, and then performs the action based on the
-        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
-        /// error message.</para>
+        /// specified recurrence.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -223,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// in both Time and TimeUtc being assigned, the latest assignment to either one of the
         /// two property is reflected in the value of both. Time is provided for backwards compatibility
         /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
-        /// to the service.</para><para>This parameter is no longer used.</para>
+        /// to the service.</para><para>This property is no longer used.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

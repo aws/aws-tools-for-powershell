@@ -28,12 +28,12 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Gets information about the load balancer target groups for the specified Auto Scaling
-    /// group.
+    /// Gets information about the Elastic Load Balancing target groups for the specified
+    /// Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// To determine the availability of registered instances, use the <code>State</code>
+    /// To determine the attachment status of the target group, use the <code>State</code>
     /// element in the response. When you attach a target group to an Auto Scaling group,
     /// the initial <code>State</code> value is <code>Adding</code>. The state transitions
     /// to <code>Added</code> after all Auto Scaling instances are registered with the target
@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
     /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
-    /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>. 
+    /// Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
+    /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
+    /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancerTargetGroup")]

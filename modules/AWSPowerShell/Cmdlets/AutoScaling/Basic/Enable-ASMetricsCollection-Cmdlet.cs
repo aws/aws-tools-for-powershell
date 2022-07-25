@@ -28,10 +28,16 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Enables group metrics for the specified Auto Scaling group. For more information,
-    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring
+    /// Enables group metrics collection for the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// You can use these metrics to track changes in an Auto Scaling group and to set alarms
+    /// on threshold values. You can view group metrics using the Amazon EC2 Auto Scaling
+    /// console or the CloudWatch console. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html">Monitor
     /// CloudWatch metrics for your Auto Scaling groups and instances</a> in the <i>Amazon
     /// EC2 Auto Scaling User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "ASMetricsCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -63,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>The granularity to associate with the metrics to collect. The only valid value is
-        /// <code>1Minute</code>.</para>
+        /// <para>The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
+        /// The only valid value is <code>1Minute</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>Specifies which group-level metrics to start collecting. You can specify one or more
-        /// of the following metrics:</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul><para>The instance weighting feature supports the following additional metrics: </para><ul><li><para><code>GroupInServiceCapacity</code></para></li><li><para><code>GroupPendingCapacity</code></para></li><li><para><code>GroupStandbyCapacity</code></para></li><li><para><code>GroupTerminatingCapacity</code></para></li><li><para><code>GroupTotalCapacity</code></para></li></ul><para>The warm pools feature supports the following additional metrics: </para><ul><li><para><code>WarmPoolDesiredCapacity</code></para></li><li><para><code>WarmPoolWarmedCapacity</code></para></li><li><para><code>WarmPoolPendingCapacity</code></para></li><li><para><code>WarmPoolTerminatingCapacity</code></para></li><li><para><code>WarmPoolTotalCapacity</code></para></li><li><para><code>GroupAndWarmPoolDesiredCapacity</code></para></li><li><para><code>GroupAndWarmPoolTotalCapacity</code></para></li></ul><para>If you omit this parameter, all metrics are enabled. </para>
+        /// <para>Identifies the metrics to enable.</para><para>You can specify one or more of the following metrics:</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li><li><para><code>GroupInServiceCapacity</code></para></li><li><para><code>GroupPendingCapacity</code></para></li><li><para><code>GroupStandbyCapacity</code></para></li><li><para><code>GroupTerminatingCapacity</code></para></li><li><para><code>GroupTotalCapacity</code></para></li><li><para><code>WarmPoolDesiredCapacity</code></para></li><li><para><code>WarmPoolWarmedCapacity</code></para></li><li><para><code>WarmPoolPendingCapacity</code></para></li><li><para><code>WarmPoolTerminatingCapacity</code></para></li><li><para><code>WarmPoolTotalCapacity</code></para></li><li><para><code>GroupAndWarmPoolDesiredCapacity</code></para></li><li><para><code>GroupAndWarmPoolTotalCapacity</code></para></li></ul><para>If you specify <code>Granularity</code> and don't specify any metrics, all metrics
+        /// are enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto
+        /// Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ActivityId
         /// <summary>
         /// <para>
-        /// <para>The activity IDs of the desired scaling activities. If you omit this parameter, all
+        /// <para>The activity IDs of the desired scaling activities. If you omit this property, all
         /// activities for the past six weeks are described. If unknown activities are requested,
         /// they are ignored with no error. If you specify an Auto Scaling group, the results
         /// are limited to that group.</para><para>Array Members: Maximum number of 50 IDs.</para>

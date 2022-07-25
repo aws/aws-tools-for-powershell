@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The launch configuration names. If you omit this parameter, all launch configurations
+        /// <para>The launch configuration names. If you omit this property, all launch configurations
         /// are described.</para><para>Array Members: Maximum number of 50 items.</para>
         /// </para>
         /// </summary>

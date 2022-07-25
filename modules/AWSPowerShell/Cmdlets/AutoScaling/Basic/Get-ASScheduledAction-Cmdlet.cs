@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The latest scheduled start time to return. If scheduled action names are provided,
-        /// this parameter is ignored.</para>
+        /// this property is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
-        /// <para>The names of one or more scheduled actions. If you omit this parameter, all scheduled
+        /// <para>The names of one or more scheduled actions. If you omit this property, all scheduled
         /// actions are described. If you specify an unknown scheduled action, it is ignored with
         /// no error.</para><para>Array Members: Maximum number of 50 actions.</para>
         /// </para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The earliest scheduled start time to return. If scheduled action names are provided,
-        /// this parameter is ignored.</para>
+        /// this property is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
         /// wrong timestamp being passed to the service.</para><para>The latest scheduled start time to return. If scheduled action names are provided,
-        /// this parameter is ignored.</para>
+        /// this property is ignored.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The earliest scheduled start time to return. If scheduled action names are provided,
-        /// this parameter is ignored.</para>
+        /// this property is ignored.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

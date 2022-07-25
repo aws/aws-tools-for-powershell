@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b><para>
     /// Updates the configuration for the specified Auto Scaling group.
     /// </para><para>
-    /// To update an Auto Scaling group, specify the name of the group and the parameter that
-    /// you want to change. Any parameters that you don't specify are not changed by this
+    /// To update an Auto Scaling group, specify the name of the group and the property that
+    /// you want to change. Any properties that you don't specify are not changed by this
     /// update request. The new settings take effect on any scaling activities after this
     /// call returns. 
     /// </para><para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// current size of the group, this sets the group's <code>DesiredCapacity</code> to the
     /// new <code>MaxSize</code> value.
     /// </para></li></ul><para>
-    /// To see which parameters have been set, call the <a>DescribeAutoScalingGroups</a> API.
+    /// To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API.
     /// To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a>
     /// API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a>
     /// API.
@@ -113,8 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CapacityRebalance
         /// <summary>
         /// <para>
-        /// <para>Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Amazon
-        /// EC2 Auto Scaling Capacity Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// <para>Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Use
+        /// Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,9 +353,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>A policy or a list of policies that are used to select the instances to terminate.
         /// The policies are executed in the order that you list them. For more information, see
-        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
-        /// which Auto Scaling instances terminate during scale in</a> in the <i>Amazon EC2 Auto
-        /// Scaling User Guide</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work
+        /// with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.</para><para>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code>
+        /// | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code>
+        /// | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify
         /// <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that
-        /// you specify for this parameter must reside in those Availability Zones.</para>
+        /// you specify must reside in those Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

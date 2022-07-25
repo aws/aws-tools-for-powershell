@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This operation is used with the following load balancer types: 
     /// </para><ul><li><para>
-    ///  Application Load Balancer - Operates at the application layer (layer 7) and supports
+    /// Application Load Balancer - Operates at the application layer (layer 7) and supports
     /// HTTP and HTTPS. 
     /// </para></li><li><para>
-    ///  Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
+    /// Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
     /// TLS, and UDP. 
     /// </para></li><li><para>
-    ///  Gateway Load Balancer - Operates at the network layer (layer 3).
+    /// Gateway Load Balancer - Operates at the network layer (layer 3).
     /// </para></li></ul><para>
     /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
     /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// This operation is additive and does not detach existing target groups or Classic Load
     /// Balancers from the Auto Scaling group.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
-    /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>. 
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
+    /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
+    /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
-        /// <para>The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle
+        /// <para>The names of one or more lifecycle hooks. If you omit this property, all lifecycle
         /// hooks are described.</para>
         /// </para>
         /// </summary>

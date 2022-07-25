@@ -1,4 +1,7 @@
-﻿### 4.1.132 (2022-07-22 20:35Z)
+﻿### 4.1.133 (2022-07-25 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.321.2 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.132 (2022-07-22 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.321.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Account
     * Added cmdlet Get-ACCTContactInformation leveraging the GetContactInformation service API.

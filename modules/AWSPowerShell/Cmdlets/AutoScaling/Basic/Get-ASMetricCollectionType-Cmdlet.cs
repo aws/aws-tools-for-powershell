@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
-    /// 
-    ///  
-    /// <para>
-    /// The <code>GroupStandbyInstances</code> metric is not returned by default. You must
-    /// explicitly request this metric when calling the <a>EnableMetricsCollection</a> API.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "ASMetricCollectionType")]
     [OutputType("Amazon.AutoScaling.Model.DescribeMetricCollectionTypesResponse")]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances. If you omit this parameter, all Auto Scaling instances are
+        /// <para>The IDs of the instances. If you omit this property, all Auto Scaling instances are
         /// described. If you specify an ID that does not exist, it is ignored with no error.</para><para>Array Members: Maximum number of 50 items.</para>
         /// </para>
         /// </summary>

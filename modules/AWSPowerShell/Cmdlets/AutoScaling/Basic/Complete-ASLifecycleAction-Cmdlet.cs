@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LifecycleActionResult
         /// <summary>
         /// <para>
-        /// <para>The action for the group to take. This parameter can be either <code>CONTINUE</code>
-        /// or <code>ABANDON</code>.</para>
+        /// <para>The action for the group to take. You can specify either <code>CONTINUE</code> or
+        /// <code>ABANDON</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

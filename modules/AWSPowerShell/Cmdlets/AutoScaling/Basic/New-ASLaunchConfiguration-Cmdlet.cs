@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// If you exceed your maximum limit of launch configurations, the call fails. To query
     /// this limit, call the <a>DescribeAccountLimits</a> API. For information about updating
-    /// this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
-    /// EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas
+    /// for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
     /// configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
@@ -54,16 +54,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>
-        /// <para>For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies
-        /// whether to assign a public IP address to the group's instances. If you specify <code>true</code>,
-        /// each instance in the Auto Scaling group receives a unique public IP address. For more
-        /// information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this parameter, you must specify at least one subnet for <code>VPCZoneIdentifier</code>
-        /// when you create your group.</para><note><para>If the instance is launched into a default subnet, the default is to assign a public
-        /// IP address, unless you disabled the option to assign a public IP address on the subnet.
+        /// <para>Specifies whether to assign a public IPv4 address to the group's instances. If the
+        /// instance is launched into a default subnet, the default is to assign a public IPv4
+        /// address, unless you disabled the option to assign a public IPv4 address on the subnet.
         /// If the instance is launched into a nondefault subnet, the default is not to assign
-        /// a public IP address, unless you enabled the option to assign a public IP address on
-        /// the subnet.</para></note>
+        /// a public IPv4 address, unless you enabled the option to assign a public IPv4 address
+        /// on the subnet.</para><para>If you specify <code>true</code>, each instance in the Auto Scaling group receives
+        /// a unique public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code>
+        /// when you create your group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>A block device mapping, which specifies the block devices for the instance. You can
-        /// specify virtual devices and EBS volumes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// Device Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// <para>The block device mapping entries that define the block devices to attach to the instances
+        /// at launch. By default, the block devices specified in the block device mapping for
+        /// the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
+        /// device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCId
         /// <summary>
         /// <para>
-        /// <para><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
-        /// that date.</i></para><para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
+        /// <para><i>EC2-Classic retires on August 15, 2022. This property is not supported after that
+        /// date.</i></para><para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
@@ -99,11 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
-        /// <para><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
-        /// that date.</i></para><para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
-        /// parameter.</para>
+        /// <para><i>EC2-Classic retires on August 15, 2022. This property is not supported after that
+        /// date.</i></para><para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.</para><para>If you specify the <code>ClassicLinkVPCId</code> property, you must specify <code>ClassicLinkVPCSecurityGroups</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name or the Amazon Resource Name (ARN) of the instance profile associated with
-        /// the IAM role for the instance. The instance profile contains the IAM role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM
+        /// the IAM role for the instance. The instance profile contains the IAM role. For more
+        /// information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM
         /// role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto
         /// Scaling User Guide</i>.</para>
         /// </para>
@@ -199,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
-        /// an AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>ImageId</code>.</para>
+        /// a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -213,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// derives attributes from the instance, except for the block device mapping.</para><para>To create a launch configuration with a block device mapping or override any other
         /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Creating
         /// a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling
-        /// User Guide</i>.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
-        /// and <code>InstanceType</code>.</para>
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Specifies the instance type of the EC2 instance.</para><para>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-        /// Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para>
+        /// <para>Specifies the instance type of the EC2 instance. For information about available instance
+        /// types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
+        /// instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter KernelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the kernel associated with the AMI.</para>
+        /// <para>The ID of the kernel associated with the AMI.</para><note><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User
+        /// provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-        /// EC2 Key Pairs</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -273,13 +273,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementTenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs
-        /// on isolated, single-tenant hardware and can only be launched into a VPC.</para><para>To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement
-        /// tenancy attribute set to <code>default</code>), you must set the value of this parameter
-        /// to <code>dedicated</code>.</para><para>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet
-        /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
+        /// <para>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>.
+        /// An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware
+        /// and can only be launched into a VPC. To launch dedicated instances into a shared tenancy
+        /// VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>),
+        /// you must set the value of this property to <code>dedicated</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
         /// instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
-        /// User Guide</i>.</para><para>Valid Values: <code>default</code> | <code>dedicated</code></para>
+        /// User Guide</i>.</para><para>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet
+        /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +291,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter RamdiskId
         /// <summary>
         /// <para>
-        /// <para>The ID of the RAM disk to select.</para>
+        /// <para>The ID of the RAM disk to select.</para><note><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User
+        /// provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,11 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list that contains the security groups to assign to the instances in the Auto Scaling
-        /// group.</para><para>[EC2-VPC] Specify the security group IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para><para>[EC2-Classic] Specify either the security group names or the security group IDs. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 Security Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// <para>A list that contains the security group IDs to assign to the instances in the Auto
+        /// Scaling group. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Control
+        /// traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -316,8 +319,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
-        /// Spot price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Requesting
-        /// Spot Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><note><para>When you change your maximum price by creating a new launch configuration, running
+        /// Spot price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html">Request
+        /// Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2
+        /// Auto Scaling User Guide</i>.</para><para>Valid Range: Minimum value of 0.001</para><note><para>When you change your maximum price by creating a new launch configuration, running
         /// instances will continue to run as long as the maximum price for those running instances
         /// is higher than the current Spot price.</para></note>
         /// </para>
