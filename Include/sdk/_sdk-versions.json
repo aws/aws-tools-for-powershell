@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.321.2",
+    "ProductVersion" : "3.7.322.0",
     "CoreVersion"    : "3.7.12.13",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.15.0",
+            "Version" : "3.7.15.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -610,7 +610,7 @@
             "InPreview"               : false
         },
         "Rekognition"                     : {
-            "Version" : "3.7.8.35",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -914,7 +914,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.3.12",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -922,7 +922,7 @@
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.4.72",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.12.10",
+            "Version" : "3.7.13.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -1306,7 +1306,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "3.7.12.11",
+            "Version" : "3.7.12.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -1746,7 +1746,7 @@
             "InPreview"               : false
         },
         "Detective"                       : {
-            "Version" : "3.7.3.74",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -1778,7 +1778,7 @@
             "InPreview"               : false
         },
         "Macie2"                          : {
-            "Version" : "3.7.8.34",
+            "Version" : "3.7.9.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"
@@ -1954,7 +1954,7 @@
             "InPreview"               : false
         },
         "LookoutforVision"                : {
-            "Version" : "3.7.2.62",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.12"

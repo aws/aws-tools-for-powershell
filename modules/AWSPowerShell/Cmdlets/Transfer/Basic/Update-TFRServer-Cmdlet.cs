@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String[] EndpointDetails_AddressAllocationId { get; set; }
         #endregion
         
+        #region Parameter ProtocolDetails_As2Transport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProtocolDetails_As2Transports")]
+        public System.String[] ProtocolDetails_As2Transport { get; set; }
+        #endregion
+        
         #region Parameter Certificate
         /// <summary>
         /// <para>
@@ -78,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Web Services Directory Service directory that you want
-        /// to stop sharing.</para>
+        /// <para>The identifier of the Directory Service directory that you want to stop sharing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,13 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKey
         /// <summary>
         /// <para>
-        /// <para>The RSA, ECDSA, or ED25519 private key to use for your server.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option: you can create a stronger
-        /// key using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
+        /// <para>The RSA, ECDSA, or ED25519 private key to use for your server.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger
+        /// key by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
         /// of your choice.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
         /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer
-        /// Family User Guide</i>.</para>
+        /// the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access
-        /// Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for
-        /// Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch
-        /// logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+        /// allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents.
+        /// When set, you can view user activity in your CloudWatch logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PostAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// <para>Specifies a string to display when users connect to a server. This string is displayed
         /// after the user authenticates.</para><note><para>The SFTP protocol does not support post-authentication display banners.</para></note>
         /// </para>
         /// </summary>
@@ -200,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PreAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// <para>Specifies a string to display when users connect to a server. This string is displayed
         /// before the user authenticates. For example, the following banner displays details
-        /// about using the system.</para><para><code>This system is for the use of authorized users only. Individuals using this
+        /// about using the system:</para><para><code>This system is for the use of authorized users only. Individuals using this
         /// computer system without authority, or in excess of their authority, are subject to
         /// having all of their activities on this system monitored and recorded by system personnel.</code></para>
         /// </para>
@@ -448,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.LoggingRole = this.LoggingRole;
             context.PostAuthenticationLoginBanner = this.PostAuthenticationLoginBanner;
             context.PreAuthenticationLoginBanner = this.PreAuthenticationLoginBanner;
+            if (this.ProtocolDetails_As2Transport != null)
+            {
+                context.ProtocolDetails_As2Transport = new List<System.String>(this.ProtocolDetails_As2Transport);
+            }
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
             context.ProtocolDetails_SetStatOption = this.ProtocolDetails_SetStatOption;
             context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
@@ -619,6 +631,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate ProtocolDetails
             var requestProtocolDetailsIsNull = true;
             request.ProtocolDetails = new Amazon.Transfer.Model.ProtocolDetails();
+            List<System.String> requestProtocolDetails_protocolDetails_As2Transport = null;
+            if (cmdletContext.ProtocolDetails_As2Transport != null)
+            {
+                requestProtocolDetails_protocolDetails_As2Transport = cmdletContext.ProtocolDetails_As2Transport;
+            }
+            if (requestProtocolDetails_protocolDetails_As2Transport != null)
+            {
+                request.ProtocolDetails.As2Transports = requestProtocolDetails_protocolDetails_As2Transport;
+                requestProtocolDetailsIsNull = false;
+            }
             System.String requestProtocolDetails_protocolDetails_PassiveIp = null;
             if (cmdletContext.ProtocolDetails_PassiveIp != null)
             {
@@ -761,6 +783,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String LoggingRole { get; set; }
             public System.String PostAuthenticationLoginBanner { get; set; }
             public System.String PreAuthenticationLoginBanner { get; set; }
+            public List<System.String> ProtocolDetails_As2Transport { get; set; }
             public System.String ProtocolDetails_PassiveIp { get; set; }
             public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }

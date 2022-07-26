@@ -87,6 +87,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.EbsSnapshotPreservation
+        "Update-GDMalwareScanSetting/EbsSnapshotPreservation"
+        {
+            $v = "NO_RETENTION","RETENTION_WITH_FINDING"
+            break
+        }
+
         # Amazon.GuardDuty.Feedback
         "Update-GDFindingFeedback/Feedback"
         {
@@ -146,6 +153,7 @@ $GD_Completers = {
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
     "DestinationType"=@("New-GDPublishingDestination")
+    "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
@@ -220,6 +228,7 @@ $GD_SelectMap = @{
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
+               "Get-GDMalwareScan",
                "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
                "Disable-GDOrganizationAdminAccount",
@@ -234,6 +243,7 @@ $GD_SelectMap = @{
                "Get-GDFindingStatistic",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
+               "Get-GDMalwareScanSetting",
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
                "Get-GDMember",
@@ -260,6 +270,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDMalwareScanSetting",
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",

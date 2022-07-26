@@ -28,7 +28,8 @@ using Amazon.LookoutforVision.Model;
 namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
-    /// Lists the Amazon Lookout for Vision projects in your AWS account.
+    /// Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS
+    /// Region in which you call <code>ListProjects</code>.
     /// 
     ///  
     /// <para>

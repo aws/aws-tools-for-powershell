@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? AuditLogs_AutoEnable { get; set; }
         #endregion
         
+        #region Parameter EbsVolumes_AutoEnable
+        /// <summary>
+        /// <para>
+        /// <para>Whether scanning EBS volumes should be auto-enabled for new members joining the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_AutoEnable")]
+        public System.Boolean? EbsVolumes_AutoEnable { get; set; }
+        #endregion
+        
         #region Parameter S3Logs_AutoEnable
         /// <summary>
         /// <para>
@@ -165,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             #endif
             context.AuditLogs_AutoEnable = this.AuditLogs_AutoEnable;
+            context.EbsVolumes_AutoEnable = this.EbsVolumes_AutoEnable;
             context.S3Logs_AutoEnable = this.S3Logs_AutoEnable;
             context.DetectorId = this.DetectorId;
             #if MODULAR
@@ -235,6 +247,61 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestDataSources_dataSources_Kubernetes != null)
             {
                 request.DataSources.Kubernetes = requestDataSources_dataSources_Kubernetes;
+                requestDataSourcesIsNull = false;
+            }
+            Amazon.GuardDuty.Model.OrganizationMalwareProtectionConfiguration requestDataSources_dataSources_MalwareProtection = null;
+            
+             // populate MalwareProtection
+            var requestDataSources_dataSources_MalwareProtectionIsNull = true;
+            requestDataSources_dataSources_MalwareProtection = new Amazon.GuardDuty.Model.OrganizationMalwareProtectionConfiguration();
+            Amazon.GuardDuty.Model.OrganizationScanEc2InstanceWithFindings requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = null;
+            
+             // populate ScanEc2InstanceWithFindings
+            var requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull = true;
+            requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = new Amazon.GuardDuty.Model.OrganizationScanEc2InstanceWithFindings();
+            Amazon.GuardDuty.Model.OrganizationEbsVolumes requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes = null;
+            
+             // populate EbsVolumes
+            var requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumesIsNull = true;
+            requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes = new Amazon.GuardDuty.Model.OrganizationEbsVolumes();
+            System.Boolean? requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_ebsVolumes_AutoEnable = null;
+            if (cmdletContext.EbsVolumes_AutoEnable != null)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_ebsVolumes_AutoEnable = cmdletContext.EbsVolumes_AutoEnable.Value;
+            }
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_ebsVolumes_AutoEnable != null)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes.AutoEnable = requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes_ebsVolumes_AutoEnable.Value;
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumesIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes should be set to null
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumesIsNull)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes = null;
+            }
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes != null)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings.EbsVolumes = requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes;
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings should be set to null
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = null;
+            }
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings != null)
+            {
+                requestDataSources_dataSources_MalwareProtection.ScanEc2InstanceWithFindings = requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings;
+                requestDataSources_dataSources_MalwareProtectionIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_MalwareProtection should be set to null
+            if (requestDataSources_dataSources_MalwareProtectionIsNull)
+            {
+                requestDataSources_dataSources_MalwareProtection = null;
+            }
+            if (requestDataSources_dataSources_MalwareProtection != null)
+            {
+                request.DataSources.MalwareProtection = requestDataSources_dataSources_MalwareProtection;
                 requestDataSourcesIsNull = false;
             }
             Amazon.GuardDuty.Model.OrganizationS3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
@@ -334,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public System.Boolean? AutoEnable { get; set; }
             public System.Boolean? AuditLogs_AutoEnable { get; set; }
+            public System.Boolean? EbsVolumes_AutoEnable { get; set; }
             public System.Boolean? S3Logs_AutoEnable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateOrganizationConfigurationResponse, UpdateGDOrganizationConfigurationCmdlet, object> Select { get; set; } =

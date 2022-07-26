@@ -124,6 +124,8 @@ $DTCT_SelectCompleters = {
 
 $DTCT_SelectMap = @{
     "Select"=@("Approve-DTCTInvitation",
+               "Get-DTCTGraphMemberDatasource",
+               "Get-DTCTMembershipDatasource",
                "New-DTCTGraph",
                "New-DTCTMember",
                "Remove-DTCTGraph",
@@ -133,6 +135,7 @@ $DTCT_SelectMap = @{
                "Remove-DTCTMembership",
                "Enable-DTCTOrganizationAdminAccount",
                "Get-DTCTMember",
+               "Get-DTCTDatasourcePackageList",
                "Get-DTCTGraphList",
                "Get-DTCTInvitationList",
                "Get-DTCTMemberList",
@@ -142,6 +145,7 @@ $DTCT_SelectMap = @{
                "Start-DTCTMonitoringMember",
                "Add-DTCTResourceTag",
                "Remove-DTCTResourceTag",
+               "Update-DTCTDatasourcePackage",
                "Update-DTCTOrganizationConfiguration")
 }
 

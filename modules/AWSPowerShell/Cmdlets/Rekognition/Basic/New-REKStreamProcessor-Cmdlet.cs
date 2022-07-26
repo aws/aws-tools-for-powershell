@@ -217,9 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para> Specifies locations in the frames where Amazon Rekognition checks for objects or
-        /// people. You can specify up to 10 regions of interest. This is an optional parameter
-        /// for label detection stream processors and should not be used to create a face search
-        /// stream processor. </para>
+        /// people. You can specify up to 10 regions of interest, and each region has either a
+        /// polygon or a bounding box. This is an optional parameter for label detection stream
+        /// processors and should not be used to create a face search stream processor. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

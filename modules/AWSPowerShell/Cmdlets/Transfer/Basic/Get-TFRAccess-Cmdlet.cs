@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Describes the access that is assigned to the specific file transfer protocol-enabled
-    /// server, as identified by its <code>ServerId</code> property and its <code>ExternalID</code>.
+    /// server, as identified by its <code>ServerId</code> property and its <code>ExternalId</code>.
     /// 
     ///  
     /// <para>
@@ -51,12 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A unique identifier that is required to identify specific groups within your directory.
         /// The users of the group that you associate have access to your Amazon S3 or Amazon
-        /// EFS resources over the enabled protocols using Amazon Web Services Transfer Family.
-        /// If you know the group name, you can view the SID values by running the following command
-        /// using Windows PowerShell.</para><para><code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties
+        /// EFS resources over the enabled protocols using Transfer Family. If you know the group
+        /// name, you can view the SID values by running the following command using Windows PowerShell.</para><para><code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties
         /// * | Select SamAccountName,ObjectSid</code></para><para>In that command, replace <i>YourGroupName</i> with the name of your Active Directory
-        /// group.</para><para>The regex used to validate this parameter is a string of characters consisting of
-        /// uppercase and lowercase alphanumeric characters with no spaces. You can also include
+        /// group.</para><para>The regular expression used to validate this parameter is a string of characters consisting
+        /// of uppercase and lowercase alphanumeric characters with no spaces. You can also include
         /// underscores or any of the following characters: =,.@:/-</para>
         /// </para>
         /// </summary>

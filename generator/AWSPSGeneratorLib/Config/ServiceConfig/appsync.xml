@@ -91,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EvaluateMappingTemplate" OutputProperty="*" Verb="Test" Noun="MappingTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="FlushApiCache" Verb="Clear" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

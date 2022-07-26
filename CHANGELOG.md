@@ -1,4 +1,55 @@
-﻿### 4.1.133 (2022-07-25 20:23Z)
+﻿### 4.1.134 (2022-07-26 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.322.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppSync
+    * Added cmdlet Test-ASYNMappingTemplate leveraging the EvaluateMappingTemplate service API.
+  * Amazon Detective
+    * Added cmdlet Get-DTCTDatasourcePackageList leveraging the ListDatasourcePackages service API.
+    * Added cmdlet Get-DTCTGraphMemberDatasource leveraging the BatchGetGraphMemberDatasources service API.
+    * Added cmdlet Get-DTCTMembershipDatasource leveraging the BatchGetMembershipDatasources service API.
+    * Added cmdlet Update-DTCTDatasourcePackage leveraging the UpdateDatasourcePackages service API.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDMalwareScan leveraging the DescribeMalwareScans service API.
+    * Added cmdlet Get-GDMalwareScanSetting leveraging the GetMalwareScanSettings service API.
+    * Added cmdlet Update-GDMalwareScanSetting leveraging the UpdateMalwareScanSettings service API.
+    * Modified cmdlet New-GDDetector: added parameter ScanEc2InstanceWithFindings_EbsVolume.
+    * Modified cmdlet Update-GDDetector: added parameter ScanEc2InstanceWithFindings_EbsVolume.
+    * Modified cmdlet Update-GDMemberDetector: added parameter ScanEc2InstanceWithFindings_EbsVolume.
+    * Modified cmdlet Update-GDOrganizationConfiguration: added parameter EbsVolumes_AutoEnable.
+  * Amazon Lookout for Vision
+    * Modified cmdlet Start-LFVModel: added parameter MaxInferenceUnit.
+  * Amazon Macie 2
+    * Added cmdlet Get-MAC2RevealConfiguration leveraging the GetRevealConfiguration service API.
+    * Added cmdlet Get-MAC2SensitiveDataOccurrence leveraging the GetSensitiveDataOccurrences service API.
+    * Added cmdlet Get-MAC2SensitiveDataOccurrencesAvailability leveraging the GetSensitiveDataOccurrencesAvailability service API.
+    * Added cmdlet Update-MAC2RevealConfiguration leveraging the UpdateRevealConfiguration service API.
+  * Amazon Rekognition
+    * Modified cmdlet Start-REKProjectVersion: added parameter MaxInferenceUnit.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Get-TFRAgreement leveraging the DescribeAgreement service API.
+    * Added cmdlet Get-TFRAgreementList leveraging the ListAgreements service API.
+    * Added cmdlet Get-TFRCertificate leveraging the DescribeCertificate service API.
+    * Added cmdlet Get-TFRCertificateList leveraging the ListCertificates service API.
+    * Added cmdlet Get-TFRConnector leveraging the DescribeConnector service API.
+    * Added cmdlet Get-TFRConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet Get-TFRProfile leveraging the DescribeProfile service API.
+    * Added cmdlet Get-TFRProfileList leveraging the ListProfiles service API.
+    * Added cmdlet Import-TFRCertificate leveraging the ImportCertificate service API.
+    * Added cmdlet New-TFRAgreement leveraging the CreateAgreement service API.
+    * Added cmdlet New-TFRConnector leveraging the CreateConnector service API.
+    * Added cmdlet New-TFRProfile leveraging the CreateProfile service API.
+    * Added cmdlet Remove-TFRAgreement leveraging the DeleteAgreement service API.
+    * Added cmdlet Remove-TFRCertificate leveraging the DeleteCertificate service API.
+    * Added cmdlet Remove-TFRConnector leveraging the DeleteConnector service API.
+    * Added cmdlet Remove-TFRProfile leveraging the DeleteProfile service API.
+    * Added cmdlet Start-TFRFileTransfer leveraging the StartFileTransfer service API.
+    * Added cmdlet Update-TFRAgreement leveraging the UpdateAgreement service API.
+    * Added cmdlet Update-TFRCertificate leveraging the UpdateCertificate service API.
+    * Added cmdlet Update-TFRConnector leveraging the UpdateConnector service API.
+    * Added cmdlet Update-TFRProfile leveraging the UpdateProfile service API.
+    * Modified cmdlet New-TFRServer: added parameter ProtocolDetails_As2Transport.
+    * Modified cmdlet Update-TFRServer: added parameter ProtocolDetails_As2Transport.
+
+### 4.1.133 (2022-07-25 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.321.2 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.132 (2022-07-22 20:35Z)

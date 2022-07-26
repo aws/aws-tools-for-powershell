@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// are not affected by stopping your server.
     /// 
     ///  <note><para>
-    /// Stopping the server will not reduce or impact your file transfer protocol endpoint
+    /// Stopping the server does not reduce or impact your file transfer protocol endpoint
     /// billing; you must delete the server to stop being billed.
     /// </para></note><para>
     /// The state of <code>STOPPING</code> indicates that the server is in an intermediate

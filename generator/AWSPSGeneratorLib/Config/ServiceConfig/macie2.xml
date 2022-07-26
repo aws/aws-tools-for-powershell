@@ -161,6 +161,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRevealConfiguration" OutputProperty="Configuration" Verb="Get" Noun="RevealConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSensitiveDataOccurrences" OutputProperty="*" Verb="Get" Noun="SensitiveDataOccurrence" PipelineParameter="FindingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSensitiveDataOccurrencesAvailability" OutputProperty="*" Verb="Get" Noun="SensitiveDataOccurrencesAvailability" PipelineParameter="FindingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUsageStatistics" OutputProperty="Records" Verb="Get" Noun="UsageStatistic" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -246,6 +258,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="AutoEnable" PipelineParameter="AutoEnable" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRevealConfiguration" OutputProperty="Configuration" Verb="Update" Noun="RevealConfiguration" ShouldProcessTarget="Configuration_KmsKeyId" PipelineParameter="Configuration_Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

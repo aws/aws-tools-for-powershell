@@ -23,6 +23,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetGraphMemberDatasources" OutputProperty="*" Verb="Get" Noun="GraphMemberDatasource" PipelineParameter="GraphArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetMembershipDatasources" OutputProperty="*" Verb="Get" Noun="MembershipDatasource" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGraph" OutputProperty="GraphArn" Verb="New" Noun="Graph" ShouldProcessTarget="Tags" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -59,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasourcePackages" OutputProperty="DatasourcePackages" Verb="Get" Noun="DatasourcePackageList" PipelineParameter="GraphArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGraphs" OutputProperty="GraphList" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatasourcePackages" Verb="Update" Noun="DatasourcePackage" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

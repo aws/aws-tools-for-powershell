@@ -23,6 +23,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgreement" OutputProperty="AgreementId" Verb="New" Noun="Agreement" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorId" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="As2Id" PipelineParameter="As2Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateServer" OutputProperty="ServerId" Verb="New" Noun="Server" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -36,6 +48,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccess" Verb="Remove" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgreement" Verb="Remove" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,7 +87,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="Agreement" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportCertificate" OutputProperty="CertificateId" Verb="Import" Noun="Certificate" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportSshPublicKey" OutputProperty="*" Verb="Import" Noun="SshPublicKey" ShouldProcessTarget="UserName" PipelineParameter="SshPublicKeyBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,7 +135,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgreements" OutputProperty="Agreements" Verb="Get" Noun="AgreementList" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListExecutions" OutputProperty="*" Verb="Get" Noun="ExecutionList" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="ProfileType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartFileTransfer" OutputProperty="TransferId" Verb="Start" Noun="FileTransfer" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartServer" Verb="Start" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +204,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccess" OutputProperty="*" Verb="Update" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgreement" OutputProperty="AgreementId" Verb="Update" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCertificate" OutputProperty="CertificateId" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorId" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

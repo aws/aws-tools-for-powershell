@@ -118,6 +118,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MAC2OrganizationAdminAccountList', 
         'Get-MAC2OrganizationConfiguration', 
         'Get-MAC2ResourceTag', 
+        'Get-MAC2RevealConfiguration', 
+        'Get-MAC2SensitiveDataOccurrence', 
+        'Get-MAC2SensitiveDataOccurrencesAvailability', 
         'Get-MAC2UsageStatistic', 
         'Get-MAC2UsageTotal', 
         'New-MAC2ClassificationJob', 
@@ -141,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MAC2MacieSession', 
         'Update-MAC2MemberSession', 
         'Update-MAC2OrganizationConfiguration', 
+        'Update-MAC2RevealConfiguration', 
         'Write-MAC2ClassificationExportConfiguration', 
         'Write-MAC2FindingsPublicationConfiguration')
 

@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// You are charged for the amount of time that the model is running. To stop a running
     /// model, call <a>StopProjectVersion</a>.
     /// </para></note><para>
+    /// For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i>
+    /// in the Amazon Rekognition Custom Labels Guide.
+    /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code>
     /// action.
     /// </para>
@@ -52,13 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class StartREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        #region Parameter MaxInferenceUnit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of inference units to use for auto-scaling the model. If you don't
+        /// specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxInferenceUnits")]
+        public System.Int32? MaxInferenceUnit { get; set; }
+        #endregion
+        
         #region Parameter MinInferenceUnit
         /// <summary>
         /// <para>
         /// <para>The minimum number of inference units to use. A single inference unit represents 1
-        /// hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher
-        /// number to increase the TPS throughput of your model. You are charged for the number
-        /// of inference units that you use. </para>
+        /// hour of processing. </para><para>For information about the number of transactions per second (TPS) that an inference
+        /// unit can support, see <i>Running a trained Amazon Rekognition Custom Labels model</i>
+        /// in the Amazon Rekognition Custom Labels Guide. </para><para>Use a higher number to increase the TPS throughput of your model. You are charged
+        /// for the number of inference units that you use. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = (response, cmdlet) => this.ProjectVersionArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MaxInferenceUnit = this.MaxInferenceUnit;
             context.MinInferenceUnit = this.MinInferenceUnit;
             #if MODULAR
             if (this.MinInferenceUnit == null && ParameterWasBound(nameof(this.MinInferenceUnit)))
@@ -180,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request
             var request = new Amazon.Rekognition.Model.StartProjectVersionRequest();
             
+            if (cmdletContext.MaxInferenceUnit != null)
+            {
+                request.MaxInferenceUnits = cmdletContext.MaxInferenceUnit.Value;
+            }
             if (cmdletContext.MinInferenceUnit != null)
             {
                 request.MinInferenceUnits = cmdletContext.MinInferenceUnit.Value;
@@ -249,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxInferenceUnit { get; set; }
             public System.Int32? MinInferenceUnit { get; set; }
             public System.String ProjectVersionArn { get; set; }
             public System.Func<Amazon.Rekognition.Model.StartProjectVersionResponse, StartREKProjectVersionCmdlet, object> Select { get; set; } =

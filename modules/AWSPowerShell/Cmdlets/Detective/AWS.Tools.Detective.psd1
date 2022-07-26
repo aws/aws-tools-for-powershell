@@ -91,10 +91,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Deny-DTCTInvitation', 
         'Disable-DTCTOrganizationAdminAccount', 
         'Enable-DTCTOrganizationAdminAccount', 
+        'Get-DTCTDatasourcePackageList', 
         'Get-DTCTGraphList', 
+        'Get-DTCTGraphMemberDatasource', 
         'Get-DTCTInvitationList', 
         'Get-DTCTMember', 
         'Get-DTCTMemberList', 
+        'Get-DTCTMembershipDatasource', 
         'Get-DTCTOrganizationAdminAccountList', 
         'Get-DTCTOrganizationConfiguration', 
         'Get-DTCTResourceTag', 
@@ -105,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DTCTMembership', 
         'Remove-DTCTResourceTag', 
         'Start-DTCTMonitoringMember', 
+        'Update-DTCTDatasourcePackage', 
         'Update-DTCTOrganizationConfiguration')
 
     # Variables to export from this module

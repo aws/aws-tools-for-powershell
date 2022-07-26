@@ -175,6 +175,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.RevealStatus
+        "Update-MAC2RevealConfiguration/Configuration_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Macie2.SearchResourcesSortAttributeName
         "Search-MAC2Resource/SortCriteria_AttributeName"
         {
@@ -206,6 +213,7 @@ $MAC2_Completers = {
 
 $MAC2_map = @{
     "Action"=@("New-MAC2FindingsFilter","Update-MAC2FindingsFilter")
+    "Configuration_Status"=@("Update-MAC2RevealConfiguration")
     "FindingPublishingFrequency"=@("Enable-MAC2Macie","Update-MAC2MacieSession")
     "GroupBy"=@("Get-MAC2FindingStatistic")
     "JobStatus"=@("Update-MAC2ClassificationJob")
@@ -305,6 +313,9 @@ $MAC2_SelectMap = @{
                "Get-MAC2MacieSession",
                "Get-MAC2MasterAccount",
                "Get-MAC2Member",
+               "Get-MAC2RevealConfiguration",
+               "Get-MAC2SensitiveDataOccurrence",
+               "Get-MAC2SensitiveDataOccurrencesAvailability",
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2ClassificationJobList",
@@ -326,7 +337,8 @@ $MAC2_SelectMap = @{
                "Update-MAC2FindingsFilter",
                "Update-MAC2MacieSession",
                "Update-MAC2MemberSession",
-               "Update-MAC2OrganizationConfiguration")
+               "Update-MAC2OrganizationConfiguration",
+               "Update-MAC2RevealConfiguration")
 }
 
 _awsArgumentCompleterRegistration $MAC2_SelectCompleters $MAC2_SelectMap

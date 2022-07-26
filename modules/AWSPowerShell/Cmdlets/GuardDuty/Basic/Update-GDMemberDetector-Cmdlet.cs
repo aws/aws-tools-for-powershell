@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter ScanEc2InstanceWithFindings_EbsVolume
+        /// <summary>
+        /// <para>
+        /// <para>Describes the configuration for scanning EBS volumes as data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_MalwareProtection_ScanEc2InstanceWithFindings_EbsVolumes")]
+        public System.Boolean? ScanEc2InstanceWithFindings_EbsVolume { get; set; }
+        #endregion
+        
         #region Parameter AuditLogs_Enable
         /// <summary>
         /// <para>
@@ -169,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             #endif
             context.AuditLogs_Enable = this.AuditLogs_Enable;
+            context.ScanEc2InstanceWithFindings_EbsVolume = this.ScanEc2InstanceWithFindings_EbsVolume;
             context.S3Logs_Enable = this.S3Logs_Enable;
             context.DetectorId = this.DetectorId;
             #if MODULAR
@@ -239,6 +251,46 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestDataSources_dataSources_Kubernetes != null)
             {
                 request.DataSources.Kubernetes = requestDataSources_dataSources_Kubernetes;
+                requestDataSourcesIsNull = false;
+            }
+            Amazon.GuardDuty.Model.MalwareProtectionConfiguration requestDataSources_dataSources_MalwareProtection = null;
+            
+             // populate MalwareProtection
+            var requestDataSources_dataSources_MalwareProtectionIsNull = true;
+            requestDataSources_dataSources_MalwareProtection = new Amazon.GuardDuty.Model.MalwareProtectionConfiguration();
+            Amazon.GuardDuty.Model.ScanEc2InstanceWithFindings requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = null;
+            
+             // populate ScanEc2InstanceWithFindings
+            var requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull = true;
+            requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = new Amazon.GuardDuty.Model.ScanEc2InstanceWithFindings();
+            System.Boolean? requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_scanEc2InstanceWithFindings_EbsVolume = null;
+            if (cmdletContext.ScanEc2InstanceWithFindings_EbsVolume != null)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_scanEc2InstanceWithFindings_EbsVolume = cmdletContext.ScanEc2InstanceWithFindings_EbsVolume.Value;
+            }
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_scanEc2InstanceWithFindings_EbsVolume != null)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings.EbsVolumes = requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings_scanEc2InstanceWithFindings_EbsVolume.Value;
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings should be set to null
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindingsIsNull)
+            {
+                requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings = null;
+            }
+            if (requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings != null)
+            {
+                requestDataSources_dataSources_MalwareProtection.ScanEc2InstanceWithFindings = requestDataSources_dataSources_MalwareProtection_dataSources_MalwareProtection_ScanEc2InstanceWithFindings;
+                requestDataSources_dataSources_MalwareProtectionIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_MalwareProtection should be set to null
+            if (requestDataSources_dataSources_MalwareProtectionIsNull)
+            {
+                requestDataSources_dataSources_MalwareProtection = null;
+            }
+            if (requestDataSources_dataSources_MalwareProtection != null)
+            {
+                request.DataSources.MalwareProtection = requestDataSources_dataSources_MalwareProtection;
                 requestDataSourcesIsNull = false;
             }
             Amazon.GuardDuty.Model.S3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
@@ -338,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public List<System.String> AccountId { get; set; }
             public System.Boolean? AuditLogs_Enable { get; set; }
+            public System.Boolean? ScanEc2InstanceWithFindings_EbsVolume { get; set; }
             public System.Boolean? S3Logs_Enable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse, UpdateGDMemberDetectorCmdlet, object> Select { get; set; } =

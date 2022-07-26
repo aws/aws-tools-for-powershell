@@ -281,6 +281,7 @@ $ASYN_SelectMap = @{
                "Remove-ASYNResolver",
                "Remove-ASYNType",
                "Stop-ASYNApiAssociation",
+               "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
                "Get-ASYNApiAssociation",
                "Get-ASYNApiCache",

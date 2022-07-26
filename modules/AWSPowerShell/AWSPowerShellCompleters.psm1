@@ -3606,6 +3606,7 @@ $ASYN_SelectMap = @{
                "Remove-ASYNResolver",
                "Remove-ASYNType",
                "Stop-ASYNApiAssociation",
+               "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
                "Get-ASYNApiAssociation",
                "Get-ASYNApiCache",
@@ -13776,6 +13777,8 @@ $DTCT_SelectCompleters = {
 
 $DTCT_SelectMap = @{
     "Select"=@("Approve-DTCTInvitation",
+               "Get-DTCTGraphMemberDatasource",
+               "Get-DTCTMembershipDatasource",
                "New-DTCTGraph",
                "New-DTCTMember",
                "Remove-DTCTGraph",
@@ -13785,6 +13788,7 @@ $DTCT_SelectMap = @{
                "Remove-DTCTMembership",
                "Enable-DTCTOrganizationAdminAccount",
                "Get-DTCTMember",
+               "Get-DTCTDatasourcePackageList",
                "Get-DTCTGraphList",
                "Get-DTCTInvitationList",
                "Get-DTCTMemberList",
@@ -13794,6 +13798,7 @@ $DTCT_SelectMap = @{
                "Start-DTCTMonitoringMember",
                "Add-DTCTResourceTag",
                "Remove-DTCTResourceTag",
+               "Update-DTCTDatasourcePackage",
                "Update-DTCTOrganizationConfiguration")
 }
 
@@ -23971,6 +23976,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.EbsSnapshotPreservation
+        "Update-GDMalwareScanSetting/EbsSnapshotPreservation"
+        {
+            $v = "NO_RETENTION","RETENTION_WITH_FINDING"
+            break
+        }
+
         # Amazon.GuardDuty.Feedback
         "Update-GDFindingFeedback/Feedback"
         {
@@ -24030,6 +24042,7 @@ $GD_Completers = {
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
     "DestinationType"=@("New-GDPublishingDestination")
+    "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
@@ -24104,6 +24117,7 @@ $GD_SelectMap = @{
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
+               "Get-GDMalwareScan",
                "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
                "Disable-GDOrganizationAdminAccount",
@@ -24118,6 +24132,7 @@ $GD_SelectMap = @{
                "Get-GDFindingStatistic",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
+               "Get-GDMalwareScanSetting",
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
                "Get-GDMember",
@@ -24144,6 +24159,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDMalwareScanSetting",
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",
@@ -32046,6 +32062,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.RevealStatus
+        "Update-MAC2RevealConfiguration/Configuration_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Macie2.SearchResourcesSortAttributeName
         "Search-MAC2Resource/SortCriteria_AttributeName"
         {
@@ -32077,6 +32100,7 @@ $MAC2_Completers = {
 
 $MAC2_map = @{
     "Action"=@("New-MAC2FindingsFilter","Update-MAC2FindingsFilter")
+    "Configuration_Status"=@("Update-MAC2RevealConfiguration")
     "FindingPublishingFrequency"=@("Enable-MAC2Macie","Update-MAC2MacieSession")
     "GroupBy"=@("Get-MAC2FindingStatistic")
     "JobStatus"=@("Update-MAC2ClassificationJob")
@@ -32176,6 +32200,9 @@ $MAC2_SelectMap = @{
                "Get-MAC2MacieSession",
                "Get-MAC2MasterAccount",
                "Get-MAC2Member",
+               "Get-MAC2RevealConfiguration",
+               "Get-MAC2SensitiveDataOccurrence",
+               "Get-MAC2SensitiveDataOccurrencesAvailability",
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2ClassificationJobList",
@@ -32197,7 +32224,8 @@ $MAC2_SelectMap = @{
                "Update-MAC2FindingsFilter",
                "Update-MAC2MacieSession",
                "Update-MAC2MemberSession",
-               "Update-MAC2OrganizationConfiguration")
+               "Update-MAC2OrganizationConfiguration",
+               "Update-MAC2RevealConfiguration")
 }
 
 _awsArgumentCompleterRegistration $MAC2_SelectCompleters $MAC2_SelectMap
@@ -49571,6 +49599,33 @@ $TFR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Transfer.AgreementStatusType
+        {
+            ($_ -eq "New-TFRAgreement/Status") -Or
+            ($_ -eq "Update-TFRAgreement/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+        # Amazon.Transfer.CertificateUsageType
+        "Import-TFRCertificate/Usage"
+        {
+            $v = "ENCRYPTION","SIGNING"
+            break
+        }
+
+        # Amazon.Transfer.CompressionEnum
+        {
+            ($_ -eq "New-TFRConnector/As2Config_Compression") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_Compression")
+        }
+        {
+            $v = "DISABLED","ZLIB"
+            break
+        }
+
         # Amazon.Transfer.CustomStepStatus
         "Send-TFRWorkflowStepState/Status"
         {
@@ -49582,6 +49637,16 @@ $TFR_Completers = {
         "New-TFRServer/Domain"
         {
             $v = "EFS","S3"
+            break
+        }
+
+        # Amazon.Transfer.EncryptionAlg
+        {
+            ($_ -eq "New-TFRConnector/As2Config_EncryptionAlgorithm") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_EncryptionAlgorithm")
+        }
+        {
+            $v = "AES128_CBC","AES192_CBC","AES256_CBC"
             break
         }
 
@@ -49614,10 +49679,40 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.MdnResponse
+        {
+            ($_ -eq "New-TFRConnector/As2Config_MdnResponse") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_MdnResponse")
+        }
+        {
+            $v = "NONE","SYNC"
+            break
+        }
+
+        # Amazon.Transfer.MdnSigningAlg
+        {
+            ($_ -eq "New-TFRConnector/As2Config_MdnSigningAlgorithm") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_MdnSigningAlgorithm")
+        }
+        {
+            $v = "DEFAULT","NONE","SHA1","SHA256","SHA384","SHA512"
+            break
+        }
+
+        # Amazon.Transfer.ProfileType
+        {
+            ($_ -eq "Get-TFRProfileList/ProfileType") -Or
+            ($_ -eq "New-TFRProfile/ProfileType")
+        }
+        {
+            $v = "LOCAL","PARTNER"
+            break
+        }
+
         # Amazon.Transfer.Protocol
         "Test-TFRIdentityProvider/ServerProtocol"
         {
-            $v = "FTP","FTPS","SFTP"
+            $v = "AS2","FTP","FTPS","SFTP"
             break
         }
 
@@ -49628,6 +49723,16 @@ $TFR_Completers = {
         }
         {
             $v = "DEFAULT","ENABLE_NO_OP"
+            break
+        }
+
+        # Amazon.Transfer.SigningAlg
+        {
+            ($_ -eq "New-TFRConnector/As2Config_SigningAlgorithm") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_SigningAlgorithm")
+        }
+        {
+            $v = "NONE","SHA1","SHA256","SHA384","SHA512"
             break
         }
 
@@ -49650,14 +49755,21 @@ $TFR_Completers = {
 }
 
 $TFR_map = @{
+    "As2Config_Compression"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_EncryptionAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_MdnResponse"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_MdnSigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_SigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
+    "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
-    "Status"=@("Send-TFRWorkflowStepState")
+    "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
+    "Usage"=@("Import-TFRCertificate")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map
@@ -49711,35 +49823,56 @@ $TFR_SelectCompleters = {
 
 $TFR_SelectMap = @{
     "Select"=@("New-TFRAccess",
+               "New-TFRAgreement",
+               "New-TFRConnector",
+               "New-TFRProfile",
                "New-TFRServer",
                "New-TFRUser",
                "New-TFRWorkflow",
                "Remove-TFRAccess",
+               "Remove-TFRAgreement",
+               "Remove-TFRCertificate",
+               "Remove-TFRConnector",
+               "Remove-TFRProfile",
                "Remove-TFRServer",
                "Remove-TFRSshPublicKey",
                "Remove-TFRUser",
                "Remove-TFRWorkflow",
                "Get-TFRAccess",
+               "Get-TFRAgreement",
+               "Get-TFRCertificate",
+               "Get-TFRConnector",
                "Get-TFRExecution",
+               "Get-TFRProfile",
                "Get-TFRSecurityPolicy",
                "Get-TFRServer",
                "Get-TFRUser",
                "Get-TFRWorkflow",
+               "Import-TFRCertificate",
                "Import-TFRSshPublicKey",
                "Get-TFRAccessList",
+               "Get-TFRAgreementList",
+               "Get-TFRCertificateList",
+               "Get-TFRConnectorList",
                "Get-TFRExecutionList",
+               "Get-TFRProfileList",
                "Get-TFRSecurityPolicyList",
                "Get-TFRServerList",
                "Get-TFRResourceTagList",
                "Get-TFRUserList",
                "Get-TFRWorkflowList",
                "Send-TFRWorkflowStepState",
+               "Start-TFRFileTransfer",
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",
                "Test-TFRIdentityProvider",
                "Remove-TFRResourceTag",
                "Update-TFRAccess",
+               "Update-TFRAgreement",
+               "Update-TFRCertificate",
+               "Update-TFRConnector",
+               "Update-TFRProfile",
                "Update-TFRServer",
                "Update-TFRUser")
 }

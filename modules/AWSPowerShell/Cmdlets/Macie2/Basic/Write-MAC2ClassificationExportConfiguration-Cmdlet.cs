@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3Destination_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the KMS key to use for encryption of the results.
-        /// This must be the ARN of an existing, symmetric, customer managed KMS key that's in
-        /// the same Amazon Web Services Region as the bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encryption
+        /// of the results. This must be the ARN of an existing, symmetric encryption KMS key
+        /// that's in the same Amazon Web Services Region as the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

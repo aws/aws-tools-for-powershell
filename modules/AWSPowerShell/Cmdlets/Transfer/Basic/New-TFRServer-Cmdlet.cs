@@ -56,16 +56,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String[] EndpointDetails_AddressAllocationId { get; set; }
         #endregion
         
+        #region Parameter ProtocolDetails_As2Transport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProtocolDetails_As2Transports")]
+        public System.String[] ProtocolDetails_As2Transport { get; set; }
+        #endregion
+        
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager (ACM)
-        /// certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
-        /// a public certificate</a> in the <i> Amazon Web Services Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
-        /// certificates into ACM</a> in the <i> Amazon Web Services Certificate Manager User
-        /// Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
-        /// a private certificate</a> in the <i> Amazon Web Services Certificate Manager User
-        /// Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+        /// <para>The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required
+        /// when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
+        /// a public certificate</a> in the <i>Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+        /// certificates into ACM</a> in the <i>Certificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
+        /// a private certificate</a> in the <i>Certificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
         /// address specified and information about the issuer.</para></note>
         /// </para>
         /// </summary>
@@ -76,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Web Services Directory Service directory that you want
-        /// to stop sharing.</para>
+        /// <para>The identifier of the Directory Service directory that you want to stop sharing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,13 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKey
         /// <summary>
         /// <para>
-        /// <para>The RSA, ECDSA, or ED25519 private key to use for your server.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option: you can create a stronger
-        /// key using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
+        /// <para>The RSA, ECDSA, or ED25519 private key to use for your server.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger
+        /// key by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
         /// of your choice.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
         /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer
-        /// Family User Guide</i>.</para>
+        /// the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,18 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderType
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>,
-        /// which allows you to store and access user credentials within the Amazon Web Services
-        /// Transfer Family service.</para><para>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups
-        /// in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
-        /// on-premises environment or in Amazon Web Services using AD Connectors. This option
-        /// also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code>
+        /// <para>The mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>,
+        /// which allows you to store and access user credentials within the Transfer Family service.</para><para>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups
+        /// in Directory Service for Microsoft Active Directory or Microsoft Active Directory
+        /// in your on-premises environment or in Amazon Web Services using AD Connector. This
+        /// option also requires you to provide a Directory ID by using the <code>IdentityProviderDetails</code>
         /// parameter.</para><para>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your
-        /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway
-        /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
-        /// parameter.</para><para>Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity
-        /// provider. If you choose this value, you must specify the ARN for the lambda function
-        /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
+        /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an Amazon API
+        /// Gateway endpoint URL to call for authentication by using the <code>IdentityProviderDetails</code>
+        /// parameter.</para><para>Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity
+        /// provider. If you choose this value, you must specify the ARN for the Lambda function
+        /// in the <code>Function</code> parameter or the <code>IdentityProviderDetails</code>
         /// data type.</para>
         /// </para>
         /// </summary>
@@ -182,10 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access
-        /// Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for
-        /// Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch
-        /// logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+        /// allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents.
+        /// When set, you can view user activity in your CloudWatch logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PostAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// <para>Specifies a string to display when users connect to a server. This string is displayed
         /// after the user authenticates.</para><note><para>The SFTP protocol does not support post-authentication display banners.</para></note>
         /// </para>
         /// </summary>
@@ -234,9 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PreAuthenticationLoginBanner
         /// <summary>
         /// <para>
-        /// <para>Specify a string to display when users connect to a server. This string is displayed
+        /// <para>Specifies a string to display when users connect to a server. This string is displayed
         /// before the user authenticates. For example, the following banner displays details
-        /// about using the system.</para><para><code>This system is for the use of authorized users only. Individuals using this
+        /// about using the system:</para><para><code>This system is for the use of authorized users only. Individuals using this
         /// computer system without authority, or in excess of their authority, are subject to
         /// having all of their activities on this system monitored and recorded by system personnel.</code></para>
         /// </para>
@@ -250,14 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
         /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
-        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web
-        /// Services Certificate Manager (ACM) which is used to identify your server when clients
-        /// connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li><li><para><code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business
+        /// data</para></li></ul><note><ul><li><para>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate
+        /// Manager (ACM) which is used to identify your server when clients connect to it over
+        /// FTPS.</para></li><li><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
-        /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
+        /// cannot be associated.</para></li><li><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
-        /// set to <code>SERVICE_MANAGED</code>.</para></note>
+        /// set to <code>SERVICE_MANAGED</code>.</para></li><li><para>If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
+        /// must be <code>VPC</code>, and domain must be Amazon S3.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.LoggingRole = this.LoggingRole;
             context.PostAuthenticationLoginBanner = this.PostAuthenticationLoginBanner;
             context.PreAuthenticationLoginBanner = this.PreAuthenticationLoginBanner;
+            if (this.ProtocolDetails_As2Transport != null)
+            {
+                context.ProtocolDetails_As2Transport = new List<System.String>(this.ProtocolDetails_As2Transport);
+            }
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
             context.ProtocolDetails_SetStatOption = this.ProtocolDetails_SetStatOption;
             context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
@@ -634,6 +645,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate ProtocolDetails
             var requestProtocolDetailsIsNull = true;
             request.ProtocolDetails = new Amazon.Transfer.Model.ProtocolDetails();
+            List<System.String> requestProtocolDetails_protocolDetails_As2Transport = null;
+            if (cmdletContext.ProtocolDetails_As2Transport != null)
+            {
+                requestProtocolDetails_protocolDetails_As2Transport = cmdletContext.ProtocolDetails_As2Transport;
+            }
+            if (requestProtocolDetails_protocolDetails_As2Transport != null)
+            {
+                request.ProtocolDetails.As2Transports = requestProtocolDetails_protocolDetails_As2Transport;
+                requestProtocolDetailsIsNull = false;
+            }
             System.String requestProtocolDetails_protocolDetails_PassiveIp = null;
             if (cmdletContext.ProtocolDetails_PassiveIp != null)
             {
@@ -778,6 +799,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String LoggingRole { get; set; }
             public System.String PostAuthenticationLoginBanner { get; set; }
             public System.String PreAuthenticationLoginBanner { get; set; }
+            public List<System.String> ProtocolDetails_As2Transport { get; set; }
             public System.String ProtocolDetails_PassiveIp { get; set; }
             public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }

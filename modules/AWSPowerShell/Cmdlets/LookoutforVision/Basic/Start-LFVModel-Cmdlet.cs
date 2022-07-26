@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class StartLFVModelCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        #region Parameter MaxInferenceUnit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of inference units to use for auto-scaling the model. If you don't
+        /// specify a value, Amazon Lookout for Vision doesn't auto-scale the model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxInferenceUnits")]
+        public System.Int32? MaxInferenceUnit { get; set; }
+        #endregion
+        
         #region Parameter MinInferenceUnit
         /// <summary>
         /// <para>
@@ -167,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.MaxInferenceUnit = this.MaxInferenceUnit;
             context.MinInferenceUnit = this.MinInferenceUnit;
             #if MODULAR
             if (this.MinInferenceUnit == null && ParameterWasBound(nameof(this.MinInferenceUnit)))
@@ -207,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.MaxInferenceUnit != null)
+            {
+                request.MaxInferenceUnits = cmdletContext.MaxInferenceUnit.Value;
             }
             if (cmdletContext.MinInferenceUnit != null)
             {
@@ -282,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Int32? MaxInferenceUnit { get; set; }
             public System.Int32? MinInferenceUnit { get; set; }
             public System.String ModelVersion { get; set; }
             public System.String ProjectName { get; set; }
