@@ -255,6 +255,7 @@ $WKS_SelectMap = @{
                "New-WKSTag",
                "New-WKSUpdatedWorkspaceImage",
                "New-WKSWorkspaceBundle",
+               "New-WKSWorkspaceImage",
                "New-WKSWorkspace",
                "Remove-WKSClientBranding",
                "Remove-WKSConnectClientAddIn",

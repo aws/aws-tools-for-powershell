@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
     /// Create an endpoint group for the specified listener. An endpoint group is a collection
-    /// of endpoints in one AWS Region. A resource must be valid and active when you add it
-    /// as an endpoint.
+    /// of endpoints in one Amazon Web Services Region. A resource must be valid and active
+    /// when you add it as an endpoint.
     /// </summary>
     [Cmdlet("New", "GACLEndpointGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter EndpointGroupRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region where the endpoint group is located. A listener can have only one endpoint
-        /// group in a specific Region.</para>
+        /// <para>The Amazon Web Services Region where the endpoint group is located. A listener can
+        /// have only one endpoint group in a specific Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,10 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter HealthCheckPort
         /// <summary>
         /// <para>
-        /// <para>The port that AWS Global Accelerator uses to check the health of endpoints that are
-        /// part of this endpoint group. The default port is the listener port that this endpoint
-        /// group is associated with. If listener port is a list of ports, Global Accelerator
-        /// uses the first port in the list.</para>
+        /// <para>The port that Global Accelerator uses to check the health of endpoints that are part
+        /// of this endpoint group. The default port is the listener port that this endpoint group
+        /// is associated with. If listener port is a list of ports, Global Accelerator uses the
+        /// first port in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter HealthCheckProtocol
         /// <summary>
         /// <para>
-        /// <para>The protocol that AWS Global Accelerator uses to check the health of endpoints that
-        /// are part of this endpoint group. The default value is TCP.</para>
+        /// <para>The protocol that Global Accelerator uses to check the health of endpoints that are
+        /// part of this endpoint group. The default value is TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// of this endpoint group. For example, you can create a port override in which the listener
         /// receives user traffic on ports 80 and 443, but your accelerator routes that traffic
         /// to ports 1080 and 1443, respectively, on the endpoints.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-        /// Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter TrafficDialPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of traffic to send to an AWS Region. Additional traffic is distributed
-        /// to other endpoint groups for this listener. </para><para>Use this action to increase (dial up) or decrease (dial down) traffic to a specific
+        /// <para>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic
+        /// is distributed to other endpoint groups for this listener. </para><para>Use this action to increase (dial up) or decrease (dial down) traffic to a specific
         /// Region. The percentage is applied to the traffic that would otherwise have been routed
         /// to the Region based on optimal routing.</para><para>The default value is 100.</para>
         /// </para>

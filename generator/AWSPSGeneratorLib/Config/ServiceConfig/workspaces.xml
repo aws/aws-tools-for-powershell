@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceImage" OutputProperty="*" Verb="New" Noun="WorkspaceImage" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

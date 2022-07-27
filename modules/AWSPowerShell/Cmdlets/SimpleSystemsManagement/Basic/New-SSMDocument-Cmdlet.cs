@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>An optional field specifying the version of the artifact you are creating with the
-        /// document. For example, "Release 12, Update 6". This value is unique across all versions
+        /// document. For example, <code>Release12.1</code>. This value is unique across all versions
         /// of a document, and can't be changed.</para>
         /// </para>
         /// </summary>

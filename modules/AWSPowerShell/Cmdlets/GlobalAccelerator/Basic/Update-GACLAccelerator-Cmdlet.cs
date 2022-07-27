@@ -31,8 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// Update an accelerator. 
     /// 
     ///  <important><para>
-    /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
-    /// but you must specify the US West (Oregon) Region to create or update accelerators.
+    /// Global Accelerator is a global service that supports endpoints in multiple Amazon
+    /// Web Services Regions but you must specify the US West (Oregon) Region to create, update,
+    /// or otherwise work with accelerators. That is, for example, specify <code>--region
+    /// us-west-2</code> on AWS CLI commands.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type, which must be IPv4.</para>
+        /// <para>The IP address type that an accelerator supports. For a standard accelerator, the
+        /// value can be IPV4 or DUAL_STACK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the accelerator. The name can have a maximum of 32 characters, must contain
-        /// only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</para>
+        /// <para>The name of the accelerator. The name can have a maximum of 64 characters, must contain
+        /// only alphanumeric characters, periods (.), or hyphens (-), and must not begin or end
+        /// with a hyphen or period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

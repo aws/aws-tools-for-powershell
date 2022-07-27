@@ -1,4 +1,13 @@
-﻿### 4.1.134 (2022-07-26 20:31Z)
+﻿### 4.1.135 (2022-07-27 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.323.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime
+    * Added cmdlet Confirm-CHME911Address leveraging the ValidateE911Address service API.
+  * Amazon Config
+    * Added cmdlet Get-CFGConformancePackComplianceScoreList leveraging the ListConformancePackComplianceScores service API.
+  * Amazon WorkSpaces
+    * Added cmdlet New-WKSWorkspaceImage leveraging the CreateWorkspaceImage service API.
+
+### 4.1.134 (2022-07-26 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.322.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppSync
     * Added cmdlet Test-ASYNMappingTemplate leveraging the EvaluateMappingTemplate service API.

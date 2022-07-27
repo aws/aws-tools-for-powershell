@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFGConformancePack', 
         'Get-CFGConformancePackCompliance', 
         'Get-CFGConformancePackComplianceDetail', 
+        'Get-CFGConformancePackComplianceScoreList', 
         'Get-CFGConformancePackComplianceSummary', 
         'Get-CFGConformancePackStatus', 
         'Get-CFGCustomRulePolicy', 

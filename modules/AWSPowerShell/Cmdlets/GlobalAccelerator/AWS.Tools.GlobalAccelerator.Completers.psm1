@@ -108,7 +108,7 @@ $GACL_Completers = {
             ($_ -eq "Update-GACLCustomRoutingAccelerator/IpAddressType")
         }
         {
-            $v = "IPV4"
+            $v = "DUAL_STACK","IPV4"
             break
         }
 

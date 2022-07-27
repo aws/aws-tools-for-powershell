@@ -131,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
         /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// </para>
+        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
+        /// u, ul</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

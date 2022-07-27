@@ -11,7 +11,9 @@
     <ServiceModuleGuid>d7ccf373-c58f-4d45-859f-173a57c9a9a3</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="99" PageSizeIsRequired="true" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Validate" To="Confirm" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -778,6 +780,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVoiceConnectorGroup" OutputProperty="VoiceConnectorGroup" Verb="Update" Noun="VoiceConnectorGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateE911Address" OutputProperty="*" Verb="Confirm" Noun="E911Address" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

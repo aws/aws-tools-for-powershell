@@ -2539,6 +2539,8 @@ Set-Alias -Name Update-CHMUserSettings -Value Update-CHMUserSetting
 Set-Alias -Name CHM-UpdateUserSettings -Value Update-CHMUserSetting
 Set-Alias -Name CHM-UpdateVoiceConnector -Value Update-CHMVoiceConnector
 Set-Alias -Name CHM-UpdateVoiceConnectorGroup -Value Update-CHMVoiceConnectorGroup
+Set-Alias -Name Validate-CHME911Address -Value Confirm-CHME911Address
+Set-Alias -Name CHM-ValidateE911Address -Value Confirm-CHME911Address
 Set-Alias -Name Create-CHMIDAppInstanceAdmin -Value New-CHMIDAppInstanceAdmin
 Set-Alias -Name CHMID-CreateAppInstanceAdmin -Value New-CHMIDAppInstanceAdmin
 Set-Alias -Name Create-CHMIDAppInstance -Value New-CHMIDAppInstance
@@ -4666,6 +4668,9 @@ Set-Alias -Name CFG-GetStoredQuery -Value Get-CFGStoredQuery
 Set-Alias -Name List-CFGAggregateDiscoveredResources -Value Get-CFGAggregateDiscoveredResourceList
 Set-Alias -Name List-CFGAggregateDiscoveredResourceList -Value Get-CFGAggregateDiscoveredResourceList
 Set-Alias -Name CFG-ListAggregateDiscoveredResources -Value Get-CFGAggregateDiscoveredResourceList
+Set-Alias -Name List-CFGConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
+Set-Alias -Name List-CFGConformancePackComplianceScoreList -Value Get-CFGConformancePackComplianceScoreList
+Set-Alias -Name CFG-ListConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
 Set-Alias -Name List-CFGDiscoveredResources -Value Get-CFGDiscoveredResource
 Set-Alias -Name List-CFGDiscoveredResource -Value Get-CFGDiscoveredResource
 Set-Alias -Name CFG-ListDiscoveredResources -Value Get-CFGDiscoveredResource
@@ -22550,6 +22555,8 @@ Set-Alias -Name Create-WKSUpdatedWorkspaceImage -Value New-WKSUpdatedWorkspaceIm
 Set-Alias -Name WKS-CreateUpdatedWorkspaceImage -Value New-WKSUpdatedWorkspaceImage
 Set-Alias -Name Create-WKSWorkspaceBundle -Value New-WKSWorkspaceBundle
 Set-Alias -Name WKS-CreateWorkspaceBundle -Value New-WKSWorkspaceBundle
+Set-Alias -Name Create-WKSWorkspaceImage -Value New-WKSWorkspaceImage
+Set-Alias -Name WKS-CreateWorkspaceImage -Value New-WKSWorkspaceImage
 Set-Alias -Name Create-WKSWorkspaces -Value New-WKSWorkspace
 Set-Alias -Name Create-WKSWorkspace -Value New-WKSWorkspace
 Set-Alias -Name WKS-CreateWorkspaces -Value New-WKSWorkspace

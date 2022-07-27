@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
     /// Create an endpoint group for the specified listener for a custom routing accelerator.
-    /// An endpoint group is a collection of endpoints in one AWS Region.
+    /// An endpoint group is a collection of endpoints in one Amazon Web Services Region.
     /// </summary>
     [Cmdlet("New", "GACLCustomRoutingEndpointGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.CustomRoutingEndpointGroup")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter EndpointGroupRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region where the endpoint group is located. A listener can have only one endpoint
-        /// group in a specific Region.</para>
+        /// <para>The Amazon Web Services Region where the endpoint group is located. A listener can
+        /// have only one endpoint group in a specific Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

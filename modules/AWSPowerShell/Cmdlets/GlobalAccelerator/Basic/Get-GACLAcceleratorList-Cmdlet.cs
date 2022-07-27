@@ -28,7 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// List the accelerators for an AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the accelerators for an Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GACLAcceleratorList")]
     [OutputType("Amazon.GlobalAccelerator.Model.Accelerator")]

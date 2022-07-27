@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CHMPhoneNumberToUser', 
         'Add-CHMResourceTag', 
         'Add-CHMSigninDelegateGroupsToAccount', 
+        'Confirm-CHME911Address', 
         'Disable-CHMUserSuspensionBatch', 
         'Enable-CHMUserSuspensionBatch', 
         'Get-CHMAccount', 

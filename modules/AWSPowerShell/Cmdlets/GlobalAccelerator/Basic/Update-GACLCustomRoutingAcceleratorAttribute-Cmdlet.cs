@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>
         /// <para>Update whether flow logs are enabled. The default value is false. If the value is
         /// true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow
-        /// Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// logs</a> in the <i>Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code>
-        /// is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS
-        /// Global Accelerator permission to write to the bucket.</para>
+        /// is <code>true</code>. The bucket must exist and have a bucket policy that grants Global
+        /// Accelerator permission to write to the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

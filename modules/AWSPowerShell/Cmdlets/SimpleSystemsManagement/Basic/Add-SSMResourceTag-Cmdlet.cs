@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
+    /// Adds or overwrites one or more tags for the specified resource. <i>Tags</i> are metadata
     /// that you can assign to your automations, documents, managed nodes, maintenance windows,
     /// Parameter Store parameters, and patch baselines. Tags enable you to categorize your
     /// resources in different ways, for example, by purpose, owner, or environment. Each

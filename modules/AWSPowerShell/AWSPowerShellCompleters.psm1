@@ -6315,7 +6315,8 @@ $CHM_SelectMap = @{
                "Update-CHMUser",
                "Update-CHMUserSetting",
                "Update-CHMVoiceConnector",
-               "Update-CHMVoiceConnectorGroup")
+               "Update-CHMVoiceConnectorGroup",
+               "Confirm-CHME911Address")
 }
 
 _awsArgumentCompleterRegistration $CHM_SelectCompleters $CHM_SelectMap
@@ -11745,6 +11746,20 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.SortBy
+        "Get-CFGConformancePackComplianceScoreList/SortBy"
+        {
+            $v = "SCORE"
+            break
+        }
+
+        # Amazon.ConfigService.SortOrder
+        "Get-CFGConformancePackComplianceScoreList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
 
     }
 
@@ -11771,6 +11786,8 @@ $CFG_map = @{
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
+    "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
+    "SortOrder"=@("Get-CFGConformancePackComplianceScoreList")
 }
 
 _awsArgumentCompleterRegistration $CFG_Completers $CFG_map
@@ -11885,6 +11902,7 @@ $CFG_SelectMap = @{
                "Get-CFGResourceConfigHistory",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
+               "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
                "Get-CFGStoredQueryList",
                "Get-CFGResourceTag",
@@ -22723,7 +22741,7 @@ $GACL_Completers = {
             ($_ -eq "Update-GACLCustomRoutingAccelerator/IpAddressType")
         }
         {
-            $v = "IPV4"
+            $v = "DUAL_STACK","IPV4"
             break
         }
 
@@ -38609,7 +38627,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -51841,6 +51859,7 @@ $WKS_SelectMap = @{
                "New-WKSTag",
                "New-WKSUpdatedWorkspaceImage",
                "New-WKSWorkspaceBundle",
+               "New-WKSWorkspaceImage",
                "New-WKSWorkspace",
                "Remove-WKSClientBranding",
                "Remove-WKSConnectClientAddIn",

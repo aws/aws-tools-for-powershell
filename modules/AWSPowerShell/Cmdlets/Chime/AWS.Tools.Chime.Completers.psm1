@@ -639,7 +639,8 @@ $CHM_SelectMap = @{
                "Update-CHMUser",
                "Update-CHMUserSetting",
                "Update-CHMVoiceConnector",
-               "Update-CHMVoiceConnectorGroup")
+               "Update-CHMVoiceConnectorGroup",
+               "Confirm-CHME911Address")
 }
 
 _awsArgumentCompleterRegistration $CHM_SelectCompleters $CHM_SelectMap

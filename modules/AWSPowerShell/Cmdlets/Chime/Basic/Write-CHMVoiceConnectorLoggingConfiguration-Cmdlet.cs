@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter LoggingConfiguration_EnableMediaMetricLog
         /// <summary>
         /// <para>
-        /// <para>Boolean that enables logging of detailed media metrics for Voice Connectors to CloudWatch
-        /// logs.</para>
+        /// <para>Boolean that enables the logging of Voice Connector metrics to Cloudwatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter LoggingConfiguration_EnableSIPLog
         /// <summary>
         /// <para>
-        /// <para>Boolean that enables SIP message logs to CloudWatch logs.</para>
+        /// <para>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

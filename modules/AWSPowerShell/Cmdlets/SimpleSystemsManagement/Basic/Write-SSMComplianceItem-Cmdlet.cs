@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Status: The status of the compliance item. For example, <code>approved</code> for
     /// patches, or <code>Failed</code> for associations.
     /// </para></li><li><para>
-    /// Severity: A patch severity. For example, <code>critical</code>.
+    /// Severity: A patch severity. For example, <code>Critical</code>.
     /// </para></li><li><para>
     /// DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.
     /// </para></li><li><para>

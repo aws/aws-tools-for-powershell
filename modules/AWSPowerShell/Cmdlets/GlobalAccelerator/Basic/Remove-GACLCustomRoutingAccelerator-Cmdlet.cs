@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// to the accelerator, so you can no longer route traffic by using them. As a best practice,
     /// ensure that you have permissions in place to avoid inadvertently deleting accelerators.
     /// You can use IAM policies with Global Accelerator to limit the users who have permissions
-    /// to delete an accelerator. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Authentication
-    /// and Access Control</a> in the <i>AWS Global Accelerator Developer Guide</i>.
+    /// to delete an accelerator. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Identity
+    /// and access management</a> in the <i>Global Accelerator Developer Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "GACLCustomRoutingAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

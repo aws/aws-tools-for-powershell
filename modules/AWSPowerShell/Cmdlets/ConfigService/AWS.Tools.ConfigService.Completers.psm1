@@ -184,6 +184,20 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.SortBy
+        "Get-CFGConformancePackComplianceScoreList/SortBy"
+        {
+            $v = "SCORE"
+            break
+        }
+
+        # Amazon.ConfigService.SortOrder
+        "Get-CFGConformancePackComplianceScoreList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
 
     }
 
@@ -210,6 +224,8 @@ $CFG_map = @{
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
+    "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
+    "SortOrder"=@("Get-CFGConformancePackComplianceScoreList")
 }
 
 _awsArgumentCompleterRegistration $CFG_Completers $CFG_map
@@ -324,6 +340,7 @@ $CFG_SelectMap = @{
                "Get-CFGResourceConfigHistory",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
+               "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
                "Get-CFGStoredQueryList",
                "Get-CFGResourceTag",

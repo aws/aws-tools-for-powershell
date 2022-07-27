@@ -28,9 +28,9 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Releases the specified address range that you provisioned to use with your AWS resources
-    /// through bring your own IP addresses (BYOIP) and deletes the corresponding address
-    /// pool. 
+    /// Releases the specified address range that you provisioned to use with your Amazon
+    /// Web Services resources through bring your own IP addresses (BYOIP) and deletes the
+    /// corresponding address pool. 
     /// 
     ///  
     /// <para>
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// from its address range. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
-    /// Your Own IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.
+    /// your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GACLByoipCidrProvision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
