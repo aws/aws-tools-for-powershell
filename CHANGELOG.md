@@ -1,4 +1,13 @@
-﻿### 4.1.135 (2022-07-27 21:14Z)
+﻿### 4.1.136 (2022-07-28 20:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.324.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elasticsearch
+    * Modified cmdlet New-ESDomain: added parameter EBSOptions_Throughput.
+    * Modified cmdlet Update-ESDomainConfig: added parameter EBSOptions_Throughput.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter EBSOptions_Throughput.
+    * Modified cmdlet Update-OSDomainConfig: added parameter EBSOptions_Throughput.
+
+### 4.1.135 (2022-07-27 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.323.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime
     * Added cmdlet Confirm-CHME911Address leveraging the ValidateE911Address service API.

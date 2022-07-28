@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
     /// CIDR address range, or from the instances that are associated with the specified destination
-    /// security groups.
+    /// security groups. When specifying an inbound rule for your security group in a VPC,
+    /// the <code>IpPermissions</code> must include a source for the traffic.
     /// </para><para>
     /// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must
     /// also specify the destination port or port range. For ICMP/ICMPv6, you must also specify
@@ -45,7 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
     /// VPC quotas</a>.
-    /// </para>
+    /// </para><note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse")]

@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you attempt to delete a security group that is associated with an instance, or
     /// is referenced by another security group, the operation fails with <code>InvalidGroup.InUse</code>
     /// in EC2-Classic or <code>DependencyViolation</code> in EC2-VPC.
-    /// </para>
+    /// </para><note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

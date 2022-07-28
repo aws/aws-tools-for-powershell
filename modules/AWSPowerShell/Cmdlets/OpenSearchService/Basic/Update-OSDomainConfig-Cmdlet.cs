@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_Iops
         /// <summary>
         /// <para>
-        /// <para>The IOPD for a Provisioned IOPS EBS volume (SSD).</para>
+        /// <para>The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -526,6 +526,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VPCOptions_SubnetIds")]
         public System.String[] VPCOptions_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter EBSOptions_Throughput
+        /// <summary>
+        /// <para>
+        /// <para>The Throughput for GP3 EBS volume (SSD).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EBSOptions_Throughput { get; set; }
         #endregion
         
         #region Parameter DomainEndpointOptions_TLSSecurityPolicy
@@ -715,6 +725,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.DryRun = this.DryRun;
             context.EBSOptions_EBSEnabled = this.EBSOptions_EBSEnabled;
             context.EBSOptions_Iops = this.EBSOptions_Iops;
+            context.EBSOptions_Throughput = this.EBSOptions_Throughput;
             context.EBSOptions_VolumeSize = this.EBSOptions_VolumeSize;
             context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
             context.EncryptionAtRestOptions_Enabled = this.EncryptionAtRestOptions_Enabled;
@@ -1283,6 +1294,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.EBSOptions.Iops = requestEBSOptions_eBSOptions_Iops.Value;
                 requestEBSOptionsIsNull = false;
             }
+            System.Int32? requestEBSOptions_eBSOptions_Throughput = null;
+            if (cmdletContext.EBSOptions_Throughput != null)
+            {
+                requestEBSOptions_eBSOptions_Throughput = cmdletContext.EBSOptions_Throughput.Value;
+            }
+            if (requestEBSOptions_eBSOptions_Throughput != null)
+            {
+                request.EBSOptions.Throughput = requestEBSOptions_eBSOptions_Throughput.Value;
+                requestEBSOptionsIsNull = false;
+            }
             System.Int32? requestEBSOptions_eBSOptions_VolumeSize = null;
             if (cmdletContext.EBSOptions_VolumeSize != null)
             {
@@ -1512,6 +1533,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? EBSOptions_EBSEnabled { get; set; }
             public System.Int32? EBSOptions_Iops { get; set; }
+            public System.Int32? EBSOptions_Throughput { get; set; }
             public System.Int32? EBSOptions_VolumeSize { get; set; }
             public Amazon.OpenSearchService.VolumeType EBSOptions_VolumeType { get; set; }
             public System.Boolean? EncryptionAtRestOptions_Enabled { get; set; }

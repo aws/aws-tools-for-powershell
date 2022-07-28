@@ -44,7 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// can allocate for use with EC2-Classic. 
     /// </para></li><li><para><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that
     /// you can allocate for use with EC2-VPC.
-    /// </para></li></ul>
+    /// </para></li></ul><note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2AccountAttribute")]
     [OutputType("Amazon.EC2.Model.AccountAttribute")]

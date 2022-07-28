@@ -150,7 +150,7 @@ $OS_Completers = {
             ($_ -eq "Update-OSDomainConfig/EBSOptions_VolumeType")
         }
         {
-            $v = "gp2","io1","standard"
+            $v = "gp2","gp3","io1","standard"
             break
         }
 
