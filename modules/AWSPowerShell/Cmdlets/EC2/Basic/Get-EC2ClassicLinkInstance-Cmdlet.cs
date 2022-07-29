@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes one or more of your linked EC2-Classic instances. This request only returns
     /// information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
-    /// use this request to return information about other instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// use this request to return information about other instances.
+    /// 
+    ///  <note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2ClassicLinkInstance")]
     [OutputType("Amazon.EC2.Model.ClassicLinkInstance")]

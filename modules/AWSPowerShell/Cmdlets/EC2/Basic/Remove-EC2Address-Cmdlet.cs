@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates
     /// it from any instance that it's associated with. To disassociate an Elastic IP address
     /// without releasing it, use <a>DisassociateAddress</a>.
-    /// </para><para>
+    /// </para><note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><para>
     /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
     /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).
     /// </para><para>

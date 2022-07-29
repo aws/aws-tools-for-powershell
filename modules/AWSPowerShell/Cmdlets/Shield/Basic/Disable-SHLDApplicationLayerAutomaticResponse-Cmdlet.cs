@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
     /// Disable the Shield Advanced automatic application layer DDoS mitigation feature for
-    /// the resource. This stops Shield Advanced from creating, verifying, and applying WAF
-    /// rules for attacks that it detects for the resource.
+    /// the protected resource. This stops Shield Advanced from creating, verifying, and applying
+    /// WAF rules for attacks that it detects for the resource.
     /// </summary>
     [Cmdlet("Disable", "SHLDApplicationLayerAutomaticResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource.</para>
+        /// <para>The ARN (Amazon Resource Name) of the protected resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

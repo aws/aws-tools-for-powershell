@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
     /// Enables Shield Advanced for a specific Amazon Web Services resource. The resource
-    /// can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Global
-    /// Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
+    /// can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator
+    /// standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic
+    /// Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by
+    /// association with protected Amazon EC2 Elastic IP addresses.
     /// 
     ///  
     /// <para>
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></code></para></li><li><para>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></code></para></li><li><para>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></code></para></li><li><para>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></code></para></li></ul>
+        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></code></para></li><li><para>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></code></para></li><li><para>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></code></para></li><li><para>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

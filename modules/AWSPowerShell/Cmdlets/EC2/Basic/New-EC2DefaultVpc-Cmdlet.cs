@@ -44,7 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// supports EC2-Classic, see "I really want a default VPC for my existing EC2 account.
     /// Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default
     /// VPCs FAQ</a>.
-    /// </para>
+    /// </para><note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EC2DefaultVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Vpc")]

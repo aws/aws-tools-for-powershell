@@ -30,9 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// <summary>
     /// Activates Shield Advanced for an account.
     /// 
-    ///  
-    /// <para>
-    /// When you initally create a subscription, your subscription is set to be automatically
+    ///  <note><para>
+    /// For accounts that are members of an Organizations organization, Shield Advanced subscriptions
+    /// are billed against the organization's payer account, regardless of whether the payer
+    /// account itself is subscribed. 
+    /// </para></note><para>
+    /// When you initially create a subscription, your subscription is set to be automatically
     /// renewed at the end of the existing subscription period. You can change this by submitting
     /// an <code>UpdateSubscription</code> request. 
     /// </para>

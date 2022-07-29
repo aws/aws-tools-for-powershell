@@ -28,7 +28,9 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Retrieves the <a>ProtectionGroup</a> objects for the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves <a>ProtectionGroup</a> objects for the account. You can retrieve all protection
+    /// groups or you can provide filtering criteria and retrieve just the subset of protection
+    /// groups that match the criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHLDProtectionGroupList")]
     [OutputType("Amazon.Shield.Model.ProtectionGroup")]
@@ -39,6 +41,52 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     )]
     public partial class GetSHLDProtectionGroupListCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
+        
+        #region Parameter InclusionFilters_Aggregation
+        /// <summary>
+        /// <para>
+        /// <para>The aggregation setting of the protection groups that you want to retrieve. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InclusionFilters_Aggregations")]
+        public System.String[] InclusionFilters_Aggregation { get; set; }
+        #endregion
+        
+        #region Parameter InclusionFilters_Pattern
+        /// <summary>
+        /// <para>
+        /// <para>The pattern specification of the protection groups that you want to retrieve. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InclusionFilters_Patterns")]
+        public System.String[] InclusionFilters_Pattern { get; set; }
+        #endregion
+        
+        #region Parameter InclusionFilters_ProtectionGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the protection group that you want to retrieve. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InclusionFilters_ProtectionGroupIds")]
+        public System.String[] InclusionFilters_ProtectionGroupId { get; set; }
+        #endregion
+        
+        #region Parameter InclusionFilters_ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The resource type configuration of the protection groups that you want to retrieve.
+        /// In the protection group configuration, you specify the resource type when you set
+        /// the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InclusionFilters_ResourceTypes")]
+        public System.String[] InclusionFilters_ResourceType { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -111,6 +159,22 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 context.Select = CreateSelectDelegate<Amazon.Shield.Model.ListProtectionGroupsResponse, GetSHLDProtectionGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.InclusionFilters_Aggregation != null)
+            {
+                context.InclusionFilters_Aggregation = new List<System.String>(this.InclusionFilters_Aggregation);
+            }
+            if (this.InclusionFilters_Pattern != null)
+            {
+                context.InclusionFilters_Pattern = new List<System.String>(this.InclusionFilters_Pattern);
+            }
+            if (this.InclusionFilters_ProtectionGroupId != null)
+            {
+                context.InclusionFilters_ProtectionGroupId = new List<System.String>(this.InclusionFilters_ProtectionGroupId);
+            }
+            if (this.InclusionFilters_ResourceType != null)
+            {
+                context.InclusionFilters_ResourceType = new List<System.String>(this.InclusionFilters_ResourceType);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -131,6 +195,55 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             // create request and set iteration invariants
             var request = new Amazon.Shield.Model.ListProtectionGroupsRequest();
             
+            
+             // populate InclusionFilters
+            var requestInclusionFiltersIsNull = true;
+            request.InclusionFilters = new Amazon.Shield.Model.InclusionProtectionGroupFilters();
+            List<System.String> requestInclusionFilters_inclusionFilters_Aggregation = null;
+            if (cmdletContext.InclusionFilters_Aggregation != null)
+            {
+                requestInclusionFilters_inclusionFilters_Aggregation = cmdletContext.InclusionFilters_Aggregation;
+            }
+            if (requestInclusionFilters_inclusionFilters_Aggregation != null)
+            {
+                request.InclusionFilters.Aggregations = requestInclusionFilters_inclusionFilters_Aggregation;
+                requestInclusionFiltersIsNull = false;
+            }
+            List<System.String> requestInclusionFilters_inclusionFilters_Pattern = null;
+            if (cmdletContext.InclusionFilters_Pattern != null)
+            {
+                requestInclusionFilters_inclusionFilters_Pattern = cmdletContext.InclusionFilters_Pattern;
+            }
+            if (requestInclusionFilters_inclusionFilters_Pattern != null)
+            {
+                request.InclusionFilters.Patterns = requestInclusionFilters_inclusionFilters_Pattern;
+                requestInclusionFiltersIsNull = false;
+            }
+            List<System.String> requestInclusionFilters_inclusionFilters_ProtectionGroupId = null;
+            if (cmdletContext.InclusionFilters_ProtectionGroupId != null)
+            {
+                requestInclusionFilters_inclusionFilters_ProtectionGroupId = cmdletContext.InclusionFilters_ProtectionGroupId;
+            }
+            if (requestInclusionFilters_inclusionFilters_ProtectionGroupId != null)
+            {
+                request.InclusionFilters.ProtectionGroupIds = requestInclusionFilters_inclusionFilters_ProtectionGroupId;
+                requestInclusionFiltersIsNull = false;
+            }
+            List<System.String> requestInclusionFilters_inclusionFilters_ResourceType = null;
+            if (cmdletContext.InclusionFilters_ResourceType != null)
+            {
+                requestInclusionFilters_inclusionFilters_ResourceType = cmdletContext.InclusionFilters_ResourceType;
+            }
+            if (requestInclusionFilters_inclusionFilters_ResourceType != null)
+            {
+                request.InclusionFilters.ResourceTypes = requestInclusionFilters_inclusionFilters_ResourceType;
+                requestInclusionFiltersIsNull = false;
+            }
+             // determine if request.InclusionFilters should be set to null
+            if (requestInclusionFiltersIsNull)
+            {
+                request.InclusionFilters = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -220,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> InclusionFilters_Aggregation { get; set; }
+            public List<System.String> InclusionFilters_Pattern { get; set; }
+            public List<System.String> InclusionFilters_ProtectionGroupId { get; set; }
+            public List<System.String> InclusionFilters_ResourceType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Shield.Model.ListProtectionGroupsResponse, GetSHLDProtectionGroupListCmdlet, object> Select { get; set; } =

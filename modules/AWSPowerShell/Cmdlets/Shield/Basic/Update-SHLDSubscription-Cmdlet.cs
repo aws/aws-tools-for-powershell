@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// <summary>
     /// Updates the details of an existing subscription. Only enter values for parameters
     /// you want to change. Empty parameters are not updated.
+    /// 
+    ///  <note><para>
+    /// For accounts that are members of an Organizations organization, Shield Advanced subscriptions
+    /// are billed against the organization's payer account, regardless of whether the payer
+    /// account itself is subscribed. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SHLDSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

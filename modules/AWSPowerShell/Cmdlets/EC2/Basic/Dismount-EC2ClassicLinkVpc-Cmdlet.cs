@@ -28,9 +28,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><para>
     /// Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has
     /// been unlinked, the VPC security groups are no longer associated with it. An instance
     /// is automatically unlinked from a VPC when it's stopped.
+    /// </para>
     /// </summary>
     [Cmdlet("Dismount", "EC2ClassicLinkVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

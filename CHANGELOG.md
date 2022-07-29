@@ -1,4 +1,10 @@
-﻿### 4.1.136 (2022-07-28 20:29Z)
+﻿### 4.1.137 (2022-07-29 20:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.325.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Shield
+    * Modified cmdlet Get-SHLDProtectionGroupList: added parameters InclusionFilters_Aggregation, InclusionFilters_Pattern, InclusionFilters_ProtectionGroupId and InclusionFilters_ResourceType.
+    * Modified cmdlet Get-SHLDProtectionList: added parameters InclusionFilters_ProtectionName, InclusionFilters_ResourceArn and InclusionFilters_ResourceType.
+
+### 4.1.136 (2022-07-28 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.324.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elasticsearch
     * Modified cmdlet New-ESDomain: added parameter EBSOptions_Throughput.

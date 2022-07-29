@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// a user permissions to pass a role to an Amazon Web Services service</a>. 
     /// </para><para>
     /// To use the services of the SRT and make an <code>AssociateDRTRole</code> request,
-    /// you must be subscribed to the <a href="https://docs.aws.amazon.com/premiumsupport/business-support/">Business
-    /// Support plan</a> or the <a href="https://docs.aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
+    /// you must be subscribed to the <a href="http://aws.amazon.com/premiumsupport/business-support/">Business
+    /// Support plan</a> or the <a href="http://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>.
     /// </para>
     /// </summary>

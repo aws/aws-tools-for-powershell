@@ -28,31 +28,30 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Enable the Shield Advanced automatic application layer DDoS mitigation for the resource.
-    /// 
+    /// Enable the Shield Advanced automatic application layer DDoS mitigation for the protected
+    /// resource. 
     /// 
     ///  <note><para>
-    /// This feature is available for Amazon CloudFront distributions only.
+    /// This feature is available for Amazon CloudFront distributions and Application Load
+    /// Balancers only.
     /// </para></note><para>
     /// This causes Shield Advanced to create, verify, and apply WAF rules for DDoS attacks
     /// that it detects for the resource. Shield Advanced applies the rules in a Shield rule
     /// group inside the web ACL that you've associated with the resource. For information
     /// about how automatic mitigation works and the requirements for using it, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html">Shield
     /// Advanced automatic application layer DDoS mitigation</a>.
-    /// </para><para>
+    /// </para><note><para>
     /// Don't use this action to make changes to automatic mitigation settings when it's already
     /// enabled for a resource. Instead, use <a>UpdateApplicationLayerAutomaticResponse</a>.
-    /// </para><para>
+    /// </para></note><para>
     /// To use this feature, you must associate a web ACL with the protected resource. The
     /// web ACL must be created using the latest version of WAF (v2). You can associate the
     /// web ACL through the Shield Advanced console at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.
     /// For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting
-    /// Started with Shield Advanced</a>.
-    /// </para><para>
-    /// You can also do this through the WAF console or the WAF API, but you must manage Shield
-    /// Advanced automatic mitigation through Shield Advanced. For information about WAF,
-    /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">WAF Developer
-    /// Guide</a>.
+    /// Started with Shield Advanced</a>. You can also associate the web ACL to the resource
+    /// through the WAF console or the WAF API, but you must manage Shield Advanced automatic
+    /// mitigation through Shield Advanced. For information about WAF, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">WAF
+    /// Developer Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHLDApplicationLayerAutomaticResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource.</para>
+        /// <para>The ARN (Amazon Resource Name) of the protected resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

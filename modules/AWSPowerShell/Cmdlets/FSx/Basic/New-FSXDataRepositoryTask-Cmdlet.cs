@@ -131,12 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Path
         /// <summary>
         /// <para>
-        /// <para>(Optional) The path or paths on the Amazon FSx file system to use when the data repository
-        /// task is processed. The default path is the file system root directory. The paths you
-        /// provide need to be relative to the mount point of the file system. If the mount point
-        /// is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or file on
-        /// the file system you want to export, then the path to provide is <code>path1</code>.
-        /// If a path that you provide isn't valid, the task fails.</para>
+        /// <para>A list of paths for the data repository task to use when the task is processed. If
+        /// a path that you provide isn't valid, the task fails.</para><ul><li><para>For export tasks, the list contains paths on the Amazon FSx file system from which
+        /// the files are exported to the Amazon S3 bucket. The default path is the file system
+        /// root directory. The paths you provide need to be relative to the mount point of the
+        /// file system. If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code>
+        /// is a directory or file on the file system you want to export, then the path to provide
+        /// is <code>path1</code>.</para></li><li><para>For import tasks, the list contains paths in the Amazon S3 bucket from which POSIX
+        /// metadata changes are imported to the Amazon FSx file system. The path can be an S3
+        /// bucket or prefix in the format <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code>
+        /// is optional).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

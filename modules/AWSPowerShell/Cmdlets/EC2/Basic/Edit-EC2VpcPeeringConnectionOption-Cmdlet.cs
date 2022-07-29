@@ -28,10 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
+    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><para>
     /// Modifies the VPC peering connection options on one side of a VPC peering connection.
     /// You can do the following:
-    /// 
-    ///  <ul><li><para>
+    /// </para><ul><li><para>
     /// Enable/disable communication over the peering connection between an EC2-Classic instance
     /// that's linked to your VPC (using ClassicLink) and instances in the peer VPC.
     /// </para></li><li><para>
