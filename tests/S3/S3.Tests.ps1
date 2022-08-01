@@ -162,6 +162,15 @@ Describe -Tag "Smoke" "S3" {
             # this triggered exception before fix: https://github.com/aws/aws-sdk-net/issues/833
             Copy-S3Object -BucketName $eastBucketName -Key $prefixedKey -DestinationKey "/data/keycopy" -Region us-east-1
         }
+
+        It "Can copy S3 object to S3 with TagSet parameter" {
+            Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $eastBucketName -DestinationKey "key-copy-tagset" -Region us-east-1 -TagSet @{Key='testtag';Value='testvalue'}
+
+            $tagCollection = Get-S3ObjectTagSet -BucketName $eastBucketName -Key "key-copy-tagset"
+            $tagCollection | Should -HaveCount 1
+            ($tagCollection[0].Key) | Should -Be "testtag"
+            ($tagCollection[0].Value) | Should -Be "testvalue"
+        }
     }
 
     Context "Checksums" {

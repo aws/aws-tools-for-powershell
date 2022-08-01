@@ -523,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     break;
 
                 case CopyS3ObjectToS3Object:
+                    context.TagSet = this.TagSet;
                     break;
             }
 
