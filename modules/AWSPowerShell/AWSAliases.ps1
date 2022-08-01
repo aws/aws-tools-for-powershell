@@ -22640,6 +22640,9 @@ Set-Alias -Name WKS-ModifyAccount -Value Edit-WKSAccount
 Set-Alias -Name Modify-WKSClientProperties -Value Edit-WKSClientProperty
 Set-Alias -Name Modify-WKSClientProperty -Value Edit-WKSClientProperty
 Set-Alias -Name WKS-ModifyClientProperties -Value Edit-WKSClientProperty
+Set-Alias -Name Modify-WKSSamlProperties -Value Edit-WKSSamlProperty
+Set-Alias -Name Modify-WKSSamlProperty -Value Edit-WKSSamlProperty
+Set-Alias -Name WKS-ModifySamlProperties -Value Edit-WKSSamlProperty
 Set-Alias -Name Modify-WKSSelfservicePermissions -Value Edit-WKSSelfservicePermission
 Set-Alias -Name Modify-WKSSelfservicePermission -Value Edit-WKSSelfservicePermission
 Set-Alias -Name WKS-ModifySelfservicePermissions -Value Edit-WKSSelfservicePermission

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// to verify whether the caller is a valid delegated administrator.
     /// </para><para>
     /// To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register
-    /// a Delegated Administrator</a> in the Config developer guide. 
+    /// a Delegated Administrator</a> in the <i>Config developer guide</i>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -141,6 +141,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.SamlStatusEnum
+        "Edit-WKSSamlProperty/SamlProperties_Status"
+        {
+            $v = "DISABLED","ENABLED","ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"
+            break
+        }
+
         # Amazon.WorkSpaces.TargetWorkspaceState
         "Edit-WKSWorkspaceState/WorkspaceState"
         {
@@ -176,6 +183,7 @@ $WKS_map = @{
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
+    "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
@@ -289,6 +297,7 @@ $WKS_SelectMap = @{
                "Start-WKSWorkspaceMigration",
                "Edit-WKSAccount",
                "Edit-WKSClientProperty",
+               "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
                "Edit-WKSWorkspaceAccessProperty",
                "Edit-WKSWorkspaceCreationProperty",

@@ -1,4 +1,9 @@
-﻿### 4.1.137 (2022-07-29 20:35Z)
+﻿### 4.1.138 (2022-08-01 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.326.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon WorkSpaces
+    * Added cmdlet Edit-WKSSamlProperty leveraging the ModifySamlProperties service API.
+
+### 4.1.137 (2022-07-29 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.325.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Shield
     * Modified cmdlet Get-SHLDProtectionGroupList: added parameters InclusionFilters_Aggregation, InclusionFilters_Pattern, InclusionFilters_ProtectionGroupId and InclusionFilters_ResourceType.

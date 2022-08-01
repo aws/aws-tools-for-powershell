@@ -28,9 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Adds or updates organization Config rule for your entire organization evaluating whether
-    /// your Amazon Web Services resources comply with your desired configurations. For information
-    /// on how many organization Config rules you can have per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the Config Developer Guide.
+    /// Adds or updates an Config rule for your entire organization to evaluate if your Amazon
+    /// Web Services resources comply with your desired configurations. For information on
+    /// how many organization Config rules you can have per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the <i>Config Developer Guide</i>.
     /// 
     ///  
     /// <para>
@@ -40,28 +40,41 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// can have up to 3 delegated administrators.
     /// </para><para>
     /// This API enables organization service access through the <code>EnableAWSServiceAccess</code>
-    /// action and creates a service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
-    /// in the master or delegated administrator account of your organization. The service
-    /// linked role is created only when the role does not exist in the caller account. Config
-    /// verifies the existence of role with <code>GetRole</code> action.
+    /// action and creates a service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
+    /// in the master or delegated administrator account of your organization. The service-linked
+    /// role is created only when the role does not exist in the caller account. Config verifies
+    /// the existence of role with <code>GetRole</code> action.
     /// </para><para>
     /// To use this API with delegated administrator, register a delegated administrator by
     /// calling Amazon Web Services Organization <code>register-delegated-administrator</code>
     /// for <code>config-multiaccountsetup.amazonaws.com</code>. 
     /// </para><para>
-    /// You can use this action to create both Config custom rules and Config managed rules.
-    /// If you are adding a new Config custom rule, you must first create Lambda function
-    /// in the master account or a delegated administrator that the rule invokes to evaluate
-    /// your resources. You also need to create an IAM role in the managed-account that can
-    /// be assumed by the Lambda function. When you use the <code>PutOrganizationConfigRule</code>
-    /// action to add the rule to Config, you must specify the Amazon Resource Name (ARN)
-    /// that Lambda assigns to the function. If you are adding an Config managed rule, specify
+    /// There are two types of rules: Config Custom Rules and Config Managed Rules. You can
+    /// use <code>PutOrganizationConfigRule</code> to create both Config custom rules and
+    /// Config managed rules.
+    /// </para><para>
+    /// Custom rules are rules that you can create using either Guard or Lambda functions.
+    /// Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
+    /// GitHub Repository</a>) is a policy-as-code language that allows you to write policies
+    /// that are enforced by Config Custom Policy rules. Lambda uses custom code that you
+    /// upload to evaluate a custom rule. If you are adding a new Custom Lambda rule, you
+    /// first need to create an Lambda function in the master account or a delegated administrator
+    /// that the rule invokes to evaluate your resources. You also need to create an IAM role
+    /// in the managed account that can be assumed by the Lambda function. When you use <code>PutOrganizationConfigRule</code>
+    /// to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN)
+    /// that Lambda assigns to the function.
+    /// </para><para>
+    /// Managed rules are predefined, customizable rules created by Config. For a list of
+    /// managed rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
+    /// of Config Managed Rules</a>. If you are adding an Config managed rule, you must specify
     /// the rule's identifier for the <code>RuleIdentifier</code> key.
     /// </para><note><para>
     /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
     /// in an organization.
     /// </para><para>
-    /// Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.
+    /// Make sure to specify one of either <code>OrganizationCustomPolicyRuleMetadata</code>
+    /// for Custom Policy rules, <code>OrganizationCustomRuleMetadata</code> for Custom Lambda
+    /// rules, or <code>OrganizationManagedRuleMetadata</code> for managed rules.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGOrganizationConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

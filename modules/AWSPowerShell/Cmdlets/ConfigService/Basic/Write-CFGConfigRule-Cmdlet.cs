@@ -28,25 +28,31 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Adds or updates an Config rule for evaluating whether your Amazon Web Services resources
-    /// comply with your desired configurations.
+    /// Adds or updates an Config rule to evaluate if your Amazon Web Services resources comply
+    /// with your desired configurations. For information on how many Config rules you can
+    /// have per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the <i>Config Developer Guide</i>.
     /// 
     ///  
     /// <para>
-    /// You can use this action for Config custom rules and Config managed rules. A Config
-    /// custom rule is a rule that you develop and maintain. An Config managed rule is a customizable,
-    /// predefined rule that Config provides.
+    /// There are two types of rules: Config Custom Rules and Config Managed Rules. You can
+    /// use <code>PutConfigRule</code> to create both Config custom rules and Config managed
+    /// rules.
     /// </para><para>
-    /// If you are adding a new Config custom rule, you must first create the Lambda function
-    /// that the rule invokes to evaluate your resources. When you use the <code>PutConfigRule</code>
-    /// action to add the rule to Config, you must specify the Amazon Resource Name (ARN)
-    /// that Lambda assigns to the function. Specify the ARN for the <code>SourceIdentifier</code>
-    /// key. This key is part of the <code>Source</code> object, which is part of the <code>ConfigRule</code>
-    /// object. 
+    /// Custom rules are rules that you can create using either Guard or Lambda functions.
+    /// Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
+    /// GitHub Repository</a>) is a policy-as-code language that allows you to write policies
+    /// that are enforced by Config Custom Policy rules. Lambda uses custom code that you
+    /// upload to evaluate a custom rule. If you are adding a new Custom Lambda rule, you
+    /// first need to create an Lambda function that the rule invokes to evaluate your resources.
+    /// When you use <code>PutConfigRule</code> to add a Custom Lambda rule to Config, you
+    /// must specify the Amazon Resource Name (ARN) that Lambda assigns to the function. You
+    /// specify the ARN in the <code>SourceIdentifier</code> key. This key is part of the
+    /// <code>Source</code> object, which is part of the <code>ConfigRule</code> object. 
     /// </para><para>
-    /// If you are adding an Config managed rule, specify the rule's identifier for the <code>SourceIdentifier</code>
-    /// key. To reference Config managed rule identifiers, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">About
-    /// Config managed rules</a>.
+    /// Managed rules are predefined, customizable rules created by Config. For a list of
+    /// managed rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
+    /// of Config Managed Rules</a>. If you are adding an Config managed rule, you must specify
+    /// the rule's identifier for the <code>SourceIdentifier</code> key.
     /// </para><para>
     /// For any new rule that you add, specify the <code>ConfigRuleName</code> in the <code>ConfigRule</code>
     /// object. Do not specify the <code>ConfigRuleArn</code> or the <code>ConfigRuleId</code>.
@@ -55,8 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If you are updating a rule that you added previously, you can specify the rule by
     /// <code>ConfigRuleName</code>, <code>ConfigRuleId</code>, or <code>ConfigRuleArn</code>
     /// in the <code>ConfigRule</code> data type that you use in this request.
-    /// </para><para>
-    /// For information on how many Config rules you can have per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the Config Developer Guide.
     /// </para><para>
     /// For more information about developing and using Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
     /// Amazon Web Services resource Configurations with Config</a> in the <i>Config Developer
@@ -151,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRule_CreatedBy
         /// <summary>
         /// <para>
-        /// <para>Service principal name of the service that created the rule.</para><note><para>The field is populated only if the service linked rule is created by a service. The
+        /// <para>Service principal name of the service that created the rule.</para><note><para>The field is populated only if the service-linked rule is created by a service. The
         /// field is empty if you create your own rule.</para></note>
         /// </para>
         /// </summary>
@@ -213,9 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>Indicates whether Amazon Web Services or the customer owns and manages the Config
         /// rule.</para><para>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information,
         /// see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config
-        /// Managed Rules</a> in the Config developer guide.</para><para>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>)
+        /// Managed Rules</a> in the <i>Config developer guide</i>.</para><para>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>)
         /// or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config
-        /// Custom Rules </a> in the Config developer guide.</para>
+        /// Custom Rules </a> in the <i>Config developer guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

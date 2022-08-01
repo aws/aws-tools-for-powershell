@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code>
-    /// in your account. The service linked role is created only when the role does not exist
+    /// This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code>
+    /// in your account. The service-linked role is created only when the role does not exist
     /// in your account. 
     /// </para><note><para>
     /// You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code>

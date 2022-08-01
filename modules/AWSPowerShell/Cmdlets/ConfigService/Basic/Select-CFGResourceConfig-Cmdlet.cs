@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// For more information about query components, see the <a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html"><b>Query Components</b></a> section in the Config Developer Guide.
+    /// For more information about query components, see the <a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html"><b>Query Components</b></a> section in the <i>Config Developer Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Select", "CFGResourceConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

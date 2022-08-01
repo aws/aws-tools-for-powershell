@@ -32,8 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// of the number of compliant rule-resource combinations in a conformance pack compared
     /// to the number of total possible rule-resource combinations in the conformance pack.
     /// This metric provides you with a high-level view of the compliance state of your conformance
-    /// packs, and can be used to identify, investigate, and understand compliance deviations
-    /// in your conformance packs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// packs, and can be used to identify, investigate, and understand the level of compliance
+    /// in your conformance packs.
+    /// 
+    ///  <note><para>
+    /// Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConformancePackComplianceScoreList")]
     [OutputType("Amazon.ConfigService.Model.ConformancePackComplianceScore")]
@@ -48,8 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ConformancePackName
         /// <summary>
         /// <para>
-        /// <para>The name of a conformance pack whose score should be included in the compliance score
-        /// result.</para>
+        /// <para>The names of the conformance packs whose compliance scores you want to include in
+        /// the conformance pack compliance score result set. You can include up to 25 conformance
+        /// packs in the <code>ConformancePackNames</code> array of strings, each with a character
+        /// limit of 256 characters for the conformance pack name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Sorts your conformance pack compliance scores in either ascending or descending order,
-        /// depending on <code>SortOrder</code>.</para>
+        /// depending on <code>SortOrder</code>.</para><para>By default, conformance pack compliance scores are sorted in ascending order by compliance
+        /// score and alphabetically by name of the conformance pack if there is more than one
+        /// conformance pack with the same compliance score.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Determines the order in which conformance pack compliance scores are sorted. Either
-        /// in ascending or descending order.</para>
+        /// in ascending or descending order.</para><para>Conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be
+        /// first when sorting by ascending order and last when sorting by descending order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

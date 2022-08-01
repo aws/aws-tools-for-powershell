@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// and configuration history files.</para><para>If you specify a bucket that belongs to another Amazon Web Services account, that
         /// bucket must have policies that grant access permissions to Config. For more information,
         /// see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
-        /// for the Amazon S3 Bucket</a> in the Config Developer Guide.</para>
+        /// for the Amazon S3 Bucket</a> in the <i>Config Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config sends notifications
         /// about configuration changes.</para><para>If you choose a topic from another account, the topic must have policies that grant
         /// access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
-        /// for the Amazon SNS Topic</a> in the Config Developer Guide.</para>
+        /// for the Amazon SNS Topic</a> in the <i>Config Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

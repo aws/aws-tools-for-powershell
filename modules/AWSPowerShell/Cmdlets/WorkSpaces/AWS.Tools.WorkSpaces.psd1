@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Copy-WKSWorkspaceImage', 
         'Edit-WKSAccount', 
         'Edit-WKSClientProperty', 
+        'Edit-WKSSamlProperty', 
         'Edit-WKSSelfservicePermission', 
         'Edit-WKSWorkspaceAccessProperty', 
         'Edit-WKSWorkspaceCreationProperty', 
