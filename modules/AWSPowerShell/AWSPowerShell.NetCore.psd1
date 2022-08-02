@@ -231,6 +231,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.LexModelsV2.dll',
         'AWSSDK.LexRuntimeV2.dll',
         'AWSSDK.LicenseManager.dll',
+        'AWSSDK.LicenseManagerUserSubscriptions.dll',
         'AWSSDK.Lightsail.dll',
         'AWSSDK.LocationService.dll',
         'AWSSDK.LookoutEquipment.dll',

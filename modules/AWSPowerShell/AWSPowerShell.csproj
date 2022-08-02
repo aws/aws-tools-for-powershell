@@ -589,6 +589,9 @@
     <Reference Include="AWSSDK.LicenseManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LicenseManagerUserSubscriptions">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManagerUserSubscriptions.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lightsail.dll</HintPath>
     </Reference>
@@ -1499,6 +1502,9 @@
     </Reference>
     <Reference Include="AWSSDK.LicenseManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LicenseManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LicenseManagerUserSubscriptions">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LicenseManagerUserSubscriptions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Lightsail.dll</HintPath>

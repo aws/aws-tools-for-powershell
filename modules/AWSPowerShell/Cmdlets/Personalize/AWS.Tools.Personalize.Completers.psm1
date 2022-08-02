@@ -91,6 +91,13 @@ $PERS_Completers = {
             break
         }
 
+        # Amazon.Personalize.ImportMode
+        "New-PERSDatasetImportJob/ImportMode"
+        {
+            $v = "FULL","INCREMENTAL"
+            break
+        }
+
         # Amazon.Personalize.IngestionMode
         "New-PERSDatasetExportJob/IngestionMode"
         {
@@ -129,6 +136,7 @@ $PERS_Completers = {
 
 $PERS_map = @{
     "Domain"=@("Get-PERSRecipeList","New-PERSDatasetGroup","New-PERSSchema")
+    "ImportMode"=@("New-PERSDatasetImportJob")
     "IngestionMode"=@("New-PERSDatasetExportJob")
     "RecipeProvider"=@("Get-PERSRecipeList")
     "SolutionConfig_OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")

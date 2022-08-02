@@ -1,4 +1,10 @@
-﻿### 4.1.138 (2022-08-01 20:16Z)
+﻿### 4.1.139 (2022-08-02 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.327.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon License Manager User Subscription. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LMUS and can be listed using the command 'Get-AWSCmdletName -Service LMUS'.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSDatasetImportJob: added parameter ImportMode.
+
+### 4.1.138 (2022-08-01 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.326.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon WorkSpaces
     * Added cmdlet Edit-WKSSamlProperty leveraging the ModifySamlProperties service API.

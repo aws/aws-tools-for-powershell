@@ -68,6 +68,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String DatasetArn { get; set; }
         #endregion
         
+        #region Parameter ImportMode
+        /// <summary>
+        /// <para>
+        /// <para>Specify how to add the new records to an existing dataset. The default import mode
+        /// is <code>FULL</code>. If you haven't imported bulk records into the dataset previously,
+        /// you can only specify <code>FULL</code>.</para><ul><li><para>Specify <code>FULL</code> to overwrite all existing bulk data in your dataset. Data
+        /// you imported individually is not replaced.</para></li><li><para>Specify <code>INCREMENTAL</code> to append the new records to the existing data in
+        /// your dataset. Amazon Personalize replaces any record with the same ID with the new
+        /// one.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Personalize.ImportMode")]
+        public Amazon.Personalize.ImportMode ImportMode { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -183,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             #endif
             context.DataSource_DataLocation = this.DataSource_DataLocation;
+            context.ImportMode = this.ImportMode;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -239,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestDataSourceIsNull)
             {
                 request.DataSource = null;
+            }
+            if (cmdletContext.ImportMode != null)
+            {
+                request.ImportMode = cmdletContext.ImportMode;
             }
             if (cmdletContext.JobName != null)
             {
@@ -315,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             public System.String DatasetArn { get; set; }
             public System.String DataSource_DataLocation { get; set; }
+            public Amazon.Personalize.ImportMode ImportMode { get; set; }
             public System.String JobName { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }

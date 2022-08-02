@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>licensemanagerusersubscriptions</C2jFilename>
+    <AssemblyName>LicenseManagerUserSubscriptions</AssemblyName>
+    <ServiceNounPrefix>LMUS</ServiceNounPrefix>
+    <ServiceName>AWS License Manager User Subscription</ServiceName>
+    <ServiceClientInterface>IAmazonLicenseManagerUserSubscriptions</ServiceClientInterface>
+    <ServiceClient>AmazonLicenseManagerUserSubscriptionsClient</ServiceClient>
+    <ServiceModuleGuid>3fe7bc18-7b12-4203-abf4-19fa15028e50</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateUser" OutputProperty="InstanceUserSummary" Verb="Add" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Unregister" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateUser" OutputProperty="InstanceUserSummary" Verb="Remove" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviderSummaries" Verb="Get" Noun="IdentityProviderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaries" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProductSubscriptions" OutputProperty="ProductUserSummaries" Verb="Get" Noun="ProductSubscriptionList" PipelineParameter="Product" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserAssociations" OutputProperty="InstanceUserSummaries" Verb="Get" Noun="UserAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Register" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartProductSubscription" OutputProperty="ProductUserSummary" Verb="Start" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopProductSubscription" OutputProperty="ProductUserSummary" Verb="Stop" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

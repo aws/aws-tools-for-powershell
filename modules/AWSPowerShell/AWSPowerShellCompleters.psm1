@@ -30375,6 +30375,70 @@ $LICM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $LICM_SelectCompleters $LICM_SelectMap
+# Argument completions for service AWS License Manager User Subscription
+
+
+$LMUS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LMUS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMUS_SelectMap = @{
+    "Select"=@("Add-LMUSUser",
+               "Unregister-LMUSIdentityProvider",
+               "Remove-LMUSUser",
+               "Get-LMUSIdentityProviderList",
+               "Get-LMUSInstanceList",
+               "Get-LMUSProductSubscriptionList",
+               "Get-LMUSUserAssociationList",
+               "Register-LMUSIdentityProvider",
+               "Start-LMUSProductSubscription",
+               "Stop-LMUSProductSubscription")
+}
+
+_awsArgumentCompleterRegistration $LMUS_SelectCompleters $LMUS_SelectMap
 # Argument completions for service Amazon Lightsail
 
 
@@ -37494,6 +37558,13 @@ $PERS_Completers = {
             break
         }
 
+        # Amazon.Personalize.ImportMode
+        "New-PERSDatasetImportJob/ImportMode"
+        {
+            $v = "FULL","INCREMENTAL"
+            break
+        }
+
         # Amazon.Personalize.IngestionMode
         "New-PERSDatasetExportJob/IngestionMode"
         {
@@ -37532,6 +37603,7 @@ $PERS_Completers = {
 
 $PERS_map = @{
     "Domain"=@("Get-PERSRecipeList","New-PERSDatasetGroup","New-PERSSchema")
+    "ImportMode"=@("New-PERSDatasetImportJob")
     "IngestionMode"=@("New-PERSDatasetExportJob")
     "RecipeProvider"=@("Get-PERSRecipeList")
     "SolutionConfig_OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")
