@@ -59,6 +59,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.OpenRegion();
             {
                 writer.WriteLine("protected {0} Client {{ get; private set; }}", serviceConfig.ServiceClientInterface);
+
+                writer.WriteLine();
+                writer.WriteLine("[System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]");
+                writer.WriteLine("public {0} ClientConfig {{ get; set; }}", serviceConfig.ServiceClientConfig);
+                writer.WriteLine();
+
                 if (!string.IsNullOrEmpty(serviceConfig.DefaultRegion))
                 {
                     writer.WriteLine("protected override string _DefaultRegion");
@@ -81,7 +87,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.OpenRegion();
                 {
-                    writer.WriteLine("var config = new {0} {{ RegionEndpoint = region }};", serviceConfig.ServiceClientConfig);
+                    writer.WriteLine("var config = (this.ClientConfig != null ? ClientConfig : new {0}());", serviceConfig.ServiceClientConfig);
+
+                    /* By default, the creating a new service ClientConfig object would probe the regions in .NET SDK if ServiceURL is not set. 
+                     * So we cannot determine if region was explicitly set by user while initializing the ClientConfig parameter. Hence, we replace 
+                     * it with the non-null region parameter which is earlier resolved in TryGetRegion() from explicitly passed region, session parameter, etc. */
+                    writer.WriteLine("if (region != null) config.RegionEndpoint = region;");
+
                     writer.WriteLine("Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);");
                     writer.WriteLine("this.CustomizeClientConfig(config);");
 
