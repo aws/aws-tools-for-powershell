@@ -122,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>When true, device authentication can replace SMS and time-based one-time password
-        /// (TOTP) factors for multi-factor authentication (MFA).</para><note><para>Users that sign in with devices that have not been confirmed or remembered will still
-        /// have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true,
-        /// when your user pool requires MFA.</para></note>
+        /// (TOTP) factors for multi-factor authentication (MFA).</para><note><para>Regardless of the value of this field, users that sign in with new devices that have
+        /// not been confirmed or remembered must provide a second factor if your user pool requires
+        /// MFA.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,8 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt
         /// <summary>
         /// <para>
-        /// <para>When true, users can opt in to remembering their device. Your app code must use callback
-        /// functions to return the user's choice.</para>
+        /// <para>When true, Amazon Cognito doesn't remember newly-confirmed devices. Users who want
+        /// to authenticate with their device can instead opt in to remembering their device.
+        /// To collect a choice from your user, create an input prompt in your app and return
+        /// the value that the user chooses in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">UpdateDeviceStatus</a>
+        /// API request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

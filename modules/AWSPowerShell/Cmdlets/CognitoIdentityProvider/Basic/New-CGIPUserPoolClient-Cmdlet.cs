@@ -210,14 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The authentication flows that are supported by the user pool clients. Flow names without
         /// the <code>ALLOW_</code> prefix are no longer supported, in favor of new names with
         /// the <code>ALLOW_</code> prefix.</para><note><para>Values with <code>ALLOW_</code> prefix must be used only along with the <code>ALLOW_</code>
-        /// prefix.</para></note><para>Valid values include:</para><ul><li><para><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication
-        /// flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code>
-        /// setting. With this authentication flow, Amazon Cognito receives the password in the
-        /// request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</para></li><li><para><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</para></li><li><para><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication.
-        /// In this flow, Amazon Cognito receives the password in the request instead of using
-        /// the SRP protocol to verify passwords.</para></li><li><para><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</para></li><li><para><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</para></li></ul><para>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client activates
-        /// the <code>ALLOW_USER_SRP_AUTH</code> and <code>ALLOW_CUSTOM_AUTH</code> authentication
-        /// flows.</para>
+        /// prefix.</para></note><para>Valid values include:</para><dl><dt>ALLOW_ADMIN_USER_PASSWORD_AUTH</dt><dd><para>Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>.
+        /// This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication
+        /// flow, Amazon Cognito receives the password in the request instead of using the Secure
+        /// Remote Password (SRP) protocol to verify passwords.</para></dd><dt>ALLOW_CUSTOM_AUTH</dt><dd><para>Enable Lambda trigger based authentication.</para></dd><dt>ALLOW_USER_PASSWORD_AUTH</dt><dd><para>Enable user password-based authentication. In this flow, Amazon Cognito receives the
+        /// password in the request instead of using the SRP protocol to verify passwords.</para></dd><dt>ALLOW_USER_SRP_AUTH</dt><dd><para>Enable SRP-based authentication.</para></dd><dt>ALLOW_REFRESH_TOKEN_AUTH</dt><dd><para>Enable the authflow that refreshes tokens.</para></dd></dl><para>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client
+        /// supports <code>ALLOW_USER_SRP_AUTH</code> and <code>ALLOW_CUSTOM_AUTH</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,9 +358,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SupportedIdentityProvider
         /// <summary>
         /// <para>
-        /// <para>A list of provider names for the IdPs that this client supports. The following are
-        /// supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>,
-        /// and the names of your own SAML and OIDC providers.</para>
+        /// <para>A list of provider names for the identity providers (IdPs) that are supported on this
+        /// client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>,
+        /// <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>.
+        /// You can also specify the names that you configured for the SAML and OIDC IdPs in your
+        /// user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

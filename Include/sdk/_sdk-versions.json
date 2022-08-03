@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.327.0",
+    "ProductVersion" : "3.7.328.0",
     "CoreVersion"    : "3.7.12.17",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -538,7 +538,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.4.21",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.17"
@@ -1610,7 +1610,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.12.7",
+            "Version" : "3.7.13.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.17"

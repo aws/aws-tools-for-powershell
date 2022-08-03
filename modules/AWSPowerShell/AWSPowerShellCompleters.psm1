@@ -50661,7 +50661,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC"
+            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","COGNITO_USER_POOL"
             break
         }
 

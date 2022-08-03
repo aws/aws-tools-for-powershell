@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SoftwareTokenMfaSetting
         /// <summary>
         /// <para>
-        /// <para>The time-based one-time password software token MFA settings.</para>
+        /// <para>The time-based one-time password (TOTP) software token MFA settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

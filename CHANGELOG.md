@@ -1,4 +1,7 @@
-﻿### 4.1.139 (2022-08-02 20:28Z)
+﻿### 4.1.140 (2022-08-03 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.328.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.139 (2022-08-02 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.327.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon License Manager User Subscription. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LMUS and can be listed using the command 'Get-AWSCmdletName -Service LMUS'.
   * Amazon Personalize

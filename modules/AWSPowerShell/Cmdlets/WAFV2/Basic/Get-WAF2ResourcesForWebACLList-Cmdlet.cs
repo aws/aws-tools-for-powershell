@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>Used for web ACLs that are scoped for regional applications. A regional application
-        /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync
-        /// GraphQL API. </para>
+        /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
+        /// GraphQL API, or an Amazon Cognito user pool. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -359,8 +359,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A list of provider names for the IdPs that this client supports. The following are
-        /// supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>,
-        /// and the names of your own SAML and OIDC providers.</para>
+        /// supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>,
+        /// <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

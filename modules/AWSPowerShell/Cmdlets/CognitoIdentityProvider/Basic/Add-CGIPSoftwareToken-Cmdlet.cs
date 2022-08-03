@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Begins setup of time-based one-time password multi-factor authentication (TOTP MFA)
+    /// Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
     /// for a user, with a unique private key that Amazon Cognito generates and returns in
     /// the API response. You can authorize an <code>AssociateSoftwareToken</code> request
     /// with either the user's access token, or a session string from a challenge response
