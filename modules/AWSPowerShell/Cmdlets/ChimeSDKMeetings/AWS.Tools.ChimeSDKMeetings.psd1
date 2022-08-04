@@ -86,15 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CHMTGResourceTag', 
         'Get-CHMTGAttendee', 
         'Get-CHMTGAttendeeList', 
         'Get-CHMTGMeeting', 
+        'Get-CHMTGResourceTag', 
         'New-CHMTGAttendee', 
         'New-CHMTGAttendeeBatch', 
         'New-CHMTGMeeting', 
         'New-CHMTGMeetingWithAttendee', 
         'Remove-CHMTGAttendee', 
         'Remove-CHMTGMeeting', 
+        'Remove-CHMTGResourceTag', 
         'Start-CHMTGMeetingTranscription', 
         'Stop-CHMTGMeetingTranscription', 
         'Update-CHMTGAttendeeCapability', 

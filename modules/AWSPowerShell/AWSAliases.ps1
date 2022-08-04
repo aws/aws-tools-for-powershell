@@ -2619,8 +2619,11 @@ Set-Alias -Name CHMTG-GetMeeting -Value Get-CHMTGMeeting
 Set-Alias -Name List-CHMTGAttendees -Value Get-CHMTGAttendeeList
 Set-Alias -Name List-CHMTGAttendeeList -Value Get-CHMTGAttendeeList
 Set-Alias -Name CHMTG-ListAttendees -Value Get-CHMTGAttendeeList
+Set-Alias -Name CHMTG-ListTagsForResource -Value Get-CHMTGResourceTag
 Set-Alias -Name CHMTG-StartMeetingTranscription -Value Start-CHMTGMeetingTranscription
 Set-Alias -Name CHMTG-StopMeetingTranscription -Value Stop-CHMTGMeetingTranscription
+Set-Alias -Name CHMTG-TagResource -Value Add-CHMTGResourceTag
+Set-Alias -Name CHMTG-UntagResource -Value Remove-CHMTGResourceTag
 Set-Alias -Name Update-CHMTGAttendeeCapabilities -Value Update-CHMTGAttendeeCapability
 Set-Alias -Name CHMTG-UpdateAttendeeCapabilities -Value Update-CHMTGAttendeeCapability
 Set-Alias -Name Associate-CHMMGChannelFlow -Value Register-CHMMGChannelFlow

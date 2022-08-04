@@ -173,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ChimeSDKMeetings.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TenantId
         /// <summary>
         /// <para>
@@ -277,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
             context.NotificationsConfiguration_SqsQueueArn = this.NotificationsConfiguration_SqsQueueArn;
             context.PrimaryMeetingId = this.PrimaryMeetingId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ChimeSDKMeetings.Model.Tag>(this.Tag);
+            }
             if (this.TenantId != null)
             {
                 context.TenantId = new List<System.String>(this.TenantId);
@@ -394,6 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             {
                 request.PrimaryMeetingId = cmdletContext.PrimaryMeetingId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TenantId != null)
             {
                 request.TenantIds = cmdletContext.TenantId;
@@ -469,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }
             public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
             public System.String PrimaryMeetingId { get; set; }
+            public List<Amazon.ChimeSDKMeetings.Model.Tag> Tag { get; set; }
             public List<System.String> TenantId { get; set; }
             public System.Func<Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse, NewCHMTGMeetingWithAttendeeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

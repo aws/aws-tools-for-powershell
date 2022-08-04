@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Lists the principals associated with the specified policy.
     /// 
     ///  
-    /// <para><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.
+    /// <para><b>Note:</b> This action is deprecated and works as expected for backward compatibility,
+    /// but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.
     /// </para><para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a>
     /// action.

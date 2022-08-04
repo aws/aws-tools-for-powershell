@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Updates a fleet provisioning template.
+    /// Updates a provisioning template.
     /// 
     ///  
     /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the fleet provisioning template.</para>
+        /// <para>The description of the provisioning template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>True to enable the fleet provisioning template, otherwise false.</para>
+        /// <para>True to enable the provisioning template, otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet provisioning template.</para>
+        /// <para>The name of the provisioning template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

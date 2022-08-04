@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Returns information about a fleet provisioning template.
+    /// Returns information about a provisioning template.
     /// 
     ///  
     /// <para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet provisioning template.</para>
+        /// <para>The name of the provisioning template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

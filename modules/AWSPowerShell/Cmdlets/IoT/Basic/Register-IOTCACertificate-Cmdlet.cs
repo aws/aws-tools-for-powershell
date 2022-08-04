@@ -135,6 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String RegistrationConfig_TemplateBody { get; set; }
         #endregion
         
+        #region Parameter RegistrationConfig_TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioning template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RegistrationConfig_TemplateName { get; set; }
+        #endregion
+        
         #region Parameter VerificationCertificate
         /// <summary>
         /// <para>
@@ -184,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.CertificateMode = this.CertificateMode;
             context.RegistrationConfig_RoleArn = this.RegistrationConfig_RoleArn;
             context.RegistrationConfig_TemplateBody = this.RegistrationConfig_TemplateBody;
+            context.RegistrationConfig_TemplateName = this.RegistrationConfig_TemplateName;
             context.SetAsActive = this.SetAsActive;
             if (this.Tag != null)
             {
@@ -240,6 +251,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestRegistrationConfig_registrationConfig_TemplateBody != null)
             {
                 request.RegistrationConfig.TemplateBody = requestRegistrationConfig_registrationConfig_TemplateBody;
+                requestRegistrationConfigIsNull = false;
+            }
+            System.String requestRegistrationConfig_registrationConfig_TemplateName = null;
+            if (cmdletContext.RegistrationConfig_TemplateName != null)
+            {
+                requestRegistrationConfig_registrationConfig_TemplateName = cmdletContext.RegistrationConfig_TemplateName;
+            }
+            if (requestRegistrationConfig_registrationConfig_TemplateName != null)
+            {
+                request.RegistrationConfig.TemplateName = requestRegistrationConfig_registrationConfig_TemplateName;
                 requestRegistrationConfigIsNull = false;
             }
              // determine if request.RegistrationConfig should be set to null
@@ -325,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.CertificateMode CertificateMode { get; set; }
             public System.String RegistrationConfig_RoleArn { get; set; }
             public System.String RegistrationConfig_TemplateBody { get; set; }
+            public System.String RegistrationConfig_TemplateName { get; set; }
             public System.Boolean? SetAsActive { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String VerificationCertificate { get; set; }

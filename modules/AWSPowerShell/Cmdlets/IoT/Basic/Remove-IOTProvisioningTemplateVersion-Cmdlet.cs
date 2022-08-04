@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes a fleet provisioning template version.
+    /// Deletes a provisioning template version.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet provisioning template version to delete.</para>
+        /// <para>The name of the provisioning template version to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The fleet provisioning template version ID to delete.</para>
+        /// <para>The provisioning template version ID to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

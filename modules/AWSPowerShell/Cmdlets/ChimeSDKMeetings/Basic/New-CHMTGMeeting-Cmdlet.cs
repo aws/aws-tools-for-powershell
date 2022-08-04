@@ -156,6 +156,33 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Applies one or more tags to an Amazon Chime SDK meeting. Note the following:</para><ul><li><para>Not all resources have tags. For a list of services with resources that support tagging
+        /// using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
+        /// that support the Resource Groups Tagging API</a>. If the resource doesn't yet support
+        /// this operation, the resource's service might support tagging using its own API operations.
+        /// For more information, refer to the documentation for that service.</para></li><li><para>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag
+        /// Naming and Usage Conventions</a> in the <i>AWS General Reference</i>.</para></li><li><para>You can only tag resources that are located in the specified AWS Region for the AWS
+        /// account.</para></li><li><para>To add tags to a resource, you need the necessary permissions for the service that
+        /// the resource belongs to as well as permissions for adding tags. For more information,
+        /// see the documentation for each service.</para></li></ul><important><para>Do not store personally identifiable information (PII) or other confidential or sensitive
+        /// information in tags. We use tags to provide you with billing and administration services.
+        /// Tags are not intended to be used for private or sensitive data.</para></important><para><b>Minimum permissions</b></para><para> In addition to the <code>tag:TagResources </code>permission required by this operation,
+        /// you must also have the tagging permission defined by the service that created the
+        /// resource. For example, to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code>
+        /// operation, you must have both of the following permissions:</para><para><code>tag:TagResources</code></para><para><code>ChimeSDKMeetings:CreateTags</code></para><note><para>Some services might have specific requirements for tagging some resources. For example,
+        /// to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code>
+        /// permission. If the expected minimum permissions don't work, check the documentation
+        /// for that service's tagging APIs for more information.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ChimeSDKMeetings.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TenantId
         /// <summary>
         /// <para>
@@ -250,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
             context.NotificationsConfiguration_SqsQueueArn = this.NotificationsConfiguration_SqsQueueArn;
             context.PrimaryMeetingId = this.PrimaryMeetingId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ChimeSDKMeetings.Model.Tag>(this.Tag);
+            }
             if (this.TenantId != null)
             {
                 context.TenantId = new List<System.String>(this.TenantId);
@@ -363,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             {
                 request.PrimaryMeetingId = cmdletContext.PrimaryMeetingId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TenantId != null)
             {
                 request.TenantIds = cmdletContext.TenantId;
@@ -437,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }
             public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
             public System.String PrimaryMeetingId { get; set; }
+            public List<Amazon.ChimeSDKMeetings.Model.Tag> Tag { get; set; }
             public List<System.String> TenantId { get; set; }
             public System.Func<Amazon.ChimeSDKMeetings.Model.CreateMeetingResponse, NewCHMTGMeetingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Meeting;

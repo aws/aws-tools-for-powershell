@@ -22,43 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.ChimeSDKMeetings;
+using Amazon.ChimeSDKMeetings.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
-    /// Creates a new version of a provisioning template.
-    /// 
-    ///  
-    /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a>
-    /// action.
-    /// </para>
+    /// The resource that supports tags.
     /// </summary>
-    [Cmdlet("New", "IOTProvisioningTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse")]
-    [AWSCmdlet("Calls the AWS IoT CreateProvisioningTemplateVersion API operation.", Operation = new[] {"CreateProvisioningTemplateVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "CHMTGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Meetings TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ChimeSDKMeetings.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewIOTProvisioningTemplateVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class AddCHMTGResourceTagCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
-        #region Parameter SetAsDefault
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Sets a fleet provision template version as the default version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? SetAsDefault { get; set; }
-        #endregion
-        
-        #region Parameter TemplateBody
-        /// <summary>
-        /// <para>
-        /// <para>The JSON formatted contents of the provisioning template.</para>
+        /// <para>The ARN of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,31 +54,31 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateBody { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
-        #region Parameter TemplateName
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioning template.</para>
+        /// <para>Lists the requested tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateName { get; set; }
+        [Alias("Tags")]
+        public Amazon.ChimeSDKMeetings.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMeetings.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TemplateBody parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TemplateBody' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TemplateBody' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TemplateName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTProvisioningTemplateVersion (CreateProvisioningTemplateVersion)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CHMTGResourceTag (TagResource)"))
             {
                 return;
             }
@@ -138,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse, NewIOTProvisioningTemplateVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMeetings.Model.TagResourceResponse, AddCHMTGResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,22 +132,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TemplateBody;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SetAsDefault = this.SetAsDefault;
-            context.TemplateBody = this.TemplateBody;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.TemplateBody == null && ParameterWasBound(nameof(this.TemplateBody)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter TemplateBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TemplateName = this.TemplateName;
-            #if MODULAR
-            if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.ChimeSDKMeetings.Model.Tag>(this.Tag);
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -179,19 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.CreateProvisioningTemplateVersionRequest();
+            var request = new Amazon.ChimeSDKMeetings.Model.TagResourceRequest();
             
-            if (cmdletContext.SetAsDefault != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.SetAsDefault = cmdletContext.SetAsDefault.Value;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.TemplateBody != null)
+            if (cmdletContext.Tag != null)
             {
-                request.TemplateBody = cmdletContext.TemplateBody;
-            }
-            if (cmdletContext.TemplateName != null)
-            {
-                request.TemplateName = cmdletContext.TemplateName;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -226,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateProvisioningTemplateVersionRequest request)
+        private Amazon.ChimeSDKMeetings.Model.TagResourceResponse CallAWSServiceOperation(IAmazonChimeSDKMeetings client, Amazon.ChimeSDKMeetings.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CreateProvisioningTemplateVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Meetings", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.CreateProvisioningTemplateVersion(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.CreateProvisioningTemplateVersionAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,11 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? SetAsDefault { get; set; }
-            public System.String TemplateBody { get; set; }
-            public System.String TemplateName { get; set; }
-            public System.Func<Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse, NewIOTProvisioningTemplateVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceARN { get; set; }
+            public List<Amazon.ChimeSDKMeetings.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.ChimeSDKMeetings.Model.TagResourceResponse, AddCHMTGResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

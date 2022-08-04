@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the fleet provisioning templates in your Amazon Web Services account.
+    /// Lists the provisioning templates in your Amazon Web Services account.
     /// 
     ///  
     /// <para>

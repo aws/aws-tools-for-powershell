@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a fleet provisioning template.
+    /// Creates a provisioning template.
     /// 
     ///  
     /// <para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the fleet provisioning template.</para>
+        /// <para>The description of the provisioning template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>True to enable the fleet provisioning template, otherwise false.</para>
+        /// <para>True to enable the provisioning template, otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ProvisioningRoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the role associated with the fleet provisioning template. This IoT
-        /// role grants permission to provision a device.</para>
+        /// <para>The role ARN for the role associated with the provisioning template. This IoT role
+        /// grants permission to provision a device.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata which can be used to manage the fleet provisioning template.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
+        /// <para>Metadata which can be used to manage the provisioning template.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>The JSON formatted contents of the fleet provisioning template.</para>
+        /// <para>The JSON formatted contents of the provisioning template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet provisioning template.</para>
+        /// <para>The name of the provisioning template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,6 +146,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TemplateName { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type you define in a provisioning template. You can create a template with only
+        /// one type. You can't change the template type after its creation. The default value
+        /// is <code>FLEET_PROVISIONING</code>. For more information about provisioning template,
+        /// see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning
+        /// template</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.TemplateType")]
+        public Amazon.IoT.TemplateType Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -238,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -306,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.TemplateName != null)
             {
                 request.TemplateName = cmdletContext.TemplateName;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -376,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateName { get; set; }
+            public Amazon.IoT.TemplateType Type { get; set; }
             public System.Func<Amazon.IoT.Model.CreateProvisioningTemplateResponse, NewIOTProvisioningTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -274,8 +274,11 @@ $CHMTG_SelectMap = @{
                "Get-CHMTGAttendee",
                "Get-CHMTGMeeting",
                "Get-CHMTGAttendeeList",
+               "Get-CHMTGResourceTag",
                "Start-CHMTGMeetingTranscription",
                "Stop-CHMTGMeetingTranscription",
+               "Add-CHMTGResourceTag",
+               "Remove-CHMTGResourceTag",
                "Update-CHMTGAttendeeCapability")
 }
 

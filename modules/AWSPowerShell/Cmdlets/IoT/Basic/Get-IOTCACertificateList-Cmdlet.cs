@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTCACertificateListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioning template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateName { get; set; }
+        #endregion
+        
         #region Parameter AscendingOrder
         /// <summary>
         /// <para>
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.TemplateName = this.TemplateName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.PageSize != null)
             {
                 request.PageSize = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.PageSize.Value);
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
             }
             
             // Initialize loop variant and commence piping
@@ -222,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AscendingOrder != null)
             {
                 request.AscendingOrder = cmdletContext.AscendingOrder.Value;
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
             }
             
             // Initialize loop variants and commence piping
@@ -345,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.Boolean? AscendingOrder { get; set; }
             public System.String Marker { get; set; }
             public int? PageSize { get; set; }
+            public System.String TemplateName { get; set; }
             public System.Func<Amazon.IoT.Model.ListCACertificatesResponse, GetIOTCACertificateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Certificates;
         }

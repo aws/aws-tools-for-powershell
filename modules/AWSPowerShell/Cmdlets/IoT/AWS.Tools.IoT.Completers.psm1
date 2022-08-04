@@ -395,6 +395,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.TemplateType
+        "New-IOTProvisioningTemplate/Type"
+        {
+            $v = "FLEET_PROVISIONING","JITP"
+            break
+        }
+
         # Amazon.IoT.ThingConnectivityIndexingMode
         "Update-IOTIndexingConfiguration/ThingIndexingConfiguration_ThingConnectivityIndexingMode"
         {
@@ -480,7 +487,7 @@ $IOT_map = @{
     "TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
-    "Type"=@("New-IOTDimension")
+    "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "VerificationState"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList","Write-IOTVerificationStateOnViolation")
 }

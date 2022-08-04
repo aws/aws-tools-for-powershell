@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes a fleet provisioning template.
+    /// Deletes a provisioning template.
     /// 
     ///  
     /// <para>

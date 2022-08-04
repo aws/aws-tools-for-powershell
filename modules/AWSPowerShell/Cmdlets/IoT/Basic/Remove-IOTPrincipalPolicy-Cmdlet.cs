@@ -30,9 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Removes the specified policy from the specified certificate.
     /// 
-    ///  <note><para>
-    /// This action is deprecated. Please use <a>DetachPolicy</a> instead.
-    /// </para></note><para>
+    ///  
+    /// <para><b>Note:</b> This action is deprecated and works as expected for backward compatibility,
+    /// but we won't add enhancements. Use <a>DetachPolicy</a> instead.
+    /// </para><para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a>
     /// action.
     /// </para><br/><br/>This operation is deprecated.

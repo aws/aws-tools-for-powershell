@@ -1,4 +1,18 @@
-﻿### 4.1.140 (2022-08-03 20:16Z)
+﻿### 4.1.141 (2022-08-04 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.329.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Meetings
+    * Added cmdlet Add-CHMTGResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CHMTGResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CHMTGResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CHMTGMeeting: added parameter Tag.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameter Tag.
+  * Amazon IoT
+    * Modified cmdlet Get-IOTCACertificateList: added parameter TemplateName.
+    * Modified cmdlet New-IOTProvisioningTemplate: added parameter Type.
+    * Modified cmdlet Register-IOTCACertificate: added parameter RegistrationConfig_TemplateName.
+    * Modified cmdlet Update-IOTCACertificate: added parameter RegistrationConfig_TemplateName.
+
+### 4.1.140 (2022-08-03 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.328.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.139 (2022-08-02 20:28Z)
