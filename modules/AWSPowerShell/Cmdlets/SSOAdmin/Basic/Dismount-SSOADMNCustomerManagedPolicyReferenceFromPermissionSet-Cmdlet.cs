@@ -28,7 +28,7 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Detaches the specified IAM customer managed policy from the specified <a>PermissionSet</a>.
+    /// Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.
     /// </summary>
     [Cmdlet("Dismount", "SSOADMNCustomerManagedPolicyReferenceFromPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SSO instance under which the operation will be executed. </para>
+        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
+        /// executed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter CustomerManagedPolicyReference_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the policy document.</para>
+        /// <para>The name of the IAM policy that you have configured in each account where you want
+        /// to deploy your permission set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter CustomerManagedPolicyReference_Path
         /// <summary>
         /// <para>
-        /// <para>The path for the policy. The default is <code>/</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
-        /// names and paths</a> in the Identity and Access Management user guide.</para>
+        /// <para>The path to the IAM policy that you have configured in each account where you want
+        /// to deploy your permission set. The default is <code>/</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+        /// names and paths</a> in the <i>Identity and Access Management User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

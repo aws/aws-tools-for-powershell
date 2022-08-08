@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SSO instance under which the operation will be executed.</para>
+        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
+        /// executed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

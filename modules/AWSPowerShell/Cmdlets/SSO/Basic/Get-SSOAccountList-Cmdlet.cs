@@ -28,10 +28,11 @@ using Amazon.SSO.Model;
 namespace Amazon.PowerShell.Cmdlets.SSO
 {
     /// <summary>
-    /// Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
-    /// administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign
-    /// User Access</a> in the <i>AWS SSO User Guide</i>. This operation returns a paginated
-    /// response.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all Amazon Web Services accounts assigned to the user. These Amazon Web Services
+    /// accounts are assigned by the administrator of the account. For more information, see
+    /// <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign
+    /// User Access</a> in the <i>Amazon Web Services SSO User Guide</i>. This operation returns
+    /// a paginated response.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOAccountList")]
     [OutputType("Amazon.SSO.Model.AccountInfo")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         /// <para>
         /// <para>The token issued by the <code>CreateToken</code> API call. For more information, see
         /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a>
-        /// in the <i>AWS SSO OIDC API Reference Guide</i>.</para>
+        /// in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

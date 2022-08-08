@@ -28,7 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists the namespaces for the specified Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the namespaces for the specified Amazon Web Services account. This operation
+    /// doesn't list deleted namespaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSNamespaceList")]
     [OutputType("Amazon.QuickSight.Model.NamespaceInfoV2")]
@@ -72,7 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token that can be used in a subsequent request.</para>
+        /// <para>A unique pagination token that can be used in a subsequent request. You will receive
+        /// a pagination token in the response body of a previous <code>ListNameSpaces</code>
+        /// API call if there is more data that can be returned. To receive the data, make another
+        /// <code>ListNamespaces</code> API call with the returned token to retrieve the next
+        /// page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code>
+        /// API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code>
+        /// error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

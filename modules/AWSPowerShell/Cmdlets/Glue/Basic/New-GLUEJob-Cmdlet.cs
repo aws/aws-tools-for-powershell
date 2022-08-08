@@ -106,6 +106,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExecutionClass
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the job is run with a standard or flexible execution class. The
+        /// standard execution-class is ideal for time-sensitive workloads that require fast job
+        /// startup and dedicated resources.</para><para>The flexible execution class is appropriate for time-insensitive jobs whose start
+        /// and completion times may vary. </para><para>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will
+        /// be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution
+        /// class is available for Spark jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ExecutionClass")]
+        public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
+        #endregion
+        
         #region Parameter GlueVersion
         /// <summary>
         /// <para>
@@ -404,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.Description = this.Description;
+            context.ExecutionClass = this.ExecutionClass;
             context.ExecutionProperty_MaxConcurrentRun = this.ExecutionProperty_MaxConcurrentRun;
             context.GlueVersion = this.GlueVersion;
             context.LogUri = this.LogUri;
@@ -500,6 +517,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ExecutionClass != null)
+            {
+                request.ExecutionClass = cmdletContext.ExecutionClass;
             }
             
              // populate ExecutionProperty
@@ -655,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<System.String> Connections_Connection { get; set; }
             public Dictionary<System.String, System.String> DefaultArgument { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
             public System.Int32? ExecutionProperty_MaxConcurrentRun { get; set; }
             public System.String GlueVersion { get; set; }
             public System.String LogUri { get; set; }

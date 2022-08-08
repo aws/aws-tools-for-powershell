@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.EventNotificationTopicStatus LoRaWAN_WirelessDeviceEventTopic { get; set; }
         #endregion
         
+        #region Parameter Sidewalk_WirelessDeviceEventTopic
+        /// <summary>
+        /// <para>
+        /// <para>Enum to denote whether the wireless device join event topic is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageDeliveryStatus_Sidewalk_WirelessDeviceEventTopic")]
+        [AWSConstantClassSource("Amazon.IoTWireless.EventNotificationTopicStatus")]
+        public Amazon.IoTWireless.EventNotificationTopicStatus Sidewalk_WirelessDeviceEventTopic { get; set; }
+        #endregion
+        
         #region Parameter Proximity_Sidewalk_WirelessDeviceEventTopic
         /// <summary>
         /// <para>
@@ -132,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_WirelessGatewayEventTopic = this.LoRaWAN_WirelessGatewayEventTopic;
             context.DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic = this.DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic;
             context.LoRaWAN_WirelessDeviceEventTopic = this.LoRaWAN_WirelessDeviceEventTopic;
+            context.Sidewalk_WirelessDeviceEventTopic = this.Sidewalk_WirelessDeviceEventTopic;
             context.Proximity_Sidewalk_WirelessDeviceEventTopic = this.Proximity_Sidewalk_WirelessDeviceEventTopic;
             
             // allow further manipulation of loaded context prior to processing
@@ -252,6 +265,40 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.Join = null;
             }
             
+             // populate MessageDeliveryStatus
+            var requestMessageDeliveryStatusIsNull = true;
+            request.MessageDeliveryStatus = new Amazon.IoTWireless.Model.MessageDeliveryStatusResourceTypeEventConfiguration();
+            Amazon.IoTWireless.Model.SidewalkResourceTypeEventConfiguration requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk = null;
+            
+             // populate Sidewalk
+            var requestMessageDeliveryStatus_messageDeliveryStatus_SidewalkIsNull = true;
+            requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk = new Amazon.IoTWireless.Model.SidewalkResourceTypeEventConfiguration();
+            Amazon.IoTWireless.EventNotificationTopicStatus requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk_sidewalk_WirelessDeviceEventTopic = null;
+            if (cmdletContext.Sidewalk_WirelessDeviceEventTopic != null)
+            {
+                requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk_sidewalk_WirelessDeviceEventTopic = cmdletContext.Sidewalk_WirelessDeviceEventTopic;
+            }
+            if (requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk_sidewalk_WirelessDeviceEventTopic != null)
+            {
+                requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk.WirelessDeviceEventTopic = requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk_sidewalk_WirelessDeviceEventTopic;
+                requestMessageDeliveryStatus_messageDeliveryStatus_SidewalkIsNull = false;
+            }
+             // determine if requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk should be set to null
+            if (requestMessageDeliveryStatus_messageDeliveryStatus_SidewalkIsNull)
+            {
+                requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk = null;
+            }
+            if (requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk != null)
+            {
+                request.MessageDeliveryStatus.Sidewalk = requestMessageDeliveryStatus_messageDeliveryStatus_Sidewalk;
+                requestMessageDeliveryStatusIsNull = false;
+            }
+             // determine if request.MessageDeliveryStatus should be set to null
+            if (requestMessageDeliveryStatusIsNull)
+            {
+                request.MessageDeliveryStatus = null;
+            }
+            
              // populate Proximity
             var requestProximityIsNull = true;
             request.Proximity = new Amazon.IoTWireless.Model.ProximityResourceTypeEventConfiguration();
@@ -349,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public Amazon.IoTWireless.EventNotificationTopicStatus LoRaWAN_WirelessGatewayEventTopic { get; set; }
             public Amazon.IoTWireless.EventNotificationTopicStatus DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic { get; set; }
             public Amazon.IoTWireless.EventNotificationTopicStatus LoRaWAN_WirelessDeviceEventTopic { get; set; }
+            public Amazon.IoTWireless.EventNotificationTopicStatus Sidewalk_WirelessDeviceEventTopic { get; set; }
             public Amazon.IoTWireless.EventNotificationTopicStatus Proximity_Sidewalk_WirelessDeviceEventTopic { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateEventConfigurationByResourceTypesResponse, UpdateIOTWEventConfigurationByResourceTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

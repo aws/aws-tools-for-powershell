@@ -116,6 +116,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String WriteJourneyRequest_CreationDate { get; set; }
         #endregion
         
+        #region Parameter ClosedDays_CUSTOM
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Custom Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_ClosedDays_CUSTOM")]
+        public Amazon.Pinpoint.Model.ClosedDaysRule[] ClosedDays_CUSTOM { get; set; }
+        #endregion
+        
+        #region Parameter OpenHours_CUSTOM
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Custom Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_OpenHours_CUSTOM")]
+        public System.Collections.Hashtable OpenHours_CUSTOM { get; set; }
+        #endregion
+        
         #region Parameter Limits_DailyCap
         /// <summary>
         /// <para>
@@ -151,6 +173,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType")]
         [AWSConstantClassSource("Amazon.Pinpoint.DimensionType")]
         public Amazon.Pinpoint.DimensionType EventType_DimensionType { get; set; }
+        #endregion
+        
+        #region Parameter ClosedDays_EMAIL
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Email Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_ClosedDays_EMAIL")]
+        public Amazon.Pinpoint.Model.ClosedDaysRule[] ClosedDays_EMAIL { get; set; }
+        #endregion
+        
+        #region Parameter OpenHours_EMAIL
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Email Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_OpenHours_EMAIL")]
+        public System.Collections.Hashtable OpenHours_EMAIL { get; set; }
         #endregion
         
         #region Parameter QuietTime_End
@@ -300,6 +344,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String WriteJourneyRequest_Name { get; set; }
         #endregion
         
+        #region Parameter ClosedDays_PUSH
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Push Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_ClosedDays_PUSH")]
+        public Amazon.Pinpoint.Model.ClosedDaysRule[] ClosedDays_PUSH { get; set; }
+        #endregion
+        
+        #region Parameter OpenHours_PUSH
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Push Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_OpenHours_PUSH")]
+        public System.Collections.Hashtable OpenHours_PUSH { get; set; }
+        #endregion
+        
         #region Parameter WriteJourneyRequest_RefreshFrequency
         /// <summary>
         /// <para>
@@ -341,6 +407,39 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteJourneyRequest_StartCondition_SegmentStartCondition_SegmentId")]
         public System.String SegmentStartCondition_SegmentId { get; set; }
+        #endregion
+        
+        #region Parameter WriteJourneyRequest_SendingSchedule
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag
+        /// should be set to true in order to allow (OpenHours and ClosedDays)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WriteJourneyRequest_SendingSchedule { get; set; }
+        #endregion
+        
+        #region Parameter ClosedDays_SMS
+        /// <summary>
+        /// <para>
+        /// <para>Rules for SMS Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_ClosedDays_SMS")]
+        public Amazon.Pinpoint.Model.ClosedDaysRule[] ClosedDays_SMS { get; set; }
+        #endregion
+        
+        #region Parameter OpenHours_SMS
+        /// <summary>
+        /// <para>
+        /// <para>Rules for SMS Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_OpenHours_SMS")]
+        public System.Collections.Hashtable OpenHours_SMS { get; set; }
         #endregion
         
         #region Parameter QuietTime_Start
@@ -423,6 +522,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_Values")]
         public System.String[] EventType_Value { get; set; }
+        #endregion
+        
+        #region Parameter ClosedDays_VOICE
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Voice Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_ClosedDays_VOICE")]
+        public Amazon.Pinpoint.Model.ClosedDaysRule[] ClosedDays_VOICE { get; set; }
+        #endregion
+        
+        #region Parameter OpenHours_VOICE
+        /// <summary>
+        /// <para>
+        /// <para>Rules for Voice Channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_OpenHours_VOICE")]
+        public System.Collections.Hashtable OpenHours_VOICE { get; set; }
         #endregion
         
         #region Parameter WriteJourneyRequest_WaitForQuietTime
@@ -519,6 +640,26 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.WriteJourneyRequest_Activity.Add((String)hashKey, (Activity)(this.WriteJourneyRequest_Activity[hashKey]));
                 }
             }
+            if (this.ClosedDays_CUSTOM != null)
+            {
+                context.ClosedDays_CUSTOM = new List<Amazon.Pinpoint.Model.ClosedDaysRule>(this.ClosedDays_CUSTOM);
+            }
+            if (this.ClosedDays_EMAIL != null)
+            {
+                context.ClosedDays_EMAIL = new List<Amazon.Pinpoint.Model.ClosedDaysRule>(this.ClosedDays_EMAIL);
+            }
+            if (this.ClosedDays_PUSH != null)
+            {
+                context.ClosedDays_PUSH = new List<Amazon.Pinpoint.Model.ClosedDaysRule>(this.ClosedDays_PUSH);
+            }
+            if (this.ClosedDays_SMS != null)
+            {
+                context.ClosedDays_SMS = new List<Amazon.Pinpoint.Model.ClosedDaysRule>(this.ClosedDays_SMS);
+            }
+            if (this.ClosedDays_VOICE != null)
+            {
+                context.ClosedDays_VOICE = new List<Amazon.Pinpoint.Model.ClosedDaysRule>(this.ClosedDays_VOICE);
+            }
             context.WriteJourneyRequest_CreationDate = this.WriteJourneyRequest_CreationDate;
             context.JourneyChannelSettings_ConnectCampaignArn = this.JourneyChannelSettings_ConnectCampaignArn;
             context.JourneyChannelSettings_ConnectCampaignExecutionRoleArn = this.JourneyChannelSettings_ConnectCampaignExecutionRoleArn;
@@ -535,6 +676,106 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 WriteWarning("You are passing $null as a value for parameter WriteJourneyRequest_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OpenHours_CUSTOM != null)
+            {
+                context.OpenHours_CUSTOM = new Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_CUSTOM.Keys)
+                {
+                    object hashValue = this.OpenHours_CUSTOM[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_CUSTOM.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.Pinpoint.Model.OpenHoursRule>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.Pinpoint.Model.OpenHoursRule)s);
+                    }
+                    context.OpenHours_CUSTOM.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.OpenHours_EMAIL != null)
+            {
+                context.OpenHours_EMAIL = new Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_EMAIL.Keys)
+                {
+                    object hashValue = this.OpenHours_EMAIL[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_EMAIL.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.Pinpoint.Model.OpenHoursRule>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.Pinpoint.Model.OpenHoursRule)s);
+                    }
+                    context.OpenHours_EMAIL.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.OpenHours_PUSH != null)
+            {
+                context.OpenHours_PUSH = new Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_PUSH.Keys)
+                {
+                    object hashValue = this.OpenHours_PUSH[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_PUSH.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.Pinpoint.Model.OpenHoursRule>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.Pinpoint.Model.OpenHoursRule)s);
+                    }
+                    context.OpenHours_PUSH.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.OpenHours_SMS != null)
+            {
+                context.OpenHours_SMS = new Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_SMS.Keys)
+                {
+                    object hashValue = this.OpenHours_SMS[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_SMS.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.Pinpoint.Model.OpenHoursRule>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.Pinpoint.Model.OpenHoursRule)s);
+                    }
+                    context.OpenHours_SMS.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.OpenHours_VOICE != null)
+            {
+                context.OpenHours_VOICE = new Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_VOICE.Keys)
+                {
+                    object hashValue = this.OpenHours_VOICE[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_VOICE.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.Pinpoint.Model.OpenHoursRule>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.Pinpoint.Model.OpenHoursRule)s);
+                    }
+                    context.OpenHours_VOICE.Add((String)hashKey, valueSet);
+                }
+            }
             context.QuietTime_End = this.QuietTime_End;
             context.QuietTime_Start = this.QuietTime_Start;
             context.WriteJourneyRequest_RefreshFrequency = this.WriteJourneyRequest_RefreshFrequency;
@@ -542,6 +783,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Schedule_EndTime = this.Schedule_EndTime;
             context.Schedule_StartTime = this.Schedule_StartTime;
             context.Schedule_Timezone = this.Schedule_Timezone;
+            context.WriteJourneyRequest_SendingSchedule = this.WriteJourneyRequest_SendingSchedule;
             context.WriteJourneyRequest_StartActivity = this.WriteJourneyRequest_StartActivity;
             context.StartCondition_Description = this.StartCondition_Description;
             if (this.Dimensions_Attribute != null)
@@ -666,6 +908,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteJourneyRequest_writeJourneyRequest_RefreshOnSegmentUpdate != null)
             {
                 request.WriteJourneyRequest.RefreshOnSegmentUpdate = requestWriteJourneyRequest_writeJourneyRequest_RefreshOnSegmentUpdate.Value;
+                requestWriteJourneyRequestIsNull = false;
+            }
+            System.Boolean? requestWriteJourneyRequest_writeJourneyRequest_SendingSchedule = null;
+            if (cmdletContext.WriteJourneyRequest_SendingSchedule != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_SendingSchedule = cmdletContext.WriteJourneyRequest_SendingSchedule.Value;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_SendingSchedule != null)
+            {
+                request.WriteJourneyRequest.SendingSchedule = requestWriteJourneyRequest_writeJourneyRequest_SendingSchedule.Value;
                 requestWriteJourneyRequestIsNull = false;
             }
             System.String requestWriteJourneyRequest_writeJourneyRequest_StartActivity = null;
@@ -1038,6 +1290,136 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteJourneyRequest.Limits = requestWriteJourneyRequest_writeJourneyRequest_Limits;
                 requestWriteJourneyRequestIsNull = false;
             }
+            Amazon.Pinpoint.Model.ClosedDays requestWriteJourneyRequest_writeJourneyRequest_ClosedDays = null;
+            
+             // populate ClosedDays
+            var requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_ClosedDays = new Amazon.Pinpoint.Model.ClosedDays();
+            List<Amazon.Pinpoint.Model.ClosedDaysRule> requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_CUSTOM = null;
+            if (cmdletContext.ClosedDays_CUSTOM != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_CUSTOM = cmdletContext.ClosedDays_CUSTOM;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_CUSTOM != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays.CUSTOM = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_CUSTOM;
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.ClosedDaysRule> requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_EMAIL = null;
+            if (cmdletContext.ClosedDays_EMAIL != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_EMAIL = cmdletContext.ClosedDays_EMAIL;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_EMAIL != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays.EMAIL = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_EMAIL;
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.ClosedDaysRule> requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_PUSH = null;
+            if (cmdletContext.ClosedDays_PUSH != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_PUSH = cmdletContext.ClosedDays_PUSH;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_PUSH != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays.PUSH = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_PUSH;
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.ClosedDaysRule> requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_SMS = null;
+            if (cmdletContext.ClosedDays_SMS != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_SMS = cmdletContext.ClosedDays_SMS;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_SMS != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays.SMS = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_SMS;
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.ClosedDaysRule> requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_VOICE = null;
+            if (cmdletContext.ClosedDays_VOICE != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_VOICE = cmdletContext.ClosedDays_VOICE;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_VOICE != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays.VOICE = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays_closedDays_VOICE;
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_ClosedDays should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDaysIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_ClosedDays = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_ClosedDays != null)
+            {
+                request.WriteJourneyRequest.ClosedDays = requestWriteJourneyRequest_writeJourneyRequest_ClosedDays;
+                requestWriteJourneyRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.OpenHours requestWriteJourneyRequest_writeJourneyRequest_OpenHours = null;
+            
+             // populate OpenHours
+            var requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_OpenHours = new Amazon.Pinpoint.Model.OpenHours();
+            Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_CUSTOM = null;
+            if (cmdletContext.OpenHours_CUSTOM != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_CUSTOM = cmdletContext.OpenHours_CUSTOM;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_CUSTOM != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours.CUSTOM = requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_CUSTOM;
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = false;
+            }
+            Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_EMAIL = null;
+            if (cmdletContext.OpenHours_EMAIL != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_EMAIL = cmdletContext.OpenHours_EMAIL;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_EMAIL != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours.EMAIL = requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_EMAIL;
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = false;
+            }
+            Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_PUSH = null;
+            if (cmdletContext.OpenHours_PUSH != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_PUSH = cmdletContext.OpenHours_PUSH;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_PUSH != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours.PUSH = requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_PUSH;
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = false;
+            }
+            Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_SMS = null;
+            if (cmdletContext.OpenHours_SMS != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_SMS = cmdletContext.OpenHours_SMS;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_SMS != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours.SMS = requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_SMS;
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = false;
+            }
+            Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_VOICE = null;
+            if (cmdletContext.OpenHours_VOICE != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_VOICE = cmdletContext.OpenHours_VOICE;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_VOICE != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours.VOICE = requestWriteJourneyRequest_writeJourneyRequest_OpenHours_openHours_VOICE;
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_OpenHours should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHoursIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_OpenHours = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_OpenHours != null)
+            {
+                request.WriteJourneyRequest.OpenHours = requestWriteJourneyRequest_writeJourneyRequest_OpenHours;
+                requestWriteJourneyRequestIsNull = false;
+            }
              // determine if request.WriteJourneyRequest should be set to null
             if (requestWriteJourneyRequestIsNull)
             {
@@ -1107,6 +1489,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String ApplicationId { get; set; }
             public System.String JourneyId { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.Activity> WriteJourneyRequest_Activity { get; set; }
+            public List<Amazon.Pinpoint.Model.ClosedDaysRule> ClosedDays_CUSTOM { get; set; }
+            public List<Amazon.Pinpoint.Model.ClosedDaysRule> ClosedDays_EMAIL { get; set; }
+            public List<Amazon.Pinpoint.Model.ClosedDaysRule> ClosedDays_PUSH { get; set; }
+            public List<Amazon.Pinpoint.Model.ClosedDaysRule> ClosedDays_SMS { get; set; }
+            public List<Amazon.Pinpoint.Model.ClosedDaysRule> ClosedDays_VOICE { get; set; }
             public System.String WriteJourneyRequest_CreationDate { get; set; }
             public System.String JourneyChannelSettings_ConnectCampaignArn { get; set; }
             public System.String JourneyChannelSettings_ConnectCampaignExecutionRoleArn { get; set; }
@@ -1117,6 +1504,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? Limits_MessagesPerSecond { get; set; }
             public System.Boolean? WriteJourneyRequest_LocalTime { get; set; }
             public System.String WriteJourneyRequest_Name { get; set; }
+            public Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> OpenHours_CUSTOM { get; set; }
+            public Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> OpenHours_EMAIL { get; set; }
+            public Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> OpenHours_PUSH { get; set; }
+            public Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> OpenHours_SMS { get; set; }
+            public Dictionary<System.String, List<Amazon.Pinpoint.Model.OpenHoursRule>> OpenHours_VOICE { get; set; }
             public System.String QuietTime_End { get; set; }
             public System.String QuietTime_Start { get; set; }
             public System.String WriteJourneyRequest_RefreshFrequency { get; set; }
@@ -1124,6 +1516,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.DateTime? Schedule_EndTime { get; set; }
             public System.DateTime? Schedule_StartTime { get; set; }
             public System.String Schedule_Timezone { get; set; }
+            public System.Boolean? WriteJourneyRequest_SendingSchedule { get; set; }
             public System.String WriteJourneyRequest_StartActivity { get; set; }
             public System.String StartCondition_Description { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> Dimensions_Attribute { get; set; }

@@ -141,6 +141,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ExecutionClass
+        {
+            ($_ -eq "New-GLUEJob/ExecutionClass") -Or
+            ($_ -eq "Start-GLUEJobRun/ExecutionClass")
+        }
+        {
+            $v = "FLEX","STANDARD"
+            break
+        }
+
         # Amazon.Glue.ExistCondition
         "Set-GLUEResourcePolicy/PolicyExistsCondition"
         {
@@ -300,6 +310,7 @@ $GLUE_map = @{
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")

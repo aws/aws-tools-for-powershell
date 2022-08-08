@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         /// <para>
         /// <para>The token issued by the <code>CreateToken</code> API call. For more information, see
         /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a>
-        /// in the <i>AWS SSO OIDC API Reference Guide</i>.</para>
+        /// in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the AWS account that is assigned to the user.</para>
+        /// <para>The identifier for the Amazon Web Services account that is assigned to the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

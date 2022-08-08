@@ -28,7 +28,22 @@ using Amazon.SSO.Model;
 namespace Amazon.PowerShell.Cmdlets.SSO
 {
     /// <summary>
-    /// Removes the client- and server-side session that is associated with the user.
+    /// Removes the locally stored SSO tokens from the client-side cache and sends an API
+    /// call to the Amazon Web Services SSO service to invalidate the corresponding server-side
+    /// Amazon Web Services SSO sign in session.
+    /// 
+    ///  <note><para>
+    /// If a user uses Amazon Web Services SSO to access the AWS CLI, the user’s Amazon Web
+    /// Services SSO sign in session is used to obtain an IAM session, as specified in the
+    /// corresponding Amazon Web Services SSO permission set. More specifically, Amazon Web
+    /// Services SSO assumes an IAM role in the target account on behalf of the user, and
+    /// the corresponding temporary Amazon Web Services credentials are returned to the client.
+    /// </para><para>
+    /// After user logout, any existing IAM role sessions that were created by using Amazon
+    /// Web Services SSO permission sets continue based on the duration configured in the
+    /// permission set. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html">User
+    /// authentications</a> in the <i>Amazon Web Services SSO User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Close", "SSOSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         /// <para>
         /// <para>The token issued by the <code>CreateToken</code> API call. For more information, see
         /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a>
-        /// in the <i>AWS SSO OIDC API Reference Guide</i>.</para>
+        /// in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

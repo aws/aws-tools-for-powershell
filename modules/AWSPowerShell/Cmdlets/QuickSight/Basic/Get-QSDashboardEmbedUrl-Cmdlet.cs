@@ -28,10 +28,10 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates a temporary session URL and authorization code that you can use to embed
-    /// an Amazon QuickSight read-only dashboard in your website or application. Before you
-    /// use this command, make sure that you have configured the dashboards and permissions.
-    /// 
+    /// Generates a temporary session URL and authorization code(bearer token) that you can
+    /// use to embed an Amazon QuickSight read-only dashboard in your website or application.
+    /// Before you use this command, make sure that you have configured the dashboards and
+    /// permissions. 
     /// 
     ///  
     /// <para>
@@ -44,8 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li><li><para>
     /// They are valid for 5 minutes after you run this command.
     /// </para></li><li><para>
+    /// You are charged only when the URL is used or there is interaction with Amazon QuickSight.
+    /// </para></li><li><para>
     /// The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum).
-    /// You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customi
+    /// You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customize
     /// session duration.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding

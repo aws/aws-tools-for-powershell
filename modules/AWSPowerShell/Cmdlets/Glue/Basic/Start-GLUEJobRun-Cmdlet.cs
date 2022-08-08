@@ -58,6 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable Argument { get; set; }
         #endregion
         
+        #region Parameter ExecutionClass
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the job is run with a standard or flexible execution class. The
+        /// standard execution-class is ideal for time-sensitive workloads that require fast job
+        /// startup and dedicated resources.</para><para>The flexible execution class is appropriate for time-insensitive jobs whose start
+        /// and completion times may vary. </para><para>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will
+        /// be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution
+        /// class is available for Spark jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ExecutionClass")]
+        public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -254,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     context.Argument.Add((String)hashKey, (String)(this.Argument[hashKey]));
                 }
             }
+            context.ExecutionClass = this.ExecutionClass;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -293,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Argument != null)
             {
                 request.Arguments = cmdletContext.Argument;
+            }
+            if (cmdletContext.ExecutionClass != null)
+            {
+                request.ExecutionClass = cmdletContext.ExecutionClass;
             }
             if (cmdletContext.JobName != null)
             {
@@ -405,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             [System.ObsoleteAttribute]
             public System.Int32? AllocatedCapacity { get; set; }
             public Dictionary<System.String, System.String> Argument { get; set; }
+            public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
             public System.Double? MaxCapacity { get; set; }

@@ -37,9 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// </para></note><note><para>
     /// As part of a successful <code>CreateAccountAssignment</code> call, the specified permission
     /// set will automatically be provisioned to the account in the form of an IAM policy.
-    /// That policy is attached to the SSO-created IAM role. If the permission set is subsequently
-    /// updated, the corresponding IAM policies attached to roles in your accounts will not
-    /// be updated automatically. In this case, you must call <code><a>ProvisionPermissionSet</a></code> to make these updates.
+    /// That policy is attached to the IAM role created in Amazon Web Services SSO. If the
+    /// permission set is subsequently updated, the corresponding IAM policies attached to
+    /// roles in your accounts will not be updated automatically. In this case, you must call
+    /// <code><a>ProvisionPermissionSet</a></code> to make these updates.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNAccountAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SSO instance under which the operation will be executed. For more information
-        /// about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-        /// Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services
-        /// General Reference</i>.</para>
+        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
+        /// executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,18 @@
-﻿### 4.1.141 (2022-08-04 20:25Z)
+﻿### 4.1.142 (2022-08-08 20:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.330.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter ExecutionClass.
+    * Modified cmdlet Start-GLUEJobRun: added parameter ExecutionClass.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWServiceProfile: added parameters LoRaWAN_DrMax and LoRaWAN_DrMin.
+    * Modified cmdlet Send-IOTWDataToWirelessDevice: added parameter Sidewalk_AckModeRetryDurationSec.
+    * Modified cmdlet Update-IOTWEventConfigurationByResourceType: added parameter Sidewalk_WirelessDeviceEventTopic.
+    * Modified cmdlet Update-IOTWResourceEventConfiguration: added parameters MessageDeliveryStatus_WirelessDeviceIdEventTopic and Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic.
+  * Amazon Pinpoint
+    * Modified cmdlet New-PINJourney: added parameters ClosedDays_CUSTOM, ClosedDays_EMAIL, ClosedDays_PUSH, ClosedDays_SMS, ClosedDays_VOICE, OpenHours_CUSTOM, OpenHours_EMAIL, OpenHours_PUSH, OpenHours_SMS, OpenHours_VOICE and WriteJourneyRequest_SendingSchedule.
+    * Modified cmdlet Update-PINJourney: added parameters ClosedDays_CUSTOM, ClosedDays_EMAIL, ClosedDays_PUSH, ClosedDays_SMS, ClosedDays_VOICE, OpenHours_CUSTOM, OpenHours_EMAIL, OpenHours_PUSH, OpenHours_SMS, OpenHours_VOICE and WriteJourneyRequest_SendingSchedule.
+
+### 4.1.141 (2022-08-04 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.329.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Meetings
     * Added cmdlet Add-CHMTGResourceTag leveraging the TagResource service API.

@@ -62,6 +62,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_DrMax
+        /// <summary>
+        /// <para>
+        /// <para>The DrMax value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_DrMax { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_DrMin
+        /// <summary>
+        /// <para>
+        /// <para>The DrMin value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_DrMin { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -147,6 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.LoRaWAN_AddGwMetadata = this.LoRaWAN_AddGwMetadata;
+            context.LoRaWAN_DrMax = this.LoRaWAN_DrMax;
+            context.LoRaWAN_DrMin = this.LoRaWAN_DrMin;
             context.Name = this.Name;
             if (this.Tag != null)
             {
@@ -184,6 +206,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_AddGwMetadata != null)
             {
                 request.LoRaWAN.AddGwMetadata = requestLoRaWAN_loRaWAN_AddGwMetadata.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_DrMax = null;
+            if (cmdletContext.LoRaWAN_DrMax != null)
+            {
+                requestLoRaWAN_loRaWAN_DrMax = cmdletContext.LoRaWAN_DrMax.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_DrMax != null)
+            {
+                request.LoRaWAN.DrMax = requestLoRaWAN_loRaWAN_DrMax.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_DrMin = null;
+            if (cmdletContext.LoRaWAN_DrMin != null)
+            {
+                requestLoRaWAN_loRaWAN_DrMin = cmdletContext.LoRaWAN_DrMin.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_DrMin != null)
+            {
+                request.LoRaWAN.DrMin = requestLoRaWAN_loRaWAN_DrMin.Value;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -262,6 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.Boolean? LoRaWAN_AddGwMetadata { get; set; }
+            public System.Int32? LoRaWAN_DrMax { get; set; }
+            public System.Int32? LoRaWAN_DrMin { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateServiceProfileResponse, NewIOTWServiceProfileCmdlet, object> Select { get; set; } =

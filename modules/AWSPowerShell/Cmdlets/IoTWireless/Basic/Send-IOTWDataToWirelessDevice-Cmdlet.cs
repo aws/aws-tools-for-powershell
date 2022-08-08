@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class SendIOTWDataToWirelessDeviceCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        #region Parameter Sidewalk_AckModeRetryDurationSec
+        /// <summary>
+        /// <para>
+        /// <para>The duration of time in seconds for which you want to retry sending the ACK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WirelessMetadata_Sidewalk_AckModeRetryDurationSecs")]
+        public System.Int32? Sidewalk_AckModeRetryDurationSec { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_FPort
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #endif
             context.LoRaWAN_FPort = this.LoRaWAN_FPort;
+            context.Sidewalk_AckModeRetryDurationSec = this.Sidewalk_AckModeRetryDurationSec;
             context.Sidewalk_MessageType = this.Sidewalk_MessageType;
             context.Sidewalk_Seq = this.Sidewalk_Seq;
             
@@ -272,6 +284,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
              // populate Sidewalk
             var requestWirelessMetadata_wirelessMetadata_SidewalkIsNull = true;
             requestWirelessMetadata_wirelessMetadata_Sidewalk = new Amazon.IoTWireless.Model.SidewalkSendDataToDevice();
+            System.Int32? requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_AckModeRetryDurationSec = null;
+            if (cmdletContext.Sidewalk_AckModeRetryDurationSec != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_AckModeRetryDurationSec = cmdletContext.Sidewalk_AckModeRetryDurationSec.Value;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_AckModeRetryDurationSec != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_Sidewalk.AckModeRetryDurationSecs = requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_AckModeRetryDurationSec.Value;
+                requestWirelessMetadata_wirelessMetadata_SidewalkIsNull = false;
+            }
             Amazon.IoTWireless.MessageType requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_MessageType = null;
             if (cmdletContext.Sidewalk_MessageType != null)
             {
@@ -372,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String PayloadData { get; set; }
             public System.Int32? TransmitMode { get; set; }
             public System.Int32? LoRaWAN_FPort { get; set; }
+            public System.Int32? Sidewalk_AckModeRetryDurationSec { get; set; }
             public Amazon.IoTWireless.MessageType Sidewalk_MessageType { get; set; }
             public System.Int32? Sidewalk_Seq { get; set; }
             public System.Func<Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse, SendIOTWDataToWirelessDeviceCmdlet, object> Select { get; set; } =
