@@ -42,16 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// to publish up to 150 values per metric with one <code>PutMetricData</code> request,
     /// and supports retrieving percentile statistics on this data.
     /// </para><para>
-    /// Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST
-    /// requests. You can send a payload compressed by gzip. Each request is also limited
-    /// to no more than 20 different metrics.
+    /// Each <code>PutMetricData</code> request is limited to 1 MB in size for HTTP POST requests.
+    /// You can send a payload compressed by gzip. Each request is also limited to no more
+    /// than 1000 different metrics.
     /// </para><para>
     /// Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>,
     /// CloudWatch rejects values that are either too small or too large. Values must be in
     /// the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity,
     /// -Infinity) are not supported.
     /// </para><para>
-    /// You can use up to 10 dimensions per metric to further clarify what data the metric
+    /// You can use up to 30 dimensions per metric to further clarify what data the metric
     /// collects. Each dimension consists of a Name and Value pair. For more information about
     /// specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
     /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricData
         /// <summary>
         /// <para>
-        /// <para>The data for the metric. The array can include no more than 20 metrics per call.</para>
+        /// <para>The data for the metric. The array can include no more than 1000 metrics per call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

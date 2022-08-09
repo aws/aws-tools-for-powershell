@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureAddition
         /// <summary>
         /// <para>
-        /// <para>A list of the features that you're adding to the feature group.</para>
+        /// <para>Updates the feature group. Updating a feature group is an asynchronous operation.
+        /// When you get an HTTP 200 response, you've made a valid request. It takes some time
+        /// after you've made a valid request for Feature Store to update the feature group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

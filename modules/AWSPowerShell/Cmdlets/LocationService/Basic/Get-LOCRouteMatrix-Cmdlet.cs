@@ -224,7 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Height
         /// <summary>
         /// <para>
-        /// <para>The height of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul>
+        /// <para>The height of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Length
         /// <summary>
         /// <para>
-        /// <para>The length of the truck.</para><ul><li><para>For example, <code>15.5</code>.</para></li></ul>
+        /// <para>The length of the truck.</para><ul><li><para>For example, <code>15.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 300
+        /// meters. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Width
         /// <summary>
         /// <para>
-        /// <para>The width of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul>
+        /// <para>The width of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

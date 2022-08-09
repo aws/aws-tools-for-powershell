@@ -28,7 +28,9 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Deletes the specified anomaly detection model from your account.
+    /// Deletes the specified anomaly detection model from your account. For more information
+    /// about how to delete an anomaly detection model, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model">Deleting
+    /// an anomaly detection model</a> in the <i>CloudWatch User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "CWAnomalyDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

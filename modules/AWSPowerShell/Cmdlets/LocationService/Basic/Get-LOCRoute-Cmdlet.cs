@@ -50,7 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code>
     /// if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
     /// <code>Truck</code>.
-    /// </para></li></ul>
+    /// </para><note><para>
+    /// If you specify <code>walking</code> for the travel mode and your data provider is
+    /// Esri, the start and destination must be within 40km.
+    /// </para></note></li></ul>
     /// </summary>
     [Cmdlet("Get", "LOCRoute")]
     [OutputType("Amazon.LocationService.Model.CalculateRouteResponse")]
@@ -203,7 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Height
         /// <summary>
         /// <para>
-        /// <para>The height of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul>
+        /// <para>The height of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Length
         /// <summary>
         /// <para>
-        /// <para>The length of the truck.</para><ul><li><para>For example, <code>15.5</code>.</para></li></ul>
+        /// <para>The length of the truck.</para><ul><li><para>For example, <code>15.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 300
+        /// meters. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><para>The <code>TravelMode</code> you specify also determines how you specify route preferences:
+        /// of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>,
+        /// or <code>Walking</code> as options for the <code>TravelMode</code>.</para><para>The <code>TravelMode</code> you specify also determines how you specify route preferences:
         /// </para><ul><li><para>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</para></li><li><para>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</para></li></ul><para>Default Value: <code>Car</code></para>
         /// </para>
         /// </summary>
@@ -300,7 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Width
         /// <summary>
         /// <para>
-        /// <para>The width of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul>
+        /// <para>The width of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

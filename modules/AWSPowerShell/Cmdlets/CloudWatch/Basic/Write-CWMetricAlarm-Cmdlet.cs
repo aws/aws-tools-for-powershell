@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// a unit of measure, such as Percent, are aggregated separately.</para><para>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have
         /// been published for the metric and attempts to evaluate the alarm. Usually, metrics
         /// are published with only one unit, so the alarm works as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
-        /// a unit, the alarm's behavior is not defined and it behaves predictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an
+        /// a unit, the alarm's behavior is not defined and it behaves unpredictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an
         /// incorrect unit that is not published for this metric. Doing so causes the alarm to
         /// be stuck in the <code>INSUFFICIENT DATA</code> state.</para>
         /// </para>

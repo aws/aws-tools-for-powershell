@@ -56,6 +56,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String AlgorithmSpecification_AlgorithmName { get; set; }
         #endregion
         
+        #region Parameter HyperParameterTuningResourceConfig_AllocationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy that determines the order of preference for resources specified in <code>InstanceConfigs</code>
+        /// used in hyperparameter optimization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy")]
+        [AWSConstantClassSource("Amazon.SageMaker.HyperParameterTuningAllocationStrategy")]
+        public Amazon.SageMaker.HyperParameterTuningAllocationStrategy HyperParameterTuningResourceConfig_AllocationStrategy { get; set; }
+        #endregion
+        
         #region Parameter ParameterRanges_CategoricalParameterRange
         /// <summary>
         /// <para>
@@ -183,6 +196,50 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SageMaker.Model.Channel[] TrainingJobDefinition_InputDataConfig { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterTuningResourceConfig_InstanceConfig
+        /// <summary>
+        /// <para>
+        /// <para>A list containing the configuration(s) for one or more resources for processing hyperparameter
+        /// jobs. These resources include compute instances and storage volumes to use in model
+        /// training jobs launched by hyperparameter tuning jobs. The <code>AllocationStrategy</code>
+        /// controls the order in which multiple configurations provided in <code>InstanceConfigs</code>
+        /// are used.</para><note><para>If you only want to use a single InstanceConfig inside the <code>HyperParameterTuningResourceConfig</code>
+        /// API, do not provide a value for <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
+        /// <code>VolumeSizeInGB</code> and <code>InstanceCount</code>. If you use <code>InstanceConfigs</code>,
+        /// do not provide values for <code>InstanceType</code>, <code>VolumeSizeInGB</code> or
+        /// <code>InstanceCount</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceConfigs")]
+        public Amazon.SageMaker.Model.HyperParameterTuningInstanceConfig[] HyperParameterTuningResourceConfig_InstanceConfig { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterTuningResourceConfig_InstanceCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of compute instances of type <code>InstanceType</code> to use. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">distributed
+        /// training</a>, select a value greater than 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceCount")]
+        public System.Int32? HyperParameterTuningResourceConfig_InstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterTuningResourceConfig_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/notebooks-available-instance-types.html">
+        /// descriptions of instance types</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType")]
+        [AWSConstantClassSource("Amazon.SageMaker.TrainingInstanceType")]
+        public Amazon.SageMaker.TrainingInstanceType HyperParameterTuningResourceConfig_InstanceType { get; set; }
         #endregion
         
         #region Parameter ParameterRanges_IntegerParameterRange
@@ -367,7 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// might also use storage volumes for scratch space. If you want SageMaker to use the
         /// storage volume to store the training data, choose <code>File</code> as the <code>TrainingInputMode</code>
         /// in the algorithm specification. For distributed training algorithms, specify an instance
-        /// count greater than 1.</para>
+        /// count greater than 1.</para><note><para>If you want to use hyperparameter optimization with instance type flexibility, use
+        /// <code>HyperParameterTuningResourceConfig</code> instead.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -559,6 +617,43 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.HyperParameterTuningJobObjectiveType TuningObjective_Type { get; set; }
         #endregion
         
+        #region Parameter HyperParameterTuningResourceConfig_VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>A key used by AWS Key Management Service to encrypt data on the storage volume attached
+        /// to the compute instances used to run the training job. You can use either of the following
+        /// formats to specify a key.</para><para>KMS Key ID:</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Amazon Resource Name (ARN) of a AWS KMS key:</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware
+        /// module to encrypt</a> storage volumes. If you choose one of these instance types,
+        /// you cannot request a <code>VolumeKmsKeyId</code>. For a list of instance types that
+        /// use local storage, see <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// store volumes</a>. For more information about AWS Key Management Service, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">AWS
+        /// KMS encryption</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_VolumeKmsKeyId")]
+        public System.String HyperParameterTuningResourceConfig_VolumeKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterTuningResourceConfig_VolumeSizeInGB
+        /// <summary>
+        /// <para>
+        /// <para>The volume size in GB for the storage volume to be used in processing hyperparameter
+        /// optimization jobs (optional). These volumes store model artifacts, incremental states
+        /// and optionally, scratch space for training algorithms. Do not provide a value for
+        /// this parameter if a value for <code>InstanceConfigs</code> is also specified.</para><para>Some instance types have a fixed total local storage size. If you select one of these
+        /// instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
+        /// size. For a list of instance types with local instance storage and their sizes, see
+        /// <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// store volumes</a>.</para><note><para>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General
+        /// Purpose SSD (gp2)</a> storage volume type.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterTuningResourceConfig_VolumeSizeInGB")]
+        public System.Int32? HyperParameterTuningResourceConfig_VolumeSizeInGB { get; set; }
+        #endregion
+        
         #region Parameter WarmStartConfig_WarmStartType
         /// <summary>
         /// <para>
@@ -719,6 +814,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.HyperParameterRanges_IntegerParameterRange = new List<Amazon.SageMaker.Model.IntegerParameterRange>(this.HyperParameterRanges_IntegerParameterRange);
             }
+            context.HyperParameterTuningResourceConfig_AllocationStrategy = this.HyperParameterTuningResourceConfig_AllocationStrategy;
+            if (this.HyperParameterTuningResourceConfig_InstanceConfig != null)
+            {
+                context.HyperParameterTuningResourceConfig_InstanceConfig = new List<Amazon.SageMaker.Model.HyperParameterTuningInstanceConfig>(this.HyperParameterTuningResourceConfig_InstanceConfig);
+            }
+            context.HyperParameterTuningResourceConfig_InstanceCount = this.HyperParameterTuningResourceConfig_InstanceCount;
+            context.HyperParameterTuningResourceConfig_InstanceType = this.HyperParameterTuningResourceConfig_InstanceType;
+            context.HyperParameterTuningResourceConfig_VolumeKmsKeyId = this.HyperParameterTuningResourceConfig_VolumeKmsKeyId;
+            context.HyperParameterTuningResourceConfig_VolumeSizeInGB = this.HyperParameterTuningResourceConfig_VolumeSizeInGB;
             if (this.TrainingJobDefinition_InputDataConfig != null)
             {
                 context.TrainingJobDefinition_InputDataConfig = new List<Amazon.SageMaker.Model.Channel>(this.TrainingJobDefinition_InputDataConfig);
@@ -1308,6 +1412,81 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TrainingJobDefinition.AlgorithmSpecification = requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification;
                 requestTrainingJobDefinitionIsNull = false;
             }
+            Amazon.SageMaker.Model.HyperParameterTuningResourceConfig requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig = null;
+            
+             // populate HyperParameterTuningResourceConfig
+            var requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = true;
+            requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig = new Amazon.SageMaker.Model.HyperParameterTuningResourceConfig();
+            Amazon.SageMaker.HyperParameterTuningAllocationStrategy requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_AllocationStrategy = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_AllocationStrategy != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_AllocationStrategy = cmdletContext.HyperParameterTuningResourceConfig_AllocationStrategy;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_AllocationStrategy != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.AllocationStrategy = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_AllocationStrategy;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.HyperParameterTuningInstanceConfig> requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceConfig = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_InstanceConfig != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceConfig = cmdletContext.HyperParameterTuningResourceConfig_InstanceConfig;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceConfig != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.InstanceConfigs = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceConfig;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceCount = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_InstanceCount != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceCount = cmdletContext.HyperParameterTuningResourceConfig_InstanceCount.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceCount != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.InstanceCount = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceCount.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+            Amazon.SageMaker.TrainingInstanceType requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceType = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_InstanceType != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceType = cmdletContext.HyperParameterTuningResourceConfig_InstanceType;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceType != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.InstanceType = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_InstanceType;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+            System.String requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeKmsKeyId = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_VolumeKmsKeyId != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeKmsKeyId = cmdletContext.HyperParameterTuningResourceConfig_VolumeKmsKeyId;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeKmsKeyId != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.VolumeKmsKeyId = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeKmsKeyId;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeSizeInGB = null;
+            if (cmdletContext.HyperParameterTuningResourceConfig_VolumeSizeInGB != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeSizeInGB = cmdletContext.HyperParameterTuningResourceConfig_VolumeSizeInGB.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeSizeInGB != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig.VolumeSizeInGB = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig_hyperParameterTuningResourceConfig_VolumeSizeInGB.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfigIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig = null;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig != null)
+            {
+                request.TrainingJobDefinition.HyperParameterTuningResourceConfig = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterTuningResourceConfig;
+                requestTrainingJobDefinitionIsNull = false;
+            }
              // determine if request.TrainingJobDefinition should be set to null
             if (requestTrainingJobDefinitionIsNull)
             {
@@ -1432,6 +1611,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.CategoricalParameterRange> HyperParameterRanges_CategoricalParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.ContinuousParameterRange> HyperParameterRanges_ContinuousParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.IntegerParameterRange> HyperParameterRanges_IntegerParameterRange { get; set; }
+            public Amazon.SageMaker.HyperParameterTuningAllocationStrategy HyperParameterTuningResourceConfig_AllocationStrategy { get; set; }
+            public List<Amazon.SageMaker.Model.HyperParameterTuningInstanceConfig> HyperParameterTuningResourceConfig_InstanceConfig { get; set; }
+            public System.Int32? HyperParameterTuningResourceConfig_InstanceCount { get; set; }
+            public Amazon.SageMaker.TrainingInstanceType HyperParameterTuningResourceConfig_InstanceType { get; set; }
+            public System.String HyperParameterTuningResourceConfig_VolumeKmsKeyId { get; set; }
+            public System.Int32? HyperParameterTuningResourceConfig_VolumeSizeInGB { get; set; }
             public List<Amazon.SageMaker.Model.Channel> TrainingJobDefinition_InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig TrainingJobDefinition_ResourceConfig { get; set; }

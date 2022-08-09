@@ -1,4 +1,11 @@
-﻿### 4.1.142 (2022-08-08 20:32Z)
+﻿### 4.1.143 (2022-08-09 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.331.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Location Service
+    * Modified cmdlet Set-LOCGeofence: added parameters Circle_Center and Circle_Radius.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameters HyperParameterTuningResourceConfig_AllocationStrategy, HyperParameterTuningResourceConfig_InstanceConfig, HyperParameterTuningResourceConfig_InstanceCount, HyperParameterTuningResourceConfig_InstanceType, HyperParameterTuningResourceConfig_VolumeKmsKeyId and HyperParameterTuningResourceConfig_VolumeSizeInGB.
+
+### 4.1.142 (2022-08-08 20:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.330.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Glue
     * Modified cmdlet New-GLUEJob: added parameter ExecutionClass.

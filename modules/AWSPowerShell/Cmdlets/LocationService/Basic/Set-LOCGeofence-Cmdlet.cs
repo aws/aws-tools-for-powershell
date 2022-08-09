@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class SetLOCGeofenceCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter Circle_Center
+        /// <summary>
+        /// <para>
+        /// <para>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS
+        /// 84</a> coordinates, in the form <code>[longitude, latitude]</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Geometry_Circle_Center")]
+        public System.Double[] Circle_Center { get; set; }
+        #endregion
+        
         #region Parameter CollectionName
         /// <summary>
         /// <para>
@@ -83,11 +95,23 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// linear rings may be inner or outer rings to describe holes and islands. Outer rings
         /// must list their vertices in counter-clockwise order around the ring's center, where
         /// the left side is the polygon's exterior. Inner rings must list their vertices in clockwise
-        /// order, where the left side is the polygon's interior.</para>
+        /// order, where the left side is the polygon's interior.</para><para>A geofence polygon can consist of between 4 and 1,000 vertices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Double[][][] Geometry_Polygon { get; set; }
+        #endregion
+        
+        #region Parameter Circle_Radius
+        /// <summary>
+        /// <para>
+        /// <para>The radius of the circle in meters. Must be greater than zero and no larger than 100,000
+        /// (100 kilometers).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Geometry_Circle_Radius")]
+        public System.Double? Circle_Radius { get; set; }
         #endregion
         
         #region Parameter Select
@@ -179,6 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                     }
                 }
             }
+            if (this.Circle_Center != null)
+            {
+                context.Circle_Center = new List<System.Double>(this.Circle_Center);
+            }
+            context.Circle_Radius = this.Circle_Radius;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,6 +244,41 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (requestGeometry_geometry_Polygon != null)
             {
                 request.Geometry.Polygon = requestGeometry_geometry_Polygon;
+                requestGeometryIsNull = false;
+            }
+            Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
+            
+             // populate Circle
+            var requestGeometry_geometry_CircleIsNull = true;
+            requestGeometry_geometry_Circle = new Amazon.LocationService.Model.Circle();
+            List<System.Double> requestGeometry_geometry_Circle_circle_Center = null;
+            if (cmdletContext.Circle_Center != null)
+            {
+                requestGeometry_geometry_Circle_circle_Center = cmdletContext.Circle_Center;
+            }
+            if (requestGeometry_geometry_Circle_circle_Center != null)
+            {
+                requestGeometry_geometry_Circle.Center = requestGeometry_geometry_Circle_circle_Center;
+                requestGeometry_geometry_CircleIsNull = false;
+            }
+            System.Double? requestGeometry_geometry_Circle_circle_Radius = null;
+            if (cmdletContext.Circle_Radius != null)
+            {
+                requestGeometry_geometry_Circle_circle_Radius = cmdletContext.Circle_Radius.Value;
+            }
+            if (requestGeometry_geometry_Circle_circle_Radius != null)
+            {
+                requestGeometry_geometry_Circle.Radius = requestGeometry_geometry_Circle_circle_Radius.Value;
+                requestGeometry_geometry_CircleIsNull = false;
+            }
+             // determine if requestGeometry_geometry_Circle should be set to null
+            if (requestGeometry_geometry_CircleIsNull)
+            {
+                requestGeometry_geometry_Circle = null;
+            }
+            if (requestGeometry_geometry_Circle != null)
+            {
+                request.Geometry.Circle = requestGeometry_geometry_Circle;
                 requestGeometryIsNull = false;
             }
              // determine if request.Geometry should be set to null
@@ -286,6 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String CollectionName { get; set; }
             public System.String GeofenceId { get; set; }
             public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
+            public List<System.Double> Circle_Center { get; set; }
+            public System.Double? Circle_Radius { get; set; }
             public System.Func<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

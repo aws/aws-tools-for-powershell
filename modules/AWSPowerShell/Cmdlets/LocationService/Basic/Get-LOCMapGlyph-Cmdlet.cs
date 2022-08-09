@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Light Italic</code></para></li><li><para>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial
         /// Bold</code></para></li><li><para>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial
         /// Bold</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-        /// Technologies</a> styles: </para><ul><li><para>VectorHereBerlin – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></para></li><li><para>VectorHereExplore, VectorHereExploreTruck – <code>Firo GO Italic</code> | <code>Fira
+        /// Technologies</a> styles: </para><ul><li><para>VectorHereContrast – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></para></li><li><para>VectorHereExplore, VectorHereExploreTruck – <code>Firo GO Italic</code> | <code>Fira
         /// GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code>
         /// | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code></para></li></ul>
         /// </para>
