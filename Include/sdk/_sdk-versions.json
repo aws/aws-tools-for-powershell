@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.331.0",
+    "ProductVersion" : "3.7.332.0",
     "CoreVersion"    : "3.7.12.19",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.80.3",
+            "Version" : "3.7.81.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.19"
@@ -1154,7 +1154,7 @@
             "InPreview"               : false
         },
         "DLM"                             : {
-            "Version" : "3.7.1.136",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.19"

@@ -1,4 +1,12 @@
-﻿### 4.1.143 (2022-08-09 20:21Z)
+﻿### 4.1.144 (2022-08-10 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.332.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Data Lifecycle Manager
+    * Modified cmdlet New-DLMLifecyclePolicy: added parameter Parameters_ExcludeDataVolumeTag.
+    * Modified cmdlet Update-DLMLifecyclePolicy: added parameter Parameters_ExcludeDataVolumeTag.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2SnapshotBatch: added parameter InstanceSpecification_ExcludeDataVolumeId.
+
+### 4.1.143 (2022-08-09 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.331.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Location Service
     * Modified cmdlet Set-LOCGeofence: added parameters Circle_Center and Circle_Radius.

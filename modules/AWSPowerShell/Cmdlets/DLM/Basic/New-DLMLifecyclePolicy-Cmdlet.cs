@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_Action
         /// <summary>
         /// <para>
-        /// <para>The actions to be performed when the event-based policy is triggered. You can specify
-        /// only one action per policy.</para><para>This parameter is required for event-based policies only. If you are creating a snapshot
-        /// or AMI policy, omit this parameter.</para>
+        /// <para><b>[Event-based policies only]</b> The actions to be performed when the event-based
+        /// policy is activated. You can specify only one action per policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,14 +100,30 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter Parameters_ExcludeBootVolume
         /// <summary>
         /// <para>
-        /// <para>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the
-        /// root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>.
-        /// The default is false.</para>
+        /// <para><b>[Snapshot policies that target instances only]</b> Indicates whether to exclude
+        /// the root volume from multi-volume snapshot sets. The default is <code>false</code>.
+        /// If you specify <code>true</code>, then the root volumes attached to targeted instances
+        /// will be excluded from the multi-volume snapshot sets created by the policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyDetails_Parameters_ExcludeBootVolume")]
         public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_ExcludeDataVolumeTag
+        /// <summary>
+        /// <para>
+        /// <para><b>[Snapshot policies that target instances only]</b> The tags used to identify data
+        /// (non-root) volumes to exclude from multi-volume snapshot sets.</para><para>If you create a snapshot lifecycle policy that targets instances and you specify tags
+        /// for this parameter, then data volumes with the specified tags that are attached to
+        /// targeted instances will be excluded from the multi-volume snapshot sets created by
+        /// the policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_Parameters_ExcludeDataVolumeTags")]
+        public Amazon.DLM.Model.Tag[] Parameters_ExcludeDataVolumeTag { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -132,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter Parameters_NoReboot
         /// <summary>
         /// <para>
-        /// <para>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted
-        /// when the lifecycle policy runs. <code>true</code> indicates that targeted instances
-        /// are not rebooted when the policy runs. <code>false</code> indicates that target instances
+        /// <para><b>[AMI policies only]</b> Indicates whether targeted instances are rebooted when
+        /// the lifecycle policy runs. <code>true</code> indicates that targeted instances are
+        /// not rebooted when the policy runs. <code>false</code> indicates that target instances
         /// are rebooted when the policy runs. The default is <code>true</code> (instances are
         /// not rebooted).</para>
         /// </para>
@@ -147,12 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_PolicyType
         /// <summary>
         /// <para>
-        /// <para>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
-        /// to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify
-        /// <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle
-        /// of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based
-        /// policy that performs specific actions when a defined event occurs in your Amazon Web
-        /// Services account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
+        /// <para><b>[All policy types]</b> The valid target resource types and actions a policy can
+        /// manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy
+        /// that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
+        /// to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify
+        /// <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific
+        /// actions when a defined event occurs in your Amazon Web Services account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceLocation
         /// <summary>
         /// <para>
-        /// <para>The location of the resources to backup. If the source resources are located in an
-        /// Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are
-        /// located on an Outpost in your account, specify <code>OUTPOST</code>. </para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+        /// <para><b>[Snapshot and AMI policies only]</b> The location of the resources to backup.
+        /// If the source resources are located in an Amazon Web Services Region, specify <code>CLOUD</code>.
+        /// If the source resources are located on an Outpost in your account, specify <code>OUTPOST</code>.</para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
         /// of the specified type with matching target tags across all of the Outposts in your
         /// account.</para>
         /// </para>
@@ -178,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME
-        /// </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create
-        /// multi-volume snapshots from the volumes for an instance.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
-        /// an event-based policy, omit this parameter.</para>
+        /// <para><b>[Snapshot policies only]</b> The target resource type for snapshot and AMI lifecycle
+        /// policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use
+        /// <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,10 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A
-        /// policy can have up to four schedules—one mandatory schedule and up to three optional
-        /// schedules.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
-        /// an event-based policy, omit this parameter.</para>
+        /// <para><b>[Snapshot and AMI policies only]</b> The schedules of policy-defined actions for
+        /// snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory
+        /// schedule and up to three optional schedules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,8 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_TargetTag
         /// <summary>
         /// <para>
-        /// <para>The single tag that identifies targeted resources for this policy.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
-        /// an event-based policy, omit this parameter.</para>
+        /// <para><b>[Snapshot and AMI policies only]</b> The single tag that identifies targeted resources
+        /// for this policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             }
             context.EventSource_Type = this.EventSource_Type;
             context.Parameters_ExcludeBootVolume = this.Parameters_ExcludeBootVolume;
+            if (this.Parameters_ExcludeDataVolumeTag != null)
+            {
+                context.Parameters_ExcludeDataVolumeTag = new List<Amazon.DLM.Model.Tag>(this.Parameters_ExcludeDataVolumeTag);
+            }
             context.Parameters_NoReboot = this.Parameters_NoReboot;
             context.PolicyDetails_PolicyType = this.PolicyDetails_PolicyType;
             if (this.PolicyDetails_ResourceLocation != null)
@@ -561,6 +578,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 requestPolicyDetails_policyDetails_Parameters.ExcludeBootVolume = requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeBootVolume.Value;
                 requestPolicyDetails_policyDetails_ParametersIsNull = false;
             }
+            List<Amazon.DLM.Model.Tag> requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeDataVolumeTag = null;
+            if (cmdletContext.Parameters_ExcludeDataVolumeTag != null)
+            {
+                requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeDataVolumeTag = cmdletContext.Parameters_ExcludeDataVolumeTag;
+            }
+            if (requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeDataVolumeTag != null)
+            {
+                requestPolicyDetails_policyDetails_Parameters.ExcludeDataVolumeTags = requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeDataVolumeTag;
+                requestPolicyDetails_policyDetails_ParametersIsNull = false;
+            }
             System.Boolean? requestPolicyDetails_policyDetails_Parameters_parameters_NoReboot = null;
             if (cmdletContext.Parameters_NoReboot != null)
             {
@@ -663,6 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             public List<System.String> Parameters_SnapshotOwner { get; set; }
             public Amazon.DLM.EventSourceValues EventSource_Type { get; set; }
             public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
+            public List<Amazon.DLM.Model.Tag> Parameters_ExcludeDataVolumeTag { get; set; }
             public System.Boolean? Parameters_NoReboot { get; set; }
             public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }
             public List<System.String> PolicyDetails_ResourceLocation { get; set; }

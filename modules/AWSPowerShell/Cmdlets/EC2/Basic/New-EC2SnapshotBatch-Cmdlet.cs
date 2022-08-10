@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? InstanceSpecification_ExcludeBootVolume { get; set; }
         #endregion
         
+        #region Parameter InstanceSpecification_ExcludeDataVolumeId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceSpecification_ExcludeDataVolumeIds")]
+        public System.String[] InstanceSpecification_ExcludeDataVolumeId { get; set; }
+        #endregion
+        
         #region Parameter InstanceSpecification_InstanceId
         /// <summary>
         /// <para>
@@ -184,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CopyTagsFromSource = this.CopyTagsFromSource;
             context.Description = this.Description;
             context.InstanceSpecification_ExcludeBootVolume = this.InstanceSpecification_ExcludeBootVolume;
+            if (this.InstanceSpecification_ExcludeDataVolumeId != null)
+            {
+                context.InstanceSpecification_ExcludeDataVolumeId = new List<System.String>(this.InstanceSpecification_ExcludeDataVolumeId);
+            }
             context.InstanceSpecification_InstanceId = this.InstanceSpecification_InstanceId;
             context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
@@ -226,6 +241,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceSpecification_instanceSpecification_ExcludeBootVolume != null)
             {
                 request.InstanceSpecification.ExcludeBootVolume = requestInstanceSpecification_instanceSpecification_ExcludeBootVolume.Value;
+                requestInstanceSpecificationIsNull = false;
+            }
+            List<System.String> requestInstanceSpecification_instanceSpecification_ExcludeDataVolumeId = null;
+            if (cmdletContext.InstanceSpecification_ExcludeDataVolumeId != null)
+            {
+                requestInstanceSpecification_instanceSpecification_ExcludeDataVolumeId = cmdletContext.InstanceSpecification_ExcludeDataVolumeId;
+            }
+            if (requestInstanceSpecification_instanceSpecification_ExcludeDataVolumeId != null)
+            {
+                request.InstanceSpecification.ExcludeDataVolumeIds = requestInstanceSpecification_instanceSpecification_ExcludeDataVolumeId;
                 requestInstanceSpecificationIsNull = false;
             }
             System.String requestInstanceSpecification_instanceSpecification_InstanceId = null;
@@ -315,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.CopyTagsFromSource CopyTagsFromSource { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? InstanceSpecification_ExcludeBootVolume { get; set; }
+            public List<System.String> InstanceSpecification_ExcludeDataVolumeId { get; set; }
             public System.String InstanceSpecification_InstanceId { get; set; }
             public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
