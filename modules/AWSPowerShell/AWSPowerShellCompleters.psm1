@@ -4747,6 +4747,110 @@ $BUGW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BUGW_SelectCompleters $BUGW_SelectMap
+# Argument completions for service AWS Backup Storage
+
+
+$BAKS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BackupStorage.DataChecksumAlgorithm
+        {
+            ($_ -eq "Write-BAKSChunk/ChecksumAlgorithm") -Or
+            ($_ -eq "Submit-BAKSObjectComplete/MetadataBlobChecksumAlgorithm")
+        }
+        {
+            $v = "SHA256"
+            break
+        }
+
+        # Amazon.BackupStorage.SummaryChecksumAlgorithm
+        {
+            ($_ -eq "Submit-BAKSObjectComplete/ObjectChecksumAlgorithm") -Or
+            ($_ -eq "Write-BAKSObject/ObjectChecksumAlgorithm")
+        }
+        {
+            $v = "SUMMARY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAKS_map = @{
+    "ChecksumAlgorithm"=@("Write-BAKSChunk")
+    "MetadataBlobChecksumAlgorithm"=@("Submit-BAKSObjectComplete")
+    "ObjectChecksumAlgorithm"=@("Submit-BAKSObjectComplete","Write-BAKSObject")
+}
+
+_awsArgumentCompleterRegistration $BAKS_Completers $BAKS_map
+
+$BAKS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BAKS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAKS_SelectMap = @{
+    "Select"=@("Remove-BAKSObject",
+               "Get-BAKSChunk",
+               "Get-BAKSObjectMetadata",
+               "Get-BAKSChunkList",
+               "Get-BAKSObjectList",
+               "Submit-BAKSObjectComplete",
+               "Write-BAKSChunk",
+               "Write-BAKSObject",
+               "Start-BAKSObject")
+}
+
+_awsArgumentCompleterRegistration $BAKS_SelectCompleters $BAKS_SelectMap
 # Argument completions for service AWS Batch
 
 
@@ -38952,6 +39056,119 @@ $PD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PD_SelectCompleters $PD_SelectMap
+# Argument completions for service AWS Private 5G
+
+
+$PV5G_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Private5G.ElevationReference
+        "Set-PV5GAccessPoint/Position_ElevationReference"
+        {
+            $v = "AGL","AMSL"
+            break
+        }
+
+        # Amazon.Private5G.ElevationUnit
+        "Set-PV5GAccessPoint/Position_ElevationUnit"
+        {
+            $v = "FEET"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PV5G_map = @{
+    "Position_ElevationReference"=@("Set-PV5GAccessPoint")
+    "Position_ElevationUnit"=@("Set-PV5GAccessPoint")
+}
+
+_awsArgumentCompleterRegistration $PV5G_Completers $PV5G_map
+
+$PV5G_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PV5G.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PV5G_SelectMap = @{
+    "Select"=@("Confirm-PV5GOrderReceipt",
+               "Enable-PV5GDeviceIdentifier",
+               "Enable-PV5GNetworkSite",
+               "Set-PV5GAccessPoint",
+               "New-PV5GNetwork",
+               "New-PV5GNetworkSite",
+               "Disable-PV5GDeviceIdentifier",
+               "Remove-PV5GNetwork",
+               "Remove-PV5GNetworkSite",
+               "Get-PV5GDeviceIdentifier",
+               "Get-PV5GNetwork",
+               "Get-PV5GNetworkResource",
+               "Get-PV5GNetworkSite",
+               "Get-PV5GOrder",
+               "Get-PV5GDeviceIdentifierList",
+               "Get-PV5GNetworkResourceList",
+               "Get-PV5GNetworkList",
+               "Get-PV5GNetworkSiteList",
+               "Get-PV5GOrderList",
+               "Get-PV5GResourceTag",
+               "Ping-PV5GPing",
+               "Add-PV5GResourceTag",
+               "Remove-PV5GResourceTag",
+               "Update-PV5GNetworkSite",
+               "Update-PV5GNetworkSitePlan")
+}
+
+_awsArgumentCompleterRegistration $PV5G_SelectCompleters $PV5G_SelectMap
 # Argument completions for service AWS Proton
 
 

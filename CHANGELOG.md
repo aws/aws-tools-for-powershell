@@ -1,4 +1,9 @@
-﻿### 4.1.144 (2022-08-10 20:37Z)
+﻿### 4.1.145 (2022-08-11 20:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.333.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup Storage. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BAKS and can be listed using the command 'Get-AWSCmdletName -Service BAKS'.
+  * Amazon Private 5G. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PV5G and can be listed using the command 'Get-AWSCmdletName -Service PV5G'.
+
+### 4.1.144 (2022-08-10 20:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.332.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Data Lifecycle Manager
     * Modified cmdlet New-DLMLifecyclePolicy: added parameter Parameters_ExcludeDataVolumeTag.

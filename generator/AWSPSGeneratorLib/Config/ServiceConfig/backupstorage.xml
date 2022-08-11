@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>backupstorage</C2jFilename>
+    <AssemblyName>BackupStorage</AssemblyName>
+    <ServiceNounPrefix>BAKS</ServiceNounPrefix>
+    <ServiceName>AWS Backup Storage</ServiceName>
+    <ServiceClientInterface>IAmazonBackupStorage</ServiceClientInterface>
+    <ServiceClient>AmazonBackupStorageClient</ServiceClient>
+    <ServiceModuleGuid>525A9D17-40BD-4461-9A8B-0119E69E1DF6</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteObject" Verb="Remove" Noun="Object" ShouldProcessTarget="ObjectName" PipelineParameter="ObjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChunk" OutputProperty="*" Verb="Get" Noun="Chunk" PipelineParameter="ChunkToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectMetadata" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PipelineParameter="ObjectToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChunks" OutputProperty="ChunkList" Verb="Get" Noun="ChunkList" PipelineParameter="ObjectToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjects" OutputProperty="ObjectList" Verb="Get" Noun="ObjectList" PipelineParameter="StorageJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyObjectComplete" OutputProperty="*" Verb="Submit" Noun="ObjectComplete" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutChunk" OutputProperty="*" Verb="Write" Noun="Chunk" ShouldProcessTarget="UploadId" PipelineParameter="Data" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutObject" OutputProperty="*" Verb="Write" Noun="Object" ShouldProcessTarget="ObjectName" PipelineParameter="ObjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartObject" OutputProperty="UploadId" Verb="Start" Noun="Object" ShouldProcessTarget="ObjectName" PipelineParameter="ObjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
