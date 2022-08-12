@@ -115,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String Metadata { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para><note><para>Only required when updating messages in a SubChannel that the user belongs to.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -199,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.Metadata = this.Metadata;
+            context.SubChannelId = this.SubChannelId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.Metadata != null)
             {
                 request.Metadata = cmdletContext.Metadata;
+            }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
             }
             
             CmdletOutput output;
@@ -301,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String Content { get; set; }
             public System.String MessageId { get; set; }
             public System.String Metadata { get; set; }
+            public System.String SubChannelId { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.UpdateChannelMessageResponse, UpdateCHMMGChannelMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

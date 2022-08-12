@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of recording configurations to return. Default: 50. </para>
+        /// <para>Maximum number of recording configurations to return. Default: your service quota
+        /// or 100, whichever is smaller. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of streams to return. Default: 50.</para>
+        /// <para>Maximum number of streams to return. Default: 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

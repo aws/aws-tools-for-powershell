@@ -108,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMMGChannelsModeratedByAppInstanceUserList', 
         'Get-CHMMGMessagingSessionEndpoint', 
         'Get-CHMMGResourceTag', 
+        'Get-CHMMGSubChannelList', 
         'Hide-CHMMGChannelMessage', 
         'New-CHMMGChannel', 
         'New-CHMMGChannelBan', 

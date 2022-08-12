@@ -253,6 +253,7 @@ $CHMMG_SelectMap = @{
                "Get-CHMMGChannelList",
                "Get-CHMMGChannelsAssociatedWithChannelFlowList",
                "Get-CHMMGChannelsModeratedByAppInstanceUserList",
+               "Get-CHMMGSubChannelList",
                "Get-CHMMGResourceTag",
                "Write-CHMMGChannelMembershipPreference",
                "Hide-CHMMGChannelMessage",

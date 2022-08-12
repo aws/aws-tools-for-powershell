@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ElasticChannelConfiguration_MaximumSubChannel
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of SubChannels that you want to allow in the elastic channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticChannelConfiguration_MaximumSubChannels")]
+        public System.Int32? ElasticChannelConfiguration_MaximumSubChannel { get; set; }
+        #endregion
+        
         #region Parameter MemberArn
         /// <summary>
         /// <para>
@@ -120,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Metadata { get; set; }
+        #endregion
+        
+        #region Parameter ElasticChannelConfiguration_MinimumMembershipPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the
+        /// calculated value is used in balancing members among SubChannels of the elastic channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ElasticChannelConfiguration_MinimumMembershipPercentage { get; set; }
         #endregion
         
         #region Parameter Mode
@@ -185,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.ChimeSDKMessaging.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ElasticChannelConfiguration_TargetMembershipsPerSubChannel
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of members allowed in a SubChannel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ElasticChannelConfiguration_TargetMembershipsPerSubChannel { get; set; }
         #endregion
         
         #region Parameter Select
@@ -264,6 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ElasticChannelConfiguration_MaximumSubChannel = this.ElasticChannelConfiguration_MaximumSubChannel;
+            context.ElasticChannelConfiguration_MinimumMembershipPercentage = this.ElasticChannelConfiguration_MinimumMembershipPercentage;
+            context.ElasticChannelConfiguration_TargetMembershipsPerSubChannel = this.ElasticChannelConfiguration_TargetMembershipsPerSubChannel;
             if (this.MemberArn != null)
             {
                 context.MemberArn = new List<System.String>(this.MemberArn);
@@ -317,6 +352,45 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate ElasticChannelConfiguration
+            var requestElasticChannelConfigurationIsNull = true;
+            request.ElasticChannelConfiguration = new Amazon.ChimeSDKMessaging.Model.ElasticChannelConfiguration();
+            System.Int32? requestElasticChannelConfiguration_elasticChannelConfiguration_MaximumSubChannel = null;
+            if (cmdletContext.ElasticChannelConfiguration_MaximumSubChannel != null)
+            {
+                requestElasticChannelConfiguration_elasticChannelConfiguration_MaximumSubChannel = cmdletContext.ElasticChannelConfiguration_MaximumSubChannel.Value;
+            }
+            if (requestElasticChannelConfiguration_elasticChannelConfiguration_MaximumSubChannel != null)
+            {
+                request.ElasticChannelConfiguration.MaximumSubChannels = requestElasticChannelConfiguration_elasticChannelConfiguration_MaximumSubChannel.Value;
+                requestElasticChannelConfigurationIsNull = false;
+            }
+            System.Int32? requestElasticChannelConfiguration_elasticChannelConfiguration_MinimumMembershipPercentage = null;
+            if (cmdletContext.ElasticChannelConfiguration_MinimumMembershipPercentage != null)
+            {
+                requestElasticChannelConfiguration_elasticChannelConfiguration_MinimumMembershipPercentage = cmdletContext.ElasticChannelConfiguration_MinimumMembershipPercentage.Value;
+            }
+            if (requestElasticChannelConfiguration_elasticChannelConfiguration_MinimumMembershipPercentage != null)
+            {
+                request.ElasticChannelConfiguration.MinimumMembershipPercentage = requestElasticChannelConfiguration_elasticChannelConfiguration_MinimumMembershipPercentage.Value;
+                requestElasticChannelConfigurationIsNull = false;
+            }
+            System.Int32? requestElasticChannelConfiguration_elasticChannelConfiguration_TargetMembershipsPerSubChannel = null;
+            if (cmdletContext.ElasticChannelConfiguration_TargetMembershipsPerSubChannel != null)
+            {
+                requestElasticChannelConfiguration_elasticChannelConfiguration_TargetMembershipsPerSubChannel = cmdletContext.ElasticChannelConfiguration_TargetMembershipsPerSubChannel.Value;
+            }
+            if (requestElasticChannelConfiguration_elasticChannelConfiguration_TargetMembershipsPerSubChannel != null)
+            {
+                request.ElasticChannelConfiguration.TargetMembershipsPerSubChannel = requestElasticChannelConfiguration_elasticChannelConfiguration_TargetMembershipsPerSubChannel.Value;
+                requestElasticChannelConfigurationIsNull = false;
+            }
+             // determine if request.ElasticChannelConfiguration should be set to null
+            if (requestElasticChannelConfigurationIsNull)
+            {
+                request.ElasticChannelConfiguration = null;
             }
             if (cmdletContext.MemberArn != null)
             {
@@ -411,6 +485,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChannelId { get; set; }
             public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Int32? ElasticChannelConfiguration_MaximumSubChannel { get; set; }
+            public System.Int32? ElasticChannelConfiguration_MinimumMembershipPercentage { get; set; }
+            public System.Int32? ElasticChannelConfiguration_TargetMembershipsPerSubChannel { get; set; }
             public List<System.String> MemberArn { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code>
-        /// response field. Default: 50.</para>
+        /// <para>Maximum number of key pairs to return. Default: your service quota or 100, whichever
+        /// is smaller.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Maximum number of key pairs to return.</para>
+        /// <para>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// response field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,32 @@
-﻿### 4.1.145 (2022-08-11 20:48Z)
+﻿### 4.1.146 (2022-08-12 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.334.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Messaging
+    * Added cmdlet Get-CHMMGSubChannelList leveraging the ListSubChannels service API.
+    * Modified cmdlet Get-CHMMGChannelMembership: added parameter SubChannelId.
+    * Modified cmdlet Get-CHMMGChannelMembershipList: added parameter SubChannelId.
+    * Modified cmdlet Get-CHMMGChannelMessage: added parameter SubChannelId.
+    * Modified cmdlet Get-CHMMGChannelMessageList: added parameter SubChannelId.
+    * Modified cmdlet Get-CHMMGChannelMessageStatus: added parameter SubChannelId.
+    * Modified cmdlet Hide-CHMMGChannelMessage: added parameter SubChannelId.
+    * Modified cmdlet New-CHMMGChannel: added parameters ElasticChannelConfiguration_MaximumSubChannel, ElasticChannelConfiguration_MinimumMembershipPercentage and ElasticChannelConfiguration_TargetMembershipsPerSubChannel.
+    * Modified cmdlet New-CHMMGChannelMembership: added parameter SubChannelId.
+    * Modified cmdlet New-CHMMGCreateChannelMembership: added parameter SubChannelId.
+    * Modified cmdlet Remove-CHMMGChannel: added parameter SubChannelId.
+    * Modified cmdlet Remove-CHMMGChannelMembership: added parameter SubChannelId.
+    * Modified cmdlet Remove-CHMMGChannelMessage: added parameter SubChannelId.
+    * Modified cmdlet Send-CHMMGChannelFlowCallback: added parameter ChannelMessage_SubChannelId.
+    * Modified cmdlet Send-CHMMGChannelMessage: added parameter SubChannelId.
+    * Modified cmdlet Update-CHMMGChannelMessage: added parameter SubChannelId.
+    * Modified cmdlet Update-CHMMGChannelReadMarker: added parameter SubChannelId.
+  * Amazon Personalize Runtime
+    * Modified cmdlet Get-PERSRRecommendation: added parameter Promotion.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMLoggingConfiguration leveraging the DescribeLoggingConfiguration service API.
+    * Added cmdlet New-PROMLoggingConfiguration leveraging the CreateLoggingConfiguration service API.
+    * Added cmdlet Remove-PROMLoggingConfiguration leveraging the DeleteLoggingConfiguration service API.
+    * Added cmdlet Update-PROMLoggingConfiguration leveraging the UpdateLoggingConfiguration service API.
+
+### 4.1.145 (2022-08-11 20:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.333.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup Storage. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BAKS and can be listed using the command 'Get-AWSCmdletName -Service BAKS'.
   * Amazon Private 5G. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PV5G and can be listed using the command 'Get-AWSCmdletName -Service PV5G'.

@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ChimeBearer { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para><note><para>Only required when listing a user's memberships in a particular sub-channel of an
+        /// elastic channel.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -179,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.SubChannelId = this.SubChannelId;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -211,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
             }
             if (cmdletContext.Type != null)
             {
@@ -281,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChimeBearer { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String SubChannelId { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMembershipType Type { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.ListChannelMembershipsResponse, GetCHMMGChannelMembershipListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

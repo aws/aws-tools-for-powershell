@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource for which tags are to be removed.</para>
+        /// <para>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Array of tags to be removed.</para>
+        /// <para>Array of tags to be removed. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a> for more information, including restrictions that
+        /// apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific
+        /// constraints beyond what is documented there.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

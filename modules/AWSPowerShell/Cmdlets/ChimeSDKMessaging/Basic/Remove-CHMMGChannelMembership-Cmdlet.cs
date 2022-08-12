@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String MemberArn { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para><note><para>Only for use by moderators.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -177,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter MemberArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SubChannelId = this.SubChannelId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.MemberArn != null)
             {
                 request.MemberArn = cmdletContext.MemberArn;
+            }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
             }
             
             CmdletOutput output;
@@ -269,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChannelArn { get; set; }
             public System.String ChimeBearer { get; set; }
             public System.String MemberArn { get; set; }
+            public System.String SubChannelId { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.DeleteChannelMembershipResponse, RemoveCHMMGChannelMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

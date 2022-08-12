@@ -157,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType Persistence { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter PushNotification_Title
         /// <summary>
         /// <para>
@@ -298,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             context.PushNotification_Body = this.PushNotification_Body;
             context.PushNotification_Title = this.PushNotification_Title;
             context.PushNotification_Type = this.PushNotification_Type;
+            context.SubChannelId = this.SubChannelId;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -388,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.PushNotification = null;
             }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -463,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String PushNotification_Body { get; set; }
             public System.String PushNotification_Title { get; set; }
             public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
+            public System.String SubChannelId { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMessageType Type { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.SendChannelMessageResponse, SendCHMMGChannelMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

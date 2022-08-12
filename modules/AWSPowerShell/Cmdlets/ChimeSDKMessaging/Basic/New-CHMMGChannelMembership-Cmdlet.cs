@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String MemberArn { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para><note><para>Only required when creating membership in a SubChannel for a moderator in an elastic
+        /// channel.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -216,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter MemberArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SubChannelId = this.SubChannelId;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -250,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.MemberArn != null)
             {
                 request.MemberArn = cmdletContext.MemberArn;
+            }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
             }
             if (cmdletContext.Type != null)
             {
@@ -319,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChannelArn { get; set; }
             public System.String ChimeBearer { get; set; }
             public System.String MemberArn { get; set; }
+            public System.String SubChannelId { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMembershipType Type { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.CreateChannelMembershipResponse, NewCHMMGChannelMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

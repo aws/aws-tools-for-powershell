@@ -3693,12 +3693,15 @@ $PROM_SelectCompleters = {
 
 $PROM_SelectMap = @{
     "Select"=@("New-PROMAlertManagerDefinition",
+               "New-PROMLoggingConfiguration",
                "New-PROMRuleGroupsNamespace",
                "New-PROMWorkspace",
                "Remove-PROMAlertManagerDefinition",
+               "Remove-PROMLoggingConfiguration",
                "Remove-PROMRuleGroupsNamespace",
                "Remove-PROMWorkspace",
                "Get-PROMAlertManagerDefinition",
+               "Get-PROMLoggingConfiguration",
                "Get-PROMRuleGroupsNamespace",
                "Get-PROMWorkspace",
                "Get-PROMRuleGroupsNamespaceList",
@@ -3708,6 +3711,7 @@ $PROM_SelectMap = @{
                "Write-PROMRuleGroupsNamespace",
                "Add-PROMResourceTag",
                "Remove-PROMResourceTag",
+               "Update-PROMLoggingConfiguration",
                "Update-PROMWorkspaceAlias")
 }
 
@@ -7062,6 +7066,7 @@ $CHMMG_SelectMap = @{
                "Get-CHMMGChannelList",
                "Get-CHMMGChannelsAssociatedWithChannelFlowList",
                "Get-CHMMGChannelsModeratedByAppInstanceUserList",
+               "Get-CHMMGSubChannelList",
                "Get-CHMMGResourceTag",
                "Write-CHMMGChannelMembershipPreference",
                "Hide-CHMMGChannelMessage",

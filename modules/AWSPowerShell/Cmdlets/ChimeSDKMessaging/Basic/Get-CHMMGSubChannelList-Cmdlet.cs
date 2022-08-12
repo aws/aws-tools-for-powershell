@@ -28,27 +28,22 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Returns the full details of a user's channel membership.
-    /// 
-    ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
-    /// </para></note>
+    /// Lists all the SubChannels in an elastic channel when given a channel ID. Available
+    /// only to the app instance admins and channel moderators of elastic channels.
     /// </summary>
-    [Cmdlet("Get", "CHMMGChannelMembership")]
-    [OutputType("Amazon.ChimeSDKMessaging.Model.ChannelMembership")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Messaging DescribeChannelMembership API operation.", Operation = new[] {"DescribeChannelMembership"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ChannelMembership or Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ChannelMembership object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CHMMGSubChannelList")]
+    [OutputType("Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Messaging ListSubChannels API operation.", Operation = new[] {"ListSubChannels"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse",
+        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMGChannelMembershipCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
+    public partial class GetCHMMGSubChannelListCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
         #region Parameter ChannelArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel.</para>
+        /// <para>The ARN of elastic channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user making the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,43 +74,36 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ChimeBearer { get; set; }
         #endregion
         
-        #region Parameter MemberArn
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the member.</para>
+        /// <para>The maximum number of sub-channels that you want to return.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemberArn { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter SubChannelId
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code>
-        /// object.</para><note><para>Only required to get a user’s SubChannel membership details.</para></note>
+        /// <para>The token passed by previous API calls until all requested sub-channels are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SubChannelId { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelMembership'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelMembership";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -140,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse, GetCHMMGChannelMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse, GetCHMMGSubChannelListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -166,14 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter ChimeBearer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemberArn = this.MemberArn;
-            #if MODULAR
-            if (this.MemberArn == null && ParameterWasBound(nameof(this.MemberArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemberArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SubChannelId = this.SubChannelId;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipRequest();
+            var request = new Amazon.ChimeSDKMessaging.Model.ListSubChannelsRequest();
             
             if (cmdletContext.ChannelArn != null)
             {
@@ -198,13 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.ChimeBearer = cmdletContext.ChimeBearer;
             }
-            if (cmdletContext.MemberArn != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.MemberArn = cmdletContext.MemberArn;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.SubChannelId != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.SubChannelId = cmdletContext.SubChannelId;
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -239,15 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipRequest request)
+        private Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.ListSubChannelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "DescribeChannelMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "ListSubChannels");
             try
             {
                 #if DESKTOP
-                return client.DescribeChannelMembership(request);
+                return client.ListSubChannels(request);
                 #elif CORECLR
-                return client.DescribeChannelMembershipAsync(request).GetAwaiter().GetResult();
+                return client.ListSubChannelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -269,10 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             public System.String ChannelArn { get; set; }
             public System.String ChimeBearer { get; set; }
-            public System.String MemberArn { get; set; }
-            public System.String SubChannelId { get; set; }
-            public System.Func<Amazon.ChimeSDKMessaging.Model.DescribeChannelMembershipResponse, GetCHMMGChannelMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelMembership;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse, GetCHMMGSubChannelListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

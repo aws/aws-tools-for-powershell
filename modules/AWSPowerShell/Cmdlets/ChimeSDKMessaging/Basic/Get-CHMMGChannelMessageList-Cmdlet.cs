@@ -115,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public Amazon.ChimeSDKMessaging.SortOrder SortOrder { get; set; }
         #endregion
         
+        #region Parameter SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel in the request.</para><note><para>Only required when listing the messages in a SubChannel that the user belongs to.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -200,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             context.NotAfter = this.NotAfter;
             context.NotBefore = this.NotBefore;
             context.SortOrder = this.SortOrder;
+            context.SubChannelId = this.SubChannelId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.SubChannelId != null)
+            {
+                request.SubChannelId = cmdletContext.SubChannelId;
             }
             
             CmdletOutput output;
@@ -312,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.DateTime? NotAfter { get; set; }
             public System.DateTime? NotBefore { get; set; }
             public Amazon.ChimeSDKMessaging.SortOrder SortOrder { get; set; }
+            public System.String SubChannelId { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.ListChannelMessagesResponse, GetCHMMGChannelMessageListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

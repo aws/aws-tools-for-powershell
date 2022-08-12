@@ -150,6 +150,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ChannelMessage_Metadata { get; set; }
         #endregion
         
+        #region Parameter ChannelMessage_SubChannelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the SubChannel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelMessage_SubChannelId { get; set; }
+        #endregion
+        
         #region Parameter PushNotification_Title
         /// <summary>
         /// <para>
@@ -263,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             context.PushNotification_Body = this.PushNotification_Body;
             context.PushNotification_Title = this.PushNotification_Title;
             context.PushNotification_Type = this.PushNotification_Type;
+            context.ChannelMessage_SubChannelId = this.ChannelMessage_SubChannelId;
             context.DeleteResource = this.DeleteResource;
             
             // allow further manipulation of loaded context prior to processing
@@ -330,6 +341,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (requestChannelMessage_channelMessage_Metadata != null)
             {
                 request.ChannelMessage.Metadata = requestChannelMessage_channelMessage_Metadata;
+                requestChannelMessageIsNull = false;
+            }
+            System.String requestChannelMessage_channelMessage_SubChannelId = null;
+            if (cmdletContext.ChannelMessage_SubChannelId != null)
+            {
+                requestChannelMessage_channelMessage_SubChannelId = cmdletContext.ChannelMessage_SubChannelId;
+            }
+            if (requestChannelMessage_channelMessage_SubChannelId != null)
+            {
+                request.ChannelMessage.SubChannelId = requestChannelMessage_channelMessage_SubChannelId;
                 requestChannelMessageIsNull = false;
             }
             Amazon.ChimeSDKMessaging.Model.PushNotificationConfiguration requestChannelMessage_channelMessage_PushNotification = null;
@@ -456,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String PushNotification_Body { get; set; }
             public System.String PushNotification_Title { get; set; }
             public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
+            public System.String ChannelMessage_SubChannelId { get; set; }
             public System.Boolean? DeleteResource { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.ChannelFlowCallbackResponse, SendCHMMGChannelFlowCallbackCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

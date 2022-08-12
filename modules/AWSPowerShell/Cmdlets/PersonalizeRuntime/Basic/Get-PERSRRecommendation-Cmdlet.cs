@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// filters with expressions that use an <code>EXCLUDE</code> element to exclude items,
         /// you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't
         /// use that portion of the expression to filter recommendations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
-        /// Recommendations</a>.</para>
+        /// recommendations and user segments</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,6 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NumResults")]
         public System.Int32? NumResult { get; set; }
+        #endregion
+        
+        #region Parameter Promotion
+        /// <summary>
+        /// <para>
+        /// <para>The promotions to apply to the recommendation request. A promotion defines additional
+        /// business rules that apply to a configurable subset of recommended items.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Promotions")]
+        public Amazon.PersonalizeRuntime.Model.Promotion[] Promotion { get; set; }
         #endregion
         
         #region Parameter RecommenderArn
@@ -217,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             }
             context.ItemId = this.ItemId;
             context.NumResult = this.NumResult;
+            if (this.Promotion != null)
+            {
+                context.Promotion = new List<Amazon.PersonalizeRuntime.Model.Promotion>(this.Promotion);
+            }
             context.RecommenderArn = this.RecommenderArn;
             context.UserId = this.UserId;
             
@@ -258,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.NumResult != null)
             {
                 request.NumResults = cmdletContext.NumResult.Value;
+            }
+            if (cmdletContext.Promotion != null)
+            {
+                request.Promotions = cmdletContext.Promotion;
             }
             if (cmdletContext.RecommenderArn != null)
             {
@@ -334,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             public Dictionary<System.String, System.String> FilterValue { get; set; }
             public System.String ItemId { get; set; }
             public System.Int32? NumResult { get; set; }
+            public List<Amazon.PersonalizeRuntime.Model.Promotion> Promotion { get; set; }
             public System.String RecommenderArn { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.PersonalizeRuntime.Model.GetRecommendationsResponse, GetPERSRRecommendationCmdlet, object> Select { get; set; } =

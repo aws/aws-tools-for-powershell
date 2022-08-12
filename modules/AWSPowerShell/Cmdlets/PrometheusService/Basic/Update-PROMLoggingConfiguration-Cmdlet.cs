@@ -22,42 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IVS;
-using Amazon.IVS.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IVS
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Imports the public portion of a new key pair and returns its <code>arn</code> and
-    /// <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate
-    /// viewer authorization tokens, to grant viewers access to private channels. For more
-    /// information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
-    /// Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.
+    /// Update logging configuration.
     /// </summary>
-    [Cmdlet("Import", "IVSPlaybackKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IVS.Model.PlaybackKeyPair")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service ImportPlaybackKeyPair API operation.", Operation = new[] {"ImportPlaybackKeyPair"}, SelectReturnType = typeof(Amazon.IVS.Model.ImportPlaybackKeyPairResponse))]
-    [AWSCmdletOutput("Amazon.IVS.Model.PlaybackKeyPair or Amazon.IVS.Model.ImportPlaybackKeyPairResponse",
-        "This cmdlet returns an Amazon.IVS.Model.PlaybackKeyPair object.",
-        "The service call response (type Amazon.IVS.Model.ImportPlaybackKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationStatus")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service UpdateLoggingConfiguration API operation.", Operation = new[] {"UpdateLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.LoggingConfigurationStatus or Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.LoggingConfigurationStatus object.",
+        "The service call response (type Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ImportIVSPlaybackKeyPairCmdlet : AmazonIVSClientCmdlet, IExecutor
+    public partial class UpdatePROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter LogGroupArn
         /// <summary>
         /// <para>
-        /// <para>Playback-key-pair name. The value does not need to be unique.</para>
+        /// <para>The ARN of the CW log group to which the vended log data will be published.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String LogGroupArn { get; set; }
         #endregion
         
-        #region Parameter PublicKeyMaterial
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The public portion of a customer-generated key pair.</para>
+        /// <para>The ID of the workspace to vend logs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,40 +71,37 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PublicKeyMaterial { get; set; }
+        public System.String WorkspaceId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Any tags provided with the request are added to the playback key pair tags. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
-        /// Web Services Resources</a> for more information, including restrictions that apply
-        /// to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific
-        /// constraints beyond what is documented there.</para>
+        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
+        /// of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'KeyPair'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVS.Model.ImportPlaybackKeyPairResponse).
-        /// Specifying the name of a property of type Amazon.IVS.Model.ImportPlaybackKeyPairResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "KeyPair";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PublicKeyMaterial parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PublicKeyMaterial' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkspaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PublicKeyMaterial' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-IVSPlaybackKeyPair (ImportPlaybackKeyPair)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkspaceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PROMLoggingConfiguration (UpdateLoggingConfiguration)"))
             {
                 return;
             }
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVS.Model.ImportPlaybackKeyPairResponse, ImportIVSPlaybackKeyPairCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse, UpdatePROMLoggingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,25 +143,24 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PublicKeyMaterial;
+                context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            context.PublicKeyMaterial = this.PublicKeyMaterial;
+            context.ClientToken = this.ClientToken;
+            context.LogGroupArn = this.LogGroupArn;
             #if MODULAR
-            if (this.PublicKeyMaterial == null && ParameterWasBound(nameof(this.PublicKeyMaterial)))
+            if (this.LogGroupArn == null && ParameterWasBound(nameof(this.LogGroupArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PublicKeyMaterial which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LogGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.WorkspaceId = this.WorkspaceId;
+            #if MODULAR
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,19 +175,19 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVS.Model.ImportPlaybackKeyPairRequest();
+            var request = new Amazon.PrometheusService.Model.UpdateLoggingConfigurationRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.PublicKeyMaterial != null)
+            if (cmdletContext.LogGroupArn != null)
             {
-                request.PublicKeyMaterial = cmdletContext.PublicKeyMaterial;
+                request.LogGroupArn = cmdletContext.LogGroupArn;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -223,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         #region AWS Service Operation Call
         
-        private Amazon.IVS.Model.ImportPlaybackKeyPairResponse CallAWSServiceOperation(IAmazonIVS client, Amazon.IVS.Model.ImportPlaybackKeyPairRequest request)
+        private Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.UpdateLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service", "ImportPlaybackKeyPair");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "UpdateLoggingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.ImportPlaybackKeyPair(request);
+                return client.UpdateLoggingConfiguration(request);
                 #elif CORECLR
-                return client.ImportPlaybackKeyPairAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLoggingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.String PublicKeyMaterial { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.IVS.Model.ImportPlaybackKeyPairResponse, ImportIVSPlaybackKeyPairCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.KeyPair;
+            public System.String ClientToken { get; set; }
+            public System.String LogGroupArn { get; set; }
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse, UpdatePROMLoggingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }
