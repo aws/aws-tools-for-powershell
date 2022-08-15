@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.334.0",
+    "ProductVersion" : "3.7.335.0",
     "CoreVersion"    : "3.7.12.21",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.6.34",
+            "Version" : "3.7.7.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.12.21"
@@ -1554,7 +1554,7 @@
             "InPreview"               : false
         },
         "SSO"                             : {
-            "Version" : "3.7.0.192",
+            "Version" : "3.7.0.193",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.21"
@@ -1818,7 +1818,7 @@
             "InPreview"               : false
         },
         "IdentityStore"                   : {
-            "Version" : "3.7.0.193",
+            "Version" : "3.7.0.194",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.21"
@@ -2242,7 +2242,7 @@
             "InPreview"               : false
         },
         "ConnectWisdomService"            : {
-            "Version" : "3.7.1.42",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.21"

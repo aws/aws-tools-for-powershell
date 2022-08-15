@@ -178,7 +178,7 @@ $CF_Completers = {
             ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_HttpVersion")
         }
         {
-            $v = "http1.1","http2"
+            $v = "http1.1","http2","http2and3","http3"
             break
         }
 

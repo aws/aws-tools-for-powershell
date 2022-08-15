@@ -1,4 +1,9 @@
-﻿### 4.1.146 (2022-08-12 20:53Z)
+﻿### 4.1.147 (2022-08-15 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.335.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Wisdom Service
+    * Added cmdlet Write-WSDMFeedback leveraging the PutFeedback service API.
+
+### 4.1.146 (2022-08-12 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.334.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Messaging
     * Added cmdlet Get-CHMMGSubChannelList leveraging the ListSubChannels service API.

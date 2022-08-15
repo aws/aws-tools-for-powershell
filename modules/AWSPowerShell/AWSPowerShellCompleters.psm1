@@ -7887,7 +7887,7 @@ $CF_Completers = {
             ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_HttpVersion")
         }
         {
-            $v = "http1.1","http2"
+            $v = "http1.1","http2","http2and3","http3"
             break
         }
 
@@ -51319,6 +51319,20 @@ $WSDM_Completers = {
             break
         }
 
+        # Amazon.ConnectWisdomService.Relevance
+        "Write-WSDMFeedback/Feedback_Relevance"
+        {
+            $v = "HELPFUL","NOT_HELPFUL"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.TargetType
+        "Write-WSDMFeedback/TargetType"
+        {
+            $v = "RECOMMENDATION","RESULT"
+            break
+        }
+
 
     }
 
@@ -51329,7 +51343,9 @@ $WSDM_Completers = {
 
 $WSDM_map = @{
     "AssociationType"=@("New-WSDMAssistantAssociation")
+    "Feedback_Relevance"=@("Write-WSDMFeedback")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
+    "TargetType"=@("Write-WSDMFeedback")
     "Type"=@("New-WSDMAssistant")
 }
 
@@ -51405,6 +51421,7 @@ $WSDM_SelectMap = @{
                "Get-WSDMKnowledgeBasisList",
                "Get-WSDMResourceTag",
                "Remove-WSDMRecommendationsReceived",
+               "Write-WSDMFeedback",
                "Search-WSDMAssistant",
                "Remove-WSDMKnowledgeBaseTemplateUri",
                "Search-WSDMContent",

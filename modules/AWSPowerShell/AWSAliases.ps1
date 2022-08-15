@@ -22325,6 +22325,8 @@ Set-Alias -Name WSDM-ListKnowledgeBases -Value Get-WSDMKnowledgeBasisList
 Set-Alias -Name WSDM-ListTagsForResource -Value Get-WSDMResourceTag
 Set-Alias -Name Notify-WSDMRecommendationsReceived -Value Remove-WSDMRecommendationsReceived
 Set-Alias -Name WSDM-NotifyRecommendationsReceived -Value Remove-WSDMRecommendationsReceived
+Set-Alias -Name Put-WSDMFeedback -Value Write-WSDMFeedback
+Set-Alias -Name WSDM-PutFeedback -Value Write-WSDMFeedback
 Set-Alias -Name Query-WSDMAssistant -Value Search-WSDMAssistant
 Set-Alias -Name WSDM-QueryAssistant -Value Search-WSDMAssistant
 Set-Alias -Name WSDM-RemoveKnowledgeBaseTemplateUri -Value Remove-WSDMKnowledgeBaseTemplateUri

@@ -263,12 +263,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_HttpVersion
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specify the maximum HTTP version that you want viewers to use to communicate
-        /// with CloudFront. The default value for new web distributions is http2. Viewers that
-        /// don't support HTTP/2 automatically use an earlier HTTP version.</para><para>For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and
-        /// must support Server Name Identification (SNI).</para><para>In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces
-        /// latency. You can improve performance by optimizing for HTTP/2. For more information,
-        /// do an Internet search for "http/2 optimization." </para>
+        /// <para>(Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate
+        /// with CloudFront. The default value for new web distributions is <code>http2</code>.
+        /// Viewers that don't support HTTP/2 automatically use an earlier HTTP version.</para><para>For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and
+        /// must support Server Name Indication (SNI).</para><para>For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server
+        /// Name Indication (SNI). CloudFront supports HTTP/3 connection migration to allow the
+        /// viewer to switch networks without losing connection. For more information about connection
+        /// migration, see <a href="https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration">Connection
+        /// Migration</a> at RFC 9000. For more information about supported TLSv1.3 ciphers, see
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported
+        /// protocols and ciphers between viewers and CloudFront</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
