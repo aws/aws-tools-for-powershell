@@ -34,6 +34,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CopyProjectVersion" OutputProperty="ProjectVersionArn" Verb="Copy" Noun="ProjectVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCollection" OutputProperty="*" Verb="New" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProject" OutputProperty="Status" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProjectPolicy" Verb="Remove" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,11 +215,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProjectPolicies" OutputProperty="ProjectPolicies" Verb="Get" Noun="ProjectPolicyList" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProjectPolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

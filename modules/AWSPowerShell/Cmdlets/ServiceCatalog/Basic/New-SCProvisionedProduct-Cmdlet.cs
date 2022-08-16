@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>A user-friendly name for the provisioned product. This value must be unique for the
-        /// AWS account and cannot be updated after the product is provisioned.</para>
+        /// Amazon Web Services account and cannot be updated after the product is provisioned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetAccount
         /// <summary>
         /// <para>
-        /// <para>One or more AWS accounts where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified accounts should be within the list of accounts from the <code>STACKSET</code>
+        /// <para>One or more Amazon Web Services accounts where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified accounts should be within the list of accounts from the <code>STACKSET</code>
         /// constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use
         /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all acounts from the <code>STACKSET</code>
         /// constraint.</para>
@@ -191,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetFailureToleranceCount
         /// <summary>
         /// <para>
-        /// <para>The number of accounts, per region, for which this operation can fail before AWS Service
-        /// Catalog stops the operation in that region. If the operation is stopped in a region,
-        /// AWS Service Catalog doesn't attempt the operation in any subsequent regions.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or
+        /// <para>The number of accounts, per Region, for which this operation can fail before Service
+        /// Catalog stops the operation in that Region. If the operation is stopped in a Region,
+        /// Service Catalog doesn't attempt the operation in any subsequent Regions.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or
         /// <code>StackSetFailureTolerancePercentage</code>, but not both.</para><para>The default value is <code>0</code> if no value is specified.</para>
         /// </para>
         /// </summary>
@@ -204,9 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetFailureTolerancePercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of accounts, per region, for which this stack operation can fail before
-        /// AWS Service Catalog stops the operation in that region. If the operation is stopped
-        /// in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</para><para>When calculating the number of accounts based on the specified percentage, AWS Service
+        /// <para>The percentage of accounts, per Region, for which this stack operation can fail before
+        /// Service Catalog stops the operation in that Region. If the operation is stopped in
+        /// a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</para><para>When calculating the number of accounts based on the specified percentage, Service
         /// Catalog rounds down to the next whole number.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or
         /// <code>StackSetFailureTolerancePercentage</code>, but not both.</para>
         /// </para>
@@ -233,9 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetMaxConcurrencyPercentage
         /// <summary>
         /// <para>
-        /// <para>The maximum percentage of accounts in which to perform this operation at one time.</para><para>When calculating the number of accounts based on the specified percentage, AWS Service
+        /// <para>The maximum percentage of accounts in which to perform this operation at one time.</para><para>When calculating the number of accounts based on the specified percentage, Service
         /// Catalog rounds down to the next whole number. This is true except in cases where rounding
-        /// down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code>
+        /// down would result is zero. In this case, Service Catalog sets the number as <code>1</code>
         /// instead.</para><para>Note that this setting lets you specify the maximum for operations. For large deployments,
         /// under certain circumstances the actual number of accounts acted upon concurrently
         /// may be lower due to service throttling.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>,
@@ -249,9 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetRegion
         /// <summary>
         /// <para>
-        /// <para>One or more AWS Regions where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified regions should be within the list of regions from the <code>STACKSET</code>
-        /// constraint. To get the list of regions in the <code>STACKSET</code> constraint, use
-        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all regions from the <code>STACKSET</code>
+        /// <para>One or more Amazon Web Services Regions where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified Regions should be within the list of Regions from the <code>STACKSET</code>
+        /// constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use
+        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all Regions from the <code>STACKSET</code>
         /// constraint.</para>
         /// </para>
         /// </summary>

@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_DisableTemplateValidation
         /// <summary>
         /// <para>
-        /// <para>If set to true, AWS Service Catalog stops validating the specified provisioning artifact
-        /// even if it is invalid.</para>
+        /// <para>If set to true, Amazon Web Services Service Catalog stops validating the specified
+        /// provisioning artifact even if it is invalid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>Specify the template source with one of the following options, but not both. Keys
-        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format
-        /// as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
+        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit,
+        /// or GitHub in JSON format. Specify the URL in JSON format as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
         /// the template. Currently only supports CloudFormation stack arn. Specify the physical
         /// id in JSON format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code></para>
         /// </para>
@@ -220,7 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_Type
         /// <summary>
         /// <para>
-        /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</para></li><li><para><code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</para></li><li><para><code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</para></li></ul>
+        /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</para></li><li><para><code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</para></li><li><para><code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon
+        /// Web Services Resources</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

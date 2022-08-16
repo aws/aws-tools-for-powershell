@@ -18054,6 +18054,7 @@ Set-Alias -Name RSS-UpdateUsageLimit -Value Update-RSSUsageLimit
 Set-Alias -Name RSS-UpdateWorkgroup -Value Update-RSSWorkgroup
 Set-Alias -Name Compare-REKFaces -Value Compare-REKFace
 Set-Alias -Name REK-CompareFaces -Value Compare-REKFace
+Set-Alias -Name REK-CopyProjectVersion -Value Copy-REKProjectVersion
 Set-Alias -Name Create-REKCollection -Value New-REKCollection
 Set-Alias -Name REK-CreateCollection -Value New-REKCollection
 Set-Alias -Name Create-REKDataset -Value New-REKDataset
@@ -18073,6 +18074,8 @@ Set-Alias -Name Delete-REKFace -Value Remove-REKFace
 Set-Alias -Name REK-DeleteFaces -Value Remove-REKFace
 Set-Alias -Name Delete-REKProject -Value Remove-REKProject
 Set-Alias -Name REK-DeleteProject -Value Remove-REKProject
+Set-Alias -Name Delete-REKProjectPolicy -Value Remove-REKProjectPolicy
+Set-Alias -Name REK-DeleteProjectPolicy -Value Remove-REKProjectPolicy
 Set-Alias -Name Delete-REKProjectVersion -Value Remove-REKProjectVersion
 Set-Alias -Name REK-DeleteProjectVersion -Value Remove-REKProjectVersion
 Set-Alias -Name Delete-REKStreamProcessor -Value Remove-REKStreamProcessor
@@ -18132,10 +18135,15 @@ Set-Alias -Name REK-ListDatasetLabels -Value Get-REKDatasetLabelList
 Set-Alias -Name List-REKFaces -Value Get-REKFaceList
 Set-Alias -Name List-REKFaceList -Value Get-REKFaceList
 Set-Alias -Name REK-ListFaces -Value Get-REKFaceList
+Set-Alias -Name List-REKProjectPolicies -Value Get-REKProjectPolicyList
+Set-Alias -Name List-REKProjectPolicyList -Value Get-REKProjectPolicyList
+Set-Alias -Name REK-ListProjectPolicies -Value Get-REKProjectPolicyList
 Set-Alias -Name List-REKStreamProcessors -Value Get-REKStreamProcessorList
 Set-Alias -Name List-REKStreamProcessorList -Value Get-REKStreamProcessorList
 Set-Alias -Name REK-ListStreamProcessors -Value Get-REKStreamProcessorList
 Set-Alias -Name REK-ListTagsForResource -Value Get-REKResourceTag
+Set-Alias -Name Put-REKProjectPolicy -Value Write-REKProjectPolicy
+Set-Alias -Name REK-PutProjectPolicy -Value Write-REKProjectPolicy
 Set-Alias -Name Recognize-REKCelebrities -Value Find-REKCelebrity
 Set-Alias -Name Recognize-REKCelebrity -Value Find-REKCelebrity
 Set-Alias -Name REK-RecognizeCelebrities -Value Find-REKCelebrity

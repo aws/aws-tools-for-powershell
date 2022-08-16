@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IgnoreError
         /// <summary>
         /// <para>
-        /// <para>If set to true, AWS Service Catalog stops managing the specified provisioned product
-        /// even if it cannot delete the underlying resources.</para>
+        /// <para>If set to true, Service Catalog stops managing the specified provisioned product even
+        /// if it cannot delete the underlying resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

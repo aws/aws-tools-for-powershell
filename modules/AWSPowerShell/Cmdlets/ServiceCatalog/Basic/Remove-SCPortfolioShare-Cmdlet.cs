@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

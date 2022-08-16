@@ -1,4 +1,12 @@
-﻿### 4.1.147 (2022-08-15 20:45Z)
+﻿### 4.1.148 (2022-08-16 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.336.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Rekognition
+    * Added cmdlet Copy-REKProjectVersion leveraging the CopyProjectVersion service API.
+    * Added cmdlet Get-REKProjectPolicyList leveraging the ListProjectPolicies service API.
+    * Added cmdlet Remove-REKProjectPolicy leveraging the DeleteProjectPolicy service API.
+    * Added cmdlet Write-REKProjectPolicy leveraging the PutProjectPolicy service API.
+
+### 4.1.147 (2022-08-15 20:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.335.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Wisdom Service
     * Added cmdlet Write-WSDMFeedback leveraging the PutFeedback service API.

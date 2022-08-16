@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <summary>
     /// Returns summary information about stack instances that are associated with the specified
     /// <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances
-    /// that are associated with a specific AWS account name or region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that are associated with a specific Amazon Web Services account name or Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCStackInstancesForProvisionedProduct")]
     [OutputType("Amazon.ServiceCatalog.Model.StackInstance")]

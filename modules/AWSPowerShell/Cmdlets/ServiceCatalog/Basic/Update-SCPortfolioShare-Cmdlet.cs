@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account Id of the recipient account. This field is required when updating
-        /// an external account to account type share.</para>
+        /// <para>The Amazon Web Services account Id of the recipient account. This field is required
+        /// when updating an external account to account type share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

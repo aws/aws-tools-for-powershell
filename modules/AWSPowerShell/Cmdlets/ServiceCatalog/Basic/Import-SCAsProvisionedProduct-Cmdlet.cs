@@ -28,10 +28,10 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests the import of a resource as a Service Catalog provisioned product that is
-    /// associated to a Service Catalog product and provisioning artifact. Once imported,
-    /// all supported Service Catalog governance actions are supported on the provisioned
-    /// product.
+    /// Requests the import of a resource as a Amazon Web Services Service Catalog provisioned
+    /// product that is associated to a Amazon Web Services Service Catalog product and provisioning
+    /// artifact. Once imported, all supported Amazon Web Services Service Catalog governance
+    /// actions are supported on the provisioned product.
     /// 
     ///  
     /// <para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <code>IMPORT_ROLLBACK_COMPLETE</code>.
     /// </para><para>
     /// Import of the resource requires that the CloudFormation stack template matches the
-    /// associated Service Catalog product provisioning artifact. 
+    /// associated Amazon Web Services Service Catalog product provisioning artifact. 
     /// </para><para>
     /// The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
     /// and <code>cloudformation:DescribeStacks</code> IAM policy permissions. 
@@ -119,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The user-friendly name of the provisioned product. The value must be unique for the
-        /// AWS account. The name cannot be updated after the product is provisioned. </para>
+        /// Amazon Web Services account. The name cannot be updated after the product is provisioned.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

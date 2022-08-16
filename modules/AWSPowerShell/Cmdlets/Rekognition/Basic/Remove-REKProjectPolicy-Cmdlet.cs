@@ -28,39 +28,62 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Deletes an Amazon Rekognition Custom Labels project. To delete a project you must
-    /// first delete all models associated with the project. To delete a model, see <a>DeleteProjectVersion</a>.
+    /// Deletes an existing project policy.
     /// 
     ///  
-    /// <para><code>DeleteProject</code> is an asynchronous operation. To check if the project
-    /// is deleted, call <a>DescribeProjects</a>. The project is deleted when the project
-    /// no longer appears in the response. Be aware that deleting a given project will also
-    /// delete any <code>ProjectPolicies</code> associated with that project.
-    /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DeleteProject</code>
-    /// action. 
+    /// <para>
+    /// To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>.
+    /// To attach a project policy to a project, call <a>PutProjectPolicy</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "REKProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Rekognition.ProjectStatus")]
-    [AWSCmdlet("Calls the Amazon Rekognition DeleteProject API operation.", Operation = new[] {"DeleteProject"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteProjectResponse))]
-    [AWSCmdletOutput("Amazon.Rekognition.ProjectStatus or Amazon.Rekognition.Model.DeleteProjectResponse",
-        "This cmdlet returns an Amazon.Rekognition.ProjectStatus object.",
-        "The service call response (type Amazon.Rekognition.Model.DeleteProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "REKProjectPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Rekognition DeleteProjectPolicy API operation.", Operation = new[] {"DeleteProjectPolicy"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteProjectPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteProjectPolicyResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Rekognition.Model.DeleteProjectPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveREKProjectCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class RemoveREKProjectPolicyCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the policy that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyName { get; set; }
+        #endregion
+        
+        #region Parameter PolicyRevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the project policy revision that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyRevisionId { get; set; }
+        #endregion
         
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the project that you want to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project that the project policy you want to
+        /// delete is attached to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -70,23 +93,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.DeleteProjectResponse).
-        /// Specifying the name of a property of type Amazon.Rekognition.Model.DeleteProjectResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.DeleteProjectPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Status";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ProjectArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ProjectArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProjectArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -103,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProjectArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-REKProject (DeleteProject)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-REKProjectPolicy (DeleteProjectPolicy)"))
             {
                 return;
             }
@@ -114,21 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DeleteProjectResponse, RemoveREKProjectCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DeleteProjectPolicyResponse, RemoveREKProjectPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            context.PolicyName = this.PolicyName;
+            #if MODULAR
+            if (this.PolicyName == null && ParameterWasBound(nameof(this.PolicyName)))
             {
-                context.Select = (response, cmdlet) => this.ProjectArn;
+                WriteWarning("You are passing $null as a value for parameter PolicyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #endif
+            context.PolicyRevisionId = this.PolicyRevisionId;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
             if (this.ProjectArn == null && ParameterWasBound(nameof(this.ProjectArn)))
@@ -150,8 +160,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Rekognition.Model.DeleteProjectRequest();
+            var request = new Amazon.Rekognition.Model.DeleteProjectPolicyRequest();
             
+            if (cmdletContext.PolicyName != null)
+            {
+                request.PolicyName = cmdletContext.PolicyName;
+            }
+            if (cmdletContext.PolicyRevisionId != null)
+            {
+                request.PolicyRevisionId = cmdletContext.PolicyRevisionId;
+            }
             if (cmdletContext.ProjectArn != null)
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
@@ -189,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.DeleteProjectResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteProjectRequest request)
+        private Amazon.Rekognition.Model.DeleteProjectPolicyResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteProjectPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteProject");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteProjectPolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteProject(request);
+                return client.DeleteProjectPolicy(request);
                 #elif CORECLR
-                return client.DeleteProjectAsync(request).GetAwaiter().GetResult();
+                return client.DeleteProjectPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -217,9 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String PolicyName { get; set; }
+            public System.String PolicyRevisionId { get; set; }
             public System.String ProjectArn { get; set; }
-            public System.Func<Amazon.Rekognition.Model.DeleteProjectResponse, RemoveREKProjectCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Status;
+            public System.Func<Amazon.Rekognition.Model.DeleteProjectPolicyResponse, RemoveREKProjectPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

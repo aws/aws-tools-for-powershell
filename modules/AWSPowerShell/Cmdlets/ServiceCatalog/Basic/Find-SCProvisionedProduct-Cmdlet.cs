@@ -28,7 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Gets information about the provisioned products that meet the specified criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets information about the provisioned products that meet the specified criteria.
+    /// 
+    ///  <note><para>
+    /// To ensure a complete list of provisioned products and remove duplicate products, use
+    /// <code>sort-by createdTime</code>. 
+    /// </para><para>
+    /// Here is a CLI example: <code></code></para><para><code>aws servicecatalog search-provisioned-products --sort-by createdTime </code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "SCProvisionedProduct")]
     [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductAttribute")]

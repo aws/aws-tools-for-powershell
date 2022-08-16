@@ -206,6 +206,7 @@ $REK_SelectCompleters = {
 
 $REK_SelectMap = @{
     "Select"=@("Compare-REKFace",
+               "Copy-REKProjectVersion",
                "New-REKCollection",
                "New-REKDataset",
                "New-REKProject",
@@ -215,6 +216,7 @@ $REK_SelectMap = @{
                "Remove-REKDataset",
                "Remove-REKFace",
                "Remove-REKProject",
+               "Remove-REKProjectPolicy",
                "Remove-REKProjectVersion",
                "Remove-REKStreamProcessor",
                "Get-REKCollection",
@@ -243,8 +245,10 @@ $REK_SelectMap = @{
                "Get-REKDatasetEntryList",
                "Get-REKDatasetLabelList",
                "Get-REKFaceList",
+               "Get-REKProjectPolicyList",
                "Get-REKStreamProcessorList",
                "Get-REKResourceTag",
+               "Write-REKProjectPolicy",
                "Find-REKCelebrity",
                "Search-REKFace",
                "Search-REKFacesByImage",

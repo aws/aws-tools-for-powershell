@@ -28,19 +28,28 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Enable portfolio sharing feature through AWS Organizations. This API will allow Service
+    /// Enable portfolio sharing feature through Organizations. This API will allow Service
     /// Catalog to receive updates on your organization in order to sync your shares with
     /// the current structure. This API can only be called by the management account in the
     /// organization.
     /// 
     ///  
     /// <para>
-    /// By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess
-    /// on your behalf so that your shares can be in sync with any changes in your AWS Organizations
+    /// When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code>
+    /// on your behalf so that your shares stay in sync with any changes in your Organizations
     /// structure.
     /// </para><para>
     /// Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.
-    /// </para>
+    /// </para><important><para>
+    /// If you have previously disabled Organizations access for Service Catalog, and then
+    /// enable access again, the portfolio access permissions might not sync with the latest
+    /// changes to the organization structure. Specifically, accounts that you removed from
+    /// the organization after disabling Service Catalog access, and before you enabled access
+    /// again, can retain access to the previously shared portfolio. As a result, an account
+    /// that has been removed from the organization might still be able to create or manage
+    /// Amazon Web Services resources when it is no longer authorized to do so. Amazon Web
+    /// Services is working to resolve this issue.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Enable", "SCAWSOrganizationsAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
