@@ -224,8 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique name for the data source connector. A data source name can't be changed without
-        /// deleting and recreating the data source connector.</para>
+        /// <para>A name for the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -331,6 +330,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String Schedule { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of identifiers of security groups within your Amazon VPC. The security groups
+        /// should enable Amazon Kendra to connect to the data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SecurityGroupIds")]
+        public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue
         /// <summary>
         /// <para>
@@ -373,6 +384,19 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue")]
         public System.String CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringValue { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>A list of identifiers for subnets within your Amazon VPC. The subnets should be able
+        /// to connect to each other in the VPC, and they should have outgoing access to the Internet
+        /// through a NAT device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -535,6 +559,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VpcConfiguration_SecurityGroupId != null)
+            {
+                context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -871,6 +903,35 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 request.Type = cmdletContext.Type;
             }
             
+             // populate VpcConfiguration
+            var requestVpcConfigurationIsNull = true;
+            request.VpcConfiguration = new Amazon.Kendra.Model.DataSourceVpcConfiguration();
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SecurityGroupId = null;
+            if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SecurityGroupId = cmdletContext.VpcConfiguration_SecurityGroupId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SecurityGroupId != null)
+            {
+                request.VpcConfiguration.SecurityGroupIds = requestVpcConfiguration_vpcConfiguration_SecurityGroupId;
+                requestVpcConfigurationIsNull = false;
+            }
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SubnetId = null;
+            if (cmdletContext.VpcConfiguration_SubnetId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SubnetId != null)
+            {
+                request.VpcConfiguration.SubnetIds = requestVpcConfiguration_vpcConfiguration_SubnetId;
+                requestVpcConfigurationIsNull = false;
+            }
+             // determine if request.VpcConfiguration should be set to null
+            if (requestVpcConfigurationIsNull)
+            {
+                request.VpcConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -959,6 +1020,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String Schedule { get; set; }
             public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
             public Amazon.Kendra.DataSourceType Type { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateDataSourceResponse, NewKNDRDataSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Creates a mapping between an event source and an Lambda function. Lambda reads items
-    /// from the event source and triggers the function.
+    /// from the event source and invokes the function.
     /// 
     ///  
     /// <para>
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
     /// Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
     /// Amazon MQ and RabbitMQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a></para></li></ul><para>
-    /// The following error handling options are only available for stream sources (DynamoDB
+    /// The following error handling options are available only for stream sources (DynamoDB
     /// and Kinesis):
     /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
     /// the batch in two and retry.
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// queue and sends to your function. Lambda passes all of the records in the batch to
         /// the function in a single call, up to the payload limit for synchronous invocation
         /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
-        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
+        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,6 +95,32 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? BisectBatchOnFunctionError { get; set; }
+        #endregion
+        
+        #region Parameter AmazonManagedKafkaEventSourceConfig_ConsumerGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Kafka consumer group to join. The consumer group ID must be
+        /// unique among all your Kafka event sources. After creating a Kafka event source mapping
+        /// with the consumer group ID specified, you cannot update this value. For more information,
+        /// see <a>services-msk-consumer-group-id</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
+        #endregion
+        
+        #region Parameter SelfManagedKafkaEventSourceConfig_ConsumerGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Kafka consumer group to join. The consumer group ID must be
+        /// unique among all your Kafka event sources. After creating a Kafka event source mapping
+        /// with the consumer group ID specified, you cannot update this value. For more information,
+        /// see <a>services-msk-consumer-group-id</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SelfManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
         #endregion
         
         #region Parameter OnFailure_Destination
@@ -221,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Streams only) Discard records after the specified number of retries. The default
-        /// value is infinite (-1). When set to infinite (-1), failed records will be retried
-        /// until the record expires.</para>
+        /// value is infinite (-1). When set to infinite (-1), failed records are retried until
+        /// the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,8 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis,
-        /// Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only
-        /// supported for Amazon Kinesis streams.</para>
+        /// Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported
+        /// only for Amazon Kinesis streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Streams only) The duration in seconds of a processing window. The range is between
-        /// 1 second up to 900 seconds.</para>
+        /// 1 second and 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId = this.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId;
             context.BatchSize = this.BatchSize;
             context.BisectBatchOnFunctionError = this.BisectBatchOnFunctionError;
             context.OnFailure_Destination = this.OnFailure_Destination;
@@ -420,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     context.SelfManagedEventSource_Endpoint.Add((String)hashKey, valueSet);
                 }
             }
+            context.SelfManagedKafkaEventSourceConfig_ConsumerGroupId = this.SelfManagedKafkaEventSourceConfig_ConsumerGroupId;
             if (this.SourceAccessConfiguration != null)
             {
                 context.SourceAccessConfiguration = new List<Amazon.Lambda.Model.SourceAccessConfiguration>(this.SourceAccessConfiguration);
@@ -447,6 +475,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // create request
             var request = new Amazon.Lambda.Model.CreateEventSourceMappingRequest();
             
+            
+             // populate AmazonManagedKafkaEventSourceConfig
+            var requestAmazonManagedKafkaEventSourceConfigIsNull = true;
+            request.AmazonManagedKafkaEventSourceConfig = new Amazon.Lambda.Model.AmazonManagedKafkaEventSourceConfig();
+            System.String requestAmazonManagedKafkaEventSourceConfig_amazonManagedKafkaEventSourceConfig_ConsumerGroupId = null;
+            if (cmdletContext.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId != null)
+            {
+                requestAmazonManagedKafkaEventSourceConfig_amazonManagedKafkaEventSourceConfig_ConsumerGroupId = cmdletContext.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId;
+            }
+            if (requestAmazonManagedKafkaEventSourceConfig_amazonManagedKafkaEventSourceConfig_ConsumerGroupId != null)
+            {
+                request.AmazonManagedKafkaEventSourceConfig.ConsumerGroupId = requestAmazonManagedKafkaEventSourceConfig_amazonManagedKafkaEventSourceConfig_ConsumerGroupId;
+                requestAmazonManagedKafkaEventSourceConfigIsNull = false;
+            }
+             // determine if request.AmazonManagedKafkaEventSourceConfig should be set to null
+            if (requestAmazonManagedKafkaEventSourceConfigIsNull)
+            {
+                request.AmazonManagedKafkaEventSourceConfig = null;
+            }
             if (cmdletContext.BatchSize != null)
             {
                 request.BatchSize = cmdletContext.BatchSize.Value;
@@ -588,6 +635,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.SelfManagedEventSource = null;
             }
+            
+             // populate SelfManagedKafkaEventSourceConfig
+            var requestSelfManagedKafkaEventSourceConfigIsNull = true;
+            request.SelfManagedKafkaEventSourceConfig = new Amazon.Lambda.Model.SelfManagedKafkaEventSourceConfig();
+            System.String requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumerGroupId = null;
+            if (cmdletContext.SelfManagedKafkaEventSourceConfig_ConsumerGroupId != null)
+            {
+                requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumerGroupId = cmdletContext.SelfManagedKafkaEventSourceConfig_ConsumerGroupId;
+            }
+            if (requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumerGroupId != null)
+            {
+                request.SelfManagedKafkaEventSourceConfig.ConsumerGroupId = requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumerGroupId;
+                requestSelfManagedKafkaEventSourceConfigIsNull = false;
+            }
+             // determine if request.SelfManagedKafkaEventSourceConfig should be set to null
+            if (requestSelfManagedKafkaEventSourceConfigIsNull)
+            {
+                request.SelfManagedKafkaEventSourceConfig = null;
+            }
             if (cmdletContext.SourceAccessConfiguration != null)
             {
                 request.SourceAccessConfigurations = cmdletContext.SourceAccessConfiguration;
@@ -669,6 +735,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AmazonManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
             public System.Int32? BatchSize { get; set; }
             public System.Boolean? BisectBatchOnFunctionError { get; set; }
             public System.String OnFailure_Destination { get; set; }
@@ -684,6 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? ParallelizationFactor { get; set; }
             public List<System.String> Queue { get; set; }
             public Dictionary<System.String, List<System.String>> SelfManagedEventSource_Endpoint { get; set; }
+            public System.String SelfManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
             public System.DateTime? StartingPositionTimestamp { get; set; }

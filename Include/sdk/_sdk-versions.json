@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.336.0",
+    "ProductVersion" : "3.7.337.0",
     "CoreVersion"    : "3.7.12.22",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -242,7 +242,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.13.35",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.15.10",
+            "Version" : "3.7.16.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -1074,7 +1074,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.2.77",
+            "Version" : "3.7.2.78",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -1322,7 +1322,7 @@
             "InPreview"               : false
         },
         "AppMesh"                         : {
-            "Version" : "3.7.2.34",
+            "Version" : "3.7.3.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -1490,7 +1490,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.5.55",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -1682,7 +1682,7 @@
             "InPreview"               : false
         },
         "Kendra"                          : {
-            "Version" : "3.7.23.10",
+            "Version" : "3.7.24.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -2066,7 +2066,7 @@
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "3.7.13.16",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"
@@ -2466,7 +2466,7 @@
             "InPreview"               : false
         },
         "ConnectCampaignService"              : {
-            "Version" : "3.7.0.19",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.22"

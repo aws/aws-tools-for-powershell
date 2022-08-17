@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event
+    /// Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event
     /// source mappings for a single event source.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMappingList")]

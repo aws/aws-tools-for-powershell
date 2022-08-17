@@ -142,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the
-        /// secret value in the secret.</para><para>To use a KMS key in a different account, use the key ARN or the alias ARN.</para><para>If you don't specify this value, then Secrets Manager uses the key <code>aws/secretsmanager</code>.
+        /// secret value in the secret. An alias is always prefixed by <code>alias/</code>, for
+        /// example <code>alias/aws/secretsmanager</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About
+        /// aliases</a>.</para><para>To use a KMS key in a different account, use the key ARN or the alias ARN.</para><para>If you don't specify this value, then Secrets Manager uses the key <code>aws/secretsmanager</code>.
         /// If that key doesn't yet exist, then Secrets Manager creates it for you automatically
         /// the first time it encrypts the secret value.</para><para>If the secret is in a different Amazon Web Services account from the credentials calling
         /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,

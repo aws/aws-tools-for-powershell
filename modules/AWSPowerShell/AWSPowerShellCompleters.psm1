@@ -28420,7 +28420,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "ALFRESCO","BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","WEBCRAWLER","WORKDOCS"
+            $v = "ALFRESCO","BOX","CONFLUENCE","CUSTOM","DATABASE","FSX","GITHUB","GOOGLEDRIVE","JIRA","ONEDRIVE","QUIP","S3","SALESFORCE","SERVICENOW","SHAREPOINT","SLACK","TEMPLATE","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -34993,6 +34993,90 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.DialogActionType
+        {
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/InitialResponseSetting_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/InitialResponseSetting_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentClosingSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentClosingSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentClosingSetting_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentClosingSetting_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_ConfirmationNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_ConfirmationNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_DeclinationNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_DeclinationNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_DialogAction_Type") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_DialogAction_Type")
+        }
+        {
+            $v = "CloseIntent","ConfirmIntent","ElicitIntent","ElicitSlot","EndConversation","EvaluateConditional","FulfillIntent","InvokeDialogCodeHook","StartIntent"
+            break
+        }
+
         # Amazon.LexModelsV2.Effect
         "New-LMBV2ResourcePolicyStatement/Effect"
         {
@@ -35154,6 +35238,34 @@ $LMBV2_map = @{
     "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "InitialResponseSetting_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentClosingSetting_Conditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentClosingSetting_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_ConfirmationNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_DeclinationNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "IntentConfirmationSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -35163,6 +35275,16 @@ $LMBV2_map = @{
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")

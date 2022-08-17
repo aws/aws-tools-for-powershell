@@ -51,7 +51,12 @@
                 <Param Name="Spec_HttpRoute_Match_QueryParameters" NewName="Spec_HttpRoute_Match_QueryParameters" Alias="Match_QueryParameters" />
                 <Param Name="Spec_Http2Route_Match_QueryParameters" NewName="Spec_Http2Route_Match_QueryParameters" />
                 <Param Name="Spec_HttpRoute_Match_Path_Exact" NewName="Spec_HttpRoute_Match_Path_Exact" Alias="Match_Path_Exact" />
-                <Param Name="Spec_Http2Route_Match_Path_Exact" NewName="Spec_Http2Route_Match_Path_Exact" />
+                <Param Name="Spec_GrpcRoute_Action_Target_Port" NewName="Spec_GrpcRoute_Action_Target_Port" />
+                <Param Name="Spec_Http2Route_Action_Target_Port" NewName="Spec_Http2Route_Action_Target_Port" />
+                <Param Name="Spec_HttpRoute_Action_Target_Port" NewName="Spec_HttpRoute_Action_Target_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
+                <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
+                <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -109,6 +114,9 @@
                 <Param Name="Spec_Http2Route_Match_QueryParameters" NewName="Spec_Http2Route_Match_QueryParameters" />
                 <Param Name="Spec_HttpRoute_Match_Path_Exact" NewName="Spec_HttpRoute_Match_Path_Exact" Alias="Match_Path_Exact" />
                 <Param Name="Spec_Http2Route_Match_Path_Exact" NewName="Spec_Http2Route_Match_Path_Exact" />
+                <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
+                <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
+                <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -267,6 +275,12 @@
                 <Param Name="Spec_Http2Route_Match_QueryParameters" NewName="Spec_Http2Route_Match_QueryParameters" />
                 <Param Name="Spec_HttpRoute_Match_Path_Exact" NewName="Spec_HttpRoute_Match_Path_Exact" Alias="Match_Path_Exact" />
                 <Param Name="Spec_Http2Route_Match_Path_Exact" NewName="Spec_Http2Route_Match_Path_Exact" />
+                <Param Name="Spec_GrpcRoute_Action_Target_Port" NewName="Spec_GrpcRoute_Action_Target_Port" />
+                <Param Name="Spec_Http2Route_Action_Target_Port" NewName="Spec_Http2Route_Action_Target_Port" />
+                <Param Name="Spec_HttpRoute_Action_Target_Port" NewName="Spec_HttpRoute_Action_Target_Port" />
+                <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
+                <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
+                <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -324,6 +338,10 @@
                 <Param Name="Spec_Http2Route_Match_QueryParameters" NewName="Spec_Http2Route_Match_QueryParameters" />
                 <Param Name="Spec_HttpRoute_Match_Path_Exact" NewName="Spec_HttpRoute_Match_Path_Exact" Alias="Match_Path_Exact" />
                 <Param Name="Spec_Http2Route_Match_Path_Exact" NewName="Spec_Http2Route_Match_Path_Exact" />
+                <Param Name="Spec_GrpcRoute_Match_Port" NewName="Spec_GrpcRoute_Match_Port" />
+                <Param Name="Spec_Http2Route_Match_Port" NewName="Spec_Http2Route_Match_Port" />
+                <Param Name="Spec_HttpRoute_Match_Port" NewName="Spec_HttpRoute_Match_Port" />
+                <Param Name="Spec_TcpRoute_Match_Port" NewName="Spec_TcpRoute_Match_Port" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

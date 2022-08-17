@@ -51,17 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// existing version's <code>VersionId</code>, the operation results in an error. You
     /// can't modify an existing version, you can only create a new version. To remove a version,
     /// remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.
-    /// </para><para>
-    /// If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services
-    /// managed key <code>aws/secretsmanager</code>. If this key doesn't already exist in
-    /// your account, then Secrets Manager creates it for you automatically. All users and
-    /// roles in the Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
-    /// Creating <code>aws/secretsmanager</code> can result in a one-time significant delay
-    /// in returning the result. 
-    /// </para><para>
-    /// If the secret is in a different Amazon Web Services account from the credentials calling
-    /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
-    /// and you must create and use a customer managed key. 
     /// </para><para><b>Required permissions: </b><code>secretsmanager:UpdateSecret</code>. For more
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -111,10 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt new
-        /// secret versions as well as any existing versions the staging labels <code>AWSCURRENT</code>,
+        /// secret versions as well as any existing versions with the staging labels <code>AWSCURRENT</code>,
         /// <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>. For more information about versions
         /// and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
-        /// Version</a>.</para><important><para>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code>
+        /// Version</a>.</para><para>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About
+        /// aliases</a>.</para><para>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed
+        /// key <code>aws/secretsmanager</code>. If this key doesn't already exist in your account,
+        /// then Secrets Manager creates it for you automatically. All users and roles in the
+        /// Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
+        /// Creating <code>aws/secretsmanager</code> can result in a one-time significant delay
+        /// in returning the result. </para><important><para>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code>
         /// if you call this operation using credentials from the same Amazon Web Services account
         /// that owns the secret. If the secret is in a different account, then you must use a
         /// customer managed key and provide the ARN of that KMS key in this field. The user making

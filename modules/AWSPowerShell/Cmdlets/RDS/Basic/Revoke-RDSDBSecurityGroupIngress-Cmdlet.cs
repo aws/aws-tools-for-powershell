@@ -31,6 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2
     /// or VPC security groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId
     /// for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).
+    /// 
+    ///  <note><para>
+    /// EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic
+    /// to a VPC, we recommend that you migrate as soon as possible. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>, the blog <a href="http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/">EC2-Classic
+    /// Networking is Retiring – Here’s How to Prepare</a>, and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html">Moving
+    /// a DB instance not in a VPC into a VPC</a> in the <i>Amazon RDS User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Revoke", "RDSDBSecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSecurityGroup")]

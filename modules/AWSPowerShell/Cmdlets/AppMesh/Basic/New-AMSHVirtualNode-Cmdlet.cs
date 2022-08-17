@@ -164,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter AwsCloudMap_IpPreference
         /// <summary>
         /// <para>
-        /// <para>The IP version to use to control traffic within the mesh.</para>
+        /// <para>The preferred IP version that this virtual node uses. Setting the IP preference on
+        /// the virtual node only overrides the IP preference set for the mesh on this specific
+        /// node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,13 +178,26 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Dns_IpPreference
         /// <summary>
         /// <para>
-        /// <para>The IP version to use to control traffic within the mesh.</para>
+        /// <para>The preferred IP version that this virtual node uses. Setting the IP preference on
+        /// the virtual node only overrides the IP preference set for the mesh on this specific
+        /// node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Spec_ServiceDiscovery_Dns_IpPreference")]
         [AWSConstantClassSource("Amazon.AppMesh.IpPreference")]
         public Amazon.AppMesh.IpPreference Dns_IpPreference { get; set; }
+        #endregion
+        
+        #region Parameter Format_Json
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_Logging_AccessLog_File_Format_Json")]
+        public Amazon.AppMesh.Model.JsonFormatRef[] Format_Json { get; set; }
         #endregion
         
         #region Parameter Spec_Listener
@@ -340,6 +355,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public Amazon.AppMesh.Model.TagRef[] Tag { get; set; }
         #endregion
         
+        #region Parameter Format_Text
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_Logging_AccessLog_File_Format_Text")]
+        public System.String Format_Text { get; set; }
+        #endregion
+        
         #region Parameter VirtualNodeName
         /// <summary>
         /// <para>
@@ -464,6 +490,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.Spec_Listener = new List<Amazon.AppMesh.Model.Listener>(this.Spec_Listener);
             }
+            if (this.Format_Json != null)
+            {
+                context.Format_Json = new List<Amazon.AppMesh.Model.JsonFormatRef>(this.Format_Json);
+            }
+            context.Format_Text = this.Format_Text;
             context.File_Path = this.File_Path;
             if (this.AwsCloudMap_Attribute != null)
             {
@@ -848,6 +879,41 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File.Path = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_file_Path;
                 requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull = false;
             }
+            Amazon.AppMesh.Model.LoggingFormat requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format = null;
+            
+             // populate Format
+            var requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_FormatIsNull = true;
+            requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format = new Amazon.AppMesh.Model.LoggingFormat();
+            List<Amazon.AppMesh.Model.JsonFormatRef> requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Json = null;
+            if (cmdletContext.Format_Json != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Json = cmdletContext.Format_Json;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Json != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format.Json = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Json;
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_FormatIsNull = false;
+            }
+            System.String requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Text = null;
+            if (cmdletContext.Format_Text != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Text = cmdletContext.Format_Text;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Text != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format.Text = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format_format_Text;
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_FormatIsNull = false;
+            }
+             // determine if requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format should be set to null
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_FormatIsNull)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format = null;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File.Format = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_spec_Logging_AccessLog_File_Format;
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull = false;
+            }
              // determine if requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File should be set to null
             if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull)
             {
@@ -1081,6 +1147,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public System.String Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName { get; set; }
             public List<Amazon.AppMesh.Model.Backend> Spec_Backend { get; set; }
             public List<Amazon.AppMesh.Model.Listener> Spec_Listener { get; set; }
+            public List<Amazon.AppMesh.Model.JsonFormatRef> Format_Json { get; set; }
+            public System.String Format_Text { get; set; }
             public System.String File_Path { get; set; }
             public List<Amazon.AppMesh.Model.AwsCloudMapInstanceAttribute> AwsCloudMap_Attribute { get; set; }
             public Amazon.AppMesh.IpPreference AwsCloudMap_IpPreference { get; set; }

@@ -238,6 +238,46 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String Spec_GrpcRoute_Match_MethodName { get; set; }
         #endregion
         
+        #region Parameter Spec_GrpcRoute_Match_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Spec_GrpcRoute_Match_Port { get; set; }
+        #endregion
+        
+        #region Parameter Spec_Http2Route_Match_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Spec_Http2Route_Match_Port { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Match_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Spec_HttpRoute_Match_Port { get; set; }
+        #endregion
+        
+        #region Parameter Spec_TcpRoute_Match_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Spec_TcpRoute_Match_Port { get; set; }
+        #endregion
+        
         #region Parameter Spec_Http2Route_Match_Prefix
         /// <summary>
         /// <para>
@@ -787,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 context.Match_Metadata = new List<Amazon.AppMesh.Model.GrpcRouteMetadata>(this.Match_Metadata);
             }
             context.Spec_GrpcRoute_Match_MethodName = this.Spec_GrpcRoute_Match_MethodName;
+            context.Spec_GrpcRoute_Match_Port = this.Spec_GrpcRoute_Match_Port;
             context.Match_ServiceName = this.Match_ServiceName;
             if (this.RetryPolicy_GrpcRetryEvent != null)
             {
@@ -818,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             context.Spec_Http2Route_Match_Method = this.Spec_Http2Route_Match_Method;
             context.Spec_Http2Route_Match_Path_Exact = this.Spec_Http2Route_Match_Path_Exact;
             context.Spec_Http2Route_Match_Path_Regex = this.Spec_Http2Route_Match_Path_Regex;
+            context.Spec_Http2Route_Match_Port = this.Spec_Http2Route_Match_Port;
             context.Spec_Http2Route_Match_Prefix = this.Spec_Http2Route_Match_Prefix;
             if (this.Spec_Http2Route_Match_QueryParameters != null)
             {
@@ -850,6 +892,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             context.Spec_HttpRoute_Match_Method = this.Spec_HttpRoute_Match_Method;
             context.Spec_HttpRoute_Match_Path_Exact = this.Spec_HttpRoute_Match_Path_Exact;
             context.Spec_HttpRoute_Match_Path_Regex = this.Spec_HttpRoute_Match_Path_Regex;
+            context.Spec_HttpRoute_Match_Port = this.Spec_HttpRoute_Match_Port;
             context.Spec_HttpRoute_Match_Prefix = this.Spec_HttpRoute_Match_Prefix;
             if (this.Spec_HttpRoute_Match_QueryParameters != null)
             {
@@ -876,6 +919,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.Spec_TcpRoute_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_TcpRoute_Action_WeightedTarget);
             }
+            context.Spec_TcpRoute_Match_Port = this.Spec_TcpRoute_Match_Port;
             context.Spec_TcpRoute_Timeout_Idle_Unit = this.Spec_TcpRoute_Timeout_Idle_Unit;
             context.Spec_TcpRoute_Timeout_Idle_Value = this.Spec_TcpRoute_Timeout_Idle_Value;
             context.VirtualRouterName = this.VirtualRouterName;
@@ -959,6 +1003,31 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_TcpRoute_spec_TcpRoute_Action != null)
             {
                 requestSpec_spec_TcpRoute.Action = requestSpec_spec_TcpRoute_spec_TcpRoute_Action;
+                requestSpec_spec_TcpRouteIsNull = false;
+            }
+            Amazon.AppMesh.Model.TcpRouteMatch requestSpec_spec_TcpRoute_spec_TcpRoute_Match = null;
+            
+             // populate Match
+            var requestSpec_spec_TcpRoute_spec_TcpRoute_MatchIsNull = true;
+            requestSpec_spec_TcpRoute_spec_TcpRoute_Match = new Amazon.AppMesh.Model.TcpRouteMatch();
+            System.Int32? requestSpec_spec_TcpRoute_spec_TcpRoute_Match_spec_TcpRoute_Match_Port = null;
+            if (cmdletContext.Spec_TcpRoute_Match_Port != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Match_spec_TcpRoute_Match_Port = cmdletContext.Spec_TcpRoute_Match_Port.Value;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Match_spec_TcpRoute_Match_Port != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Match.Port = requestSpec_spec_TcpRoute_spec_TcpRoute_Match_spec_TcpRoute_Match_Port.Value;
+                requestSpec_spec_TcpRoute_spec_TcpRoute_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_TcpRoute_spec_TcpRoute_Match should be set to null
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_MatchIsNull)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Match = null;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Match != null)
+            {
+                requestSpec_spec_TcpRoute.Match = requestSpec_spec_TcpRoute_spec_TcpRoute_Match;
                 requestSpec_spec_TcpRouteIsNull = false;
             }
             Amazon.AppMesh.Model.TcpTimeout requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout = null;
@@ -1159,6 +1228,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_MethodName != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.MethodName = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_MethodName;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
+            }
+            System.Int32? requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port = null;
+            if (cmdletContext.Spec_GrpcRoute_Match_Port != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port = cmdletContext.Spec_GrpcRoute_Match_Port.Value;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.Port = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port.Value;
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
             }
             System.String requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_ServiceName = null;
@@ -1501,6 +1580,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Method = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method;
                 requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
+            System.Int32? requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port = null;
+            if (cmdletContext.Spec_Http2Route_Match_Port != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port = cmdletContext.Spec_Http2Route_Match_Port.Value;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Port = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port.Value;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
             System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = null;
             if (cmdletContext.Spec_Http2Route_Match_Prefix != null)
             {
@@ -1806,6 +1895,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Method = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method;
                 requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
+            System.Int32? requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Port != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port = cmdletContext.Spec_HttpRoute_Match_Port.Value;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Port = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port.Value;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
             System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = null;
             if (cmdletContext.Spec_HttpRoute_Match_Prefix != null)
             {
@@ -1968,6 +2067,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_GrpcRoute_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.GrpcRouteMetadata> Match_Metadata { get; set; }
             public System.String Spec_GrpcRoute_Match_MethodName { get; set; }
+            public System.Int32? Spec_GrpcRoute_Match_Port { get; set; }
             public System.String Match_ServiceName { get; set; }
             public List<System.String> RetryPolicy_GrpcRetryEvent { get; set; }
             public List<System.String> Spec_GrpcRoute_RetryPolicy_HttpRetryEvent { get; set; }
@@ -1984,6 +2084,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public Amazon.AppMesh.HttpMethod Spec_Http2Route_Match_Method { get; set; }
             public System.String Spec_Http2Route_Match_Path_Exact { get; set; }
             public System.String Spec_Http2Route_Match_Path_Regex { get; set; }
+            public System.Int32? Spec_Http2Route_Match_Port { get; set; }
             public System.String Spec_Http2Route_Match_Prefix { get; set; }
             public List<Amazon.AppMesh.Model.HttpQueryParameter> Spec_Http2Route_Match_QueryParameters { get; set; }
             public Amazon.AppMesh.HttpScheme Spec_Http2Route_Match_Scheme { get; set; }
@@ -2001,6 +2102,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public Amazon.AppMesh.HttpMethod Spec_HttpRoute_Match_Method { get; set; }
             public System.String Spec_HttpRoute_Match_Path_Exact { get; set; }
             public System.String Spec_HttpRoute_Match_Path_Regex { get; set; }
+            public System.Int32? Spec_HttpRoute_Match_Port { get; set; }
             public System.String Spec_HttpRoute_Match_Prefix { get; set; }
             public List<Amazon.AppMesh.Model.HttpQueryParameter> Spec_HttpRoute_Match_QueryParameters { get; set; }
             public Amazon.AppMesh.HttpScheme Spec_HttpRoute_Match_Scheme { get; set; }
@@ -2015,6 +2117,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public System.Int64? Spec_HttpRoute_Timeout_PerRequest_Value { get; set; }
             public System.Int32? Spec_Priority { get; set; }
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_TcpRoute_Action_WeightedTarget { get; set; }
+            public System.Int32? Spec_TcpRoute_Match_Port { get; set; }
             public Amazon.AppMesh.DurationUnit Spec_TcpRoute_Timeout_Idle_Unit { get; set; }
             public System.Int64? Spec_TcpRoute_Timeout_Idle_Value { get; set; }
             public System.String VirtualRouterName { get; set; }

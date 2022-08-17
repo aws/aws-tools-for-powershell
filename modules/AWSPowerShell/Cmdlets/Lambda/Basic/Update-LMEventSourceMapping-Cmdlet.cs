@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
     /// Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
     /// Amazon MQ and RabbitMQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a></para></li></ul><para>
-    /// The following error handling options are only available for stream sources (DynamoDB
+    /// The following error handling options are available only for stream sources (DynamoDB
     /// and Kinesis):
     /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
     /// the batch in two and retry.
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// queue and sends to your function. Lambda passes all of the records in the batch to
         /// the function in a single call, up to the payload limit for synchronous invocation
         /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
-        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
+        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Streams only) Discard records after the specified number of retries. The default
-        /// value is infinite (-1). When set to infinite (-1), failed records will be retried
-        /// until the record expires.</para>
+        /// value is infinite (-1). When set to infinite (-1), failed records are retried until
+        /// the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Streams only) The duration in seconds of a processing window. The range is between
-        /// 1 second up to 900 seconds.</para>
+        /// 1 second and 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

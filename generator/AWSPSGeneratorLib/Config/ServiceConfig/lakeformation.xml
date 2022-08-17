@@ -23,6 +23,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssumeDecoratedRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

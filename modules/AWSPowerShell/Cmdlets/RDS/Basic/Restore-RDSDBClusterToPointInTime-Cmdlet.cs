@@ -308,6 +308,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB cluster.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
+        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -576,6 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineMode = this.EngineMode;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
@@ -680,6 +694,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -904,6 +922,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EngineMode { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
