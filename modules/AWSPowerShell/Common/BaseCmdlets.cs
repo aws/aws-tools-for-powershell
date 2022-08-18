@@ -645,6 +645,7 @@ namespace Amazon.PowerShell.Common
         protected AWSCredentials _CurrentCredentials { get; private set; }
         public RegionEndpoint _RegionEndpoint { get; private set; }
         protected bool _ExecuteWithAnonymousCredentials { get; set; }
+        protected ClientConfig _ClientConfig { get; set; }
 
         /// <summary>
         /// <para>
@@ -704,6 +705,22 @@ namespace Amazon.PowerShell.Common
 
             _RegionEndpoint = region;
 
+            // At this point. if user explicitly passes Region parameter, the source is set as String. Next preference in order is explicitly passed region in ClientConfig.
+            if (_RegionEndpoint == null || regionSource != RegionSource.String)
+            {
+                if (_ClientConfig?.RegionEndpoint != null)
+                {
+                    RegionEndpoint regionFactoryValue = FallbackRegionFactory.GetRegionEndpoint();
+
+                    // Set region from explicitly passed value in ClientConfig only if it is different from region resolved by .NET SDK.
+                    if (regionFactoryValue == null || _ClientConfig.RegionEndpoint.SystemName != regionFactoryValue.SystemName)
+                    {
+                        _RegionEndpoint = _ClientConfig.RegionEndpoint;
+                        regionSource = RegionSource.String;
+                    }
+                }
+            }
+
             if (_RegionEndpoint == null)
             {
                 if (String.IsNullOrEmpty(_DefaultRegion))
@@ -728,8 +745,9 @@ namespace Amazon.PowerShell.Common
     public abstract class AnonymousServiceCmdlet : AWSRegionArgumentsCmdlet
     {
         protected RegionEndpoint _RegionEndpoint { get; private set; }
+        protected ClientConfig _ClientConfig { get; set; }
 
-#region Parameter EndpointURL
+        #region Parameter EndpointURL
         /// <summary>
         /// <para>
         /// The endpoint to make the call against.
@@ -768,6 +786,22 @@ namespace Amazon.PowerShell.Common
 
             this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
             _RegionEndpoint = region;
+
+            // At this point. if user explicitly passes Region parameter, the source is set as String. Next preference in order is explicitly passed region in ClientConfig.
+            if (_RegionEndpoint == null || regionSource != RegionSource.String)
+            {
+                if (_ClientConfig?.RegionEndpoint != null)
+                {
+                    RegionEndpoint regionFactoryValue = FallbackRegionFactory.GetRegionEndpoint();
+
+                    // Set region from explicitly passed value in ClientConfig only if it is different from region resolved by .NET SDK.
+                    if (regionFactoryValue == null || _ClientConfig.RegionEndpoint.SystemName != regionFactoryValue.SystemName)
+                    {
+                        _RegionEndpoint = _ClientConfig.RegionEndpoint;
+                        regionSource = RegionSource.String;
+                    }
+                }
+            }
 
             if (_RegionEndpoint == null)
             {

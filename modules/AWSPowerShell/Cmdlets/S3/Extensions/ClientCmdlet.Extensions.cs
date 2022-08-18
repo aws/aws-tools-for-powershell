@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 s3Config.UseDualstackEndpoint = true;
 
             // github issue #670 request - like the aws cli, if a specific endpoint is
-            // given then switch to path style addressing
-            s3Config.ForcePathStyle = ForcePathStyleAddressing ?? ParameterWasBound(nameof(EndpointUrl));
+            // given then switch to path style addressing. If ForcePathStyle is explicitly set in ClientConfig, then use it.
+            s3Config.ForcePathStyle = ForcePathStyleAddressing ?? (s3Config.ForcePathStyle || ParameterWasBound(nameof(EndpointUrl)));
         }
     }
 }
