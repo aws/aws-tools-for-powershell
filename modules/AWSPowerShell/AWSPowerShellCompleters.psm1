@@ -6564,7 +6564,7 @@ $CHMMP_Completers = {
         # Amazon.ChimeSDKMediaPipelines.AudioMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"
         {
-            $v = "AudioOnly","AudioWithActiveSpeakerVideo"
+            $v = "AudioOnly","AudioWithActiveSpeakerVideo","AudioWithCompositedVideo"
             break
         }
 
@@ -6572,6 +6572,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
         {
             $v = "ContentOnly"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"
+        {
+            $v = "Horizontal","PresenterOnly","Vertical"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.LayoutOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"
+        {
+            $v = "GridView"
             break
         }
 
@@ -6586,6 +6600,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaCapturePipeline/SourceType"
         {
             $v = "ChimeSdkMeeting"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.PresenterPosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"
+        {
+            $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.ResolutionOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"
+        {
+            $v = "FHD","HD"
             break
         }
 
@@ -6606,6 +6634,10 @@ $CHMMP_Completers = {
 
 $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMPMediaCapturePipeline")
@@ -6665,9 +6697,14 @@ $CHMMP_SelectCompleters = {
 
 $CHMMP_SelectMap = @{
     "Select"=@("New-CHMMPMediaCapturePipeline",
+               "New-CHMMPMediaConcatenationPipeline",
+               "New-CHMMPMediaLiveConnectorPipeline",
                "Remove-CHMMPMediaCapturePipeline",
+               "Remove-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipelineList",
+               "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
                "Add-CHMMPResourceTag",
                "Remove-CHMMPResourceTag")
@@ -15752,7 +15789,8 @@ $DDB_Completers = {
             ($_ -eq "Update-DDBTable/BillingMode") -Or
             ($_ -eq "Restore-DDBTableFromBackup/BillingModeOverride") -Or
             ($_ -eq "Restore-DDBTableToPointInTime/BillingModeOverride") -Or
-            ($_ -eq "Update-DDBGlobalTableSetting/GlobalTableBillingMode")
+            ($_ -eq "Update-DDBGlobalTableSetting/GlobalTableBillingMode") -Or
+            ($_ -eq "Import-DDBTable/TableCreationParameters_BillingMode")
         }
         {
             $v = "PAY_PER_REQUEST","PROVISIONED"
@@ -15770,6 +15808,20 @@ $DDB_Completers = {
         "Export-DDBTableToPointInTime/ExportFormat"
         {
             $v = "DYNAMODB_JSON","ION"
+            break
+        }
+
+        # Amazon.DynamoDBv2.InputCompressionType
+        "Import-DDBTable/InputCompressionType"
+        {
+            $v = "GZIP","NONE","ZSTD"
+            break
+        }
+
+        # Amazon.DynamoDBv2.InputFormat
+        "Import-DDBTable/InputFormat"
+        {
+            $v = "CSV","DYNAMODB_JSON","ION"
             break
         }
 
@@ -15829,7 +15881,8 @@ $DDB_Completers = {
         {
             ($_ -eq "Update-DDBTable/SSESpecification_SSEType") -Or
             ($_ -eq "Restore-DDBTableFromBackup/SSESpecificationOverride_SSEType") -Or
-            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType")
+            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType") -Or
+            ($_ -eq "Import-DDBTable/TableCreationParameters_SSESpecification_SSEType")
         }
         {
             $v = "AES256","KMS"
@@ -15866,6 +15919,8 @@ $DDB_map = @{
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
+    "InputCompressionType"=@("Import-DDBTable")
+    "InputFormat"=@("Import-DDBTable")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
@@ -15877,6 +15932,8 @@ $DDB_map = @{
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
     "TableClass"=@("Update-DDBTable")
+    "TableCreationParameters_BillingMode"=@("Import-DDBTable")
+    "TableCreationParameters_SSESpecification_SSEType"=@("Import-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map
@@ -15941,6 +15998,7 @@ $DDB_SelectMap = @{
                "Get-DDBExport",
                "Get-DDBGlobalTable",
                "Get-DDBGlobalTableSetting",
+               "Get-DDBImport",
                "Get-DDBKinesisStreamingDestination",
                "Get-DDBProvisionLimit",
                "Get-DDBTable",
@@ -15951,10 +16009,12 @@ $DDB_SelectMap = @{
                "Invoke-DDBDDBExecuteStatement",
                "Invoke-DDBDDBExecuteTransaction",
                "Export-DDBTableToPointInTime",
+               "Import-DDBTable",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",
                "Get-DDBExportList",
                "Get-DDBGlobalTableList",
+               "Get-DDBImportList",
                "Get-DDBTableList",
                "Get-DDBResourceTag",
                "Restore-DDBTableFromBackup",
@@ -35577,6 +35637,7 @@ $CW_SelectMap = @{
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
                "Get-CWDashboardList",
+               "Get-CWManagedInsightRule",
                "Get-CWMetricList",
                "Get-CWMetricStreamList",
                "Get-CWResourceTag",
@@ -35584,6 +35645,7 @@ $CW_SelectMap = @{
                "Write-CWCompositeAlarm",
                "Write-CWDashboard",
                "Write-CWInsightRule",
+               "Write-CWManagedInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",
                "Write-CWMetricStream",

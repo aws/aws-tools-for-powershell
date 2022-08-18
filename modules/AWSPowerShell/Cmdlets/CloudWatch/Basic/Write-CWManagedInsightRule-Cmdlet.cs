@@ -22,66 +22,88 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMediaPipelines;
-using Amazon.ChimeSDKMediaPipelines.Model;
+using Amazon.CloudWatch;
+using Amazon.CloudWatch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMMP
+namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Lists the tags available for a media pipeline.
+    /// Creates a managed Contributor Insights rule for a specified Amazon Web Services resource.
+    /// When you enable a managed rule, you create a Contributor Insights rule that collects
+    /// data from Amazon Web Services services. You cannot edit these rules with <code>PutInsightRule</code>.
+    /// The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>,
+    /// <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>. If a previously
+    /// created managed rule is currently disabled, a subsequent call to this API will re-enable
+    /// it. Use <code>ListManagedInsightRules</code> to describe all available rules.
     /// </summary>
-    [Cmdlet("Get", "CHMMPResourceTag")]
-    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.Tag or Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.ChimeSDKMediaPipelines.Model.Tag objects.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "CWManagedInsightRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudWatch.Model.PartialFailure")]
+    [AWSCmdlet("Calls the Amazon CloudWatch PutManagedInsightRules API operation.", Operation = new[] {"PutManagedInsightRules"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutManagedInsightRulesResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.PartialFailure or Amazon.CloudWatch.Model.PutManagedInsightRulesResponse",
+        "This cmdlet returns a collection of Amazon.CloudWatch.Model.PartialFailure objects.",
+        "The service call response (type Amazon.CloudWatch.Model.PutManagedInsightRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMPResourceTagCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
+    public partial class WriteCWManagedInsightRuleCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter ManagedRule
         /// <summary>
         /// <para>
-        /// <para>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's
-        /// region, resource ID, and pipeline ID.</para>
+        /// <para> A list of <code>ManagedRules</code> to enable. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
+        [Alias("ManagedRules")]
+        public Amazon.CloudWatch.Model.ManagedRule[] ManagedRule { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Failures'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.PutManagedInsightRulesResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatch.Model.PutManagedInsightRulesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "Failures";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ManagedRule parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ManagedRule' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ManagedRule' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ManagedRule), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWManagedInsightRule (PutManagedInsightRules)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -91,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse, GetCHMMPResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.PutManagedInsightRulesResponse, WriteCWManagedInsightRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -100,14 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.ManagedRule;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
-            #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.ManagedRule != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ManagedRule = new List<Amazon.CloudWatch.Model.ManagedRule>(this.ManagedRule);
+            }
+            #if MODULAR
+            if (this.ManagedRule == null && ParameterWasBound(nameof(this.ManagedRule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ManagedRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -124,11 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceRequest();
+            var request = new Amazon.CloudWatch.Model.PutManagedInsightRulesRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.ManagedRule != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.ManagedRules = cmdletContext.ManagedRule;
             }
             
             CmdletOutput output;
@@ -163,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceRequest request)
+        private Amazon.CloudWatch.Model.PutManagedInsightRulesResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.PutManagedInsightRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "PutManagedInsightRules");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.PutManagedInsightRules(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.PutManagedInsightRulesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse, GetCHMMPResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public List<Amazon.CloudWatch.Model.ManagedRule> ManagedRule { get; set; }
+            public System.Func<Amazon.CloudWatch.Model.PutManagedInsightRulesResponse, WriteCWManagedInsightRuleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Failures;
         }
         
     }

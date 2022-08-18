@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     /// <summary>
     /// Returns a list of media pipelines.
     /// </summary>
-    [Cmdlet("Get", "CHMMPMediaCapturePipelineList")]
-    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.MediaCapturePipelineSummary")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines ListMediaCapturePipelines API operation.", Operation = new[] {"ListMediaCapturePipelines"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.MediaCapturePipelineSummary or Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse",
-        "This cmdlet returns a collection of Amazon.ChimeSDKMediaPipelines.Model.MediaCapturePipelineSummary objects.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CHMMPMediaPipelineList")]
+    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.MediaPipelineSummary")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines ListMediaPipelines API operation.", Operation = new[] {"ListMediaPipelines"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.MediaPipelineSummary or Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse",
+        "This cmdlet returns a collection of Amazon.ChimeSDKMediaPipelines.Model.MediaPipelineSummary objects.",
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMPMediaCapturePipelineListCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
+    public partial class GetCHMMPMediaPipelineListCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
         #region Parameter MaxResult
@@ -63,13 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MediaCapturePipelines'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MediaPipelines'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MediaCapturePipelines";
+        public string Select { get; set; } = "MediaPipelines";
         #endregion
         
         protected override void ProcessRecord()
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse, GetCHMMPMediaCapturePipelineListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse, GetCHMMPMediaPipelineListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesRequest();
+            var request = new Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -145,15 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesRequest request)
+        private Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "ListMediaCapturePipelines");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "ListMediaPipelines");
             try
             {
                 #if DESKTOP
-                return client.ListMediaCapturePipelines(request);
+                return client.ListMediaPipelines(request);
                 #elif CORECLR
-                return client.ListMediaCapturePipelinesAsync(request).GetAwaiter().GetResult();
+                return client.ListMediaPipelinesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.ListMediaCapturePipelinesResponse, GetCHMMPMediaCapturePipelineListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MediaCapturePipelines;
+            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.ListMediaPipelinesResponse, GetCHMMPMediaPipelineListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MediaPipelines;
         }
         
     }

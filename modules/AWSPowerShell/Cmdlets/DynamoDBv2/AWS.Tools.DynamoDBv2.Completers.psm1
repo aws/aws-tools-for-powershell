@@ -93,7 +93,8 @@ $DDB_Completers = {
             ($_ -eq "Update-DDBTable/BillingMode") -Or
             ($_ -eq "Restore-DDBTableFromBackup/BillingModeOverride") -Or
             ($_ -eq "Restore-DDBTableToPointInTime/BillingModeOverride") -Or
-            ($_ -eq "Update-DDBGlobalTableSetting/GlobalTableBillingMode")
+            ($_ -eq "Update-DDBGlobalTableSetting/GlobalTableBillingMode") -Or
+            ($_ -eq "Import-DDBTable/TableCreationParameters_BillingMode")
         }
         {
             $v = "PAY_PER_REQUEST","PROVISIONED"
@@ -111,6 +112,20 @@ $DDB_Completers = {
         "Export-DDBTableToPointInTime/ExportFormat"
         {
             $v = "DYNAMODB_JSON","ION"
+            break
+        }
+
+        # Amazon.DynamoDBv2.InputCompressionType
+        "Import-DDBTable/InputCompressionType"
+        {
+            $v = "GZIP","NONE","ZSTD"
+            break
+        }
+
+        # Amazon.DynamoDBv2.InputFormat
+        "Import-DDBTable/InputFormat"
+        {
+            $v = "CSV","DYNAMODB_JSON","ION"
             break
         }
 
@@ -170,7 +185,8 @@ $DDB_Completers = {
         {
             ($_ -eq "Update-DDBTable/SSESpecification_SSEType") -Or
             ($_ -eq "Restore-DDBTableFromBackup/SSESpecificationOverride_SSEType") -Or
-            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType")
+            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType") -Or
+            ($_ -eq "Import-DDBTable/TableCreationParameters_SSESpecification_SSEType")
         }
         {
             $v = "AES256","KMS"
@@ -207,6 +223,8 @@ $DDB_map = @{
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
+    "InputCompressionType"=@("Import-DDBTable")
+    "InputFormat"=@("Import-DDBTable")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
@@ -218,6 +236,8 @@ $DDB_map = @{
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
     "TableClass"=@("Update-DDBTable")
+    "TableCreationParameters_BillingMode"=@("Import-DDBTable")
+    "TableCreationParameters_SSESpecification_SSEType"=@("Import-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map
@@ -282,6 +302,7 @@ $DDB_SelectMap = @{
                "Get-DDBExport",
                "Get-DDBGlobalTable",
                "Get-DDBGlobalTableSetting",
+               "Get-DDBImport",
                "Get-DDBKinesisStreamingDestination",
                "Get-DDBProvisionLimit",
                "Get-DDBTable",
@@ -292,10 +313,12 @@ $DDB_SelectMap = @{
                "Invoke-DDBDDBExecuteStatement",
                "Invoke-DDBDDBExecuteTransaction",
                "Export-DDBTableToPointInTime",
+               "Import-DDBTable",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",
                "Get-DDBExportList",
                "Get-DDBGlobalTableList",
+               "Get-DDBImportList",
                "Get-DDBTableList",
                "Get-DDBResourceTag",
                "Restore-DDBTableFromBackup",

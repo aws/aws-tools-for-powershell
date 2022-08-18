@@ -22,7 +22,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaConcatenationPipeline" OutputProperty="MediaConcatenationPipeline" Verb="New" Noun="MediaConcatenationPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaLiveConnectorPipeline" OutputProperty="MediaLiveConnectorPipeline" Verb="New" Noun="MediaLiveConnectorPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMediaPipeline" Verb="Remove" Noun="MediaPipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -30,7 +42,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMediaPipeline" OutputProperty="MediaPipeline" Verb="Get" Noun="MediaPipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMediaPipelines" OutputProperty="MediaPipelines" Verb="Get" Noun="MediaPipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

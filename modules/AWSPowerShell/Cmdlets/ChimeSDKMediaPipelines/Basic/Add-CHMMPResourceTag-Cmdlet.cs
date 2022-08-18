@@ -28,7 +28,8 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Applies the specified tags to the specified Amazon Chime SDK media capture pipeline.
+    /// The ARN of the media pipeline that you want to tag. Consists of he pipeline's endpoint
+    /// region, resource ID, and pipeline ID.
     /// </summary>
     [Cmdlet("Add", "CHMMPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The resource ARN.</para>
+        /// <para>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's
+        /// endpoint region, resource ID, and pipeline ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag key-value pairs.</para>
+        /// <para>The tags associated with the specified media pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,29 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMediaPipelines;
-using Amazon.ChimeSDKMediaPipelines.Model;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMMP
+namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Lists the tags available for a media pipeline.
+    /// Represents the properties of the import.
     /// </summary>
-    [Cmdlet("Get", "CHMMPResourceTag")]
-    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.Tag or Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.ChimeSDKMediaPipelines.Model.Tag objects.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DDBImport")]
+    [OutputType("Amazon.DynamoDBv2.Model.ImportTableDescription")]
+    [AWSCmdlet("Calls the Amazon DynamoDB DescribeImport API operation.", Operation = new[] {"DescribeImport"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeImportResponse))]
+    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ImportTableDescription or Amazon.DynamoDBv2.Model.DescribeImportResponse",
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.ImportTableDescription object.",
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeImportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMPResourceTagCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
+    public partial class GetDDBImportCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter ImportArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's
-        /// region, resource ID, and pipeline ID.</para>
+        /// <para> The Amazon Resource Name (ARN) associated with the table you're importing to. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,26 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
+        public System.String ImportArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ImportTableDescription'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DescribeImportResponse).
+        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DescribeImportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "ImportTableDescription";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImportArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImportArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImportArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse, GetCHMMPResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DescribeImportResponse, GetDDBImportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -100,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.ImportArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
+            context.ImportArn = this.ImportArn;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.ImportArn == null && ParameterWasBound(nameof(this.ImportArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -124,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceRequest();
+            var request = new Amazon.DynamoDBv2.Model.DescribeImportRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.ImportArn != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.ImportArn = cmdletContext.ImportArn;
             }
             
             CmdletOutput output;
@@ -163,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceRequest request)
+        private Amazon.DynamoDBv2.Model.DescribeImportResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeImport");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DescribeImport(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.DescribeImportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.ListTagsForResourceResponse, GetCHMMPResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ImportArn { get; set; }
+            public System.Func<Amazon.DynamoDBv2.Model.DescribeImportResponse, GetDDBImportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ImportTableDescription;
         }
         
     }

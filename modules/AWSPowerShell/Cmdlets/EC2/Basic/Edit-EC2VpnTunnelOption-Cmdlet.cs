@@ -77,6 +77,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.IKEVersionsRequestListValue[] TunnelOptions_IKEVersion { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLogOptions_LogEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_LogEnabled")]
+        public System.Boolean? CloudWatchLogOptions_LogEnabled { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogOptions_LogGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_LogGroupArn")]
+        public System.String CloudWatchLogOptions_LogGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogOptions_LogOutputFormat
+        /// <summary>
+        /// <para>
+        /// <para>Set log format. Default format is <code>json</code>.</para><para>Valid values: <code>json</code> | <code>text</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_LogOutputFormat")]
+        public System.String CloudWatchLogOptions_LogOutputFormat { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_Phase1DHGroupNumber
         /// <summary>
         /// <para>
@@ -362,6 +395,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TunnelOptions_IKEVersion = new List<Amazon.EC2.Model.IKEVersionsRequestListValue>(this.TunnelOptions_IKEVersion);
             }
+            context.CloudWatchLogOptions_LogEnabled = this.CloudWatchLogOptions_LogEnabled;
+            context.CloudWatchLogOptions_LogGroupArn = this.CloudWatchLogOptions_LogGroupArn;
+            context.CloudWatchLogOptions_LogOutputFormat = this.CloudWatchLogOptions_LogOutputFormat;
             if (this.TunnelOptions_Phase1DHGroupNumber != null)
             {
                 context.TunnelOptions_Phase1DHGroupNumber = new List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue>(this.TunnelOptions_Phase1DHGroupNumber);
@@ -609,6 +645,66 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.TunnelOptions.TunnelInsideIpv6Cidr = requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr;
                 requestTunnelOptionsIsNull = false;
             }
+            Amazon.EC2.Model.VpnTunnelLogOptionsSpecification requestTunnelOptions_tunnelOptions_LogOptions = null;
+            
+             // populate LogOptions
+            var requestTunnelOptions_tunnelOptions_LogOptionsIsNull = true;
+            requestTunnelOptions_tunnelOptions_LogOptions = new Amazon.EC2.Model.VpnTunnelLogOptionsSpecification();
+            Amazon.EC2.Model.CloudWatchLogOptionsSpecification requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions = null;
+            
+             // populate CloudWatchLogOptions
+            var requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = true;
+            requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions = new Amazon.EC2.Model.CloudWatchLogOptionsSpecification();
+            System.Boolean? requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogEnabled = null;
+            if (cmdletContext.CloudWatchLogOptions_LogEnabled != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogEnabled = cmdletContext.CloudWatchLogOptions_LogEnabled.Value;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogEnabled != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.LogEnabled = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogEnabled.Value;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
+            System.String requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogGroupArn = null;
+            if (cmdletContext.CloudWatchLogOptions_LogGroupArn != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogGroupArn = cmdletContext.CloudWatchLogOptions_LogGroupArn;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogGroupArn != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.LogGroupArn = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogGroupArn;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
+            System.String requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogOutputFormat = null;
+            if (cmdletContext.CloudWatchLogOptions_LogOutputFormat != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogOutputFormat = cmdletContext.CloudWatchLogOptions_LogOutputFormat;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogOutputFormat != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.LogOutputFormat = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogOutputFormat;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
+             // determine if requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions should be set to null
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions = null;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions.CloudWatchLogOptions = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions;
+                requestTunnelOptions_tunnelOptions_LogOptionsIsNull = false;
+            }
+             // determine if requestTunnelOptions_tunnelOptions_LogOptions should be set to null
+            if (requestTunnelOptions_tunnelOptions_LogOptionsIsNull)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions = null;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions != null)
+            {
+                request.TunnelOptions.LogOptions = requestTunnelOptions_tunnelOptions_LogOptions;
+                requestTunnelOptionsIsNull = false;
+            }
              // determine if request.TunnelOptions should be set to null
             if (requestTunnelOptionsIsNull)
             {
@@ -686,6 +782,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String TunnelOptions_DPDTimeoutAction { get; set; }
             public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }
             public List<Amazon.EC2.Model.IKEVersionsRequestListValue> TunnelOptions_IKEVersion { get; set; }
+            public System.Boolean? CloudWatchLogOptions_LogEnabled { get; set; }
+            public System.String CloudWatchLogOptions_LogGroupArn { get; set; }
+            public System.String CloudWatchLogOptions_LogOutputFormat { get; set; }
             public List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue> TunnelOptions_Phase1DHGroupNumber { get; set; }
             public List<Amazon.EC2.Model.Phase1EncryptionAlgorithmsRequestListValue> TunnelOptions_Phase1EncryptionAlgorithm { get; set; }
             public List<Amazon.EC2.Model.Phase1IntegrityAlgorithmsRequestListValue> TunnelOptions_Phase1IntegrityAlgorithm { get; set; }

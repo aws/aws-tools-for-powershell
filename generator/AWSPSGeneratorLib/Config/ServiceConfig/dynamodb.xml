@@ -89,6 +89,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImport" OutputProperty="ImportTableDescription" Verb="Get" Noun="Import" PipelineParameter="ImportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeKinesisStreamingDestination" OutputProperty="*" Verb="Get" Noun="KinesisStreamingDestination" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -133,6 +137,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportTable" OutputProperty="ImportTableDescription" Verb="Import" Noun="Table" ShouldProcessTarget="TableCreationParameters_TableName" PipelineParameter="InputFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
@@ -150,6 +158,10 @@
         <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImports" OutputProperty="ImportSummaryList" Verb="Get" Noun="ImportList" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DDBTables">

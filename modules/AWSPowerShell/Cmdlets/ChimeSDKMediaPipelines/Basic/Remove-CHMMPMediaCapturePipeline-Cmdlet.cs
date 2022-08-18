@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Deletes the media capture pipeline.
+    /// Deletes the media pipeline.
     /// </summary>
     [Cmdlet("Remove", "CHMMPMediaCapturePipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter MediaPipelineId
         /// <summary>
         /// <para>
-        /// <para>The ID of the media capture pipeline being deleted. </para>
+        /// <para>The ID of the media pipeline being deleted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Removes the specified tags from the specified Amazon Chime SDK media capture pipeline.
+    /// Removes any tags from a media pipeline.
     /// </summary>
     [Cmdlet("Remove", "CHMMPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The resource ARN.</para>
+        /// <para>The ARN of the pipeline that you want to untag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys.</para>
+        /// <para>The key/value pairs in the tag that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

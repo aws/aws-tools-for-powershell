@@ -1,4 +1,23 @@
-﻿### 4.1.149 (2022-08-17 20:29Z)
+﻿### 4.1.150 (2022-08-18 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.338.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Media Pipelines
+    * Added cmdlet Get-CHMMPMediaPipeline leveraging the GetMediaPipeline service API.
+    * Added cmdlet Get-CHMMPMediaPipelineList leveraging the ListMediaPipelines service API.
+    * Added cmdlet New-CHMMPMediaConcatenationPipeline leveraging the CreateMediaConcatenationPipeline service API.
+    * Added cmdlet New-CHMMPMediaLiveConnectorPipeline leveraging the CreateMediaLiveConnectorPipeline service API.
+    * Added cmdlet Remove-CHMMPMediaPipeline leveraging the DeleteMediaPipeline service API.
+    * Modified cmdlet New-CHMMPMediaCapturePipeline: added parameters CompositedVideo_Layout, CompositedVideo_Resolution, GridViewConfiguration_ContentShareLayout and PresenterOnlyConfiguration_PresenterPosition.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWManagedInsightRule leveraging the ListManagedInsightRules service API.
+    * Added cmdlet Write-CWManagedInsightRule leveraging the PutManagedInsightRules service API.
+  * Amazon DynamoDB
+    * Added cmdlet Get-DDBImport leveraging the DescribeImport service API.
+    * Added cmdlet Get-DDBImportList leveraging the ListImports service API.
+    * Added cmdlet Import-DDBTable leveraging the ImportTable service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpnTunnelOption: added parameters CloudWatchLogOptions_LogEnabled, CloudWatchLogOptions_LogGroupArn and CloudWatchLogOptions_LogOutputFormat.
+
+### 4.1.149 (2022-08-17 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.337.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon App Mesh
     * Modified cmdlet New-AMSHGatewayRoute: added parameters Spec_GrpcRoute_Action_Target_Port, Spec_GrpcRoute_Match_Port, Spec_Http2Route_Action_Target_Port, Spec_Http2Route_Match_Port, Spec_HttpRoute_Action_Target_Port and Spec_HttpRoute_Match_Port.

@@ -125,6 +125,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedInsightRules" OutputProperty="ManagedRules" Verb="Get" Noun="ManagedInsightRule" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics">
             <Params />
             <TypesNotToFlatten />
@@ -150,6 +154,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutInsightRule" Verb="Write" Noun="InsightRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutManagedInsightRules" OutputProperty="Failures" Verb="Write" Noun="ManagedInsightRule" ShouldProcessTarget="ManagedRules" PipelineParameter="ManagedRules" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

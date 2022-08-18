@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWDashboardList', 
         'Get-CWInsightRule', 
         'Get-CWInsightRuleReport', 
+        'Get-CWManagedInsightRule', 
         'Get-CWMetricData', 
         'Get-CWMetricList', 
         'Get-CWMetricStatistic', 
@@ -119,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWCompositeAlarm', 
         'Write-CWDashboard', 
         'Write-CWInsightRule', 
+        'Write-CWManagedInsightRule', 
         'Write-CWMetricAlarm', 
         'Write-CWMetricData', 
         'Write-CWMetricStream')

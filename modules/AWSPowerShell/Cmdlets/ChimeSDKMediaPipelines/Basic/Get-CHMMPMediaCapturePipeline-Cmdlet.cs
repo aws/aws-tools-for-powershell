@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Gets an existing media capture pipeline.
+    /// Gets an existing media pipeline.
     /// </summary>
     [Cmdlet("Get", "CHMMPMediaCapturePipeline")]
     [OutputType("Amazon.ChimeSDKMediaPipelines.Model.MediaCapturePipeline")]

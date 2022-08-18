@@ -93,7 +93,7 @@ $CHMMP_Completers = {
         # Amazon.ChimeSDKMediaPipelines.AudioMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"
         {
-            $v = "AudioOnly","AudioWithActiveSpeakerVideo"
+            $v = "AudioOnly","AudioWithActiveSpeakerVideo","AudioWithCompositedVideo"
             break
         }
 
@@ -101,6 +101,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
         {
             $v = "ContentOnly"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"
+        {
+            $v = "Horizontal","PresenterOnly","Vertical"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.LayoutOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"
+        {
+            $v = "GridView"
             break
         }
 
@@ -115,6 +129,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaCapturePipeline/SourceType"
         {
             $v = "ChimeSdkMeeting"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.PresenterPosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"
+        {
+            $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.ResolutionOption
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"
+        {
+            $v = "FHD","HD"
             break
         }
 
@@ -135,6 +163,10 @@ $CHMMP_Completers = {
 
 $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMPMediaCapturePipeline")
@@ -194,9 +226,14 @@ $CHMMP_SelectCompleters = {
 
 $CHMMP_SelectMap = @{
     "Select"=@("New-CHMMPMediaCapturePipeline",
+               "New-CHMMPMediaConcatenationPipeline",
+               "New-CHMMPMediaLiveConnectorPipeline",
                "Remove-CHMMPMediaCapturePipeline",
+               "Remove-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipelineList",
+               "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
                "Add-CHMMPResourceTag",
                "Remove-CHMMPResourceTag")
