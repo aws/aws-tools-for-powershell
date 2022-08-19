@@ -28,14 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Places an outbound call to a contact, and then initiates the contact flow. It performs
-    /// the actions in the contact flow that's specified (in <code>ContactFlowId</code>).
+    /// Places an outbound call to a contact, and then initiates the flow. It performs the
+    /// actions in the flow that's specified (in <code>ContactFlowId</code>).
     /// 
     ///  
     /// <para>
     /// Agents do not initiate the outbound API, which means that they do not dial the contact.
-    /// If the contact flow places an outbound call to a contact, and then puts the contact
-    /// in queue, the call is then routed to the agent, like any other inbound case.
+    /// If the flow places an outbound call to a contact, and then puts the contact in queue,
+    /// the call is then routed to the agent, like any other inbound case.
     /// </para><para>
     /// There is a 60-second dialing timeout for this operation. If the call is not connected
     /// after 60 seconds, it fails.
@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para></note><note><para>
     /// Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code>
-    /// = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more
-    /// information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
-    /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// = <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon
+    /// Connect campaigns</a>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CONNOutboundVoiceContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes, and can be accessed in contact flows just like any other contact
-        /// attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para>
         /// </para>
         /// </summary>
@@ -98,11 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow for the outbound call. To see the ContactFlowId
-        /// in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
-        /// <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the
-        /// name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId
-        /// is the last part of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
+        /// <para>The identifier of the flow for the outbound call. To see the ContactFlowId in the
+        /// Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
+        /// <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow,
+        /// choose <b>Show additional flow information</b>. The ContactFlowId is the last part
+        /// of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The queue for the call. If you specify a queue, the phone displayed for caller ID
         /// is the phone number specified in the queue. If you do not specify a queue, the queue
-        /// defined in the contact flow is used. If you do not specify a queue, you must specify
-        /// a source phone number.</para>
+        /// defined in the flow is used. If you do not specify a queue, you must specify a source
+        /// phone number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

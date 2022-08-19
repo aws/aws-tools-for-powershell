@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes the contact flow association from a phone number claimed to your Amazon Connect
-    /// instance, if a contact flow association exists.
+    /// Removes the flow association from a phone number claimed to your Amazon Connect instance,
+    /// if a flow association exists.
     /// </summary>
     [Cmdlet("Remove", "CONNPhoneNumberContactFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

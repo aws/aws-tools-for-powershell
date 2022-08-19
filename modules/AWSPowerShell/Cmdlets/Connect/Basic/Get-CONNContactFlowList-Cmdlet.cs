@@ -28,15 +28,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides information about the contact flows for the specified Amazon Connect instance.
+    /// Provides information about the flows for the specified Amazon Connect instance.
     /// 
     ///  
     /// <para>
-    /// You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon
+    /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon
     /// Connect Flow language</a>.
     /// </para><para>
-    /// For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact
-    /// Flows</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a>
+    /// in the <i>Amazon Connect Administrator Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNContactFlowList")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowType
         /// <summary>
         /// <para>
-        /// <para>The type of contact flow.</para>
+        /// <para>The type of flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of results to return per page. The default MaxResult size is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

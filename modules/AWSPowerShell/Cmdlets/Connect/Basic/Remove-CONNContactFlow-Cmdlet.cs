@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a contact flow for the specified Amazon Connect instance.
+    /// Deletes a flow for the specified Amazon Connect instance.
     /// </summary>
     [Cmdlet("Remove", "CONNContactFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

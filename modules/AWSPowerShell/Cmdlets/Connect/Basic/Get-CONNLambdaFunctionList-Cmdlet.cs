@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// Returns a paginated list of all Lambda functions that display in the dropdown options
-    /// in the relevant contact flow blocks.
+    /// in the relevant flow blocks.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNLambdaFunctionList")]

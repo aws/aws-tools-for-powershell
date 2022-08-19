@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the integration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the integration.</para><note><para>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint instances
+        /// must be in the same account.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

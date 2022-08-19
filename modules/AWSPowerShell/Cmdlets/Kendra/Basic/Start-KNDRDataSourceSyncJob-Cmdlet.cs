@@ -28,8 +28,9 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Starts a synchronization job for a data source. If a synchronization job is already
-    /// in progress, Amazon Kendra returns a <code>ResourceInUseException</code> exception.
+    /// Starts a synchronization job for a data source connector. If a synchronization job
+    /// is already in progress, Amazon Kendra returns a <code>ResourceInUseException</code>
+    /// exception.
     /// </summary>
     [Cmdlet("Start", "KNDRDataSourceSyncJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source to synchronize.</para>
+        /// <para>The identifier of the data source connector to synchronize.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the data source.</para>
+        /// <para>The identifier of the index used with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

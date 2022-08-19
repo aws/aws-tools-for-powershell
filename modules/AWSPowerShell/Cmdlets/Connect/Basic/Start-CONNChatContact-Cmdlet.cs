@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Initiates a contact flow to start a new chat for the customer. Response of this API
-    /// provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
+    /// Initiates a flow to start a new chat for the customer. Response of this API provides
+    /// a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
     /// API in the Amazon Connect Participant Service.
     /// 
     ///  
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
-        /// Connect attributes. They can be accessed in contact flows just like any other contact
-        /// attributes. </para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// Connect attributes. They can be accessed in flows just like any other contact attributes.
+        /// </para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para>
         /// </para>
         /// </summary>
@@ -93,11 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow for initiating the chat. To see the ContactFlowId
-        /// in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
-        /// <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the
-        /// name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId
-        /// is the last part of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
+        /// <para>The identifier of the flow for initiating the chat. To see the ContactFlowId in the
+        /// Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
+        /// <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow,
+        /// choose <b>Show additional flow information</b>. The ContactFlowId is the last part
+        /// of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
         #if !MODULAR

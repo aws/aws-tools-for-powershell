@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source for which to stop the synchronization jobs.</para>
+        /// <para>The identifier of the data source connector for which to stop the synchronization
+        /// jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index that contains the data source.</para>
+        /// <para>The identifier of the index used with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

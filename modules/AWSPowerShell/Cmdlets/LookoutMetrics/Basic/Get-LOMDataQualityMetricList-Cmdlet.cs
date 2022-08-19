@@ -22,34 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.LookoutMetrics;
+using Amazon.LookoutMetrics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.LOM
 {
     /// <summary>
-    /// Describes the specified flow.
-    /// 
-    ///  
-    /// <para>
-    /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon
-    /// Connect Flow language</a>.
-    /// </para>
+    /// Returns details about the requested data quality metrics.
     /// </summary>
-    [Cmdlet("Get", "CONNContactFlow")]
-    [OutputType("Amazon.Connect.Model.ContactFlow")]
-    [AWSCmdlet("Calls the Amazon Connect Service DescribeContactFlow API operation.", Operation = new[] {"DescribeContactFlow"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeContactFlowResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.ContactFlow or Amazon.Connect.Model.DescribeContactFlowResponse",
-        "This cmdlet returns an Amazon.Connect.Model.ContactFlow object.",
-        "The service call response (type Amazon.Connect.Model.DescribeContactFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LOMDataQualityMetricList")]
+    [OutputType("Amazon.LookoutMetrics.Model.AnomalyDetectorDataQualityMetric")]
+    [AWSCmdlet("Calls the Amazon Lookout for Metrics GetDataQualityMetrics API operation.", Operation = new[] {"GetDataQualityMetrics"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse))]
+    [AWSCmdletOutput("Amazon.LookoutMetrics.Model.AnomalyDetectorDataQualityMetric or Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse",
+        "This cmdlet returns a collection of Amazon.LookoutMetrics.Model.AnomalyDetectorDataQualityMetric objects.",
+        "The service call response (type Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNContactFlowCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetLOMDataQualityMetricListCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactFlowId
+        #region Parameter AnomalyDetectorArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the flow.</para>
+        /// <para>The Amazon Resource Name (ARN) of the anomaly detector that you want to investigate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,43 +54,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactFlowId { get; set; }
+        public System.String AnomalyDetectorArn { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter MetricSetArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The Amazon Resource Name (ARN) of a specific data quality metric set.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String MetricSetArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactFlow'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeContactFlowResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeContactFlowResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnomalyDetectorDataQualityMetricList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse).
+        /// Specifying the name of a property of type Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactFlow";
+        public string Select { get; set; } = "AnomalyDetectorDataQualityMetricList";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactFlowId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AnomalyDetectorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeContactFlowResponse, GetCONNContactFlowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse, GetLOMDataQualityMetricListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -122,23 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactFlowId;
+                context.Select = (response, cmdlet) => this.AnomalyDetectorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactFlowId = this.ContactFlowId;
+            context.AnomalyDetectorArn = this.AnomalyDetectorArn;
             #if MODULAR
-            if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
+            if (this.AnomalyDetectorArn == null && ParameterWasBound(nameof(this.AnomalyDetectorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnomalyDetectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MetricSetArn = this.MetricSetArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,15 +134,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DescribeContactFlowRequest();
+            var request = new Amazon.LookoutMetrics.Model.GetDataQualityMetricsRequest();
             
-            if (cmdletContext.ContactFlowId != null)
+            if (cmdletContext.AnomalyDetectorArn != null)
             {
-                request.ContactFlowId = cmdletContext.ContactFlowId;
+                request.AnomalyDetectorArn = cmdletContext.AnomalyDetectorArn;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.MetricSetArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.MetricSetArn = cmdletContext.MetricSetArn;
             }
             
             CmdletOutput output;
@@ -196,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DescribeContactFlowResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeContactFlowRequest request)
+        private Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse CallAWSServiceOperation(IAmazonLookoutMetrics client, Amazon.LookoutMetrics.Model.GetDataQualityMetricsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeContactFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Metrics", "GetDataQualityMetrics");
             try
             {
                 #if DESKTOP
-                return client.DescribeContactFlow(request);
+                return client.GetDataQualityMetrics(request);
                 #elif CORECLR
-                return client.DescribeContactFlowAsync(request).GetAwaiter().GetResult();
+                return client.GetDataQualityMetricsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,10 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactFlowId { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DescribeContactFlowResponse, GetCONNContactFlowCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactFlow;
+            public System.String AnomalyDetectorArn { get; set; }
+            public System.String MetricSetArn { get; set; }
+            public System.Func<Amazon.LookoutMetrics.Model.GetDataQualityMetricsResponse, GetLOMDataQualityMetricListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnomalyDetectorDataQualityMetricList;
         }
         
     }

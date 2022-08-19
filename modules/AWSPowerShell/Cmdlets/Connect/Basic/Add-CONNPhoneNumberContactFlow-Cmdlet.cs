@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Associates a contact flow with a phone number claimed to your Amazon Connect instance.
+    /// Associates a flow with a phone number claimed to your Amazon Connect instance.
     /// </summary>
     [Cmdlet("Add", "CONNPhoneNumberContactFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

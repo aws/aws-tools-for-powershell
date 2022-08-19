@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a contact flow module for the specified Amazon Connect instance.
+    /// Creates a flow module for the specified Amazon Connect instance.
     /// </summary>
     [Cmdlet("New", "CONNContactFlowModule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateContactFlowModuleResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the contact flow module.</para>
+        /// <para>The content of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the contact flow module. </para>
+        /// <para>The description of the flow module. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the contact flow module.</para>
+        /// <para>The name of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

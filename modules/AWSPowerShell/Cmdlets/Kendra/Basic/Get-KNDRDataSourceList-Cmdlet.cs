@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Lists the data sources that you have created.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the data source connectors that you have created.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRDataSourceList")]
     [OutputType("Amazon.Kendra.Model.DataSourceSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used with one or more data sources.</para>
+        /// <para>The identifier of the index used with one or more data source connectors.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of data sources to return.</para>
+        /// <para>The maximum number of data source connectors to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>If the previous response was incomplete (because there is more data to retrieve),
         /// Amazon Kendra returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of data sources (<code>DataSourceSummaryItems</code>).
+        /// token to retrieve the next set of data source connectors (<code>DataSourceSummaryItems</code>).
         /// </para>
         /// </para>
         /// <para>

@@ -28,11 +28,11 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates the specified contact flow.
+    /// Updates the specified flow.
     /// 
     ///  
     /// <para>
-    /// You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon
+    /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon
     /// Connect Flow language</a>.
     /// </para>
     /// </summary>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example
+        /// <para>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example
         /// contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator
         /// Guide</i>. </para>
         /// </para>

@@ -41,15 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// review or to identify abusive callers.
     /// </para><para>
     /// Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
-    /// For information about CTR retention and the maximum size of the CTR attributes section,
-    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+    /// For information about contact record retention and the maximum size of the contact
+    /// record attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
     /// specifications</a> in the <i>Amazon Connect Administrator Guide</i>. 
-    /// </para><para><b>Important:</b> You cannot use the operation to update attributes for contacts
-    /// that occurred prior to the release of the API, which was September 12, 2018. You can
-    /// update attributes only for contacts that started after the release of the API. If
-    /// you attempt to update attributes for a contact that occurred prior to the release
-    /// of the API, a 400 error is returned. This applies also to queued callbacks that were
-    /// initiated prior to the release of the API but are still active in your instance.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNContactAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The Amazon Connect attributes. These attributes can be accessed in contact flows just
-        /// like any other contact attributes.</para><para>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute
+        /// <para>The Amazon Connect attributes. These attributes can be accessed in flows just like
+        /// any other contact attributes.</para><para>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute
         /// keys can include only alphanumeric, dash, and underscore characters.</para>
         /// </para>
         /// </summary>

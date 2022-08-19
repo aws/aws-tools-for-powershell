@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         /// <summary>
         /// <para>
         /// <para>After an interval ends, the amount of seconds that the detector waits before importing
-        /// data. Offset is only supported for S3 and Redshift datasources.</para>
+        /// data. Offset is only supported for S3, Redshift, Athena and datasources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

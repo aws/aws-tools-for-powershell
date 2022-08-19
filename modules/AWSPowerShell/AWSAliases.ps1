@@ -4993,6 +4993,8 @@ Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
+Set-Alias -Name CONN-SearchSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name Search-CONNUsers -Value Search-CONNUser
 Set-Alias -Name CONN-SearchUsers -Value Search-CONNUser
 Set-Alias -Name Search-CONNVocabularies -Value Search-CONNVocabulary
@@ -13974,6 +13976,8 @@ Set-Alias -Name LOM-DescribeMetricSet -Value Get-LOMMetricSet
 Set-Alias -Name Detect-LOMMetricSetConfig -Value Get-LOMMetricSetConfig
 Set-Alias -Name LOM-DetectMetricSetConfig -Value Get-LOMMetricSetConfig
 Set-Alias -Name LOM-GetAnomalyGroup -Value Get-LOMAnomalyGroup
+Set-Alias -Name Get-LOMDataQualityMetrics -Value Get-LOMDataQualityMetricList
+Set-Alias -Name LOM-GetDataQualityMetrics -Value Get-LOMDataQualityMetricList
 Set-Alias -Name LOM-GetFeedback -Value Get-LOMFeedback
 Set-Alias -Name LOM-GetSampleData -Value Get-LOMSampleData
 Set-Alias -Name List-LOMAlerts -Value Get-LOMAlertList

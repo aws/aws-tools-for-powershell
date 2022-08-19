@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Transfers contacts from one agent or queue to another agent or queue at any point
     /// after a contact is created. You can transfer a contact to another queue by providing
-    /// the contact flow which orchestrates the contact to the destination queue. This gives
-    /// you more control over contact handling and helps you adhere to the service level agreement
+    /// the flow which orchestrates the contact to the destination queue. This gives you more
+    /// control over contact handling and helps you adhere to the service level agreement
     /// (SLA) guaranteed to your customers.
     /// 
     ///  
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li><li><para>
     /// Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.
     /// </para></li><li><para>
-    /// The following contact flow types are supported: Inbound contact flow, Transfer to
-    /// agent flow, and Transfer to queue flow.
+    /// The following flow types are supported: Inbound flow, Transfer to agent flow, and
+    /// Transfer to queue flow.
     /// </para></li><li><para>
     /// The <code>TransferContact</code> API can be called only on active contacts.
     /// </para></li><li><para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

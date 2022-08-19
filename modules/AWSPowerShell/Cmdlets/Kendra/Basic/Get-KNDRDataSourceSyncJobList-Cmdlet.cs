@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets statistics about synchronizing Amazon Kendra with a data source.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets statistics about synchronizing a data source connector.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRDataSourceSyncJobList")]
     [OutputType("Amazon.Kendra.Model.DataSourceSyncJob")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source.</para>
+        /// <para>The identifier of the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used with the data source.</para>
+        /// <para>The identifier of the index used with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>When specified, only returns synchronization jobs with the <code>Status</code> field
-        /// equal to the specified status.</para>
+        /// <para>Only returns synchronization jobs with the <code>Status</code> field equal to the
+        /// specified status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

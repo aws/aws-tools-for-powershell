@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Creates a data source that you want to use with an Amazon Kendra index. 
+    /// Creates a data source connector that you want to use with an Amazon Kendra index.
     /// 
     ///  
     /// <para>
@@ -279,8 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source
-        /// connector. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// Roles for Amazon Kendra</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
+        /// and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para><para>The <code>RoleArn</code> parameter is required for all other data sources.</para>
         /// </para>

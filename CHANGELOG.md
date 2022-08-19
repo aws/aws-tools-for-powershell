@@ -1,4 +1,11 @@
-﻿### 4.1.150 (2022-08-18 20:20Z)
+﻿### 4.1.151 (2022-08-19 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.339.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNSecurityProfile leveraging the SearchSecurityProfiles service API.
+  * Amazon Lookout for Metrics
+    * Added cmdlet Get-LOMDataQualityMetricList leveraging the GetDataQualityMetrics service API.
+
+### 4.1.150 (2022-08-18 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.338.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Media Pipelines
     * Added cmdlet Get-CHMMPMediaPipeline leveraging the GetMediaPipeline service API.

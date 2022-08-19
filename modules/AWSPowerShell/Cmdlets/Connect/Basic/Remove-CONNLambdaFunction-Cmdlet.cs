@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Remove the Lambda function from the dropdown options available in the relevant contact
-    /// flow blocks.
+    /// Remove the Lambda function from the dropdown options available in the relevant flow
+    /// blocks.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CONNLambdaFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

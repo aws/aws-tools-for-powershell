@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates metadata about specified contact flow module.
+    /// Updates metadata about specified flow module.
     /// </summary>
     [Cmdlet("Update", "CONNContactFlowModuleMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowModuleId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow module.</para>
+        /// <para>The identifier of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the contact flow module.</para>
+        /// <para>The description of the flow module.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the contact flow module.</para>
+        /// <para>The name of the flow module.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The state of contact flow module.</para>
+        /// <para>The state of flow module.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

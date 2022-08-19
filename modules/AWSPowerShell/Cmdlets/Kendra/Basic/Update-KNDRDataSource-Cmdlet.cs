@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Updates an existing Amazon Kendra data source.
+    /// Updates an existing Amazon Kendra data source connector.
     /// </summary>
     [Cmdlet("Update", "KNDRDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source you want to update.</para>
+        /// <para>The identifier of the data source connector you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -270,9 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// Roles for Amazon Kendra</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source
+        /// and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates specified contact flow module for the specified Amazon Connect instance.
+    /// Updates specified flow module for the specified Amazon Connect instance.
     /// </summary>
     [Cmdlet("Update", "CONNContactFlowModuleContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowModuleId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow module.</para>
+        /// <para>The identifier of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the contact flow module.</para>
+        /// <para>The content of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

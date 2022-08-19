@@ -229,7 +229,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.StringComparisonType
-        "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType"
+        {
+            ($_ -eq "Search-CONNSecurityProfile/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType")
+        }
         {
             $v = "CONTAINS","EXACT","STARTS_WITH"
             break
@@ -307,7 +310,7 @@ $CONN_map = @{
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNUser")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNSecurityProfile","Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
@@ -474,6 +477,7 @@ $CONN_SelectMap = @{
                "Remove-CONNPhoneNumber",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNSecurityProfile",
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Start-CONNChatContact",

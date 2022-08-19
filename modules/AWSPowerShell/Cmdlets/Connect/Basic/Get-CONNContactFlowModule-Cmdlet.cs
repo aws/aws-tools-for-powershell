@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Describes the specified contact flow module.
+    /// Describes the specified flow module.
     /// </summary>
     [Cmdlet("Get", "CONNContactFlowModule")]
     [OutputType("Amazon.Connect.Model.ContactFlowModule")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowModuleId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow module.</para>
+        /// <para>The identifier of the flow module.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

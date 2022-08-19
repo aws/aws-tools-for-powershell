@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets information about an Amazon Kendra data source.
+    /// Gets information about an Amazon Kendra data source connector.
     /// </summary>
     [Cmdlet("Get", "KNDRDataSource")]
     [OutputType("Amazon.Kendra.Model.DescribeDataSourceResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source.</para>
+        /// <para>The identifier of the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used with the data source.</para>
+        /// <para>The identifier of the index used with the data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

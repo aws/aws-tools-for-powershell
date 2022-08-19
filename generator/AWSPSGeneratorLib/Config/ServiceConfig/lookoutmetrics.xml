@@ -80,6 +80,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityMetrics" OutputProperty="AnomalyDetectorDataQualityMetricList" Verb="Get" Noun="DataQualityMetricList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFeedback" OutputProperty="AnomalyGroupTimeSeriesFeedback" Verb="Get" Noun="Feedback" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

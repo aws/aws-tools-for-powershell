@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QueueConfig_ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter UserConfig_ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
