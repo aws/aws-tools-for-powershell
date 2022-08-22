@@ -916,6 +916,9 @@
     <Reference Include="AWSSDK.StorageGateway">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SupportApp">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SupportApp.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Synthetics.dll</HintPath>
     </Reference>
@@ -1835,6 +1838,9 @@
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.StorageGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SupportApp">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SupportApp.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Synthetics.dll</HintPath>

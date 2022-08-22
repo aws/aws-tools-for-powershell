@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.LexModelsV2'
+# Module manifest for module 'AWS.Tools.SupportApp'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.LexModelsV2.dll'
+    RootModule = 'AWS.Tools.SupportApp.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '33dda8fd-ff80-48ea-98c3-aff899fae1a0'
+    GUID = 'e998faef-1207-41f5-9dc8-f2bc3ca4abcd'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The LexModelsV2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Lex Model Building V2 from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The SupportApp module of AWS Tools for PowerShell lets developers and administrators manage AWS Support App from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.LexModelsV2.dll'
+        'AWSSDK.SupportApp.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.LexModelsV2.Format.ps1xml'
+        'AWS.Tools.SupportApp.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.LexModelsV2.Completers.psm1',
-        'AWS.Tools.LexModelsV2.Aliases.psm1'
+        'AWS.Tools.SupportApp.Completers.psm1',
+        'AWS.Tools.SupportApp.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,87 +86,28 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-LMBV2ResourceTag', 
-        'Get-LMBV2AggregatedUtteranceList', 
-        'Get-LMBV2Bot', 
-        'Get-LMBV2BotAlias', 
-        'Get-LMBV2BotAliasList', 
-        'Get-LMBV2BotList', 
-        'Get-LMBV2BotLocale', 
-        'Get-LMBV2BotLocaleList', 
-        'Get-LMBV2BotRecommendation', 
-        'Get-LMBV2BotRecommendationList', 
-        'Get-LMBV2BotVersion', 
-        'Get-LMBV2BotVersionList', 
-        'Get-LMBV2BuiltInIntentList', 
-        'Get-LMBV2BuiltInSlotTypeList', 
-        'Get-LMBV2CustomVocabularyMetadata', 
-        'Get-LMBV2Export', 
-        'Get-LMBV2ExportList', 
-        'Get-LMBV2Import', 
-        'Get-LMBV2ImportList', 
-        'Get-LMBV2Intent', 
-        'Get-LMBV2IntentList', 
-        'Get-LMBV2RecommendedIntentList', 
-        'Get-LMBV2ResourcePolicy', 
-        'Get-LMBV2ResourceTag', 
-        'Get-LMBV2Slot', 
-        'Get-LMBV2SlotList', 
-        'Get-LMBV2SlotType', 
-        'Get-LMBV2SlotTypeList', 
-        'Invoke-LMBV2BuildBotLocale', 
-        'New-LMBV2Bot', 
-        'New-LMBV2BotAlias', 
-        'New-LMBV2BotLocale', 
-        'New-LMBV2BotVersion', 
-        'New-LMBV2Export', 
-        'New-LMBV2Intent', 
-        'New-LMBV2ResourcePolicy', 
-        'New-LMBV2ResourcePolicyStatement', 
-        'New-LMBV2Slot', 
-        'New-LMBV2SlotType', 
-        'New-LMBV2UploadUrl', 
-        'Remove-LMBV2Bot', 
-        'Remove-LMBV2BotAlias', 
-        'Remove-LMBV2BotLocale', 
-        'Remove-LMBV2BotVersion', 
-        'Remove-LMBV2CustomVocabulary', 
-        'Remove-LMBV2Export', 
-        'Remove-LMBV2Import', 
-        'Remove-LMBV2Intent', 
-        'Remove-LMBV2ResourcePolicy', 
-        'Remove-LMBV2ResourcePolicyStatement', 
-        'Remove-LMBV2ResourceTag', 
-        'Remove-LMBV2Slot', 
-        'Remove-LMBV2SlotType', 
-        'Remove-LMBV2Utterance', 
-        'Search-LMBV2AssociatedTranscript', 
-        'Start-LMBV2BotRecommendation', 
-        'Start-LMBV2Import', 
-        'Stop-LMBV2BotRecommendation', 
-        'Update-LMBV2Bot', 
-        'Update-LMBV2BotAlias', 
-        'Update-LMBV2BotLocale', 
-        'Update-LMBV2BotRecommendation', 
-        'Update-LMBV2Export', 
-        'Update-LMBV2Intent', 
-        'Update-LMBV2ResourcePolicy', 
-        'Update-LMBV2Slot', 
-        'Update-LMBV2SlotType')
+        'Get-SUPAccountAlias', 
+        'Get-SUPSlackChannelConfigurationList', 
+        'Get-SUPSlackWorkspaceConfigurationList', 
+        'New-SUPSlackChannelConfiguration', 
+        'Remove-SUPAccountAlias', 
+        'Remove-SUPSlackChannelConfiguration', 
+        'Remove-SUPSlackWorkspaceConfiguration', 
+        'Set-SUPAccountAlias', 
+        'Update-SUPSlackChannelConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @(
-        'Build-LMBV2BotLocale')
+    AliasesToExport = @()
 
     # List of all modules packaged with this module
     ModuleList = @()
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.LexModelsV2.dll-Help.xml'
+        'AWS.Tools.SupportApp.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

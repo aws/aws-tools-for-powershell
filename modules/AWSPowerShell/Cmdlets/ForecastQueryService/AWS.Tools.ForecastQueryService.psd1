@@ -86,7 +86,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Select-FRCQForecast')
+        'Select-FRCQForecast', 
+        'Select-FRCQWhatIfForecast')
 
     # Variables to export from this module
     VariablesToExport = '*'

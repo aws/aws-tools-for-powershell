@@ -72,13 +72,42 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Forecast Query Service
+# Argument completions for service AWS Support App
 
 
-$FRCQ_SelectCompleters = {
+$SUP_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.FRCQ.$($commandName.Replace('-', ''))Cmdlet]"
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SupportApp.NotificationSeverityLevel
+        {
+            ($_ -eq "New-SUPSlackChannelConfiguration/NotifyOnCaseSeverity") -Or
+            ($_ -eq "Update-SUPSlackChannelConfiguration/NotifyOnCaseSeverity")
+        }
+        {
+            $v = "all","high","none"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SUP_map = @{
+    "NotifyOnCaseSeverity"=@("New-SUPSlackChannelConfiguration","Update-SUPSlackChannelConfiguration")
+}
+
+_awsArgumentCompleterRegistration $SUP_Completers $SUP_map
+
+$SUP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SUP.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -122,10 +151,17 @@ $FRCQ_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$FRCQ_SelectMap = @{
-    "Select"=@("Select-FRCQForecast",
-               "Select-FRCQWhatIfForecast")
+$SUP_SelectMap = @{
+    "Select"=@("New-SUPSlackChannelConfiguration",
+               "Remove-SUPAccountAlias",
+               "Remove-SUPSlackChannelConfiguration",
+               "Remove-SUPSlackWorkspaceConfiguration",
+               "Get-SUPAccountAlias",
+               "Get-SUPSlackChannelConfigurationList",
+               "Get-SUPSlackWorkspaceConfigurationList",
+               "Set-SUPAccountAlias",
+               "Update-SUPSlackChannelConfiguration")
 }
 
-_awsArgumentCompleterRegistration $FRCQ_SelectCompleters $FRCQ_SelectMap
+_awsArgumentCompleterRegistration $SUP_SelectCompleters $SUP_SelectMap
 

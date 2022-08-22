@@ -1,4 +1,25 @@
-﻿### 4.1.151 (2022-08-19 20:33Z)
+﻿### 4.1.152 (2022-08-22 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.340.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Forecast Query Service
+    * Added cmdlet Select-FRCQWhatIfForecast leveraging the QueryWhatIfForecast service API.
+  * Amazon Forecast Service
+    * Added cmdlet Get-FRCWhatIfAnalysis leveraging the DescribeWhatIfAnalysis service API.
+    * Added cmdlet Get-FRCWhatIfAnalysisList leveraging the ListWhatIfAnalyses service API.
+    * Added cmdlet Get-FRCWhatIfForecast leveraging the DescribeWhatIfForecast service API.
+    * Added cmdlet Get-FRCWhatIfForecastExport leveraging the DescribeWhatIfForecastExport service API.
+    * Added cmdlet Get-FRCWhatIfForecastExportList leveraging the ListWhatIfForecastExports service API.
+    * Added cmdlet Get-FRCWhatIfForecastList leveraging the ListWhatIfForecasts service API.
+    * Added cmdlet New-FRCWhatIfAnalysis leveraging the CreateWhatIfAnalysis service API.
+    * Added cmdlet New-FRCWhatIfForecast leveraging the CreateWhatIfForecast service API.
+    * Added cmdlet New-FRCWhatIfForecastExport leveraging the CreateWhatIfForecastExport service API.
+    * Added cmdlet Remove-FRCWhatIfAnalysis leveraging the DeleteWhatIfAnalysis service API.
+    * Added cmdlet Remove-FRCWhatIfForecast leveraging the DeleteWhatIfForecast service API.
+    * Added cmdlet Remove-FRCWhatIfForecastExport leveraging the DeleteWhatIfForecastExport service API.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Stop-LMBV2BotRecommendation leveraging the StopBotRecommendation service API.
+  * Amazon Support App. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SUP and can be listed using the command 'Get-AWSCmdletName -Service SUP'.
+
+### 4.1.151 (2022-08-19 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.339.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNSecurityProfile leveraging the SearchSecurityProfiles service API.

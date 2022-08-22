@@ -63,6 +63,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatIfAnalysis" OutputProperty="WhatIfAnalysisArn" Verb="New" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisName" PipelineParameter="WhatIfAnalysisName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatIfForecast" OutputProperty="WhatIfForecastArn" Verb="New" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastName" PipelineParameter="WhatIfForecastName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatIfForecastExport" OutputProperty="WhatIfForecastExportArn" Verb="New" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportName" PipelineParameter="WhatIfForecastExportName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,6 +119,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatIfAnalysis" Verb="Remove" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisArn" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatIfForecast" Verb="Remove" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastArn" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatIfForecastExport" Verb="Remove" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportArn" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAutoPredictor" OutputProperty="*" Verb="Get" Noun="AutoPredictor" PipelineParameter="PredictorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +172,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePredictorBacktestExportJob" OutputProperty="*" Verb="Get" Noun="PredictorBacktestExportJob" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWhatIfAnalysis" OutputProperty="*" Verb="Get" Noun="WhatIfAnalysis" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWhatIfForecast" OutputProperty="*" Verb="Get" Noun="WhatIfForecast" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWhatIfForecastExport" OutputProperty="*" Verb="Get" Noun="WhatIfForecastExport" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +236,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatIfAnalyses" OutputProperty="WhatIfAnalyses" Verb="Get" Noun="WhatIfAnalysisList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatIfForecastExports" OutputProperty="WhatIfForecastExports" Verb="Get" Noun="WhatIfForecastExportList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatIfForecasts" OutputProperty="WhatIfForecasts" Verb="Get" Noun="WhatIfForecastList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

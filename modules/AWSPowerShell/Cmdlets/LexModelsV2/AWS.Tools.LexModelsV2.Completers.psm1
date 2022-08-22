@@ -535,6 +535,7 @@ $LMBV2_SelectMap = @{
                "Search-LMBV2AssociatedTranscript",
                "Start-LMBV2BotRecommendation",
                "Start-LMBV2Import",
+               "Stop-LMBV2BotRecommendation",
                "Add-LMBV2ResourceTag",
                "Remove-LMBV2ResourceTag",
                "Update-LMBV2Bot",
