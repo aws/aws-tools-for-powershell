@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// <summary>
     /// Deletes a principal's access from a specified Amazon Web Services account using a
     /// specified permission set.
+    /// 
+    ///  <note><para>
+    /// After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code>
+    /// to describe the status of an assignment deletion request.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SSOADMNAccountAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus")]

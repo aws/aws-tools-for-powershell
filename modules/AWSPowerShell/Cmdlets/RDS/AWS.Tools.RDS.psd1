@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-RDSSourceIdentifierToSubscription', 
         'Add-RDSTagsToResource', 
         'Convert-RDSReadReplicaDBCluster', 
+        'Convert-RDSReadReplicaToNewPrimary', 
         'Convert-RDSReadReplicaToStandalone', 
         'Copy-RDSDBClusterParameterGroup', 
         'Copy-RDSDBClusterSnapshot', 

@@ -41,6 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// permission set is subsequently updated, the corresponding IAM policies attached to
     /// roles in your accounts will not be updated automatically. In this case, you must call
     /// <code><a>ProvisionPermissionSet</a></code> to make these updates.
+    /// </para></note><note><para>
+    ///  After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code>
+    /// to describe the status of an assignment creation request. 
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNAccountAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

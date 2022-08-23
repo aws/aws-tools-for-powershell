@@ -40690,7 +40690,8 @@ $RDS_SelectMap = @{
                "Stop-RDSActivityStream",
                "Stop-RDSDBCluster",
                "Stop-RDSDBInstance",
-               "Stop-RDSDBInstanceAutomatedBackupsReplication")
+               "Stop-RDSDBInstanceAutomatedBackupsReplication",
+               "Convert-RDSReadReplicaToNewPrimary")
 }
 
 _awsArgumentCompleterRegistration $RDS_SelectCompleters $RDS_SelectMap

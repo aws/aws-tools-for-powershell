@@ -1,4 +1,9 @@
-﻿### 4.1.152 (2022-08-22 20:49Z)
+﻿### 4.1.153 (2022-08-23 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.341.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Added cmdlet Convert-RDSReadReplicaToNewPrimary leveraging the SwitchoverReadReplica service API.
+
+### 4.1.152 (2022-08-22 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.340.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Forecast Query Service
     * Added cmdlet Select-FRCQWhatIfForecast leveraging the QueryWhatIfForecast service API.

@@ -17748,6 +17748,9 @@ Set-Alias -Name RDS-StopActivityStream -Value Stop-RDSActivityStream
 Set-Alias -Name RDS-StopDBCluster -Value Stop-RDSDBCluster
 Set-Alias -Name RDS-StopDBInstance -Value Stop-RDSDBInstance
 Set-Alias -Name RDS-StopDBInstanceAutomatedBackupsReplication -Value Stop-RDSDBInstanceAutomatedBackupsReplication
+Set-Alias -Name Switchover-RDSReadReplica -Value Convert-RDSReadReplicaToNewPrimary
+Set-Alias -Name Switchover-RDSReadReplicaToNewPrimary -Value Convert-RDSReadReplicaToNewPrimary
+Set-Alias -Name RDS-SwitchoverReadReplica -Value Convert-RDSReadReplicaToNewPrimary
 Set-Alias -Name Batch-RDSDExecuteStatement -Value Invoke-RDSDStatementBatch
 Set-Alias -Name Batch-RDSDStatementBatch -Value Invoke-RDSDStatementBatch
 Set-Alias -Name RDSD-BatchExecuteStatement -Value Invoke-RDSDStatementBatch
