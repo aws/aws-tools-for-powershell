@@ -1,4 +1,19 @@
-﻿### 4.1.153 (2022-08-23 20:47Z)
+﻿### 4.1.154 (2022-08-24 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.342.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFOriginAccessControl leveraging the GetOriginAccessControl service API.
+    * Added cmdlet Get-CFOriginAccessControlConfig leveraging the GetOriginAccessControlConfig service API.
+    * Added cmdlet Get-CFOriginAccessControlList leveraging the ListOriginAccessControls service API.
+    * Added cmdlet New-CFOriginAccessControl leveraging the CreateOriginAccessControl service API.
+    * Added cmdlet Remove-CFOriginAccessControl leveraging the DeleteOriginAccessControl service API.
+    * Added cmdlet Update-CFOriginAccessControl leveraging the UpdateOriginAccessControl service API.
+  * Amazon Config
+    * Modified cmdlet Write-CFGConformancePack: added parameters TemplateSSMDocumentDetails_DocumentName and TemplateSSMDocumentDetails_DocumentVersion.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSEmbedUrlForAnonymousUser: added parameters InitialDashboardVisualId_DashboardId, InitialDashboardVisualId_SheetId and InitialDashboardVisualId_VisualId.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters InitialDashboardVisualId_DashboardId, InitialDashboardVisualId_SheetId and InitialDashboardVisualId_VisualId.
+
+### 4.1.153 (2022-08-23 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.341.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Added cmdlet Convert-RDSReadReplicaToNewPrimary leveraging the SwitchoverReadReplica service API.

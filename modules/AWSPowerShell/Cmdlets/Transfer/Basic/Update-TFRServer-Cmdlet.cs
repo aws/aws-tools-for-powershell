@@ -223,14 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
-        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</para></li><li><para>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</para></li><li><para>File Transfer Protocol (FTP): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web
-        /// ServicesCertificate Manager (ACM) which will be used to identify your server when
-        /// clients connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
+        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li><li><para><code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business
+        /// data</para></li></ul><note><ul><li><para>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate
+        /// Manager (ACM) which is used to identify your server when clients connect to it over
+        /// FTPS.</para></li><li><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
-        /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
+        /// cannot be associated.</para></li><li><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
-        /// set to <code>SERVICE_MANAGED</code>.</para></note>
+        /// set to <code>SERVICE_MANAGED</code>.</para></li><li><para>If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
+        /// must be <code>VPC</code>, and domain must be Amazon S3.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

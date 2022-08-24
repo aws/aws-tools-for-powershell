@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.341.0",
+    "ProductVersion" : "3.7.342.0",
     "CoreVersion"    : "3.7.12.24",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.7.3",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"
@@ -70,7 +70,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.12.6",
+            "Version" : "3.7.13.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"
@@ -218,7 +218,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.2.175",
+            "Version" : "3.7.2.176",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"
@@ -1226,7 +1226,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.12.18",
+            "Version" : "3.7.13.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.13.11",
+            "Version" : "3.7.13.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"
@@ -1802,7 +1802,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.5.3",
+            "Version" : "3.7.5.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.24"

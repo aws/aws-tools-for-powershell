@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_LocalProfileId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the AS2 process.</para>
+        /// <para>A unique identifier for the AS2 local profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_MdnSigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The signing algorithm for the MDN response.</para>
+        /// <para>The signing algorithm for the MDN response.</para><note><para>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code>
+        /// is used.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_MessageSubject
         /// <summary>
         /// <para>
-        /// <para>A short description to help identify the connector.</para>
+        /// <para>Used as the <code>Subject</code> HTTP header attribute in AS2 messages that are being
+        /// sent with the connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_PartnerProfileId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the partner for the connector.</para>
+        /// <para>A unique identifier for the partner profile for the connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_SigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm that is used to sign the AS2 transfers for this partner profile.</para>
+        /// <para>The algorithm that is used to sign the AS2 messages sent with the connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

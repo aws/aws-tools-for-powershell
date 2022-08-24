@@ -39,9 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// in your account. The service-linked role is created only when the role does not exist
     /// in your account. 
     /// </para><note><para>
-    /// You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code>
-    /// parameter, but not both. If you provide both Config uses the <code>TemplateS3Uri</code>
-    /// parameter and ignores the <code>TemplateBody</code> parameter.
+    /// You must specify one and only one of the<code>TemplateS3Uri</code>, <code>TemplateBody</code>
+    /// or <code>TemplateSSMDocumentDetails</code> parameters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConformancePackName
         /// <summary>
         /// <para>
-        /// <para>Name of the conformance pack you want to create.</para>
+        /// <para>The unique name of the conformance pack you want to deploy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,12 +101,36 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String DeliveryS3KeyPrefix { get; set; }
         #endregion
         
+        #region Parameter TemplateSSMDocumentDetails_DocumentName
+        /// <summary>
+        /// <para>
+        /// <para>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance
+        /// pack. If you use the Document Name, Config checks only your account and region for
+        /// the SSM document. If you want to use an SSM document from another region or account,
+        /// you must provide the ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateSSMDocumentDetails_DocumentName { get; set; }
+        #endregion
+        
+        #region Parameter TemplateSSMDocumentDetails_DocumentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the SSM document to use to create a conformance pack. By default, Config
+        /// uses the latest version.</para><note><para>This field is optional.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateSSMDocumentDetails_DocumentVersion { get; set; }
+        #endregion
+        
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>A string containing full conformance pack template body. Structure containing the
-        /// template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
-        /// and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</para></note>
+        /// <para>A string containing the full conformance pack template body. The structure containing
+        /// the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
+        /// and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter TemplateS3Uri
         /// <summary>
         /// <para>
-        /// <para>Location of file containing the template body (<code>s3://bucketname/prefix</code>).
-        /// The uri must point to the conformance pack template (max size: 300 KB) that is located
+        /// <para>The location of the file containing the template body (<code>s3://bucketname/prefix</code>).
+        /// The uri must point to a conformance pack template (max size: 300 KB) that is located
         /// in an Amazon S3 bucket in the same region as the conformance pack. </para><note><para>You must have access to read Amazon S3 bucket.</para></note>
         /// </para>
         /// </summary>
@@ -202,6 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.DeliveryS3KeyPrefix = this.DeliveryS3KeyPrefix;
             context.TemplateBody = this.TemplateBody;
             context.TemplateS3Uri = this.TemplateS3Uri;
+            context.TemplateSSMDocumentDetails_DocumentName = this.TemplateSSMDocumentDetails_DocumentName;
+            context.TemplateSSMDocumentDetails_DocumentVersion = this.TemplateSSMDocumentDetails_DocumentVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,6 +266,35 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.TemplateS3Uri != null)
             {
                 request.TemplateS3Uri = cmdletContext.TemplateS3Uri;
+            }
+            
+             // populate TemplateSSMDocumentDetails
+            var requestTemplateSSMDocumentDetailsIsNull = true;
+            request.TemplateSSMDocumentDetails = new Amazon.ConfigService.Model.TemplateSSMDocumentDetails();
+            System.String requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentName = null;
+            if (cmdletContext.TemplateSSMDocumentDetails_DocumentName != null)
+            {
+                requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentName = cmdletContext.TemplateSSMDocumentDetails_DocumentName;
+            }
+            if (requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentName != null)
+            {
+                request.TemplateSSMDocumentDetails.DocumentName = requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentName;
+                requestTemplateSSMDocumentDetailsIsNull = false;
+            }
+            System.String requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentVersion = null;
+            if (cmdletContext.TemplateSSMDocumentDetails_DocumentVersion != null)
+            {
+                requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentVersion = cmdletContext.TemplateSSMDocumentDetails_DocumentVersion;
+            }
+            if (requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentVersion != null)
+            {
+                request.TemplateSSMDocumentDetails.DocumentVersion = requestTemplateSSMDocumentDetails_templateSSMDocumentDetails_DocumentVersion;
+                requestTemplateSSMDocumentDetailsIsNull = false;
+            }
+             // determine if request.TemplateSSMDocumentDetails should be set to null
+            if (requestTemplateSSMDocumentDetailsIsNull)
+            {
+                request.TemplateSSMDocumentDetails = null;
             }
             
             CmdletOutput output;
@@ -309,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String DeliveryS3KeyPrefix { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateS3Uri { get; set; }
+            public System.String TemplateSSMDocumentDetails_DocumentName { get; set; }
+            public System.String TemplateSSMDocumentDetails_DocumentVersion { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutConformancePackResponse, WriteCFGConformancePackCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConformancePackArn;
         }

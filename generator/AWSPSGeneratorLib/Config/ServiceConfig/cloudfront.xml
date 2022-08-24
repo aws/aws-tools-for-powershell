@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOriginAccessControl" OutputProperty="*" Verb="New" Noun="OriginAccessControl" ShouldProcessTarget="OriginAccessControlConfig_Name" PipelineParameter="OriginAccessControlConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginRequestPolicy" OutputProperty="*" Verb="New" Noun="OriginRequestPolicy" ShouldProcessTarget="OriginRequestPolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -120,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMonitoringSubscription" Verb="Remove" Noun="MonitoringSubscription" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOriginAccessControl" Verb="Remove" Noun="OriginAccessControl" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +212,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="Get" Noun="MonitoringSubscription" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOriginAccessControl" OutputProperty="OriginAccessControl" Verb="Get" Noun="OriginAccessControl" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOriginAccessControlConfig" OutputProperty="OriginAccessControlConfig" Verb="Get" Noun="OriginAccessControlConfig" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,6 +319,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOriginAccessControls" OutputProperty="OriginAccessControlList" Verb="Get" Noun="OriginAccessControlList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListOriginRequestPolicies" OutputProperty="OriginRequestPolicyList" Verb="Get" Noun="OriginRequestPolicyList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -372,6 +392,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyGroup" OutputProperty="KeyGroup" Verb="Update" Noun="KeyGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOriginAccessControl" OutputProperty="OriginAccessControl" Verb="Update" Noun="OriginAccessControl" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -108,12 +108,15 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
         /// the allowable resolution or bitrate, the stream probably will disconnect immediately</i>.
-        /// Valid values:</para><ul><li><para><code>STANDARD</code>: Multiple qualities are generated from the original input,
-        /// to automatically give viewers the best experience for their devices and network conditions.
-        /// Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded
-        /// only for renditions 360p and below; above that, audio is passed through.</para></li><li><para><code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-        /// video-quality choice is limited to the original input. Resolution can be up to 480p
-        /// and bitrate can be up to 1.5 Mbps.</para></li></ul>
+        /// Valid values:</para><ul><li><para><code>STANDARD</code>: Video is transcoded: multiple qualities are generated from
+        /// the original input, to automatically give viewers the best experience for their devices
+        /// and network conditions. Transcoding allows higher playback quality across a range
+        /// of download speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps.
+        /// Audio is transcoded only for renditions 360p and below; above that, audio is passed
+        /// through. This is the default.</para></li><li><para><code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input to
+        /// viewers. The viewer’s video-quality choice is limited to the original input. Resolution
+        /// can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for
+        /// resolutions between 480p and 1080p.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

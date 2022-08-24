@@ -28,9 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates an embed URL that you can use to embed an Amazon QuickSight dashboard in
-    /// your website, without having to register any reader users. Before you use this action,
-    /// make sure that you have configured the dashboards and permissions.
+    /// Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or
+    /// visual in your website, without having to register any reader users. Before you use
+    /// this action, make sure that you have configured the dashboards and permissions.
     /// 
     ///  
     /// <para>
@@ -120,6 +120,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter InitialDashboardVisualId_DashboardId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code>
+        /// can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
+        /// pane of the visual's on-visual menu of the Amazon QuickSight console. You can also
+        /// get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_DashboardId")]
+        public System.String InitialDashboardVisualId_DashboardId { get; set; }
+        #endregion
+        
         #region Parameter Dashboard_InitialDashboardId
         /// <summary>
         /// <para>
@@ -177,6 +191,32 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SessionTags")]
         public Amazon.QuickSight.Model.SessionTag[] SessionTag { get; set; }
+        #endregion
+        
+        #region Parameter InitialDashboardVisualId_SheetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code>
+        /// can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
+        /// pane of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_SheetId")]
+        public System.String InitialDashboardVisualId_SheetId { get; set; }
+        #endregion
+        
+        #region Parameter InitialDashboardVisualId_VisualId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the visual that you want to embed. The <code>VisualID</code> can be found
+        /// in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane
+        /// of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_DashboardVisual_InitialDashboardVisualId_VisualId")]
+        public System.String InitialDashboardVisualId_VisualId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -262,6 +302,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.Dashboard_InitialDashboardId = this.Dashboard_InitialDashboardId;
+            context.InitialDashboardVisualId_DashboardId = this.InitialDashboardVisualId_DashboardId;
+            context.InitialDashboardVisualId_SheetId = this.InitialDashboardVisualId_SheetId;
+            context.InitialDashboardVisualId_VisualId = this.InitialDashboardVisualId_VisualId;
             context.Namespace = this.Namespace;
             #if MODULAR
             if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
@@ -329,6 +372,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_Dashboard != null)
             {
                 request.ExperienceConfiguration.Dashboard = requestExperienceConfiguration_experienceConfiguration_Dashboard;
+                requestExperienceConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.AnonymousUserDashboardVisualEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_DashboardVisual = null;
+            
+             // populate DashboardVisual
+            var requestExperienceConfiguration_experienceConfiguration_DashboardVisualIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_DashboardVisual = new Amazon.QuickSight.Model.AnonymousUserDashboardVisualEmbeddingConfiguration();
+            Amazon.QuickSight.Model.DashboardVisualId requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId = null;
+            
+             // populate InitialDashboardVisualId
+            var requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualIdIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId = new Amazon.QuickSight.Model.DashboardVisualId();
+            System.String requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_DashboardId = null;
+            if (cmdletContext.InitialDashboardVisualId_DashboardId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_DashboardId = cmdletContext.InitialDashboardVisualId_DashboardId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_DashboardId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId.DashboardId = requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_DashboardId;
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualIdIsNull = false;
+            }
+            System.String requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_SheetId = null;
+            if (cmdletContext.InitialDashboardVisualId_SheetId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_SheetId = cmdletContext.InitialDashboardVisualId_SheetId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_SheetId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId.SheetId = requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_SheetId;
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualIdIsNull = false;
+            }
+            System.String requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_VisualId = null;
+            if (cmdletContext.InitialDashboardVisualId_VisualId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_VisualId = cmdletContext.InitialDashboardVisualId_VisualId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_VisualId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId.VisualId = requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId_initialDashboardVisualId_VisualId;
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualIdIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualIdIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual.InitialDashboardVisualId = requestExperienceConfiguration_experienceConfiguration_DashboardVisual_experienceConfiguration_DashboardVisual_InitialDashboardVisualId;
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisualIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_DashboardVisual should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisualIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_DashboardVisual = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual != null)
+            {
+                request.ExperienceConfiguration.DashboardVisual = requestExperienceConfiguration_experienceConfiguration_DashboardVisual;
                 requestExperienceConfigurationIsNull = false;
             }
              // determine if request.ExperienceConfiguration should be set to null
@@ -413,6 +516,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<System.String> AuthorizedResourceArn { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }
+            public System.String InitialDashboardVisualId_DashboardId { get; set; }
+            public System.String InitialDashboardVisualId_SheetId { get; set; }
+            public System.String InitialDashboardVisualId_VisualId { get; set; }
             public System.String Namespace { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }
             public List<Amazon.QuickSight.Model.SessionTag> SessionTag { get; set; }

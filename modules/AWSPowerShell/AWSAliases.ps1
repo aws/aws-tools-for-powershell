@@ -3100,6 +3100,8 @@ Set-Alias -Name Create-CFKeyGroup -Value New-CFKeyGroup
 Set-Alias -Name CF-CreateKeyGroup -Value New-CFKeyGroup
 Set-Alias -Name Create-CFMonitoringSubscription -Value New-CFMonitoringSubscription
 Set-Alias -Name CF-CreateMonitoringSubscription -Value New-CFMonitoringSubscription
+Set-Alias -Name Create-CFOriginAccessControl -Value New-CFOriginAccessControl
+Set-Alias -Name CF-CreateOriginAccessControl -Value New-CFOriginAccessControl
 Set-Alias -Name Create-CFOriginRequestPolicy -Value New-CFOriginRequestPolicy
 Set-Alias -Name CF-CreateOriginRequestPolicy -Value New-CFOriginRequestPolicy
 Set-Alias -Name Create-CFPublicKey -Value New-CFPublicKey
@@ -3129,6 +3131,8 @@ Set-Alias -Name Delete-CFKeyGroup -Value Remove-CFKeyGroup
 Set-Alias -Name CF-DeleteKeyGroup -Value Remove-CFKeyGroup
 Set-Alias -Name Delete-CFMonitoringSubscription -Value Remove-CFMonitoringSubscription
 Set-Alias -Name CF-DeleteMonitoringSubscription -Value Remove-CFMonitoringSubscription
+Set-Alias -Name Delete-CFOriginAccessControl -Value Remove-CFOriginAccessControl
+Set-Alias -Name CF-DeleteOriginAccessControl -Value Remove-CFOriginAccessControl
 Set-Alias -Name Delete-CFOriginRequestPolicy -Value Remove-CFOriginRequestPolicy
 Set-Alias -Name CF-DeleteOriginRequestPolicy -Value Remove-CFOriginRequestPolicy
 Set-Alias -Name Delete-CFPublicKey -Value Remove-CFPublicKey
@@ -3157,6 +3161,8 @@ Set-Alias -Name CF-GetInvalidation -Value Get-CFInvalidation
 Set-Alias -Name CF-GetKeyGroup -Value Get-CFKeyGroup
 Set-Alias -Name CF-GetKeyGroupConfig -Value Get-CFKeyGroupConfig
 Set-Alias -Name CF-GetMonitoringSubscription -Value Get-CFMonitoringSubscription
+Set-Alias -Name CF-GetOriginAccessControl -Value Get-CFOriginAccessControl
+Set-Alias -Name CF-GetOriginAccessControlConfig -Value Get-CFOriginAccessControlConfig
 Set-Alias -Name CF-GetOriginRequestPolicy -Value Get-CFOriginRequestPolicy
 Set-Alias -Name CF-GetOriginRequestPolicyConfig -Value Get-CFOriginRequestPolicyConfig
 Set-Alias -Name CF-GetPublicKey -Value Get-CFPublicKey
@@ -3206,6 +3212,9 @@ Set-Alias -Name CF-ListInvalidations -Value Get-CFInvalidationList
 Set-Alias -Name List-CFKeyGroups -Value Get-CFKeyGroupList
 Set-Alias -Name List-CFKeyGroupList -Value Get-CFKeyGroupList
 Set-Alias -Name CF-ListKeyGroups -Value Get-CFKeyGroupList
+Set-Alias -Name List-CFOriginAccessControls -Value Get-CFOriginAccessControlList
+Set-Alias -Name List-CFOriginAccessControlList -Value Get-CFOriginAccessControlList
+Set-Alias -Name CF-ListOriginAccessControls -Value Get-CFOriginAccessControlList
 Set-Alias -Name List-CFOriginRequestPolicies -Value Get-CFOriginRequestPolicyList
 Set-Alias -Name List-CFOriginRequestPolicyList -Value Get-CFOriginRequestPolicyList
 Set-Alias -Name CF-ListOriginRequestPolicies -Value Get-CFOriginRequestPolicyList
@@ -3233,6 +3242,7 @@ Set-Alias -Name CF-UpdateFieldLevelEncryptionConfig -Value Update-CFFieldLevelEn
 Set-Alias -Name CF-UpdateFieldLevelEncryptionProfile -Value Update-CFFieldLevelEncryptionProfile
 Set-Alias -Name CF-UpdateFunction -Value Update-CFFunction
 Set-Alias -Name CF-UpdateKeyGroup -Value Update-CFKeyGroup
+Set-Alias -Name CF-UpdateOriginAccessControl -Value Update-CFOriginAccessControl
 Set-Alias -Name CF-UpdateOriginRequestPolicy -Value Update-CFOriginRequestPolicy
 Set-Alias -Name CF-UpdatePublicKey -Value Update-CFPublicKey
 Set-Alias -Name CF-UpdateRealtimeLogConfig -Value Update-CFRealtimeLogConfig
