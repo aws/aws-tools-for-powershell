@@ -99,7 +99,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

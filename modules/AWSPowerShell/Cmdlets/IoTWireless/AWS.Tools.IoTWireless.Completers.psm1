@@ -90,6 +90,13 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.DownlinkMode
+        "Send-IOTWDataToWirelessDevice/WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"
+        {
+            $v = "CONCURRENT","SEQUENTIAL","USING_UPLINK_GATEWAY"
+            break
+        }
+
         # Amazon.IoTWireless.EventNotificationPartnerType
         {
             ($_ -eq "Get-IOTWResourceEventConfiguration/PartnerType") -Or
@@ -309,6 +316,7 @@ $IOTW_map = @{
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage")
+    "WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
 

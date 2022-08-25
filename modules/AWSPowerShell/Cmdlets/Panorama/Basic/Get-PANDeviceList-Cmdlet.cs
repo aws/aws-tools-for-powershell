@@ -40,6 +40,50 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class GetPANDeviceListCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        #region Parameter DeviceAggregatedStatusFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter based on a device's status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Panorama.DeviceAggregatedStatus")]
+        public Amazon.Panorama.DeviceAggregatedStatus DeviceAggregatedStatusFilter { get; set; }
+        #endregion
+        
+        #region Parameter NameFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter based on device's name. Prefixes supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NameFilter { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The target column to be sorted on. Default column sort is CREATED_TIME.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Panorama.ListDevicesSortBy")]
+        public Amazon.Panorama.ListDevicesSortBy SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sorting order for the returned list. SortOrder is DESCENDING by default based
+        /// on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Panorama.SortOrder")]
+        public Amazon.Panorama.SortOrder SortOrder { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -101,8 +145,12 @@ namespace Amazon.PowerShell.Cmdlets.PAN
                 context.Select = CreateSelectDelegate<Amazon.Panorama.Model.ListDevicesResponse, GetPANDeviceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeviceAggregatedStatusFilter = this.DeviceAggregatedStatusFilter;
             context.MaxResult = this.MaxResult;
+            context.NameFilter = this.NameFilter;
             context.NextToken = this.NextToken;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -121,9 +169,25 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             // create request and set iteration invariants
             var request = new Amazon.Panorama.Model.ListDevicesRequest();
             
+            if (cmdletContext.DeviceAggregatedStatusFilter != null)
+            {
+                request.DeviceAggregatedStatusFilter = cmdletContext.DeviceAggregatedStatusFilter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NameFilter != null)
+            {
+                request.NameFilter = cmdletContext.NameFilter;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variant and commence piping
@@ -210,8 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Panorama.DeviceAggregatedStatus DeviceAggregatedStatusFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String NameFilter { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Panorama.ListDevicesSortBy SortBy { get; set; }
+            public Amazon.Panorama.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.Panorama.Model.ListDevicesResponse, GetPANDeviceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Devices;
         }

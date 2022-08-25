@@ -90,10 +90,24 @@ $PAN_Completers = {
             break
         }
 
+        # Amazon.Panorama.DeviceAggregatedStatus
+        "Get-PANDeviceList/DeviceAggregatedStatusFilter"
+        {
+            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","UPDATE_NEEDED"
+            break
+        }
+
         # Amazon.Panorama.JobType
         "New-PANJobForDevice/JobType"
         {
             $v = "OTA"
+            break
+        }
+
+        # Amazon.Panorama.ListDevicesSortBy
+        "Get-PANDeviceList/SortBy"
+        {
+            $v = "CREATED_TIME","DEVICE_AGGREGATED_STATUS","DEVICE_ID","NAME"
             break
         }
 
@@ -108,6 +122,13 @@ $PAN_Completers = {
         "New-PANPackageImportJob/JobType"
         {
             $v = "MARKETPLACE_NODE_PACKAGE_VERSION","NODE_PACKAGE_VERSION"
+            break
+        }
+
+        # Amazon.Panorama.SortOrder
+        "Get-PANDeviceList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
             break
         }
 
@@ -135,9 +156,12 @@ $PAN_Completers = {
 
 $PAN_map = @{
     "Category"=@("Get-PANNodeList")
+    "DeviceAggregatedStatusFilter"=@("Get-PANDeviceList")
     "JobType"=@("New-PANJobForDevice","New-PANPackageImportJob")
     "NetworkingConfiguration_Ethernet0_ConnectionType"=@("Register-PANDevice")
     "NetworkingConfiguration_Ethernet1_ConnectionType"=@("Register-PANDevice")
+    "SortBy"=@("Get-PANDeviceList")
+    "SortOrder"=@("Get-PANDeviceList")
     "StatusFilter"=@("Get-PANApplicationInstanceList")
     "TemplateType"=@("New-PANNodeFromTemplateJob")
 }

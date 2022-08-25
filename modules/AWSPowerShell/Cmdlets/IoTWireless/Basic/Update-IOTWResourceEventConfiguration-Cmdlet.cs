@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Sidewalk_DeviceRegistrationState_AmazonIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether amazon id event topic is enabled or disabled.</para>
+        /// <para>Denotes whether the Amazon ID event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether amazon id event topic is enabled or disabled.</para>
+        /// <para>Denotes whether the Amazon ID event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Sidewalk_AmazonIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether amazon id event topic is enabled or disabled.</para>
+        /// <para>Denotes whether the Amazon ID event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_DevEuiEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the Dev EUI join event topic is enabled or disabled.</para>
+        /// <para>Denotes whether the Dev EUI join event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_GatewayEuiEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the gateway EUI connection status event topic is enabled or
-        /// disabled.</para>
+        /// <para>Denotes whether the gateway EUI connection status event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter DeviceRegistrationState_WirelessDeviceIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless device id device registration state event topic
-        /// is enabled or disabled.</para>
+        /// <para>Denotes whether the wireless device ID device registration state event topic is enabled
+        /// or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Join_WirelessDeviceIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless device id join event topic is enabled or disabled.</para>
+        /// <para>Denotes whether the wireless device ID join event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter MessageDeliveryStatus_WirelessDeviceIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless device id device registration state event topic
-        /// is enabled or disabled.</para>
+        /// <para>Denotes whether the wireless device ID device registration state event topic is enabled
+        /// or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Proximity_WirelessDeviceIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless device id proximity event topic is enabled or
-        /// disabled.</para>
+        /// <para>Denotes whether the wireless device ID proximity event topic is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ConnectionStatus_WirelessGatewayIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Enum to denote whether the wireless gateway ID connection status event topic is enabled
-        /// or disabled.</para>
+        /// <para>Denotes whether the wireless gateway ID connection status event topic is enabled or
+        /// disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

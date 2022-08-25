@@ -22458,7 +22458,7 @@ $GML_Completers = {
             ($_ -eq "New-GMLFleet/EC2InstanceType")
         }
         {
-            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","t2.large","t2.medium","t2.micro","t2.small"
+            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.xlarge","t2.large","t2.medium","t2.micro","t2.small"
             break
         }
 
@@ -27657,6 +27657,13 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.DownlinkMode
+        "Send-IOTWDataToWirelessDevice/WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"
+        {
+            $v = "CONCURRENT","SEQUENTIAL","USING_UPLINK_GATEWAY"
+            break
+        }
+
         # Amazon.IoTWireless.EventNotificationPartnerType
         {
             ($_ -eq "Get-IOTWResourceEventConfiguration/PartnerType") -Or
@@ -27876,6 +27883,7 @@ $IOTW_map = @{
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage")
+    "WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
 
@@ -37779,10 +37787,24 @@ $PAN_Completers = {
             break
         }
 
+        # Amazon.Panorama.DeviceAggregatedStatus
+        "Get-PANDeviceList/DeviceAggregatedStatusFilter"
+        {
+            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","UPDATE_NEEDED"
+            break
+        }
+
         # Amazon.Panorama.JobType
         "New-PANJobForDevice/JobType"
         {
             $v = "OTA"
+            break
+        }
+
+        # Amazon.Panorama.ListDevicesSortBy
+        "Get-PANDeviceList/SortBy"
+        {
+            $v = "CREATED_TIME","DEVICE_AGGREGATED_STATUS","DEVICE_ID","NAME"
             break
         }
 
@@ -37797,6 +37819,13 @@ $PAN_Completers = {
         "New-PANPackageImportJob/JobType"
         {
             $v = "MARKETPLACE_NODE_PACKAGE_VERSION","NODE_PACKAGE_VERSION"
+            break
+        }
+
+        # Amazon.Panorama.SortOrder
+        "Get-PANDeviceList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
             break
         }
 
@@ -37824,9 +37853,12 @@ $PAN_Completers = {
 
 $PAN_map = @{
     "Category"=@("Get-PANNodeList")
+    "DeviceAggregatedStatusFilter"=@("Get-PANDeviceList")
     "JobType"=@("New-PANJobForDevice","New-PANPackageImportJob")
     "NetworkingConfiguration_Ethernet0_ConnectionType"=@("Register-PANDevice")
     "NetworkingConfiguration_Ethernet1_ConnectionType"=@("Register-PANDevice")
+    "SortBy"=@("Get-PANDeviceList")
+    "SortOrder"=@("Get-PANDeviceList")
     "StatusFilter"=@("Get-PANApplicationInstanceList")
     "TemplateType"=@("New-PANNodeFromTemplateJob")
 }

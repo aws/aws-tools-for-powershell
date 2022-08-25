@@ -1,4 +1,12 @@
-﻿### 4.1.154 (2022-08-24 20:33Z)
+﻿### 4.1.155 (2022-08-25 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.343.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWWirelessGateway: added parameters Beaconing_DataRate and Beaconing_Frequency.
+    * Modified cmdlet Send-IOTWDataToWirelessDevice: added parameters ParticipatingGateways_DownlinkMode, ParticipatingGateways_GatewayList and ParticipatingGateways_TransmissionInterval.
+  * Amazon Panorama
+    * Modified cmdlet Get-PANDeviceList: added parameters DeviceAggregatedStatusFilter, NameFilter, SortBy and SortOrder.
+
+### 4.1.154 (2022-08-24 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.342.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudFront
     * Added cmdlet Get-CFOriginAccessControl leveraging the GetOriginAccessControl service API.

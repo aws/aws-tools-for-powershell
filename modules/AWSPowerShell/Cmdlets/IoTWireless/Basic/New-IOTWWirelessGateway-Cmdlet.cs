@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Beaconing_DataRate
+        /// <summary>
+        /// <para>
+        /// <para>The data rate for gateways that are sending the beacons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_Beaconing_DataRate")]
+        public System.Int32? Beaconing_DataRate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -60,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Beaconing_Frequency
+        /// <summary>
+        /// <para>
+        /// <para>The frequency list for the gateways to send the beacons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_Beaconing_Frequencies")]
+        public System.Int32[] Beaconing_Frequency { get; set; }
         #endregion
         
         #region Parameter LoRaWAN_GatewayEui
@@ -200,6 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.Beaconing_DataRate = this.Beaconing_DataRate;
+            if (this.Beaconing_Frequency != null)
+            {
+                context.Beaconing_Frequency = new List<System.Int32>(this.Beaconing_Frequency);
+            }
             context.LoRaWAN_GatewayEui = this.LoRaWAN_GatewayEui;
             if (this.LoRaWAN_JoinEuiFilter != null)
             {
@@ -301,6 +328,41 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.SubBands = requestLoRaWAN_loRaWAN_SubBand;
                 requestLoRaWANIsNull = false;
             }
+            Amazon.IoTWireless.Model.Beaconing requestLoRaWAN_loRaWAN_Beaconing = null;
+            
+             // populate Beaconing
+            var requestLoRaWAN_loRaWAN_BeaconingIsNull = true;
+            requestLoRaWAN_loRaWAN_Beaconing = new Amazon.IoTWireless.Model.Beaconing();
+            System.Int32? requestLoRaWAN_loRaWAN_Beaconing_beaconing_DataRate = null;
+            if (cmdletContext.Beaconing_DataRate != null)
+            {
+                requestLoRaWAN_loRaWAN_Beaconing_beaconing_DataRate = cmdletContext.Beaconing_DataRate.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_Beaconing_beaconing_DataRate != null)
+            {
+                requestLoRaWAN_loRaWAN_Beaconing.DataRate = requestLoRaWAN_loRaWAN_Beaconing_beaconing_DataRate.Value;
+                requestLoRaWAN_loRaWAN_BeaconingIsNull = false;
+            }
+            List<System.Int32> requestLoRaWAN_loRaWAN_Beaconing_beaconing_Frequency = null;
+            if (cmdletContext.Beaconing_Frequency != null)
+            {
+                requestLoRaWAN_loRaWAN_Beaconing_beaconing_Frequency = cmdletContext.Beaconing_Frequency;
+            }
+            if (requestLoRaWAN_loRaWAN_Beaconing_beaconing_Frequency != null)
+            {
+                requestLoRaWAN_loRaWAN_Beaconing.Frequencies = requestLoRaWAN_loRaWAN_Beaconing_beaconing_Frequency;
+                requestLoRaWAN_loRaWAN_BeaconingIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_Beaconing should be set to null
+            if (requestLoRaWAN_loRaWAN_BeaconingIsNull)
+            {
+                requestLoRaWAN_loRaWAN_Beaconing = null;
+            }
+            if (requestLoRaWAN_loRaWAN_Beaconing != null)
+            {
+                request.LoRaWAN.Beaconing = requestLoRaWAN_loRaWAN_Beaconing;
+                requestLoRaWANIsNull = false;
+            }
              // determine if request.LoRaWAN should be set to null
             if (requestLoRaWANIsNull)
             {
@@ -377,6 +439,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? Beaconing_DataRate { get; set; }
+            public List<System.Int32> Beaconing_Frequency { get; set; }
             public System.String LoRaWAN_GatewayEui { get; set; }
             public List<List<System.String>> LoRaWAN_JoinEuiFilter { get; set; }
             public List<System.String> LoRaWAN_NetIdFilter { get; set; }

@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
 {
     /// <summary>
     /// Creates and returns an access token for the authorized client. The access token issued
-    /// will be used to fetch short-term credentials for the assigned roles in the Amazon
-    /// Web Services account.
+    /// will be used to fetch short-term credentials for the assigned roles in the AWS account.
     /// </summary>
     [Cmdlet("New", "SSOOIDCToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SSOOIDC.Model.CreateTokenResponse")]
@@ -96,23 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// reference to the result of the <a>StartDeviceAuthorization</a> API.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeviceCode { get; set; }
         #endregion
         
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// <para>Supports grant types for the authorization code, refresh token, and device code request.
-        /// For device code requests, specify the following value:</para><para><code>urn:ietf:params:oauth:grant-type:<i>device_code</i></code></para><para>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a>
-        /// topic.</para>
+        /// <para>Supports grant types for authorization code, refresh token, and device code request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,12 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter RefreshToken
         /// <summary>
         /// <para>
-        /// <para>Currently, <code>refreshToken</code> is not yet implemented and is not supported.
-        /// For more information about the features and limitations of the current Amazon Web
-        /// Services SSO OIDC implementation, see <i>Considerations for Using this Guide</i> in
-        /// the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon
-        /// Web Services SSO OIDC API Reference</a>.</para><para>The token used to obtain an access token in the event that the access token is invalid
-        /// or expired.</para>
+        /// <para>The token used to obtain an access token in the event that the access token is invalid
+        /// or expired. This token is not issued by the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,12 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
             #endif
             context.Code = this.Code;
             context.DeviceCode = this.DeviceCode;
-            #if MODULAR
-            if (this.DeviceCode == null && ParameterWasBound(nameof(this.DeviceCode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeviceCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.GrantType = this.GrantType;
             #if MODULAR
             if (this.GrantType == null && ParameterWasBound(nameof(this.GrantType)))

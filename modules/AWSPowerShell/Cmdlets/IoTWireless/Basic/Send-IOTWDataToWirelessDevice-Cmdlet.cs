@@ -51,6 +51,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Int32? Sidewalk_AckModeRetryDurationSec { get; set; }
         #endregion
         
+        #region Parameter ParticipatingGateways_DownlinkMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to send the downlink message in sequential mode or concurrent mode,
+        /// or to use only the chosen gateways from the previous uplink message transmission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode")]
+        [AWSConstantClassSource("Amazon.IoTWireless.DownlinkMode")]
+        public Amazon.IoTWireless.DownlinkMode ParticipatingGateways_DownlinkMode { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_FPort
         /// <summary>
         /// <para>
@@ -60,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WirelessMetadata_LoRaWAN_FPort")]
         public System.Int32? LoRaWAN_FPort { get; set; }
+        #endregion
+        
+        #region Parameter ParticipatingGateways_GatewayList
+        /// <summary>
+        /// <para>
+        /// <para>The list of gateways that you want to use for sending the downlink data traffic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WirelessMetadata_LoRaWAN_ParticipatingGateways_GatewayList")]
+        public Amazon.IoTWireless.Model.GatewayListItem[] ParticipatingGateways_GatewayList { get; set; }
         #endregion
         
         #region Parameter Id
@@ -117,6 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WirelessMetadata_Sidewalk_Seq")]
         public System.Int32? Sidewalk_Seq { get; set; }
+        #endregion
+        
+        #region Parameter ParticipatingGateways_TransmissionInterval
+        /// <summary>
+        /// <para>
+        /// <para>The duration of time for which AWS IoT Core for LoRaWAN will wait before transmitting
+        /// the payload to the next gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WirelessMetadata_LoRaWAN_ParticipatingGateways_TransmissionInterval")]
+        public System.Int32? ParticipatingGateways_TransmissionInterval { get; set; }
         #endregion
         
         #region Parameter TransmitMode
@@ -219,6 +255,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #endif
             context.LoRaWAN_FPort = this.LoRaWAN_FPort;
+            context.ParticipatingGateways_DownlinkMode = this.ParticipatingGateways_DownlinkMode;
+            if (this.ParticipatingGateways_GatewayList != null)
+            {
+                context.ParticipatingGateways_GatewayList = new List<Amazon.IoTWireless.Model.GatewayListItem>(this.ParticipatingGateways_GatewayList);
+            }
+            context.ParticipatingGateways_TransmissionInterval = this.ParticipatingGateways_TransmissionInterval;
             context.Sidewalk_AckModeRetryDurationSec = this.Sidewalk_AckModeRetryDurationSec;
             context.Sidewalk_MessageType = this.Sidewalk_MessageType;
             context.Sidewalk_Seq = this.Sidewalk_Seq;
@@ -267,6 +309,51 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_loRaWAN_FPort != null)
             {
                 requestWirelessMetadata_wirelessMetadata_LoRaWAN.FPort = requestWirelessMetadata_wirelessMetadata_LoRaWAN_loRaWAN_FPort.Value;
+                requestWirelessMetadata_wirelessMetadata_LoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.ParticipatingGateways requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways = null;
+            
+             // populate ParticipatingGateways
+            var requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGatewaysIsNull = true;
+            requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways = new Amazon.IoTWireless.Model.ParticipatingGateways();
+            Amazon.IoTWireless.DownlinkMode requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_DownlinkMode = null;
+            if (cmdletContext.ParticipatingGateways_DownlinkMode != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_DownlinkMode = cmdletContext.ParticipatingGateways_DownlinkMode;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_DownlinkMode != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways.DownlinkMode = requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_DownlinkMode;
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGatewaysIsNull = false;
+            }
+            List<Amazon.IoTWireless.Model.GatewayListItem> requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_GatewayList = null;
+            if (cmdletContext.ParticipatingGateways_GatewayList != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_GatewayList = cmdletContext.ParticipatingGateways_GatewayList;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_GatewayList != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways.GatewayList = requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_GatewayList;
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGatewaysIsNull = false;
+            }
+            System.Int32? requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_TransmissionInterval = null;
+            if (cmdletContext.ParticipatingGateways_TransmissionInterval != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_TransmissionInterval = cmdletContext.ParticipatingGateways_TransmissionInterval.Value;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_TransmissionInterval != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways.TransmissionInterval = requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways_participatingGateways_TransmissionInterval.Value;
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGatewaysIsNull = false;
+            }
+             // determine if requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways should be set to null
+            if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGatewaysIsNull)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways = null;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_LoRaWAN.ParticipatingGateways = requestWirelessMetadata_wirelessMetadata_LoRaWAN_wirelessMetadata_LoRaWAN_ParticipatingGateways;
                 requestWirelessMetadata_wirelessMetadata_LoRaWANIsNull = false;
             }
              // determine if requestWirelessMetadata_wirelessMetadata_LoRaWAN should be set to null
@@ -394,6 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String PayloadData { get; set; }
             public System.Int32? TransmitMode { get; set; }
             public System.Int32? LoRaWAN_FPort { get; set; }
+            public Amazon.IoTWireless.DownlinkMode ParticipatingGateways_DownlinkMode { get; set; }
+            public List<Amazon.IoTWireless.Model.GatewayListItem> ParticipatingGateways_GatewayList { get; set; }
+            public System.Int32? ParticipatingGateways_TransmissionInterval { get; set; }
             public System.Int32? Sidewalk_AckModeRetryDurationSec { get; set; }
             public Amazon.IoTWireless.MessageType Sidewalk_MessageType { get; set; }
             public System.Int32? Sidewalk_Seq { get; set; }
