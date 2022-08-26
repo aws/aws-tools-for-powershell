@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.343.0",
+    "ProductVersion" : "3.7.344.0",
     "CoreVersion"    : "3.7.12.25",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.17.1",
+            "Version" : "3.7.17.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.25"
@@ -866,7 +866,7 @@
             "InPreview"               : false
         },
         "MediaPackage"                    : {
-            "Version" : "3.7.7.14",
+            "Version" : "3.7.8.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.25"

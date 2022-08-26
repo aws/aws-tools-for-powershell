@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Switches over an Oracle standby database in an Oracle Data Guard environment, making
-    /// it the new primary database. Issue this command in the AWS Region that hosts the current
+    /// it the new primary database. Issue this command in the Region that hosts the current
     /// standby database.
     /// </summary>
     [Cmdlet("Convert", "RDSReadReplicaToNewPrimary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
