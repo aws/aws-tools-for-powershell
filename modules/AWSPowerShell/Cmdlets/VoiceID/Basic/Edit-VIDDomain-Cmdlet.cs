@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A brief description about this domain.</para>
+        /// <para>A brief description of the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the KMS key you want Voice ID to use to encrypt your data.</para>
+        /// <para>The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID
+        /// doesn't support asymmetric customer managed keys. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

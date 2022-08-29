@@ -128,9 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SecurityStyle
         /// <summary>
         /// <para>
-        /// <para>The security style for the volume. Specify one of the following values:</para><ul><li><para><code>UNIX</code> if the file system is managed by a UNIX administrator, the majority
+        /// <para>The security style for the volume. If a volume's security style is not specified,
+        /// it is automatically set to the root volume's security style. Specify one of the following
+        /// values:</para><ul><li><para><code>UNIX</code> if the file system is managed by a UNIX administrator, the majority
         /// of users are NFS clients, and an application accessing the data uses a UNIX user as
-        /// the service account. <code>UNIX</code> is the default.</para></li><li><para><code>NTFS</code> if the file system is managed by a Windows administrator, the majority
+        /// the service account. </para></li><li><para><code>NTFS</code> if the file system is managed by a Windows administrator, the majority
         /// of users are SMB clients, and an application accessing the data uses a Windows user
         /// as the service account.</para></li><li><para><code>MIXED</code> if the file system is managed by both UNIX and Windows administrators
         /// and users consist of both NFS and SMB clients.</para></li></ul>

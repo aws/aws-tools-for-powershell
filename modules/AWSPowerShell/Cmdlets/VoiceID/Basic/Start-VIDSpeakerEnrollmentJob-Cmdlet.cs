@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
         /// <para>The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions to access
         /// customer's buckets to read the input manifest file and write the job output file.
         /// Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html">Batch
-        /// enrollment using audio data from prior calls</a> documentation for the permissions
-        /// needed in this role.</para>
+        /// enrollment using audio data from prior calls</a> for the permissions needed in this
+        /// role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>the identifier of the KMS key you want Voice ID to use to encrypt the output file
-        /// of the fraudster registration job.</para>
+        /// <para>The identifier of the KMS key you want Voice ID to use to encrypt the output file
+        /// of a speaker enrollment job/fraudster registration job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

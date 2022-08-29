@@ -43,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>NextToken</code>
-        /// to obtain further pages of results. The default is 100; the maximum allowed page size
-        /// is also 100. </para>
+        /// <para>The maximum number of domains to list per API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

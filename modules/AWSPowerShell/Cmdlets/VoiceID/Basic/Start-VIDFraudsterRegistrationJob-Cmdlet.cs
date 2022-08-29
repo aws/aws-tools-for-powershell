@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>the identifier of the KMS key you want Voice ID to use to encrypt the output file
-        /// of the fraudster registration job.</para>
+        /// <para>The identifier of the KMS key you want Voice ID to use to encrypt the output file
+        /// of a speaker enrollment job/fraudster registration job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
