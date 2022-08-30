@@ -1,4 +1,27 @@
-﻿### 4.1.157 (2022-08-29 21:36Z)
+﻿### 4.1.158 (2022-08-30 22:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.346.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon GreengrassV2
+    * Modified cmdlet Get-GGV2InstalledComponentList: added parameter TopologyFilter.
+  * Amazon Lookout for Equipment
+    * Added cmdlet Get-L4ELabel leveraging the DescribeLabel service API.
+    * Added cmdlet Get-L4ELabelGroup leveraging the DescribeLabelGroup service API.
+    * Added cmdlet Get-L4ELabelGroupList leveraging the ListLabelGroups service API.
+    * Added cmdlet Get-L4ELabelList leveraging the ListLabels service API.
+    * Added cmdlet New-L4ELabel leveraging the CreateLabel service API.
+    * Added cmdlet New-L4ELabelGroup leveraging the CreateLabelGroup service API.
+    * Added cmdlet Remove-L4ELabel leveraging the DeleteLabel service API.
+    * Added cmdlet Remove-L4ELabelGroup leveraging the DeleteLabelGroup service API.
+    * Added cmdlet Update-L4ELabelGroup leveraging the UpdateLabelGroup service API.
+    * Modified cmdlet New-L4EModel: added parameter LabelsInputConfiguration_LabelGroupName.
+  * Amazon Macie 2
+    * Added cmdlet Get-MAC2AllowList leveraging the GetAllowList service API.
+    * Added cmdlet Get-MAC2AllowListList leveraging the ListAllowLists service API.
+    * Added cmdlet New-MAC2AllowList leveraging the CreateAllowList service API.
+    * Added cmdlet Remove-MAC2AllowList leveraging the DeleteAllowList service API.
+    * Added cmdlet Update-MAC2AllowList leveraging the UpdateAllowList service API.
+    * Modified cmdlet New-MAC2ClassificationJob: added parameter AllowListId.
+
+### 4.1.157 (2022-08-29 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.345.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.156 (2022-08-26 20:26Z)

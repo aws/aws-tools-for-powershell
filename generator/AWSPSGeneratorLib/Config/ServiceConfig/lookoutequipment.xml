@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLabel" OutputProperty="LabelId" Verb="New" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLabelGroup" OutputProperty="*" Verb="New" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -36,6 +44,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInferenceScheduler" Verb="Remove" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLabel" Verb="Remove" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLabelGroup" Verb="Remove" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,6 +68,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInferenceScheduler" OutputProperty="*" Verb="Get" Noun="InferenceScheduler" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLabel" OutputProperty="*" Verb="Get" Noun="Label" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLabelGroup" OutputProperty="*" Verb="Get" Noun="LabelGroup" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +100,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInferenceSchedulers" OutputProperty="InferenceSchedulerSummaries" Verb="Get" Noun="InferenceSchedulerList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLabelGroups" OutputProperty="LabelGroupSummaries" Verb="Get" Noun="LabelGroupList" PipelineParameter="LabelGroupNameBeginsWith" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLabels" OutputProperty="LabelSummaries" Verb="Get" Noun="LabelList" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceScheduler" Verb="Update" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLabelGroup" Verb="Update" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

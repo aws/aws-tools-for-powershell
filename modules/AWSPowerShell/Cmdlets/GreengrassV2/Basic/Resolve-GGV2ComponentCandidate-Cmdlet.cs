@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>A dictionary of attributes for the platform. The IoT Greengrass Core software defines
-        /// the <code>os</code> and <code>platform</code> by default. You can specify additional
+        /// the <code>os</code> and <code>architecture</code> by default. You can specify additional
         /// platform attributes for a core device when you deploy the Greengrass nucleus component.
         /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass
         /// nucleus component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>

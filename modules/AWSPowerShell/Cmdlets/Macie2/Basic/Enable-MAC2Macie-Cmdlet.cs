@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>Specifies how often to publish updates to policy findings for the account. This includes
-        /// publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon
-        /// CloudWatch Events).</para>
+        /// publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch
+        /// Events).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,12 +28,12 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Disables the attributes-based access control (ABAC) feature for the specified Amazon
-    /// Web Services SSO instance and deletes all of the attribute mappings that have been
+    /// Disables the attributes-based access control (ABAC) feature for the specified IAM
+    /// Identity Center instance and deletes all of the attribute mappings that have been
     /// configured. Once deleted, any attributes that are received from an identity source
     /// and any custom attributes you have previously configured will not be passed. For more
     /// information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based
-    /// Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.
+    /// Access Control</a> in the <i>IAM Identity Center User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "SSOADMNInstanceAccessControlAttributeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
-        /// executed.</para>
+        /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

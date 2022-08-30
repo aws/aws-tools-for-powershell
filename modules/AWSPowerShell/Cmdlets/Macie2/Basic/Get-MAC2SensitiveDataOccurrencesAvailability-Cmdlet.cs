@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Checks whether occurrences of sensitive data can be retrieved (revealed) for a finding.
+    /// Checks whether occurrences of sensitive data can be retrieved for a finding.
     /// </summary>
     [Cmdlet("Get", "MAC2SensitiveDataOccurrencesAvailability")]
     [OutputType("Amazon.Macie2.Model.GetSensitiveDataOccurrencesAvailabilityResponse")]

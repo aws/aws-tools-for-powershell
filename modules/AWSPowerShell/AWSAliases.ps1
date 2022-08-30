@@ -13942,12 +13942,20 @@ Set-Alias -Name Create-L4EDataset -Value New-L4EDataset
 Set-Alias -Name L4E-CreateDataset -Value New-L4EDataset
 Set-Alias -Name Create-L4EInferenceScheduler -Value New-L4EInferenceScheduler
 Set-Alias -Name L4E-CreateInferenceScheduler -Value New-L4EInferenceScheduler
+Set-Alias -Name Create-L4ELabel -Value New-L4ELabel
+Set-Alias -Name L4E-CreateLabel -Value New-L4ELabel
+Set-Alias -Name Create-L4ELabelGroup -Value New-L4ELabelGroup
+Set-Alias -Name L4E-CreateLabelGroup -Value New-L4ELabelGroup
 Set-Alias -Name Create-L4EModel -Value New-L4EModel
 Set-Alias -Name L4E-CreateModel -Value New-L4EModel
 Set-Alias -Name Delete-L4EDataset -Value Remove-L4EDataset
 Set-Alias -Name L4E-DeleteDataset -Value Remove-L4EDataset
 Set-Alias -Name Delete-L4EInferenceScheduler -Value Remove-L4EInferenceScheduler
 Set-Alias -Name L4E-DeleteInferenceScheduler -Value Remove-L4EInferenceScheduler
+Set-Alias -Name Delete-L4ELabel -Value Remove-L4ELabel
+Set-Alias -Name L4E-DeleteLabel -Value Remove-L4ELabel
+Set-Alias -Name Delete-L4ELabelGroup -Value Remove-L4ELabelGroup
+Set-Alias -Name L4E-DeleteLabelGroup -Value Remove-L4ELabelGroup
 Set-Alias -Name Delete-L4EModel -Value Remove-L4EModel
 Set-Alias -Name L4E-DeleteModel -Value Remove-L4EModel
 Set-Alias -Name Describe-L4EDataIngestionJob -Value Get-L4EDataIngestionJob
@@ -13956,6 +13964,10 @@ Set-Alias -Name Describe-L4EDataset -Value Get-L4EDataset
 Set-Alias -Name L4E-DescribeDataset -Value Get-L4EDataset
 Set-Alias -Name Describe-L4EInferenceScheduler -Value Get-L4EInferenceScheduler
 Set-Alias -Name L4E-DescribeInferenceScheduler -Value Get-L4EInferenceScheduler
+Set-Alias -Name Describe-L4ELabel -Value Get-L4ELabel
+Set-Alias -Name L4E-DescribeLabel -Value Get-L4ELabel
+Set-Alias -Name Describe-L4ELabelGroup -Value Get-L4ELabelGroup
+Set-Alias -Name L4E-DescribeLabelGroup -Value Get-L4ELabelGroup
 Set-Alias -Name Describe-L4EModel -Value Get-L4EModel
 Set-Alias -Name L4E-DescribeModel -Value Get-L4EModel
 Set-Alias -Name List-L4EDataIngestionJobs -Value Get-L4EDataIngestionJobList
@@ -13973,6 +13985,12 @@ Set-Alias -Name L4E-ListInferenceExecutions -Value Get-L4EInferenceExecutionList
 Set-Alias -Name List-L4EInferenceSchedulers -Value Get-L4EInferenceSchedulerList
 Set-Alias -Name List-L4EInferenceSchedulerList -Value Get-L4EInferenceSchedulerList
 Set-Alias -Name L4E-ListInferenceSchedulers -Value Get-L4EInferenceSchedulerList
+Set-Alias -Name List-L4ELabelGroups -Value Get-L4ELabelGroupList
+Set-Alias -Name List-L4ELabelGroupList -Value Get-L4ELabelGroupList
+Set-Alias -Name L4E-ListLabelGroups -Value Get-L4ELabelGroupList
+Set-Alias -Name List-L4ELabels -Value Get-L4ELabelList
+Set-Alias -Name List-L4ELabelList -Value Get-L4ELabelList
+Set-Alias -Name L4E-ListLabels -Value Get-L4ELabelList
 Set-Alias -Name List-L4EModels -Value Get-L4EModelList
 Set-Alias -Name List-L4EModelList -Value Get-L4EModelList
 Set-Alias -Name L4E-ListModels -Value Get-L4EModelList
@@ -13986,6 +14004,7 @@ Set-Alias -Name L4E-StopInferenceScheduler -Value Stop-L4EInferenceScheduler
 Set-Alias -Name L4E-TagResource -Value Add-L4EResourceTag
 Set-Alias -Name L4E-UntagResource -Value Remove-L4EResourceTag
 Set-Alias -Name L4E-UpdateInferenceScheduler -Value Update-L4EInferenceScheduler
+Set-Alias -Name L4E-UpdateLabelGroup -Value Update-L4ELabelGroup
 Set-Alias -Name Activate-LOMAnomalyDetector -Value Enable-LOMAnomalyDetector
 Set-Alias -Name LOM-ActivateAnomalyDetector -Value Enable-LOMAnomalyDetector
 Set-Alias -Name Back-LOMTestAnomalyDetector -Value Enable-LOMBackTestAnomalyDetector
@@ -14228,6 +14247,8 @@ Set-Alias -Name MAC2-AcceptInvitation -Value Approve-MAC2Invitation
 Set-Alias -Name Batch-MAC2GetCustomDataIdentifiers -Value Get-MAC2GetCustomDataIdentifier
 Set-Alias -Name Batch-MAC2GetCustomDataIdentifier -Value Get-MAC2GetCustomDataIdentifier
 Set-Alias -Name MAC2-BatchGetCustomDataIdentifiers -Value Get-MAC2GetCustomDataIdentifier
+Set-Alias -Name Create-MAC2AllowList -Value New-MAC2AllowList
+Set-Alias -Name MAC2-CreateAllowList -Value New-MAC2AllowList
 Set-Alias -Name Create-MAC2ClassificationJob -Value New-MAC2ClassificationJob
 Set-Alias -Name MAC2-CreateClassificationJob -Value New-MAC2ClassificationJob
 Set-Alias -Name Create-MAC2CustomDataIdentifier -Value New-MAC2CustomDataIdentifier
@@ -14245,6 +14266,8 @@ Set-Alias -Name MAC2-CreateSampleFindings -Value New-MAC2SampleFinding
 Set-Alias -Name Decline-MAC2Invitations -Value Deny-MAC2Invitation
 Set-Alias -Name Decline-MAC2Invitation -Value Deny-MAC2Invitation
 Set-Alias -Name MAC2-DeclineInvitations -Value Deny-MAC2Invitation
+Set-Alias -Name Delete-MAC2AllowList -Value Remove-MAC2AllowList
+Set-Alias -Name MAC2-DeleteAllowList -Value Remove-MAC2AllowList
 Set-Alias -Name Delete-MAC2CustomDataIdentifier -Value Remove-MAC2CustomDataIdentifier
 Set-Alias -Name MAC2-DeleteCustomDataIdentifier -Value Remove-MAC2CustomDataIdentifier
 Set-Alias -Name Delete-MAC2FindingsFilter -Value Remove-MAC2FindingsFilter
@@ -14272,6 +14295,7 @@ Set-Alias -Name MAC2-DisassociateMember -Value Unregister-MAC2Member
 Set-Alias -Name MAC2-EnableMacie -Value Enable-MAC2Macie
 Set-Alias -Name MAC2-EnableOrganizationAdminAccount -Value Enable-MAC2OrganizationAdminAccount
 Set-Alias -Name MAC2-GetAdministratorAccount -Value Get-MAC2AdministratorAccount
+Set-Alias -Name MAC2-GetAllowList -Value Get-MAC2AllowList
 Set-Alias -Name Get-MAC2BucketStatistics -Value Get-MAC2BucketStatistic
 Set-Alias -Name MAC2-GetBucketStatistics -Value Get-MAC2BucketStatistic
 Set-Alias -Name MAC2-GetClassificationExportConfiguration -Value Get-MAC2ClassificationExportConfiguration
@@ -14294,6 +14318,9 @@ Set-Alias -Name Get-MAC2UsageStatistics -Value Get-MAC2UsageStatistic
 Set-Alias -Name MAC2-GetUsageStatistics -Value Get-MAC2UsageStatistic
 Set-Alias -Name Get-MAC2UsageTotals -Value Get-MAC2UsageTotal
 Set-Alias -Name MAC2-GetUsageTotals -Value Get-MAC2UsageTotal
+Set-Alias -Name List-MAC2AllowLists -Value Get-MAC2AllowListList
+Set-Alias -Name List-MAC2AllowListList -Value Get-MAC2AllowListList
+Set-Alias -Name MAC2-ListAllowLists -Value Get-MAC2AllowListList
 Set-Alias -Name List-MAC2ClassificationJobs -Value Get-MAC2ClassificationJobList
 Set-Alias -Name List-MAC2ClassificationJobList -Value Get-MAC2ClassificationJobList
 Set-Alias -Name MAC2-ListClassificationJobs -Value Get-MAC2ClassificationJobList
@@ -14328,6 +14355,7 @@ Set-Alias -Name MAC2-SearchResources -Value Search-MAC2Resource
 Set-Alias -Name MAC2-TagResource -Value Add-MAC2ResourceTag
 Set-Alias -Name MAC2-TestCustomDataIdentifier -Value Test-MAC2CustomDataIdentifier
 Set-Alias -Name MAC2-UntagResource -Value Remove-MAC2ResourceTag
+Set-Alias -Name MAC2-UpdateAllowList -Value Update-MAC2AllowList
 Set-Alias -Name MAC2-UpdateClassificationJob -Value Update-MAC2ClassificationJob
 Set-Alias -Name MAC2-UpdateFindingsFilter -Value Update-MAC2FindingsFilter
 Set-Alias -Name MAC2-UpdateMacieSession -Value Update-MAC2MacieSession

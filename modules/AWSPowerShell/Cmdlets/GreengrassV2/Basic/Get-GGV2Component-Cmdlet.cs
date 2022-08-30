@@ -28,8 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Gets the recipe for a version of a component. Core devices can call this operation
-    /// to identify the artifacts and requirements to install a component.
+    /// Gets the recipe for a version of a component.
     /// </summary>
     [Cmdlet("Get", "GGV2Component")]
     [OutputType("Amazon.GreengrassV2.Model.GetComponentResponse")]

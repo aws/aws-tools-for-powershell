@@ -28,7 +28,7 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Attaches an Amazon Web Services managed policy ARN to a permission set.
+    /// Attaches an AWS managed policy ARN to a permission set.
     /// 
     ///  <note><para>
     /// If the permission set is already referenced by one or more account assignments, you
@@ -50,10 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
-        /// executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
-        /// Web Services General Reference</i>.</para>
+        /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.
+        /// For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter ManagedPolicyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services managed policy ARN to be attached to a permission set.</para>
+        /// <para>The AWS managed policy ARN to be attached to a permission set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

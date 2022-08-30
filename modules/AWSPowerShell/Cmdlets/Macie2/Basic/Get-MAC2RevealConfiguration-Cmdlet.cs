@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves the status and configuration settings for retrieving (revealing) occurrences
-    /// of sensitive data reported by findings.
+    /// Retrieves the status and configuration settings for retrieving occurrences of sensitive
+    /// data reported by findings.
     /// </summary>
     [Cmdlet("Get", "MAC2RevealConfiguration")]
     [OutputType("Amazon.Macie2.Model.RevealConfiguration")]

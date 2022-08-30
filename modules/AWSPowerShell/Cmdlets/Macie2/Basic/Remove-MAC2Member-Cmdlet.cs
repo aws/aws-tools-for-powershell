@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the Amazon Macie resource or account that the request applies
-        /// to.</para>
+        /// <para>The unique identifier for the Amazon Macie resource that the request applies to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

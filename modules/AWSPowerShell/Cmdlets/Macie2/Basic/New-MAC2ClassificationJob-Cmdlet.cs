@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class NewMAC2ClassificationJobCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowListId
+        /// <summary>
+        /// <para>
+        /// <para>An array of unique identifiers, one for each allow list for the job to use when it
+        /// analyzes data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowListIds")]
+        public System.String[] AllowListId { get; set; }
+        #endregion
+        
         #region Parameter S3JobDefinition_BucketCriteria_Excludes_And
         /// <summary>
         /// <para>
@@ -324,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 context.Select = CreateSelectDelegate<Amazon.Macie2.Model.CreateClassificationJobResponse, NewMAC2ClassificationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AllowListId != null)
+            {
+                context.AllowListId = new List<System.String>(this.AllowListId);
+            }
             context.ClientToken = this.ClientToken;
             if (this.CustomDataIdentifierId != null)
             {
@@ -398,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             // create request
             var request = new Amazon.Macie2.Model.CreateClassificationJobRequest();
             
+            if (cmdletContext.AllowListId != null)
+            {
+                request.AllowListIds = cmdletContext.AllowListId;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -717,6 +737,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowListId { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> CustomDataIdentifierId { get; set; }
             public System.String Description { get; set; }

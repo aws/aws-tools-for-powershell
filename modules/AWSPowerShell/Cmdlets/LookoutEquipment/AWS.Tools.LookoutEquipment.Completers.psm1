@@ -104,6 +104,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.LabelRating
+        "New-L4ELabel/Rating"
+        {
+            $v = "ANOMALY","NEUTRAL","NO_ANOMALY"
+            break
+        }
+
         # Amazon.LookoutEquipment.ModelStatus
         "Get-L4EModelList/Status"
         {
@@ -129,6 +136,7 @@ $L4E_Completers = {
 $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
+    "Rating"=@("New-L4ELabel")
     "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EModelList")
 }
 
@@ -184,19 +192,27 @@ $L4E_SelectCompleters = {
 $L4E_SelectMap = @{
     "Select"=@("New-L4EDataset",
                "New-L4EInferenceScheduler",
+               "New-L4ELabel",
+               "New-L4ELabelGroup",
                "New-L4EModel",
                "Remove-L4EDataset",
                "Remove-L4EInferenceScheduler",
+               "Remove-L4ELabel",
+               "Remove-L4ELabelGroup",
                "Remove-L4EModel",
                "Get-L4EDataIngestionJob",
                "Get-L4EDataset",
                "Get-L4EInferenceScheduler",
+               "Get-L4ELabel",
+               "Get-L4ELabelGroup",
                "Get-L4EModel",
                "Get-L4EDataIngestionJobList",
                "Get-L4EDatasetList",
                "Get-L4EInferenceEventList",
                "Get-L4EInferenceExecutionList",
                "Get-L4EInferenceSchedulerList",
+               "Get-L4ELabelGroupList",
+               "Get-L4ELabelList",
                "Get-L4EModelList",
                "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
@@ -205,7 +221,8 @@ $L4E_SelectMap = @{
                "Stop-L4EInferenceScheduler",
                "Add-L4EResourceTag",
                "Remove-L4EResourceTag",
-               "Update-L4EInferenceScheduler")
+               "Update-L4EInferenceScheduler",
+               "Update-L4ELabelGroup")
 }
 
 _awsArgumentCompleterRegistration $L4E_SelectCompleters $L4E_SelectMap

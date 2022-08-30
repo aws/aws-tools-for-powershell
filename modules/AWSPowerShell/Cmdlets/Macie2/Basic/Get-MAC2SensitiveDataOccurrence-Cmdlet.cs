@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves (reveals) occurrences of sensitive data reported by a finding.
+    /// Retrieves occurrences of sensitive data reported by a finding.
     /// </summary>
     [Cmdlet("Get", "MAC2SensitiveDataOccurrence")]
     [OutputType("Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse")]

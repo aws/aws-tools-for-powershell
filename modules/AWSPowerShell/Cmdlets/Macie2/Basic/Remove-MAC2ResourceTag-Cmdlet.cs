@@ -28,8 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Removes one or more tags (keys and values) from a classification job, custom data
-    /// identifier, findings filter, or member account.
+    /// Removes one or more tags (keys and values) from an Amazon Macie resource.
     /// </summary>
     [Cmdlet("Remove", "MAC2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the classification job, custom data identifier,
-        /// findings filter, or member account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>One or more tags (keys) to remove from the resource. In an HTTP request to remove
-        /// multiple tags, append the tagKeys parameter and argument for each tag to remove, and
-        /// separate them with an ampersand (&amp;).</para>
+        /// multiple tags, append the tagKeys parameter and argument for each tag to remove, separated
+        /// by an ampersand (&amp;).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

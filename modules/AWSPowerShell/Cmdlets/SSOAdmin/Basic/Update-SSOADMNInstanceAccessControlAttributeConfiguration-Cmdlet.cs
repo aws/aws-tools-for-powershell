@@ -28,14 +28,14 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Updates the Amazon Web Services SSO identity store attributes that you can use with
-    /// the Amazon Web Services SSO instance for attributes-based access control (ABAC). When
-    /// using an external identity provider as an identity source, you can pass attributes
-    /// through the SAML assertion as an alternative to configuring attributes from the Amazon
-    /// Web Services SSO identity store. If a SAML assertion passes any of these attributes,
-    /// Amazon Web Services SSO replaces the attribute value with the value from the Amazon
-    /// Web Services SSO identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based
-    /// Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.
+    /// Updates the IAM Identity Center identity store attributes that you can use with the
+    /// IAM Identity Center instance for attributes-based access control (ABAC). When using
+    /// an external identity provider as an identity source, you can pass attributes through
+    /// the SAML assertion as an alternative to configuring attributes from the IAM Identity
+    /// Center identity store. If a SAML assertion passes any of these attributes, IAM Identity
+    /// Center replaces the attribute value with the value from the IAM Identity Center identity
+    /// store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based
+    /// Access Control</a> in the <i>IAM Identity Center User Guide</i>.
     /// </summary>
     [Cmdlet("Update", "SSOADMNInstanceAccessControlAttributeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceAccessControlAttributeConfiguration_AccessControlAttribute
         /// <summary>
         /// <para>
-        /// <para>Lists the attributes that are configured for ABAC in the specified Amazon Web Services
-        /// SSO instance.</para>
+        /// <para>Lists the attributes that are configured for ABAC in the specified IAM Identity Center
+        /// instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
-        /// executed.</para>
+        /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

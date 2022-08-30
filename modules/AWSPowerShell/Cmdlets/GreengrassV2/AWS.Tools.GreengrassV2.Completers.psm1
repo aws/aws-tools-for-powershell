@@ -115,6 +115,13 @@ $GGV2_Completers = {
             break
         }
 
+        # Amazon.GreengrassV2.InstalledComponentTopologyFilter
+        "Get-GGV2InstalledComponentList/TopologyFilter"
+        {
+            $v = "ALL","ROOT"
+            break
+        }
+
         # Amazon.GreengrassV2.LambdaInputPayloadEncodingType
         "New-GGV2ComponentVersion/LambdaFunction_ComponentLambdaParameters_InputPayloadEncodingType"
         {
@@ -153,6 +160,7 @@ $GGV2_map = @{
     "RecipeOutputFormat"=@("Get-GGV2Component")
     "Scope"=@("Get-GGV2ComponentList")
     "Status"=@("Get-GGV2CoreDeviceList")
+    "TopologyFilter"=@("Get-GGV2InstalledComponentList")
 }
 
 _awsArgumentCompleterRegistration $GGV2_Completers $GGV2_map

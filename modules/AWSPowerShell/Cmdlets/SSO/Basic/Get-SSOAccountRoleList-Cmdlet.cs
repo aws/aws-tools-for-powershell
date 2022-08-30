@@ -28,7 +28,7 @@ using Amazon.SSO.Model;
 namespace Amazon.PowerShell.Cmdlets.SSO
 {
     /// <summary>
-    /// Lists all roles that are assigned to the user for a given Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all roles that are assigned to the user for a given AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOAccountRoleList")]
     [OutputType("Amazon.SSO.Model.RoleInfo")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         /// <para>
         /// <para>The token issued by the <code>CreateToken</code> API call. For more information, see
         /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a>
-        /// in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</para>
+        /// in the <i>IAM Identity Center OIDC API Reference Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the Amazon Web Services account that is assigned to the user.</para>
+        /// <para>The identifier for the AWS account that is assigned to the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

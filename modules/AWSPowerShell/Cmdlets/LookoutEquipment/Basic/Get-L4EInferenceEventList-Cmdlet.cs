@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter IntervalEndTime
         /// <summary>
         /// <para>
-        /// <para>Lookout for Equipment will return all the inference events with end time equal to
-        /// or less than the end time given.</para>
+        /// <para>Returns all the inference events with an end start time equal to or greater than less
+        /// than the end time given</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter IntervalStartTime
         /// <summary>
         /// <para>
-        /// <para> Lookout for Equipment will return all the inference events with start time equal
+        /// <para> Lookout for Equipment will return all the inference events with an end time equal
         /// to or greater than the start time given.</para>
         /// </para>
         /// </summary>

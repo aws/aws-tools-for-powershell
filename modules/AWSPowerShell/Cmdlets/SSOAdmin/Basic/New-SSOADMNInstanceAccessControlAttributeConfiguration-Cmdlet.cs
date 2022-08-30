@@ -28,10 +28,10 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Enables the attributes-based access control (ABAC) feature for the specified Amazon
-    /// Web Services SSO instance. You can also specify new attributes to add to your ABAC
-    /// configuration during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a>
-    /// in the <i>Amazon Web Services SSO User Guide</i>.
+    /// Enables the attributes-based access control (ABAC) feature for the specified IAM Identity
+    /// Center instance. You can also specify new attributes to add to your ABAC configuration
+    /// during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based
+    /// Access Control</a> in the <i>IAM Identity Center User Guide</i>.
     /// 
     ///  <note><para>
     /// After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code>
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceAccessControlAttributeConfiguration_AccessControlAttribute
         /// <summary>
         /// <para>
-        /// <para>Lists the attributes that are configured for ABAC in the specified Amazon Web Services
-        /// SSO instance.</para>
+        /// <para>Lists the attributes that are configured for ABAC in the specified IAM Identity Center
+        /// instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
-        /// executed.</para>
+        /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves the tags (keys and values) that are associated with a classification job,
-    /// custom data identifier, findings filter, or member account.
+    /// Retrieves the tags (keys and values) that are associated with an Amazon Macie resource.
     /// </summary>
     [Cmdlet("Get", "MAC2ResourceTag")]
     [OutputType("System.String")]
@@ -44,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the classification job, custom data identifier,
-        /// findings filter, or member account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String DatasetSchema_InlineDataSchema { get; set; }
         #endregion
         
+        #region Parameter LabelsInputConfiguration_LabelGroupName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the label group to be used for label data. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LabelsInputConfiguration_LabelGroupName { get; set; }
+        #endregion
+        
         #region Parameter ModelName
         /// <summary>
         /// <para>
@@ -288,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             context.DatasetSchema_InlineDataSchema = this.DatasetSchema_InlineDataSchema;
             context.EvaluationDataEndTime = this.EvaluationDataEndTime;
             context.EvaluationDataStartTime = this.EvaluationDataStartTime;
+            context.LabelsInputConfiguration_LabelGroupName = this.LabelsInputConfiguration_LabelGroupName;
             context.S3InputConfiguration_Bucket = this.S3InputConfiguration_Bucket;
             context.S3InputConfiguration_Prefix = this.S3InputConfiguration_Prefix;
             context.ModelName = this.ModelName;
@@ -380,6 +391,16 @@ namespace Amazon.PowerShell.Cmdlets.L4E
              // populate LabelsInputConfiguration
             var requestLabelsInputConfigurationIsNull = true;
             request.LabelsInputConfiguration = new Amazon.LookoutEquipment.Model.LabelsInputConfiguration();
+            System.String requestLabelsInputConfiguration_labelsInputConfiguration_LabelGroupName = null;
+            if (cmdletContext.LabelsInputConfiguration_LabelGroupName != null)
+            {
+                requestLabelsInputConfiguration_labelsInputConfiguration_LabelGroupName = cmdletContext.LabelsInputConfiguration_LabelGroupName;
+            }
+            if (requestLabelsInputConfiguration_labelsInputConfiguration_LabelGroupName != null)
+            {
+                request.LabelsInputConfiguration.LabelGroupName = requestLabelsInputConfiguration_labelsInputConfiguration_LabelGroupName;
+                requestLabelsInputConfigurationIsNull = false;
+            }
             Amazon.LookoutEquipment.Model.LabelsS3InputConfiguration requestLabelsInputConfiguration_labelsInputConfiguration_S3InputConfiguration = null;
             
              // populate S3InputConfiguration
@@ -515,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             public System.String DatasetSchema_InlineDataSchema { get; set; }
             public System.DateTime? EvaluationDataEndTime { get; set; }
             public System.DateTime? EvaluationDataStartTime { get; set; }
+            public System.String LabelsInputConfiguration_LabelGroupName { get; set; }
             public System.String S3InputConfiguration_Bucket { get; set; }
             public System.String S3InputConfiguration_Prefix { get; set; }
             public System.String ModelName { get; set; }

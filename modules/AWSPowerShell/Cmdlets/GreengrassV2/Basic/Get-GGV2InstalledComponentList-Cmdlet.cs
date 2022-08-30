@@ -28,9 +28,10 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves a paginated list of the components that a Greengrass core device runs. This
-    /// list doesn't include components that are deployed from local deployments or components
-    /// that are deployed as dependencies of other components.
+    /// Retrieves a paginated list of the components that a Greengrass core device runs. By
+    /// default, this list doesn't include components that are deployed as dependencies of
+    /// other components. To include dependencies in the response, set the <code>topologyFilter</code>
+    /// parameter to <code>ALL</code>.
     /// 
     ///  <note><para>
     /// IoT Greengrass relies on individual devices to send status updates to the Amazon Web
@@ -48,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// When the status of any component on the core device becomes <code>BROKEN</code></para></li><li><para>
     /// At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular
     /// interval that you can configure</a>, which defaults to 24 hours
+    /// </para></li><li><para>
+    /// For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment
+    /// and cloud deployment
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "GGV2InstalledComponentList")]
@@ -75,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CoreDeviceThingName { get; set; }
+        #endregion
+        
+        #region Parameter TopologyFilter
+        /// <summary>
+        /// <para>
+        /// <para>The filter for the list of components. Choose from the following options:</para><ul><li><para><code>ALL</code> – The list includes all components installed on the core device.</para></li><li><para><code>ROOT</code> – The list includes only <i>root</i> components, which are components
+        /// that you specify in a deployment. When you choose this option, the list doesn't include
+        /// components that the core device installs as dependencies of other components.</para></li></ul><para>Default: <code>ROOT</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GreengrassV2.InstalledComponentTopologyFilter")]
+        public Amazon.GreengrassV2.InstalledComponentTopologyFilter TopologyFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -152,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.TopologyFilter = this.TopologyFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.TopologyFilter != null)
+            {
+                request.TopologyFilter = cmdletContext.TopologyFilter;
             }
             
             CmdletOutput output;
@@ -244,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             public System.String CoreDeviceThingName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.GreengrassV2.InstalledComponentTopologyFilter TopologyFilter { get; set; }
             public System.Func<Amazon.GreengrassV2.Model.ListInstalledComponentsResponse, GetGGV2InstalledComponentListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstalledComponents;
         }

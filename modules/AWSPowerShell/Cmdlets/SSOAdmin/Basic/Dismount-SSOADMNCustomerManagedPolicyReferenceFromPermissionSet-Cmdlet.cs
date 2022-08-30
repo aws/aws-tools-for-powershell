@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services SSO instance under which the operation will be
-        /// executed. </para>
+        /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>The path to the IAM policy that you have configured in each account where you want
         /// to deploy your permission set. The default is <code>/</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
-        /// names and paths</a> in the <i>Identity and Access Management User Guide</i>.</para>
+        /// names and paths</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

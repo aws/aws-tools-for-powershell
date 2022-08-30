@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Specifies the maximum number of sensors for which to retrieve statistics. </para>
+        /// <para>Specifies the maximum number of sensors for which to retrieve statistics. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> An opaque pagination token indicating where to continue the listing of sensor statistics.
+        /// <para>An opaque pagination token indicating where to continue the listing of sensor statistics.
         /// </para>
         /// </para>
         /// <para>

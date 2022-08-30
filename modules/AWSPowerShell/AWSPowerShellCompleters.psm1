@@ -23987,6 +23987,13 @@ $GGV2_Completers = {
             break
         }
 
+        # Amazon.GreengrassV2.InstalledComponentTopologyFilter
+        "Get-GGV2InstalledComponentList/TopologyFilter"
+        {
+            $v = "ALL","ROOT"
+            break
+        }
+
         # Amazon.GreengrassV2.LambdaInputPayloadEncodingType
         "New-GGV2ComponentVersion/LambdaFunction_ComponentLambdaParameters_InputPayloadEncodingType"
         {
@@ -24025,6 +24032,7 @@ $GGV2_map = @{
     "RecipeOutputFormat"=@("Get-GGV2Component")
     "Scope"=@("Get-GGV2ComponentList")
     "Status"=@("Get-GGV2CoreDeviceList")
+    "TopologyFilter"=@("Get-GGV2InstalledComponentList")
 }
 
 _awsArgumentCompleterRegistration $GGV2_Completers $GGV2_map
@@ -31562,6 +31570,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.LabelRating
+        "New-L4ELabel/Rating"
+        {
+            $v = "ANOMALY","NEUTRAL","NO_ANOMALY"
+            break
+        }
+
         # Amazon.LookoutEquipment.ModelStatus
         "Get-L4EModelList/Status"
         {
@@ -31587,6 +31602,7 @@ $L4E_Completers = {
 $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
+    "Rating"=@("New-L4ELabel")
     "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EModelList")
 }
 
@@ -31642,19 +31658,27 @@ $L4E_SelectCompleters = {
 $L4E_SelectMap = @{
     "Select"=@("New-L4EDataset",
                "New-L4EInferenceScheduler",
+               "New-L4ELabel",
+               "New-L4ELabelGroup",
                "New-L4EModel",
                "Remove-L4EDataset",
                "Remove-L4EInferenceScheduler",
+               "Remove-L4ELabel",
+               "Remove-L4ELabelGroup",
                "Remove-L4EModel",
                "Get-L4EDataIngestionJob",
                "Get-L4EDataset",
                "Get-L4EInferenceScheduler",
+               "Get-L4ELabel",
+               "Get-L4ELabelGroup",
                "Get-L4EModel",
                "Get-L4EDataIngestionJobList",
                "Get-L4EDatasetList",
                "Get-L4EInferenceEventList",
                "Get-L4EInferenceExecutionList",
                "Get-L4EInferenceSchedulerList",
+               "Get-L4ELabelGroupList",
+               "Get-L4ELabelList",
                "Get-L4EModelList",
                "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
@@ -31663,7 +31687,8 @@ $L4E_SelectMap = @{
                "Stop-L4EInferenceScheduler",
                "Add-L4EResourceTag",
                "Remove-L4EResourceTag",
-               "Update-L4EInferenceScheduler")
+               "Update-L4EInferenceScheduler",
+               "Update-L4ELabelGroup")
 }
 
 _awsArgumentCompleterRegistration $L4E_SelectCompleters $L4E_SelectMap
@@ -32510,6 +32535,7 @@ $MAC2_SelectCompleters = {
 $MAC2_SelectMap = @{
     "Select"=@("Approve-MAC2Invitation",
                "Get-MAC2GetCustomDataIdentifier",
+               "New-MAC2AllowList",
                "New-MAC2ClassificationJob",
                "New-MAC2CustomDataIdentifier",
                "New-MAC2FindingsFilter",
@@ -32517,6 +32543,7 @@ $MAC2_SelectMap = @{
                "New-MAC2Member",
                "New-MAC2SampleFinding",
                "Deny-MAC2Invitation",
+               "Remove-MAC2AllowList",
                "Remove-MAC2CustomDataIdentifier",
                "Remove-MAC2FindingsFilter",
                "Remove-MAC2Invitation",
@@ -32532,6 +32559,7 @@ $MAC2_SelectMap = @{
                "Enable-MAC2Macie",
                "Enable-MAC2OrganizationAdminAccount",
                "Get-MAC2AdministratorAccount",
+               "Get-MAC2AllowList",
                "Get-MAC2BucketStatistic",
                "Get-MAC2ClassificationExportConfiguration",
                "Get-MAC2CustomDataIdentifier",
@@ -32548,6 +32576,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2SensitiveDataOccurrencesAvailability",
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
+               "Get-MAC2AllowListList",
                "Get-MAC2ClassificationJobList",
                "Get-MAC2CustomDataIdentifierList",
                "Get-MAC2FindingList",
@@ -32563,6 +32592,7 @@ $MAC2_SelectMap = @{
                "Add-MAC2ResourceTag",
                "Test-MAC2CustomDataIdentifier",
                "Remove-MAC2ResourceTag",
+               "Update-MAC2AllowList",
                "Update-MAC2ClassificationJob",
                "Update-MAC2FindingsFilter",
                "Update-MAC2MacieSession",

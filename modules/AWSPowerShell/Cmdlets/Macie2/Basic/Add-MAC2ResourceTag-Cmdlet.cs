@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Adds or updates one or more tags (keys and values) that are associated with a classification
-    /// job, custom data identifier, findings filter, or member account.
+    /// Adds or updates one or more tags (keys and values) that are associated with an Amazon
+    /// Macie resource.
     /// </summary>
     [Cmdlet("Add", "MAC2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the classification job, custom data identifier,
-        /// findings filter, or member account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> An opaque pagination token indicating where to continue the listing of data ingestion
+        /// <para>An opaque pagination token indicating where to continue the listing of data ingestion
         /// jobs. </para>
         /// </para>
         /// <para>
