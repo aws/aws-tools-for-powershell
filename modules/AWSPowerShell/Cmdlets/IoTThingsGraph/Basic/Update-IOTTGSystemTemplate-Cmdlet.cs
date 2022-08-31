@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <summary>
     /// Updates the specified system. You don't need to run this action after updating a workflow.
     /// Any deployment that uses the system will see the changes in the system when it is
-    /// redeployed.
+    /// redeployed.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "IOTTGSystemTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemTemplateSummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemTemplateSummary object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.UpdateSystemTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class UpdateIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

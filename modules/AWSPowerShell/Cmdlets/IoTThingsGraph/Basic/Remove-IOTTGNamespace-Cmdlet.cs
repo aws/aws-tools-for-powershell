@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <summary>
     /// Deletes the specified namespace. This action deletes all of the entities in the namespace.
     /// Delete the systems and flows that use entities in the namespace before performing
-    /// this action.
+    /// this action. This action takes no request parameters.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTTGNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTThingsGraph.Model.DeleteNamespaceResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.DeleteNamespaceResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.DeleteNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGNamespaceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

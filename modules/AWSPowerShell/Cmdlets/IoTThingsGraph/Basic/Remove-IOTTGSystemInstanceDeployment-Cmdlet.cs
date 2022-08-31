@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Removes a system instance from its target (Cloud or Greengrass).
+    /// Removes a system instance from its target (Cloud or Greengrass).<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTTGSystemInstanceDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemInstanceSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemInstanceSummary object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.UndeploySystemInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGSystemInstanceDeploymentCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

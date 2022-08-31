@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Gets a system instance.
+    /// Gets a system instance.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGSystemInstance")]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemInstanceDescription")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemInstanceDescription object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.GetSystemInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGSystemInstanceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

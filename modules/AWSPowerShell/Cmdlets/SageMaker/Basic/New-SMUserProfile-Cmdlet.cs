@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// is the main way to reference a "person" for the purposes of sharing, reporting, and
     /// other user-oriented features. This entity is created when a user onboards to Amazon
     /// SageMaker Studio. If an administrator invites a person by email or imports them from
-    /// SSO, a user profile is automatically created. A user profile is the primary holder
-    /// of settings for an individual user and has a reference to the user's private Amazon
-    /// Elastic File System (EFS) home directory.
+    /// Amazon Web Services SSO, a user profile is automatically created. A user profile is
+    /// the primary holder of settings for an individual user and has a reference to the user's
+    /// private Amazon Elastic File System (EFS) home directory.
     /// </summary>
     [Cmdlet("New", "SMUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -67,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the
-        /// only supported value is "UserName". If the Domain's AuthMode is SSO, this field is
-        /// required. If the Domain's AuthMode is not SSO, this field cannot be specified. </para>
+        /// only supported value is "UserName". If the Domain's AuthMode is Amazon Web Services
+        /// SSO, this field is required. If the Domain's AuthMode is not Amazon Web Services SSO,
+        /// this field cannot be specified. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.
-        /// If the Domain's AuthMode is SSO, this field is required, and must match a valid username
-        /// of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot
-        /// be specified. </para>
+        /// If the Domain's AuthMode is Amazon Web Services SSO, this field is required, and must
+        /// match a valid username of a user in your directory. If the Domain's AuthMode is not
+        /// Amazon Web Services SSO, this field cannot be specified. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

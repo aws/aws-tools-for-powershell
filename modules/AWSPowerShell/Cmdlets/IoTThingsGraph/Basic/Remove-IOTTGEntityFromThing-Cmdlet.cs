@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <summary>
     /// Dissociates a device entity from a concrete thing. The action takes only the type
     /// of the entity that you need to dissociate because only one entity of a particular
-    /// type can be associated with a thing.
+    /// type can be associated with a thing.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTTGEntityFromThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.DissociateEntityFromThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGEntityFromThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

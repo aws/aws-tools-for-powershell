@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// <summary>
     /// Runs one or more SQL statements.
     /// 
-    ///  <important><para>
+    ///  <note><para>
     /// This operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code>
     /// operation.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Invoke", "RDSDSqlStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDSDataService.Model.SqlStatementResult")]

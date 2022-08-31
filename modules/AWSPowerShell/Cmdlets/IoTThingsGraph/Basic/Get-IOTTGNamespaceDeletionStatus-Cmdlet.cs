@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Gets the status of a namespace deletion task.
+    /// Gets the status of a namespace deletion task.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGNamespaceDeletionStatus")]
     [OutputType("Amazon.IoTThingsGraph.Model.GetNamespaceDeletionStatusResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.GetNamespaceDeletionStatusResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.GetNamespaceDeletionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGNamespaceDeletionStatusCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

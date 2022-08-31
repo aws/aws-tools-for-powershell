@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     ///  
     /// <para>
     /// Users can create a new system instance that has the same ID as a deleted system instance.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTTGSystemInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.DeleteSystemInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGSystemInstanceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

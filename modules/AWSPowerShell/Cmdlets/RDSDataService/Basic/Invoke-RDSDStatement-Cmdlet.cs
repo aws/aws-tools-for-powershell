@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// <summary>
     /// Runs a SQL statement against a database.
     /// 
-    ///  <important><para>
+    ///  <note><para>
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
     /// </para><para>
     /// If the binary response data from the database is more than 1 MB, the call is terminated.
-    /// </para></important>
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "RDSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDSDataService.Model.ExecuteStatementResponse")]
@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to continue running the statement after the call times
-        /// out. By default, the statement stops running when the call times out.</para><important><para>For DDL statements, we recommend continuing to run the statement after the call times
+        /// out. By default, the statement stops running when the call times out.</para><note><para>For DDL statements, we recommend continuing to run the statement after the call times
         /// out. When a DDL statement terminates before it is finished running, it can result
-        /// in errors and possibly corrupted data structures.</para></important>
+        /// in errors and possibly corrupted data structures.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <para>A value that indicates how a field of <code>DECIMAL</code> type is represented in
         /// the response. The value of <code>STRING</code>, the default, specifies that it is
         /// converted to a String value. The value of <code>DOUBLE_OR_LONG</code> specifies that
-        /// it is converted to a Long value if its scale is 0, or to a Double value otherwise.</para><important><para>Conversion to Double or Long can result in roundoff errors due to precision loss.
-        /// We recommend converting to String, especially when working with currency values.</para></important>
+        /// it is converted to a Long value if its scale is 0, or to a Double value otherwise.</para><note><para>Conversion to Double or Long can result in roundoff errors due to precision loss.
+        /// We recommend converting to String, especially when working with currency values.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

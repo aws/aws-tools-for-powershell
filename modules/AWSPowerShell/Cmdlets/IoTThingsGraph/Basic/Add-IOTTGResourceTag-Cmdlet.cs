@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Creates a tag for the specified resource.
+    /// Creates a tag for the specified resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "IOTTGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class AddIOTTGResourceTagCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

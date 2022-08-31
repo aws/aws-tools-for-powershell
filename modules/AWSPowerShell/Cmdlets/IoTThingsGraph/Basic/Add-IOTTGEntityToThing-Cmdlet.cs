@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <para>
     /// A thing can be associated with only one device at a time. If you associate a thing
     /// with a new device id, its previous association will be removed.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "IOTTGEntityToThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.AssociateEntityToThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class AddIOTTGEntityToThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

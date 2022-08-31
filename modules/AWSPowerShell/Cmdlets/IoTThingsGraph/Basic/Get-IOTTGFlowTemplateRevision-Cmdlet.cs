@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <summary>
     /// Gets revisions of the specified workflow. Only the last 100 revisions are stored.
     /// If the workflow has been deprecated, this action will return revisions that occurred
-    /// before the deprecation. This action won't work for workflows that have been deleted.
+    /// before the deprecation. This action won't work for workflows that have been deleted.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGFlowTemplateRevision")]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowTemplateSummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.FlowTemplateSummary objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.GetFlowTemplateRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGFlowTemplateRevisionCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

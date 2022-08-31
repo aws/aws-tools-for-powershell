@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// (The public namespace contains only entities.) The workflow can contain only entities
     /// in the specified namespace. The workflow is validated against the entities in the
     /// latest version of the user's namespace unless another namespace version is specified
-    /// in the request.
+    /// in the request.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "IOTTGFlowTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowTemplateSummary")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.FlowTemplateSummary object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.CreateFlowTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class NewIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

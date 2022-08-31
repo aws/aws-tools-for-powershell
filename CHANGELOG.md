@@ -1,4 +1,27 @@
-﻿### 4.1.158 (2022-08-30 22:46Z)
+﻿### 4.1.159 (2022-08-31 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.347.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Identity Store
+    * Added cmdlet Assert-IDSMemberInGroup leveraging the IsMemberInGroups service API.
+    * Added cmdlet Get-IDSGroupId leveraging the GetGroupId service API.
+    * Added cmdlet Get-IDSGroupMembership leveraging the DescribeGroupMembership service API.
+    * Added cmdlet Get-IDSGroupMembershipId leveraging the GetGroupMembershipId service API.
+    * Added cmdlet Get-IDSGroupMembershipList leveraging the ListGroupMemberships service API.
+    * Added cmdlet Get-IDSGroupMembershipsForMemberList leveraging the ListGroupMembershipsForMember service API.
+    * Added cmdlet Get-IDSUserId leveraging the GetUserId service API.
+    * Added cmdlet New-IDSGroup leveraging the CreateGroup service API.
+    * Added cmdlet New-IDSGroupMembership leveraging the CreateGroupMembership service API.
+    * Added cmdlet New-IDSUser leveraging the CreateUser service API.
+    * Added cmdlet Remove-IDSGroup leveraging the DeleteGroup service API.
+    * Added cmdlet Remove-IDSGroupMembership leveraging the DeleteGroupMembership service API.
+    * Added cmdlet Remove-IDSUser leveraging the DeleteUser service API.
+    * Added cmdlet Update-IDSGroup leveraging the UpdateGroup service API.
+    * Added cmdlet Update-IDSUser leveraging the UpdateUser service API.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSRecordingConfiguration: added parameter RecordingReconnectWindowSecond.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters ContainerConfig_Domain, ContainerConfig_Framework, ContainerConfig_FrameworkVersion, ContainerConfig_NearestModelName, ContainerConfig_SupportedInstanceType, ContainerConfig_Task, PayloadConfig_SamplePayloadUrl and PayloadConfig_SupportedContentType.
+
+### 4.1.158 (2022-08-30 22:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.346.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon GreengrassV2
     * Modified cmdlet Get-GGV2InstalledComponentList: added parameter TopologyFilter.

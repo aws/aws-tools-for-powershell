@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>,
     /// <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>,
     /// <code>Property</code>, <code>Mapping</code>, <code>Enum</code>. 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "IOTTGEntityDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -60,6 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.UploadEntityDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SetIOTTGEntityDefinitionCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

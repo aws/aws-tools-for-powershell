@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Used to delete a domain. If you onboarded with IAM mode, you will need to delete your
-    /// domain to onboard again using SSO. Use with caution. All of the members of the domain
-    /// will lose access to their EFS volume, including data, notebooks, and other artifacts.
+    /// domain to onboard again using Amazon Web Services SSO. Use with caution. All of the
+    /// members of the domain will lose access to their EFS volume, including data, notebooks,
+    /// and other artifacts.
     /// </summary>
     [Cmdlet("Remove", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

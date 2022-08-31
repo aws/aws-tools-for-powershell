@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxRuntimePerTrainingJobInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time, in seconds, that each training job is allowed to run as part of
-        /// a hyperparameter tuning job. For more information, see the used by the action.</para>
+        /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
+        /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
+        /// see the used by the action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

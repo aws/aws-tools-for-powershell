@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <summary>
     /// Deletes a system. New deployments can't contain the system after its deletion. Existing
     /// deployments that contain the system will continue to work because they use a snapshot
-    /// of the system that is taken when it is deployed.
+    /// of the system that is taken when it is deployed.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTTGSystemTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.DeleteSystemTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

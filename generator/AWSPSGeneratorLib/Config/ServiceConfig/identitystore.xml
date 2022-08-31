@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>identitystore</C2jFilename>
     <AssemblyName>IdentityStore</AssemblyName>
@@ -9,66 +10,92 @@
     <ServiceClient>AmazonIdentityStoreClient</ServiceClient>
     <ServiceModuleGuid>e7ea4a06-96a3-4fa5-b20e-409b084f14c3</ServiceModuleGuid>
     <PipelineParameter />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Is" To="Assert" />
+    </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
-    <!--The current full configuration for this service is available at https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/generator/AWSPSGeneratorLib/Config/ServiceConfig/identitystore.xml.-->
     <ServiceOperations>
-      <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
-        <!--INFO - This is a new cmdlet.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String GroupId [required];
-             System.String IdentityStoreId [required].-->
-        <!--INFO - Operation result type: Amazon.IdentityStore.Model.DescribeGroupResponse {
-            System.String DisplayName;
-            System.String GroupId }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
-        <!--INFO - This is a new cmdlet.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String IdentityStoreId [required];
-             System.String UserId [required].-->
-        <!--INFO - Operation result type: Amazon.IdentityStore.Model.DescribeUserResponse {
-            System.String UserId;
-            System.String UserName }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Find" Noun="GroupList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
-        <!--INFO - This is a new cmdlet.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             List<Amazon.IdentityStore.Model.Filter> Filters as Filter (aliases: Filters);
-             System.String IdentityStoreId [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.IdentityStore.Model.ListGroupsResponse {
-            System.Collections.Generic.List<Amazon.IdentityStore.Model.Group> Groups;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Find" Noun="UserList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
-        <!--INFO - This is a new cmdlet.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             List<Amazon.IdentityStore.Model.Filter> Filters as Filter (aliases: Filters);
-             System.String IdentityStoreId [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.IdentityStore.Model.ListUsersResponse {
-            System.String NextToken;
-            System.Collections.Generic.List<Amazon.IdentityStore.Model.User> Users }.-->
-      </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="GroupId" Verb="New" Noun="Group" ShouldProcessTarget="IdentityStoreId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroupMembership" OutputProperty="MembershipId" Verb="New" Noun="GroupMembership" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" OutputProperty="UserId" Verb="New" Noun="User" ShouldProcessTarget="IdentityStoreId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroupMembership" Verb="Remove" Noun="GroupMembership" ShouldProcessTarget="MembershipId" PipelineParameter="MembershipId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGroupMembership" OutputProperty="*" Verb="Get" Noun="GroupMembership" PipelineParameter="MembershipId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupId" OutputProperty="GroupId" Verb="Get" Noun="GroupId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupMembershipId" OutputProperty="MembershipId" Verb="Get" Noun="GroupMembershipId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserId" OutputProperty="UserId" Verb="Get" Noun="UserId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IsMemberInGroups" OutputProperty="Results" Verb="Assert" Noun="MemberInGroup" ShouldProcessTarget="IdentityStoreId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberships" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupMembershipsForMember" OutputProperty="GroupMemberships" Verb="Get" Noun="GroupMembershipsForMemberList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Find" Noun="GroupList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Find" Noun="UserList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

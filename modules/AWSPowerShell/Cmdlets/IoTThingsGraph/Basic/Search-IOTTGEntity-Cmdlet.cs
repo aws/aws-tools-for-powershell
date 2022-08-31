@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Searches for entities of the specified type. You can search for entities in your namespace
-    /// and the public namespace that you're tracking.
+    /// and the public namespace that you're tracking.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "IOTTGEntity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.EntityDescription")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.EntityDescription objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.SearchEntitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SearchIOTTGEntityCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

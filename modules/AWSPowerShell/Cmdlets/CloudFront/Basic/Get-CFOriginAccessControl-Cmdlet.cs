@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets a CloudFront origin access control.
+    /// Gets a CloudFront origin access control, including its unique identifier.
     /// </summary>
     [Cmdlet("Get", "CFOriginAccessControl")]
     [OutputType("Amazon.CloudFront.Model.OriginAccessControl")]

@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// jobs. These resources include compute instances and storage volumes to use in model
         /// training jobs launched by hyperparameter tuning jobs. The <code>AllocationStrategy</code>
         /// controls the order in which multiple configurations provided in <code>InstanceConfigs</code>
-        /// are used.</para><note><para>If you only want to use a single InstanceConfig inside the <code>HyperParameterTuningResourceConfig</code>
+        /// are used.</para><note><para>If you only want to use a single instance configuration inside the <code>HyperParameterTuningResourceConfig</code>
         /// API, do not provide a value for <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
         /// <code>VolumeSizeInGB</code> and <code>InstanceCount</code>. If you use <code>InstanceConfigs</code>,
         /// do not provide values for <code>InstanceType</code>, <code>VolumeSizeInGB</code> or
@@ -328,12 +328,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run
+        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
         /// error is generated. We recommend starting with 900 seconds and increasing as necessary
         /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
         /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
-        /// The default value is 1 day. The maximum value is 28 days.</para>
+        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <code>TrainingJob</code> can run in total, including any time
+        /// spent publishing metrics or archiving and uploading models after it has been stopped,
+        /// is 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -620,14 +623,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterTuningResourceConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>A key used by AWS Key Management Service to encrypt data on the storage volume attached
-        /// to the compute instances used to run the training job. You can use either of the following
-        /// formats to specify a key.</para><para>KMS Key ID:</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Amazon Resource Name (ARN) of a AWS KMS key:</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware
+        /// <para>A key used by Amazon Web Services Key Management Service to encrypt data on the storage
+        /// volume attached to the compute instances used to run the training job. You can use
+        /// either of the following formats to specify a key.</para><para>KMS Key ID:</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Amazon Resource Name (ARN) of a KMS key:</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware
         /// module to encrypt</a> storage volumes. If you choose one of these instance types,
         /// you cannot request a <code>VolumeKmsKeyId</code>. For a list of instance types that
-        /// use local storage, see <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
-        /// store volumes</a>. For more information about AWS Key Management Service, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">AWS
-        /// KMS encryption</a> for more information.</para>
+        /// use local storage, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// store volumes</a>. For more information about Amazon Web Services Key Management Service,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">KMS
+        /// encryption</a> for more information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -644,7 +648,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// this parameter if a value for <code>InstanceConfigs</code> is also specified.</para><para>Some instance types have a fixed total local storage size. If you select one of these
         /// instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
         /// size. For a list of instance types with local instance storage and their sizes, see
-        /// <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
         /// store volumes</a>.</para><note><para>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General
         /// Purpose SSD (gp2)</a> storage volume type.</para></note>
         /// </para>

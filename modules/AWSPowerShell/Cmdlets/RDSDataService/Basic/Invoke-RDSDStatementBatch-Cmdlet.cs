@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// You can run bulk update and insert operations for multiple records using a DML statement
     /// with different parameter sets. Bulk operations can provide a significant performance
     /// improvement over individual insert and update operations.
-    /// </para><important><para>
+    /// </para><note><para>
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
     /// </para><para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// </para><para>
     /// The response size limit is 1 MiB. If the call returns more than 1 MiB of response
     /// data, the call is terminated.
-    /// </para></important>
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "RDSDStatementBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDSDataService.Model.UpdateResult")]

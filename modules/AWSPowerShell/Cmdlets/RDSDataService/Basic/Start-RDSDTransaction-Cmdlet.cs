@@ -30,14 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// <summary>
     /// Starts a SQL transaction.
     /// 
-    ///  <pre><code> &lt;important&gt; &lt;p&gt;A transaction can run for a maximum of 24
-    /// hours. A transaction is terminated and rolled back automatically after 24 hours.&lt;/p&gt;
-    /// &lt;p&gt;A transaction times out if no calls use its transaction ID in three minutes.
-    /// If a transaction times out before it's committed, it's rolled back automatically.&lt;/p&gt;
-    /// &lt;p&gt;DDL statements inside a transaction cause an implicit commit. We recommend
-    /// that you run each DDL statement in a separate &lt;code&gt;ExecuteStatement&lt;/code&gt;
-    /// call with &lt;code&gt;continueAfterTimeout&lt;/code&gt; enabled.&lt;/p&gt; &lt;/important&gt;
-    /// </code></pre>
+    ///  <note><para>
+    /// A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled
+    /// back automatically after 24 hours.
+    /// </para><para>
+    /// A transaction times out if no calls use its transaction ID in three minutes. If a
+    /// transaction times out before it's committed, it's rolled back automatically.
+    /// </para><para>
+    /// DDL statements inside a transaction cause an implicit commit. We recommend that you
+    /// run each DDL statement in a separate <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code>
+    /// enabled.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSDTransaction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

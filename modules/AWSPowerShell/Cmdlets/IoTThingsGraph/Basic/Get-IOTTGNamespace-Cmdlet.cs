@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Gets the latest version of the user's namespace and the public version that it is
-    /// tracking.
+    /// tracking.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGNamespace")]
     [OutputType("Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGNamespaceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

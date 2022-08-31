@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Searches for system instances in the user's account.
+    /// Searches for system instances in the user's account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "IOTTGSystemInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemInstanceSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.SystemInstanceSummary objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.SearchSystemInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SearchIOTTGSystemInstanceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

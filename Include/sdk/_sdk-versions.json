@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.346.0",
+    "ProductVersion" : "3.7.347.0",
     "CoreVersion"    : "3.7.12.27",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.8.3",
+            "Version" : "3.7.8.4",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.43.8",
+            "Version" : "3.7.44.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"
@@ -1218,7 +1218,7 @@
             "InPreview"               : false
         },
         "RDSDataService"                  : {
-            "Version" : "3.7.1.48",
+            "Version" : "3.7.1.49",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"
@@ -1410,7 +1410,7 @@
             "InPreview"               : false
         },
         "IoTThingsGraph"                  : {
-            "Version" : "3.7.0.198",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"
@@ -1802,7 +1802,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.5.7",
+            "Version" : "3.7.6.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"
@@ -1818,7 +1818,7 @@
             "InPreview"               : false
         },
         "IdentityStore"                   : {
-            "Version" : "3.7.0.200",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.27"

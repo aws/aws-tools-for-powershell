@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// and thing2.
     /// </para><para>
     /// This action searches for exact matches and doesn't perform partial text matching.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "IOTTGThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.Thing")]
@@ -48,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.Thing objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.SearchThingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SearchIOTTGThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

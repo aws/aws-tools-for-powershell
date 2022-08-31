@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Deprecates the specified system.
+    /// Deprecates the specified system.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "IOTTGSystemTemplateDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.DeprecateSystemTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SetIOTTGSystemTemplateDeprecationCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// For information about the artifacts that get added to your Greengrass core device
     /// when you use this API, see <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html">AWS
     /// IoT Things Graph and AWS IoT Greengrass</a>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "IOTTGSystemInstanceDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.DeploySystemInstanceResponse")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.DeploySystemInstanceResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.DeploySystemInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class AddIOTTGSystemInstanceDeploymentCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

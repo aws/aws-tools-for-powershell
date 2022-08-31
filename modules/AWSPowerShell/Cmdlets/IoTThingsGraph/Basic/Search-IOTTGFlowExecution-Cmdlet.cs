@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Searches for AWS IoT Things Graph workflow execution instances.
+    /// Searches for AWS IoT Things Graph workflow execution instances.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "IOTTGFlowExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowExecutionSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.FlowExecutionSummary objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.SearchFlowExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SearchIOTTGFlowExecutionCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

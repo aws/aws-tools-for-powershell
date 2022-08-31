@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Gets the status of the specified upload.
+    /// Gets the status of the specified upload.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGUploadStatus")]
     [OutputType("Amazon.IoTThingsGraph.Model.GetUploadStatusResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.GetUploadStatusResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.GetUploadStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGUploadStatusCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

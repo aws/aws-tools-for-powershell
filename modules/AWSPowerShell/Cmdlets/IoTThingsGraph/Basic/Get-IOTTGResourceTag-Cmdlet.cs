@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Lists all tags on an AWS IoT Things Graph resource.
+    /// Lists all tags on an AWS IoT Things Graph resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGResourceTag")]
     [OutputType("Amazon.IoTThingsGraph.Model.Tag")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.Tag objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGResourceTagCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

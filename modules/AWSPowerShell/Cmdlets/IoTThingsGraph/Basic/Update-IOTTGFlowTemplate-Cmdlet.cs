@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// Updates the specified workflow. All deployed systems and system instances that use
     /// the workflow will see the changes in the flow when it is redeployed. If you don't
     /// want this behavior, copy the workflow (creating a new workflow with a different ID),
-    /// and update the copy. The workflow can contain only entities in the specified namespace.
+    /// and update the copy. The workflow can contain only entities in the specified namespace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "IOTTGFlowTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowTemplateSummary")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.FlowTemplateSummary object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.UpdateFlowTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class UpdateIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

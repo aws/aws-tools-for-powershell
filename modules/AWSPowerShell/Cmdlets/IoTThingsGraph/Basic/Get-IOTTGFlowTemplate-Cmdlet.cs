@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code>
-    /// for the specified workflow.
+    /// for the specified workflow.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGFlowTemplate")]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowTemplateDescription")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.FlowTemplateDescription object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.GetFlowTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

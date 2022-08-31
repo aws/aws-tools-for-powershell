@@ -123,10 +123,25 @@ $IDS_SelectCompleters = {
 }
 
 $IDS_SelectMap = @{
-    "Select"=@("Get-IDSGroup",
+    "Select"=@("New-IDSGroup",
+               "New-IDSGroupMembership",
+               "New-IDSUser",
+               "Remove-IDSGroup",
+               "Remove-IDSGroupMembership",
+               "Remove-IDSUser",
+               "Get-IDSGroup",
+               "Get-IDSGroupMembership",
                "Get-IDSUser",
+               "Get-IDSGroupId",
+               "Get-IDSGroupMembershipId",
+               "Get-IDSUserId",
+               "Assert-IDSMemberInGroup",
+               "Get-IDSGroupMembershipList",
+               "Get-IDSGroupMembershipsForMemberList",
                "Find-IDSGroupList",
-               "Find-IDSUserList")
+               "Find-IDSUserList",
+               "Update-IDSGroup",
+               "Update-IDSUser")
 }
 
 _awsArgumentCompleterRegistration $IDS_SelectCompleters $IDS_SelectMap

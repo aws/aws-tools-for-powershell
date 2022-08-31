@@ -22,31 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTThingsGraph;
-using Amazon.IoTThingsGraph.Model;
+using Amazon.IdentityStore;
+using Amazon.IdentityStore.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTTG
+namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Deletes a workflow. Any new system or deployment that contains this workflow will
-    /// fail to update or deploy. Existing deployments that contain the workflow will continue
-    /// to run (since they use a snapshot of the workflow taken at the time of deployment).<br/><br/>This operation is deprecated.
+    /// Creates a group within the specified identity store.
     /// </summary>
-    [Cmdlet("Remove", "IOTTGFlowTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS IoT Things Graph DeleteFlowTemplate API operation.", Operation = new[] {"DeleteFlowTemplate"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse))]
-    [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "IDSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Identity Store CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.CreateGroupResponse))]
+    [AWSCmdletOutput("System.String or Amazon.IdentityStore.Model.CreateGroupResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.IdentityStore.Model.CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("since: 2022-08-30")]
-    public partial class RemoveIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
+    public partial class NewIDSGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow to be deleted.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code></para>
+        /// <para>A string containing the description of the group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>A string containing the name of the group. This value is commonly displayed when the
+        /// group is referenced.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter IdentityStoreId
+        /// <summary>
+        /// <para>
+        /// <para>The globally unique identifier for the identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,25 +75,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String IdentityStoreId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GroupId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.CreateGroupResponse).
+        /// Specifying the name of a property of type Amazon.IdentityStore.Model.CreateGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GroupId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdentityStoreId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdentityStoreId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdentityStoreId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTTGFlowTemplate (DeleteFlowTemplate)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IdentityStoreId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IDSGroup (CreateGroup)"))
             {
                 return;
             }
@@ -108,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse, RemoveIOTTGFlowTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.CreateGroupResponse, NewIDSGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,14 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.IdentityStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.Description = this.Description;
+            context.DisplayName = this.DisplayName;
+            context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +162,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTThingsGraph.Model.DeleteFlowTemplateRequest();
+            var request = new Amazon.IdentityStore.Model.CreateGroupRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.Description != null)
             {
-                request.Id = cmdletContext.Id;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.IdentityStoreId != null)
+            {
+                request.IdentityStoreId = cmdletContext.IdentityStoreId;
             }
             
             CmdletOutput output;
@@ -180,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse CallAWSServiceOperation(IAmazonIoTThingsGraph client, Amazon.IoTThingsGraph.Model.DeleteFlowTemplateRequest request)
+        private Amazon.IdentityStore.Model.CreateGroupResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.CreateGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Things Graph", "DeleteFlowTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "CreateGroup");
             try
             {
                 #if DESKTOP
-                return client.DeleteFlowTemplate(request);
+                return client.CreateGroup(request);
                 #elif CORECLR
-                return client.DeleteFlowTemplateAsync(request).GetAwaiter().GetResult();
+                return client.CreateGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.IoTThingsGraph.Model.DeleteFlowTemplateResponse, RemoveIOTTGFlowTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Description { get; set; }
+            public System.String DisplayName { get; set; }
+            public System.String IdentityStoreId { get; set; }
+            public System.Func<Amazon.IdentityStore.Model.CreateGroupResponse, NewIDSGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GroupId;
         }
         
     }

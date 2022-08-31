@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMInferenceRecommendationsJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter ContainerConfig_Domain
+        /// <summary>
+        /// <para>
+        /// <para>The machine learning domain of the model and its components.</para><para>Valid Values: <code>COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING | MACHINE_LEARNING</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_Domain")]
+        public System.String ContainerConfig_Domain { get; set; }
+        #endregion
+        
         #region Parameter InputConfig_EndpointConfiguration
         /// <summary>
         /// <para>
@@ -50,6 +61,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InputConfig_EndpointConfigurations")]
         public Amazon.SageMaker.Model.EndpointInputConfiguration[] InputConfig_EndpointConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_Framework
+        /// <summary>
+        /// <para>
+        /// <para>The machine learning framework of the container image.</para><para>Valid Values: <code>TENSORFLOW | PYTORCH | XGBOOST | SAGEMAKER-SCIKIT-LEARN</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_Framework")]
+        public System.String ContainerConfig_Framework { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_FrameworkVersion
+        /// <summary>
+        /// <para>
+        /// <para>The framework version of the container image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_FrameworkVersion")]
+        public System.String ContainerConfig_FrameworkVersion { get; set; }
         #endregion
         
         #region Parameter JobDescription
@@ -190,6 +223,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String InputConfig_ModelPackageVersionArn { get; set; }
         #endregion
         
+        #region Parameter ContainerConfig_NearestModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a pre-trained machine learning model benchmarked by Amazon SageMaker Inference
+        /// Recommender that matches your model.</para><para>Valid Values: <code>efficientnetb7 | unet | xgboost | faster-rcnn-resnet101 | nasnetlarge
+        /// | vgg16 | inception-v3 | mask-rcnn | sagemaker-scikit-learn | densenet201-gluon |
+        /// resnet18v2-gluon | xception | densenet201 | yolov4 | resnet152 | bert-base-cased |
+        /// xceptionV1-keras | resnet50 | retinanet</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_NearestModelName")]
+        public System.String ContainerConfig_NearestModelName { get; set; }
+        #endregion
+        
         #region Parameter TrafficPattern_Phase
         /// <summary>
         /// <para>
@@ -231,6 +279,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String CompiledOutputConfig_S3OutputUri { get; set; }
         #endregion
         
+        #region Parameter PayloadConfig_SamplePayloadUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored.
+        /// This path must point to a single gzip compressed tar archive (.tar.gz suffix).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_PayloadConfig_SamplePayloadUrl")]
+        public System.String PayloadConfig_SamplePayloadUrl { get; set; }
+        #endregion
+        
+        #region Parameter PayloadConfig_SupportedContentType
+        /// <summary>
+        /// <para>
+        /// <para>The supported MIME types for the input data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_PayloadConfig_SupportedContentTypes")]
+        public System.String[] PayloadConfig_SupportedContentType { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_SupportedInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>A list of the instance types that are used to generate inferences in real-time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_SupportedInstanceTypes")]
+        public System.String[] ContainerConfig_SupportedInstanceType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -243,6 +325,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_Task
+        /// <summary>
+        /// <para>
+        /// <para>The machine learning task that the model accomplishes.</para><para>Valid Values: <code>IMAGE_CLASSIFICATION | OBJECT_DETECTION | TEXT_GENERATION | IMAGE_SEGMENTATION
+        /// | FILL_MASK | CLASSIFICATION | REGRESSION | OTHER</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_Task")]
+        public System.String ContainerConfig_Task { get; set; }
         #endregion
         
         #region Parameter TrafficPattern_TrafficType
@@ -337,6 +431,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.JobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContainerConfig_Domain = this.ContainerConfig_Domain;
+            context.ContainerConfig_Framework = this.ContainerConfig_Framework;
+            context.ContainerConfig_FrameworkVersion = this.ContainerConfig_FrameworkVersion;
+            context.ContainerConfig_NearestModelName = this.ContainerConfig_NearestModelName;
+            context.PayloadConfig_SamplePayloadUrl = this.PayloadConfig_SamplePayloadUrl;
+            if (this.PayloadConfig_SupportedContentType != null)
+            {
+                context.PayloadConfig_SupportedContentType = new List<System.String>(this.PayloadConfig_SupportedContentType);
+            }
+            if (this.ContainerConfig_SupportedInstanceType != null)
+            {
+                context.ContainerConfig_SupportedInstanceType = new List<System.String>(this.ContainerConfig_SupportedInstanceType);
+            }
+            context.ContainerConfig_Task = this.ContainerConfig_Task;
             if (this.InputConfig_EndpointConfiguration != null)
             {
                 context.InputConfig_EndpointConfiguration = new List<Amazon.SageMaker.Model.EndpointInputConfiguration>(this.InputConfig_EndpointConfiguration);
@@ -520,6 +628,116 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.InputConfig.TrafficPattern = requestInputConfig_inputConfig_TrafficPattern;
                 requestInputConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.RecommendationJobContainerConfig requestInputConfig_inputConfig_ContainerConfig = null;
+            
+             // populate ContainerConfig
+            var requestInputConfig_inputConfig_ContainerConfigIsNull = true;
+            requestInputConfig_inputConfig_ContainerConfig = new Amazon.SageMaker.Model.RecommendationJobContainerConfig();
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_Domain = null;
+            if (cmdletContext.ContainerConfig_Domain != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_Domain = cmdletContext.ContainerConfig_Domain;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_Domain != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.Domain = requestInputConfig_inputConfig_ContainerConfig_containerConfig_Domain;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_Framework = null;
+            if (cmdletContext.ContainerConfig_Framework != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_Framework = cmdletContext.ContainerConfig_Framework;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_Framework != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.Framework = requestInputConfig_inputConfig_ContainerConfig_containerConfig_Framework;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_FrameworkVersion = null;
+            if (cmdletContext.ContainerConfig_FrameworkVersion != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_FrameworkVersion = cmdletContext.ContainerConfig_FrameworkVersion;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_FrameworkVersion != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.FrameworkVersion = requestInputConfig_inputConfig_ContainerConfig_containerConfig_FrameworkVersion;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_NearestModelName = null;
+            if (cmdletContext.ContainerConfig_NearestModelName != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_NearestModelName = cmdletContext.ContainerConfig_NearestModelName;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_NearestModelName != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.NearestModelName = requestInputConfig_inputConfig_ContainerConfig_containerConfig_NearestModelName;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            List<System.String> requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType = null;
+            if (cmdletContext.ContainerConfig_SupportedInstanceType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType = cmdletContext.ContainerConfig_SupportedInstanceType;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.SupportedInstanceTypes = requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_Task = null;
+            if (cmdletContext.ContainerConfig_Task != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_Task = cmdletContext.ContainerConfig_Task;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_Task != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.Task = requestInputConfig_inputConfig_ContainerConfig_containerConfig_Task;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.RecommendationJobPayloadConfig requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig = null;
+            
+             // populate PayloadConfig
+            var requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfigIsNull = true;
+            requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig = new Amazon.SageMaker.Model.RecommendationJobPayloadConfig();
+            System.String requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SamplePayloadUrl = null;
+            if (cmdletContext.PayloadConfig_SamplePayloadUrl != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SamplePayloadUrl = cmdletContext.PayloadConfig_SamplePayloadUrl;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SamplePayloadUrl != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig.SamplePayloadUrl = requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SamplePayloadUrl;
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfigIsNull = false;
+            }
+            List<System.String> requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SupportedContentType = null;
+            if (cmdletContext.PayloadConfig_SupportedContentType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SupportedContentType = cmdletContext.PayloadConfig_SupportedContentType;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SupportedContentType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig.SupportedContentTypes = requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig_payloadConfig_SupportedContentType;
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfigIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig should be set to null
+            if (requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfigIsNull)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig = null;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.PayloadConfig = requestInputConfig_inputConfig_ContainerConfig_inputConfig_ContainerConfig_PayloadConfig;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_ContainerConfig should be set to null
+            if (requestInputConfig_inputConfig_ContainerConfigIsNull)
+            {
+                requestInputConfig_inputConfig_ContainerConfig = null;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig != null)
+            {
+                request.InputConfig.ContainerConfig = requestInputConfig_inputConfig_ContainerConfig;
+                requestInputConfigIsNull = false;
+            }
              // determine if request.InputConfig should be set to null
             if (requestInputConfigIsNull)
             {
@@ -679,6 +897,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContainerConfig_Domain { get; set; }
+            public System.String ContainerConfig_Framework { get; set; }
+            public System.String ContainerConfig_FrameworkVersion { get; set; }
+            public System.String ContainerConfig_NearestModelName { get; set; }
+            public System.String PayloadConfig_SamplePayloadUrl { get; set; }
+            public List<System.String> PayloadConfig_SupportedContentType { get; set; }
+            public List<System.String> ContainerConfig_SupportedInstanceType { get; set; }
+            public System.String ContainerConfig_Task { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInputConfiguration> InputConfig_EndpointConfiguration { get; set; }
             public System.Int32? InputConfig_JobDurationInSecond { get; set; }
             public System.String InputConfig_ModelPackageVersionArn { get; set; }

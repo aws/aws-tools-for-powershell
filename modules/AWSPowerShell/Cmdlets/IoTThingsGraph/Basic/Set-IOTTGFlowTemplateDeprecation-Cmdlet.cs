@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated
-    /// flows can't be deployed, but existing deployments will continue to run.
+    /// flows can't be deployed, but existing deployments will continue to run.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "IOTTGFlowTemplateDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTThingsGraph.Model.DeprecateFlowTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SetIOTTGFlowTemplateDeprecationCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

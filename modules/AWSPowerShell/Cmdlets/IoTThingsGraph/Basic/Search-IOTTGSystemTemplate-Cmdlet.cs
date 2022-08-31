@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Searches for summary information about systems in the user's account. You can filter
-    /// by the ID of a workflow to return only systems that use the specified workflow.
+    /// by the ID of a workflow to return only systems that use the specified workflow.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "IOTTGSystemTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemTemplateSummary")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.SystemTemplateSummary objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.SearchSystemTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SearchIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

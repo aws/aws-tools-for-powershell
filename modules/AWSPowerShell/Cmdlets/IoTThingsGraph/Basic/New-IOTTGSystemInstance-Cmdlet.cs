@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// </para><para>
     /// If the definition document doesn't specify a version of the user's namespace, the
     /// latest version will be used by default.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "IOTTGSystemInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemInstanceSummary")]
@@ -58,6 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemInstanceSummary object.",
         "The service call response (type Amazon.IoTThingsGraph.Model.CreateSystemInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class NewIOTTGSystemInstanceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

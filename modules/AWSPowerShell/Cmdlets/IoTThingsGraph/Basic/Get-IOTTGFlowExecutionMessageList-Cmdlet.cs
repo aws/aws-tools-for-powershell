@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Returns a list of objects that contain information about events in a flow execution.
+    /// Returns a list of objects that contain information about events in a flow execution.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGFlowExecutionMessageList")]
     [OutputType("Amazon.IoTThingsGraph.Model.FlowExecutionMessage")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.FlowExecutionMessage objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.ListFlowExecutionMessagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGFlowExecutionMessageListCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

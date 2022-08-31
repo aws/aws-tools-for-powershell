@@ -22,57 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTThingsGraph;
-using Amazon.IoTThingsGraph.Model;
+using Amazon.IdentityStore;
+using Amazon.IdentityStore.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTTG
+namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Creates a system. The system is validated against the entities in the latest version
-    /// of the user's namespace unless another namespace version is specified in the request.<br/><br/>This operation is deprecated.
+    /// For the specified user in the specified identity store, updates the user metadata
+    /// and attributes.
     /// </summary>
-    [Cmdlet("New", "IOTTGSystemTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoTThingsGraph.Model.SystemTemplateSummary")]
-    [AWSCmdlet("Calls the AWS IoT Things Graph CreateSystemTemplate API operation.", Operation = new[] {"CreateSystemTemplate"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse))]
-    [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.SystemTemplateSummary or Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse",
-        "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemTemplateSummary object.",
-        "The service call response (type Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IDSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Identity Store UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.UpdateUserResponse))]
+    [AWSCmdletOutput("None or Amazon.IdentityStore.Model.UpdateUserResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.IdentityStore.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("since: 2022-08-30")]
-    public partial class NewIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
+    public partial class UpdateIDSUserCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
-        #region Parameter CompatibleNamespaceVersion
+        #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The namespace version in which the system is to be created.</para><para>If no value is specified, the latest version is used by default.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int64? CompatibleNamespaceVersion { get; set; }
-        #endregion
-        
-        #region Parameter Definition_Language
-        /// <summary>
-        /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The globally unique identifier for the identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.IoTThingsGraph.DefinitionLanguage")]
-        public Amazon.IoTThingsGraph.DefinitionLanguage Definition_Language { get; set; }
+        public System.String IdentityStoreId { get; set; }
         #endregion
         
-        #region Parameter Definition_Text
+        #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>The GraphQL text that defines the entity.</para>
+        /// <para>A list of <code>AttributeOperation</code> objects to apply to the requested user.
+        /// These operations might add, replace, or remove an attribute.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Operations")]
+        public Amazon.IdentityStore.Model.AttributeOperation[] Operation { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for a user in the identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,26 +91,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Definition_Text { get; set; }
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Summary'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse).
-        /// Specifying the name of a property of type Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.UpdateUserResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Summary";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Definition_Text parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Definition_Text' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Definition_Text' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTTGSystemTemplate (CreateSystemTemplate)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IDSUser (UpdateUser)"))
             {
                 return;
             }
@@ -135,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse, NewIOTTGSystemTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.UpdateUserResponse, UpdateIDSUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,22 +151,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Definition_Text;
+                context.Select = (response, cmdlet) => this.UserId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CompatibleNamespaceVersion = this.CompatibleNamespaceVersion;
-            context.Definition_Language = this.Definition_Language;
+            context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
-            if (this.Definition_Language == null && ParameterWasBound(nameof(this.Definition_Language)))
+            if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Definition_Language which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Definition_Text = this.Definition_Text;
-            #if MODULAR
-            if (this.Definition_Text == null && ParameterWasBound(nameof(this.Definition_Text)))
+            if (this.Operation != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Definition_Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Operation = new List<Amazon.IdentityStore.Model.AttributeOperation>(this.Operation);
+            }
+            #if MODULAR
+            if (this.Operation == null && ParameterWasBound(nameof(this.Operation)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Operation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,40 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTThingsGraph.Model.CreateSystemTemplateRequest();
+            var request = new Amazon.IdentityStore.Model.UpdateUserRequest();
             
-            if (cmdletContext.CompatibleNamespaceVersion != null)
+            if (cmdletContext.IdentityStoreId != null)
             {
-                request.CompatibleNamespaceVersion = cmdletContext.CompatibleNamespaceVersion.Value;
+                request.IdentityStoreId = cmdletContext.IdentityStoreId;
             }
-            
-             // populate Definition
-            var requestDefinitionIsNull = true;
-            request.Definition = new Amazon.IoTThingsGraph.Model.DefinitionDocument();
-            Amazon.IoTThingsGraph.DefinitionLanguage requestDefinition_definition_Language = null;
-            if (cmdletContext.Definition_Language != null)
+            if (cmdletContext.Operation != null)
             {
-                requestDefinition_definition_Language = cmdletContext.Definition_Language;
+                request.Operations = cmdletContext.Operation;
             }
-            if (requestDefinition_definition_Language != null)
+            if (cmdletContext.UserId != null)
             {
-                request.Definition.Language = requestDefinition_definition_Language;
-                requestDefinitionIsNull = false;
-            }
-            System.String requestDefinition_definition_Text = null;
-            if (cmdletContext.Definition_Text != null)
-            {
-                requestDefinition_definition_Text = cmdletContext.Definition_Text;
-            }
-            if (requestDefinition_definition_Text != null)
-            {
-                request.Definition.Text = requestDefinition_definition_Text;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -244,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse CallAWSServiceOperation(IAmazonIoTThingsGraph client, Amazon.IoTThingsGraph.Model.CreateSystemTemplateRequest request)
+        private Amazon.IdentityStore.Model.UpdateUserResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.UpdateUserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Things Graph", "CreateSystemTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "UpdateUser");
             try
             {
                 #if DESKTOP
-                return client.CreateSystemTemplate(request);
+                return client.UpdateUser(request);
                 #elif CORECLR
-                return client.CreateSystemTemplateAsync(request).GetAwaiter().GetResult();
+                return client.UpdateUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,11 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int64? CompatibleNamespaceVersion { get; set; }
-            public Amazon.IoTThingsGraph.DefinitionLanguage Definition_Language { get; set; }
-            public System.String Definition_Text { get; set; }
-            public System.Func<Amazon.IoTThingsGraph.Model.CreateSystemTemplateResponse, NewIOTTGSystemTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Summary;
+            public System.String IdentityStoreId { get; set; }
+            public List<Amazon.IdentityStore.Model.AttributeOperation> Operation { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.IdentityStore.Model.UpdateUserResponse, UpdateIDSUserCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

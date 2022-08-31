@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
         #endregion
         
+        #region Parameter RecordingReconnectWindowSecond
+        /// <summary>
+        /// <para>
+        /// <para>If a broadcast disconnects and then reconnects within the specified interval, the
+        /// multiple streams will be considered a single broadcast and merged together. Default:
+        /// 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecordingReconnectWindowSeconds")]
+        public System.Int32? RecordingReconnectWindowSecond { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -179,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3_BucketName = this.S3_BucketName;
             context.Name = this.Name;
+            context.RecordingReconnectWindowSecond = this.RecordingReconnectWindowSecond;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -242,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RecordingReconnectWindowSecond != null)
+            {
+                request.RecordingReconnectWindowSeconds = cmdletContext.RecordingReconnectWindowSecond.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -339,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         {
             public System.String S3_BucketName { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? RecordingReconnectWindowSecond { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public System.Int64? ThumbnailConfiguration_TargetIntervalSecond { get; set; }

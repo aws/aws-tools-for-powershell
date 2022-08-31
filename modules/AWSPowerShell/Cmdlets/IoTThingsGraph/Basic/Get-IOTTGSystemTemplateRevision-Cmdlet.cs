@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// Gets revisions made to the specified system template. Only the previous 100 revisions
     /// are stored. If the system has been deprecated, this action will return the revisions
     /// that occurred before its deprecation. This action won't work with systems that have
-    /// been deleted.
+    /// been deleted.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGSystemTemplateRevision")]
     [OutputType("Amazon.IoTThingsGraph.Model.SystemTemplateSummary")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.SystemTemplateSummary objects.",
         "The service call response (type Amazon.IoTThingsGraph.Model.GetSystemTemplateRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGSystemTemplateRevisionCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         

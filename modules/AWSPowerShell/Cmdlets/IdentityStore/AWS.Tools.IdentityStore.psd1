@@ -86,10 +86,25 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Assert-IDSMemberInGroup', 
         'Find-IDSGroupList', 
         'Find-IDSUserList', 
         'Get-IDSGroup', 
-        'Get-IDSUser')
+        'Get-IDSGroupId', 
+        'Get-IDSGroupMembership', 
+        'Get-IDSGroupMembershipId', 
+        'Get-IDSGroupMembershipList', 
+        'Get-IDSGroupMembershipsForMemberList', 
+        'Get-IDSUser', 
+        'Get-IDSUserId', 
+        'New-IDSGroup', 
+        'New-IDSGroupMembership', 
+        'New-IDSUser', 
+        'Remove-IDSGroup', 
+        'Remove-IDSGroupMembership', 
+        'Remove-IDSUser', 
+        'Update-IDSGroup', 
+        'Update-IDSUser')
 
     # Variables to export from this module
     VariablesToExport = '*'

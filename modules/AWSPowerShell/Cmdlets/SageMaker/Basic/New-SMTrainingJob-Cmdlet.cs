@@ -281,12 +281,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run
+        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
         /// error is generated. We recommend starting with 900 seconds and increasing as necessary
         /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
         /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
-        /// The default value is 1 day. The maximum value is 28 days.</para>
+        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <code>TrainingJob</code> can run in total, including any time
+        /// spent publishing metrics or archiving and uploading models after it has been stopped,
+        /// is 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

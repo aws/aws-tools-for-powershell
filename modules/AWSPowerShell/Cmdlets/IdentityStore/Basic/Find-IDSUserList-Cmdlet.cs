@@ -28,10 +28,11 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Lists the attribute name and value of the user that you specified in the search. We
-    /// only support <code>UserName</code> as a valid filter attribute path currently, and
-    /// filter is required. This API returns minimum attributes, including <code>UserId</code>
-    /// and <code>UserName</code> in the response.
+    /// <i>Filtering for a user by the <code>UserName</code> attribute is deprecated. Instead,
+    /// use the <code>GetUserId</code> API action.</i><para>
+    /// Lists all users in the identity store. Returns a paginated list of complete <code>User</code>
+    /// objects.
+    /// </para>
     /// </summary>
     [Cmdlet("Find", "IDSUserList")]
     [OutputType("Amazon.IdentityStore.Model.User")]
@@ -43,24 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class FindIDSUserListCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
-        /// <summary>
-        /// <para>
-        /// <para>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code>
-        /// and <code>ListGroups</code> request. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.IdentityStore.Model.Filter[] Filter { get; set; }
-        #endregion
-        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
         /// <para>The globally unique identifier for the identity store, such as <code>d-1234567890</code>.
         /// In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is
-        /// a randomly generated string that contains number and lower case letters. This value
+        /// a randomly generated string that contains numbers and lower case letters. This value
         /// is generated at the time that a new identity store is created.</para>
         /// </para>
         /// </summary>
@@ -75,11 +64,25 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public System.String IdentityStoreId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
+        /// <code>ListGroups</code> requests.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Using filters with ListUsers API is deprecated, please use GetGroupId API instead.")]
+        [Alias("Filters")]
+        public Amazon.IdentityStore.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned per request. This parameter is used in
-        /// the <code>ListUsers</code> and <code>ListGroups</code> request to specify how many
+        /// the <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many
         /// results to return in one page. The length limit is 50 characters.</para>
         /// </para>
         /// </summary>
@@ -146,10 +149,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = (response, cmdlet) => this.IdentityStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.IdentityStore.Model.Filter>(this.Filter);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -175,10 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             // create request
             var request = new Amazon.IdentityStore.Model.ListUsersRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;
@@ -252,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public List<Amazon.IdentityStore.Model.Filter> Filter { get; set; }
             public System.String IdentityStoreId { get; set; }
             public System.Int32? MaxResult { get; set; }

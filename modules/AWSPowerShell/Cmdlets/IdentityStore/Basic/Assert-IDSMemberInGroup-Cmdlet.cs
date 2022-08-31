@@ -28,29 +28,40 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// <i>Filtering for a group by the group <code>DisplayName</code> attribute is deprecated.
-    /// Instead, use the <code>GetGroupId</code> API action.</i><para>
-    /// Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code>
-    /// objects.
-    /// </para>
+    /// Returns if a member exists in specified groups.
     /// </summary>
-    [Cmdlet("Find", "IDSGroupList")]
-    [OutputType("Amazon.IdentityStore.Model.Group")]
-    [AWSCmdlet("Calls the AWS Identity Store ListGroups API operation.", Operation = new[] {"ListGroups"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.ListGroupsResponse))]
-    [AWSCmdletOutput("Amazon.IdentityStore.Model.Group or Amazon.IdentityStore.Model.ListGroupsResponse",
-        "This cmdlet returns a collection of Amazon.IdentityStore.Model.Group objects.",
-        "The service call response (type Amazon.IdentityStore.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Assert", "IDSMemberInGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IdentityStore.Model.GroupMembershipExistenceResult")]
+    [AWSCmdlet("Calls the AWS Identity Store IsMemberInGroups API operation.", Operation = new[] {"IsMemberInGroups"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.IsMemberInGroupsResponse))]
+    [AWSCmdletOutput("Amazon.IdentityStore.Model.GroupMembershipExistenceResult or Amazon.IdentityStore.Model.IsMemberInGroupsResponse",
+        "This cmdlet returns a collection of Amazon.IdentityStore.Model.GroupMembershipExistenceResult objects.",
+        "The service call response (type Amazon.IdentityStore.Model.IsMemberInGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class FindIDSGroupListCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
+    public partial class AssertIDSMemberInGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of identifiers for groups in the identity store.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("GroupIds")]
+        public System.String[] GroupId { get; set; }
+        #endregion
         
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store, such as <code>d-1234567890</code>.
-        /// In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is
-        /// a randomly generated string that contains numbers and lower case letters. This value
-        /// is generated at the time that a new identity store is created.</para>
+        /// <para>The globally unique identifier for the identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,55 +75,25 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public System.String IdentityStoreId { get; set; }
         #endregion
         
-        #region Parameter Filter
+        #region Parameter MemberId_UserId
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
-        /// <code>ListGroups</code> requests.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Using filters with ListGroups API is deprecated, please use GetGroupId API instead.")]
-        [Alias("Filters")]
-        public Amazon.IdentityStore.Model.Filter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to be returned per request. This parameter is used in
-        /// the <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many
-        /// results to return in one page. The length limit is 50 characters.</para>
+        /// <para>An object containing the identifiers of resources that can be members.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code>
-        /// API operations. This value is generated by the identity store service. It is returned
-        /// in the API response if the total results are more than the size of one page. This
-        /// token is also returned when it is used in the API request to search for the next page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String MemberId_UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Groups'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.ListGroupsResponse).
-        /// Specifying the name of a property of type Amazon.IdentityStore.Model.ListGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.IsMemberInGroupsResponse).
+        /// Specifying the name of a property of type Amazon.IdentityStore.Model.IsMemberInGroupsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Groups";
+        public string Select { get; set; } = "Results";
         #endregion
         
         #region Parameter PassThru
@@ -125,9 +106,25 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IdentityStoreId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Assert-IDSMemberInGroup (IsMemberInGroups)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -137,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.ListGroupsResponse, FindIDSGroupListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.IsMemberInGroupsResponse, AssertIDSMemberInGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,12 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = (response, cmdlet) => this.IdentityStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Filter != null)
+            if (this.GroupId != null)
             {
-                context.Filter = new List<Amazon.IdentityStore.Model.Filter>(this.Filter);
+                context.GroupId = new List<System.String>(this.GroupId);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #if MODULAR
+            if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -162,8 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            context.MemberId_UserId = this.MemberId_UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,25 +178,34 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityStore.Model.ListGroupsRequest();
+            var request = new Amazon.IdentityStore.Model.IsMemberInGroupsRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.GroupId != null)
             {
-                request.Filters = cmdletContext.Filter;
+                request.GroupIds = cmdletContext.GroupId;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;
             }
-            if (cmdletContext.MaxResult != null)
+            
+             // populate MemberId
+            var requestMemberIdIsNull = true;
+            request.MemberId = new Amazon.IdentityStore.Model.MemberId();
+            System.String requestMemberId_memberId_UserId = null;
+            if (cmdletContext.MemberId_UserId != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                requestMemberId_memberId_UserId = cmdletContext.MemberId_UserId;
             }
-            if (cmdletContext.NextToken != null)
+            if (requestMemberId_memberId_UserId != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.MemberId.UserId = requestMemberId_memberId_UserId;
+                requestMemberIdIsNull = false;
+            }
+             // determine if request.MemberId should be set to null
+            if (requestMemberIdIsNull)
+            {
+                request.MemberId = null;
             }
             
             CmdletOutput output;
@@ -231,15 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityStore.Model.ListGroupsResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.ListGroupsRequest request)
+        private Amazon.IdentityStore.Model.IsMemberInGroupsResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.IsMemberInGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "ListGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "IsMemberInGroups");
             try
             {
                 #if DESKTOP
-                return client.ListGroups(request);
+                return client.IsMemberInGroups(request);
                 #elif CORECLR
-                return client.ListGroupsAsync(request).GetAwaiter().GetResult();
+                return client.IsMemberInGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -259,13 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            [System.ObsoleteAttribute]
-            public List<Amazon.IdentityStore.Model.Filter> Filter { get; set; }
+            public List<System.String> GroupId { get; set; }
             public System.String IdentityStoreId { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.IdentityStore.Model.ListGroupsResponse, FindIDSGroupListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Groups;
+            public System.String MemberId_UserId { get; set; }
+            public System.Func<Amazon.IdentityStore.Model.IsMemberInGroupsResponse, AssertIDSMemberInGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Results;
         }
         
     }
