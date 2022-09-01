@@ -304,6 +304,9 @@
     <Reference Include="AWSSDK.ConnectWisdomService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectWisdomService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ControlTower">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ControlTower.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -1226,6 +1229,9 @@
     </Reference>
     <Reference Include="AWSSDK.ConnectWisdomService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectWisdomService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ControlTower">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ControlTower.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Core.dll</HintPath>

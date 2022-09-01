@@ -5102,6 +5102,12 @@ Set-Alias -Name CONNP-GetTranscript -Value Get-CONNPTranscript
 Set-Alias -Name CONNP-SendEvent -Value Send-CONNPEvent
 Set-Alias -Name CONNP-SendMessage -Value Send-CONNPMessage
 Set-Alias -Name CONNP-StartAttachmentUpload -Value Start-CONNPAttachmentUpload
+Set-Alias -Name ACT-DisableControl -Value Disable-ACTControl
+Set-Alias -Name ACT-EnableControl -Value Enable-ACTControl
+Set-Alias -Name ACT-GetControlOperation -Value Get-ACTControlOperation
+Set-Alias -Name List-ACTEnabledControls -Value Get-ACTEnabledControlList
+Set-Alias -Name List-ACTEnabledControlList -Value Get-ACTEnabledControlList
+Set-Alias -Name ACT-ListEnabledControls -Value Get-ACTEnabledControlList
 Set-Alias -Name Delete-CURReportDefinition -Value Remove-CURReportDefinition
 Set-Alias -Name CUR-DeleteReportDefinition -Value Remove-CURReportDefinition
 Set-Alias -Name Describe-CURReportDefinitions -Value Get-CURReportDefinition

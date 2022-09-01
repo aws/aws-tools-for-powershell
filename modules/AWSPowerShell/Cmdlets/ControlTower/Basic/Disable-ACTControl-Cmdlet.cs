@@ -22,30 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeGuruReviewer;
-using Amazon.CodeGuruReviewer.Model;
+using Amazon.ControlTower;
+using Amazon.ControlTower.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGR
+namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is
-    /// called again with different reactions the previous feedback is overwritten.
+    /// This API call turns off a control. It starts an asynchronous operation that deletes
+    /// AWS resources on the specified organizational unit and the accounts it contains. The
+    /// resources will vary according to the control that you specify.
     /// </summary>
-    [Cmdlet("Write", "CGRRecommendationFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CodeGuru Reviewer PutRecommendationFeedback API operation.", Operation = new[] {"PutRecommendationFeedback"}, SelectReturnType = typeof(Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse))]
-    [AWSCmdletOutput("None or Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Disable", "ACTControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Control Tower DisableControl API operation.", Operation = new[] {"DisableControl"}, SelectReturnType = typeof(Amazon.ControlTower.Model.DisableControlResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.DisableControlResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ControlTower.Model.DisableControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteCGRRecommendationFeedbackCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
+    public partial class DisableACTControlCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
-        #region Parameter CodeReviewArn
+        #region Parameter ControlIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a>
-        /// object. </para>
+        /// <para>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls
+        /// are permitted, with the exception of the <b>Region deny</b> guardrail.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,33 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CodeReviewArn { get; set; }
+        public System.String ControlIdentifier { get; set; }
         #endregion
         
-        #region Parameter Reaction
+        #region Parameter TargetIdentifier
         /// <summary>
         /// <para>
-        /// <para>List for storing reactions. Reactions are utf-8 text code for emojis. If you send
-        /// an empty list it clears all your feedback.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Reactions")]
-        public System.String[] Reaction { get; set; }
-        #endregion
-        
-        #region Parameter RecommendationId
-        /// <summary>
-        /// <para>
-        /// <para>The recommendation ID that can be used to track the provided recommendations and then
-        /// to collect the feedback.</para>
+        /// <para>The ARN of the organizational unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,25 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RecommendationId { get; set; }
+        public System.String TargetIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationIdentifier'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.DisableControlResponse).
+        /// Specifying the name of a property of type Amazon.ControlTower.Model.DisableControlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "OperationIdentifier";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RecommendationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RecommendationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TargetIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TargetIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RecommendationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TargetIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommendationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CGRRecommendationFeedback (PutRecommendationFeedback)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-ACTControl (DisableControl)"))
             {
                 return;
             }
@@ -144,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse, WriteCGRRecommendationFeedbackCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.DisableControlResponse, DisableACTControlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,31 +135,21 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RecommendationId;
+                context.Select = (response, cmdlet) => this.TargetIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CodeReviewArn = this.CodeReviewArn;
+            context.ControlIdentifier = this.ControlIdentifier;
             #if MODULAR
-            if (this.CodeReviewArn == null && ParameterWasBound(nameof(this.CodeReviewArn)))
+            if (this.ControlIdentifier == null && ParameterWasBound(nameof(this.ControlIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CodeReviewArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Reaction != null)
-            {
-                context.Reaction = new List<System.String>(this.Reaction);
-            }
+            context.TargetIdentifier = this.TargetIdentifier;
             #if MODULAR
-            if (this.Reaction == null && ParameterWasBound(nameof(this.Reaction)))
+            if (this.TargetIdentifier == null && ParameterWasBound(nameof(this.TargetIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Reaction which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RecommendationId = this.RecommendationId;
-            #if MODULAR
-            if (this.RecommendationId == null && ParameterWasBound(nameof(this.RecommendationId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RecommendationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -194,19 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackRequest();
+            var request = new Amazon.ControlTower.Model.DisableControlRequest();
             
-            if (cmdletContext.CodeReviewArn != null)
+            if (cmdletContext.ControlIdentifier != null)
             {
-                request.CodeReviewArn = cmdletContext.CodeReviewArn;
+                request.ControlIdentifier = cmdletContext.ControlIdentifier;
             }
-            if (cmdletContext.Reaction != null)
+            if (cmdletContext.TargetIdentifier != null)
             {
-                request.Reactions = cmdletContext.Reaction;
-            }
-            if (cmdletContext.RecommendationId != null)
-            {
-                request.RecommendationId = cmdletContext.RecommendationId;
+                request.TargetIdentifier = cmdletContext.TargetIdentifier;
             }
             
             CmdletOutput output;
@@ -241,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse CallAWSServiceOperation(IAmazonCodeGuruReviewer client, Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackRequest request)
+        private Amazon.ControlTower.Model.DisableControlResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.DisableControlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CodeGuru Reviewer", "PutRecommendationFeedback");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "DisableControl");
             try
             {
                 #if DESKTOP
-                return client.PutRecommendationFeedback(request);
+                return client.DisableControl(request);
                 #elif CORECLR
-                return client.PutRecommendationFeedbackAsync(request).GetAwaiter().GetResult();
+                return client.DisableControlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -269,11 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CodeReviewArn { get; set; }
-            public List<System.String> Reaction { get; set; }
-            public System.String RecommendationId { get; set; }
-            public System.Func<Amazon.CodeGuruReviewer.Model.PutRecommendationFeedbackResponse, WriteCGRRecommendationFeedbackCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ControlIdentifier { get; set; }
+            public System.String TargetIdentifier { get; set; }
+            public System.Func<Amazon.ControlTower.Model.DisableControlResponse, DisableACTControlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OperationIdentifier;
         }
         
     }

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"><code>RepositoryAssociation</code></a> object. You can retrieve this ARN by calling
-        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"><code>ListRepositoryAssociations</code></a>. </para>
+        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>
+        /// object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> An array of key-value pairs used to tag an associated repository. A tag is a custom
-        /// attribute label with two parts: </para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
+        /// <para>An array of key-value pairs used to tag an associated repository. A tag is a custom
+        /// attribute label with two parts:</para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
         /// <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</para></li><li><para>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>,
         /// <code>Production</code>, or a team name). Omitting the tag value is the same as using
         /// an empty string. Like tag keys, tag values are case sensitive.</para></li></ul>

@@ -22,29 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeGuruReviewer;
-using Amazon.CodeGuruReviewer.Model;
+using Amazon.ControlTower;
+using Amazon.ControlTower.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGR
+namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Removes the association between Amazon CodeGuru Reviewer and a repository.
+    /// Lists the controls enabled by AWS Control Tower on the specified organizational unit
+    /// and the accounts it contains.
     /// </summary>
-    [Cmdlet("Unregister", "CGRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeGuruReviewer.Model.RepositoryAssociation")]
-    [AWSCmdlet("Calls the Amazon CodeGuru Reviewer DisassociateRepository API operation.", Operation = new[] {"DisassociateRepository"}, SelectReturnType = typeof(Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse))]
-    [AWSCmdletOutput("Amazon.CodeGuruReviewer.Model.RepositoryAssociation or Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse",
-        "This cmdlet returns an Amazon.CodeGuruReviewer.Model.RepositoryAssociation object.",
-        "The service call response (type Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ACTEnabledControlList")]
+    [OutputType("Amazon.ControlTower.Model.EnabledControlSummary")]
+    [AWSCmdlet("Calls the AWS Control Tower ListEnabledControls API operation.", Operation = new[] {"ListEnabledControls"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListEnabledControlsResponse))]
+    [AWSCmdletOutput("Amazon.ControlTower.Model.EnabledControlSummary or Amazon.ControlTower.Model.ListEnabledControlsResponse",
+        "This cmdlet returns a collection of Amazon.ControlTower.Model.EnabledControlSummary objects.",
+        "The service call response (type Amazon.ControlTower.Model.ListEnabledControlsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UnregisterCGRRepositoryCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
+    public partial class GetACTEnabledControlListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
-        #region Parameter AssociationArn
+        #region Parameter TargetIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>
-        /// object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</para>
+        /// <para>The ARN of the organizational unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,49 +55,54 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssociationArn { get; set; }
+        public System.String TargetIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>How many results to return per API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token to continue the list from a previous API call with the same parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RepositoryAssociation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse).
-        /// Specifying the name of a property of type Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnabledControls'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.ListEnabledControlsResponse).
+        /// Specifying the name of a property of type Amazon.ControlTower.Model.ListEnabledControlsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RepositoryAssociation";
+        public string Select { get; set; } = "EnabledControls";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AssociationArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AssociationArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TargetIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TargetIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssociationArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TargetIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssociationArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-CGRRepository (DisassociateRepository)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -107,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse, UnregisterCGRRepositoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.ListEnabledControlsResponse, GetACTEnabledControlListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AssociationArn;
+                context.Select = (response, cmdlet) => this.TargetIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AssociationArn = this.AssociationArn;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.TargetIdentifier = this.TargetIdentifier;
             #if MODULAR
-            if (this.AssociationArn == null && ParameterWasBound(nameof(this.AssociationArn)))
+            if (this.TargetIdentifier == null && ParameterWasBound(nameof(this.TargetIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssociationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +147,19 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeGuruReviewer.Model.DisassociateRepositoryRequest();
+            var request = new Amazon.ControlTower.Model.ListEnabledControlsRequest();
             
-            if (cmdletContext.AssociationArn != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.AssociationArn = cmdletContext.AssociationArn;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.TargetIdentifier != null)
+            {
+                request.TargetIdentifier = cmdletContext.TargetIdentifier;
             }
             
             CmdletOutput output;
@@ -179,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse CallAWSServiceOperation(IAmazonCodeGuruReviewer client, Amazon.CodeGuruReviewer.Model.DisassociateRepositoryRequest request)
+        private Amazon.ControlTower.Model.ListEnabledControlsResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.ListEnabledControlsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CodeGuru Reviewer", "DisassociateRepository");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ListEnabledControls");
             try
             {
                 #if DESKTOP
-                return client.DisassociateRepository(request);
+                return client.ListEnabledControls(request);
                 #elif CORECLR
-                return client.DisassociateRepositoryAsync(request).GetAwaiter().GetResult();
+                return client.ListEnabledControlsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssociationArn { get; set; }
-            public System.Func<Amazon.CodeGuruReviewer.Model.DisassociateRepositoryResponse, UnregisterCGRRepositoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RepositoryAssociation;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String TargetIdentifier { get; set; }
+            public System.Func<Amazon.ControlTower.Model.ListEnabledControlsResponse, GetACTEnabledControlListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.EnabledControls;
         }
         
     }

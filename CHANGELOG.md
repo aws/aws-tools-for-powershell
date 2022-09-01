@@ -1,4 +1,8 @@
-﻿### 4.1.159 (2022-08-31 20:33Z)
+﻿### 4.1.160 (2022-09-01 20:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.348.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Control Tower. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACT and can be listed using the command 'Get-AWSCmdletName -Service ACT'.
+
+### 4.1.159 (2022-08-31 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.347.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Identity Store
     * Added cmdlet Assert-IDSMemberInGroup leveraging the IsMemberInGroups service API.

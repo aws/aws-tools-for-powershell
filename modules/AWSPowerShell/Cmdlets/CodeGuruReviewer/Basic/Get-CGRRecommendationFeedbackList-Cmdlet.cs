@@ -28,8 +28,8 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html"><code>RecommendationFeedbackSummary</code></a> objects that contain customer recommendation
-    /// feedback for all CodeGuru Reviewer users.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a>
+    /// objects that contain customer recommendation feedback for all CodeGuru Reviewer users.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGRRecommendationFeedbackList")]
     [OutputType("Amazon.CodeGuruReviewer.Model.RecommendationFeedbackSummary")]
@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CodeReviewArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"><code>CodeReview</code></a> object. </para>
+        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a>
+        /// object. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter RecommendationId
         /// <summary>
         /// <para>
-        /// <para> Used to query the recommendation feedback for a given recommendation. </para>
+        /// <para>Used to query the recommendation feedback for a given recommendation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,11 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para> An Amazon Web Services user's account ID or Amazon Resource Name (ARN). Use this
-        /// ID to query the recommendation feedback for a code review from that user. </para><para> The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web
+        /// <para>An Amazon Web Services user's account ID or Amazon Resource Name (ARN). Use this ID
+        /// to query the recommendation feedback for a code review from that user.</para><para> The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web
         /// Services account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
         /// Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management
-        /// User Guide</i>. </para>
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results that are returned per call. The default is 100. </para>
+        /// <para>The maximum number of results that are returned per call. The default is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> If <code>nextToken</code> is returned, there are more results available. The value
-        /// of nextToken is a unique pagination token for each page. Make the call again using
-        /// the returned token to retrieve the next page. Keep all other arguments unchanged.
-        /// </para>
+        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
+        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
+        /// again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

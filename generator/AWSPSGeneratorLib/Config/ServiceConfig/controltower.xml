@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>controltower</C2jFilename>
+    <AssemblyName>ControlTower</AssemblyName>
+    <ServiceNounPrefix>ACT</ServiceNounPrefix>
+    <ServiceName>AWS Control Tower</ServiceName>
+    <ServiceClientInterface>IAmazonControlTower</ServiceClientInterface>
+    <ServiceClient>AmazonControlTowerClient</ServiceClient>
+    <ServiceModuleGuid>cc3f9af0-d3b2-4dfc-8a5f-57d2facaae0d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DisableControl" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableControl" OutputProperty="OperationIdentifier" Verb="Enable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetControlOperation" OutputProperty="ControlOperation" Verb="Get" Noun="ControlOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

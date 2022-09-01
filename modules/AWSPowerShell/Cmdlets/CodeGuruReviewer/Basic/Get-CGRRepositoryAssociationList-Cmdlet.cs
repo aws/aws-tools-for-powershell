@@ -28,8 +28,12 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html"><code>RepositoryAssociationSummary</code></a> objects that contain summary information
-    /// about a repository association. You can filter the returned list by <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType"><code>ProviderType</code></a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name"><code>Name</code></a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State"><code>State</code></a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner"><code>Owner</code></a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a>
+    /// objects that contain summary information about a repository association. You can filter
+    /// the returned list by <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>,
+    /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>,
+    /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>,
+    /// and <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGRRepositoryAssociationList")]
     [OutputType("Amazon.CodeGuruReviewer.Model.RepositoryAssociationSummary")]
@@ -80,18 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>List of repository association states to use as a filter.</para><para>The valid repository association states are:</para><ul><li><para><b>Associated</b>: The repository association is complete. </para></li><li><para><b>Associating</b>: CodeGuru Reviewer is: </para><ul><li><para> Setting up pull request notifications. This is required for pull requests to trigger
-        /// a CodeGuru Reviewer review. </para><note><para> If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub
+        /// <para>List of repository association states to use as a filter.</para><para>The valid repository association states are:</para><ul><li><para><b>Associated</b>: The repository association is complete.</para></li><li><para><b>Associating</b>: CodeGuru Reviewer is:</para><ul><li><para>Setting up pull request notifications. This is required for pull requests to trigger
+        /// a CodeGuru Reviewer review.</para><note><para>If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub
         /// Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks
         /// in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks,
-        /// reviews of code in your repository cannot be triggered. </para></note></li><li><para> Setting up source code access. This is required for CodeGuru Reviewer to securely
-        /// clone code in your repository. </para></li></ul></li><li><para><b>Failed</b>: The repository failed to associate or disassociate. </para></li><li><para><b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request
-        /// notifications and source code access. </para></li><li><para><b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository.
+        /// reviews of code in your repository cannot be triggered.</para></note></li><li><para>Setting up source code access. This is required for CodeGuru Reviewer to securely
+        /// clone code in your repository.</para></li></ul></li><li><para><b>Failed</b>: The repository failed to associate or disassociate.</para></li><li><para><b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request
+        /// notifications and source code access.</para></li><li><para><b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository.
         /// You can create a new association with this repository if you want to review source
-        /// code in it later. You can control access to code reviews created in an associated
-        /// repository with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using
+        /// code in it later. You can control access to code reviews created in anassociated repository
+        /// with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using
         /// tags to control access to associated repositories</a> in the <i>Amazon CodeGuru Reviewer
-        /// User Guide</i>. </para></li></ul>
+        /// User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

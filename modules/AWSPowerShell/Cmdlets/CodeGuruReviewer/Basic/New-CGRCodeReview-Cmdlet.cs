@@ -28,9 +28,10 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html"><code>CodeReviewType</code></a> of <code>RepositoryAnalysis</code>. This type of
-    /// code review analyzes all code under a specified branch in an associated repository.
-    /// <code>PullRequest</code> code reviews are automatically triggered by a pull request.
+    /// Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a>
+    /// of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under
+    /// a specified branch in an associated repository. <code>PullRequest</code> code reviews
+    /// are automatically triggered by a pull request.
     /// </summary>
     [Cmdlet("New", "CGRCodeReview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruReviewer.Model.CodeReview")]
@@ -57,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Type_RepositoryAnalysis_RepositoryHead_BranchName
         /// <summary>
         /// <para>
-        /// <para> The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
-        /// specifies the tip of this branch. </para>
+        /// <para>The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
+        /// specifies the tip of this branch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName
         /// <summary>
         /// <para>
-        /// <para> The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
-        /// specifies the tip of this branch. </para>
+        /// <para>The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
+        /// specifies the tip of this branch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para> Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate
-        /// code reviews if there are failures and retries. </para>
+        /// <para>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate
+        /// code reviews if there are failures and retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CommitDiff_DestinationCommit
         /// <summary>
         /// <para>
-        /// <para> The SHA of the destination commit used to generate a commit diff. This field is required
-        /// for a pull request code review. </para>
+        /// <para>The SHA of the destination commit used to generate a commit diff. This field is required
+        /// for a pull request code review.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the code review. The name of each code review in your Amazon Web Services
-        /// account must be unique. </para>
+        /// <para>The name of the code review. The name of each code review in your Amazon Web Services
+        /// account must be unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,8 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter S3BucketRepository_Name
         /// <summary>
         /// <para>
-        /// <para> The name of the repository when the <code>ProviderType</code> is <code>S3Bucket</code>.
-        /// </para>
+        /// <para>The name of the repository when the <code>ProviderType</code> is <code>S3Bucket</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter RepositoryAssociationArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"><code>RepositoryAssociation</code></a> object. You can retrieve this ARN by calling
-        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"><code>ListRepositoryAssociations</code></a>. </para><para> A code review can only be created on an associated repository. This is the ARN of
-        /// the associated repository. </para>
+        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>
+        /// object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</para><para>A code review can only be created on an associated repository. This is the ARN of
+        /// the associated repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -259,8 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CommitDiff_SourceCommit
         /// <summary>
         /// <para>
-        /// <para> The SHA of the source commit used to generate a commit diff. This field is required
-        /// for a pull request code review. </para>
+        /// <para>The SHA of the source commit used to generate a commit diff. This field is required
+        /// for a pull request code review.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,8 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// CI/CD code review by GitHub scripts from a GitHub repository, then the repository
         /// association's <code>ProviderType</code> is <code>S3Bucket</code> and the CI/CD repository
         /// vendor name is GitHub. For more information, see the definition for <code>ProviderType</code>
-        /// in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.
-        /// </para>
+        /// in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

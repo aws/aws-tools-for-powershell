@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CodeReviewArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"><code>CodeReview</code></a> object. </para>
+        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a>
+        /// object. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results that are returned per call. The default is 100. </para>
+        /// <para>The maximum number of results that are returned per call. The default is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Pagination token. </para>
+        /// <para>Pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,7 +28,7 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Use to associate an Amazon Web Services CodeCommit repository or a repostory managed
+    /// Use to associate an Amazon Web Services CodeCommit repository or a repository managed
     /// by Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you
     /// associate a repository, CodeGuru Reviewer reviews source code changes in the repository's
     /// pull requests and provides automatic recommendations. You can view recommendations
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     /// Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services
     /// CodeStar Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
     /// a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
-    ///  You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate
+    /// You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate
     /// a GitHub repository with Amazon CodeGuru Reviewer. To associate a GitHub repository,
     /// use the console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
     /// started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i></para></note>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate
-        /// repository associations if there are failures and retries. </para>
+        /// repository associations if there are failures and retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Bitbucket_ConnectionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
+        /// <para>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
         /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>Amazon Web Services CodeStar Connections API
-        /// Reference</i>. </para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
+        /// in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter GitHubEnterpriseServer_ConnectionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
+        /// <para>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
         /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>Amazon Web Services CodeStar Connections API
-        /// Reference</i>. </para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
+        /// in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter KMSKeyDetails_KMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services KMS key that is associated with a respository association.</para>
+        /// <para>The ID of the Amazon Web Services KMS key that is associated with a repository association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Bitbucket_Name
         /// <summary>
         /// <para>
-        /// <para> The name of the third party source repository. </para>
+        /// <para>The name of the third party source repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter GitHubEnterpriseServer_Name
         /// <summary>
         /// <para>
-        /// <para> The name of the third party source repository. </para>
+        /// <para>The name of the third party source repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter S3Bucket_Name
         /// <summary>
         /// <para>
-        /// <para> The name of the repository in the S3 bucket. </para>
+        /// <para>The name of the repository in the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Bitbucket_Owner
         /// <summary>
         /// <para>
-        /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
+        /// <para>The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
         /// this is the username for the account that owns the repository. For an S3 repository,
-        /// this can be the username or Amazon Web Services account ID. </para>
+        /// this can be the username or Amazon Web Services account ID </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter GitHubEnterpriseServer_Owner
         /// <summary>
         /// <para>
-        /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
+        /// <para>The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
         /// this is the username for the account that owns the repository. For an S3 repository,
-        /// this can be the username or Amazon Web Services account ID. </para>
+        /// this can be the username or Amazon Web Services account ID </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> An array of key-value pairs used to tag an associated repository. A tag is a custom
-        /// attribute label with two parts: </para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
+        /// <para>An array of key-value pairs used to tag an associated repository. A tag is a custom
+        /// attribute label with two parts:</para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
         /// <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</para></li><li><para>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>,
         /// <code>Production</code>, or a team name). Omitting the tag value is the same as using
         /// an empty string. Like tag keys, tag values are case sensitive.</para></li></ul>
