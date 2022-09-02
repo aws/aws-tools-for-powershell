@@ -75,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>Permissions assigned to the security profile.</para>
+        /// <para>Permissions assigned to the security profile. For a list of valid permissions, see
+        /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+        /// of security profile permissions</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

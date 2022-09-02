@@ -98,6 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Encryption_EncryptionMethod
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CmafPackage_Encryption_EncryptionMethod")]
+        [AWSConstantClassSource("Amazon.MediaPackage.CmafEncryptionMethod")]
+        public Amazon.MediaPackage.CmafEncryptionMethod Encryption_EncryptionMethod { get; set; }
+        #endregion
+        
         #region Parameter CmafPackage_HlsManifest
         /// <summary>
         /// <para>
@@ -424,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             context.Authorization_CdnIdentifierSecret = this.Authorization_CdnIdentifierSecret;
             context.Authorization_SecretsRoleArn = this.Authorization_SecretsRoleArn;
             context.Encryption_ConstantInitializationVector = this.Encryption_ConstantInitializationVector;
+            context.Encryption_EncryptionMethod = this.Encryption_EncryptionMethod;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             context.SpekeKeyProvider_CertificateArn = this.SpekeKeyProvider_CertificateArn;
             context.EncryptionContractConfiguration_PresetSpeke20Audio = this.EncryptionContractConfiguration_PresetSpeke20Audio;
@@ -542,6 +555,51 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 request.CmafPackage.SegmentPrefix = requestCmafPackage_cmafPackage_SegmentPrefix;
                 requestCmafPackageIsNull = false;
             }
+            Amazon.MediaPackage.Model.StreamSelection requestCmafPackage_cmafPackage_StreamSelection = null;
+            
+             // populate StreamSelection
+            var requestCmafPackage_cmafPackage_StreamSelectionIsNull = true;
+            requestCmafPackage_cmafPackage_StreamSelection = new Amazon.MediaPackage.Model.StreamSelection();
+            System.Int32? requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond = null;
+            if (cmdletContext.StreamSelection_MaxVideoBitsPerSecond != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond = cmdletContext.StreamSelection_MaxVideoBitsPerSecond.Value;
+            }
+            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection.MaxVideoBitsPerSecond = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond.Value;
+                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
+            }
+            System.Int32? requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond = null;
+            if (cmdletContext.StreamSelection_MinVideoBitsPerSecond != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond = cmdletContext.StreamSelection_MinVideoBitsPerSecond.Value;
+            }
+            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection.MinVideoBitsPerSecond = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond.Value;
+                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
+            }
+            Amazon.MediaPackage.StreamOrder requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder = null;
+            if (cmdletContext.StreamSelection_StreamOrder != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder = cmdletContext.StreamSelection_StreamOrder;
+            }
+            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder != null)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection.StreamOrder = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder;
+                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
+            }
+             // determine if requestCmafPackage_cmafPackage_StreamSelection should be set to null
+            if (requestCmafPackage_cmafPackage_StreamSelectionIsNull)
+            {
+                requestCmafPackage_cmafPackage_StreamSelection = null;
+            }
+            if (requestCmafPackage_cmafPackage_StreamSelection != null)
+            {
+                request.CmafPackage.StreamSelection = requestCmafPackage_cmafPackage_StreamSelection;
+                requestCmafPackageIsNull = false;
+            }
             Amazon.MediaPackage.Model.CmafEncryption requestCmafPackage_cmafPackage_Encryption = null;
             
              // populate Encryption
@@ -555,6 +613,16 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             if (requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector != null)
             {
                 requestCmafPackage_cmafPackage_Encryption.ConstantInitializationVector = requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector;
+                requestCmafPackage_cmafPackage_EncryptionIsNull = false;
+            }
+            Amazon.MediaPackage.CmafEncryptionMethod requestCmafPackage_cmafPackage_Encryption_encryption_EncryptionMethod = null;
+            if (cmdletContext.Encryption_EncryptionMethod != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_encryption_EncryptionMethod = cmdletContext.Encryption_EncryptionMethod;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_encryption_EncryptionMethod != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption.EncryptionMethod = requestCmafPackage_cmafPackage_Encryption_encryption_EncryptionMethod;
                 requestCmafPackage_cmafPackage_EncryptionIsNull = false;
             }
             System.Int32? requestCmafPackage_cmafPackage_Encryption_encryption_KeyRotationIntervalSecond = null;
@@ -677,51 +745,6 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 request.CmafPackage.Encryption = requestCmafPackage_cmafPackage_Encryption;
                 requestCmafPackageIsNull = false;
             }
-            Amazon.MediaPackage.Model.StreamSelection requestCmafPackage_cmafPackage_StreamSelection = null;
-            
-             // populate StreamSelection
-            var requestCmafPackage_cmafPackage_StreamSelectionIsNull = true;
-            requestCmafPackage_cmafPackage_StreamSelection = new Amazon.MediaPackage.Model.StreamSelection();
-            System.Int32? requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond = null;
-            if (cmdletContext.StreamSelection_MaxVideoBitsPerSecond != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond = cmdletContext.StreamSelection_MaxVideoBitsPerSecond.Value;
-            }
-            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection.MaxVideoBitsPerSecond = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MaxVideoBitsPerSecond.Value;
-                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
-            }
-            System.Int32? requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond = null;
-            if (cmdletContext.StreamSelection_MinVideoBitsPerSecond != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond = cmdletContext.StreamSelection_MinVideoBitsPerSecond.Value;
-            }
-            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection.MinVideoBitsPerSecond = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_MinVideoBitsPerSecond.Value;
-                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
-            }
-            Amazon.MediaPackage.StreamOrder requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder = null;
-            if (cmdletContext.StreamSelection_StreamOrder != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder = cmdletContext.StreamSelection_StreamOrder;
-            }
-            if (requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder != null)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection.StreamOrder = requestCmafPackage_cmafPackage_StreamSelection_streamSelection_StreamOrder;
-                requestCmafPackage_cmafPackage_StreamSelectionIsNull = false;
-            }
-             // determine if requestCmafPackage_cmafPackage_StreamSelection should be set to null
-            if (requestCmafPackage_cmafPackage_StreamSelectionIsNull)
-            {
-                requestCmafPackage_cmafPackage_StreamSelection = null;
-            }
-            if (requestCmafPackage_cmafPackage_StreamSelection != null)
-            {
-                request.CmafPackage.StreamSelection = requestCmafPackage_cmafPackage_StreamSelection;
-                requestCmafPackageIsNull = false;
-            }
              // determine if request.CmafPackage should be set to null
             if (requestCmafPackageIsNull)
             {
@@ -831,6 +854,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             public System.String Authorization_CdnIdentifierSecret { get; set; }
             public System.String Authorization_SecretsRoleArn { get; set; }
             public System.String Encryption_ConstantInitializationVector { get; set; }
+            public Amazon.MediaPackage.CmafEncryptionMethod Encryption_EncryptionMethod { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public System.String SpekeKeyProvider_CertificateArn { get; set; }
             public Amazon.MediaPackage.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }

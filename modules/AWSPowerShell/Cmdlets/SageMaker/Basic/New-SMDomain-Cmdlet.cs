@@ -167,6 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DomainSettings_ExecutionRoleIdentityConfig
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for attaching a SageMaker user profile name to the execution role
+        /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html"><code>sts:SourceIdentity</code> key</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ExecutionRoleIdentityConfig")]
+        public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettings_ExecutionRoleIdentityConfig { get; set; }
+        #endregion
+        
         #region Parameter DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
@@ -403,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainSettings_ExecutionRoleIdentityConfig = this.DomainSettings_ExecutionRoleIdentityConfig;
             context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
             context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
             context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
@@ -479,6 +492,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate DomainSettings
             var requestDomainSettingsIsNull = true;
             request.DomainSettings = new Amazon.SageMaker.Model.DomainSettings();
+            Amazon.SageMaker.ExecutionRoleIdentityConfig requestDomainSettings_domainSettings_ExecutionRoleIdentityConfig = null;
+            if (cmdletContext.DomainSettings_ExecutionRoleIdentityConfig != null)
+            {
+                requestDomainSettings_domainSettings_ExecutionRoleIdentityConfig = cmdletContext.DomainSettings_ExecutionRoleIdentityConfig;
+            }
+            if (requestDomainSettings_domainSettings_ExecutionRoleIdentityConfig != null)
+            {
+                request.DomainSettings.ExecutionRoleIdentityConfig = requestDomainSettings_domainSettings_ExecutionRoleIdentityConfig;
+                requestDomainSettingsIsNull = false;
+            }
             List<System.String> requestDomainSettings_domainSettings_SecurityGroupId = null;
             if (cmdletContext.DomainSettings_SecurityGroupId != null)
             {
@@ -682,6 +705,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AuthMode AuthMode { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettings_ExecutionRoleIdentityConfig { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }

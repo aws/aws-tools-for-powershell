@@ -5003,6 +5003,10 @@ Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNQueues -Value Search-CONNQueue
+Set-Alias -Name CONN-SearchQueues -Value Search-CONNQueue
+Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
+Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name CONN-SearchSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name Search-CONNUsers -Value Search-CONNUser

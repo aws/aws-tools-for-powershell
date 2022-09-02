@@ -36,6 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><important><para>
     /// Contact information remains available in Amazon Connect for 24 months, and then it
     /// is deleted.
+    /// </para><para>
+    /// Only data from November 12, 2021, and later is returned by this API.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]

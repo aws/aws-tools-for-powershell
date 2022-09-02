@@ -330,6 +330,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ExecutionRoleIdentityConfig
+        {
+            ($_ -eq "New-SMDomain/DomainSettings_ExecutionRoleIdentityConfig") -Or
+            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_ExecutionRoleIdentityConfig")
+        }
+        {
+            $v = "DISABLED","USER_PROFILE_NAME"
+            break
+        }
+
         # Amazon.SageMaker.ExecutionStatus
         "Get-SMMonitoringExecutionList/StatusEquals"
         {
@@ -1080,7 +1090,9 @@ $SM_map = @{
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "Direction"=@("Find-SMLineage")
+    "DomainSettings_ExecutionRoleIdentityConfig"=@("New-SMDomain")
     "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
+    "DomainSettingsForUpdate_ExecutionRoleIdentityConfig"=@("Update-SMDomain")
     "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
     "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")

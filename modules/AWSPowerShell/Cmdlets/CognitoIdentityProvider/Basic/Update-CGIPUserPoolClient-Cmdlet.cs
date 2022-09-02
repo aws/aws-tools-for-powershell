@@ -138,6 +138,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String AnalyticsConfiguration_ApplicationId { get; set; }
         #endregion
         
+        #region Parameter AuthSessionValidity
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Cognito creates a session token for each API request in an authentication flow.
+        /// <code>AuthSessionValidity</code> is the duration, in minutes, of that session token.
+        /// Your user pool native user must respond to each authentication challenge before the
+        /// session expires.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AuthSessionValidity { get; set; }
+        #endregion
+        
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
@@ -483,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.AnalyticsConfiguration_ExternalId = this.AnalyticsConfiguration_ExternalId;
             context.AnalyticsConfiguration_RoleArn = this.AnalyticsConfiguration_RoleArn;
             context.AnalyticsConfiguration_UserDataShared = this.AnalyticsConfiguration_UserDataShared;
+            context.AuthSessionValidity = this.AuthSessionValidity;
             if (this.CallbackURLs != null)
             {
                 context.CallbackURLs = new List<System.String>(this.CallbackURLs);
@@ -621,6 +635,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestAnalyticsConfigurationIsNull)
             {
                 request.AnalyticsConfiguration = null;
+            }
+            if (cmdletContext.AuthSessionValidity != null)
+            {
+                request.AuthSessionValidity = cmdletContext.AuthSessionValidity.Value;
             }
             if (cmdletContext.CallbackURLs != null)
             {
@@ -791,6 +809,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String AnalyticsConfiguration_ExternalId { get; set; }
             public System.String AnalyticsConfiguration_RoleArn { get; set; }
             public System.Boolean? AnalyticsConfiguration_UserDataShared { get; set; }
+            public System.Int32? AuthSessionValidity { get; set; }
             public List<System.String> CallbackURLs { get; set; }
             public System.String ClientId { get; set; }
             public System.String ClientName { get; set; }

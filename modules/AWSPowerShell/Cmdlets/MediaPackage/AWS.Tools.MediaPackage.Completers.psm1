@@ -80,6 +80,16 @@ $EMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaPackage.CmafEncryptionMethod
+        {
+            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod")
+        }
+        {
+            $v = "AES_CTR","SAMPLE_AES"
+            break
+        }
+
         # Amazon.MediaPackage.Origination
         {
             ($_ -eq "New-EMPOriginEndpoint/Origination") -Or
@@ -129,6 +139,7 @@ $EMP_Completers = {
 }
 
 $EMP_map = @{
+    "CmafPackage_Encryption_EncryptionMethod"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_StreamSelection_StreamOrder"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")

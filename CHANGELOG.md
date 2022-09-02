@@ -1,4 +1,19 @@
-﻿### 4.1.160 (2022-09-01 20:36Z)
+﻿### 4.1.161 (2022-09-02 20:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.349.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPoolClient: added parameter AuthSessionValidity.
+    * Modified cmdlet Update-CGIPUserPoolClient: added parameter AuthSessionValidity.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNQueue leveraging the SearchQueues service API.
+    * Added cmdlet Search-CONNRoutingProfile leveraging the SearchRoutingProfiles service API.
+  * Amazon Elemental MediaPackage
+    * Modified cmdlet New-EMPOriginEndpoint: added parameter Encryption_EncryptionMethod.
+    * Modified cmdlet Update-EMPOriginEndpoint: added parameter Encryption_EncryptionMethod.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter DomainSettings_ExecutionRoleIdentityConfig.
+    * Modified cmdlet Update-SMDomain: added parameter DomainSettingsForUpdate_ExecutionRoleIdentityConfig.
+
+### 4.1.160 (2022-09-01 20:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.348.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Control Tower. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACT and can be listed using the command 'Get-AWSCmdletName -Service ACT'.
 

@@ -145,10 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceConfiguration_ChallengeRequiredOnNewDevice
         /// <summary>
         /// <para>
-        /// <para>When true, device authentication can replace SMS and time-based one-time password
-        /// (TOTP) factors for multi-factor authentication (MFA).</para><note><para>Regardless of the value of this field, users that sign in with new devices that have
-        /// not been confirmed or remembered must provide a second factor if your user pool requires
-        /// MFA.</para></note>
+        /// <para>When true, a remembered device can sign in with device authentication instead of SMS
+        /// and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).</para><note><para>Whether or not <code>ChallengeRequiredOnNewDevice</code> is true, users who sign in
+        /// with devices that have not been confirmed or remembered must still provide a second
+        /// factor in a user pool that requires MFA.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,11 +217,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt
         /// <summary>
         /// <para>
-        /// <para>When true, Amazon Cognito doesn't remember newly-confirmed devices. Users who want
-        /// to authenticate with their device can instead opt in to remembering their device.
-        /// To collect a choice from your user, create an input prompt in your app and return
-        /// the value that the user chooses in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">UpdateDeviceStatus</a>
-        /// API request.</para>
+        /// <para>When true, Amazon Cognito doesn't automatically remember a user's device when your
+        /// app sends a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">
+        /// ConfirmDevice</a> API request. In your app, create a prompt for your user to choose
+        /// whether they want to remember their device. Return the user's choice in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">
+        /// UpdateDeviceStatus</a> API request.</para><para>When <code>DeviceOnlyRememberedOnUserPrompt</code> is <code>false</code>, Amazon Cognito
+        /// immediately remembers devices that you register in a <code>ConfirmDevice</code> API
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,9 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationMessage
         /// <summary>
         /// <para>
-        /// <para>A string representing the email verification message. <code>EmailVerificationMessage</code>
-        /// is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
-        /// is DEVELOPER. </para>
+        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,9 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationSubject
         /// <summary>
         /// <para>
-        /// <para>A string representing the email verification subject. <code>EmailVerificationSubject</code>
-        /// is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
-        /// is DEVELOPER. </para>
+        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -660,7 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsVerificationMessage
         /// <summary>
         /// <para>
-        /// <para>A string representing the SMS verification message.</para>
+        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

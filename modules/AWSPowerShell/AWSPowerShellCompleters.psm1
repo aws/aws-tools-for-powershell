@@ -12259,6 +12259,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.SearchableQueueType
+        "Search-CONNQueue/SearchCriteria_QueueTypeCondition"
+        {
+            $v = "STANDARD"
+            break
+        }
+
         # Amazon.Connect.SourceType
         "New-CONNIntegrationAssociation/SourceType"
         {
@@ -12278,6 +12285,8 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNQueue/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNRoutingProfile/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNSecurityProfile/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType")
         }
@@ -12358,7 +12367,8 @@ $CONN_map = @{
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNSecurityProfile","Search-CONNUser")
+    "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNQueue","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
@@ -12525,6 +12535,8 @@ $CONN_SelectMap = @{
                "Remove-CONNPhoneNumber",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNQueue",
+               "Search-CONNRoutingProfile",
                "Search-CONNSecurityProfile",
                "Search-CONNUser",
                "Search-CONNVocabulary",
@@ -33726,6 +33738,16 @@ $EMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaPackage.CmafEncryptionMethod
+        {
+            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod")
+        }
+        {
+            $v = "AES_CTR","SAMPLE_AES"
+            break
+        }
+
         # Amazon.MediaPackage.Origination
         {
             ($_ -eq "New-EMPOriginEndpoint/Origination") -Or
@@ -33775,6 +33797,7 @@ $EMP_Completers = {
 }
 
 $EMP_map = @{
+    "CmafPackage_Encryption_EncryptionMethod"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "CmafPackage_StreamSelection_StreamOrder"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
@@ -44520,6 +44543,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ExecutionRoleIdentityConfig
+        {
+            ($_ -eq "New-SMDomain/DomainSettings_ExecutionRoleIdentityConfig") -Or
+            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_ExecutionRoleIdentityConfig")
+        }
+        {
+            $v = "DISABLED","USER_PROFILE_NAME"
+            break
+        }
+
         # Amazon.SageMaker.ExecutionStatus
         "Get-SMMonitoringExecutionList/StatusEquals"
         {
@@ -45270,7 +45303,9 @@ $SM_map = @{
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "Direction"=@("Find-SMLineage")
+    "DomainSettings_ExecutionRoleIdentityConfig"=@("New-SMDomain")
     "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
+    "DomainSettingsForUpdate_ExecutionRoleIdentityConfig"=@("Update-SMDomain")
     "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
     "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
