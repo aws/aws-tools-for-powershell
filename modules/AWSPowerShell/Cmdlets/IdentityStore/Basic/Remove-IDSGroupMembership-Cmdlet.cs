@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in the identity store.</para>
+        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,8 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Returns if a member exists in specified groups.
+    /// Checks the user's membership in all requested groups and returns if the member exists
+    /// in all queried groups.
     /// </summary>
     [Cmdlet("Assert", "IDSMemberInGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityStore.Model.GroupMembershipExistenceResult")]

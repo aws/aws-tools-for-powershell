@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves the <code>MembershipId</code> in a group.
+    /// Retrieves the <code>MembershipId</code> in an identity store.
     /// </summary>
     [Cmdlet("Get", "IDSGroupMembershipId")]
     [OutputType("System.String")]

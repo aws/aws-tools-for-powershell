@@ -755,7 +755,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
             break
         }
 

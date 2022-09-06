@@ -1,4 +1,7 @@
-﻿### 4.1.161 (2022-09-02 20:34Z)
+﻿### 4.1.162 (2022-09-06 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.350.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.161 (2022-09-02 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.349.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPoolClient: added parameter AuthSessionValidity.

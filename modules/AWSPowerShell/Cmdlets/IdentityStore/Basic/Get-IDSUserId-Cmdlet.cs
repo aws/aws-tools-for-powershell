@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter UniqueAttribute_AttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the attribute.</para>
+        /// <para>The value of the attribute. This is a <code>Document</code> type. This type is not
+        /// supported by Java V1, Go V1, and older versions of the AWS CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

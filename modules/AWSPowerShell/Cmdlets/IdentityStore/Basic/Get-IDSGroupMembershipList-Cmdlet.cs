@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned per request. This parameter is used in
-        /// the <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many
-        /// results to return in one page. The length limit is 50 characters.</para>
+        /// all <code>List</code> requests to specify how many results to return in one page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

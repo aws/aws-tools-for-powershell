@@ -28,7 +28,8 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves membership metadata and attributes from <code>MembershipId</code> in a group.
+    /// Retrieves membership metadata and attributes from <code>MembershipId</code> in an
+    /// identity store.
     /// </summary>
     [Cmdlet("Get", "IDSGroupMembership")]
     [OutputType("Amazon.IdentityStore.Model.DescribeGroupMembershipResponse")]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in the identity store.</para>
+        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

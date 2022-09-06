@@ -28,11 +28,10 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// <i>Filtering for a group by the group <code>DisplayName</code> attribute is deprecated.
-    /// Instead, use the <code>GetGroupId</code> API action.</i><para>
-    /// Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code>
-    /// objects.
-    /// </para>
+    /// Lists the attribute name and value of the group that you specified in the search.
+    /// We only support <code>DisplayName</code> as a valid filter attribute path currently,
+    /// and filter is required. This API returns minimum attributes, including <code>GroupId</code>
+    /// and group <code>DisplayName</code> in the response.
     /// </summary>
     [Cmdlet("Find", "IDSGroupList")]
     [OutputType("Amazon.IdentityStore.Model.Group")]
@@ -67,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
-        /// <code>ListGroups</code> requests.</para>
+        /// <para>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code>
+        /// and <code>ListGroups</code> requests.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
